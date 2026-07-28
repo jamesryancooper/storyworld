@@ -10,7 +10,11 @@
     "adoption_decision_ref": "DEC-0001"
   },
   "paths": {
-    "source": [],
+    "source": [
+      "packages",
+      "apps",
+      "infra"
+    ],
     "tests": [],
     "generated": [
       ".agent/generated"
@@ -18,7 +22,12 @@
     "instruction_roots": [
       "AGENTS.md"
     ],
-    "fingerprint_exclusions": []
+    "fingerprint_exclusions": [
+      {
+        "path": "node_modules",
+        "reason": "Third-party dependency tree, fully reproducible from the committed pnpm-lock.yaml (which remains fingerprinted). Hoisted linker (DEC-0009) keeps this a single real directory with no symlink forest. Excluded from source fingerprint and scans."
+      }
+    ]
   },
   "commands": {
     "project_test": {
@@ -26,12 +35,12 @@
       "run": "python -B packages/contracts/tests/validate_contracts.py"
     },
     "project_lint": {
-      "status": "not_assessed",
-      "run": null
+      "status": "configured",
+      "run": "pnpm -r lint"
     },
     "project_build": {
-      "status": "not_assessed",
-      "run": null
+      "status": "configured",
+      "run": "pnpm -r typecheck"
     },
     "project_closure": {
       "status": "not_assessed",

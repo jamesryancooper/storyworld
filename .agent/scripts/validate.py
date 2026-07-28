@@ -919,12 +919,19 @@ def check_files_and_json(
     include_derived: bool = True,
 ) -> list[str]:
     errors: list[str] = []
-    _, exclusion_errors = fingerprint_exclusions(root)
+    exclusions, exclusion_errors = fingerprint_exclusions(root)
     errors.extend(exclusion_errors)
     for path in repository_files(root):
         rel = relative(path, root)
         if any(ord(character) < 32 or ord(character) == 127 for character in rel):
             errors.append(f"{rel!r}: repository path contains control characters")
+            continue
+        # Reasoned fingerprint exclusions (validated shape: no wildcards, no
+        # governed roots, reason required) also scope the hygiene and secret
+        # scans, matching their recorded "excluded from fingerprint and
+        # scans" semantics — e.g. the third-party node_modules tree, which is
+        # reproducible from the fingerprinted lockfile.
+        if any(rel == item or rel.startswith(item + "/") for item in exclusions):
             continue
         if not include_derived and (
             rel in DERIVED_EXCLUSIONS or rel.startswith(".agent/generated/")

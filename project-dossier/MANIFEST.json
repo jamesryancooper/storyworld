@@ -89,6 +89,11 @@
     },
     {
       "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0009-f2-stack-confirmation.md",
+      "sha256": "bba085d1e18223c61425b1e8e8c7cf8fa9143417cd824edf5b6290ea20cba09a"
+    },
+    {
+      "layer": "agent_harness",
       "path": ".agent/decisions/README.md",
       "sha256": "321f2910e7e6256e00dad950baf69484dc8b777249d62e5f8f0aa84ac018e1c2"
     },
@@ -110,7 +115,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "1169b7344265ea32326028f9089dcbbdddaa186470dd11802df715a4db7e0d43"
+      "sha256": "fa656c4b0dbca6d7e89f8b92a5f2249636291d4ebbfcbb05fc33470d19dfe2c4"
     },
     {
       "layer": "agent_harness",
@@ -205,7 +210,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/project.json",
-      "sha256": "6d5879465fcb921dc14661d1c1653c46ea1f2b286dacf6635b7cf932c4627c0a"
+      "sha256": "4f2b4204bf7a1c13ab13c2c5927e60ccbc1114f086afdd2276820684098b4abe"
     },
     {
       "layer": "agent_harness",
@@ -290,7 +295,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/scripts/validate.py",
-      "sha256": "c923018c167fe8726e48ca0529cf6a25541e592c479bd80ee66cf6e81e380dd0"
+      "sha256": "c83b1d95e7f05a9668452b327526963b0aebc3dd0133611a4188cbfd5d1f9bec"
     },
     {
       "layer": "agent_harness",
@@ -300,7 +305,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "e4639113a875ec0859615d17d104980628f61a4f64a7dee26f336ae07d139f5b"
+      "sha256": "a8e873cb9187294b66ee61b432c65e0e873d1e105cd2e2ca6569f73b89f32116"
     },
     {
       "layer": "agent_harness",
@@ -326,6 +331,11 @@
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0004-f1-contract-pack.md",
       "sha256": "7d865ebfe8f4a0a048d3c68616e7f0eb6e1b77d82b113e322bca8b4c9e25e5bf"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0005-f2-governed-foundation.md",
+      "sha256": "ed33f735e4d8f7c134f5a652dd4838b0ae5b2865855f36b83bdb747739c784ce"
     },
     {
       "layer": "agent_harness",
@@ -440,12 +450,27 @@
     {
       "layer": "project_source",
       "path": ".github/workflows/validate.yml",
-      "sha256": "d1b6434357fb9d9029b10f05cdfc7f0fcbc49dcaebdb60ab81c9ef53cb9c8dd3"
+      "sha256": "45ca8335d75006d1cc43675281757c773fb9f5b176563118cce51c41bec28884"
     },
     {
       "layer": "project_source",
       "path": ".gitignore",
-      "sha256": "53f0c100a33a56ebada040287b3d0f5dbab21c6ec6b66209fec5515c508f1144"
+      "sha256": "4e8fc70236a0fd87e5695a354354b4753a5fc40a60545cccf3e295f9ffad9983"
+    },
+    {
+      "layer": "project_source",
+      "path": ".npmrc",
+      "sha256": "a28c9d86a8981049d203ad164cff1e753ed61dc0460ee8765316cbb3d0007d00"
+    },
+    {
+      "layer": "project_source",
+      "path": ".prettierignore",
+      "sha256": "b6b0659facb9a938a3c816a9b89f61b1b587653997d1d696bc79450547793079"
+    },
+    {
+      "layer": "project_source",
+      "path": ".prettierrc",
+      "sha256": "1cbc3e529bc147f8cf6a1553eb1fa884cd3ce70380f2670bbbefa93a9e709434"
     },
     {
       "layer": "generation_provenance",
@@ -466,6 +491,26 @@
       "layer": "project_source",
       "path": "README.md",
       "sha256": "eff79b09147712d08cb596262501f81b1358ccf50dfd4ee7f440d5e2eea40fb5"
+    },
+    {
+      "layer": "project_source",
+      "path": "eslint.config.js",
+      "sha256": "0219596fc742faee8fc5d411bcc432c767afe939596d6a2482e9436aaa25834a"
+    },
+    {
+      "layer": "project_source",
+      "path": "infra/README.md",
+      "sha256": "e94b2ec95c449c95f1bfd9566e26f621804eee98a28cf9359750ae0f996720b0"
+    },
+    {
+      "layer": "project_source",
+      "path": "infra/compose.yaml",
+      "sha256": "3c6e3704341ce6be9b62245f4da91ea3f0f8bb4adb1eca26a485c1004a07af13"
+    },
+    {
+      "layer": "project_source",
+      "path": "package.json",
+      "sha256": "bf2e937b41f9babd223a1603e13bdaf905bafc63e1cb7c66fa2e53711eee7c76"
     },
     {
       "layer": "project_source",
@@ -1258,6 +1303,51 @@
       "sha256": "977838bbc3da9ccaf8ffc2e6baa10272167d96a14690d7cd278383c104eefea8"
     },
     {
+      "layer": "project_source",
+      "path": "packages/domain/README.md",
+      "sha256": "2692d2c70e31ed613ef50133875da9450c99a436559f04b3cd8f2ec581efe7cf"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/domain/node_modules/.vite/vitest/results.json",
+      "sha256": "032e26f980189d483f6b8b70fa69c67e9a7e990713da0647dddd6b227c5f84c3"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/domain/package.json",
+      "sha256": "e5d69eaa1841976afef6879a4edd2883bb0b5df8ac0bcaaefaf784b529aa63fd"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/domain/src/identifiers.test.ts",
+      "sha256": "dbdf4ed33b3d156a074562ebdbd98e28b0cfc3fb1ea8db9bed8ad5bd72668618"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/domain/src/identifiers.ts",
+      "sha256": "ec1ced25005eda1367724da904bd8dc96c6e5a8e8540128ce4fb3b4e521aa7ff"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/domain/src/index.ts",
+      "sha256": "9d1bb1ed380707e5a6deba3b4c525196a0e181c915dd877f71885f4387036bb0"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/domain/tsconfig.json",
+      "sha256": "60ec341167f566872eb13bb129a03488c35fa356e4025360e760c52c5e680290"
+    },
+    {
+      "layer": "project_source",
+      "path": "pnpm-lock.yaml",
+      "sha256": "5e25e38dc20aaafc755ef6a24e94b2b4322e642f52aecf96e8b59a913111ee2e"
+    },
+    {
+      "layer": "project_source",
+      "path": "pnpm-workspace.yaml",
+      "sha256": "08d75840c97ab0e72d1d9b5b84a17e47a2e06cb159a5fbec5ee0a6a56682dad7"
+    },
+    {
       "layer": "project_dossier",
       "path": "project-dossier/AUTHORITY.md",
       "sha256": "24ac4fc72d74b9c6a6f0a2233b96ba1b7d7a468508aad68b0ac66e877286b8cb"
@@ -1435,12 +1525,12 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/plan.json",
-      "sha256": "445e9a12b5263f94bf97d3c6c832242ae24865f3f484d4fac49ce7ab0df3ae3e"
+      "sha256": "7a85e4bc52042fc61efaa40c6e20c24b0a59adcac6b50d6278d4011ba76896a3"
     },
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/raidq.json",
-      "sha256": "dc634d1215002d379bf7b36ce1cc48f926e703b4b5bfa49d4f11becd21f5cce5"
+      "sha256": "37af1999ee4dba1eb966e5d7da73919059e21bf800e0bb2557d86147be0bb416"
     },
     {
       "layer": "project_dossier",
@@ -1501,16 +1591,26 @@
       "layer": "project_dossier",
       "path": "project-dossier/validation/README.md",
       "sha256": "789b814ca4ac5293bebd449b64ff606aa733539725a815b5e9a543ef8e6645ab"
+    },
+    {
+      "layer": "project_source",
+      "path": "tsconfig.base.json",
+      "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-28T17:38:19.471507+00:00",
-  "generation_id": "cdf18b5d1e353758d2c540ddaa15fa43",
+  "generated_on": "2026-07-28T17:49:49.197476+00:00",
+  "generation_id": "2a9cfb40dee42e1e285de0b7bfb52b38",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "f2f3ff41874cd4f012fa87d7db469e3248500ae19038ec6835385ff17ef95103",
+  "source_fingerprint": "c0ec252675262a828e5d57bf1f0db650696db730a355745584dcc0cb8369289a",
   "source_scope": {
-    "exclusions": [],
+    "exclusions": [
+      {
+        "path": "node_modules",
+        "reason": "Third-party dependency tree, fully reproducible from the committed pnpm-lock.yaml (which remains fingerprinted). Hoisted linker (DEC-0009) keeps this a single real directory with no symlink forest. Excluded from source fingerprint and scans."
+      }
+    ],
     "git_metadata": "excluded_from_source_fingerprint",
     "model": "repository_paths_excluding_declared_exclusions_and_git_metadata"
   }

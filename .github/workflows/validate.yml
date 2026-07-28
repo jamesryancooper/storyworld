@@ -30,3 +30,23 @@ jobs:
         run: python -B -m unittest discover -s .agent/tests -p "test_*.py"
       - name: Contract-pack validation
         run: python -B packages/contracts/tests/validate_contracts.py
+
+  platform:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Enable corepack (pnpm pinned via packageManager)
+        run: corepack enable
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Typecheck
+        run: pnpm -r typecheck
+      - name: Tests
+        run: pnpm -r test
+      - name: Lint
+        run: pnpm -r lint
+      - name: Compose profile validates
+        run: docker compose -f infra/compose.yaml config -q

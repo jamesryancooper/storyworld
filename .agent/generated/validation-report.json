@@ -37,13 +37,13 @@
   "external_effects": "repository_local_derived_metadata_refresh_only",
   "failures": [],
   "freshness_rule": "Invalid when any non-excluded repository source byte or path changes.",
-  "generated_at": "2026-07-28T17:38:19.471507+00:00",
-  "generation_id": "cdf18b5d1e353758d2c540ddaa15fa43",
+  "generated_at": "2026-07-28T17:49:49.197476+00:00",
+  "generation_id": "2a9cfb40dee42e1e285de0b7bfb52b38",
   "git_scope": {
     "available": true,
-    "ignored": 0,
-    "tracked_modified": 16,
-    "untracked": 1
+    "ignored": 2,
+    "tracked_modified": 8,
+    "untracked": 12
   },
   "limitations": [
     "Structural pass does not prove implementation or project readiness.",
@@ -60,9 +60,14 @@
     "binary, non-UTF-8, encoded, and files larger than 4 MiB require a dedicated secret scanner",
     "project-specific build, test, security, legal, and operational checks"
   ],
-  "source_fingerprint": "f2f3ff41874cd4f012fa87d7db469e3248500ae19038ec6835385ff17ef95103",
+  "source_fingerprint": "c0ec252675262a828e5d57bf1f0db650696db730a355745584dcc0cb8369289a",
   "source_scope": {
-    "exclusions": [],
+    "exclusions": [
+      {
+        "path": "node_modules",
+        "reason": "Third-party dependency tree, fully reproducible from the committed pnpm-lock.yaml (which remains fingerprinted). Hoisted linker (DEC-0009) keeps this a single real directory with no symlink forest. Excluded from source fingerprint and scans."
+      }
+    ],
     "git_metadata": "excluded_from_source_fingerprint",
     "model": "repository_paths_excluding_declared_exclusions_and_git_metadata"
   },

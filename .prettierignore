@@ -1,0 +1,5 @@
+node_modules
+dist
+.agent/generated
+project-dossier/ARTIFACT_CATALOG.json
+project-dossier/MANIFEST.json

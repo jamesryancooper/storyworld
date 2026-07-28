@@ -98,7 +98,8 @@
       "impact": "medium",
       "limitations": [
         "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001) during the 2026-07-28 adoption session; project-ratified 2026-07-28 (PLAN-0001).",
-        "Temporal component of the stack resolved 2026-07-28 by accepted ADR-0006; remaining stack elements (TypeScript/Next.js/PostgreSQL/S3) confirm at F2 as planned."
+        "Temporal component of the stack resolved 2026-07-28 by accepted ADR-0006; remaining stack elements (TypeScript/Next.js/PostgreSQL/S3) confirm at F2 as planned.",
+        "Resolved 2026-07-28: owner confirmed the full stack set at F2 entry (DEC-0009)."
       ],
       "owner_role": "project_owner",
       "resolution_condition": "Owner confirms or revises the stack when F2 begins; ADR records the choice.",
@@ -106,8 +107,8 @@
       "source_refs": [
         "SRC-0001"
       ],
-      "status": "open",
-      "title": "TypeScript modular-monolith stack remains intended",
+      "status": "resolved",
+      "title": "TypeScript modular-monolith stack remains intended (resolved: confirmed)",
       "type": "assumption"
     },
     {
