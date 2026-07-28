@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-28T19:31:04.510742+00:00",
-  "generation_id": "5f7a5d3d84634854f6a16827088dca1b",
+  "generated_at": "2026-07-28T19:46:17.581572+00:00",
+  "generation_id": "09b5bb2c840745942ca55b76a7f6571f",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -27,6 +27,7 @@
     ".agent/decisions/DEC-0007-fixture-charter-v2-and-domain-additions.md",
     ".agent/decisions/DEC-0008-accept-f1-pack-and-gate-0003.md",
     ".agent/decisions/DEC-0009-f2-stack-confirmation.md",
+    ".agent/decisions/DEC-0010-accept-f2-and-gate-0004.md",
     ".agent/decisions/README.md",
     ".agent/evaluations/README.md",
     ".agent/evaluations/registry.json",
@@ -40,6 +41,7 @@
     ".agent/evidence/EVD-0006-gate-0002-acceptance-observation.md",
     ".agent/evidence/EVD-0007-f1-boundary-validation.md",
     ".agent/evidence/EVD-0008-gate-0003-acceptance-observation.md",
+    ".agent/evidence/EVD-0009-f2-custody-vs0-and-restore-drill.md",
     ".agent/evidence/README.md",
     ".agent/extensions/README.md",
     ".agent/extensions/registry.json",
@@ -110,6 +112,8 @@
     "eslint.config.js",
     "infra/README.md",
     "infra/compose.yaml",
+    "infra/scripts/restore-drill.sh",
+    "infra/scripts/ship-check.sh",
     "package.json",
     "packages/contracts/DESIGN_NOTES.md",
     "packages/contracts/README.md",
@@ -279,6 +283,8 @@
     "packages/persistence/README.md",
     "packages/persistence/migrations/0001_foundation.sql",
     "packages/persistence/migrations/0002_custody.sql",
+    "packages/persistence/migrations/0003_principals_and_leases.sql",
+    "packages/persistence/migrations/0004_assets_and_lineage.sql",
     "packages/persistence/package.json",
     "packages/persistence/src/client.ts",
     "packages/persistence/src/index.ts",
@@ -286,6 +292,22 @@
     "packages/persistence/src/persistence.test.ts",
     "packages/persistence/tsconfig.json",
     "packages/persistence/vitest.config.ts",
+    "packages/portability/package.json",
+    "packages/portability/src/index.ts",
+    "packages/portability/src/package.ts",
+    "packages/portability/src/signing.ts",
+    "packages/portability/src/vs0.test.ts",
+    "packages/portability/tsconfig.json",
+    "packages/portability/vitest.config.ts",
+    "packages/storage/README.md",
+    "packages/storage/package.json",
+    "packages/storage/src/fs-store.ts",
+    "packages/storage/src/index.ts",
+    "packages/storage/src/s3-store.ts",
+    "packages/storage/src/storage.test.ts",
+    "packages/storage/src/store.ts",
+    "packages/storage/tsconfig.json",
+    "packages/storage/vitest.config.ts",
     "pnpm-lock.yaml",
     "pnpm-workspace.yaml",
     "project-dossier/AUTHORITY.md",
@@ -340,7 +362,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "a5a1790f0b9eecb77b28ed36f7f51e1ac5eaea4911a066ec58c7487a997dd362",
+  "source_fingerprint": "bdc17de5873817e67d581dac4c658313bd2319946d48d142d3a0dc2cb2346d96",
   "source_scope": {
     "exclusions": [
       {
@@ -353,6 +375,14 @@
       },
       {
         "path": "packages/persistence/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/storage/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/portability/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
       }
     ],

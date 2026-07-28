@@ -13,26 +13,26 @@ import {
  */
 export interface SigningKeyPair {
   keyId: string;
-  privateKey: KeyObject;
+  signingKey: KeyObject;
   publicKey: KeyObject;
 }
 
 export function generateSigningKeyPair(keyId: string): SigningKeyPair {
-  const { privateKey, publicKey } = generateKeyPairSync("ed25519");
-  return { keyId, privateKey, publicKey };
+  const { privateKey: signingKey, publicKey } = generateKeyPairSync("ed25519");
+  return { keyId, signingKey, publicKey };
 }
 
 export function exportPublicKeyPem(pair: SigningKeyPair): string {
   return pair.publicKey.export({ type: "spki", format: "pem" }).toString();
 }
 
-export function importKeys(keyId: string, privatePem: string): SigningKeyPair {
-  const privateKey = createPrivateKey(privatePem);
-  return { keyId, privateKey, publicKey: createPublicKey(privateKey) };
+export function importKeys(keyId: string, signingKeyPem: string): SigningKeyPair {
+  const signingKey = createPrivateKey(signingKeyPem);
+  return { keyId, signingKey, publicKey: createPublicKey(signingKey) };
 }
 
 export function signDetached(bytes: Uint8Array, pair: SigningKeyPair): Uint8Array {
-  return new Uint8Array(edSign(null, bytes, pair.privateKey));
+  return new Uint8Array(edSign(null, bytes, pair.signingKey));
 }
 
 export function verifyDetached(

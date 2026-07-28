@@ -94,6 +94,11 @@
     },
     {
       "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0010-accept-f2-and-gate-0004.md",
+      "sha256": "43986d22d69997683394d7dd81c69a820673fe255fe34b1234a2bf36bb3e6818"
+    },
+    {
+      "layer": "agent_harness",
       "path": ".agent/decisions/README.md",
       "sha256": "321f2910e7e6256e00dad950baf69484dc8b777249d62e5f8f0aa84ac018e1c2"
     },
@@ -159,6 +164,11 @@
     },
     {
       "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0009-f2-custody-vs0-and-restore-drill.md",
+      "sha256": "a0f74920c13f50912e9301a8c046f90cfb1c599f38737ffd701008129fe6ec35"
+    },
+    {
+      "layer": "agent_harness",
       "path": ".agent/evidence/README.md",
       "sha256": "68138e16a1146373c40e760402e3da10f90969c38f2bd6371cf72bbeaa25439a"
     },
@@ -210,7 +220,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/project.json",
-      "sha256": "05780da8c40d87ad877ac9e4dd6029e4524c6caaa0524f46810fc5c40924a906"
+      "sha256": "ff2df7a1d4c6443adffa34890f4800b0e2424144d8864825205d3c7aca511255"
     },
     {
       "layer": "agent_harness",
@@ -415,7 +425,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/validators.json",
-      "sha256": "1369bc08f787bb51e559b877be1230984a2a2e8e9437b074b5828201fdf5ef0e"
+      "sha256": "9d6d166fc54ecdc4aaab13ed604f2ed8f15808d2fc8a8dda0867e902b089212d"
     },
     {
       "layer": "agent_harness",
@@ -450,7 +460,7 @@
     {
       "layer": "project_source",
       "path": ".github/workflows/validate.yml",
-      "sha256": "fe78e1347a3e5b4e79a69171345cc90a6c0e91311591b3995164e8bef8639945"
+      "sha256": "c339e485ce98d8d52d627b703518ad428df02c6ad92983492efb2e086199f226"
     },
     {
       "layer": "project_source",
@@ -506,6 +516,16 @@
       "layer": "project_source",
       "path": "infra/compose.yaml",
       "sha256": "3c6e3704341ce6be9b62245f4da91ea3f0f8bb4adb1eca26a485c1004a07af13"
+    },
+    {
+      "layer": "project_source",
+      "path": "infra/scripts/restore-drill.sh",
+      "sha256": "e5faed6bc0948e6cf850ff54f79daf7b28096f042e08a7dd077981b10ad76eaf"
+    },
+    {
+      "layer": "project_source",
+      "path": "infra/scripts/ship-check.sh",
+      "sha256": "af8e1aa666c2ced7c7068cfe82a5f21fe2ce67e7811e7ea597397d15f0c7c775"
     },
     {
       "layer": "project_source",
@@ -1354,6 +1374,16 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/persistence/migrations/0003_principals_and_leases.sql",
+      "sha256": "44ab715c68c8a227a2b50c32f59a00e22c4c45556db49ebcab827d58b7b27654"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/persistence/migrations/0004_assets_and_lineage.sql",
+      "sha256": "88377997c2dbc2702413ee54ab9d0f09379082b070bdd7c2a29155a212bd8622"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/persistence/package.json",
       "sha256": "09c8a8442c2ca7c47e3fc9d865506559646493c8d8f72c451144f12019fa683f"
     },
@@ -1375,7 +1405,7 @@
     {
       "layer": "project_source",
       "path": "packages/persistence/src/persistence.test.ts",
-      "sha256": "38449ef9be16570bca04c95ca3e2c5f230a5aee9352d7a9c3c3bc89d7af34655"
+      "sha256": "dbff2fe7e286fde1e7a36a6f1d115fb6bd763dcf78fe8382c78ed163b5c1d9cc"
     },
     {
       "layer": "project_source",
@@ -1389,8 +1419,88 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/portability/package.json",
+      "sha256": "e265e3eaf1fdf5383a7a0253b74fe98b824bef29af3c516e03ba2e2c29aa2a25"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/portability/src/index.ts",
+      "sha256": "4b0f7e0e2f457adb5a3d863ed492d21c1a56dadbecf876dde410add401d6a9cd"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/portability/src/package.ts",
+      "sha256": "ca128aa5cc9dadac90fe988f1432ec6016c0237a44e750510f4444e967989a48"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/portability/src/signing.ts",
+      "sha256": "38181bebc4d426e7a3e5799a84a78b1ae759a95271f47698425ad8089c82e955"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/portability/src/vs0.test.ts",
+      "sha256": "81cdd63b488aa714836d1b354cb36fd89877986c0e74713c42e78018f4f4ad8a"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/portability/tsconfig.json",
+      "sha256": "60ec341167f566872eb13bb129a03488c35fa356e4025360e760c52c5e680290"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/portability/vitest.config.ts",
+      "sha256": "b3d0e104fdffe51b47fc97bff4b3183e5ca0a48659bc81a636391ab444ffeef1"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/storage/README.md",
+      "sha256": "58bb74ed1d1d6b0e325517b6ac0834265d6420799bc571c58d1be01d0d4828df"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/storage/package.json",
+      "sha256": "e419218eb2cafbf8bad4ec57099216cd798c0bdcb7b19c8df1a7e7611b02eb3e"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/storage/src/fs-store.ts",
+      "sha256": "ea5e5f7d17162a8797870fe62cd7ba6c1d2497d89c6a0b18a3084439370d920c"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/storage/src/index.ts",
+      "sha256": "6d74855deb5647d2cc6e6a4b34afc210a5906978c0b8edb529b9ac0f040dad28"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/storage/src/s3-store.ts",
+      "sha256": "66ffcd80b84c518e6f829f0b539e5dec771f1d3ed13a72697f60590efbf37a9c"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/storage/src/storage.test.ts",
+      "sha256": "3c487b787565ca25464694297d77fd17746dccc3f857d4a1ca8d47f820caf6a4"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/storage/src/store.ts",
+      "sha256": "dc943b931699c361c2eb7019e065213b35ad530b14706002b0f73a76be67bdba"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/storage/tsconfig.json",
+      "sha256": "60ec341167f566872eb13bb129a03488c35fa356e4025360e760c52c5e680290"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/storage/vitest.config.ts",
+      "sha256": "2b42982ed8958e2491c081395c2aafdcb3539894a07ace9f949b7957ea40a569"
+    },
+    {
+      "layer": "project_source",
       "path": "pnpm-lock.yaml",
-      "sha256": "ffea39315dca1a4fcc69950109a5b26c5fc3fa47e00262039f115b413f1edc2e"
+      "sha256": "f015b3472cb0cd3c0a8419151350b7c71de7faca20530a6636c9a4e4ce2f8cbe"
     },
     {
       "layer": "project_source",
@@ -1580,7 +1690,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/raidq.json",
-      "sha256": "0142e6356da572a766e12e79eee1c31d2582c78178deff0966876d4acaa8e68a"
+      "sha256": "8681e66c45401c538954fa2d313cd70302251c13853d48329fa07969b7c879b5"
     },
     {
       "layer": "project_dossier",
@@ -1615,7 +1725,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/registers/README.md",
-      "sha256": "a797d3e97171ec02189d006e3a3e7ad35fb23ab057b4c526c9eec128dc99042d"
+      "sha256": "7115686d55dc102abc227bbfefccc0f293609bed08ef41d91cfc00e07a8db5e9"
     },
     {
       "layer": "project_dossier",
@@ -1648,12 +1758,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-28T19:31:04.510742+00:00",
-  "generation_id": "5f7a5d3d84634854f6a16827088dca1b",
+  "generated_on": "2026-07-28T19:46:17.581572+00:00",
+  "generation_id": "09b5bb2c840745942ca55b76a7f6571f",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "a5a1790f0b9eecb77b28ed36f7f51e1ac5eaea4911a066ec58c7487a997dd362",
+  "source_fingerprint": "bdc17de5873817e67d581dac4c658313bd2319946d48d142d3a0dc2cb2346d96",
   "source_scope": {
     "exclusions": [
       {
@@ -1666,6 +1776,14 @@
       },
       {
         "path": "packages/persistence/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/storage/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/portability/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
       }
     ],

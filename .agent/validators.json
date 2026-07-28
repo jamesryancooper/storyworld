@@ -8,11 +8,33 @@
     "bytecode_and_cache_writes": "prohibited_for_check"
   },
   "commands": {
-    "bootstrap": {"run": "python --version", "writes": []},
-    "check": {"run": "python -B .agent/scripts/validate.py --check", "writes": []},
-    "test": {"run": "python -B -m unittest discover -s .agent/tests -p \"test_*.py\"", "writes": []},
-    "refresh": {"run": "python -B .agent/scripts/refresh.py --refresh", "writes": [".agent/generated/manifest.json", ".agent/generated/validation-report.json", "project-dossier/ARTIFACT_CATALOG.json", "project-dossier/CHECKSUMS.sha256", "project-dossier/MANIFEST.json", "project-dossier/machine-readable/path-authority.json"]},
-    "closure": {"run": "configure_during_project_adoption", "writes": "not_assessed"}
+    "bootstrap": {
+      "run": "python --version",
+      "writes": []
+    },
+    "check": {
+      "run": "python -B .agent/scripts/validate.py --check",
+      "writes": []
+    },
+    "test": {
+      "run": "python -B -m unittest discover -s .agent/tests -p \"test_*.py\"",
+      "writes": []
+    },
+    "refresh": {
+      "run": "python -B .agent/scripts/refresh.py --refresh",
+      "writes": [
+        ".agent/generated/manifest.json",
+        ".agent/generated/validation-report.json",
+        "project-dossier/ARTIFACT_CATALOG.json",
+        "project-dossier/CHECKSUMS.sha256",
+        "project-dossier/MANIFEST.json",
+        "project-dossier/machine-readable/path-authority.json"
+      ]
+    },
+    "closure": {
+      "run": "configure_during_project_adoption",
+      "writes": "not_assessed"
+    }
   },
   "required_core_checks": [
     "python_runtime_floor",

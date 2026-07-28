@@ -59,8 +59,8 @@
       "run": "pnpm -r typecheck"
     },
     "project_closure": {
-      "status": "not_assessed",
-      "run": null
+      "status": "configured",
+      "run": "bash infra/scripts/ship-check.sh"
     }
   },
   "extensions": {
