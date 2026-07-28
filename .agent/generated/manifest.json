@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-28T16:48:24.264764+00:00",
-  "generation_id": "659f40384b736bf34297648b88817435",
+  "generated_at": "2026-07-28T16:49:55.211391+00:00",
+  "generation_id": "6320053971cb149b3e0e8b701410ea36",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -99,6 +99,7 @@
     "AGENTS.md",
     "CLAUDE.md",
     "README.md",
+    "packages/contracts/DESIGN_NOTES.md",
     "packages/contracts/README.md",
     "packages/contracts/adr/ADR-0001-independent-deployment-and-database.md",
     "packages/contracts/adr/ADR-0002-studio-uses-public-contracts-only.md",
@@ -299,7 +300,7 @@
     "project-dossier/validation/README.md"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "d874980623debcc49060edf070f0212c7a8cbd81ee197eb15e8d641f280629ee",
+  "source_fingerprint": "120de609a87d7a1060bd7554e0edcd31e60c06664e42f5750518771184da4349",
   "source_scope": {
     "exclusions": [],
     "git_metadata": "excluded_from_source_fingerprint",

@@ -454,6 +454,11 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/contracts/DESIGN_NOTES.md",
+      "sha256": "2a298599520a5ec4a3f7d2fe1b98b409f093eae8a81e3b3f2776038a1b6a182f"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/contracts/README.md",
       "sha256": "fc1f82ea73872681a2d40c44e116e389d0f40851da49e5257809bf907b8189fd"
     },
@@ -1443,12 +1448,12 @@
       "sha256": "789b814ca4ac5293bebd449b64ff606aa733539725a815b5e9a543ef8e6645ab"
     }
   ],
-  "generated_on": "2026-07-28T16:48:24.264764+00:00",
-  "generation_id": "659f40384b736bf34297648b88817435",
+  "generated_on": "2026-07-28T16:49:55.211391+00:00",
+  "generation_id": "6320053971cb149b3e0e8b701410ea36",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "d874980623debcc49060edf070f0212c7a8cbd81ee197eb15e8d641f280629ee",
+  "source_fingerprint": "120de609a87d7a1060bd7554e0edcd31e60c06664e42f5750518771184da4349",
   "source_scope": {
     "exclusions": [],
     "git_metadata": "excluded_from_source_fingerprint",
