@@ -1,0 +1,19 @@
+{
+  "schema_version": "storyworld.sdk-generation.v1",
+  "document_role": "sdk_generation_configuration_placeholder",
+  "status": "deferred_per_DEC-0005",
+  "permission_grant": false,
+  "intent": {
+    "language": "typescript",
+    "sources": [
+      "../openapi/storyworld.openapi.json",
+      "../schemas/*.schema.json",
+      "../events/storyworld-events.asyncapi.json"
+    ],
+    "activation": "when the OpenAPI contract stabilizes post-GATE-0003; toolchain choice recorded as a successor or amendment to DEC-0005",
+    "constraints": [
+      "generated types are derivatives; contract-pack schemas remain canonical",
+      "no runtime dependency creeps into the contract validator"
+    ]
+  }
+}

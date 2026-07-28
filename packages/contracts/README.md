@@ -15,12 +15,12 @@ evaluation and owner acceptance; this workspace never grants authority.
 
 | Path | Holds | Appendix B artifacts |
 |---|---|---|
-| `adr/` | Product architecture decision records (F0) | authority ADR set (seeded from Appendix A's ADR-001..016) |
+| `adr/` | Product architecture decision records (F0) | ADR-0001..0016 (accepted via DEC-0006) |
 | `schemas/` | JSON Schemas for canonical records and packages | `common-package-envelope`, `narrative-campaign-brief`, `narrative-asset-bundle`, `runtime-content-release`, `canon-release`, `scene-state-packet`, `generation-recipe`, `continuity-finding`, `rights-evidence`, `approval-receipt`, `performance-observation` (`*.schema.json`) |
-| `openapi/` | Public application API contract | `storyworld.openapi.yaml` |
-| `events/` | Event catalog and envelopes | `storyworld-events.asyncapi.yaml` (CloudEvents-compatible) |
+| `openapi/` | Public application API contract | `storyworld.openapi.json` (strict-JSON authoring; see DESIGN_NOTES) |
+| `events/` | Event catalog and envelopes | `storyworld-events.asyncapi.json` + `cloudevents-envelope.schema.json` |
 | `lifecycles/` | Lifecycle state machines (canon, media, reviews, connected commerce) | state-machine definitions per `02_engine_studio_and_templates.md` §6.4 |
-| `fixtures/` | Golden fixture packages | `stillhouse/`, `editorial/`, `bekindrewind/`, `commerce/` |
+| `fixtures/` | Golden fixture packages, probes, registry | four F1 fixtures, eight probes, `registry.json` (31 fixtures) |
 | `tests/` | Contract validation: round-trip, compatibility, signature, idempotency | acceptance tests |
 | `sdk/` | TypeScript SDK generation configuration (later F1) | SDK generation config |
 

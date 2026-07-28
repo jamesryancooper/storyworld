@@ -1,0 +1,518 @@
+{
+  "asyncapi": "3.0.0",
+  "info": {
+    "title": "Storyworld domain events",
+    "version": "0.1.0",
+    "description": "Event catalog per canonical part 04 section 14.3. Transport-agnostic: initial delivery is transactional outbox/inbox plus signed webhooks (ADR-0010); no broker identity appears in this contract. Authored as strict JSON per DEC-0005's strict-JSON rule so the zero-dependency contract validator covers it; a YAML derivative may be generated for external tooling.",
+    "x-storyworld-authority": "This document grants nothing; publication authority per charter authority-matrix."
+  },
+  "defaultContentType": "application/json",
+  "channels": {
+    "sourceMaterialIngested": {
+      "address": "world.storyworld.SourceMaterialIngested",
+      "description": "Domain event SourceMaterialIngested (canonical part 04 section 14.3).",
+      "messages": {
+        "SourceMaterialIngested": {
+          "name": "SourceMaterialIngested",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "canonChangeProposed": {
+      "address": "world.storyworld.CanonChangeProposed",
+      "description": "Domain event CanonChangeProposed (canonical part 04 section 14.3).",
+      "messages": {
+        "CanonChangeProposed": {
+          "name": "CanonChangeProposed",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "canonReleasePublished": {
+      "address": "world.storyworld.CanonReleasePublished",
+      "description": "Domain event CanonReleasePublished (canonical part 04 section 14.3).",
+      "messages": {
+        "CanonReleasePublished": {
+          "name": "CanonReleasePublished",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "productionPinnedToCanon": {
+      "address": "world.storyworld.ProductionPinnedToCanon",
+      "description": "Domain event ProductionPinnedToCanon (canonical part 04 section 14.3).",
+      "messages": {
+        "ProductionPinnedToCanon": {
+          "name": "ProductionPinnedToCanon",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "storyPlanProposed": {
+      "address": "world.storyworld.StoryPlanProposed",
+      "description": "Domain event StoryPlanProposed (canonical part 04 section 14.3).",
+      "messages": {
+        "StoryPlanProposed": {
+          "name": "StoryPlanProposed",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "sceneStateCompiled": {
+      "address": "world.storyworld.SceneStateCompiled",
+      "description": "Domain event SceneStateCompiled (canonical part 04 section 14.3).",
+      "messages": {
+        "SceneStateCompiled": {
+          "name": "SceneStateCompiled",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "generationRequested": {
+      "address": "world.storyworld.GenerationRequested",
+      "description": "Domain event GenerationRequested (canonical part 04 section 14.3).",
+      "messages": {
+        "GenerationRequested": {
+          "name": "GenerationRequested",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "sceneCandidateReady": {
+      "address": "world.storyworld.SceneCandidateReady",
+      "description": "Domain event SceneCandidateReady (canonical part 04 section 14.3).",
+      "messages": {
+        "SceneCandidateReady": {
+          "name": "SceneCandidateReady",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "continuityIssueFound": {
+      "address": "world.storyworld.ContinuityIssueFound",
+      "description": "Domain event ContinuityIssueFound (canonical part 04 section 14.3).",
+      "messages": {
+        "ContinuityIssueFound": {
+          "name": "ContinuityIssueFound",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "rightsEvidenceMissing": {
+      "address": "world.storyworld.RightsEvidenceMissing",
+      "description": "Domain event RightsEvidenceMissing (canonical part 04 section 14.3).",
+      "messages": {
+        "RightsEvidenceMissing": {
+          "name": "RightsEvidenceMissing",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "assetVersionAccepted": {
+      "address": "world.storyworld.AssetVersionAccepted",
+      "description": "Domain event AssetVersionAccepted (canonical part 04 section 14.3).",
+      "messages": {
+        "AssetVersionAccepted": {
+          "name": "AssetVersionAccepted",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "creativeReleaseApproved": {
+      "address": "world.storyworld.CreativeReleaseApproved",
+      "description": "Domain event CreativeReleaseApproved (canonical part 04 section 14.3).",
+      "messages": {
+        "CreativeReleaseApproved": {
+          "name": "CreativeReleaseApproved",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "narrativeAssetBundlePrepared": {
+      "address": "world.storyworld.NarrativeAssetBundlePrepared",
+      "description": "Domain event NarrativeAssetBundlePrepared (canonical part 04 section 14.3).",
+      "messages": {
+        "NarrativeAssetBundlePrepared": {
+          "name": "NarrativeAssetBundlePrepared",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "commerceBundleImported": {
+      "address": "world.storyworld.CommerceBundleImported",
+      "description": "Domain event CommerceBundleImported (canonical part 04 section 14.3).",
+      "messages": {
+        "CommerceBundleImported": {
+          "name": "CommerceBundleImported",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "commercialReviewFindingRaised": {
+      "address": "world.storyworld.CommercialReviewFindingRaised",
+      "description": "Domain event CommercialReviewFindingRaised (canonical part 04 section 14.3).",
+      "messages": {
+        "CommercialReviewFindingRaised": {
+          "name": "CommercialReviewFindingRaised",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "commercialApprovalGranted": {
+      "address": "world.storyworld.CommercialApprovalGranted",
+      "description": "Domain event CommercialApprovalGranted (canonical part 04 section 14.3).",
+      "messages": {
+        "CommercialApprovalGranted": {
+          "name": "CommercialApprovalGranted",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "publicationAuthorized": {
+      "address": "world.storyworld.PublicationAuthorized",
+      "description": "Domain event PublicationAuthorized (canonical part 04 section 14.3).",
+      "messages": {
+        "PublicationAuthorized": {
+          "name": "PublicationAuthorized",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "publicationSucceeded": {
+      "address": "world.storyworld.PublicationSucceeded",
+      "description": "Domain event PublicationSucceeded (canonical part 04 section 14.3).",
+      "messages": {
+        "PublicationSucceeded": {
+          "name": "PublicationSucceeded",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "publicationFailed": {
+      "address": "world.storyworld.PublicationFailed",
+      "description": "Domain event PublicationFailed (canonical part 04 section 14.3).",
+      "messages": {
+        "PublicationFailed": {
+          "name": "PublicationFailed",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "runtimeReleasePrepared": {
+      "address": "world.storyworld.RuntimeReleasePrepared",
+      "description": "Domain event RuntimeReleasePrepared (canonical part 04 section 14.3).",
+      "messages": {
+        "RuntimeReleasePrepared": {
+          "name": "RuntimeReleasePrepared",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "runtimeReleaseAccepted": {
+      "address": "world.storyworld.RuntimeReleaseAccepted",
+      "description": "Domain event RuntimeReleaseAccepted (canonical part 04 section 14.3).",
+      "messages": {
+        "RuntimeReleaseAccepted": {
+          "name": "RuntimeReleaseAccepted",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "sourceDependencyChanged": {
+      "address": "world.storyworld.SourceDependencyChanged",
+      "description": "Domain event SourceDependencyChanged (canonical part 04 section 14.3).",
+      "messages": {
+        "SourceDependencyChanged": {
+          "name": "SourceDependencyChanged",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "performanceObservationRecorded": {
+      "address": "world.storyworld.PerformanceObservationRecorded",
+      "description": "Domain event PerformanceObservationRecorded (canonical part 04 section 14.3).",
+      "messages": {
+        "PerformanceObservationRecorded": {
+          "name": "PerformanceObservationRecorded",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    },
+    "iterationProposed": {
+      "address": "world.storyworld.IterationProposed",
+      "description": "Domain event IterationProposed (canonical part 04 section 14.3).",
+      "messages": {
+        "IterationProposed": {
+          "name": "IterationProposed",
+          "contentType": "application/json",
+          "payload": {
+            "$ref": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+          },
+          "x-storyworld-notes": "Envelope-first: the message body is the CloudEvents-compatible envelope; data carries the event payload."
+        }
+      }
+    }
+  },
+  "operations": {
+    "onSourceMaterialIngested": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/sourceMaterialIngested"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onCanonChangeProposed": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/canonChangeProposed"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onCanonReleasePublished": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/canonReleasePublished"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onProductionPinnedToCanon": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/productionPinnedToCanon"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onStoryPlanProposed": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/storyPlanProposed"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onSceneStateCompiled": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/sceneStateCompiled"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onGenerationRequested": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/generationRequested"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onSceneCandidateReady": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/sceneCandidateReady"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onContinuityIssueFound": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/continuityIssueFound"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onRightsEvidenceMissing": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/rightsEvidenceMissing"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onAssetVersionAccepted": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/assetVersionAccepted"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onCreativeReleaseApproved": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/creativeReleaseApproved"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onNarrativeAssetBundlePrepared": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/narrativeAssetBundlePrepared"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onCommerceBundleImported": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/commerceBundleImported"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onCommercialReviewFindingRaised": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/commercialReviewFindingRaised"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onCommercialApprovalGranted": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/commercialApprovalGranted"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onPublicationAuthorized": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/publicationAuthorized"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onPublicationSucceeded": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/publicationSucceeded"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onPublicationFailed": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/publicationFailed"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onRuntimeReleasePrepared": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/runtimeReleasePrepared"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onRuntimeReleaseAccepted": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/runtimeReleaseAccepted"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onSourceDependencyChanged": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/sourceDependencyChanged"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onPerformanceObservationRecorded": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/performanceObservationRecorded"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    },
+    "onIterationProposed": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/iterationProposed"
+      },
+      "description": "At-least-once; consumer must be idempotent; duplicates harmless."
+    }
+  }
+}

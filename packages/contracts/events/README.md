@@ -1,6 +1,8 @@
 # Event Catalog
 
-`storyworld-events.asyncapi.yaml` plus CloudEvents-compatible envelope
-definitions, per canonical part 04 §14.3 (event list) and §14.4 (envelope).
-At-least-once delivery semantics; consumers idempotent; envelopes carry
-correlation/causation IDs and are signed when crossing product boundaries.
+`storyworld-events.asyncapi.json` — AsyncAPI 3 catalog of the 24 domain
+events (canonical part 04 section 14.3), envelope-first: every message body
+is the CloudEvents-compatible envelope defined by
+`cloudevents-envelope.schema.json` (validated with the schema set). Strict
+JSON per DEC-0005. Delivery: transactional outbox/inbox + signed webhooks,
+at-least-once, idempotent consumers (ADR-0010).

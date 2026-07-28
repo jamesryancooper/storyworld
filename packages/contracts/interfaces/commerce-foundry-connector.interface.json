@@ -1,0 +1,54 @@
+{
+  "schema_version": "storyworld.interface.commerce-foundry-connector.v1",
+  "document_role": "normative_adapter_interface_contract",
+  "permission_grant": false,
+  "authority_note": "Interfaces define exchange capability only; authority per charter authority-matrix. No adapter holds approval or unrestricted publication authority.",
+  "source_refs": [
+    "04_foundry_rewind_channels_and_contracts.md#11",
+    "ADR-0010",
+    "ADR-0011"
+  ],
+  "counterparty_authority": "commerce_foundry",
+  "exchange_model": "signed immutable packages + CloudEvents envelopes + receipts; transactional outbox/inbox; at-least-once with idempotent consumers; no shared business tables, no dual writes, no distributed transactions, no counterparty credentials",
+  "inbound": [
+    {
+      "operation": "receive_campaign_brief",
+      "payload_contract": "tag:storyworld-platform,2026:contracts/narrative-campaign-brief/v1",
+      "idempotency": "brief id + signature",
+      "effect": "pins product/claim/policy/reference snapshots; creates connected campaign at brief_received"
+    },
+    {
+      "operation": "receive_commercial_review_finding",
+      "payload_contract": "typed findings against exact asset/copy/placement/source versions",
+      "effect": "connected-commerce lifecycle: submitted_to_cf -> commercial_revision_requested"
+    },
+    {
+      "operation": "receive_commercial_approval",
+      "effect": "exact-version approval receipt (approval_layer commerce_approval, authority_host commerce_foundry)"
+    },
+    {
+      "operation": "receive_publication_receipt",
+      "effect": "publication record correlation; lifecycle published"
+    },
+    {
+      "operation": "receive_source_change",
+      "effect": "source-drift: mark affected associations stale; propose revalidation/replacement/withdrawal/waiver to proper authority; never silently delete published work"
+    },
+    {
+      "operation": "receive_performance_observation",
+      "payload_contract": "tag:storyworld-platform,2026:contracts/performance-observation/v1"
+    }
+  ],
+  "outbound": [
+    {
+      "operation": "submit_narrative_asset_bundle",
+      "payload_contract": "tag:storyworld-platform,2026:contracts/narrative-asset-bundle/v1",
+      "rule": "receiving system imports as unapproved; Storyworld creative approval is evidence, not authorization"
+    },
+    {
+      "operation": "emit_status_events",
+      "payload_contract": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1"
+    }
+  ],
+  "acceptance_test_ref": "canonical part 04 section 11.7 (C1 gate); fixture loop: fixtures/commerce/"
+}

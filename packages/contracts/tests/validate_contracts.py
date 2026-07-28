@@ -126,7 +126,7 @@ def collect_refs(node, out):
 def check_schemas():
     registry = {}
     schemas = {}
-    for path in sorted((ROOT / "schemas").glob("*.schema.json")):
+    for path in sorted((ROOT / "schemas").glob("*.schema.json")) + sorted((ROOT / "events").glob("*.schema.json")):
         doc = load_strict(path)
         if doc is None:
             continue
@@ -480,6 +480,112 @@ def run_metamorphic():
             fail(f"metamorphic {tid}: unknown transformation {kind}")
 
 
+EXPECTED_EVENTS = [
+    "SourceMaterialIngested", "CanonChangeProposed", "CanonReleasePublished",
+    "ProductionPinnedToCanon", "StoryPlanProposed", "SceneStateCompiled",
+    "GenerationRequested", "SceneCandidateReady", "ContinuityIssueFound",
+    "RightsEvidenceMissing", "AssetVersionAccepted", "CreativeReleaseApproved",
+    "NarrativeAssetBundlePrepared", "CommerceBundleImported",
+    "CommercialReviewFindingRaised", "CommercialApprovalGranted",
+    "PublicationAuthorized", "PublicationSucceeded", "PublicationFailed",
+    "RuntimeReleasePrepared", "RuntimeReleaseAccepted",
+    "SourceDependencyChanged", "PerformanceObservationRecorded", "IterationProposed",
+]
+
+REPRESENTATIVE_PATHS = [
+    "/v1/workspaces", "/v1/properties", "/v1/properties/{propertyId}/sources",
+    "/v1/canon-proposals", "/v1/canon-releases", "/v1/entities", "/v1/relationships",
+    "/v1/scenes/{sceneId}/state-packet", "/v1/productions", "/v1/narrative-units",
+    "/v1/scenes", "/v1/continuity-checks", "/v1/findings/{findingId}/dispositions",
+    "/v1/generation-runs", "/v1/assets/{assetId}/revisions", "/v1/editor-checkouts",
+    "/v1/review-cases", "/v1/review-decisions", "/v1/creative-releases",
+    "/v1/channel-packages", "/v1/runtime-releases",
+    "/v1/integrations/commerce-foundry/campaign-briefs", "/v1/narrative-asset-bundles",
+    "/v1/performance-observations", "/v1/iteration-proposals",
+    "/v1/exports", "/v1/imports", "/v1/packages/verify",
+]
+
+
+def collect_contract_refs(node, out):
+    if isinstance(node, dict):
+        ref = node.get("x-storyworld-contract-schema")
+        if isinstance(ref, str):
+            out.append(ref)
+        for value in node.values():
+            collect_contract_refs(value, out)
+    elif isinstance(node, list):
+        for value in node:
+            collect_contract_refs(value, out)
+
+
+def check_openapi(registry):
+    doc = load_strict(ROOT / "openapi" / "storyworld.openapi.json")
+    if doc is None:
+        fail("openapi/storyworld.openapi.json: missing or invalid")
+        return
+    if doc.get("openapi") != "3.1.0":
+        fail("openapi: not declared 3.1.0")
+    paths = doc.get("paths", {})
+    for required_path in REPRESENTATIVE_PATHS:
+        if required_path not in paths:
+            fail(f"openapi: representative endpoint {required_path} missing")
+    for path, item in paths.items():
+        for method, op in item.items():
+            if not isinstance(op, dict):
+                continue
+            if not op.get("operationId") or not op.get("tags"):
+                fail(f"openapi {method.upper()} {path}: operationId/tags missing")
+            if method == "post":
+                params = json.dumps(op.get("parameters", []))
+                if "IdempotencyKey" not in params:
+                    fail(f"openapi POST {path}: Idempotency-Key parameter missing")
+    refs: list[str] = []
+    collect_contract_refs(doc, refs)
+    for ref in refs:
+        if ref not in registry:
+            fail(f"openapi: x-storyworld-contract-schema {ref} not a known schema $id")
+    if "ProblemDetails" not in doc.get("components", {}).get("schemas", {}):
+        fail("openapi: ProblemDetails component missing")
+
+
+def check_events_catalog(registry):
+    doc = load_strict(ROOT / "events" / "storyworld-events.asyncapi.json")
+    if doc is None:
+        fail("events/storyworld-events.asyncapi.json: missing or invalid")
+        return
+    if doc.get("asyncapi") != "3.0.0":
+        fail("events: not declared AsyncAPI 3.0.0")
+    addresses = {channel.get("address") for channel in doc.get("channels", {}).values()}
+    for event in EXPECTED_EVENTS:
+        if f"world.storyworld.{event}" not in addresses:
+            fail(f"events: catalog missing {event}")
+    for name, channel in doc.get("channels", {}).items():
+        for message in channel.get("messages", {}).values():
+            payload_ref = message.get("payload", {}).get("$ref", "")
+            if payload_ref and not payload_ref.startswith("#") and payload_ref not in registry:
+                fail(f"events channel {name}: payload $ref {payload_ref} unknown")
+
+
+def check_interfaces(registry):
+    files = sorted((ROOT / "interfaces").glob("*.interface.json"))
+    if len(files) < 3:
+        fail("interfaces: expected commerce-foundry, runtime-compiler, and channel-adapter contracts")
+    for path in files:
+        doc = load_strict(path)
+        if doc is None:
+            continue
+        rel = str(path.relative_to(ROOT))
+        for key in ("schema_version", "document_role", "permission_grant"):
+            if key not in doc:
+                fail(f"{rel}: missing {key}")
+        if doc.get("permission_grant") is not False:
+            fail(f"{rel}: permission_grant must be false")
+        text = json.dumps(doc)
+        for match in re.findall(r"tag:storyworld-platform,2026:contracts/[a-z0-9-]+/v[0-9]+", text):
+            if match not in registry:
+                fail(f"{rel}: payload contract {match} not a known schema $id")
+
+
 def main() -> int:
     registry = check_schemas()
     check_lifecycles()
@@ -490,6 +596,9 @@ def main() -> int:
     check_registry_coverage(fixture_registry)
     check_restricted_source_separation()
     run_metamorphic()
+    check_openapi(registry)
+    check_events_catalog(registry)
+    check_interfaces(registry)
     if ERRORS:
         for error in ERRORS:
             print(f"[FAIL] {error}")

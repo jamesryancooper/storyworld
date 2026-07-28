@@ -1,0 +1,2297 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Storyworld Engine application API",
+    "version": "0.1.0",
+    "description": "Contract-first public application API per canonical part 04 section 14.1-14.2 (F1 contract pack, GATE-0003 scope). Conventions: 202 Accepted plus operation id for long-running work; Idempotency-Key on all externally initiated mutations; If-Match/expected-version concurrency; cursor pagination with stable ordering; RFC 9457 Problem Details errors; SSE/WebSocket job and review subscriptions. Studio and any BFF use only these commands (ADR-0002). Payload shapes marked x-storyworld-contract-schema are owned by the contract-pack JSON Schemas (tag: URIs); this document owns resources, verbs, and conventions. Authored as strict JSON per DEC-0005; YAML derivative may be generated for external tooling.",
+    "x-storyworld-authority": "This contract grants nothing; authority per charter authority-matrix and approval taxonomy."
+  },
+  "tags": [
+    {
+      "name": "workspaces"
+    },
+    {
+      "name": "properties"
+    },
+    {
+      "name": "canon"
+    },
+    {
+      "name": "state"
+    },
+    {
+      "name": "planning"
+    },
+    {
+      "name": "continuity"
+    },
+    {
+      "name": "media"
+    },
+    {
+      "name": "review"
+    },
+    {
+      "name": "release"
+    },
+    {
+      "name": "commerce"
+    },
+    {
+      "name": "observations"
+    },
+    {
+      "name": "portability"
+    },
+    {
+      "name": "operations"
+    }
+  ],
+  "paths": {
+    "/v1/workspaces": {
+      "post": {
+        "tags": [
+          "workspaces"
+        ],
+        "summary": "Create workspace",
+        "operationId": "createWorkspace",
+        "description": "Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceRef"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/workspaces/{workspaceId}": {
+      "get": {
+        "tags": [
+          "workspaces"
+        ],
+        "summary": "Get workspace",
+        "operationId": "getWorkspace",
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "description": "Workspace",
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current representation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/properties": {
+      "post": {
+        "tags": [
+          "properties"
+        ],
+        "summary": "Create property",
+        "operationId": "createProperty",
+        "description": "Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceRef"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/properties/{propertyId}": {
+      "get": {
+        "tags": [
+          "properties"
+        ],
+        "summary": "Get property",
+        "operationId": "getProperty",
+        "parameters": [
+          {
+            "name": "propertyId",
+            "in": "path",
+            "required": true,
+            "description": "Property",
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current representation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/properties/{propertyId}/sources": {
+      "post": {
+        "tags": [
+          "canon"
+        ],
+        "summary": "Ingest source material into the restricted source inbox",
+        "operationId": "ingestSource",
+        "description": "Source never becomes canon by ingestion (ADR-0008). Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "name": "propertyId",
+            "in": "path",
+            "required": true,
+            "description": "Property",
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted for asynchronous processing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OperationAccepted"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/canon-proposals": {
+      "post": {
+        "tags": [
+          "canon"
+        ],
+        "summary": "Propose canon change (human or model; always a proposal)",
+        "operationId": "proposeCanonChange",
+        "description": "Acceptance requires authorized human decision; impact report generated. Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceRef"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/canon-releases": {
+      "post": {
+        "tags": [
+          "canon"
+        ],
+        "summary": "Publish immutable canon release from accepted proposals",
+        "operationId": "publishCanonRelease",
+        "description": "Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "x-storyworld-contract-schema": "tag:storyworld-platform,2026:contracts/canon-release/v1"
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceRef"
+                },
+                "x-storyworld-contract-schema": "tag:storyworld-platform,2026:contracts/canon-release/v1"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/canon-releases/{canonReleaseId}": {
+      "get": {
+        "tags": [
+          "canon"
+        ],
+        "summary": "Get canon release",
+        "operationId": "getCanonRelease",
+        "parameters": [
+          {
+            "name": "canonReleaseId",
+            "in": "path",
+            "required": true,
+            "description": "Canon release",
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current representation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "x-storyworld-contract-schema": "tag:storyworld-platform,2026:contracts/canon-release/v1"
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/entities": {
+      "post": {
+        "tags": [
+          "canon"
+        ],
+        "summary": "Create entity (proposal-then-accept lifecycle applies)",
+        "operationId": "createEntity",
+        "description": "Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceRef"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/relationships": {
+      "post": {
+        "tags": [
+          "canon"
+        ],
+        "summary": "Create relationship",
+        "operationId": "createRelationship",
+        "description": "Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceRef"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/scenes/{sceneId}/state-packet": {
+      "get": {
+        "tags": [
+          "state"
+        ],
+        "summary": "Compile the scene state packet at the scene's story-time coordinate",
+        "operationId": "getSceneStatePacket",
+        "parameters": [
+          {
+            "name": "sceneId",
+            "in": "path",
+            "required": true,
+            "description": "Scene",
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current representation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "x-storyworld-contract-schema": "tag:storyworld-platform,2026:contracts/scene-state-packet/v1"
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/productions": {
+      "post": {
+        "tags": [
+          "planning"
+        ],
+        "summary": "Create production pinned to a canon release",
+        "operationId": "createProduction",
+        "description": "Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceRef"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/narrative-units": {
+      "post": {
+        "tags": [
+          "planning"
+        ],
+        "summary": "Create narrative unit (hierarchy per narrative-structure contract)",
+        "operationId": "createNarrativeUnit",
+        "description": "Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "x-storyworld-contract-schema": "tag:storyworld-platform,2026:contracts/narrative-structure/v1"
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceRef"
+                },
+                "x-storyworld-contract-schema": "tag:storyworld-platform,2026:contracts/narrative-structure/v1"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/scenes": {
+      "post": {
+        "tags": [
+          "planning"
+        ],
+        "summary": "Create scene",
+        "operationId": "createScene",
+        "description": "Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceRef"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/continuity-checks": {
+      "post": {
+        "tags": [
+          "continuity"
+        ],
+        "summary": "Run continuity checks",
+        "operationId": "runContinuityChecks",
+        "description": "Findings are evidence, never auto-mutations. Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted for asynchronous processing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OperationAccepted"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/findings/{findingId}/dispositions": {
+      "post": {
+        "tags": [
+          "continuity"
+        ],
+        "summary": "Record finding disposition (resolve, waive, intentional exception, canon-change proposal)",
+        "operationId": "recordFindingDisposition",
+        "description": "Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "name": "findingId",
+            "in": "path",
+            "required": true,
+            "description": "Finding",
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "x-storyworld-contract-schema": "tag:storyworld-platform,2026:contracts/continuity-finding/v1"
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceRef"
+                },
+                "x-storyworld-contract-schema": "tag:storyworld-platform,2026:contracts/continuity-finding/v1"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/generation-runs": {
+      "post": {
+        "tags": [
+          "media"
+        ],
+        "summary": "Start generation run from a compiled recipe",
+        "operationId": "startGenerationRun",
+        "description": "Output enters staging as candidates only (ADR-0008); budget ceiling enforced. Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "x-storyworld-contract-schema": "tag:storyworld-platform,2026:contracts/generation-recipe/v1"
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted for asynchronous processing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OperationAccepted"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/assets/{assetId}/revisions": {
+      "post": {
+        "tags": [
+          "media"
+        ],
+        "summary": "Create focused revision candidate for an asset region/component",
+        "operationId": "createAssetRevision",
+        "description": "Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "name": "assetId",
+            "in": "path",
+            "required": true,
+            "description": "Asset",
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted for asynchronous processing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OperationAccepted"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/editor-checkouts": {
+      "post": {
+        "tags": [
+          "media"
+        ],
+        "summary": "Check out exact asset version to an external editor; re-import returns a candidate",
+        "operationId": "createEditorCheckout",
+        "description": "Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceRef"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/review-cases": {
+      "post": {
+        "tags": [
+          "review"
+        ],
+        "summary": "Open review case bound to exact versions",
+        "operationId": "openReviewCase",
+        "description": "Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceRef"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/review-decisions": {
+      "post": {
+        "tags": [
+          "review"
+        ],
+        "summary": "Record review decision (human authority only)",
+        "operationId": "recordReviewDecision",
+        "description": "Produces an immutable approval receipt; agents cannot approve (ADR-0008). Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceRef"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/approval-receipts": {
+      "get": {
+        "tags": [
+          "review"
+        ],
+        "summary": "List approval receipts for a subject",
+        "operationId": "listApprovalReceipts",
+        "parameters": [
+          {
+            "name": "subjectRef",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/Cursor"
+          },
+          {
+            "$ref": "#/components/parameters/Limit"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current representation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "x-storyworld-contract-schema": "tag:storyworld-platform,2026:contracts/approval-receipt/v1"
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/creative-releases": {
+      "post": {
+        "tags": [
+          "release"
+        ],
+        "summary": "Create creative release from accepted masters",
+        "operationId": "createCreativeRelease",
+        "description": "Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceRef"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/channel-packages": {
+      "post": {
+        "tags": [
+          "release"
+        ],
+        "summary": "Build channel package (envelope contract)",
+        "operationId": "buildChannelPackage",
+        "description": "Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "x-storyworld-contract-schema": "tag:storyworld-platform,2026:contracts/common-package-envelope/v1"
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted for asynchronous processing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OperationAccepted"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/runtime-releases": {
+      "post": {
+        "tags": [
+          "release"
+        ],
+        "summary": "Compile runtime content release for a target",
+        "operationId": "compileRuntimeRelease",
+        "description": "Immutable; runtime performs its own acceptance (ADR-0012). Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "x-storyworld-contract-schema": "tag:storyworld-platform,2026:contracts/runtime-content-release/v1"
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted for asynchronous processing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OperationAccepted"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/integrations/commerce-foundry/campaign-briefs": {
+      "post": {
+        "tags": [
+          "commerce"
+        ],
+        "summary": "Receive signed NarrativeCampaignBrief (idempotent import)",
+        "operationId": "receiveCampaignBrief",
+        "description": "Snapshots pinned; Storyworld can never mutate product facts (ADR-0010/0011). Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "x-storyworld-contract-schema": "tag:storyworld-platform,2026:contracts/narrative-campaign-brief/v1"
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceRef"
+                },
+                "x-storyworld-contract-schema": "tag:storyworld-platform,2026:contracts/narrative-campaign-brief/v1"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/narrative-asset-bundles": {
+      "post": {
+        "tags": [
+          "commerce"
+        ],
+        "summary": "Prepare signed NarrativeAssetBundle for the receiving authority",
+        "operationId": "prepareAssetBundle",
+        "description": "Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "x-storyworld-contract-schema": "tag:storyworld-platform,2026:contracts/narrative-asset-bundle/v1"
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted for asynchronous processing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OperationAccepted"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/performance-observations": {
+      "post": {
+        "tags": [
+          "observations"
+        ],
+        "summary": "Record normalized performance observation",
+        "operationId": "recordPerformanceObservation",
+        "description": "Observations never mutate canon (ADR-0008). Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "x-storyworld-contract-schema": "tag:storyworld-platform,2026:contracts/performance-observation/v1"
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceRef"
+                },
+                "x-storyworld-contract-schema": "tag:storyworld-platform,2026:contracts/performance-observation/v1"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/iteration-proposals": {
+      "post": {
+        "tags": [
+          "observations"
+        ],
+        "summary": "Create iteration proposal for human review",
+        "operationId": "createIterationProposal",
+        "description": "Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceRef"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/exports": {
+      "post": {
+        "tags": [
+          "portability"
+        ],
+        "summary": "Export signed portable package",
+        "operationId": "createExport",
+        "description": "Always available independent of connected integrations (ADR-0014). Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "x-storyworld-contract-schema": "tag:storyworld-platform,2026:contracts/common-package-envelope/v1"
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted for asynchronous processing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OperationAccepted"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/imports": {
+      "post": {
+        "tags": [
+          "portability"
+        ],
+        "summary": "Import portable package (idempotent; enters as unapproved)",
+        "operationId": "createImport",
+        "description": "Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "x-storyworld-contract-schema": "tag:storyworld-platform,2026:contracts/common-package-envelope/v1"
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted for asynchronous processing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OperationAccepted"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/packages/verify": {
+      "post": {
+        "tags": [
+          "portability"
+        ],
+        "summary": "Deterministically verify a package envelope and signature",
+        "operationId": "verifyPackage",
+        "description": "Mutation; requires Idempotency-Key; duplicate keys return the original result.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "x-storyworld-contract-schema": "tag:storyworld-platform,2026:contracts/common-package-envelope/v1"
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not permitted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or idempotency conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceRef"
+                },
+                "x-storyworld-contract-schema": "tag:storyworld-platform,2026:contracts/common-package-envelope/v1"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/operations/{operationId}": {
+      "get": {
+        "tags": [
+          "operations"
+        ],
+        "summary": "Poll asynchronous operation; job status also streams via SSE/WebSocket subscriptions",
+        "operationId": "getOperation",
+        "parameters": [
+          {
+            "name": "operationId",
+            "in": "path",
+            "required": true,
+            "description": "Operation",
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current representation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "IdempotencyKey": {
+        "name": "Idempotency-Key",
+        "in": "header",
+        "required": true,
+        "description": "Client-generated key; retries with the same key return the original result.",
+        "schema": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "IfMatch": {
+        "name": "If-Match",
+        "in": "header",
+        "required": false,
+        "description": "Expected-version/ETag optimistic concurrency check.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Cursor": {
+        "name": "cursor",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Limit": {
+        "name": "limit",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 200
+        }
+      }
+    },
+    "schemas": {
+      "ProblemDetails": {
+        "type": "object",
+        "description": "RFC 9457 problem document with typed, actionable errors.",
+        "required": [
+          "type",
+          "title",
+          "status"
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "instance": {
+            "type": "string"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "pointer": {
+                  "type": "string"
+                },
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "OperationAccepted": {
+        "type": "object",
+        "required": [
+          "operation_id",
+          "status_url"
+        ],
+        "properties": {
+          "operation_id": {
+            "type": "string"
+          },
+          "status_url": {
+            "type": "string"
+          },
+          "subscribe": {
+            "type": "string",
+            "description": "SSE/WebSocket subscription endpoint for progress"
+          }
+        }
+      },
+      "ResourceRef": {
+        "type": "object",
+        "required": [
+          "id",
+          "version"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "etag": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": "storyworld.interface.runtime-compiler.v1",
+  "document_role": "normative_adapter_interface_contract",
+  "permission_grant": false,
+  "authority_note": "Interfaces define exchange capability only; authority per charter authority-matrix. No adapter holds approval or unrestricted publication authority.",
+  "source_refs": [
+    "04_foundry_rewind_channels_and_contracts.md#12",
+    "ADR-0012"
+  ],
+  "counterparty_authority": "bekindrewind_runtime (pattern generalizes to future runtime targets)",
+  "exchange_model": "immutable compiled packages out; acceptance/rejection receipts and aggregate observations in; runtime operable without live Storyworld connection",
+  "operations": [
+    {
+      "operation": "compile_runtime_release",
+      "payload_contract": "tag:storyworld-platform,2026:contracts/runtime-content-release/v1",
+      "validation": "dangling refs, impossible/circular missions, inaccessible content, missing media/localization, conflicting transitions, rights expiry, runtime budgets, canon drift"
+    },
+    {
+      "operation": "receive_acceptance_receipt",
+      "effect": "approval receipt (publication_or_runtime_acceptance, authority_host bekindrewind_runtime); lifecycle runtime_released"
+    },
+    {
+      "operation": "receive_aggregate_observations",
+      "payload_contract": "tag:storyworld-platform,2026:contracts/performance-observation/v1",
+      "rule": "aggregate only; player identities and player state never enter Storyworld"
+    },
+    {
+      "operation": "reconcile_hotfix",
+      "rule": "emergency runtime changes reconcile through a later explicit import; compiled files never silently become canon"
+    }
+  ]
+}

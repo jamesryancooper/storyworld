@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tag:storyworld-platform,2026:contracts/cloudevents-envelope/v1",
+  "title": "Storyworld event envelope (CloudEvents-compatible)",
+  "description": "Envelope for all Storyworld domain events (canonical part 04 sections 14.3-14.4; ADR-0010). Delivery is at-least-once via transactional outbox/inbox; consumers are idempotent; duplicate delivery must be harmless. Signature required when crossing product boundaries.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "specversion",
+    "id",
+    "type",
+    "source",
+    "time",
+    "schema_version",
+    "event_schema_version",
+    "subject",
+    "tenant_id",
+    "workspace_id",
+    "correlationid",
+    "causationid",
+    "recordedtime",
+    "actor",
+    "authority_host",
+    "consumer_expectation",
+    "redaction_class",
+    "datacontenttype",
+    "data"
+  ],
+  "properties": {
+    "specversion": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "type": {
+      "enum": [
+        "world.storyworld.SourceMaterialIngested",
+        "world.storyworld.CanonChangeProposed",
+        "world.storyworld.CanonReleasePublished",
+        "world.storyworld.ProductionPinnedToCanon",
+        "world.storyworld.StoryPlanProposed",
+        "world.storyworld.SceneStateCompiled",
+        "world.storyworld.GenerationRequested",
+        "world.storyworld.SceneCandidateReady",
+        "world.storyworld.ContinuityIssueFound",
+        "world.storyworld.RightsEvidenceMissing",
+        "world.storyworld.AssetVersionAccepted",
+        "world.storyworld.CreativeReleaseApproved",
+        "world.storyworld.NarrativeAssetBundlePrepared",
+        "world.storyworld.CommerceBundleImported",
+        "world.storyworld.CommercialReviewFindingRaised",
+        "world.storyworld.CommercialApprovalGranted",
+        "world.storyworld.PublicationAuthorized",
+        "world.storyworld.PublicationSucceeded",
+        "world.storyworld.PublicationFailed",
+        "world.storyworld.RuntimeReleasePrepared",
+        "world.storyworld.RuntimeReleaseAccepted",
+        "world.storyworld.SourceDependencyChanged",
+        "world.storyworld.PerformanceObservationRecorded",
+        "world.storyworld.IterationProposed"
+      ]
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "time": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z$"
+    },
+    "schema_version": {
+      "const": "storyworld.event-envelope.v1"
+    },
+    "event_schema_version": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "subject": {
+      "description": "Aggregate reference the event concerns",
+      "type": "string",
+      "minLength": 1
+    },
+    "tenant_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "workspace_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "correlationid": {
+      "type": "string",
+      "minLength": 1
+    },
+    "causationid": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "recordedtime": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z$"
+    },
+    "actor": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authority_host": {
+      "enum": [
+        "storyworld",
+        "commerce_foundry",
+        "bekindrewind_runtime"
+      ]
+    },
+    "consumer_expectation": {
+      "enum": [
+        "informational",
+        "action_may_be_required",
+        "reconciliation_required"
+      ]
+    },
+    "redaction_class": {
+      "enum": [
+        "public",
+        "internal",
+        "confidential",
+        "restricted"
+      ]
+    },
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "algorithm",
+        "key_id",
+        "detached_signature_sha256"
+      ],
+      "properties": {
+        "algorithm": {
+          "type": "string",
+          "minLength": 1
+        },
+        "key_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "detached_signature_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "datacontenttype": {
+      "const": "application/json"
+    },
+    "data": {
+      "description": "Event-type-specific payload; payload schemas are versioned by event_schema_version and defined alongside the AsyncAPI catalog",
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": "storyworld.interface.channel-adapter.v1",
+  "document_role": "normative_adapter_interface_contract",
+  "permission_grant": false,
+  "authority_note": "Interfaces define exchange capability only; authority per charter authority-matrix. No adapter holds approval or unrestricted publication authority.",
+  "source_refs": [
+    "04_foundry_rewind_channels_and_contracts.md#13",
+    "ADR-0013",
+    "ADR-0014"
+  ],
+  "counterparty_authority": "channel connector (per-channel; Instagram first)",
+  "exchange_model": "channel-neutral masters in; target renditions, publication requests, receipts, and normalized observations out/in; credentials live in a dedicated connector secret store scoped to account+action; manual signed export always available",
+  "operations": [
+    {
+      "operation": "declare_capabilities",
+      "detail": "formats, aspect ratios, limits, quotas, account capabilities; independently versioned per adapter"
+    },
+    {
+      "operation": "render_channel_package",
+      "payload_contract": "tag:storyworld-platform,2026:contracts/common-package-envelope/v1",
+      "rule": "platform rules live in the adapter; a platform-rule change may never require a narrative-domain migration (C2 gate)"
+    },
+    {
+      "operation": "submit_publication",
+      "rule": "only when the project's authority policy grants Storyworld publication; otherwise export-only"
+    },
+    {
+      "operation": "receive_publication_receipt",
+      "effect": "publication record with exact versions, external id, receipt, failure/retry"
+    },
+    {
+      "operation": "receive_platform_metrics",
+      "payload_contract": "tag:storyworld-platform,2026:contracts/performance-observation/v1"
+    }
+  ]
+}

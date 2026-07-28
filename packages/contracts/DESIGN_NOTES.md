@@ -49,3 +49,8 @@ decision process.
   validator.
 - Shared `$defs` across schema files are deliberately inlined (subset
   validator resolves whole-schema `$id` refs only).
+- OpenAPI and AsyncAPI documents are authored as strict JSON (both
+  specifications permit JSON natively). Appendix B names `.yaml` filenames;
+  the JSON authoring keeps DEC-0005's zero-dependency validator covering
+  them and honors the strict-JSON canonical rule. Generate YAML derivatives
+  only if external tooling requires them.

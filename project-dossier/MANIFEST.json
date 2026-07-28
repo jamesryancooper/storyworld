@@ -84,6 +84,11 @@
     },
     {
       "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0008-accept-f1-pack-and-gate-0003.md",
+      "sha256": "c74fda850e4f274189d9be123d8c031400633626d592c95978f6b6f4c27398b2"
+    },
+    {
+      "layer": "agent_harness",
       "path": ".agent/decisions/README.md",
       "sha256": "321f2910e7e6256e00dad950baf69484dc8b777249d62e5f8f0aa84ac018e1c2"
     },
@@ -105,7 +110,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "5a8932c2606025e05babb3dc478801feb2b94ce58b878f300c28788bb4664c65"
+      "sha256": "32f62a3daedff0f0b75b22c19901cff6937ac89813775633c45bbd121f1690b5"
     },
     {
       "layer": "agent_harness",
@@ -310,7 +315,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0004-f1-contract-pack.md",
-      "sha256": "7e5ba09bd7ab0ead838257fac30708bd91d01d782cb5f817a676918a00252007"
+      "sha256": "26627ee372761efe5c708b3fc5bde9cab48682aa496137ad1acee6dcc121987a"
     },
     {
       "layer": "agent_harness",
@@ -455,12 +460,12 @@
     {
       "layer": "project_source",
       "path": "packages/contracts/DESIGN_NOTES.md",
-      "sha256": "2a298599520a5ec4a3f7d2fe1b98b409f093eae8a81e3b3f2776038a1b6a182f"
+      "sha256": "06e284ba6d44aefed7eb40226228191d8db50cc84f16d708e9ada302514764b5"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/README.md",
-      "sha256": "fc1f82ea73872681a2d40c44e116e389d0f40851da49e5257809bf907b8189fd"
+      "sha256": "82bd54cd282bab9b54a4065c8ff67d8c7248c97d588e8b84abf28c710b6bcb7b"
     },
     {
       "layer": "project_source",
@@ -585,7 +590,17 @@
     {
       "layer": "project_source",
       "path": "packages/contracts/events/README.md",
-      "sha256": "091771e8dca4dde2266fa12e9d9db0d007430b276e557737e36067396b840ee6"
+      "sha256": "1627687073e3fa19fc536ef2e350690045dfe779d3e5bdef4fb4a88835fd0a15"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/events/cloudevents-envelope.schema.json",
+      "sha256": "c796884b214cdefce63d3b809413f414f9886962775560911864d34415179ee9"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/events/storyworld-events.asyncapi.json",
+      "sha256": "d2329485f41b110b78839dfff544ee0a09d3eff024fdbe6aa4f4d0cd5c7f2aa4"
     },
     {
       "layer": "project_source",
@@ -1089,6 +1104,26 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/contracts/interfaces/README.md",
+      "sha256": "64ed22cda9a63c2203d66c5da6b19f1d112a4258f49ff1148194cc135e10700a"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/interfaces/channel-adapter.interface.json",
+      "sha256": "766bd2ee0262c868f2c9519decc966245dac3232fd867fd862daf96895c345d7"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/interfaces/commerce-foundry-connector.interface.json",
+      "sha256": "ae232cb147be6765a81f73a7ff7bc8ac241b505a5a5ba2f3750bc7ce73b5cc63"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/interfaces/runtime-compiler.interface.json",
+      "sha256": "79074164b140fe2e420f105fe5b5eba9cc12880591c8ebfdd210ad6d1d77a4c3"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/contracts/lifecycles/README.md",
       "sha256": "7eaec97d949b206ed23eb6eb2409e3b420cd8db76f0214f3996c051891a26052"
     },
@@ -1115,7 +1150,12 @@
     {
       "layer": "project_source",
       "path": "packages/contracts/openapi/README.md",
-      "sha256": "9fa49c90074c7fdb63e8222b92a3f150e8f39f2ff9de9977b156d5b6724a961f"
+      "sha256": "216df99b26c5cfa572567bad9de15fed1915545a68091a4e4b92935211ea0d2a"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/openapi/storyworld.openapi.json",
+      "sha256": "434ac5d7d1c7f536578006937ac25da9c6d41c4a564a614bbdf2ae84f94f339d"
     },
     {
       "layer": "project_source",
@@ -1189,6 +1229,11 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/contracts/sdk/generation.config.json",
+      "sha256": "70764887c19705a55b99475c3dca8b3414a6c21dd5a15ffa663c0ee2fcb5fd44"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/contracts/tests/README.md",
       "sha256": "76b07251a9d0e9d9d913f3baa8d59e8d6a6bb6462a718cc4da8fd5464fc5837b"
     },
@@ -1200,7 +1245,7 @@
     {
       "layer": "project_source",
       "path": "packages/contracts/tests/validate_contracts.py",
-      "sha256": "34221082276a21e13a5a9643859f83eb016c9f1fb135e7a610d91f52e4c6787b"
+      "sha256": "977838bbc3da9ccaf8ffc2e6baa10272167d96a14690d7cd278383c104eefea8"
     },
     {
       "layer": "project_dossier",
@@ -1448,12 +1493,12 @@
       "sha256": "789b814ca4ac5293bebd449b64ff606aa733539725a815b5e9a543ef8e6645ab"
     }
   ],
-  "generated_on": "2026-07-28T16:49:55.211391+00:00",
-  "generation_id": "6320053971cb149b3e0e8b701410ea36",
+  "generated_on": "2026-07-28T17:18:32.590846+00:00",
+  "generation_id": "937ece1adc696a783aedc9c77e89930d",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "120de609a87d7a1060bd7554e0edcd31e60c06664e42f5750518771184da4349",
+  "source_fingerprint": "8cb7ceb7f00b5b23a0e58c9af64e591c71829e88af85238b3c15994dc4e251a8",
   "source_scope": {
     "exclusions": [],
     "git_metadata": "excluded_from_source_fingerprint",
