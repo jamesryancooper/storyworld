@@ -74,6 +74,11 @@
     },
     {
       "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0006-accept-f0-charter-and-authority-pack.md",
+      "sha256": "cd9b530e4def92ae2e02cef13b48368b48aa49b692b5b8bace220df573059e23"
+    },
+    {
+      "layer": "agent_harness",
       "path": ".agent/decisions/README.md",
       "sha256": "321f2910e7e6256e00dad950baf69484dc8b777249d62e5f8f0aa84ac018e1c2"
     },
@@ -95,7 +100,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "38f9f1cc20aaa3653832acf4646705390a99822cf7bded3a1f64a204e9da2616"
+      "sha256": "6618ea8323969471a6433e6569e651bc5b23e55af69209de2a762742b03a35a5"
     },
     {
       "layer": "agent_harness",
@@ -265,7 +270,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "01e4d75b653c7532073cf32ceb600e52cd9b2b641c5ec7d168e23ba5035c13e1"
+      "sha256": "948878d71efe3af25ed17bc1df41baab2ebc4397a056595f14bfdf35e2cc921d"
     },
     {
       "layer": "agent_harness",
@@ -281,6 +286,11 @@
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0002-development-layer-and-remote.md",
       "sha256": "a601835ecc799b486c176990846530450681aad75abd34263ef10e64bfdd7bd4"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0003-f0-charter-and-authority-pack.md",
+      "sha256": "2a3d98b1d0ac3c4099136d36c56a13da50fdc5bad890ed57f4efd18a1c50376c"
     },
     {
       "layer": "agent_harness",
@@ -429,8 +439,118 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/contracts/adr/ADR-0001-independent-deployment-and-database.md",
+      "sha256": "bde52d436d732fe2176c71c9679748161bde3f6fa108ff1525d360ee88acde0b"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/adr/ADR-0002-studio-uses-public-contracts-only.md",
+      "sha256": "ac9e09d573b6a0c833ad0b2e8d86da3899d84c654caf4ecdcc7d2b6eca1fa3ab"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/adr/ADR-0003-modular-monolith-plus-workers.md",
+      "sha256": "c4886c799340e2180b6dd22de3c05b28e9ae5085c83c5ce0a98770eaa28f8606"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/adr/ADR-0004-postgresql-authoritative-projections-rebuildable.md",
+      "sha256": "26e8af4e79be4f7ba6751c466a96dded05b3f34dedfdb22fbe8b447b2c97b570"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/adr/ADR-0005-immutable-object-storage.md",
+      "sha256": "ed88e4554679d5860ab4ddb4748bb3a0777879e5b3daa6a0c3907fbd2e60963d"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/adr/ADR-0006-durable-workflow-orchestration.md",
+      "sha256": "4b80cfeb623e3f58f98f55ff5a7c70de9f9f98e856db35d83a4e54aef6335433"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/adr/ADR-0007-governed-agent-execution.md",
+      "sha256": "c47ad50c33b6050a31a04eef03f4d9a100dae9a09d0ef2e146d16e4a79d32078"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/adr/ADR-0008-models-propose-humans-authorize.md",
+      "sha256": "9aaffc87ad482fec6b560dc79364154e5cd89b654eb87fac0e705eb584547171"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/adr/ADR-0009-immutable-versions-explicit-supersession.md",
+      "sha256": "66ba3ef6b2c9951fc1c0aa89eb5b302d3ae385f1e75a8ddc3083892832b60be7"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/adr/ADR-0010-commerce-foundry-contract-integration.md",
+      "sha256": "f3f02c46f1671cc6cb874624896b7e469ad0fda602bb5e72f6df3c305ae000f3"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/adr/ADR-0011-commerce-foundry-final-commercial-authority.md",
+      "sha256": "c2487eefd587b57866ca47b3aa7f0928227c4b8be720457e8f8164e7cf63753f"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/adr/ADR-0012-runtime-content-boundary.md",
+      "sha256": "8dd28a04c7cfc3c0addb95fc3235e5c80ddb77170af23b1bc8666d0a376d8fd5"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/adr/ADR-0013-instagram-first-adapter-not-core.md",
+      "sha256": "f9f23f5322ec6880e195dda0fe2c16707ace4da42827fe30f14a08a0884749c8"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/adr/ADR-0014-portable-export-always-works.md",
+      "sha256": "8b46f5e41b3c2805b6cb37e532cb691787a339649cbf6686aa8ea6b9bf8166f0"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/adr/ADR-0015-provider-neutral-recipes-canonical.md",
+      "sha256": "e3a117167b3e6523fa65416a06de00affd761c546fb465e31dce0df26ef41909"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/adr/ADR-0016-evidence-gated-service-extraction.md",
+      "sha256": "d8ba6bcb9969c77c2f9b2b17fa5e5280172a3fb6db278866bb64b91f1efe5797"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/contracts/adr/README.md",
-      "sha256": "914c7c9e816ae409ee6d391adaaba474f30bb94b3c43b72420a39d1025a8424f"
+      "sha256": "00bdbc41e499bbdcc3cf70daace3112c9db7afa3bece130f186ace3ace96698a"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/charter/README.md",
+      "sha256": "24fc35e0c5490b634eb7c2a6a4374aea9b3a0b2c27ac7bdb57a0efdf28f40adf"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/charter/approval-taxonomy.json",
+      "sha256": "b6b50e2edd07c1b17afecdc4bbd79b06cf29a3c86ab760ef168e519bd01f63b1"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/charter/authority-matrix.json",
+      "sha256": "ab418395a3f4c7ff62c0746ec807af6daff3793340736777a8f647373cd39187"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/charter/fixtures-and-slices.json",
+      "sha256": "cff1968062a46628ef718217d41f1298fe6bc2b4c0809ad6ed37fc6459b54370"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/charter/property-classifications.json",
+      "sha256": "538c8991fdd62edf4cac6f7608f7d05a46f62271054bbe256c1594389cfd6ad1"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/charter/sensitivity-and-rights-classifications.json",
+      "sha256": "ca522246ae8a5c7ff83f2f86deef5d15efcb75cc6a4a020da14ad8b844ac5e08"
     },
     {
       "layer": "project_source",
@@ -645,7 +765,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/plan.json",
-      "sha256": "e98a559b39bfbb19710117ca9604205a46860a45cf34a0d4f0e87cfc889891ea"
+      "sha256": "2394e5a722790c287398b62c0de628dfb2fa6ff6408ff195731858821898cdfc"
     },
     {
       "layer": "project_dossier",
@@ -713,12 +833,12 @@
       "sha256": "789b814ca4ac5293bebd449b64ff606aa733539725a815b5e9a543ef8e6645ab"
     }
   ],
-  "generated_on": "2026-07-28T12:41:05.055860+00:00",
-  "generation_id": "74d9d3d44721643de2dd115ab318cec2",
+  "generated_on": "2026-07-28T13:11:31.188432+00:00",
+  "generation_id": "c77b1a7d45cb042846585d88f97404a6",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "2648425cce2f0963089b145e546239930a1c3ae8cd4e84484f4d45ed1003a219",
+  "source_fingerprint": "a301480c99f19c2309dc2a64bc2d30b048fe93761a2991477501a8c5a85ed5a0",
   "source_scope": {
     "exclusions": [],
     "git_metadata": "excluded_from_source_fingerprint",

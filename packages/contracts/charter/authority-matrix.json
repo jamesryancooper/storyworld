@@ -1,0 +1,156 @@
+{
+  "schema_version": "storyworld.charter.authority-matrix.v1",
+  "document_role": "derived_normative_charter_artifact",
+  "status": "proposed",
+  "acceptance": "DEC-0006 at GATE-0002; until accepted, the canonical pack governs on any conflict",
+  "derived_from": "project-dossier/canonical/storyworld/ (see per-item source_refs)",
+  "created_on": "2026-07-28",
+  "permission_grant": false,
+  "source_refs": [
+    "01_executive_context_and_product_direction.md#4.2"
+  ],
+  "authority_host_rule": {
+    "statement": "Every project and delivery declares an explicit authority_host. Authority is never inferred from who initiated a job.",
+    "cases": [
+      {
+        "case": "standalone_editorial_or_fictional_property",
+        "release_authority": "storyworld",
+        "condition": "project authority policy grants it"
+      },
+      {
+        "case": "commerce_foundry_originated_campaign",
+        "release_authority": "commerce_foundry",
+        "condition": "always; storyworld creative approval is evidence, not authorization"
+      },
+      {
+        "case": "bekindrewind_runtime_release",
+        "release_authority": "bekindrewind_runtime",
+        "condition": "runtime acceptance receipt required"
+      }
+    ]
+  },
+  "systems": [
+    {
+      "system": "storyworld_engine",
+      "authoritative_for": [
+        "narrative_canon",
+        "entities_and_relationships",
+        "chronology_and_state",
+        "arcs_scenes_and_narrative_units",
+        "interactive_narrative_source",
+        "continuity",
+        "creative_references",
+        "master_narrative_assets",
+        "creative_approvals",
+        "derivative_packages"
+      ],
+      "not_authoritative_for": [
+        "products_and_skus",
+        "approved_claims",
+        "offers",
+        "commercial_compliance",
+        "player_saves",
+        "unrestricted_channel_credentials"
+      ]
+    },
+    {
+      "system": "storyworld_studio",
+      "authoritative_for": [],
+      "not_authoritative_for": [
+        "independent_project_copies",
+        "independent_approval_state",
+        "independent_asset_copies"
+      ],
+      "note": "No independent authority; commands and renders Engine state through public contracts only."
+    },
+    {
+      "system": "commerce_foundry",
+      "authoritative_for": [
+        "products_and_skus",
+        "approved_claims",
+        "offers",
+        "campaign_budgets_and_commercial_rules",
+        "final_commercial_approval",
+        "commerce_publishing",
+        "conversion_and_revenue_attribution"
+      ],
+      "not_authoritative_for": [
+        "narrative_canon",
+        "character_and_world_continuity"
+      ]
+    },
+    {
+      "system": "bekindrewind_runtime",
+      "authoritative_for": [
+        "runtime_build",
+        "geometry_physics_navigation",
+        "npc_and_quest_execution",
+        "optimized_runtime_derivatives",
+        "player_state_and_saves",
+        "live_deployment"
+      ],
+      "not_authoritative_for": [
+        "source_canon",
+        "authoring_state"
+      ]
+    },
+    {
+      "system": "invokeai",
+      "authoritative_for": [
+        "temporary_advanced_editing_workspace"
+      ],
+      "not_authoritative_for": [
+        "master_assets",
+        "provenance_truth",
+        "approval_state"
+      ]
+    },
+    {
+      "system": "comfyui",
+      "authoritative_for": [
+        "execution_of_approved_versioned_workflows"
+      ],
+      "not_authoritative_for": [
+        "workflow_authority",
+        "canonical_assets",
+        "approvals",
+        "release_state"
+      ]
+    },
+    {
+      "system": "octon",
+      "authoritative_for": [
+        "agent_mission_execution",
+        "capability_leases",
+        "execution_receipts"
+      ],
+      "not_authoritative_for": [
+        "storyworld_business_records",
+        "commerce_foundry_business_records"
+      ]
+    },
+    {
+      "system": "harmony",
+      "authoritative_for": [
+        "governance_methodology",
+        "invariants_and_review_policy"
+      ],
+      "not_authoritative_for": [
+        "runtime_application_state"
+      ]
+    },
+    {
+      "system": "channel_connector",
+      "authoritative_for": [
+        "external_delivery_capability",
+        "channel_ids",
+        "delivery_and_metric_receipts"
+      ],
+      "not_authoritative_for": [
+        "canon",
+        "product_truth",
+        "publication_authorization"
+      ]
+    }
+  ]
+}

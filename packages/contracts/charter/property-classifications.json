@@ -1,0 +1,91 @@
+{
+  "schema_version": "storyworld.charter.property-classifications.v1",
+  "document_role": "derived_normative_charter_artifact",
+  "status": "proposed",
+  "acceptance": "DEC-0006 at GATE-0002; until accepted, the canonical pack governs on any conflict",
+  "derived_from": "project-dossier/canonical/storyworld/ (see per-item source_refs)",
+  "created_on": "2026-07-28",
+  "permission_grant": false,
+  "source_refs": [
+    "01_executive_context_and_product_direction.md#2.2",
+    "02_engine_studio_and_templates.md#7",
+    "08_appendices.md#appendix-d"
+  ],
+  "property_types": [
+    {
+      "id": "fictional",
+      "description": "Persistent fictional storyworld (serialized fiction, mystery, character IP)."
+    },
+    {
+      "id": "editorial",
+      "description": "Voice-led editorial property (illustrated essays, field manuals, reflective series)."
+    },
+    {
+      "id": "brand",
+      "description": "Brand storyworld or product-centered campaign context originated with Commerce Foundry."
+    },
+    {
+      "id": "interactive",
+      "description": "Authored world/mission/dialogue content compiled for a runtime target."
+    },
+    {
+      "id": "hybrid",
+      "description": "Combination of the above; mode behavior is additive, storage is shared."
+    }
+  ],
+  "studio_modes": [
+    {
+      "id": "story_mode",
+      "alters": [
+        "language",
+        "defaults",
+        "templates",
+        "visible_tools",
+        "validators"
+      ]
+    },
+    {
+      "id": "editorial_mode",
+      "alters": [
+        "language",
+        "defaults",
+        "templates",
+        "visible_tools",
+        "validators"
+      ]
+    },
+    {
+      "id": "commerce_mode",
+      "alters": [
+        "language",
+        "defaults",
+        "templates",
+        "visible_tools",
+        "validators"
+      ]
+    },
+    {
+      "id": "interactive_mode",
+      "alters": [
+        "language",
+        "defaults",
+        "templates",
+        "visible_tools",
+        "validators"
+      ]
+    }
+  ],
+  "mode_rule": "Modes never create separate products, schemas, or databases; genre needs live in templates, vocabularies, validators, and target adapters.",
+  "project_classification_dimensions": [
+    "tenant",
+    "workspace",
+    "property",
+    "project_classification",
+    "spoiler_scope",
+    "rights_scope",
+    "channel",
+    "geography",
+    "cost_ceiling",
+    "authority_host"
+  ]
+}

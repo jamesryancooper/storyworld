@@ -1,0 +1,63 @@
+{
+  "schema_version": "storyworld.charter.approval-taxonomy.v1",
+  "document_role": "derived_normative_charter_artifact",
+  "status": "proposed",
+  "acceptance": "DEC-0006 at GATE-0002; until accepted, the canonical pack governs on any conflict",
+  "derived_from": "project-dossier/canonical/storyworld/ (see per-item source_refs)",
+  "created_on": "2026-07-28",
+  "permission_grant": false,
+  "source_refs": [
+    "05_governance_operations_and_quality.md#15.6",
+    "01_executive_context_and_product_direction.md#3.1"
+  ],
+  "layers": [
+    {
+      "order": 1,
+      "id": "canon_approval",
+      "decides": "acceptance of canon facts, rules, and releases"
+    },
+    {
+      "order": 2,
+      "id": "creative_plan_approval",
+      "decides": "acceptance of briefs, arcs, and release structures"
+    },
+    {
+      "order": 3,
+      "id": "asset_creative_approval",
+      "decides": "creative acceptance of exact asset versions"
+    },
+    {
+      "order": 4,
+      "id": "continuity_disposition",
+      "decides": "resolution or waiver of continuity findings"
+    },
+    {
+      "order": 5,
+      "id": "rights_clearance",
+      "decides": "rights, consent, and disclosure sufficiency"
+    },
+    {
+      "order": 6,
+      "id": "channel_package_approval",
+      "decides": "target-format package readiness"
+    },
+    {
+      "order": 7,
+      "id": "commerce_approval",
+      "decides": "commercial acceptance where applicable (Commerce Foundry authority)"
+    },
+    {
+      "order": 8,
+      "id": "publication_or_runtime_acceptance",
+      "decides": "publication authorization or runtime release acceptance by the authority host"
+    }
+  ],
+  "binding_rules": [
+    "Every receipt binds to exact content hashes and versions.",
+    "A material change invalidates only the affected approval layers.",
+    "No layer's approval implies any other layer's approval; creative approval never implies commercial or publication approval.",
+    "Rejection never deletes evidence.",
+    "An agent, model, tool, workflow, or connector cannot grant any approval, including of its own output.",
+    "No state transition is inferred from side effects (downloads, provider completion, comments)."
+  ]
+}

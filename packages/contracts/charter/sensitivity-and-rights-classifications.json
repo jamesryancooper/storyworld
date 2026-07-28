@@ -1,0 +1,55 @@
+{
+  "schema_version": "storyworld.charter.sensitivity-classifications.v1",
+  "document_role": "derived_normative_charter_artifact",
+  "status": "proposed",
+  "acceptance": "DEC-0006 at GATE-0002; until accepted, the canonical pack governs on any conflict",
+  "derived_from": "project-dossier/canonical/storyworld/ (see per-item source_refs)",
+  "created_on": "2026-07-28",
+  "permission_grant": false,
+  "source_refs": [
+    "05_governance_operations_and_quality.md#15.1",
+    "05_governance_operations_and_quality.md#15.3",
+    "05_governance_operations_and_quality.md#15.4",
+    "07_backlog_validation_risks_and_recommendation.md#23"
+  ],
+  "resource_classifications": [
+    "public",
+    "internal",
+    "confidential",
+    "restricted",
+    "embargoed"
+  ],
+  "knowledge_visibility_scopes": [
+    "public",
+    "spoiler",
+    "team_private",
+    "restricted"
+  ],
+  "sensitive_source_rules": [
+    "Private source material is preserved separately from public canon and restricted by default.",
+    "Fictionalization or generalization of sensitive-source material requires explicit review.",
+    "Consent state and prohibited identifiers are recorded per source.",
+    "Sensitive source text is excluded from providers unless policy explicitly allows it.",
+    "Automatic reuse of sensitive-source material across properties is blocked."
+  ],
+  "rights_record_dimensions": [
+    "ownership_and_licensor",
+    "territory",
+    "channels",
+    "duration",
+    "purpose",
+    "editorial_vs_commercial_use",
+    "modification_and_derivative_permission",
+    "training_and_retention_terms",
+    "likeness_voice_music_font_photo_trademark_location_property_consent",
+    "attribution_and_synthetic_media_disclosure",
+    "expiry_revocation_replacement"
+  ],
+  "risk_severity_vocabulary": [
+    "critical",
+    "high",
+    "medium",
+    "low"
+  ],
+  "limitation": "Rights checks are evidence and workflow controls, not legal guarantees."
+}

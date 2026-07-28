@@ -1,0 +1,164 @@
+{
+  "schema_version": "storyworld.charter.fixtures-and-slices.v1",
+  "document_role": "derived_normative_charter_artifact",
+  "status": "proposed",
+  "acceptance": "DEC-0006 at GATE-0002; until accepted, the canonical pack governs on any conflict",
+  "derived_from": "project-dossier/canonical/storyworld/ (see per-item source_refs)",
+  "created_on": "2026-07-28",
+  "permission_grant": false,
+  "source_refs": [
+    "05_governance_operations_and_quality.md#17.1",
+    "06_mvp_dependency_roadmap_and_vertical_slices.md#20",
+    "06_mvp_dependency_roadmap_and_vertical_slices.md#19.9",
+    "07_backlog_validation_risks_and_recommendation.md#24",
+    "08_appendices.md#appendix-c"
+  ],
+  "golden_fixtures": [
+    {
+      "id": "FIX-STILLHOUSE",
+      "name": "Stillhouse Archive mini-season",
+      "tests": "reveal dependencies, symbol continuity, chronology, creator truth vs audience knowledge, spoiler safety",
+      "contract_fixture_phase": "F1"
+    },
+    {
+      "id": "FIX-EDITORIAL",
+      "name": "Editorial carousel",
+      "tests": "voice, recurring metaphor, privacy, dignity, source separation, carousel structure",
+      "contract_fixture_phase": "F1"
+    },
+    {
+      "id": "FIX-BKR",
+      "name": "BeKindRewind world slice",
+      "tests": "locations, era rules, NPCs, mission dependencies, collectibles, dialogue, runtime export",
+      "contract_fixture_phase": "F1"
+    },
+    {
+      "id": "FIX-COMMERCE",
+      "name": "Commerce Foundry campaign",
+      "tests": "pinned products and claims, placement fit, fidelity, exact-version review, commercial rejection/revision, metrics return",
+      "contract_fixture_phase": "F1"
+    },
+    {
+      "id": "FIX-FIELD-MANUAL",
+      "name": "Field Manual lesson",
+      "tests": "template reuse, motif consistency, structured lesson, cross-format derivative",
+      "contract_fixture_phase": "post-F1"
+    },
+    {
+      "id": "FIX-DFF-CARDS",
+      "name": "Dumpster Fire Friends cards",
+      "tests": "stable recurring character schemas, numbered visual layouts",
+      "contract_fixture_phase": "post-F1"
+    },
+    {
+      "id": "FIX-DOG-SHORT",
+      "name": "Recurring dog short",
+      "tests": "multi-shot identity, fixed environment, prop movement, object-state transitions",
+      "contract_fixture_phase": "post-F1"
+    }
+  ],
+  "fixture_rules": [
+    "Fixtures are rights-safe test material, never commercializable inventory.",
+    "Source content is owner-supplied (PLAN-0007) with ownership, sensitivity, and permitted use recorded."
+  ],
+  "vertical_slices": [
+    {
+      "id": "VS0",
+      "name": "Portable project round trip",
+      "depends": "F0-F3",
+      "proof": "create, accept, export, remove local copy, re-import; reproduce versions, hashes, lineage, rights, receipts"
+    },
+    {
+      "id": "VS1",
+      "name": "Serialized still-media property",
+      "depends": "B1, B2, B4",
+      "proof": "three episodes with recurring identity/style/object continuity and focused panel regeneration"
+    },
+    {
+      "id": "VS2",
+      "name": "Commerce campaign",
+      "depends": "B1-B4, C1",
+      "proof": "full brief-to-publication flow including rejection, focused revision, source drift, observations"
+    },
+    {
+      "id": "VS3",
+      "name": "BeKindRewind runtime slice",
+      "depends": "B1-B4, C2",
+      "proof": "locations, characters, objects, mission dependencies, runtime package, promotional derivatives"
+    },
+    {
+      "id": "VS4",
+      "name": "Cross-channel derivation",
+      "depends": "C2",
+      "proof": "carousel, Story/Reel plan, and web/email package from one accepted episode and one lineage tree"
+    },
+    {
+      "id": "VS5",
+      "name": "Governed learning loop",
+      "depends": "A1",
+      "proof": "scoped observations become a reviewable variation proposal without changing canon"
+    },
+    {
+      "id": "VS6",
+      "name": "Paying external team",
+      "depends": "O1, S1",
+      "proof": "a new team onboards, pays, produces, approves, exports, returns, and can export/delete its data"
+    }
+  ],
+  "stop_conditions": [
+    {
+      "checkpoint": "after_F3",
+      "stop_or_narrow_when": "genre-specific forks are required before media generation"
+    },
+    {
+      "checkpoint": "after_B1_B4",
+      "stop_or_narrow_when": "value is predominantly generic generation rather than continuity and workflow savings"
+    },
+    {
+      "checkpoint": "after_V1",
+      "stop_or_narrow_when": "the shared model becomes a lowest-common-denominator abstraction; split higher-level products and share only proven low-level packages"
+    },
+    {
+      "checkpoint": "after_C1_pilots",
+      "stop_or_narrow_when": "campaigns are not published, repeated, easier to approve, or commercially useful"
+    },
+    {
+      "checkpoint": "before_production_video",
+      "stop_or_narrow_when": "still workflows unreliable or written video quality/cost gates unmet"
+    },
+    {
+      "checkpoint": "before_direct_publishing",
+      "stop_or_narrow_when": "export-first remains sufficient; API risk unjustified"
+    },
+    {
+      "checkpoint": "before_standalone_saas",
+      "stop_or_narrow_when": "repeat paid non-commerce demand does not meet the S1 gates"
+    },
+    {
+      "checkpoint": "before_microservices",
+      "stop_or_narrow_when": "no measured scale, security, failure-isolation, or team-boundary evidence (see ADR-0016)"
+    }
+  ],
+  "validation_metric_families": [
+    {
+      "family": "production_usefulness",
+      "source_ref": "08_appendices.md#appendix-c"
+    },
+    {
+      "family": "product_value",
+      "source_ref": "08_appendices.md#appendix-c"
+    },
+    {
+      "family": "commercial_viability",
+      "source_ref": "08_appendices.md#appendix-c"
+    },
+    {
+      "family": "governance_and_reliability",
+      "source_ref": "08_appendices.md#appendix-c"
+    },
+    {
+      "family": "initial_production_gates",
+      "source_ref": "05_governance_operations_and_quality.md#17.3"
+    }
+  ]
+}
