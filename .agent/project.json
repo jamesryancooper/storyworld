@@ -30,6 +30,10 @@
       {
         "path": "packages/domain/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize inside the workspace package; reproducible from the fingerprinted lockfile. Added per the workspace convention: every new package adds its node_modules path here."
+      },
+      {
+        "path": "packages/persistence/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
       }
     ]
   },

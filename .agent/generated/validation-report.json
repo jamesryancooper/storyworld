@@ -37,13 +37,13 @@
   "external_effects": "repository_local_derived_metadata_refresh_only",
   "failures": [],
   "freshness_rule": "Invalid when any non-excluded repository source byte or path changes.",
-  "generated_at": "2026-07-28T19:24:49.811624+00:00",
-  "generation_id": "28378beb698e252c8015770b0bd04603",
+  "generated_at": "2026-07-28T19:28:51.181205+00:00",
+  "generation_id": "57243d39902810de14d254dac2670092",
   "git_scope": {
     "available": true,
-    "ignored": 1,
-    "tracked_modified": 2,
-    "untracked": 0
+    "ignored": 2,
+    "tracked_modified": 4,
+    "untracked": 1
   },
   "limitations": [
     "Structural pass does not prove implementation or project readiness.",
@@ -60,7 +60,7 @@
     "binary, non-UTF-8, encoded, and files larger than 4 MiB require a dedicated secret scanner",
     "project-specific build, test, security, legal, and operational checks"
   ],
-  "source_fingerprint": "12af57955554e7900ae89874730beaf93b1bc659ff71b7fcf308e3e24d9b3ef7",
+  "source_fingerprint": "9d2392dc6cdd2a958fd6f8dc13c36d986df4e54bcf0837d640a732447a12ba83",
   "source_scope": {
     "exclusions": [
       {
@@ -70,6 +70,10 @@
       {
         "path": "packages/domain/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize inside the workspace package; reproducible from the fingerprinted lockfile. Added per the workspace convention: every new package adds its node_modules path here."
+      },
+      {
+        "path": "packages/persistence/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
       }
     ],
     "git_metadata": "excluded_from_source_fingerprint",

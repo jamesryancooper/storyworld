@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-28T19:24:49.811624+00:00",
-  "generation_id": "28378beb698e252c8015770b0bd04603",
+  "generated_at": "2026-07-28T19:28:51.181205+00:00",
+  "generation_id": "57243d39902810de14d254dac2670092",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -276,6 +276,16 @@
     "packages/domain/src/index.ts",
     "packages/domain/tsconfig.json",
     "packages/domain/vitest.config.ts",
+    "packages/persistence/README.md",
+    "packages/persistence/migrations/0001_foundation.sql",
+    "packages/persistence/migrations/0002_custody.sql",
+    "packages/persistence/package.json",
+    "packages/persistence/src/client.ts",
+    "packages/persistence/src/index.ts",
+    "packages/persistence/src/migrate.ts",
+    "packages/persistence/src/persistence.test.ts",
+    "packages/persistence/tsconfig.json",
+    "packages/persistence/vitest.config.ts",
     "pnpm-lock.yaml",
     "pnpm-workspace.yaml",
     "project-dossier/AUTHORITY.md",
@@ -330,7 +340,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "12af57955554e7900ae89874730beaf93b1bc659ff71b7fcf308e3e24d9b3ef7",
+  "source_fingerprint": "9d2392dc6cdd2a958fd6f8dc13c36d986df4e54bcf0837d640a732447a12ba83",
   "source_scope": {
     "exclusions": [
       {
@@ -340,6 +350,10 @@
       {
         "path": "packages/domain/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize inside the workspace package; reproducible from the fingerprinted lockfile. Added per the workspace convention: every new package adds its node_modules path here."
+      },
+      {
+        "path": "packages/persistence/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
       }
     ],
     "git_metadata": "excluded_from_source_fingerprint",

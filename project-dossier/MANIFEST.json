@@ -210,7 +210,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/project.json",
-      "sha256": "88e33dc1c9cdca55e012ca6a0ff3442e30eb7f0d0540d73bfcfaf250740d8f58"
+      "sha256": "05780da8c40d87ad877ac9e4dd6029e4524c6caaa0524f46810fc5c40924a906"
     },
     {
       "layer": "agent_harness",
@@ -335,7 +335,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0005-f2-governed-foundation.md",
-      "sha256": "27959f4bfa538bba639ba24143507196b0fcc947d82bd19f3b9f5b5e92543a06"
+      "sha256": "7c5dab7dc50ba4a3fba9974989de71f61cf124ad8e06d6c10f41c9288372a357"
     },
     {
       "layer": "agent_harness",
@@ -450,7 +450,7 @@
     {
       "layer": "project_source",
       "path": ".github/workflows/validate.yml",
-      "sha256": "45ca8335d75006d1cc43675281757c773fb9f5b176563118cce51c41bec28884"
+      "sha256": "fe78e1347a3e5b4e79a69171345cc90a6c0e91311591b3995164e8bef8639945"
     },
     {
       "layer": "project_source",
@@ -1339,8 +1339,58 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/persistence/README.md",
+      "sha256": "1601e8f5cf9f42bf15f9f58a82d5774832c10e2e012c835d9eb5f647133e5df2"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/persistence/migrations/0001_foundation.sql",
+      "sha256": "023e87d3d0d853e63c2367e817addba07b79a64ce73c255f30d444c1b72ac656"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/persistence/migrations/0002_custody.sql",
+      "sha256": "167c44351e35508c41bb6202c54d83c85e6a52eefc38c2de726c0d67b06a37c5"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/persistence/package.json",
+      "sha256": "bd3b1a2623d01f69ad97c30918edc5b56349d2ba623ab2689e53a7ebda4b0178"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/persistence/src/client.ts",
+      "sha256": "6a5e7e65effd2da09bbf733ca8e694e03129bebc3031e7af354997b69c699149"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/persistence/src/index.ts",
+      "sha256": "3d6102f88f9e3fe96a13acc0b8ac4616a4dc188dd3553654adb30206e9742ece"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/persistence/src/migrate.ts",
+      "sha256": "3daa33ef28c60c7025c4e65ba09e0736bd8185292c2687ab8803a47ac057103a"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/persistence/src/persistence.test.ts",
+      "sha256": "38449ef9be16570bca04c95ca3e2c5f230a5aee9352d7a9c3c3bc89d7af34655"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/persistence/tsconfig.json",
+      "sha256": "60ec341167f566872eb13bb129a03488c35fa356e4025360e760c52c5e680290"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/persistence/vitest.config.ts",
+      "sha256": "85332d0d32523c24cae03a365fe9c14114a2ceef836a91cecbbc12169bcddab6"
+    },
+    {
+      "layer": "project_source",
       "path": "pnpm-lock.yaml",
-      "sha256": "5e25e38dc20aaafc755ef6a24e94b2b4322e642f52aecf96e8b59a913111ee2e"
+      "sha256": "ffea39315dca1a4fcc69950109a5b26c5fc3fa47e00262039f115b413f1edc2e"
     },
     {
       "layer": "project_source",
@@ -1598,12 +1648,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-28T19:24:49.811624+00:00",
-  "generation_id": "28378beb698e252c8015770b0bd04603",
+  "generated_on": "2026-07-28T19:28:51.181205+00:00",
+  "generation_id": "57243d39902810de14d254dac2670092",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "12af57955554e7900ae89874730beaf93b1bc659ff71b7fcf308e3e24d9b3ef7",
+  "source_fingerprint": "9d2392dc6cdd2a958fd6f8dc13c36d986df4e54bcf0837d640a732447a12ba83",
   "source_scope": {
     "exclusions": [
       {
@@ -1613,6 +1663,10 @@
       {
         "path": "packages/domain/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize inside the workspace package; reproducible from the fingerprinted lockfile. Added per the workspace convention: every new package adds its node_modules path here."
+      },
+      {
+        "path": "packages/persistence/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
       }
     ],
     "git_metadata": "excluded_from_source_fingerprint",
