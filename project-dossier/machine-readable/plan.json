@@ -88,7 +88,7 @@
       ],
       "id": "PLAN-0003",
       "limitations": [
-        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001) during the 2026-07-28 adoption session; project-ratified 2026-07-28 (PLAN-0001)."
+        "All F1 artifacts complete (EVD-0007); item remains in_progress solely pending the GATE-0003 owner evaluation (DEC-0007 + DEC-0008)."
       ],
       "objective": "Produce versioned schemas, lifecycle state machines, the OpenAPI application contract, event and package catalogs, adapter interfaces, and contract fixtures for the four representative properties (canonical/storyworld/06 section 19.2; 08 Appendix B).",
       "owner_role": "project_owner",
@@ -245,21 +245,23 @@
       "evidence_expected": [
         "Probe directories with valid/invalid cases and expected findings; contract-validator runs in CI."
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "EVD-0007"
+      ],
       "finding_refs": [],
       "gate_refs": [
         "GATE-0003"
       ],
       "id": "PLAN-0008",
       "limitations": [
-        "Uses owner-authored source material from the fixture packet (SRC-0003); contributes evidence to GATE-0003."
+        "Completed 2026-07-28: all eight probes implemented with valid/invalid cases, PROBE.md core-vs-template statements, checksums, and CI-enforced registry coverage; contributes evidence to GATE-0003 (DEC-0008)."
       ],
       "objective": "Formalize and execute compact schema probes for branching, contested truth, nonlinear chronology, adaptation, shared canon, deep hierarchy, evidence correction, and rights change against the F1 contracts, proving that the generic domain model can represent materially different narrative architectures without commerce, runtime, or genre-specific contamination.",
       "owner_role": "project_owner",
       "requirement_refs": [
         "REQ-0010"
       ],
-      "status": "in_progress",
+      "status": "completed",
       "title": "Validate F1 narrative architecture compatibility"
     },
     {

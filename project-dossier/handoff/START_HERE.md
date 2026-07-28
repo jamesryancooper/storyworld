@@ -3,30 +3,28 @@
 > Navigation only. Reinspect the repository and current instructions before
 > resuming work.
 
-## Current position (2026-07-28)
+## Current position (2026-07-28, F1 boundary)
 
-- Exact revision: `main` pushed to origin
-  (github.com/jamesryancooper/storyworld); F0 pack at commit `895e2f5`
-  plus closing bookkeeping. CI green on every push so far.
-- **The F0 charter and authority pack is drafted and awaiting the owner's
-  GATE-0002 decision** (OQ-0002): ADR-0001–ADR-0016 in
-  `packages/contracts/adr/` and five charter artifacts in
-  `packages/contracts/charter/`, acceptance vehicle `DEC-0006`
-  (`.agent/decisions/`), which maps every gate criterion to its artifacts.
-- Also pending: `DEC-0005` (contract toolchain).
-- Active task: none. TASK-0001–TASK-0003 completed. PLAN-0002 remains
-  `in_progress` until GATE-0002 is decided; F1 (PLAN-0003) is gated on
-  DEC-0006 and DEC-0005; PLAN-0007 (fixture source content) is
-  owner-supplied and can proceed anytime.
-- Fresh evidence: EVD-0001–EVD-0005.
+- Exact revision: `main` at `2a337bb` plus closing bookkeeping, pushed;
+  CI green on every substantive commit (latest run 30382310094).
+- **The complete F1 contract pack is built, validated, and at its owner
+  boundary**: 13 schema documents, 4 lifecycle machines, OpenAPI 3.1
+  contract, 24-event catalog, 3 adapter interfaces, 4 production fixtures
+  normalized from the owner's packet, 8 architecture probes, active MET-F1
+  metamorphic suite, and the fixture registry — all CI-enforced.
+- Pending owner decisions: **DEC-0007** (fixture charter v2 + domain-model
+  additions) and **DEC-0008** (F1 pack acceptance = GATE-0003 evaluation).
+  Accept in that order or together.
+- Active task: none. TASK-0001–TASK-0004 completed. PLAN-0003 completes on
+  GATE-0003; PLAN-0009/0010 registered and phased.
+- Fresh evidence: EVD-0005–EVD-0007.
 
 ## Next safe action
 
-Owner: review `packages/contracts/adr/README.md` (the set overview), spot-
-check ADRs of interest — ADR-0006 and ADR-0007 deviate deliberately from
-Appendix A's literal text — then accept, revise, or reject `DEC-0006` and
-decide `DEC-0005`. On acceptance: ADR statuses flip, GATE-0002 records
-passed, PLAN-0002 completes, and F1 schema authoring begins.
+Owner: decide `DEC-0007` then `DEC-0008` (.agent/decisions/ — DEC-0008
+carries the GATE-0003 criterion mapping). On acceptance, F2 opens; the next
+owner touchpoints after that are the ASM-0001 stack confirmation (F2 entry)
+and the B1 media-provider posture (credentials/budget or local ComfyUI).
 
 ## Resume in this order
 

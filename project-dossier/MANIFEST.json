@@ -110,7 +110,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "32f62a3daedff0f0b75b22c19901cff6937ac89813775633c45bbd121f1690b5"
+      "sha256": "391f304feef494fe7c18b48cb902c5a3e689399b4528d7051da346438a27b98f"
     },
     {
       "layer": "agent_harness",
@@ -141,6 +141,11 @@
       "layer": "agent_harness",
       "path": ".agent/evidence/EVD-0006-gate-0002-acceptance-observation.md",
       "sha256": "c46876ae1dfd2f462dd703009e55273da522074d594c2819a9344a2ddb299d6b"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0007-f1-boundary-validation.md",
+      "sha256": "29dfb86ff30555acad7d9c6bd241b2db5b95d806532e4b664239e4b9fa0a3bc1"
     },
     {
       "layer": "agent_harness",
@@ -285,12 +290,12 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/RESUME.md",
-      "sha256": "9608dfebc0a8e9b9685ba381b5c6b1587ef8d8ddc0a015300265a2d47c95ee25"
+      "sha256": "c200c36c6000186e5c58a9bb799b87dde8a1353c3134cd59d1cba6ad9a7a8ffc"
     },
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "8611d2a292d3ae4b4953727138fad22b3dcb6067a65ddc7e8055e943c26a27d6"
+      "sha256": "b10edb125cc16a42f8a0e42bc5ac27812a4a14836b55055df7b6845ee75a8de9"
     },
     {
       "layer": "agent_harness",
@@ -315,7 +320,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0004-f1-contract-pack.md",
-      "sha256": "26627ee372761efe5c708b3fc5bde9cab48682aa496137ad1acee6dcc121987a"
+      "sha256": "7d865ebfe8f4a0a048d3c68616e7f0eb6e1b77d82b113e322bca8b4c9e25e5bf"
     },
     {
       "layer": "agent_harness",
@@ -1390,7 +1395,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/handoff/START_HERE.md",
-      "sha256": "2ed8df6f79461353f73fb1ae8bf8e46dabe3470a4a8559f87b4ca69b8ae45480"
+      "sha256": "ab92ab388eec2fc7b4c0481064114c01af0b75230d339d2669a434975de6d784"
     },
     {
       "layer": "project_dossier",
@@ -1425,7 +1430,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/plan.json",
-      "sha256": "1df41d5c2ff715f856c2587bcbdb4f5e8a46d944c2e0b2e924835f45e53cb67f"
+      "sha256": "1f29d3adef626ddc1b0f3e78033378b9f5a2f3e2de653942502a3501ab5f7f51"
     },
     {
       "layer": "project_dossier",
@@ -1493,12 +1498,12 @@
       "sha256": "789b814ca4ac5293bebd449b64ff606aa733539725a815b5e9a543ef8e6645ab"
     }
   ],
-  "generated_on": "2026-07-28T17:18:32.590846+00:00",
-  "generation_id": "937ece1adc696a783aedc9c77e89930d",
+  "generated_on": "2026-07-28T17:20:16.481282+00:00",
+  "generation_id": "cc423df43fc00df6d69ef592e35ae8ef",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "8cb7ceb7f00b5b23a0e58c9af64e591c71829e88af85238b3c15994dc4e251a8",
+  "source_fingerprint": "7b103796969e641034e353e5fa910730cecb9f7693ad10cd835021acaccbf698",
   "source_scope": {
     "exclusions": [],
     "git_metadata": "excluded_from_source_fingerprint",

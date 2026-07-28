@@ -7,11 +7,10 @@
 - Remote: `origin` = github.com/jamesryancooper/storyworld; CI
   (`validate` workflow) runs the check + test suite on every push — first
   run green (EVD-0004)
-- Active task: none. TASK-0001–TASK-0003 completed 2026-07-28
-- **Decision point (OQ-0002): the drafted F0 pack awaits GATE-0002 —
-  review and decide DEC-0006 (ADR set + charter artifacts) and DEC-0005
-  (contract toolchain). F1 is gated on both.** PLAN-0007 fixture source
-  content is owner-supplied and independent
+- Active task: none. TASK-0001–TASK-0004 completed 2026-07-28
+- **Decision point: F1 is complete and awaits GATE-0003 — decide DEC-0007
+  (charter v2 + domain additions) and DEC-0008 (F1 acceptance).** After
+  that: ASM-0001 stack confirmation at F2 entry; B1 provider posture
 - Working mode for contract work: `storyworld-steward` capability
   (`.agents/agents/`) plus context pack
   `project-dossier/context-packs/f0-f1-contract-pack.md`
