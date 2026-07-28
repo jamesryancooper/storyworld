@@ -4,9 +4,7 @@
   "updated_at": "2026-07-28",
   "authority": "project_maintained_compact_operational_index_not_permission",
   "adoption_status": "adopted",
-  "active_tasks": [
-    "TASK-0006"
-  ],
+  "active_tasks": [],
   "accepted_decisions": [
     "DEC-0001",
     "DEC-0002",
@@ -20,14 +18,14 @@
     "DEC-0010"
   ],
   "fresh_evidence": [
-    "EVD-0008",
-    "EVD-0009"
+    "EVD-0010",
+    "EVD-0011"
   ],
   "blocked_by": [],
-  "next_action": "F3_tranche_1: CI_restore_drill_rider + canon_foundation_tables",
+  "next_action": "owner_decides_DEC-0011_GATE-0005; on_acceptance_B_phases_open_and_B1_provider_decision_formalizes_ASM-0002",
   "external_effects_authority_refs": [],
   "limitations": [
-    "structural_and_behavioral_proofs_only_no_readiness_claim",
-    "F3_in_progress"
+    "behavioral_proofs_only_no_readiness_claim",
+    "DEC-0011_proposed_owner_decision_pending"
   ]
 }

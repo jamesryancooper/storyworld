@@ -30,6 +30,53 @@ importers:
         specifier: ^2.0.0
         version: 2.1.9(@types/node@26.1.2)
 
+  apps/cli:
+    dependencies:
+      '@storyworld/domain':
+        specifier: workspace:*
+        version: link:../../packages/domain
+      '@storyworld/kernel':
+        specifier: workspace:*
+        version: link:../../packages/kernel
+      '@storyworld/persistence':
+        specifier: workspace:*
+        version: link:../../packages/persistence
+      '@storyworld/portability':
+        specifier: workspace:*
+        version: link:../../packages/portability
+      '@storyworld/storage':
+        specifier: workspace:*
+        version: link:../../packages/storage
+    devDependencies:
+      '@types/pg':
+        specifier: ^8.11.0
+        version: 8.20.0
+
+  apps/engine-api:
+    dependencies:
+      '@storyworld/domain':
+        specifier: workspace:*
+        version: link:../../packages/domain
+      '@storyworld/kernel':
+        specifier: workspace:*
+        version: link:../../packages/kernel
+      '@storyworld/persistence':
+        specifier: workspace:*
+        version: link:../../packages/persistence
+      '@storyworld/portability':
+        specifier: workspace:*
+        version: link:../../packages/portability
+      '@storyworld/storage':
+        specifier: workspace:*
+        version: link:../../packages/storage
+    devDependencies:
+      '@storyworld/cli':
+        specifier: workspace:*
+        version: link:../cli
+      '@types/pg':
+        specifier: ^8.11.0
+        version: 8.20.0
+
   packages/domain: {}
 
   packages/kernel:

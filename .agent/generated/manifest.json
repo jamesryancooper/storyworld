@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-28T22:33:31.574908+00:00",
-  "generation_id": "49c79b8ab7c08869fd9304a902766855",
+  "generated_at": "2026-07-28T22:41:16.477940+00:00",
+  "generation_id": "61b2824d4284140ab85f08be99e8064e",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -28,6 +28,7 @@
     ".agent/decisions/DEC-0008-accept-f1-pack-and-gate-0003.md",
     ".agent/decisions/DEC-0009-f2-stack-confirmation.md",
     ".agent/decisions/DEC-0010-accept-f2-and-gate-0004.md",
+    ".agent/decisions/DEC-0011-accept-f3-and-gate-0005.md",
     ".agent/decisions/README.md",
     ".agent/evaluations/README.md",
     ".agent/evaluations/registry.json",
@@ -43,6 +44,7 @@
     ".agent/evidence/EVD-0008-gate-0003-acceptance-observation.md",
     ".agent/evidence/EVD-0009-f2-custody-vs0-and-restore-drill.md",
     ".agent/evidence/EVD-0010-gate-0004-acceptance-observation.md",
+    ".agent/evidence/EVD-0011-f3-boundary-gate-demonstration.md",
     ".agent/evidence/README.md",
     ".agent/extensions/README.md",
     ".agent/extensions/registry.json",
@@ -111,6 +113,18 @@
     "AGENTS.md",
     "CLAUDE.md",
     "README.md",
+    "apps/cli/package.json",
+    "apps/cli/src/cli.test.ts",
+    "apps/cli/src/index.ts",
+    "apps/cli/tsconfig.json",
+    "apps/cli/vitest.config.ts",
+    "apps/engine-api/package.json",
+    "apps/engine-api/src/gate-0005.test.ts",
+    "apps/engine-api/src/index.ts",
+    "apps/engine-api/src/server.ts",
+    "apps/engine-api/src/telemetry.ts",
+    "apps/engine-api/tsconfig.json",
+    "apps/engine-api/vitest.config.ts",
     "eslint.config.js",
     "infra/README.md",
     "infra/compose.yaml",
@@ -284,7 +298,9 @@
     "packages/domain/vitest.config.ts",
     "packages/kernel/package.json",
     "packages/kernel/src/actors.ts",
+    "packages/kernel/src/assets.ts",
     "packages/kernel/src/commands.ts",
+    "packages/kernel/src/export.ts",
     "packages/kernel/src/index.ts",
     "packages/kernel/src/kernel.test.ts",
     "packages/kernel/src/releases.ts",
@@ -375,7 +391,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "7d2ba369d6ae63aa9b1292253541698d55c1fc4e7726c1674d3e580ff5f4db65",
+  "source_fingerprint": "a50a7814c02bad2ebc9c72b5fe2c11a66213c45acf007edbc8806aa724e93fee",
   "source_scope": {
     "exclusions": [
       {
@@ -400,6 +416,14 @@
       },
       {
         "path": "packages/kernel/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "apps/engine-api/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "apps/cli/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
       }
     ],

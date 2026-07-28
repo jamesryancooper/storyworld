@@ -99,6 +99,11 @@
     },
     {
       "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0011-accept-f3-and-gate-0005.md",
+      "sha256": "0151962ed5265269095e91c322e865f8434a80fef4ed0d89faa90d6c6655f585"
+    },
+    {
+      "layer": "agent_harness",
       "path": ".agent/decisions/README.md",
       "sha256": "321f2910e7e6256e00dad950baf69484dc8b777249d62e5f8f0aa84ac018e1c2"
     },
@@ -120,7 +125,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "4012802b29cc22d4d6fbc8f2a8186f827dba8a4494f6689bfc67885d3e108373"
+      "sha256": "92f9712f9396e9c241597ed8317bdd6619688f4da3b06ac4cd2b84c5f1f6a4ed"
     },
     {
       "layer": "agent_harness",
@@ -171,6 +176,11 @@
       "layer": "agent_harness",
       "path": ".agent/evidence/EVD-0010-gate-0004-acceptance-observation.md",
       "sha256": "afdd4560fd7a8f0bc3c5887449fd9a2862b3182f35a2533003d23daf9a061928"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0011-f3-boundary-gate-demonstration.md",
+      "sha256": "4e42ece4afbdff49ea1fa07dd140d4b2b4606561d12861020aa75b6270cbfa1d"
     },
     {
       "layer": "agent_harness",
@@ -225,7 +235,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/project.json",
-      "sha256": "a0c1ac91398cb207aed7a9ae5bac078e0cf2ca57edcf4c1883d7b60e2c073332"
+      "sha256": "453c31d333127a8612461f033f4e2d248d077cafe90bad658125fe41b9094701"
     },
     {
       "layer": "agent_harness",
@@ -320,7 +330,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "8686c9f4704d31568bedd16a9657c55249ec6bf03bf693c041381080c7fbf109"
+      "sha256": "8cfcb40e61e97e436323fa99e2e5984f08071ec72242073f199a844efefbb0dc"
     },
     {
       "layer": "agent_harness",
@@ -355,7 +365,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0006-f3-headless-narrative-kernel.md",
-      "sha256": "28f82835fe5f88e2f241bdc9b344da32bb34c1ea30568490da49dcdb5419fde1"
+      "sha256": "d9cde2454cdf7207d05b7eb781c6606a3756b016a0c64b970e324f9cf8443627"
     },
     {
       "layer": "agent_harness",
@@ -511,6 +521,66 @@
       "layer": "project_source",
       "path": "README.md",
       "sha256": "eff79b09147712d08cb596262501f81b1358ccf50dfd4ee7f440d5e2eea40fb5"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/cli/package.json",
+      "sha256": "37e50a67548a2b5ce0c298832c85926dedea610167eaab70340ffd75e77e0276"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/cli/src/cli.test.ts",
+      "sha256": "d93d3e27bdd2db2ec458e42d512044428855600bb253083a0cda59cee4b640f4"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/cli/src/index.ts",
+      "sha256": "e37cdc26963ac49958471f583bf1c216ce35084e5e334ddba66f419fc31e3244"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/cli/tsconfig.json",
+      "sha256": "60ec341167f566872eb13bb129a03488c35fa356e4025360e760c52c5e680290"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/cli/vitest.config.ts",
+      "sha256": "a721b7f049c7e2801723827adf4a6b723be7cf02783baef52ced31126a7334d5"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/engine-api/package.json",
+      "sha256": "4096fca0ac0cc5ddc8a11f6c2ac4ce146fe29d3e6803da4edf563994217909da"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/engine-api/src/gate-0005.test.ts",
+      "sha256": "1b3d3299745fcea96b50df6e32a439dd03954d77204ffe8642f19de64c8941a3"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/engine-api/src/index.ts",
+      "sha256": "cf5a1e052a0cb633a20afbadb8f34a57ff18e8fa4373c13941641ede06fb1f96"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/engine-api/src/server.ts",
+      "sha256": "9544d93d894df956397cdb6661387764b48a479f7d146448b31a89aa4d118daa"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/engine-api/src/telemetry.ts",
+      "sha256": "833cb32287fb2a242f4ddfe0fdb6b3195e31a3f454e31963b29ace184fa89514"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/engine-api/tsconfig.json",
+      "sha256": "60ec341167f566872eb13bb129a03488c35fa356e4025360e760c52c5e680290"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/engine-api/vitest.config.ts",
+      "sha256": "47622e81174575d63d877f441e7716147a3a03ba45f89d2d995558add079e456"
     },
     {
       "layer": "project_source",
@@ -1379,13 +1449,23 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/kernel/src/assets.ts",
+      "sha256": "5b408f9c5761e505dcb72acd9205fdb68d078ec50ebada6fbc0e8ad34bdf3662"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/kernel/src/commands.ts",
       "sha256": "d41dcee7248f66b4d89d154aa0d6850ad80659521796c901642ad46b6bf6e470"
     },
     {
       "layer": "project_source",
+      "path": "packages/kernel/src/export.ts",
+      "sha256": "2548174e8b2fdf95f62a0356ca50a22f029dfa231ef1d8280593fc0888f46919"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/kernel/src/index.ts",
-      "sha256": "801b8086abc74006e0e7cdd48d1210a9618559dd82dc0998cc46ea5e299874f8"
+      "sha256": "ecb5760b36403f3121d0d6020815038bde6adc3757539338dc76c38315984728"
     },
     {
       "layer": "project_source",
@@ -1565,7 +1645,7 @@
     {
       "layer": "project_source",
       "path": "pnpm-lock.yaml",
-      "sha256": "5c25eff7ff0f96e1b0af137f86b02f38245513b90d75cc8c71e992a914ec4734"
+      "sha256": "47c7382cff39804612a208cd793d79a68bbe6158b5972f9723cd80fa9fb41d70"
     },
     {
       "layer": "project_source",
@@ -1823,12 +1903,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-28T22:33:31.574908+00:00",
-  "generation_id": "49c79b8ab7c08869fd9304a902766855",
+  "generated_on": "2026-07-28T22:41:16.477940+00:00",
+  "generation_id": "61b2824d4284140ab85f08be99e8064e",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "7d2ba369d6ae63aa9b1292253541698d55c1fc4e7726c1674d3e580ff5f4db65",
+  "source_fingerprint": "a50a7814c02bad2ebc9c72b5fe2c11a66213c45acf007edbc8806aa724e93fee",
   "source_scope": {
     "exclusions": [
       {
@@ -1853,6 +1933,14 @@
       },
       {
         "path": "packages/kernel/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "apps/engine-api/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "apps/cli/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
       }
     ],
