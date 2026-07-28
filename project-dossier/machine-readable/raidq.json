@@ -162,6 +162,24 @@
       "status": "resolved",
       "title": "Owner ratification of the 2026-07-28 adoption (resolved)",
       "type": "open_question"
+    },
+    {
+      "blocking": true,
+      "description": "The drafted F0 charter and authority pack (ADR-0001..0016 plus five charter artifacts) awaits the owner's GATE-0002 evaluation via DEC-0006. DEC-0005 (contract toolchain) is also pending. F1 (PLAN-0003) is gated on both.",
+      "id": "OQ-0002",
+      "impact": "high",
+      "limitations": [
+        "Created under TASK-0003 at the deliberate stopping point of the 2026-07-28 build session."
+      ],
+      "owner_role": "project_owner",
+      "resolution_condition": "DEC-0006 accepted/revised/rejected by the owner; on acceptance GATE-0002 recorded passed and PLAN-0002 completed. DEC-0005 decided.",
+      "review_on": "2026-08-11",
+      "source_refs": [
+        "SRC-0001"
+      ],
+      "status": "open",
+      "title": "GATE-0002 review: accept, revise, or reject the F0 pack (DEC-0006); DEC-0005 also pending",
+      "type": "open_question"
     }
   ],
   "permission_grant": false,

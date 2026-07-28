@@ -2,8 +2,8 @@
 {
   "schema_version": "harness.task.v1",
   "id": "TASK-0003",
-  "status": "validating",
-  "previous_status": "in_progress",
+  "status": "completed",
+  "previous_status": "review",
   "title": "Draft the F0 charter and authority pack (PLAN-0002) for GATE-0002 review",
   "authority_basis": "external:operator-instruction-2026-07-28 (project owner Ryan Cooper) — \"get started building out and continue without stopping until you get to a point that requires a decision be made.\" PLAN-0002 is the agreed next step; drafting authority only, acceptance stays with the owner.",
   "owner": "claude-agent (session 2026-07-28, storyworld-steward working mode)",
@@ -23,12 +23,12 @@
     "python -B -m unittest discover -s .agent/tests -p \"test_*.py\"",
     "git push; observe CI run"
   ],
-  "implementation_result": "F0 pack drafted: sixteen proposed ADRs (packages/contracts/adr/, seeded from Appendix A; ADR-0006 and ADR-0007 framed as category/interface commitments with selection checkpoints per the in-session tooling review) and five charter artifacts (packages/contracts/charter/: authority matrix, property classifications, sensitivity/rights classifications, approval taxonomy, fixtures-and-slices with VS0-VS6 and stop conditions), all derived-normative with canonical source references. DEC-0006 proposed with GATE-0002 criterion mapping. Push and CI observation pending.",
-  "review_evidence": [],
+  "implementation_result": "F0 pack drafted: sixteen proposed ADRs (packages/contracts/adr/, seeded from Appendix A; ADR-0006 and ADR-0007 framed as category/interface commitments with selection checkpoints per the in-session tooling review) and five charter artifacts (packages/contracts/charter/: authority matrix, property classifications, sensitivity/rights classifications, approval taxonomy, fixtures-and-slices with VS0-VS6 and stop conditions), all derived-normative with canonical source references. DEC-0006 proposed with GATE-0002 criterion mapping. Pushed as commit 895e2f5; CI success observed (EVD-0005).",
+  "review_evidence": ["EVD-0005"],
   "blocked_by": [],
   "reopened_by": null,
-  "acceptance_criteria_met": false,
-  "closure_evidence": [],
+  "acceptance_criteria_met": true,
+  "closure_evidence": ["EVD-0005"],
   "external_effects": "external_reversible",
   "limitations": [
     "External effect detail: push to the owner-provided GitHub remote, standing-authorized for this repository's development work by the operator instruction of 2026-07-28."
@@ -43,10 +43,10 @@ GATE-0002 evaluation and DEC-0006 acceptance are the owner's decisions.
 
 ## Acceptance criteria
 
-- [ ] Sixteen proposed ADRs with full content
-- [ ] Charter artifacts (strict JSON, derived-normative, source-referenced)
-- [ ] DEC-0006 proposed with GATE-0002 criterion mapping
-- [ ] Validation green; pushed; CI green
+- [x] Sixteen proposed ADRs with full content
+- [x] Charter artifacts (strict JSON, derived-normative, source-referenced)
+- [x] DEC-0006 proposed with GATE-0002 criterion mapping
+- [x] Validation green; pushed (895e2f5); CI green (EVD-0005)
 
 ## Risks and gates
 
@@ -57,4 +57,10 @@ GATE-0002 evaluation and DEC-0006 acceptance are the owner's decisions.
 
 ## Evidence and closure
 
-- Filled at closure.
+- Evidence: EVD-0005 (local cycle + CI on 895e2f5).
+- External effects: one authorized reversible push.
+- Residual limitations: F0 substance unreviewed; GATE-0002 evaluation and
+  DEC-0006 (plus DEC-0005) are the owner's decisions.
+- Next action: owner reviews the F0 pack and decides DEC-0006 (and
+  DEC-0005); on acceptance ADR statuses flip, GATE-0002 records passed,
+  PLAN-0002 completes, and F1 (PLAN-0003) unblocks.
