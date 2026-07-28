@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-28T12:38:57.351676+00:00",
-  "generation_id": "fe17fb809d738e15a0bc845a14b7fee4",
+  "generated_at": "2026-07-28T12:41:05.055860+00:00",
+  "generation_id": "74d9d3d44721643de2dd115ab318cec2",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -31,6 +31,7 @@
     ".agent/evidence/EVD-0001-adoption-structural-check.md",
     ".agent/evidence/EVD-0002-harness-test-suite.md",
     ".agent/evidence/EVD-0003-repository-inspection.md",
+    ".agent/evidence/EVD-0004-remote-push-and-first-ci-run.md",
     ".agent/evidence/README.md",
     ".agent/extensions/README.md",
     ".agent/extensions/registry.json",
@@ -152,7 +153,7 @@
     "project-dossier/validation/README.md"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "c82c699c66ee0007cccc4c00dabf32e2b18299d4e32a16c9d365e54c3c966c68",
+  "source_fingerprint": "2648425cce2f0963089b145e546239930a1c3ae8cd4e84484f4d45ed1003a219",
   "source_scope": {
     "exclusions": [],
     "git_metadata": "excluded_from_source_fingerprint",

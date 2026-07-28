@@ -4,9 +4,7 @@
   "updated_at": "2026-07-28",
   "authority": "project_maintained_compact_operational_index_not_permission",
   "adoption_status": "adopted",
-  "active_tasks": [
-    "TASK-0002"
-  ],
+  "active_tasks": [],
   "accepted_decisions": [
     "DEC-0001",
     "DEC-0002",
@@ -16,13 +14,14 @@
   "fresh_evidence": [
     "EVD-0001",
     "EVD-0002",
-    "EVD-0003"
+    "EVD-0003",
+    "EVD-0004"
   ],
   "blocked_by": [],
-  "next_action": "push_main_to_owner_provided_remote_then_observe_first_CI_run",
+  "next_action": "owner_accepts_DEC-0005_then_start_PLAN-0002_F0_charter_pack_and_PLAN-0007_fixture_content",
   "external_effects_authority_refs": [],
   "limitations": [
     "structural_validation_only_no_readiness_claim",
-    "repository_has_no_git_commits"
+    "DEC-0005_toolchain_decision_remains_proposed"
   ]
 }

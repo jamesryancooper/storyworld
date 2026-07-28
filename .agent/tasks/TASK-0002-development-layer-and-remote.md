@@ -2,8 +2,8 @@
 {
   "schema_version": "harness.task.v1",
   "id": "TASK-0002",
-  "status": "validating",
-  "previous_status": "in_progress",
+  "status": "completed",
+  "previous_status": "review",
   "title": "Add the development layer: baseline commit, remote + CI, contracts workspace, F0/F1 context pack",
   "authority_basis": "external:operator-instruction-2026-07-28 (project owner Ryan Cooper) — \"Yes, proceed. Complete the items that you can complete.\" following the four-gap assessment; the owner supplied the remote https://github.com/jamesryancooper/storyworld.git, authorizing the push.",
   "owner": "claude-agent (session 2026-07-28)",
@@ -25,11 +25,11 @@
     "git push and, where tooling allows, observe the first CI run"
   ],
   "implementation_result": "Baseline commit 99d95e8 created; remote origin added (owner-provided URL; empty at ls-remote). CI workflow .github/workflows/validate.yml (check + tests, Python 3.11/3.12 matrix, read-only). packages/contracts/ skeleton with conventions READMEs (adr, schemas, openapi, events, lifecycles, fixtures, tests, sdk) mapped to Appendix B. DEC-0005 (toolchain) proposed. Context pack f0-f1-contract-pack.md created; CTX-0001 assessed applicable; REP-0054 and REP-0040 registered. PLAN-0007 (owner-supplied fixture content) and PLAN-0006 note added. Root README added. Push and CI observation pending.",
-  "review_evidence": [],
+  "review_evidence": ["EVD-0004"],
   "blocked_by": [],
   "reopened_by": null,
-  "acceptance_criteria_met": false,
-  "closure_evidence": [],
+  "acceptance_criteria_met": true,
+  "closure_evidence": ["EVD-0004"],
   "external_effects": "external_reversible",
   "limitations": [
     "External effect detail: git push to https://github.com/jamesryancooper/storyworld.git, authorized by the owner supplying the remote in the operator instruction; reversible by the owner (branch reset/repo deletion)."
@@ -45,11 +45,11 @@ scope: contract content itself, DEC-0005 acceptance, GitHub-side settings.
 
 ## Acceptance criteria
 
-- [ ] Both commits pushed to the owner-provided remote
-- [ ] CI workflow present and correct
-- [ ] Contracts workspace skeleton with conventions
-- [ ] Context pack registered within budget
-- [ ] PLAN-0007 + DEC-0005 recorded; validation green
+- [x] Both commits pushed to the owner-provided remote (99d95e8, 3e49a82)
+- [x] CI workflow present and correct (run 30359885658 green on 3.11 + 3.12)
+- [x] Contracts workspace skeleton with conventions
+- [x] Context pack registered within budget (REP-0054)
+- [x] PLAN-0007 + DEC-0005 recorded; validation green
 
 ## Risks and gates
 
@@ -60,4 +60,12 @@ scope: contract content itself, DEC-0005 acceptance, GitHub-side settings.
 
 ## Evidence and closure
 
-- Filled at closure.
+- Evidence: EVD-0004 (push + first green CI run); harness cycle green before
+  each commit.
+- External effects: one authorized, reversible external effect — push of
+  `main` to the owner-provided GitHub remote.
+- Residual limitations: DEC-0005 remains proposed (owner acceptance
+  pending); branch protection is owner-side GitHub configuration; CI actions
+  pinned by tag, revisit at SUP-0001 assessment.
+- Next action: owner accepts DEC-0005 when ready; PLAN-0002 (F0 charter
+  pack) can start; PLAN-0007 fixture content is owner-supplied.

@@ -95,7 +95,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "5c75b06bcd89e6008b5f1c7218eefb27b813ccea3c9a986a9f73f53ecf9270e2"
+      "sha256": "38f9f1cc20aaa3653832acf4646705390a99822cf7bded3a1f64a204e9da2616"
     },
     {
       "layer": "agent_harness",
@@ -111,6 +111,11 @@
       "layer": "agent_harness",
       "path": ".agent/evidence/EVD-0003-repository-inspection.md",
       "sha256": "80cd5f99be742d4ff67f1bdeb4529a20e2724da1c7f27f586f9add1773aeaf19"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0004-remote-push-and-first-ci-run.md",
+      "sha256": "646f297ba18a24f55d78941a485ffa114ceeb60d2434c193ab17e388311ff674"
     },
     {
       "layer": "agent_harness",
@@ -255,12 +260,12 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/RESUME.md",
-      "sha256": "eba98babe5b97868c15fbe65cb44080e54920b9723da6d85b12f6aa29a7bd399"
+      "sha256": "1b1f9bed4ab9cda6294df4452f4ae4f97bb15acffa023b93beae63eec563b140"
     },
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "e3de438022f2fdd974cf04f888a20a7e1c80d9caaa9b29e7aed2368030dddc4d"
+      "sha256": "01e4d75b653c7532073cf32ceb600e52cd9b2b641c5ec7d168e23ba5035c13e1"
     },
     {
       "layer": "agent_harness",
@@ -275,7 +280,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0002-development-layer-and-remote.md",
-      "sha256": "d1a85debaf10ae973d2c68cfc80942776f6e3380b4d0d1e294e251291435d3c1"
+      "sha256": "a601835ecc799b486c176990846530450681aad75abd34263ef10e64bfdd7bd4"
     },
     {
       "layer": "agent_harness",
@@ -605,7 +610,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/handoff/START_HERE.md",
-      "sha256": "0b4e14d2da249b1f9a4064ced2791e570a2178db5dbfc903bea6f030ec450646"
+      "sha256": "50e753d0b0df18beaa385cc20bd38900ece4334be7ec6b3fe7f69974af34db90"
     },
     {
       "layer": "project_dossier",
@@ -708,12 +713,12 @@
       "sha256": "789b814ca4ac5293bebd449b64ff606aa733539725a815b5e9a543ef8e6645ab"
     }
   ],
-  "generated_on": "2026-07-28T12:38:57.351676+00:00",
-  "generation_id": "fe17fb809d738e15a0bc845a14b7fee4",
+  "generated_on": "2026-07-28T12:41:05.055860+00:00",
+  "generation_id": "74d9d3d44721643de2dd115ab318cec2",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "c82c699c66ee0007cccc4c00dabf32e2b18299d4e32a16c9d365e54c3c966c68",
+  "source_fingerprint": "2648425cce2f0963089b145e546239930a1c3ae8cd4e84484f4d45ed1003a219",
   "source_scope": {
     "exclusions": [],
     "git_metadata": "excluded_from_source_fingerprint",
