@@ -7,10 +7,11 @@
 - Remote: `origin` = github.com/jamesryancooper/storyworld; CI
   (`validate` workflow) runs the check + test suite on every push — first
   run green (EVD-0004)
-- Active task: none. TASK-0001–TASK-0004 completed 2026-07-28
-- **F1 complete and accepted (GATE-0003 passed 2026-07-28). F2 is open;
-  entry touchpoint: ASM-0001 stack confirmation, then PLAN-0004 work
-  begins. Queue: B1 provider posture**
+- Active task: none. TASK-0001–TASK-0005 completed 2026-07-28
+- **F2 complete and at its owner boundary: decide DEC-0010 (GATE-0004).
+  VS0 round trip and restore drill both PASS (EVD-0009). On acceptance F3
+  (headless narrative kernel) opens. B1 provider posture recorded as
+  ASM-0002 (local ComfyUI + fal.ai direct endpoints)**
 - Working mode for contract work: `storyworld-steward` capability
   (`.agents/agents/`) plus context pack
   `project-dossier/context-packs/f0-f1-contract-pack.md`

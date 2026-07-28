@@ -120,7 +120,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "fa656c4b0dbca6d7e89f8b92a5f2249636291d4ebbfcbb05fc33470d19dfe2c4"
+      "sha256": "e0417b66978f1103bf6e6b5577cce092827776eeb761ddc64dccffb1fda8d713"
     },
     {
       "layer": "agent_harness",
@@ -310,12 +310,12 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/RESUME.md",
-      "sha256": "b5953806372bf781b53c070f9031fe74dea51f0d3ed8c5016305b72006677445"
+      "sha256": "898adc636cdecd142273a3b0a80895355458f4ac55b7bd4e31f4ff71854e0f7c"
     },
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "a8e873cb9187294b66ee61b432c65e0e873d1e105cd2e2ca6569f73b89f32116"
+      "sha256": "53f059182635e9e31c05a9efb406514bf166caaadbed0f87dac66b0a2238e83e"
     },
     {
       "layer": "agent_harness",
@@ -345,7 +345,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0005-f2-governed-foundation.md",
-      "sha256": "7c5dab7dc50ba4a3fba9974989de71f61cf124ad8e06d6c10f41c9288372a357"
+      "sha256": "00f506a16dfdb303a376e468d67907464814a78c3cd43b5f6b6fd51dad371189"
     },
     {
       "layer": "agent_harness",
@@ -1650,7 +1650,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/handoff/START_HERE.md",
-      "sha256": "b2590f81b177a42a94746772fb38f407c5a89f440544ae12e5a25f1a79745d60"
+      "sha256": "2e15ed33505fdcfcca1275296dac214b486923c08a73651483ed3e649f0d1326"
     },
     {
       "layer": "project_dossier",
@@ -1758,12 +1758,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-28T19:49:43.765064+00:00",
-  "generation_id": "cacd3bdd6bcd9919101d581ee41d9173",
+  "generated_on": "2026-07-28T19:53:16.309871+00:00",
+  "generation_id": "254607bac246b2bda59b95c8b3f6a980",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "06accc81d10b28ee384572a6e403d5a1712cb00d5b646b3aa6933a931c3b3975",
+  "source_fingerprint": "8e58cc7d42bba078bf0ab6c96e7cb2c60a460c81b817a9f2671526a7e5018d1f",
   "source_scope": {
     "exclusions": [
       {

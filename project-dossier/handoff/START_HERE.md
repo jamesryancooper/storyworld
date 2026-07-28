@@ -3,7 +3,7 @@
 > Navigation only. Reinspect the repository and current instructions before
 > resuming work.
 
-## Current position (2026-07-28, F1 complete)
+## Current position (2026-07-28, F2 complete)
 
 - Exact revision: `main` at `2a337bb` plus closing bookkeeping, pushed;
   CI green on every substantive commit (latest run 30382310094).
@@ -12,18 +12,22 @@
   contract, 24-event catalog, 3 adapter interfaces, 4 production fixtures
   normalized from the owner's packet, 8 architecture probes, active MET-F1
   metamorphic suite, and the fixture registry — all CI-enforced.
-- **F1 is complete and accepted**: DEC-0007 and DEC-0008 accepted
-  2026-07-28; charter v2 governs (SUP-0002); GATE-0003 passed; PLAN-0003
-  completed. PLAN-0009/0010 registered and phased.
-- Active task: none. TASK-0001–TASK-0004 completed.
-- Fresh evidence: EVD-0006–EVD-0008.
+- **F2 is complete and staged for GATE-0004 (DEC-0010)**: monorepo +
+  4 packages (domain, persistence, storage, portability), 21 tests against
+  live Postgres and MinIO locally and in CI; VS0 signed round trip PASS;
+  restore drill PASS (EVD-0009). F1 accepted earlier the same day
+  (GATE-0003, charter v2).
+- Active task: none. TASK-0001–TASK-0005 completed.
+- Fresh evidence: EVD-0008–EVD-0009.
 
 ## Next safe action
 
-F2 (governed foundation, PLAN-0004) is open. Entry touchpoint: confirm the
-ASM-0001 stack specifics (TypeScript/Node versions, package manager,
-monorepo tooling) — then implementation begins. Queue in parallel: the B1
-media-provider posture (credentials/budget or local ComfyUI).
+Owner: decide DEC-0010 (.agent/decisions/ — the GATE-0004 evaluation with
+criterion mapping and disclosed deferrals). On acceptance, F3 (headless
+narrative kernel, PLAN-0005) opens: canon/entity/timeline tables on the
+proven RLS + append-only pattern, source-to-canon proposals, scene state
+packets, and the full-scope VS0 re-run. Provider posture for B1 is recorded
+(ASM-0002: local ComfyUI primary; fal.ai direct endpoints second).
 
 ## Resume in this order
 

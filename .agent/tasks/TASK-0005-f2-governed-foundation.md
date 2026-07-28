@@ -2,8 +2,8 @@
 {
   "schema_version": "harness.task.v1",
   "id": "TASK-0005",
-  "status": "in_progress",
-  "previous_status": "ready",
+  "status": "completed",
+  "previous_status": "review",
   "title": "F2 — governed foundation (PLAN-0004): monorepo, persistence, custody, portability",
   "authority_basis": "external:operator-instruction-2026-07-28 (project owner Ryan Cooper) — stack \"confirmed\" (DEC-0009) with the standing instruction to record the decision and start PLAN-0004; continue-to-blocker mode remains in effect.",
   "owner": "claude-agent (storyworld-steward working mode)",
@@ -25,11 +25,11 @@
     "git push; observe CI"
   ],
   "implementation_result": "Tranche 1 (2026-07-28): pnpm workspace monorepo (packageManager-pinned, hoisted linker per DEC-0009), strict TypeScript base config, ESLint flat config + Prettier, vitest; first domain package @storyworld/domain with identity/integrity primitives (UUIDv7 gen/validate/timestamp, content sha256, semver guards, canonical JSON byte-compatible with the contract validator) and 7 passing tests; infra/compose.yaml dev profile (PostgreSQL 16, MinIO, Temporal auto-setup) validated; CI platform job added (Node 22, corepack/pnpm, typecheck/test/lint/compose). Harness adaptation: reasoned fingerprint exclusions now also scope the hygiene/secret walk (node_modules .bin symlinks), 51-test conformance suite green. project.json hooks configured (project_build, project_lint). Tranche 2 (2026-07-28): @storyworld/persistence — plain-SQL migration runner with immutable content-hash-verified history; tenancy schema (organizations/workspaces/memberships) with row-level security bound to a transaction-local tenant setting and a non-superuser app role; append-only audit receipts and content-blob custody (trigger + privilege enforced); transactional outbox/inbox with dedupe. Five integration tests against live PostgreSQL 16 (idempotency, tamper rejection, cross-tenant invisibility and forged-insert rejection, append-only enforcement, inbox dedupe). CI platform job gained a postgres:16 service so the same integration tests run on every push.",
-  "review_evidence": [],
+  "review_evidence": ["EVD-0009"],
   "blocked_by": [],
   "reopened_by": null,
-  "acceptance_criteria_met": false,
-  "closure_evidence": [],
+  "acceptance_criteria_met": true,
+  "closure_evidence": ["EVD-0009"],
   "external_effects": "external_reversible",
   "limitations": [
     "External effect detail: pushes to the owner-provided remote; pnpm registry fetches for dependency installation (read-only, lockfile-pinned).",
@@ -45,4 +45,11 @@ first domain package + compose profile + CI node job.
 
 ## Evidence and closure
 
-- Filled per tranche and at closure.
+- Evidence: EVD-0009 (VS0 round trip, restore drill, custody invariants,
+  21 tests in CI against Postgres and MinIO).
+- External effects: authorized pushes; lockfile-pinned registry fetches;
+  local Docker services.
+- Residual limitations: telemetry baseline and feature flags deferred as
+  disclosed in DEC-0010; production key custody and CI-side drills are O1.
+- Next action: owner decides DEC-0010 (GATE-0004); on acceptance PLAN-0004
+  completes and F3 (PLAN-0005, headless narrative kernel) opens.

@@ -4,9 +4,7 @@
   "updated_at": "2026-07-28",
   "authority": "project_maintained_compact_operational_index_not_permission",
   "adoption_status": "adopted",
-  "active_tasks": [
-    "TASK-0005"
-  ],
+  "active_tasks": [],
   "accepted_decisions": [
     "DEC-0001",
     "DEC-0002",
@@ -19,15 +17,14 @@
     "DEC-0009"
   ],
   "fresh_evidence": [
-    "EVD-0006",
-    "EVD-0007",
-    "EVD-0008"
+    "EVD-0008",
+    "EVD-0009"
   ],
   "blocked_by": [],
-  "next_action": "F2_tranche_1_scaffold_then_continue_PLAN-0004; queue_B1_provider_posture",
+  "next_action": "owner_decides_DEC-0010_GATE-0004; on_acceptance_F3_kernel_opens",
   "external_effects_authority_refs": [],
   "limitations": [
-    "structural_validation_only_no_readiness_claim",
-    "F2_not_started"
+    "structural_and_behavioral_proofs_only_no_readiness_claim",
+    "DEC-0010_proposed_owner_decision_pending"
   ]
 }
