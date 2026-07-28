@@ -1395,7 +1395,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/handoff/START_HERE.md",
-      "sha256": "ab92ab388eec2fc7b4c0481064114c01af0b75230d339d2669a434975de6d784"
+      "sha256": "7f00f989038f2c8396a1baa86179d279fbfac37a6b11031fe32d18bf77f8dec0"
     },
     {
       "layer": "project_dossier",
@@ -1498,12 +1498,12 @@
       "sha256": "789b814ca4ac5293bebd449b64ff606aa733539725a815b5e9a543ef8e6645ab"
     }
   ],
-  "generated_on": "2026-07-28T17:20:16.481282+00:00",
-  "generation_id": "cc423df43fc00df6d69ef592e35ae8ef",
+  "generated_on": "2026-07-28T17:21:28.616685+00:00",
+  "generation_id": "b6627fbe0c5dd8cd9cb93f54dea9cc10",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "7b103796969e641034e353e5fa910730cecb9f7693ad10cd835021acaccbf698",
+  "source_fingerprint": "9c55394cde3b5b244daa49bc4f17295231c0d155f1a35ded9afd6cd4bbf8af66",
   "source_scope": {
     "exclusions": [],
     "git_metadata": "excluded_from_source_fingerprint",

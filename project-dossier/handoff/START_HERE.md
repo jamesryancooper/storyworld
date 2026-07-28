@@ -30,8 +30,9 @@ and the B1 media-provider posture (credentials/budget or local ComfyUI).
 
 1. Read `AGENTS.md` and `.agent/START_HERE.md`.
 2. Read `.agent/state/current.json` and `.agent/state/RESUME.md`.
-3. For the pending decision: `.agent/decisions/DEC-0006-*.md`, then
-   `packages/contracts/adr/README.md` and `packages/contracts/charter/`.
+3. For the pending decisions: `.agent/decisions/DEC-0007-*.md` and
+   `DEC-0008-*.md`, then `packages/contracts/DESIGN_NOTES.md` and
+   `packages/contracts/fixtures/registry.json`.
 4. For contract work after acceptance:
    `../context-packs/f0-f1-contract-pack.md`.
 5. Validate before and after changes:
