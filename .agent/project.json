@@ -26,6 +26,10 @@
       {
         "path": "node_modules",
         "reason": "Third-party dependency tree, fully reproducible from the committed pnpm-lock.yaml (which remains fingerprinted). Hoisted linker (DEC-0009) keeps this a single real directory with no symlink forest. Excluded from source fingerprint and scans."
+      },
+      {
+        "path": "packages/domain/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize inside the workspace package; reproducible from the fingerprinted lockfile. Added per the workspace convention: every new package adds its node_modules path here."
       }
     ]
   },

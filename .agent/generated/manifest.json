@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-28T17:49:49.197476+00:00",
-  "generation_id": "2a9cfb40dee42e1e285de0b7bfb52b38",
+  "generated_at": "2026-07-28T17:53:35.790162+00:00",
+  "generation_id": "dd8491d0b38f3fb1d6853b637499d6fb",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -270,12 +270,12 @@
     "packages/contracts/tests/metamorphic-f1.json",
     "packages/contracts/tests/validate_contracts.py",
     "packages/domain/README.md",
-    "packages/domain/node_modules/.vite/vitest/results.json",
     "packages/domain/package.json",
     "packages/domain/src/identifiers.test.ts",
     "packages/domain/src/identifiers.ts",
     "packages/domain/src/index.ts",
     "packages/domain/tsconfig.json",
+    "packages/domain/vitest.config.ts",
     "pnpm-lock.yaml",
     "pnpm-workspace.yaml",
     "project-dossier/AUTHORITY.md",
@@ -330,12 +330,16 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "c0ec252675262a828e5d57bf1f0db650696db730a355745584dcc0cb8369289a",
+  "source_fingerprint": "bbfd691a72d766f49bc1267c3a80827242df1403f2eb2b482642ba4a8768d85b",
   "source_scope": {
     "exclusions": [
       {
         "path": "node_modules",
         "reason": "Third-party dependency tree, fully reproducible from the committed pnpm-lock.yaml (which remains fingerprinted). Hoisted linker (DEC-0009) keeps this a single real directory with no symlink forest. Excluded from source fingerprint and scans."
+      },
+      {
+        "path": "packages/domain/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize inside the workspace package; reproducible from the fingerprinted lockfile. Added per the workspace convention: every new package adds its node_modules path here."
       }
     ],
     "git_metadata": "excluded_from_source_fingerprint",

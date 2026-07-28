@@ -58,6 +58,12 @@ These additions route; they do not weaken anything above.
 - Dossier stewardship and contract-pack work follows the
   `storyworld-steward` capability contract (`.agents/agents/`): outputs are
   proposals; acceptance belongs to the project owner.
-- Current phase: pre-implementation. The next substantive deliverable is the
-  F0/F1 contract pack (`project-dossier/plans/README.md`, PLAN-0002/0003).
-  There is no build, test, or deploy surface yet beyond the harness commands.
+- Current phase: F2 implementation (PLAN-0004, DEC-0009 stack). Platform
+  commands: `pnpm -r typecheck | test | lint`; contract validation:
+  `python3 -B packages/contracts/tests/validate_contracts.py`; dev services:
+  `docker compose -f infra/compose.yaml up -d`.
+- Workspace convention: when adding a package, point its vitest `cacheDir`
+  into the root `node_modules` tree and add the package's `node_modules`
+  path to `fingerprint_exclusions` in `.agent/project.json` — tooling must
+  never write files under per-package `node_modules` that the generated
+  manifest could capture.

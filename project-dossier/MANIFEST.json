@@ -210,7 +210,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/project.json",
-      "sha256": "4f2b4204bf7a1c13ab13c2c5927e60ccbc1114f086afdd2276820684098b4abe"
+      "sha256": "88e33dc1c9cdca55e012ca6a0ff3442e30eb7f0d0540d73bfcfaf250740d8f58"
     },
     {
       "layer": "agent_harness",
@@ -335,7 +335,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0005-f2-governed-foundation.md",
-      "sha256": "ed33f735e4d8f7c134f5a652dd4838b0ae5b2865855f36b83bdb747739c784ce"
+      "sha256": "27959f4bfa538bba639ba24143507196b0fcc947d82bd19f3b9f5b5e92543a06"
     },
     {
       "layer": "agent_harness",
@@ -480,7 +480,7 @@
     {
       "layer": "agent_harness",
       "path": "AGENTS.md",
-      "sha256": "fa1b10294c0d29193029749480383c058be3d32336a690ac7182cdd8b212dd1b"
+      "sha256": "f46de238ba84eea1437031260469e05c300eb82cf90120bbe2649066aab872ca"
     },
     {
       "layer": "project_source",
@@ -1309,11 +1309,6 @@
     },
     {
       "layer": "project_source",
-      "path": "packages/domain/node_modules/.vite/vitest/results.json",
-      "sha256": "032e26f980189d483f6b8b70fa69c67e9a7e990713da0647dddd6b227c5f84c3"
-    },
-    {
-      "layer": "project_source",
       "path": "packages/domain/package.json",
       "sha256": "e5d69eaa1841976afef6879a4edd2883bb0b5df8ac0bcaaefaf784b529aa63fd"
     },
@@ -1336,6 +1331,11 @@
       "layer": "project_source",
       "path": "packages/domain/tsconfig.json",
       "sha256": "60ec341167f566872eb13bb129a03488c35fa356e4025360e760c52c5e680290"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/domain/vitest.config.ts",
+      "sha256": "2544ebf953928af85fe0cb563a53bf59dc9a734438ecac6f23c17968c1ec8dd8"
     },
     {
       "layer": "project_source",
@@ -1598,17 +1598,21 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-28T17:49:49.197476+00:00",
-  "generation_id": "2a9cfb40dee42e1e285de0b7bfb52b38",
+  "generated_on": "2026-07-28T17:53:35.790162+00:00",
+  "generation_id": "dd8491d0b38f3fb1d6853b637499d6fb",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "c0ec252675262a828e5d57bf1f0db650696db730a355745584dcc0cb8369289a",
+  "source_fingerprint": "bbfd691a72d766f49bc1267c3a80827242df1403f2eb2b482642ba4a8768d85b",
   "source_scope": {
     "exclusions": [
       {
         "path": "node_modules",
         "reason": "Third-party dependency tree, fully reproducible from the committed pnpm-lock.yaml (which remains fingerprinted). Hoisted linker (DEC-0009) keeps this a single real directory with no symlink forest. Excluded from source fingerprint and scans."
+      },
+      {
+        "path": "packages/domain/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize inside the workspace package; reproducible from the fingerprinted lockfile. Added per the workspace convention: every new package adds its node_modules path here."
       }
     ],
     "git_metadata": "excluded_from_source_fingerprint",
