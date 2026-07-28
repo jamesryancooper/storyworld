@@ -1,0 +1,36 @@
+---
+{
+  "schema_version": "harness.decision.v1",
+  "id": "DEC-0001",
+  "status": "proposed",
+  "previous_status": null,
+  "title": "Replace with one durable choice",
+  "created_at": "2026-07-28",
+  "authority_source": "replace_with_trusted_source_reference",
+  "owner": "unassigned",
+  "scope": "replace_with_exact_decision_scope",
+  "supersedes": null,
+  "successor": null,
+  "limitations": []
+}
+---
+
+## Context
+
+What durable problem requires a decision?
+
+## Decision
+
+State one choice and its exact scope.
+
+## Consequences
+
+- Benefits:
+- Costs:
+- Risks:
+- What remains undecided:
+
+## Validation and rollback
+
+- Evidence:
+- Reversal or successor path:

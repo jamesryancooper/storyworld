@@ -1,0 +1,176 @@
+{
+  "document_role": "unadopted_authoritative_store_candidate",
+  "items": [
+    {
+      "blocking": false,
+      "description": "Each property adds unrelated tools or mandatory fields until the platform loses its persistent-narrative focus (canonical/storyworld/07 section 23, severity critical).",
+      "id": "RISK-0001",
+      "impact": "critical",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001) during the 2026-07-28 adoption session; project-ratified 2026-07-28 (PLAN-0001)."
+      ],
+      "owner_role": "project_owner",
+      "resolution_condition": "Non-goals enforced through phase gates; new capability requests routed through templates/extensions and one-vertical-slice-at-a-time review.",
+      "review_on": "2026-08-28",
+      "source_refs": [
+        "SRC-0001"
+      ],
+      "status": "open",
+      "title": "Scope expansion into a universal creative suite",
+      "type": "risk"
+    },
+    {
+      "blocking": false,
+      "description": "The flexible narrative hierarchy degrades into unusable generic entities or frequent custom forks (07 section 23, severity critical).",
+      "id": "RISK-0002",
+      "impact": "critical",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001) during the 2026-07-28 adoption session; project-ratified 2026-07-28 (PLAN-0001)."
+      ],
+      "owner_role": "project_owner",
+      "resolution_condition": "F1 exit gate: four distinct fixtures model cleanly before schemas freeze; split only after evidence.",
+      "review_on": "2026-08-28",
+      "source_refs": [
+        "SRC-0001"
+      ],
+      "status": "open",
+      "title": "Overgeneralized story schema",
+      "type": "risk"
+    },
+    {
+      "blocking": false,
+      "description": "Shared tables, dual approvals, or competing asset masters blur authority between Storyworld and Commerce Foundry (07 section 23, severity critical).",
+      "id": "RISK-0003",
+      "impact": "critical",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001) during the 2026-07-28 adoption session; project-ratified 2026-07-28 (PLAN-0001)."
+      ],
+      "owner_role": "project_owner",
+      "resolution_condition": "Authority matrix and ADR-010/011 upheld; separate databases; signed bundles; receiving-system approval; C1 acceptance test passes.",
+      "review_on": "2026-08-28",
+      "source_refs": [
+        "SRC-0001"
+      ],
+      "status": "open",
+      "title": "Duplicate control planes with Commerce Foundry",
+      "type": "risk"
+    },
+    {
+      "blocking": false,
+      "description": "Private family-inspired or client material enters prompts, public canon, or cross-property reuse (07 section 23, severity critical). No sensitive data is in this repository today; the risk activates with source ingestion.",
+      "id": "RISK-0004",
+      "impact": "critical",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001) during the 2026-07-28 adoption session; project-ratified 2026-07-28 (PLAN-0001)."
+      ],
+      "owner_role": "project_owner",
+      "resolution_condition": "Restricted source inbox, classification, provider policy, consent and dignity review implemented and tested before real source ingestion (F2/F3).",
+      "review_on": "2026-09-28",
+      "source_refs": [
+        "SRC-0001"
+      ],
+      "status": "open",
+      "title": "Sensitive source leakage",
+      "type": "risk"
+    },
+    {
+      "blocking": false,
+      "description": "A provider quality, rights, or availability change breaks production workflows (07 section 23, severity high).",
+      "id": "RISK-0005",
+      "impact": "high",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001) during the 2026-07-28 adoption session; project-ratified 2026-07-28 (PLAN-0001)."
+      ],
+      "owner_role": "project_owner",
+      "resolution_condition": "Provider-neutral recipes, replaceable adapters, portable sources, evaluation harness, explicit fallback policy (B1 exit gate).",
+      "review_on": "2026-09-28",
+      "source_refs": [
+        "SRC-0001"
+      ],
+      "status": "open",
+      "title": "Provider and model dependency",
+      "type": "risk"
+    },
+    {
+      "blocking": false,
+      "description": "The recommended stack (TypeScript domain/API/workers/Studio, PostgreSQL, Temporal, S3-compatible storage) in canonical/storyworld/03 section 9.2 remains the owner's intent for F2 onward.",
+      "id": "ASM-0001",
+      "impact": "medium",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001) during the 2026-07-28 adoption session; project-ratified 2026-07-28 (PLAN-0001)."
+      ],
+      "owner_role": "project_owner",
+      "resolution_condition": "Owner confirms or revises the stack when F2 begins; ADR records the choice.",
+      "review_on": "2026-09-28",
+      "source_refs": [
+        "SRC-0001"
+      ],
+      "status": "open",
+      "title": "TypeScript modular-monolith stack remains intended",
+      "type": "assumption"
+    },
+    {
+      "blocking": false,
+      "description": "C1 production integration depends on stable corresponding Commerce Foundry contracts and a CF implementation able to run the brief/bundle/review loop (canonical/storyworld/06 section 19.10).",
+      "id": "DEP-0001",
+      "impact": "high",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001) during the 2026-07-28 adoption session; project-ratified 2026-07-28 (PLAN-0001)."
+      ],
+      "owner_role": "project_owner",
+      "resolution_condition": "CF-side contract fixtures exist and both CI suites run the same fixtures (B3 exit gate).",
+      "review_on": "2026-10-28",
+      "source_refs": [
+        "SRC-0001"
+      ],
+      "status": "open",
+      "title": "Commerce Foundry contract counterpart",
+      "type": "dependency"
+    },
+    {
+      "blocking": false,
+      "description": "Agentic missions route through Octon when available; a local capability/policy interface is required before then (canonical/storyworld/03 section 9.2).",
+      "id": "DEP-0002",
+      "impact": "medium",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001) during the 2026-07-28 adoption session; project-ratified 2026-07-28 (PLAN-0001)."
+      ],
+      "owner_role": "project_owner",
+      "resolution_condition": "Local capability interface specified in F1 contracts; Octon integration decision recorded when Octon is usable.",
+      "review_on": "2026-10-28",
+      "source_refs": [
+        "SRC-0001"
+      ],
+      "status": "open",
+      "title": "Octon availability for governed agent execution",
+      "type": "dependency"
+    },
+    {
+      "blocking": false,
+      "description": "Proposed decisions DEC-0001..DEC-0004, registry applicability assessments, proposed requirements, and proposed gates await project-owner review (PLAN-0001).",
+      "id": "OQ-0001",
+      "impact": "medium",
+      "limitations": [
+        "Resolved 2026-07-28: DEC-0001..DEC-0004 accepted by the project owner; TASK-0001 completed; PLAN-0001 completed."
+      ],
+      "owner_role": "project_owner",
+      "resolution_condition": "PLAN-0001 acceptance criteria met; decision records carry accepted or rejected status from valid authority.",
+      "review_on": "2026-08-11",
+      "source_refs": [
+        "SRC-0001"
+      ],
+      "status": "resolved",
+      "title": "Owner ratification of the 2026-07-28 adoption (resolved)",
+      "type": "open_question"
+    }
+  ],
+  "permission_grant": false,
+  "project_slug": "storyworld-platform",
+  "review": {
+    "basis": "Generated scaffold provenance is not substantive project review.",
+    "last_reviewed_on": null,
+    "status": "not_reviewed"
+  },
+  "scaffold_generated_on": "2026-07-28",
+  "schema_version": "project.dossier.raidq.v1"
+}

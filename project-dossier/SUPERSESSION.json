@@ -1,0 +1,20 @@
+{
+  "current_dossier_version": "1.0.1",
+  "document_role": "authoritative_dossier_lifecycle",
+  "effective_on": "2026-07-28",
+  "permission_grant": false,
+  "project_slug": "storyworld-platform",
+  "records": [
+    {
+      "authority_source": "DEC-0003 (proposed; created on operator instruction 2026-07-28, owner ratification pending)",
+      "effective_on": "2026-07-28",
+      "id": "SUP-0001",
+      "migration_impact": "Content-neutral restructure: the consolidated file moved from project-dossier/Storyworld_Platform_Dossier.md to project-dossier/history/storyworld-dossier-v1.0-consolidated/; the modular parts moved from project-dossier/ to project-dossier/canonical/storyworld/. No content was rewritten.",
+      "reason": "The consolidated single-file edition of the Storyworld dossier v1.0 duplicated the eight modular parts. The modular parts under project-dossier/canonical/storyworld/ are the maintained edit source; the consolidated edition is retained as an immutable historical baseline.",
+      "retained_history_path": "project-dossier/history/storyworld-dossier-v1.0-consolidated/Storyworld_Platform_Dossier.md",
+      "successor_representation_id": "REP-0041",
+      "superseded_representation_id": "REP-0053"
+    }
+  ],
+  "schema_version": "project.dossier.supersession.v1"
+}

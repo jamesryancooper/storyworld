@@ -1,0 +1,56 @@
+---
+{
+  "schema_version": "harness.task.v1",
+  "id": "TASK-0001",
+  "status": "proposed",
+  "previous_status": null,
+  "title": "Replace with a bounded outcome",
+  "authority_basis": "current_operator_request_reference",
+  "owner": "unassigned",
+  "created_at": "2026-07-28",
+  "updated_at": "2026-07-28",
+  "dependencies": [],
+  "scope": "replace_with_bounded_in_scope_and_out_of_scope_statement",
+  "acceptance_criteria": [],
+  "validation_plan": [],
+  "implementation_result": null,
+  "review_evidence": [],
+  "blocked_by": [],
+  "reopened_by": null,
+  "acceptance_criteria_met": false,
+  "closure_evidence": [],
+  "external_effects": "not_assessed",
+  "limitations": []
+}
+---
+
+## Scope
+
+In scope:
+
+- ...
+
+Out of scope:
+
+- ...
+
+## Acceptance criteria
+
+- [ ] Observable result
+- [ ] Required negative behavior remains blocked
+- [ ] Validation command and expected result
+
+## Risks and gates
+
+- Side effects:
+- Required approvals:
+- Sensitive data:
+- Rollback:
+
+## Evidence and closure
+
+- Evidence:
+- Review:
+- External effects:
+- Residual limitations:
+- Next action:

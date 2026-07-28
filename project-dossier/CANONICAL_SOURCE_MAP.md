@@ -1,0 +1,34 @@
+# Canonical Source Map
+
+This map routes concerns to edit sources. It does not grant permission.
+
+| Concern | Minimal edit source | Standard/High-Assurance edit source | Other representations |
+|---|---|---|---|
+| Artifact metadata and applicability | `machine-readable/artifact-registry.json` | same | `ARTIFACT_CATALOG.json` and `machine-readable/path-authority.json` are generated mirrors |
+| Project definition | `canonical/executive-project-definition.md` | same | summaries link here |
+| Requirement explanation and vocabulary | `canonical/requirements-and-constraints.md` | same | never independently duplicated |
+| Individual requirement records | `canonical/requirements-and-constraints.md` | `machine-readable/requirements.json` | Markdown explains and summarizes |
+| Architecture or outcome model | `canonical/architecture-or-outcome-model.md` | same, plus declared specialist model sources | generated diagrams name their source |
+| Constraints and gate explanation | `canonical/constraints-gates-and-readiness.md` | same | gate records remain proposed until adopted |
+| Individual gate records | `validation/QUALITY_GATES.json` | same | this is project-maintained, not generated evidence |
+| Current observed state | `current-state/README.md` after direct inspection | same or a registry-declared observation store | scaffold text is `not_assessed`, not an observation |
+| Individual conformance findings | `conformance/README.md` | `machine-readable/findings.json` | Markdown owns method and summary |
+| Individual plan items | `plans/README.md` | `machine-readable/plan.json` | Markdown owns method and summary |
+| RAIDQ items | `registers/README.md` | `machine-readable/raidq.json` | Markdown owns vocabulary and summary |
+| Source records | `provenance/README.md` | `machine-readable/sources.json` | Markdown owns method and summary |
+| Evidence metadata | `validation/README.md` | `machine-readable/evidence-index.json` | executed reports are immutable evidence |
+| Dossier version and supersession | `VERSION.md`; `SUPERSESSION.json` | same | `history/` is noncurrent |
+| Handoff | `handoff/START_HERE.md` | same | navigation only; mutable facts stay in their owners |
+| Integrity | refresh command | same | `MANIFEST.json`, optional `CHECKSUMS.sha256`, and harness reports are generated evidence |
+
+Conditional and optional entry points are physically scaffolded only to assess
+their triggers. Conceptual type applicability in
+`machine-readable/artifact-registry.json` remains `not_assessed` until a dated,
+attributed assessment records `applicable` or `not_applicable`. A `combined`
+representation lists every implemented required/applicable artifact-type ID
+and names the separate sections/edit direction in its rationale. A
+`not_applicable` type remains in the registry after its physical
+representation is removed so the omission decision remains auditable.
+
+Generated, historical, proposed, or handoff material must not silently replace
+an edit source.

@@ -1,0 +1,652 @@
+{
+  "authority": "Generated point-in-time inventory and byte hashes only.",
+  "blueprint_version": "1.0.1",
+  "files": [
+    {
+      "layer": "agent_harness",
+      "path": ".agent/START_HERE.md",
+      "sha256": "bb10cc4564aab85ff6c5ac0e04f5a116a97ee83693523f968f97d3a3ff168098"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/approvals/README.md",
+      "sha256": "d2154f00bcfeb23a23057174f56c3fd7fab7a8fa13ca408dee8066bec768132e"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/approvals/registry.json",
+      "sha256": "a58f7a7f9dff862ef26c8b2a24633a20a18aa5d6cb489425f247e62bad6df301"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/artifacts/registry.json",
+      "sha256": "04d66dc3b36e448757b7843baf8c1b9769b682f3152d045c0b0e254b9d2b33c5"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/checklists/task-closure.md",
+      "sha256": "989e9b6c2810963710b86f3350fc64a2ce7f61d668285c9ac1757d802147c6bc"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/checkpoints/README.md",
+      "sha256": "c033c280aa2c09046e1a86f5910664486fcdb3000679041df4620b95a6c7b250"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/context.json",
+      "sha256": "4db415c758f6baec2b0ac1d0029b92ec8e09191175cd2c19e357a400034bb39c"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/coordination/README.md",
+      "sha256": "c3a2f5ae0677e7b46de2f5544a9c93433e4e4ba445f1262605fab035b9f93f83"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/coordination/leases.json",
+      "sha256": "1afd06cea618e11cfb043989d71a038a2ed237b108386fe251189fb54129f28a"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0001-adopt-project-blueprint-high-assurance.md",
+      "sha256": "e3c9c1fa055e6497ba1d808f3284a92c39a3ee9b62b47416869f7d8b9e7c59c8"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0002-threat-model-and-authority-posture.md",
+      "sha256": "82f3f33a787243516bf3d46f16f565c07d5061c09d5fb7b428393ef89ada28d5"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0003-canonical-content-adoption-and-restructure.md",
+      "sha256": "3749f132ebaea6dfdfa7b11a90f0db30ac0db33f712de1c40ca6fc0dc7b628a9"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0004-storyworld-steward-agent-capability.md",
+      "sha256": "5dcc07a57ff2501421f6d3231a18a919bb4735d50748293f87749ae8e51eea93"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/decisions/README.md",
+      "sha256": "321f2910e7e6256e00dad950baf69484dc8b777249d62e5f8f0aa84ac018e1c2"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evaluations/README.md",
+      "sha256": "dd2925819d8bc762f0fe815c0d2e55e4e51d94d06eb55f2d21f3c20ff9434291"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evaluations/registry.json",
+      "sha256": "58bd72ae1d571a915221c22cf69184af8110e26dc8b60d38ef237e39e947ea69"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/events/README.md",
+      "sha256": "26c1470d5873f4db6fc8dbb1daf378c1405f8ab0235053a3b5acbcdb67f36ab9"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/events/events.jsonl",
+      "sha256": "ea969777f890466c452d5d5da34c482fc1e02e2602216dcb96bd17e0526f8359"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0001-adoption-structural-check.md",
+      "sha256": "bfa344902038136ccc916fcd2f872d068e1f8a0ef9db8e1b1f5dd0758b09325b"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0002-harness-test-suite.md",
+      "sha256": "18fa49d40fc427a171b12a237a27a9a64501d6b5c5bc91ed3c157552d3b9c197"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0003-repository-inspection.md",
+      "sha256": "80cd5f99be742d4ff67f1bdeb4529a20e2724da1c7f27f586f9add1773aeaf19"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/README.md",
+      "sha256": "68138e16a1146373c40e760402e3da10f90969c38f2bd6371cf72bbeaa25439a"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/extensions/README.md",
+      "sha256": "963991512bce7094e2346ad547345d6c8229bd575c176dbe7dbd4cfaaea678c4"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/extensions/registry.json",
+      "sha256": "b08618d06391b0772c3c82b0740ce2c3ecc7855e6e1c8e5fa860807e1371c684"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/extensions/sample-restriction/README.md",
+      "sha256": "81c673dbc0c5bc08478adbfd304d0205953ba53cb519f4c2cc1e5a390642ce5f"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/extensions/sample-restriction/config.json",
+      "sha256": "0d0d310e3186e873ba8489858ac62570dffe0a7c450c05c99cbb9080e8fafe23"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/extensions/sample-restriction/validate.py",
+      "sha256": "9125251f2ad72590bf0e9d07af95a3081fddc7ae5b975d220aeaad631104d7ce"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/lifecycle.json",
+      "sha256": "49db00094617bfdd1fd3ebcd9db0ec07c64a729adfe2bd3ef040d51c2fe5d88e"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/metrics/README.md",
+      "sha256": "49accc707112b5db24fc93b64f18cd92b4d6f1764baa28539700345ed7db2b4e"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/metrics/registry.json",
+      "sha256": "574c8b5116ad4a0244fd181c92ab1a573f774f4a947806d64c7caaa0f9cef67b"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/policy.json",
+      "sha256": "faa0217ebab0872a7633eaba2be3f3590def470da5f501b4b08cc501c4746173"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/project.json",
+      "sha256": "f7e5e2ab12928837a4e0d8f4df2205c5842e12c824f6bcaca672712e1bb4605e"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/reviews/README.md",
+      "sha256": "d573877fd67d4b4dc1ce7ace1909ae7a69aabc0b5339f9ea9cb77e808425ba8a"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/schema.json",
+      "sha256": "70ac3bbabc91753599afdb5b5a5b69410920540c63756b016d8a3ebb3f2874f1"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/schemas/artifact-catalog.schema.json",
+      "sha256": "6131726fc1c03f0beee66d96dcbcdd319b431b8f5435be1305a5ed207de8f0bb"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/schemas/dossier-artifact-registry.schema.json",
+      "sha256": "e4de8b5c8eef2bd551fcc308d2061b9151e4de7290e857763ef9b24bb55a0cdd"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/schemas/dossier-path-authority.schema.json",
+      "sha256": "f15f7cd30b908c2a8458e5f7cec8b379a00def936d8b6351edafa9a7bffa9042"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/schemas/dossier-records.schema.json",
+      "sha256": "53bccbb04f6e3e941f534cba41203e11c0af2f0565c4c873112ef7758b26c077"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/schemas/harness-artifact-registry.schema.json",
+      "sha256": "197773eb9d7e1bb0baebfda3bba9f9ed89cd997ca244e217e75966d8162771ac"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/schemas/harness-assurance-records.schema.json",
+      "sha256": "73ec1f874276ca0a177785d1da4b24b09f4925ea2de2a65feeaf221debbc76e1"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/schemas/harness-capability-records.schema.json",
+      "sha256": "f2f27d828f431a50423ad3bc682a1bf57f52e1e45e7d016752fd5295e63f0544"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/schemas/harness-current-state.schema.json",
+      "sha256": "f2f502a9335d4d037461a1bcf915dcaf8ee17fc9c655f876f1f22a8900bae90f"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/schemas/harness-extension-registry.schema.json",
+      "sha256": "a858628e58abfcf10a945a0a706b30650e3b7eef9a63bb8be513a41906ac216c"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/schemas/harness-kernel.schema.json",
+      "sha256": "8f42e3b67a9c1ffb8b09b8ceaba0069af6b3fd7737a7ba9f33d6ee455a841101"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/schemas/harness-record.schema.json",
+      "sha256": "537b59f57b28b45f8b23343b1e10bc94409d13f313dfc69cb0be4b85d52a3f75"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/schemas/project-blueprint-origin.schema.json",
+      "sha256": "02bd0f2b09e65658ebbba824da506d0039053f27649c4a1b49f5903afb267577"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/schemas/reference-evidence.schema.json",
+      "sha256": "1bc0e13521c02e356ec2e5e564510526a9ae420cb4b0972eb6bdee826c3835c4"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/scripts/refresh.py",
+      "sha256": "751199dd7f146a3582d714c3ed095aa404b26104a977d0d3b46448fe3ee27eaf"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/scripts/validate.py",
+      "sha256": "c923018c167fe8726e48ca0529cf6a25541e592c479bd80ee66cf6e81e380dd0"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/state/RESUME.md",
+      "sha256": "eba98babe5b97868c15fbe65cb44080e54920b9723da6d85b12f6aa29a7bd399"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/state/current.json",
+      "sha256": "7e5f4df662d6f5c2e277372f1a1b2944943ba13a6db29d2486a59d31b9d2945b"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/README.md",
+      "sha256": "7e8b89542b07c6640ed046fefa45935fefc3ce4c3cf2bd9d01ce7ed524b9d8cb"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0001-blueprint-adoption-and-dossier-buildout.md",
+      "sha256": "3149ad8a9573bbbd262d1bed7a0a6d0fd7840c592f175a25bd4d580e666acc8e"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/templates/artifact.json",
+      "sha256": "d58883d54df4ea04d91825a3719844fe31449427d5ab50fe8f32df0661915ab4"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/templates/checkpoint.md",
+      "sha256": "1173b2ab769b676d3e9e67444a4b201bf473ed84d27870a1fb1d1277827f7a7a"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/templates/decision.md",
+      "sha256": "64b770aaf2b6a34de13396ff9aabff0549a98d31594b570fb32115ffb3804734"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/templates/event.json",
+      "sha256": "668c2796a91f71e8355f25fefaa52facd66ee154cd67ab34a22e11b211590772"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/templates/evidence.md",
+      "sha256": "9889330d6b59268a3dfdb2c9ed7a1563ae7f0583529676a4a3cb510e9ace38b2"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/templates/review.md",
+      "sha256": "34807b8ba04b0746931fb92295b680e21b8a0b63dab907b2f8574a85b7724236"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/templates/task.md",
+      "sha256": "0e2eb2f664826bf434fe492b285dda6b552bb31a7bd3a14204d99da153b1b9ba"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tests/fixtures/invalid/duplicate-key.json",
+      "sha256": "f847ce79e2679479e9d72a5d6aed4d4382fba8045ddc265538da156bdf695ecb"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tests/fixtures/invalid/event-sequence.jsonl",
+      "sha256": "134fec8de93b7e0dcca5bb12647e0569e8e2e668e68e5ba60d7809feebde079f"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tests/fixtures/invalid/nested-agent-weakening.md",
+      "sha256": "ab8c35ddb13bf1a765d162a1cdbf43a2a23b7461e256696696706a71a0c775d2"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tests/fixtures/invalid/non-finite.json",
+      "sha256": "53f5715b619710dcf646bbbab2128b7e37f71144f36ea82128aef5724a51bf23"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tests/fixtures/valid/kernel.json",
+      "sha256": "e1cbd067f509fd0d053852923069f796e70086e477b16b2735aac1c63edc16b7"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tests/fixtures/valid/recovery-event.jsonl",
+      "sha256": "615af1ecf4e899c5fd0a184bb55ebee5fea5f630416a79bb4f196404ae498647"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tests/test_validate.py",
+      "sha256": "bc3d3967e80d2df653ee9af9bfa0cb18340c2a297769e9f252a1e9b46f8928cc"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tools.json",
+      "sha256": "84a67c73938b54aea625cd053ae3666de643d500655464994a6ea754c42e560e"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/validators.json",
+      "sha256": "1369bc08f787bb51e559b877be1230984a2a2e8e9437b074b5828201fdf5ef0e"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agents/README.md",
+      "sha256": "0a005760392d14d48bbc5cd95f978b872bf4402b7e83dd0a76607028eaadba35"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agents/agents/reviewer.json",
+      "sha256": "2886ebb7bf889062fc9c88fd5d41e47af9c83159620cbd23f064f232b3ef99b0"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agents/agents/storyworld-steward.json",
+      "sha256": "5154672cb8fe833962b474b7a0bb78477665bc8eba2adc7a4de409d25cd77e49"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agents/skills/change-review/SKILL.md",
+      "sha256": "6f037d959c30012892582ded16f3fdff8037131a9c8bdc953a44750152265bf1"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agents/skills/change-review/references/provenance.json",
+      "sha256": "b8de6cb3b6d465d6f77c882c1944501b2324969740d17a8eca3e513f808f192e"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agents/workflows/safe-change.json",
+      "sha256": "0323609a22ef83ab7babf679fddd921a16e6df1d825df9501bebff9d94a0fb28"
+    },
+    {
+      "layer": "project_source",
+      "path": ".gitignore",
+      "sha256": "53f0c100a33a56ebada040287b3d0f5dbab21c6ec6b66209fec5515c508f1144"
+    },
+    {
+      "layer": "generation_provenance",
+      "path": ".project-blueprint-origin.json",
+      "sha256": "d53d0dcad84f530c9c80a8dcd96a1e03b31b2054b4d96c461795ad7364fc0d89"
+    },
+    {
+      "layer": "agent_harness",
+      "path": "AGENTS.md",
+      "sha256": "fa1b10294c0d29193029749480383c058be3d32336a690ac7182cdd8b212dd1b"
+    },
+    {
+      "layer": "project_source",
+      "path": "CLAUDE.md",
+      "sha256": "e1afeb79fe35886eae5cdccec712c7bf5a14126e97591dd7c23766f94b7249f5"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/AUTHORITY.md",
+      "sha256": "24ac4fc72d74b9c6a6f0a2233b96ba1b7d7a468508aad68b0ac66e877286b8cb"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/CANONICAL_SOURCE_MAP.md",
+      "sha256": "43a8fc9ee2099497bbc08f320b20f0874ae005a2512b1a307963e5c60d8e67e4"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/README.md",
+      "sha256": "f5e383a0db7befe7bcff2469a198c17ea03e6abc29fa590aace9c8ba822e78fa"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/SUPERSESSION.json",
+      "sha256": "41be78751f09ac697aba16130d5965e1bde8b5a03025ccc472ffd9c1ef961397"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/VERSION.md",
+      "sha256": "80a28ffe77b4bfb1c3f06124c6b52e8e4352c5ab3814b4ed54685b7a649d0b15"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/canonical/architecture-or-outcome-model.md",
+      "sha256": "d20612a9ad83ba36d6b7126003e2228aeb966807b6c15ea569cd1ae8b6f4c24a"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/canonical/constraints-gates-and-readiness.md",
+      "sha256": "74de74a45496d0c76a5d3444339a9b8312a2b164d0b00228038f6b3c20b2e606"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/canonical/executive-project-definition.md",
+      "sha256": "17325a255e7adffc444e2b9a13fe2ccdb8818a7008350675d84bd075468f122b"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/canonical/requirements-and-constraints.md",
+      "sha256": "fd28c57dc3e7054bb8272c30c13d56283c9612a76c915d39cfe416a646ea1ec7"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/canonical/storyworld/01_executive_context_and_product_direction.md",
+      "sha256": "3c291be68012ce349f6b68aab8207204c2f534f72001082afcfcbb2a9e1cc19f"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/canonical/storyworld/02_engine_studio_and_templates.md",
+      "sha256": "b4026df963dbf488034a246051c48de853494a13138d57e201d777ca6fb25fb2"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/canonical/storyworld/03_domain_architecture_and_media_pipeline.md",
+      "sha256": "dc837c241989a79717ed1b5de2d716ee65d32a9ef2d2df666a10ea2fe7d4382a"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/canonical/storyworld/04_foundry_rewind_channels_and_contracts.md",
+      "sha256": "4beaad35e1387a0104c608301bc52bd0cced5e8a4c70b42fa7c15d8f3740371c"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/canonical/storyworld/05_governance_operations_and_quality.md",
+      "sha256": "842540fa27bd12a28035565b1b2a6f80dfef8409f834ddb66455c2fb25470194"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/canonical/storyworld/06_mvp_dependency_roadmap_and_vertical_slices.md",
+      "sha256": "0d34bd65039f03f29acd8ab1b7c40085e3fb9979251f3cd92904e1bd427de832"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/canonical/storyworld/07_backlog_validation_risks_and_recommendation.md",
+      "sha256": "5ab2c59990ad306a7ba67ee87053d8b9aec8349d87aacf429e1a4b2eb1d8ed1b"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/canonical/storyworld/08_appendices.md",
+      "sha256": "3d81267c1d4aa990f45881c407653ef18cd2d259d11b7fe942bf3ee109dccb0d"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/canonical/storyworld/README.md",
+      "sha256": "8fd6631c5a93b06f00a076a7ec919ffc6eea8d2b3d420eed72fabccdd73bd315"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/canonical/storyworld/assets/storyworld_architecture.png",
+      "sha256": "26707519397ce10645c0d6e75da23aa1d6ba6af5604f7832e7ee007caea1ab95"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/canonical/storyworld/assets/storyworld_roadmap.png",
+      "sha256": "b60a42b90811cd85c85e5e11cfc9be8c72762d332c669a781dc8ff09a3118f48"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/conformance/README.md",
+      "sha256": "7daee62ff61c692036403ef494373f657400e5afa8241460b3b568a9fda8b65b"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/context-packs/README.md",
+      "sha256": "41d76d5c2aee3aab170d9d8a391d249b01da1b82b602204a8599ea55898cc21c"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/current-state/README.md",
+      "sha256": "3c6a843d177e40c9c257a88636faa3ee784a2d39c235bfb21800d27a491b021f"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/data/README.md",
+      "sha256": "71edf7aba89d0cbf20b299edd03ea57cee846c689a6f334a063501187fde8196"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/evaluation/README.md",
+      "sha256": "b24a2aa07e18aae1cf0b32be198f872b5007a681097e5948b30951254b1994f4"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/governance/README.md",
+      "sha256": "d74dff3a726712ceba4eb7c01cf63e7bb3388cb8808794ad6c8cffa6c693108b"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/handoff/ADOPTION_CHECKLIST.md",
+      "sha256": "a612ad5643938e017e776df20e9fe9f81d18310ef4fd0f184f317a1dbd32781d"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/handoff/START_HERE.md",
+      "sha256": "0b4e14d2da249b1f9a4064ced2791e570a2178db5dbfc903bea6f030ec450646"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/history/README.md",
+      "sha256": "d1dcef3a00e748689ce719e012d4a3fcaaf95512a3c76fcc7593eefd5c3e68c6"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/history/storyworld-dossier-v1.0-consolidated/README.md",
+      "sha256": "c2fdd5c5067b03c8b79964572779e55e1a0f2b0274659a057f016301bf804d3a"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/history/storyworld-dossier-v1.0-consolidated/Storyworld_Platform_Dossier.md",
+      "sha256": "dfbd85a82dab3e2c74579b9f08ef99f93d20d1546d19576cb2d5ce773e751e82"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/machine-readable/artifact-registry.json",
+      "sha256": "9d3a3b6b2e8324a263639f5808ffde1efed065f8781c6c623d1413464e0af12a"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/machine-readable/evidence-index.json",
+      "sha256": "c114327628f127eabacade529ad4c7f45c9479329414072b407a7ffcef9284a2"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/machine-readable/findings.json",
+      "sha256": "af4d1b93a8e24c9c7c6847c6d2d2bdaa0172d1a38e71c852e813bf438a4eda9e"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/machine-readable/plan.json",
+      "sha256": "7f64748f814a38b9c4b2832932ac35474a427e60c9d90e6752bbc335b09eac70"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/machine-readable/raidq.json",
+      "sha256": "008e03a7fa0a1a4356d6c90866296f7bdb5c6c1e7bb9238b120c4ed7abb73518"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/machine-readable/requirements.json",
+      "sha256": "606dec9d4fb24c341404d0acb77d92a7062f1ed9b4c025c8b9149ef7c45400c2"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/machine-readable/sources.json",
+      "sha256": "a523d6b3d91260d53aa267c20f5ebddf354af6d60f08e49807bfe39dbc4c6efb"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/models/README.md",
+      "sha256": "39d47ecbae610750812169cac4cd8027dcb0478c9167fcad22bc7f9f29e03dd5"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/operations/README.md",
+      "sha256": "b67839e919e37d0b47cba9068a657a582ad0300e04c7645cbff86ab3202286a5"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/plans/README.md",
+      "sha256": "35278e8f9063a5cab0ec36ea1a6c82d175d595ceb43afc3f094c8e74e5693e5c"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/provenance/README.md",
+      "sha256": "9b1610dc652b7fabe9a13fb8e2f9f46c3ceb4bebe88ecc1eabf15043a53f4822"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/registers/README.md",
+      "sha256": "6be6f9c66e085bdf30f22856030ef9950c3238b1ffd3c2b236e8449c6d33fb01"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/research/README.md",
+      "sha256": "d03ca5b1b8f27a1a04f738906a683e324700db6618b1f19f6e47ca28dd79fdea"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/supply-chain/README.md",
+      "sha256": "7803d4ffcef7fbe70af5c89af3b20c12b9eea91a1b939cd93d4664fb3dc928ae"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/transition/README.md",
+      "sha256": "92618c8d2d88ea6cbe55476cc255824b5bc2aeb547593ffc4b4e39311535c5b2"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/validation/QUALITY_GATES.json",
+      "sha256": "546d97132576b17ee56bed8611e81acbd5f01c9365164d8166b41519ec23c14b"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/validation/README.md",
+      "sha256": "789b814ca4ac5293bebd449b64ff606aa733539725a815b5e9a543ef8e6645ab"
+    }
+  ],
+  "generated_on": "2026-07-28T12:06:55.819001+00:00",
+  "generation_id": "40a696f549d2b4766d59f8116bf372bf",
+  "harness_kernel_version": "1.0.1",
+  "profile": "high-assurance",
+  "schema_version": "project-dossier.manifest.v1",
+  "source_fingerprint": "8699a8ca5e073fa1f53cc26949490ecdee95a47fbb814ac038acd7f74e2ef804",
+  "source_scope": {
+    "exclusions": [],
+    "git_metadata": "excluded_from_source_fingerprint",
+    "model": "repository_paths_excluding_declared_exclusions_and_git_metadata"
+  }
+}

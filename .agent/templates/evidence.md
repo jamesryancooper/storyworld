@@ -1,0 +1,41 @@
+---
+{
+  "schema_version": "harness.evidence.v1",
+  "id": "EVD-0001",
+  "title": "Replace with one bounded observation",
+  "task": "TASK-0001",
+  "recorded_at": "2026-07-28",
+  "authority_source": "authority:current-task",
+  "owner": "unassigned",
+  "scope": "replace_with_bounded_observation_scope",
+  "method": "replace_with_reproducible_method",
+  "environment": "not_assessed",
+  "subject_revision_or_fingerprint": "not_recorded",
+  "result": "not_run",
+  "fresh_until": null,
+  "supersedes": null,
+  "limitations": []
+}
+---
+
+## Method
+
+- Command or observation:
+- Tool and version:
+- Start/end time:
+- Environment:
+- Managed scope:
+- Dirty, untracked, and ignored scope:
+
+## Result
+
+- Checks performed:
+- Result:
+- Output location:
+- Related decisions and gates:
+
+## Limitations
+
+- Skipped checks:
+- Assumptions:
+- What this evidence does not prove:

@@ -1,0 +1,31 @@
+---
+{
+  "schema_version": "harness.checkpoint.v1",
+  "id": "CHK-0001",
+  "title": "Replace with resumable milestone",
+  "created_at": "2026-07-28",
+  "task": "TASK-0001",
+  "authority_source": "authority:current-task",
+  "owner": "unassigned",
+  "source_revision_or_fingerprint": "not_recorded",
+  "evidence_refs": [],
+  "next_safe_action": "replace_with_one_safe_resumption_action",
+  "supersedes": null,
+  "limitations": []
+}
+---
+
+## Anchored state
+
+- Accepted decisions:
+- Evidence:
+- Artifact versions:
+- Dirty, untracked, and ignored scope:
+- External effects:
+
+## Resume and recovery
+
+- Preconditions:
+- Next safe action:
+- Rollback or recovery:
+- Limitations:

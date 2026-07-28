@@ -1,0 +1,37 @@
+# Authority and Precedence
+
+This file explains how to interpret Storyworld Platform project material. It does
+not create permission.
+
+## Precedence
+
+1. Current user, platform, tool, contractual, and legal constraints.
+2. Applicable repository instructions.
+3. Live project policy and accepted project-specific decisions.
+4. Executable or operational evidence for current-state claims.
+5. Canonical dossier material for intended state.
+6. Current-state and conformance records.
+7. Plans, registers, and handoff views.
+8. Provenance, historical material, and generated reports.
+
+## Conflict rule
+
+Current behavior does not become the intended target merely because it exists.
+Target documentation does not prove implementation. Unresolved conflicts must
+be recorded as findings or open questions.
+
+## Representation authority
+
+- `machine-readable/artifact-registry.json` is the project-local edit source
+  for artifact types, physical representations, applicability, owners, review
+  state, and source direction.
+- `ARTIFACT_CATALOG.json` and
+  `machine-readable/path-authority.json` are generated mirrors.
+- `MANIFEST.json`, `CHECKSUMS.sha256`, and harness integrity reports are
+  point-in-time generated evidence.
+- In Minimal, human-readable requirements, findings, plans, registers, and
+  provenance pages may own their records. In Standard and High-Assurance, the
+  corresponding JSON stores own individual records and Markdown owns method,
+  vocabulary, and explanation.
+- A generation date is scaffold provenance. It is not a review date,
+  observation date, approval, or freshness claim.

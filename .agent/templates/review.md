@@ -1,0 +1,35 @@
+---
+{
+  "schema_version": "harness.review.v1",
+  "id": "REV-0001",
+  "title": "Replace with review subject",
+  "task": "TASK-0001",
+  "review_mode": "self_review",
+  "status": "open",
+  "recorded_at": "2026-07-28",
+  "authority_source": "authority:current-task",
+  "owner": "unassigned",
+  "scope": "replace_with_exact_review_scope",
+  "evidence_refs": [],
+  "limitations": []
+}
+---
+
+## Scope and evidence
+
+- Exact revision or artifact:
+- Applicable acceptance criteria:
+- Validation evidence:
+- Exclusions:
+
+## Findings
+
+For each finding record ID, severity, exact location, observed evidence,
+impact, smallest safe remedy, and disposition.
+
+## Conclusion and limitations
+
+- Actionable findings:
+- Residual risks:
+- Review limitations:
+- Approval authority: none created by this review

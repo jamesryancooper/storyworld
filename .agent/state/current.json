@@ -1,0 +1,26 @@
+{
+  "schema_version": "harness.current-state.v1",
+  "project_slug": "storyworld-platform",
+  "updated_at": "2026-07-28",
+  "authority": "project_maintained_compact_operational_index_not_permission",
+  "adoption_status": "adopted",
+  "active_tasks": [],
+  "accepted_decisions": [
+    "DEC-0001",
+    "DEC-0002",
+    "DEC-0003",
+    "DEC-0004"
+  ],
+  "fresh_evidence": [
+    "EVD-0001",
+    "EVD-0002",
+    "EVD-0003"
+  ],
+  "blocked_by": [],
+  "next_action": "commit_the_working_tree_then_begin_PLAN-0002_F0_charter_pack",
+  "external_effects_authority_refs": [],
+  "limitations": [
+    "structural_validation_only_no_readiness_claim",
+    "repository_has_no_git_commits"
+  ]
+}

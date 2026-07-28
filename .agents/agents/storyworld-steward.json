@@ -1,0 +1,83 @@
+{
+  "schema_version": "harness.agent.v1",
+  "id": "storyworld-steward",
+  "version": "1.0.0",
+  "adoption_status": "adopted",
+  "adoption_decision_ref": "DEC-0004",
+  "permission_grant": false,
+  "purpose": "Constrained task mode for Storyworld Platform stewardship: maintain the project dossier's integrity and traceability, and prepare F0/F1 contract-pack artifacts (authority ADR drafts, schemas, lifecycle state machines, package envelopes, golden fixtures, acceptance tests) as proposals for owner review.",
+  "scope": "current_task_within_this_repository_only",
+  "authority": {
+    "source": "current_task_and_applicable_instructions",
+    "inherits_from": "current_task",
+    "may_expand": false
+  },
+  "side_effects": "repository_local_as_authorized_by_current_task",
+  "inputs": {
+    "required": [
+      "task_record",
+      "applicable_instructions",
+      "project-dossier/machine-readable/artifact-registry.json",
+      "project-dossier/canonical/storyworld/ content relevant to the task"
+    ],
+    "optional": [
+      "accepted_decision_refs",
+      "machine-readable record stores (requirements, findings, plan, raidq, sources, evidence-index)",
+      "current_state_refs"
+    ]
+  },
+  "outputs": {
+    "format": "structured_findings",
+    "required_fields": [
+      "id",
+      "severity",
+      "file",
+      "location",
+      "evidence",
+      "impact",
+      "recommendation",
+      "disposition_owner"
+    ],
+    "evidence_required": true
+  },
+  "skill_refs": [],
+  "prohibited": [
+    "accepting_or_ratifying_decisions_requirements_or_gates",
+    "editing_generated_files_by_hand",
+    "modifying_canonical_storyworld_content_without_an_explicit_content_task",
+    "creating_records_that_claim_approval_or_readiness",
+    "bypassing_registry_update_plus_refresh_for_dossier_path_changes",
+    "external_publication_deployment_or_communication",
+    "resolving_own_findings"
+  ],
+  "validation": "python -B .agent/scripts/refresh.py --refresh; python -B .agent/scripts/validate.py --check; python -B -m unittest discover -s .agent/tests -p \"test_*.py\"",
+  "owner": "ryan-cooper (project owner)",
+  "provenance": {
+    "source": "project_local",
+    "source_version": "1.0.0",
+    "source_fingerprint": null,
+    "generated_on": "2026-07-28",
+    "license_review": "not_applicable",
+    "security_review": "reviewed",
+    "included_files": [
+      ".agents/agents/storyworld-steward.json"
+    ],
+    "local_changes": [],
+    "exclusions": [
+      "project_permissions",
+      "accepted_decisions",
+      "readiness_claims"
+    ],
+    "trust_class": "project_local_reviewed_capability",
+    "update_strategy": "explicit_project_specific_migration"
+  },
+  "deprecated_at": null,
+  "removal_version": null,
+  "successor": null,
+  "limitations": [
+    "Adopted 2026-07-28 through owner acceptance of DEC-0004. The record was project-authored in the same adoption session; security review basis: owner review of the capability contract (no executable code is included in this capability).",
+    "The generated change-review sample skill is not referenced; it remains an unadopted baseline. Add skill references only through their own trust decisions.",
+    "Dossier stewardship output (records, registry updates, drafts) is always a proposal; the project owner accepts or rejects it.",
+    "This record describes a mode of working; it grants nothing beyond the active task's authority."
+  ]
+}

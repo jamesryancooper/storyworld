@@ -1,0 +1,49 @@
+{
+  "document_role": "unadopted_authoritative_store_candidate",
+  "permission_grant": false,
+  "project_slug": "storyworld-platform",
+  "review": {
+    "basis": "Generated scaffold provenance is not substantive project review.",
+    "last_reviewed_on": null,
+    "status": "not_reviewed"
+  },
+  "scaffold_generated_on": "2026-07-28",
+  "schema_version": "project.dossier.sources.v1",
+  "sources": [
+    {
+      "accepted_as_project_authority": true,
+      "classification": "project_canonical_target_material",
+      "fresh_until": "2026-10-27",
+      "id": "SRC-0001",
+      "intended_use": "Canonical intended-state definition for the Storyworld platform: product family, principles, domain model, architecture, integrations, governance, roadmap, backlog, and risks.",
+      "limitations": [
+        "Consolidated from a prior conversation and saved account context; a literal raw transcript of every historical chat was not available (part 01, sections 1.1-1.2).",
+        "Implementation status must not be inferred from the maturity of the prose; the dossier itself claims implementation only where an artifact was verifiable.",
+        "Canonical-target treatment ratified by the project owner 2026-07-28 via DEC-0003."
+      ],
+      "location": "project-dossier/canonical/storyworld/ (modular parts); consolidated original retained at project-dossier/history/storyworld-dossier-v1.0-consolidated/",
+      "name": "Storyworld Platform Dossier v1.0 (canonical content pack)",
+      "observed_on": "2026-07-28",
+      "rights_or_license": "Project-owner authored working dossier; no external license involved.",
+      "sensitivity": "internal (marked 'Private working dossier' by its author)",
+      "version_or_revision": "1.0 (dated 2026-07-27)"
+    },
+    {
+      "accepted_as_project_authority": false,
+      "classification": "structure_generator_source",
+      "fresh_until": "2027-07-28",
+      "id": "SRC-0002",
+      "intended_use": "Source of the generated harness and dossier structure, schemas, templates, and validation tooling only.",
+      "limitations": [
+        "Non-transfer rules apply: no project facts, decisions, permissions, or readiness transfer from the blueprint.",
+        "The generated snapshot is independent; later blueprint changes do not apply automatically."
+      ],
+      "location": "/Users/jamesryancooper/Projects/project-blueprint (local checkout); snapshot provenance in .project-blueprint-origin.json",
+      "name": "Project Blueprint 1.0.1 (structure and validation source)",
+      "observed_on": "2026-07-28",
+      "rights_or_license": "Project-owner authored blueprint repository.",
+      "sensitivity": "internal",
+      "version_or_revision": "1.0.1 (generation_id 8a719518f6307009dd1b6602ef6b4ac5)"
+    }
+  ]
+}

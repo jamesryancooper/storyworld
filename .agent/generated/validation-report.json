@@ -1,0 +1,71 @@
+{
+  "authority": "generated_non_authoritative_point_in_time",
+  "checks": [
+    {
+      "id": "pre_refresh_source_validation",
+      "status": "pass"
+    },
+    {
+      "id": "strict_json_and_duplicate_keys",
+      "status": "pass"
+    },
+    {
+      "id": "schemas_versions_lifecycles_and_references",
+      "status": "pass"
+    },
+    {
+      "id": "authority_and_nested_instruction_invariants",
+      "status": "pass"
+    },
+    {
+      "id": "dossier_artifact_registry",
+      "status": "pass"
+    },
+    {
+      "id": "extension_confinement_and_validator_protocol",
+      "status": "not_run"
+    },
+    {
+      "id": "bounded_secret_heuristic_and_redaction",
+      "status": "pass"
+    }
+  ],
+  "environment": {
+    "platform": "darwin",
+    "python": "3.14.0"
+  },
+  "external_effects": "repository_local_derived_metadata_refresh_only",
+  "failures": [],
+  "freshness_rule": "Invalid when any non-excluded repository source byte or path changes.",
+  "generated_at": "2026-07-28T12:06:55.819001+00:00",
+  "generation_id": "40a696f549d2b4766d59f8116bf372bf",
+  "git_scope": {
+    "available": true,
+    "ignored": 0,
+    "tracked_modified": 0,
+    "untracked": 7
+  },
+  "limitations": [
+    "Structural pass does not prove implementation or project readiness.",
+    "Repository policy is not runtime enforcement.",
+    "Project-specific build, test, security, legal, and operational checks remain adoption obligations.",
+    "A structural PASS is not a readiness, approval, or authorization claim.",
+    "This report does not attest the post-refresh full check; that outcome is represented only by the refresh command exit and output."
+  ],
+  "result": "PASS",
+  "schema_version": "harness.validation-report.v1",
+  "scope": "pre_refresh_domain_neutral_source_validation",
+  "skipped_checks": [
+    "extension validators: no adopted enabled extension",
+    "binary, non-UTF-8, encoded, and files larger than 4 MiB require a dedicated secret scanner",
+    "project-specific build, test, security, legal, and operational checks"
+  ],
+  "source_fingerprint": "8699a8ca5e073fa1f53cc26949490ecdee95a47fbb814ac038acd7f74e2ef804",
+  "source_scope": {
+    "exclusions": [],
+    "git_metadata": "excluded_from_source_fingerprint",
+    "model": "repository_paths_excluding_declared_exclusions_and_git_metadata"
+  },
+  "task_and_decision_links": [],
+  "validator_version": "1.0.1"
+}

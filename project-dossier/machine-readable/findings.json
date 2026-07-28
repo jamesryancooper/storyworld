@@ -1,0 +1,75 @@
+{
+  "classification_vocabulary": [
+    "conformant",
+    "compatible",
+    "transitional",
+    "nonconformant",
+    "absent",
+    "not_assessed",
+    "not_applicable"
+  ],
+  "document_role": "unadopted_authoritative_store_candidate",
+  "findings": [
+    {
+      "assessed_on": "2026-07-28",
+      "id": "FIND-0001",
+      "inspected_evidence": [
+        "EVD-0003"
+      ],
+      "limitations": [
+        "Derived by claude-agent from direct inspection (EVD-0003); Ratified by the project owner (Ryan Cooper) on 2026-07-28 via acceptance of DEC-0001..DEC-0004 (PLAN-0001)."
+      ],
+      "owner_role": "project_owner",
+      "rationale": "The canonical dossier names the F0/F1 contract pack as the first build artifact; none of its files exist yet.",
+      "remediation_plan_refs": [
+        "PLAN-0002",
+        "PLAN-0003"
+      ],
+      "requirement_refs": [
+        "REQ-0010"
+      ],
+      "status": "absent",
+      "subject_version": "Uncommitted working tree, 2026-07-28 (repository has no git commits)",
+      "title": "F0/F1 contract pack absent"
+    },
+    {
+      "assessed_on": "2026-07-28",
+      "id": "FIND-0002",
+      "inspected_evidence": [
+        "EVD-0003"
+      ],
+      "limitations": [
+        "Derived by claude-agent from direct inspection (EVD-0003); Ratified by the project owner (Ryan Cooper) on 2026-07-28 via acceptance of DEC-0001..DEC-0004 (PLAN-0001)."
+      ],
+      "owner_role": "project_owner",
+      "rationale": "No implementation exists; all platform behavior requirements are unimplemented by direct observation, consistent with the dossier's own maturity claims (part 01, section 1.2).",
+      "remediation_plan_refs": [
+        "PLAN-0004",
+        "PLAN-0005"
+      ],
+      "requirement_refs": [
+        "REQ-0001",
+        "REQ-0002",
+        "REQ-0003",
+        "REQ-0004",
+        "REQ-0005",
+        "REQ-0006",
+        "REQ-0007",
+        "REQ-0008",
+        "REQ-0009"
+      ],
+      "status": "absent",
+      "subject_version": "Uncommitted working tree, 2026-07-28 (repository has no git commits)",
+      "title": "Platform implementation not assessable"
+    }
+  ],
+  "permission_grant": false,
+  "project_slug": "storyworld-platform",
+  "review": {
+    "basis": "Generated scaffold provenance is not substantive project review.",
+    "last_reviewed_on": null,
+    "status": "not_reviewed"
+  },
+  "scaffold_generated_on": "2026-07-28",
+  "schema_version": "project.dossier.findings.v1"
+}

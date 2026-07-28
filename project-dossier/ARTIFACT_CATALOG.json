@@ -1,0 +1,3918 @@
+{
+  "artifact_types": [
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "navigation",
+      "classification": "core",
+      "creation_timing": "Create first as the dossier entry point.",
+      "dependencies": [
+        "DOS-0002",
+        "DOS-0003",
+        "DOS-0010"
+      ],
+      "downstream_consumers": [
+        "all_dossier_readers",
+        "handoff_workflows"
+      ],
+      "id": "DOS-0001",
+      "intended_audiences": [
+        "all_project_participants",
+        "new_maintainers",
+        "agents"
+      ],
+      "omission_or_combination": "Never omit. It may share a file with HOF-0001 only for truly single-session work if authority and state remain visibly separate.",
+      "owner_role": "dossier_maintainer",
+      "profile": "minimal",
+      "purpose": "Route readers to authoritative layers without restating mutable content.",
+      "questions": [
+        "Where do I start?",
+        "Which profile and information layers apply?",
+        "Where is current work summarized?"
+      ],
+      "recommended_formats": [
+        "Markdown"
+      ],
+      "recommended_name": "Dossier index",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/README.md",
+        "COE:project-dossier/README.md"
+      ],
+      "required_inputs": [
+        "artifact_registry",
+        "authority_map",
+        "current_handoff_pointers"
+      ],
+      "review_cadence": "on_path_or_entry_point_change",
+      "source_of_truth_expectations": "Navigation only; it links authoritative sources and never owns their mutable facts.",
+      "triggers": [
+        "all_projects"
+      ],
+      "update_triggers": [
+        "artifact_path_change",
+        "profile_change",
+        "entry_point_change"
+      ],
+      "validation_checks": [
+        "links_resolve",
+        "all_active_layers_listed",
+        "no_duplicated_mutable_status"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "governance",
+      "classification": "core",
+      "creation_timing": "Create before project-specific dossier content is adopted.",
+      "dependencies": [
+        "DEC-0001",
+        "PRV-0001"
+      ],
+      "downstream_consumers": [
+        "canonical_source_map",
+        "validators",
+        "handoff"
+      ],
+      "id": "DOS-0002",
+      "intended_audiences": [
+        "all_project_participants",
+        "reviewers",
+        "agents"
+      ],
+      "omission_or_combination": "Never omit as a concern; Minimal may combine it with DOS-0003 under distinct headings.",
+      "owner_role": "project_governance_owner",
+      "profile": "minimal",
+      "purpose": "Define dossier precedence, information roles, conflict handling, and the non-authorizing boundary.",
+      "questions": [
+        "Which source governs each concern?",
+        "How are conflicts handled?",
+        "What cannot grant permission?"
+      ],
+      "recommended_formats": [
+        "Markdown"
+      ],
+      "recommended_name": "Authority and interpretation map",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/CANONICAL_SOURCE_MAP.md",
+        "COE:project-dossier/AUTHORITY.md"
+      ],
+      "required_inputs": [
+        "applicable_repository_instructions",
+        "accepted_decisions",
+        "source_classifications"
+      ],
+      "review_cadence": "on_authority_change_and_quarterly_for_active_projects",
+      "source_of_truth_expectations": "Authoritative only for interpreting dossier information; operating permission remains outside the dossier.",
+      "triggers": [
+        "all_projects"
+      ],
+      "update_triggers": [
+        "authority_change",
+        "information_role_change",
+        "conflict_discovered"
+      ],
+      "validation_checks": [
+        "non_authorizing_boundary_present",
+        "precedence_complete",
+        "conflict_rule_present"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "governance",
+      "classification": "core",
+      "creation_timing": "Create with the first canonical and observed-state artifacts.",
+      "dependencies": [
+        "DOS-0002",
+        "DOS-0010"
+      ],
+      "downstream_consumers": [
+        "navigation",
+        "drift_detection",
+        "change_control"
+      ],
+      "id": "DOS-0003",
+      "intended_audiences": [
+        "maintainers",
+        "reviewers",
+        "agents"
+      ],
+      "omission_or_combination": "Never omit as a concern; Minimal may combine it with DOS-0002 under distinct headings.",
+      "owner_role": "dossier_maintainer",
+      "profile": "minimal",
+      "purpose": "Name the single source owner and edit direction for every mutable concern.",
+      "questions": [
+        "Where is each definition maintained?",
+        "Which view is generated?",
+        "How does profile choice change representation ownership?"
+      ],
+      "recommended_formats": [
+        "Markdown"
+      ],
+      "recommended_name": "Canonical-source map",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/CANONICAL_SOURCE_MAP.md",
+        "COE:project-dossier/CANONICAL_SOURCE_MAP.md"
+      ],
+      "required_inputs": [
+        "artifact_registry",
+        "accepted_source_ownership_decisions"
+      ],
+      "review_cadence": "on_source_owner_or_representation_change",
+      "source_of_truth_expectations": "Authoritative for concern-to-source routing; it does not duplicate the routed content.",
+      "triggers": [
+        "all_projects"
+      ],
+      "update_triggers": [
+        "source_owner_change",
+        "representation_added",
+        "source_direction_change"
+      ],
+      "validation_checks": [
+        "one_edit_owner_per_concern",
+        "generated_direction_declared",
+        "all_active_stores_routed"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "inventory",
+      "classification": "core",
+      "creation_timing": "Generate after registry initialization and after every registry change.",
+      "dependencies": [
+        "DOS-0010"
+      ],
+      "downstream_consumers": [
+        "navigation_checks",
+        "integrity_validation"
+      ],
+      "id": "DOS-0004",
+      "intended_audiences": [
+        "validators",
+        "maintainers",
+        "agents"
+      ],
+      "omission_or_combination": "Never omit from a generated dossier; consumers that can read DOS-0010 directly may ignore this view but must not edit it.",
+      "owner_role": "artifact_registry_refresh_tool",
+      "profile": "minimal",
+      "purpose": "Provide a normalized, machine-readable point-in-time view of the project-local artifact registry.",
+      "questions": [
+        "Which type and representation records were cataloged?",
+        "From which registry generation was this view produced?"
+      ],
+      "recommended_formats": [
+        "JSON"
+      ],
+      "recommended_name": "Generated artifact catalog",
+      "representative_evidence": [
+        "Recommended: portable normalized catalog inferred from both reference manifests"
+      ],
+      "required_inputs": [
+        "DOS-0010"
+      ],
+      "review_cadence": "generated_on_registry_change",
+      "source_of_truth_expectations": "Generated non-authoritative mirror of DOS-0010; never edited independently.",
+      "triggers": [
+        "all_projects"
+      ],
+      "update_triggers": [
+        "artifact_registry_change",
+        "integrity_refresh"
+      ],
+      "validation_checks": [
+        "schema_valid",
+        "generation_id_matches_related_outputs",
+        "content_matches_registry"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "integrity",
+      "classification": "core",
+      "creation_timing": "Generate at scaffold time and refresh after managed changes; checksums are High-Assurance or risk-triggered.",
+      "dependencies": [
+        "DOS-0010",
+        "VAL-0001"
+      ],
+      "downstream_consumers": [
+        "freshness_checks",
+        "handoff",
+        "release_or_audit_evidence"
+      ],
+      "id": "DOS-0005",
+      "intended_audiences": [
+        "reviewers",
+        "release_owners",
+        "automation"
+      ],
+      "omission_or_combination": "The manifest is Core. Checksums may be omitted unless audit, release, immutable-baseline, or High-Assurance triggers apply.",
+      "owner_role": "integrity_refresh_tool",
+      "profile": "minimal",
+      "purpose": "Record a point-in-time managed-file inventory and, when triggered, byte checksums.",
+      "questions": [
+        "Which bytes and paths were checked?",
+        "What was excluded?",
+        "Are related integrity outputs from one refresh?"
+      ],
+      "recommended_formats": [
+        "JSON",
+        "SHA-256 checksum text"
+      ],
+      "recommended_name": "Generated manifest and integrity set",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/CHECKSUMS.md",
+        "COE:project-dossier/MANIFEST.json",
+        "COE:project-dossier/CHECKSUMS.sha256"
+      ],
+      "required_inputs": [
+        "DOS-0010",
+        "declared_managed_scope"
+      ],
+      "review_cadence": "after_managed_change_and_before_gated_handoff",
+      "source_of_truth_expectations": "Generated evidence only; proves scoped byte identity, not authority, correctness, approval, or readiness.",
+      "triggers": [
+        "manifest_for_all_profiles",
+        "checksums_for_high_assurance_or_audit_need"
+      ],
+      "update_triggers": [
+        "managed_file_change",
+        "handoff",
+        "release_candidate",
+        "integrity_refresh"
+      ],
+      "validation_checks": [
+        "scope_exact",
+        "generation_ids_match",
+        "fingerprint_fresh",
+        "checksum_set_complete_when_enabled"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "lifecycle",
+      "classification": "core",
+      "creation_timing": "Create at initialization; mark generated baseline as unadopted.",
+      "dependencies": [
+        "DOS-0007",
+        "DEC-0001"
+      ],
+      "downstream_consumers": [
+        "upgrade_planning",
+        "handoff",
+        "supersession"
+      ],
+      "id": "DOS-0006",
+      "intended_audiences": [
+        "maintainers",
+        "auditors",
+        "upgrade_tools"
+      ],
+      "omission_or_combination": "Never omit; it may be presented with the supersession ledger only if the machine-readable lifecycle record remains available.",
+      "owner_role": "dossier_governance_owner",
+      "profile": "minimal",
+      "purpose": "Identify the dossier contract version, adoption state, effective date, and change basis.",
+      "questions": [
+        "Which dossier version is current?",
+        "Was it merely generated or project-adopted?",
+        "What migration applies?"
+      ],
+      "recommended_formats": [
+        "Markdown"
+      ],
+      "recommended_name": "Dossier version record",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/README.md",
+        "Inferred: COE records point-in-time creation and generated integrity but has no direct dossier-version equivalent"
+      ],
+      "required_inputs": [
+        "accepted_dossier_changes",
+        "blueprint_origin",
+        "migration_records"
+      ],
+      "review_cadence": "on_semantic_dossier_change",
+      "source_of_truth_expectations": "Project-maintained source for dossier version and adoption state.",
+      "triggers": [
+        "all_projects"
+      ],
+      "update_triggers": [
+        "dossier_contract_change",
+        "profile_change",
+        "adoption_or_upgrade"
+      ],
+      "validation_checks": [
+        "semantic_version_valid",
+        "adoption_state_explicit",
+        "migration_link_present_when_required"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "lifecycle",
+      "classification": "core",
+      "creation_timing": "Create empty at initialization; add a record before a superseded artifact is treated as noncurrent.",
+      "dependencies": [
+        "DOS-0006",
+        "DOS-0010",
+        "DEC-0001"
+      ],
+      "downstream_consumers": [
+        "authority_resolution",
+        "history",
+        "migration",
+        "handoff"
+      ],
+      "id": "DOS-0007",
+      "intended_audiences": [
+        "maintainers",
+        "auditors",
+        "agents"
+      ],
+      "omission_or_combination": "Never omit the empty ledger; it may remain empty until the first supersession.",
+      "owner_role": "dossier_governance_owner",
+      "profile": "minimal",
+      "purpose": "Preserve explicit artifact replacements, effective dates, reasons, migrations, and retained history.",
+      "questions": [
+        "What is no longer current?",
+        "What replaced it?",
+        "Where is history retained?"
+      ],
+      "recommended_formats": [
+        "JSON"
+      ],
+      "recommended_name": "Supersession ledger",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/SUPERSESSION_MAP.md",
+        "Recommended: COE has no direct dossier supersession ledger equivalent"
+      ],
+      "required_inputs": [
+        "accepted_successor_change",
+        "artifact_registry",
+        "retention_decision"
+      ],
+      "review_cadence": "on_supersession",
+      "source_of_truth_expectations": "Authoritative project-local lifecycle record; changes append or correct through an explicit successor.",
+      "triggers": [
+        "all_projects"
+      ],
+      "update_triggers": [
+        "artifact_superseded",
+        "artifact_split_or_merged",
+        "dossier_version_change"
+      ],
+      "validation_checks": [
+        "no_cycles",
+        "successors_resolve",
+        "retained_location_resolves",
+        "ids_not_reused"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "governance",
+      "classification": "core",
+      "creation_timing": "Generate alongside the artifact catalog directly from the artifact registry.",
+      "dependencies": [
+        "DOS-0010"
+      ],
+      "downstream_consumers": [
+        "authority_checks",
+        "drift_detection",
+        "safe_context_loading"
+      ],
+      "id": "DOS-0008",
+      "intended_audiences": [
+        "validators",
+        "agents",
+        "reviewers"
+      ],
+      "omission_or_combination": "Never omit from an agent-operable generated dossier; non-filesystem adaptations must provide an equivalent locator classification.",
+      "owner_role": "artifact_registry_refresh_tool",
+      "profile": "minimal",
+      "purpose": "Provide per-path information-state and authority classification derived from the registry.",
+      "questions": [
+        "Which representation owns this path?",
+        "What information role and source direction apply?"
+      ],
+      "recommended_formats": [
+        "JSON"
+      ],
+      "recommended_name": "Generated path-authority map",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/machine-readable/repository-path-authority.yaml",
+        "COE:project-dossier/machine-readable/path-authority.yaml"
+      ],
+      "required_inputs": [
+        "DOS-0010"
+      ],
+      "review_cadence": "generated_on_registry_change",
+      "source_of_truth_expectations": "Generated non-authoritative mirror; DOS-0010 owns representation metadata.",
+      "triggers": [
+        "all_projects"
+      ],
+      "update_triggers": [
+        "artifact_registry_change",
+        "integrity_refresh"
+      ],
+      "validation_checks": [
+        "every_managed_dossier_path_covered_once",
+        "content_matches_registry",
+        "generation_id_matches_catalog"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "inventory",
+      "classification": "core",
+      "creation_timing": "Seed during scaffold generation before derived catalog and path-authority outputs.",
+      "dependencies": [
+        "DOS-0002",
+        "DOS-0003"
+      ],
+      "downstream_consumers": [
+        "DOS-0004",
+        "DOS-0008",
+        "DOS-0005",
+        "navigation",
+        "drift_detection"
+      ],
+      "id": "DOS-0010",
+      "intended_audiences": [
+        "dossier_maintainers",
+        "validators",
+        "agents"
+      ],
+      "omission_or_combination": "Never omit. It is the edit source; DOS-0004 and DOS-0008 must be regenerated from it.",
+      "owner_role": "dossier_maintainer",
+      "profile": "minimal",
+      "purpose": "Own project-local artifact types, physical representations, applicability decisions, review state, and source direction.",
+      "questions": [
+        "Which artifact types apply?",
+        "Which physical representations are active?",
+        "Who owns and reviews each one?"
+      ],
+      "recommended_formats": [
+        "JSON"
+      ],
+      "recommended_name": "Project artifact registry",
+      "representative_evidence": [
+        "Recommended: closes the editable-registry and derived-catalog gap observed across both references"
+      ],
+      "required_inputs": [
+        "selected_profile",
+        "project_trigger_assessment",
+        "accepted_path_and_owner_changes"
+      ],
+      "review_cadence": "on_artifact_change_and_quarterly_for_active_projects",
+      "source_of_truth_expectations": "Authoritative project-local metadata source seeded by generation and thereafter maintained explicitly; generated views never replace it.",
+      "triggers": [
+        "all_projects"
+      ],
+      "update_triggers": [
+        "artifact_added_or_removed",
+        "path_change",
+        "applicability_assessment",
+        "owner_or_review_change",
+        "supersession"
+      ],
+      "validation_checks": [
+        "type_ids_unique",
+        "representation_ids_unique",
+        "paths_confined_and_unique",
+        "references_resolve",
+        "applicability_and_review_semantics_valid"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "project_definition",
+      "classification": "core",
+      "creation_timing": "Create during project framing before detailed requirements.",
+      "dependencies": [
+        "PRV-0001",
+        "DEC-0001"
+      ],
+      "downstream_consumers": [
+        "requirements",
+        "architecture_or_outcome_model",
+        "planning",
+        "success_assessment"
+      ],
+      "id": "DEF-0001",
+      "intended_audiences": [
+        "all_stakeholders",
+        "maintainers",
+        "agents"
+      ],
+      "omission_or_combination": "Never omit; small projects may combine it with REQ-0001 and ARC-0001 under separate sections.",
+      "owner_role": "project_owner",
+      "profile": "minimal",
+      "purpose": "Define project identity, problem, intended outcomes, boundaries, audiences, ownership, and success.",
+      "questions": [
+        "What is this project?",
+        "What is explicitly out of scope?",
+        "What outcomes and measures define success?"
+      ],
+      "recommended_formats": [
+        "Markdown"
+      ],
+      "recommended_name": "Executive project definition",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/canonical/platform-definition.md",
+        "COE:project-dossier/canonical/executive-project-definition.md"
+      ],
+      "required_inputs": [
+        "authoritative_brief",
+        "accepted_scope_decisions",
+        "stakeholder_evidence"
+      ],
+      "review_cadence": "on_strategy_or_scope_change_and_at_major_gates",
+      "source_of_truth_expectations": "Canonical target definition; proposed or unknown content stays labeled.",
+      "triggers": [
+        "all_projects"
+      ],
+      "update_triggers": [
+        "strategy_change",
+        "scope_change",
+        "outcome_change",
+        "ownership_change"
+      ],
+      "validation_checks": [
+        "scope_bounded",
+        "non_goals_present",
+        "success_measures_testable",
+        "unknowns_labeled"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "requirements",
+      "classification": "core",
+      "creation_timing": "Create before conformance assessment and implementation planning.",
+      "dependencies": [
+        "DEF-0001",
+        "PRV-0001",
+        "DEC-0001"
+      ],
+      "downstream_consumers": [
+        "architecture",
+        "conformance",
+        "plans",
+        "validation",
+        "gates"
+      ],
+      "id": "REQ-0001",
+      "intended_audiences": [
+        "owners",
+        "implementers",
+        "reviewers",
+        "agents"
+      ],
+      "omission_or_combination": "Never omit; prose may share DEF-0001 in Minimal, but requirement IDs and record ownership remain explicit.",
+      "owner_role": "requirements_owner",
+      "profile": "minimal",
+      "purpose": "Own requirement wording, basis, status, owner, validation method, and traceability.",
+      "questions": [
+        "What must be true?",
+        "Why is it required?",
+        "How will it be verified and what currently satisfies it?"
+      ],
+      "recommended_formats": [
+        "Markdown",
+        "JSON for Standard and High-Assurance record stores"
+      ],
+      "recommended_name": "Requirements and traceability system",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/dossier-v0.2/docs/requirements/requirements-traceability.md",
+        "COE:project-dossier/machine-readable/requirements.yaml",
+        "COE:project-dossier/requirements/traceability.md"
+      ],
+      "required_inputs": [
+        "project_definition",
+        "accepted_decisions",
+        "constraints",
+        "provenance"
+      ],
+      "review_cadence": "on_requirement_change_and_before_readiness_gates",
+      "source_of_truth_expectations": "Minimal owns records in Markdown; Standard and High-Assurance own individual records in JSON while Markdown owns vocabulary and explanation.",
+      "triggers": [
+        "all_projects"
+      ],
+      "update_triggers": [
+        "requirement_proposed",
+        "decision_accepted",
+        "constraint_change",
+        "validation_method_change"
+      ],
+      "validation_checks": [
+        "stable_record_ids",
+        "basis_and_owner_present",
+        "status_controlled",
+        "validation_and_traceability_complete"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "architecture_or_outcome",
+      "classification": "core",
+      "creation_timing": "Create before detailed execution or implementation.",
+      "dependencies": [
+        "DEF-0001",
+        "REQ-0001",
+        "DEC-0001"
+      ],
+      "downstream_consumers": [
+        "plans",
+        "interfaces",
+        "validation",
+        "operations"
+      ],
+      "id": "ARC-0001",
+      "intended_audiences": [
+        "implementers",
+        "designers",
+        "reviewers",
+        "operators"
+      ],
+      "omission_or_combination": "Never omit the concern; non-software projects use outcome, operating, service, or workstream terminology.",
+      "owner_role": "architecture_or_design_owner",
+      "profile": "minimal",
+      "purpose": "Describe intended actors, components or workstreams, boundaries, flows, interfaces, states, and invariants.",
+      "questions": [
+        "How should the intended system or outcome fit together?",
+        "Where are boundaries and failure modes?",
+        "Which requirements does each part support?"
+      ],
+      "recommended_formats": [
+        "Markdown",
+        "diagram",
+        "JSON schema where mechanically consumed"
+      ],
+      "recommended_name": "Architecture or outcome model",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/canonical/architecture.md",
+        "COE:project-dossier/canonical/technical-architecture.md",
+        "COE:project-dossier/canonical/business-and-brand-architecture.md"
+      ],
+      "required_inputs": [
+        "project_definition",
+        "requirements",
+        "accepted_decisions",
+        "domain_models_when_applicable"
+      ],
+      "review_cadence": "on_accepted_design_change",
+      "source_of_truth_expectations": "Canonical intended structure; diagrams generated from another source are labeled derived.",
+      "triggers": [
+        "all_projects"
+      ],
+      "update_triggers": [
+        "accepted_design_change",
+        "boundary_change",
+        "workflow_change",
+        "failure_model_change"
+      ],
+      "validation_checks": [
+        "requirements_coverage",
+        "boundaries_explicit",
+        "flows_and_failure_behavior_consistent",
+        "generated_diagrams_trace_source"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "decisions",
+      "classification": "core",
+      "creation_timing": "Create when a durable choice is proposed; acceptance requires valid project authority.",
+      "dependencies": [],
+      "downstream_consumers": [
+        "canonical_target",
+        "requirements",
+        "plans",
+        "supersession"
+      ],
+      "id": "DEC-0001",
+      "intended_audiences": [
+        "future_maintainers",
+        "owners",
+        "reviewers",
+        "agents"
+      ],
+      "omission_or_combination": "The store is Core; an empty store is valid and generation must not fabricate an accepted decision.",
+      "owner_role": "decision_owner",
+      "profile": "minimal",
+      "purpose": "Preserve the context, authority, alternatives, consequences, and successors of durable choices.",
+      "questions": [
+        "What was decided?",
+        "Under which authority and scope?",
+        "What did it replace and how is it validated?"
+      ],
+      "recommended_formats": [
+        "Markdown records governed by the harness lifecycle"
+      ],
+      "recommended_name": "Durable decision records",
+      "representative_evidence": [
+        "CF:.agent/decisions/",
+        "COE:.agent/decisions/",
+        "CF:project-dossier/v0.2/dossier-v0.2/docs/architecture/adr/"
+      ],
+      "required_inputs": [
+        "decision_context",
+        "alternatives",
+        "evidence",
+        "valid_authority_source"
+      ],
+      "review_cadence": "on_durable_choice_or_invalidating_evidence",
+      "source_of_truth_expectations": "Status-dependent live decision store belongs in the harness; dossier summaries only link to it.",
+      "triggers": [
+        "all_projects"
+      ],
+      "update_triggers": [
+        "decision_proposed",
+        "decision_status_change",
+        "decision_superseded"
+      ],
+      "validation_checks": [
+        "stable_ids",
+        "legal_status_transition",
+        "authority_source_present_for_acceptance",
+        "successor_semantics"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "governance",
+      "classification": "core",
+      "creation_timing": "Create before any gated work or readiness claim.",
+      "dependencies": [
+        "REQ-0001",
+        "REG-0001",
+        "VAL-0001"
+      ],
+      "downstream_consumers": [
+        "plans",
+        "validation",
+        "handoff",
+        "readiness_decisions"
+      ],
+      "id": "GOV-0001",
+      "intended_audiences": [
+        "owners",
+        "reviewers",
+        "specialists",
+        "operators"
+      ],
+      "omission_or_combination": "Never omit the concern; Minimal may combine prose with requirements, but machine gate records remain separate when present.",
+      "owner_role": "project_governance_owner",
+      "profile": "minimal",
+      "purpose": "Define constraints and objective evidence conditions for progression without recording approval itself.",
+      "questions": [
+        "Which gates apply?",
+        "Who may decide them?",
+        "What exact evidence, expiry, and exception rules apply?"
+      ],
+      "recommended_formats": [
+        "Markdown",
+        "JSON gate records"
+      ],
+      "recommended_name": "Constraints, quality gates, and readiness criteria",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/canonical/readiness-criteria.md",
+        "CF:project-dossier/v0.2/machine-readable/approval-gates.yaml",
+        "COE:project-dossier/canonical/readiness-criteria.md"
+      ],
+      "required_inputs": [
+        "requirements",
+        "risk_analysis",
+        "specialist_obligations",
+        "authority_sources"
+      ],
+      "review_cadence": "on_gate_or_risk_change_and_before_gate_evaluation",
+      "source_of_truth_expectations": "Criteria are canonical; generated proposed gates remain unadopted until project authority accepts them. Approval evidence is separate.",
+      "triggers": [
+        "all_projects"
+      ],
+      "update_triggers": [
+        "gate_added_or_changed",
+        "risk_change",
+        "environment_change",
+        "obligation_change"
+      ],
+      "validation_checks": [
+        "owner_and_scope_present",
+        "pass_criteria_objective",
+        "required_evidence_and_expiry_present",
+        "approval_not_inferred"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "current_state",
+      "classification": "core",
+      "creation_timing": "Create after direct initial inspection, not from scaffold generation.",
+      "dependencies": [
+        "VAL-0001",
+        "PRV-0001"
+      ],
+      "downstream_consumers": [
+        "conformance",
+        "plans",
+        "handoff",
+        "risk_assessment"
+      ],
+      "id": "CUR-0001",
+      "intended_audiences": [
+        "owners",
+        "implementers",
+        "reviewers",
+        "agents"
+      ],
+      "omission_or_combination": "Never omit; before inspection, retain an explicit not_assessed state rather than a false dated baseline.",
+      "owner_role": "current_state_assessor",
+      "profile": "minimal",
+      "purpose": "Record dated, evidence-backed present reality independently of intended state and plans.",
+      "questions": [
+        "What exists, is absent, is unknown, or differs by environment?",
+        "What exact subject and method were inspected?"
+      ],
+      "recommended_formats": [
+        "Markdown",
+        "optional JSON observations"
+      ],
+      "recommended_name": "Current-state baseline",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/agent-handoff/current-implementation-status.md",
+        "COE:project-dossier/current-state/repository-baseline.md"
+      ],
+      "required_inputs": [
+        "direct_inspection",
+        "source_revision_or_subject_identity",
+        "executed_commands",
+        "evidence"
+      ],
+      "review_cadence": "on_material_change_or_evidence_expiry",
+      "source_of_truth_expectations": "Authoritative only for the stated subject, scope, environment, method, and observation time.",
+      "triggers": [
+        "all_projects"
+      ],
+      "update_triggers": [
+        "material_implementation_change",
+        "environment_change",
+        "evidence_expiry",
+        "handoff"
+      ],
+      "validation_checks": [
+        "observation_time_not_generation_time",
+        "subject_identity_present",
+        "method_and_limits_present",
+        "claims_link_evidence"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "conformance",
+      "classification": "core",
+      "creation_timing": "Create after the first current-state baseline.",
+      "dependencies": [
+        "REQ-0001",
+        "CUR-0001",
+        "VAL-0001"
+      ],
+      "downstream_consumers": [
+        "remediation_plans",
+        "risk_register",
+        "readiness_assessment"
+      ],
+      "id": "CNF-0001",
+      "intended_audiences": [
+        "owners",
+        "implementers",
+        "reviewers",
+        "agents"
+      ],
+      "omission_or_combination": "Never omit; an empty or not_assessed register is valid before evidence exists.",
+      "owner_role": "conformance_assessor",
+      "profile": "minimal",
+      "purpose": "Compare current evidence with canonical requirements using controlled findings.",
+      "questions": [
+        "What conforms, differs, is absent, or remains unassessed?",
+        "Which evidence and requirement support each classification?"
+      ],
+      "recommended_formats": [
+        "Markdown",
+        "JSON for Standard and High-Assurance finding records"
+      ],
+      "recommended_name": "Conformance and gap register",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/conformance/README.md",
+        "COE:project-dossier/conformance/findings.yaml"
+      ],
+      "required_inputs": [
+        "requirements",
+        "current_state",
+        "validation_evidence"
+      ],
+      "review_cadence": "on_target_or_evidence_change",
+      "source_of_truth_expectations": "Minimal may own findings in Markdown; Standard and High-Assurance own finding records in JSON while Markdown owns method and summary.",
+      "triggers": [
+        "all_projects"
+      ],
+      "update_triggers": [
+        "requirement_change",
+        "current_state_change",
+        "evidence_change",
+        "remediation_change"
+      ],
+      "validation_checks": [
+        "finding_ids_stable",
+        "requirement_and_evidence_refs_resolve",
+        "classification_controlled",
+        "coverage_disclosed"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "planning",
+      "classification": "core",
+      "creation_timing": "Create after target/current comparison identifies real work.",
+      "dependencies": [
+        "CNF-0001",
+        "REG-0001",
+        "GOV-0001"
+      ],
+      "downstream_consumers": [
+        "task_intake",
+        "validation",
+        "handoff",
+        "resource_coordination"
+      ],
+      "id": "PLN-0001",
+      "intended_audiences": [
+        "executors",
+        "owners",
+        "reviewers",
+        "agents"
+      ],
+      "omission_or_combination": "Never omit the planning entry point; an empty plan is valid and generation must not fabricate accepted work.",
+      "owner_role": "planning_owner",
+      "profile": "minimal",
+      "purpose": "Define future work, dependencies, gates, ownership, rollback, and closure evidence.",
+      "questions": [
+        "What remains?",
+        "In what order?",
+        "What proves completion and what stops or rolls back the work?"
+      ],
+      "recommended_formats": [
+        "Markdown",
+        "JSON for Standard and High-Assurance plan-item records"
+      ],
+      "recommended_name": "Dependency-aware implementation or delivery plan",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/implementation-plan/dependency-roadmap.md",
+        "COE:project-dossier/implementation-plan/plan.yaml"
+      ],
+      "required_inputs": [
+        "findings",
+        "requirements",
+        "registers",
+        "decisions",
+        "gates"
+      ],
+      "review_cadence": "on_dependency_or_status_change",
+      "source_of_truth_expectations": "Minimal may own plan items in Markdown; Standard and High-Assurance own plan-item records in JSON while Markdown owns method and summary.",
+      "triggers": [
+        "all_projects"
+      ],
+      "update_triggers": [
+        "finding_change",
+        "dependency_change",
+        "gate_change",
+        "plan_status_change"
+      ],
+      "validation_checks": [
+        "dependency_graph_acyclic",
+        "references_resolve",
+        "completion_links_evidence",
+        "authority_not_implied"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "unresolved_state",
+      "classification": "core",
+      "creation_timing": "Create during discovery before silent assumptions accumulate.",
+      "dependencies": [
+        "PRV-0001",
+        "DEC-0001"
+      ],
+      "downstream_consumers": [
+        "decisions",
+        "gates",
+        "plans",
+        "validation_scope",
+        "handoff"
+      ],
+      "id": "REG-0001",
+      "intended_audiences": [
+        "all_project_roles",
+        "owners",
+        "reviewers"
+      ],
+      "omission_or_combination": "Never omit; an empty register is valid. Categories may share one store when IDs and vocabularies remain explicit.",
+      "owner_role": "register_maintainer",
+      "profile": "minimal",
+      "purpose": "Own risks, assumptions, issues, dependencies, and open questions with review and resolution conditions.",
+      "questions": [
+        "What is uncertain, blocking, accepted, expired, or unresolved?",
+        "Who owns the next review or resolution?"
+      ],
+      "recommended_formats": [
+        "Markdown",
+        "JSON for Standard and High-Assurance records"
+      ],
+      "recommended_name": "RAIDQ register",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/implementation-plan/risk-register.md",
+        "COE:project-dossier/registers/"
+      ],
+      "required_inputs": [
+        "discovery",
+        "reviews",
+        "incidents",
+        "planning"
+      ],
+      "review_cadence": "weekly_during_active_work_and_by_each_item_date",
+      "source_of_truth_expectations": "Minimal may own items in Markdown; Standard and High-Assurance own item records in JSON while Markdown owns vocabulary and summary.",
+      "triggers": [
+        "all_projects"
+      ],
+      "update_triggers": [
+        "item_discovered",
+        "status_change",
+        "review_date_reached",
+        "resolution_evidence"
+      ],
+      "validation_checks": [
+        "stable_ids",
+        "type_and_status_controlled",
+        "owner_and_impact_present",
+        "review_or_expiry_and_resolution_condition_present"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "provenance",
+      "classification": "core",
+      "creation_timing": "Create before a consequential source is relied upon.",
+      "dependencies": [
+        "DOS-0002"
+      ],
+      "downstream_consumers": [
+        "requirements",
+        "decisions",
+        "research",
+        "evidence",
+        "supply_chain"
+      ],
+      "id": "PRV-0001",
+      "intended_audiences": [
+        "all_evidence_consumers",
+        "researchers",
+        "reviewers"
+      ],
+      "omission_or_combination": "Never omit; private or sensitive locators may be represented by safe references rather than exposed values.",
+      "owner_role": "source_curator",
+      "profile": "minimal",
+      "purpose": "Identify sources, versions, retrieval or observation dates, rights, sensitivity, freshness, and limitations.",
+      "questions": [
+        "Where did a consequential claim come from?",
+        "May it still be relied upon and used for this purpose?"
+      ],
+      "recommended_formats": [
+        "Markdown",
+        "JSON for Standard and High-Assurance source records"
+      ],
+      "recommended_name": "Source and provenance index",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/verification/verification-manifest.md",
+        "COE:project-dossier/provenance/source-index.yaml"
+      ],
+      "required_inputs": [
+        "project_sources",
+        "external_references",
+        "imported_assets",
+        "methods"
+      ],
+      "review_cadence": "on_source_change_or_expiry",
+      "source_of_truth_expectations": "Minimal may own source records in Markdown; Standard and High-Assurance own records in JSON while Markdown owns method and summary.",
+      "triggers": [
+        "all_projects"
+      ],
+      "update_triggers": [
+        "source_added",
+        "source_version_change",
+        "source_expiry",
+        "rights_or_sensitivity_change",
+        "contradiction_found"
+      ],
+      "validation_checks": [
+        "stable_source_id",
+        "locator_and_version_or_date_present",
+        "use_and_limits_present",
+        "freshness_and_rights_assessed_when_applicable"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "validation_and_evidence",
+      "classification": "core",
+      "creation_timing": "Define methods with requirements; create evidence only after observation or execution.",
+      "dependencies": [
+        "REQ-0001",
+        "GOV-0001",
+        "PRV-0001"
+      ],
+      "downstream_consumers": [
+        "current_state",
+        "findings",
+        "readiness_decisions",
+        "handoff",
+        "integrity"
+      ],
+      "id": "VAL-0001",
+      "intended_audiences": [
+        "reviewers",
+        "operators",
+        "owners",
+        "agents"
+      ],
+      "omission_or_combination": "Never omit the validation entry point; the evidence index may be empty before checks run.",
+      "owner_role": "validation_owner",
+      "profile": "minimal",
+      "purpose": "Define reproducible validation and index bounded evidence without converting a check result into approval.",
+      "questions": [
+        "What was checked?",
+        "On which exact subject and environment?",
+        "What result, limitations, and freshness rule apply?"
+      ],
+      "recommended_formats": [
+        "Markdown",
+        "JSON evidence metadata",
+        "generated reports"
+      ],
+      "recommended_name": "Validation and evidence system",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/machine-readable/validation-report.json",
+        "COE:project-dossier/validation/validation-report.json"
+      ],
+      "required_inputs": [
+        "requirements",
+        "gates",
+        "implemented_or_produced_subject",
+        "provenance"
+      ],
+      "review_cadence": "on_validation_contract_or_evidence_change",
+      "source_of_truth_expectations": "Validation procedure is maintained; executed evidence is immutable and scoped. Standard and High-Assurance index evidence metadata in JSON.",
+      "triggers": [
+        "all_projects"
+      ],
+      "update_triggers": [
+        "requirement_or_validator_change",
+        "evidence_recorded",
+        "evidence_expired_or_superseded"
+      ],
+      "validation_checks": [
+        "method_reproducible",
+        "subject_fingerprint_present",
+        "time_environment_scope_result_and_limits_present",
+        "freshness_enforced"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "handoff",
+      "classification": "core",
+      "creation_timing": "Create before the first multi-session handoff.",
+      "dependencies": [
+        "DEC-0001",
+        "CUR-0001",
+        "PLN-0001",
+        "REG-0001",
+        "VAL-0001"
+      ],
+      "downstream_consumers": [
+        "resumption",
+        "review",
+        "transition"
+      ],
+      "id": "HOF-0001",
+      "intended_audiences": [
+        "incoming_maintainers",
+        "agents",
+        "reviewers"
+      ],
+      "omission_or_combination": "Never omit for multi-session work; a truly single-session project may combine it with DOS-0001 while preserving separate state labels.",
+      "owner_role": "current_task_owner",
+      "profile": "minimal",
+      "purpose": "Provide a bounded current view, exact revision, blockers, evidence pointers, and next safe action.",
+      "questions": [
+        "What is active and blocked?",
+        "What evidence is fresh?",
+        "What should the next maintainer inspect or do first?"
+      ],
+      "recommended_formats": [
+        "Markdown"
+      ],
+      "recommended_name": "Handoff and resumption pack",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/agent-handoff/START_HERE.md",
+        "COE:project-dossier/handoff/START_HERE.md"
+      ],
+      "required_inputs": [
+        "active_tasks",
+        "accepted_decisions",
+        "current_evidence",
+        "registers",
+        "exact_revision"
+      ],
+      "review_cadence": "before_every_handoff",
+      "source_of_truth_expectations": "Derived navigation only; links to mutable owners and never becomes a second status store.",
+      "triggers": [
+        "all_multi_session_projects",
+        "all_generated_profiles"
+      ],
+      "update_triggers": [
+        "active_task_change",
+        "blocker_change",
+        "evidence_change",
+        "handoff"
+      ],
+      "validation_checks": [
+        "compact_and_link_based",
+        "exact_revision_present",
+        "pointers_resolve",
+        "stale_or_unknown_state_disclosed"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Core artifact type for the selected profile.",
+        "status": "required"
+      },
+      "category": "handoff_and_adoption",
+      "classification": "core",
+      "creation_timing": "Seed during generation and maintain through initial adoption or upgrade.",
+      "dependencies": [
+        "DOS-0010",
+        "CUR-0001",
+        "VAL-0001"
+      ],
+      "downstream_consumers": [
+        "handoff",
+        "adoption_review",
+        "upgrade_planning"
+      ],
+      "id": "HOF-0002",
+      "intended_audiences": [
+        "project_owners",
+        "bootstrap_maintainers",
+        "reviewers"
+      ],
+      "omission_or_combination": "May be archived after adoption is demonstrably complete; keep its outcome or successor in history when assurance requires.",
+      "owner_role": "project_owner",
+      "profile": "minimal",
+      "purpose": "Track conversion of a generated structure into an adopted project dossier and harness without implying readiness.",
+      "questions": [
+        "Which adoption steps are complete?",
+        "Which project facts, owners, checks, and extensions remain unresolved?"
+      ],
+      "recommended_formats": [
+        "Markdown checklist"
+      ],
+      "recommended_name": "Adoption checklist",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/transition/adoption-checklist.md",
+        "Recommended: generalized adoption gate"
+      ],
+      "required_inputs": [
+        "selected_profile",
+        "project_inspection",
+        "adoption_decisions",
+        "validation_results"
+      ],
+      "review_cadence": "during_adoption_and_before_adoption_closeout",
+      "source_of_truth_expectations": "Tracking aid only; checked boxes do not create authority or substantive evidence.",
+      "triggers": [
+        "all_generated_or_upgraded_projects"
+      ],
+      "update_triggers": [
+        "adoption_progress",
+        "profile_change",
+        "upgrade"
+      ],
+      "validation_checks": [
+        "all_profile_triggers_assessed",
+        "unknowns_and_skips_disclosed",
+        "real_project_checks_distinguished_from_structure"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": "claude-agent (operator-directed adoption session 2026-07-28); ratified by the project owner 2026-07-28 via DEC-0003",
+        "assessed_on": "2026-07-28",
+        "rationale": "Canonical Storyworld dossier defines extensive domain models beyond the core outcome model: bounded contexts and aggregates (canonical/storyworld/03 section 8), Studio lifecycle state machines (02 section 6.4), API/event/package contracts (04 section 14), and a controlled glossary (08 Appendix D).",
+        "status": "applicable"
+      },
+      "category": "domain_model",
+      "classification": "conditional",
+      "creation_timing": "Create when domain complexity exceeds the core architecture or outcome model.",
+      "dependencies": [
+        "ARC-0001",
+        "REQ-0001",
+        "DEC-0001"
+      ],
+      "downstream_consumers": [
+        "implementation",
+        "validation",
+        "operations",
+        "extensions"
+      ],
+      "id": "MOD-0001",
+      "intended_audiences": [
+        "domain_owners",
+        "implementers",
+        "reviewers"
+      ],
+      "omission_or_combination": "Omit when ARC-0001 answers all domain questions without ambiguity.",
+      "owner_role": "domain_owner",
+      "profile": "high-assurance",
+      "purpose": "Specify specialist entities, states, interfaces, handoffs, and controlled vocabularies beyond the core outcome model.",
+      "questions": [
+        "Which domain concepts and transitions require precise contracts?",
+        "Where are interface and ownership boundaries?"
+      ],
+      "recommended_formats": [
+        "Markdown",
+        "JSON",
+        "diagram",
+        "schema"
+      ],
+      "recommended_name": "Domain models, workflows, interfaces, and schemas",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/canonical/domain-data-model.md",
+        "COE:project-dossier/canonical/portfolio-and-content-model.md"
+      ],
+      "required_inputs": [
+        "architecture_or_outcome_model",
+        "requirements",
+        "accepted_decisions"
+      ],
+      "review_cadence": "on_model_change",
+      "source_of_truth_expectations": "Each model declares its edit source; generated diagrams or mirrors point to that source.",
+      "triggers": [
+        "multiple_entities_or_states",
+        "multiple_interfaces_or_suppliers",
+        "formal_handoffs"
+      ],
+      "update_triggers": [
+        "entity_change",
+        "workflow_change",
+        "interface_change",
+        "vocabulary_change"
+      ],
+      "validation_checks": [
+        "requirements_and_decision_refs_resolve",
+        "states_and_interfaces_consistent",
+        "source_direction_declared"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": "claude-agent (operator-directed adoption session 2026-07-28); ratified by the project owner 2026-07-28 via DEC-0003",
+        "assessed_on": "2026-07-28",
+        "rationale": "Canonical target defines identity, security, rights, consent, privacy, and sensitive-source handling obligations (canonical/storyworld/05 section 15). Planned work involves sensitive family-inspired source material, provider egress, and external publication; the trust/security/privacy model concern is applicable now as canonical target material.",
+        "status": "applicable"
+      },
+      "category": "specialist_governance",
+      "classification": "conditional",
+      "creation_timing": "Create before handling sensitive data, credentials, regulated activity, public claims, money, or external effects.",
+      "dependencies": [
+        "GOV-0001",
+        "REG-0001",
+        "DAT-0001"
+      ],
+      "downstream_consumers": [
+        "gates",
+        "architecture",
+        "operations",
+        "validation",
+        "handoff"
+      ],
+      "id": "SEC-0001",
+      "intended_audiences": [
+        "security_privacy_legal_or_compliance_owners",
+        "project_owners",
+        "reviewers"
+      ],
+      "omission_or_combination": "Omit only after triggers are explicitly assessed as not applicable; related low-risk criteria may be combined with GOV-0001.",
+      "owner_role": "qualified_governance_owner",
+      "profile": "high-assurance",
+      "purpose": "Define applicable trust boundaries, threats, controls, obligations, specialist gates, and residual risks.",
+      "questions": [
+        "What sensitive or regulated interests exist?",
+        "Which qualified reviews and controls are required?",
+        "What remains unresolved?"
+      ],
+      "recommended_formats": [
+        "Markdown",
+        "threat_model",
+        "JSON control register"
+      ],
+      "recommended_name": "Trust, security, privacy, legal, and compliance model",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/canonical/security-architecture.md",
+        "COE:project-dossier/canonical/security-privacy-legal.md"
+      ],
+      "required_inputs": [
+        "data_and_effect_inventory",
+        "requirements",
+        "risk_register",
+        "applicable_obligations"
+      ],
+      "review_cadence": "on_risk_or_obligation_change_and_at_specialist_gate",
+      "source_of_truth_expectations": "Canonical specialist criteria and models; no generated template establishes a qualified conclusion.",
+      "triggers": [
+        "sensitive_data",
+        "credentials",
+        "regulated_activity",
+        "public_claims",
+        "money",
+        "external_effects"
+      ],
+      "update_triggers": [
+        "threat_or_obligation_change",
+        "data_flow_change",
+        "external_effect_change",
+        "incident"
+      ],
+      "validation_checks": [
+        "qualified_owner_named",
+        "scope_and_controls_trace_requirements",
+        "residual_risks_and_exceptions_explicit",
+        "no_inferred_legal_conclusion"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": "claude-agent (operator-directed adoption session 2026-07-28); ratified by the project owner 2026-07-28 via DEC-0003",
+        "assessed_on": "2026-07-28",
+        "rationale": "Canonical target defines operations, reliability, and administration requirements including backup/restore, provider-outage, and reconciliation runbooks (canonical/storyworld/05 section 16). Executable runbooks are deferred until an implementation exists; the concern itself is applicable canonical target material.",
+        "status": "applicable"
+      },
+      "category": "operations",
+      "classification": "conditional",
+      "creation_timing": "Create before deployment, publication, ongoing service, operator handoff, or irreversible effect.",
+      "dependencies": [
+        "ARC-0001",
+        "GOV-0001",
+        "SEC-0001",
+        "VAL-0001"
+      ],
+      "downstream_consumers": [
+        "operational_execution",
+        "recovery_testing",
+        "handoff",
+        "readiness_assessment"
+      ],
+      "id": "OPS-0001",
+      "intended_audiences": [
+        "operators",
+        "release_owners",
+        "incident_responders",
+        "reviewers"
+      ],
+      "omission_or_combination": "Omit before operations exist; combine small related procedures only when owners, triggers, and evidence remain clear.",
+      "owner_role": "operations_owner",
+      "profile": "high-assurance",
+      "purpose": "Provide executable, exercised procedures for recurring operations and failure recovery.",
+      "questions": [
+        "How is the outcome operated, released, rolled back, restored, or retired?",
+        "What evidence proves the procedure works?"
+      ],
+      "recommended_formats": [
+        "Markdown",
+        "executable_procedure",
+        "checklist"
+      ],
+      "recommended_name": "Operations, release, incident, and recovery runbooks",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/canonical/monitoring-lifecycle-model.md",
+        "COE:project-dossier/canonical/seo-analytics-and-operations.md"
+      ],
+      "required_inputs": [
+        "architecture",
+        "risk_model",
+        "environment_inventory",
+        "gates"
+      ],
+      "review_cadence": "quarterly_and_per_release_or_material_change",
+      "source_of_truth_expectations": "Project-maintained procedures; execution evidence is separate and dated.",
+      "triggers": [
+        "deployment",
+        "publication",
+        "ongoing_service",
+        "external_or_irreversible_effect"
+      ],
+      "update_triggers": [
+        "deployment_model_change",
+        "incident",
+        "recovery_change",
+        "provider_change",
+        "retirement"
+      ],
+      "validation_checks": [
+        "owner_and_prerequisites_present",
+        "rollback_or_stop_path_present",
+        "exercise_evidence_fresh",
+        "secrets_not_embedded"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Generation does not establish trigger applicability.",
+        "status": "not_assessed"
+      },
+      "category": "research",
+      "classification": "conditional",
+      "creation_timing": "Create before a mutable external fact drives a consequential choice.",
+      "dependencies": [
+        "PRV-0001",
+        "REG-0001"
+      ],
+      "downstream_consumers": [
+        "decisions",
+        "requirements",
+        "risk_register",
+        "supply_chain"
+      ],
+      "id": "RES-0001",
+      "intended_audiences": [
+        "researchers",
+        "decision_owners",
+        "reviewers"
+      ],
+      "omission_or_combination": "Omit when no consequential mutable external fact is used; small research notes may live with provenance if conclusions and expiry remain explicit.",
+      "owner_role": "research_owner",
+      "profile": "high-assurance",
+      "purpose": "Record mutable external facts, source comparison, contradictions, verdicts, and reverification deadlines.",
+      "questions": [
+        "Which external facts affect decisions?",
+        "When and how were they verified?",
+        "When do they expire?"
+      ],
+      "recommended_formats": [
+        "Markdown",
+        "JSON source_and_verdict_records"
+      ],
+      "recommended_name": "External-fact research and verification",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/verification/etsy-reverification-2026-07-23.md",
+        "COE:project-dossier/provenance/"
+      ],
+      "required_inputs": [
+        "source_index",
+        "research_question",
+        "primary_sources"
+      ],
+      "review_cadence": "by_recorded_reverification_deadline",
+      "source_of_truth_expectations": "Research records own bounded findings; source identity and freshness remain in provenance.",
+      "triggers": [
+        "mutable_external_facts_affect_requirements_decisions_or_operations"
+      ],
+      "update_triggers": [
+        "external_fact_used",
+        "source_changed_or_expired",
+        "contradiction_found"
+      ],
+      "validation_checks": [
+        "primary_sources_preferred",
+        "retrieval_date_and_scope_present",
+        "contradictions_and_limits_disclosed",
+        "expiry_enforced"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": "claude-agent (operator-directed adoption session 2026-07-28); ratified by the project owner 2026-07-28 via DEC-0003",
+        "assessed_on": "2026-07-28",
+        "rationale": "Established-project adoption: Project Blueprint 1.0.1 high-assurance structures were merged into an existing repository already containing the Storyworld content dossier. The transition package records the crosswalk, authority delta, and rollback path.",
+        "status": "applicable"
+      },
+      "category": "transition",
+      "classification": "conditional",
+      "creation_timing": "Create before changing an established project, dossier, harness, architecture, or major version.",
+      "dependencies": [
+        "DOS-0007",
+        "CUR-0001",
+        "CNF-0001",
+        "PLN-0001"
+      ],
+      "downstream_consumers": [
+        "implementation_plan",
+        "supersession",
+        "history",
+        "handoff"
+      ],
+      "id": "TRN-0001",
+      "intended_audiences": [
+        "transition_owners",
+        "maintainers",
+        "reviewers",
+        "agents"
+      ],
+      "omission_or_combination": "Omit for an empty new project with no predecessor.",
+      "owner_role": "transition_owner",
+      "profile": "high-assurance",
+      "purpose": "Control adoption, replacement, split, merge, and version migration without silently overwriting authority or history.",
+      "questions": [
+        "What changes and what remains authoritative?",
+        "How is compatibility, rollback, and acceptance demonstrated?"
+      ],
+      "recommended_formats": [
+        "Markdown",
+        "JSON crosswalk"
+      ],
+      "recommended_name": "Transition and migration package",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/transition/DEVELOPMENT_TRANSITION_v0_1_TO_v0_2.md",
+        "Recommended: no direct COE transition package equivalent"
+      ],
+      "required_inputs": [
+        "current_inventory",
+        "candidate_target",
+        "authority_delta",
+        "migration_constraints"
+      ],
+      "review_cadence": "throughout_transition_and_at_acceptance",
+      "source_of_truth_expectations": "Project-maintained migration intent and crosswalk; execution evidence and accepted decisions remain separate.",
+      "triggers": [
+        "established_project_adoption",
+        "replacement",
+        "split_or_merge",
+        "major_version_upgrade"
+      ],
+      "update_triggers": [
+        "existing_project_adoption",
+        "blueprint_upgrade",
+        "replacement",
+        "split_or_merge"
+      ],
+      "validation_checks": [
+        "authority_delta_complete",
+        "path_and_concept_crosswalk_complete",
+        "rollback_present",
+        "supersession_verified"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": "claude-agent (operator-directed adoption session 2026-07-28); ratified by the project owner 2026-07-28 via DEC-0003",
+        "assessed_on": "2026-07-28",
+        "rationale": "The original consolidated single-file edition of the Storyworld dossier v1.0 is retained as an immutable historical baseline; the modular parts under canonical/storyworld/ are the maintained edit source (SUP-0001).",
+        "status": "applicable"
+      },
+      "category": "history",
+      "classification": "conditional",
+      "creation_timing": "Create when a retained baseline or superseded evidence set is required.",
+      "dependencies": [
+        "DOS-0005",
+        "DOS-0007"
+      ],
+      "downstream_consumers": [
+        "audit",
+        "recovery",
+        "provenance",
+        "migration"
+      ],
+      "id": "HIS-0001",
+      "intended_audiences": [
+        "auditors",
+        "maintainers",
+        "recovery_owners"
+      ],
+      "omission_or_combination": "Omit when version control and ordinary supersession records fully satisfy retention and recovery needs.",
+      "owner_role": "dossier_custodian",
+      "profile": "high-assurance",
+      "purpose": "Retain noncurrent evidence or baselines for audit, recovery, provenance, or regulated retention.",
+      "questions": [
+        "What historical snapshot is retained?",
+        "Why and for how long?",
+        "Which current successor replaces it?"
+      ],
+      "recommended_formats": [
+        "frozen_directory",
+        "manifest",
+        "checksum_set",
+        "Markdown index"
+      ],
+      "recommended_name": "Immutable historical baseline",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/baseline/README.md",
+        "Recommended: COE generated integrity is current evidence, not a historical-baseline equivalent"
+      ],
+      "required_inputs": [
+        "retention_decision",
+        "supersession_record",
+        "frozen_inventory"
+      ],
+      "review_cadence": "on_archive_or_retention_event",
+      "source_of_truth_expectations": "Explicitly noncurrent immutable history; current authority always routes to a successor.",
+      "triggers": [
+        "audit_or_regulatory_retention",
+        "release_baseline",
+        "recovery_need",
+        "supersession_history"
+      ],
+      "update_triggers": [
+        "baseline_archived",
+        "artifact_superseded",
+        "retention_rule_change"
+      ],
+      "validation_checks": [
+        "noncurrent_banner_present",
+        "manifest_and_checksum_scope_exact",
+        "successor_link_resolves",
+        "retention_rule_recorded"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Generation does not establish trigger applicability.",
+        "status": "not_assessed"
+      },
+      "category": "data_governance",
+      "classification": "conditional",
+      "creation_timing": "Create before collecting or importing triggered data classes.",
+      "dependencies": [
+        "ARC-0001",
+        "SEC-0001",
+        "PRV-0001"
+      ],
+      "downstream_consumers": [
+        "security_model",
+        "operations",
+        "validation",
+        "retention_and_deletion_controls"
+      ],
+      "id": "DAT-0001",
+      "intended_audiences": [
+        "data_owners",
+        "security_privacy_reviewers",
+        "operators"
+      ],
+      "omission_or_combination": "Omit only after data triggers are assessed as not applicable; a small low-risk inventory may combine with SEC-0001.",
+      "owner_role": "data_owner",
+      "profile": "high-assurance",
+      "purpose": "Classify sensitive, personal, confidential, licensed, regulated, or production data across collection, flow, retention, and deletion.",
+      "questions": [
+        "What data exists and where does it flow?",
+        "How is it classified, retained, minimized, and deleted?",
+        "Who owns each decision?"
+      ],
+      "recommended_formats": [
+        "JSON",
+        "Markdown",
+        "data_flow_diagram"
+      ],
+      "recommended_name": "Data classification, lifecycle, and retention model",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/canonical/domain-data-model.md",
+        "COE:project-dossier/canonical/security-privacy-legal.md",
+        "Recommended: generalized lifecycle model"
+      ],
+      "required_inputs": [
+        "data_inventory",
+        "architecture_flows",
+        "applicable_obligations",
+        "risk_model"
+      ],
+      "review_cadence": "on_data_flow_or_obligation_change_and_at_least_quarterly_when_active",
+      "source_of_truth_expectations": "Canonical project-specific classification and lifecycle model; no real data values belong in the dossier.",
+      "triggers": [
+        "personal_data",
+        "confidential_data",
+        "licensed_data",
+        "regulated_data",
+        "production_data"
+      ],
+      "update_triggers": [
+        "data_class_or_flow_change",
+        "retention_change",
+        "provider_change",
+        "incident"
+      ],
+      "validation_checks": [
+        "stores_and_flows_covered",
+        "classification_and_owner_present",
+        "retention_deletion_and_minimization_tested",
+        "no_sensitive_values_embedded"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Generation does not establish trigger applicability.",
+        "status": "not_assessed"
+      },
+      "category": "supply_chain",
+      "classification": "conditional",
+      "creation_timing": "Create before relying on external code, content, models, data, packages, or vendors.",
+      "dependencies": [
+        "PRV-0001",
+        "SEC-0001",
+        "RES-0001"
+      ],
+      "downstream_consumers": [
+        "security_gates",
+        "release",
+        "operations",
+        "provenance",
+        "reproducibility"
+      ],
+      "id": "SUP-0001",
+      "intended_audiences": [
+        "supply_chain_owner",
+        "security_legal_reviewers",
+        "maintainers"
+      ],
+      "omission_or_combination": "Omit only when the project has no external supply-chain input; very small inventories may combine with provenance.",
+      "owner_role": "supply_chain_owner",
+      "profile": "high-assurance",
+      "purpose": "Track external code, models, content, datasets, packages, services, vendors, versions, licenses, provenance, and update risk.",
+      "questions": [
+        "Which external inputs are relied upon?",
+        "Under what version, license, rights, and trust assumptions?",
+        "How are updates and vulnerabilities handled?"
+      ],
+      "recommended_formats": [
+        "SBOM",
+        "JSON",
+        "Markdown"
+      ],
+      "recommended_name": "Supply-chain, dependency, vendor, and license inventory",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/verification/verification-manifest.md",
+        "COE:project-dossier/provenance/source-index.yaml",
+        "Recommended: portable supply-chain inventory"
+      ],
+      "required_inputs": [
+        "dependency_inventory",
+        "source_index",
+        "licenses_and_terms",
+        "provider_assessments"
+      ],
+      "review_cadence": "on_dependency_change_and_per_release",
+      "source_of_truth_expectations": "Machine inventory should be generated from lockfiles or declared sources where possible; judgments and exceptions remain project-maintained.",
+      "triggers": [
+        "external_code",
+        "models",
+        "content",
+        "datasets",
+        "packages",
+        "vendors_or_services"
+      ],
+      "update_triggers": [
+        "dependency_or_vendor_change",
+        "license_change",
+        "vulnerability",
+        "source_expiry"
+      ],
+      "validation_checks": [
+        "versions_and_sources_exact",
+        "licenses_and_rights_recorded",
+        "vulnerability_and_update_policy_present",
+        "generated_inventory_fresh"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Generation does not establish trigger applicability.",
+        "status": "not_assessed"
+      },
+      "category": "evaluation",
+      "classification": "optional",
+      "creation_timing": "Create when quality judgments recur or material consequences justify calibrated evaluation.",
+      "dependencies": [
+        "REQ-0001",
+        "VAL-0001",
+        "GOV-0001"
+      ],
+      "downstream_consumers": [
+        "validation",
+        "agent_workflows",
+        "readiness_gates",
+        "continuous_improvement"
+      ],
+      "id": "EVA-0001",
+      "intended_audiences": [
+        "quality_owners",
+        "reviewers",
+        "agent_operators"
+      ],
+      "omission_or_combination": "Omit when ordinary objective validation is sufficient; combine with VAL-0001 only if rubric versioning and fixtures remain explicit.",
+      "owner_role": "quality_owner",
+      "profile": "high-assurance",
+      "purpose": "Make repeated subjective, model-assisted, or high-impact quality review reproducible.",
+      "questions": [
+        "What quality dimensions and thresholds apply?",
+        "Which fixtures, raters, and limitations make evaluation repeatable?"
+      ],
+      "recommended_formats": [
+        "Markdown",
+        "JSON",
+        "tests",
+        "fixtures"
+      ],
+      "recommended_name": "Quality rubric and evaluation suite",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/agent-handoff/evaluations/task-quality-rubric.md",
+        "Recommended: no direct COE evaluation-suite equivalent"
+      ],
+      "required_inputs": [
+        "requirements",
+        "quality_risks",
+        "representative_fixtures",
+        "scoring_method"
+      ],
+      "review_cadence": "per_material_method_change_and_periodic_calibration",
+      "source_of_truth_expectations": "Versioned rubric and fixtures own evaluation semantics; generated scores are point-in-time evidence.",
+      "triggers": [
+        "repeated_agent_work",
+        "subjective_quality_review",
+        "model_evaluation",
+        "high_impact_review"
+      ],
+      "update_triggers": [
+        "quality_standard_change",
+        "model_or_process_change",
+        "fixture_drift",
+        "evaluation_failure"
+      ],
+      "validation_checks": [
+        "rubric_versioned",
+        "fixtures_representative_and_safe",
+        "scoring_reproducible",
+        "limitations_and_rater_variance_disclosed"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_by": null,
+        "assessed_on": null,
+        "rationale": "Generation does not establish trigger applicability.",
+        "status": "not_assessed"
+      },
+      "category": "agent_context",
+      "classification": "optional",
+      "creation_timing": "Create when the dossier is too large for reliable routine loading or specialist routing recurs.",
+      "dependencies": [
+        "DOS-0003",
+        "HOF-0001"
+      ],
+      "downstream_consumers": [
+        "agent_skills",
+        "workflows",
+        "handoff"
+      ],
+      "id": "CTX-0001",
+      "intended_audiences": [
+        "agents",
+        "specialist_maintainers",
+        "reviewers"
+      ],
+      "omission_or_combination": "Omit when the dossier index and handoff already provide sufficient bounded context.",
+      "owner_role": "dossier_maintainer",
+      "profile": "high-assurance",
+      "purpose": "Package selectively loaded, size-bounded context for recurring specialist work without duplicating authority.",
+      "questions": [
+        "What is the smallest context needed for this task class?",
+        "Which authoritative sources and freshness rules does it reference?"
+      ],
+      "recommended_formats": [
+        "Markdown",
+        "JSON index"
+      ],
+      "recommended_name": "Bounded context packs",
+      "representative_evidence": [
+        "CF:project-dossier/v0.2/agent-handoff/context-packs/",
+        "Inferred: COE compact handoff demonstrates bounded routing without separate packs"
+      ],
+      "required_inputs": [
+        "task_routing_needs",
+        "authoritative_source_map",
+        "context_budget"
+      ],
+      "review_cadence": "on_source_change_and_quarterly_when_active",
+      "source_of_truth_expectations": "Derived or curated navigation only; packs may narrow context but never replace sources or expand authority.",
+      "triggers": [
+        "large_dossier",
+        "specialist_routing",
+        "repeated_agent_work"
+      ],
+      "update_triggers": [
+        "source_change",
+        "task_pattern_change",
+        "context_budget_breach",
+        "staleness"
+      ],
+      "validation_checks": [
+        "source_refs_resolve",
+        "size_budget_met",
+        "freshness_visible",
+        "no_authority_expansion_or_mutable_fact_duplication"
+      ]
+    }
+  ],
+  "document_role": "generated_non_authoritative_mirror_from_artifact_registry",
+  "dossier_version": "1.0.1",
+  "generation_id": "40a696f549d2b4766d59f8116bf372bf",
+  "permission_grant": false,
+  "profile": "high-assurance",
+  "project_slug": "storyworld-platform",
+  "representations": [
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "DOS-0001"
+      ],
+      "authority": "navigation_only",
+      "generated": false,
+      "id": "REP-0001",
+      "information_state": "navigation",
+      "legacy_v1_id": "DOS-0001",
+      "owner_role": "dossier_maintainer",
+      "path": "project-dossier/README.md",
+      "profile": "minimal",
+      "representation_role": "navigation",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_path_or_entry_point_change",
+      "sensitivity": "internal",
+      "source_direction": "navigation_only",
+      "superseded_by": null,
+      "update_triggers": [
+        "artifact_path_change",
+        "profile_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "DOS-0002"
+      ],
+      "authority": "dossier_interpretation_only",
+      "generated": false,
+      "id": "REP-0002",
+      "information_state": "governance",
+      "legacy_v1_id": "DOS-0002",
+      "owner_role": "project_governance_owner",
+      "path": "project-dossier/AUTHORITY.md",
+      "profile": "minimal",
+      "representation_role": "interpretation_source",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_authority_change",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "authority_change",
+        "information_class_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "DOS-0003"
+      ],
+      "authority": "source_ownership",
+      "generated": false,
+      "id": "REP-0003",
+      "information_state": "governance",
+      "legacy_v1_id": "DOS-0003",
+      "owner_role": "dossier_maintainer",
+      "path": "project-dossier/CANONICAL_SOURCE_MAP.md",
+      "profile": "minimal",
+      "representation_role": "source_map",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_source_owner_change",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "artifact_added",
+        "source_direction_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "DOS-0004"
+      ],
+      "authority": "generated_non_authoritative_mirror_from_artifact_registry",
+      "generated": true,
+      "id": "REP-0004",
+      "information_state": "governance",
+      "legacy_v1_id": "DOS-0004",
+      "owner_role": "dossier_maintainer",
+      "path": "project-dossier/ARTIFACT_CATALOG.json",
+      "profile": "minimal",
+      "representation_role": "generated_catalog",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_artifact_change",
+      "sensitivity": "internal",
+      "source_direction": "generated_from_artifact_registry",
+      "superseded_by": null,
+      "update_triggers": [
+        "generation",
+        "artifact_added",
+        "artifact_removed"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "DOS-0005"
+      ],
+      "authority": "generated_point_in_time_inventory",
+      "generated": true,
+      "id": "REP-0005",
+      "information_state": "generated",
+      "legacy_v1_id": "DOS-0005",
+      "owner_role": "integrity_refresh_tool",
+      "path": "project-dossier/MANIFEST.json",
+      "profile": "minimal",
+      "representation_role": "generated_manifest",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "after_managed_change",
+      "sensitivity": "internal",
+      "source_direction": "generated_from_managed_files",
+      "superseded_by": null,
+      "update_triggers": [
+        "generation",
+        "integrity_refresh"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "DOS-0006"
+      ],
+      "authority": "dossier_version",
+      "generated": false,
+      "id": "REP-0006",
+      "information_state": "governance",
+      "legacy_v1_id": "DOS-0006",
+      "owner_role": "dossier_governance_owner",
+      "path": "project-dossier/VERSION.md",
+      "profile": "minimal",
+      "representation_role": "version_source",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_semantic_change",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source_seeded_by_generator",
+      "superseded_by": null,
+      "update_triggers": [
+        "dossier_contract_change",
+        "adoption"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "DOS-0007"
+      ],
+      "authority": "dossier_supersession",
+      "generated": false,
+      "id": "REP-0007",
+      "information_state": "historical",
+      "legacy_v1_id": "DOS-0007",
+      "owner_role": "dossier_governance_owner",
+      "path": "project-dossier/SUPERSESSION.json",
+      "profile": "minimal",
+      "representation_role": "lifecycle_source",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_supersession",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source_seeded_by_generator",
+      "superseded_by": null,
+      "update_triggers": [
+        "artifact_superseded",
+        "dossier_version_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "DOS-0008"
+      ],
+      "authority": "generated_non_authoritative_path_authority_mirror",
+      "generated": true,
+      "id": "REP-0008",
+      "information_state": "generated",
+      "legacy_v1_id": "DOS-0008",
+      "owner_role": "artifact_catalog_generator",
+      "path": "project-dossier/machine-readable/path-authority.json",
+      "profile": "minimal",
+      "representation_role": "generated_path_authority",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_artifact_change",
+      "sensitivity": "internal",
+      "source_direction": "generated_from_artifact_registry",
+      "superseded_by": null,
+      "update_triggers": [
+        "generation",
+        "artifact_catalog_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": "2026-07-28",
+        "rationale": "High-assurance profile refresh generates checksums in every transaction (see .agent/validators.json refresh contract); the project's own canonical governance model is audit-oriented. [Assessed by claude-agent 2026-07-28; ratified by the project owner 2026-07-28 via DEC-0003.]",
+        "status": "applicable"
+      },
+      "artifact_type_ids": [
+        "DOS-0005"
+      ],
+      "authority": "byte_integrity_only",
+      "generated": true,
+      "id": "REP-0009",
+      "information_state": "generated",
+      "legacy_v1_id": "DOS-0009",
+      "owner_role": "integrity_refresh_tool",
+      "path": "project-dossier/CHECKSUMS.sha256",
+      "profile": "high-assurance",
+      "representation_role": "generated_checksums",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "after_managed_change",
+      "sensitivity": "internal",
+      "source_direction": "generated_from_managed_files",
+      "superseded_by": null,
+      "update_triggers": [
+        "generation",
+        "integrity_refresh"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "DEF-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "id": "REP-0010",
+      "information_state": "canonical_target",
+      "legacy_v1_id": "DEF-0001",
+      "owner_role": "project_owner",
+      "path": "project-dossier/canonical/executive-project-definition.md",
+      "profile": "minimal",
+      "representation_role": "canonical_human_source",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_strategy_or_scope_change",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source_seeded_by_generator",
+      "superseded_by": null,
+      "update_triggers": [
+        "scope_change",
+        "outcome_change",
+        "ownership_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "REQ-0001"
+      ],
+      "authority": "requirement_policy_and_minimal_definitions",
+      "generated": false,
+      "id": "REP-0011",
+      "information_state": "canonical_target",
+      "legacy_v1_id": "REQ-0001",
+      "owner_role": "requirements_owner",
+      "path": "project-dossier/canonical/requirements-and-constraints.md",
+      "profile": "minimal",
+      "representation_role": "canonical_human_source",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_requirement_change",
+      "sensitivity": "internal",
+      "source_direction": "profile_dependent_record_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "requirement_proposed",
+        "decision_accepted",
+        "constraint_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "REQ-0001"
+      ],
+      "authority": "authoritative_requirement_records_in_standard_and_high_profiles",
+      "generated": false,
+      "id": "REP-0012",
+      "information_state": "canonical_target",
+      "legacy_v1_id": "REQ-0002",
+      "owner_role": "requirements_owner",
+      "path": "project-dossier/machine-readable/requirements.json",
+      "profile": "standard",
+      "representation_role": "structured_record_source",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_requirement_change",
+      "sensitivity": "internal",
+      "source_direction": "authoritative_when_present",
+      "superseded_by": null,
+      "update_triggers": [
+        "requirement_status_change",
+        "traceability_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "ARC-0001"
+      ],
+      "authority": "intended_structure",
+      "generated": false,
+      "id": "REP-0013",
+      "information_state": "canonical_target",
+      "legacy_v1_id": "ARC-0001",
+      "owner_role": "architecture_or_design_owner",
+      "path": "project-dossier/canonical/architecture-or-outcome-model.md",
+      "profile": "minimal",
+      "representation_role": "canonical_human_source",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_accepted_design_change",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source_seeded_by_generator",
+      "superseded_by": null,
+      "update_triggers": [
+        "component_change",
+        "boundary_change",
+        "workflow_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "DEC-0001"
+      ],
+      "authority": "status_dependent_decision_store",
+      "generated": false,
+      "id": "REP-0014",
+      "information_state": "governance",
+      "legacy_v1_id": "DEC-0001",
+      "owner_role": "decision_owner",
+      "path": ".agent/decisions/README.md",
+      "profile": "minimal",
+      "representation_role": "external_live_store_navigation",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_durable_choice",
+      "sensitivity": "internal",
+      "source_direction": "external_live_store_navigation",
+      "superseded_by": null,
+      "update_triggers": [
+        "decision_proposed",
+        "decision_superseded"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "GOV-0001"
+      ],
+      "authority": "criteria_not_approval",
+      "generated": false,
+      "id": "REP-0015",
+      "information_state": "canonical_target",
+      "legacy_v1_id": "GOV-0001",
+      "owner_role": "project_governance_owner",
+      "path": "project-dossier/canonical/constraints-gates-and-readiness.md",
+      "profile": "minimal",
+      "representation_role": "canonical_human_source",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_gate_or_risk_change",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source_seeded_by_generator",
+      "superseded_by": null,
+      "update_triggers": [
+        "gate_added",
+        "risk_change",
+        "environment_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "CUR-0001"
+      ],
+      "authority": "dated_observed_scope_only",
+      "generated": false,
+      "id": "REP-0016",
+      "information_state": "current_state",
+      "legacy_v1_id": "CUR-0001",
+      "owner_role": "current_state_assessor",
+      "path": "project-dossier/current-state/README.md",
+      "profile": "minimal",
+      "representation_role": "current_state_source",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_material_change_or_evidence_expiry",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source_seeded_by_generator",
+      "superseded_by": null,
+      "update_triggers": [
+        "implementation_change",
+        "environment_change",
+        "evidence_expired"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "CNF-0001"
+      ],
+      "authority": "assessment_method_and_summary",
+      "generated": false,
+      "id": "REP-0017",
+      "information_state": "conformance",
+      "legacy_v1_id": "CNF-0001",
+      "owner_role": "conformance_assessor",
+      "path": "project-dossier/conformance/README.md",
+      "profile": "minimal",
+      "representation_role": "method_and_summary_source",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_target_or_evidence_change",
+      "sensitivity": "internal",
+      "source_direction": "profile_dependent_record_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "requirement_change",
+        "current_state_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "CNF-0001"
+      ],
+      "authority": "authoritative_finding_records",
+      "generated": false,
+      "id": "REP-0018",
+      "information_state": "conformance",
+      "legacy_v1_id": "CNF-0002",
+      "owner_role": "conformance_assessor",
+      "path": "project-dossier/machine-readable/findings.json",
+      "profile": "standard",
+      "representation_role": "structured_record_source",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_finding_change",
+      "sensitivity": "internal",
+      "source_direction": "authoritative_when_present",
+      "superseded_by": null,
+      "update_triggers": [
+        "finding_created",
+        "evidence_change",
+        "remediation_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "PLN-0001"
+      ],
+      "authority": "planning_method_and_summary",
+      "generated": false,
+      "id": "REP-0019",
+      "information_state": "planning",
+      "legacy_v1_id": "PLN-0001",
+      "owner_role": "planning_owner",
+      "path": "project-dossier/plans/README.md",
+      "profile": "minimal",
+      "representation_role": "method_and_summary_source",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_dependency_or_status_change",
+      "sensitivity": "internal",
+      "source_direction": "profile_dependent_record_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "finding_change",
+        "gate_change",
+        "plan_status_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "PLN-0001"
+      ],
+      "authority": "authoritative_plan_item_records",
+      "generated": false,
+      "id": "REP-0020",
+      "information_state": "planning",
+      "legacy_v1_id": "PLN-0002",
+      "owner_role": "planning_owner",
+      "path": "project-dossier/machine-readable/plan.json",
+      "profile": "standard",
+      "representation_role": "structured_record_source",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_plan_change",
+      "sensitivity": "internal",
+      "source_direction": "authoritative_when_present",
+      "superseded_by": null,
+      "update_triggers": [
+        "plan_item_added",
+        "dependency_change",
+        "status_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "REG-0001"
+      ],
+      "authority": "register_method_and_summary",
+      "generated": false,
+      "id": "REP-0021",
+      "information_state": "register",
+      "legacy_v1_id": "REG-0001",
+      "owner_role": "register_maintainer",
+      "path": "project-dossier/registers/README.md",
+      "profile": "minimal",
+      "representation_role": "method_and_summary_source",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "weekly_during_active_work",
+      "sensitivity": "internal",
+      "source_direction": "profile_dependent_record_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "risk_or_question_discovered",
+        "review_date_reached"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "REG-0001"
+      ],
+      "authority": "authoritative_unresolved_item_records",
+      "generated": false,
+      "id": "REP-0022",
+      "information_state": "register",
+      "legacy_v1_id": "REG-0002",
+      "owner_role": "register_maintainer",
+      "path": "project-dossier/machine-readable/raidq.json",
+      "profile": "standard",
+      "representation_role": "structured_record_source",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "weekly_during_active_work",
+      "sensitivity": "internal",
+      "source_direction": "authoritative_when_present",
+      "superseded_by": null,
+      "update_triggers": [
+        "item_added",
+        "item_status_change",
+        "review_date_reached"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "PRV-0001"
+      ],
+      "authority": "provenance_method_and_summary",
+      "generated": false,
+      "id": "REP-0023",
+      "information_state": "provenance",
+      "legacy_v1_id": "PRV-0001",
+      "owner_role": "source_curator",
+      "path": "project-dossier/provenance/README.md",
+      "profile": "minimal",
+      "representation_role": "method_and_summary_source",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_consequential_source_use",
+      "sensitivity": "internal",
+      "source_direction": "profile_dependent_record_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "source_added",
+        "source_expired",
+        "license_or_rights_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "PRV-0001"
+      ],
+      "authority": "authoritative_source_records",
+      "generated": false,
+      "id": "REP-0024",
+      "information_state": "provenance",
+      "legacy_v1_id": "PRV-0002",
+      "owner_role": "source_curator",
+      "path": "project-dossier/machine-readable/sources.json",
+      "profile": "standard",
+      "representation_role": "structured_record_source",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_source_change_or_expiry",
+      "sensitivity": "internal",
+      "source_direction": "authoritative_when_present",
+      "superseded_by": null,
+      "update_triggers": [
+        "source_added",
+        "source_reverified",
+        "source_expired"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "VAL-0001"
+      ],
+      "authority": "validation_method_only",
+      "generated": false,
+      "id": "REP-0025",
+      "information_state": "evidence",
+      "legacy_v1_id": "VAL-0001",
+      "owner_role": "validation_owner",
+      "path": "project-dossier/validation/README.md",
+      "profile": "minimal",
+      "representation_role": "validation_method_source",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_validation_contract_change",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source_seeded_by_generator",
+      "superseded_by": null,
+      "update_triggers": [
+        "requirement_change",
+        "validator_change",
+        "gate_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "GOV-0001"
+      ],
+      "authority": "project_maintained_proposed_quality_gate_records",
+      "generated": false,
+      "id": "REP-0026",
+      "information_state": "evidence",
+      "legacy_v1_id": "VAL-0002",
+      "owner_role": "validation_owner",
+      "path": "project-dossier/validation/QUALITY_GATES.json",
+      "profile": "minimal",
+      "representation_role": "proposed_gate_record_source",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_gate_change",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source_seeded_by_generator",
+      "superseded_by": null,
+      "update_triggers": [
+        "adoption",
+        "quality_gate_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "VAL-0001"
+      ],
+      "authority": "authoritative_evidence_metadata",
+      "generated": false,
+      "id": "REP-0027",
+      "information_state": "evidence",
+      "legacy_v1_id": "VAL-0003",
+      "owner_role": "validation_owner",
+      "path": "project-dossier/machine-readable/evidence-index.json",
+      "profile": "standard",
+      "representation_role": "structured_record_source",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_evidence_change_or_expiry",
+      "sensitivity": "internal",
+      "source_direction": "authoritative_when_present",
+      "superseded_by": null,
+      "update_triggers": [
+        "evidence_recorded",
+        "evidence_expired",
+        "evidence_superseded"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "HOF-0001"
+      ],
+      "authority": "navigation_only",
+      "generated": false,
+      "id": "REP-0028",
+      "information_state": "handoff",
+      "legacy_v1_id": "HOF-0001",
+      "owner_role": "current_task_owner",
+      "path": "project-dossier/handoff/START_HERE.md",
+      "profile": "minimal",
+      "representation_role": "handoff_view",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "before_handoff",
+      "sensitivity": "internal",
+      "source_direction": "derived_navigation_maintained_by_task_owner",
+      "superseded_by": null,
+      "update_triggers": [
+        "active_task_change",
+        "blocker_change",
+        "handoff"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for the selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "HOF-0002"
+      ],
+      "authority": "checklist_only",
+      "generated": false,
+      "id": "REP-0029",
+      "information_state": "handoff",
+      "legacy_v1_id": "HOF-0002",
+      "owner_role": "project_owner",
+      "path": "project-dossier/handoff/ADOPTION_CHECKLIST.md",
+      "profile": "minimal",
+      "representation_role": "adoption_checklist",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "during_adoption",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source_seeded_by_generator",
+      "superseded_by": null,
+      "update_triggers": [
+        "adoption_progress",
+        "profile_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": "2026-07-28",
+        "rationale": "SEC-0001 assessed applicable; entry point routes to the canonical trust/security/rights model in canonical/storyworld/05. [Assessed by claude-agent 2026-07-28; ratified by the project owner 2026-07-28 via DEC-0003.]",
+        "status": "applicable"
+      },
+      "artifact_type_ids": [
+        "SEC-0001"
+      ],
+      "authority": "specialist_criteria_not_conclusion",
+      "generated": false,
+      "id": "REP-0030",
+      "information_state": "canonical_target",
+      "legacy_v1_id": "GOV-0002",
+      "owner_role": "qualified_governance_owner",
+      "path": "project-dossier/governance/README.md",
+      "profile": "high-assurance",
+      "representation_role": "conditional_entry_point",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_risk_or_obligation_change",
+      "sensitivity": "restricted",
+      "source_direction": "conditional_project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "sensitive_data",
+        "external_effect",
+        "regulated_obligation"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": "2026-07-28",
+        "rationale": "MOD-0001 assessed applicable; entry point routes to the canonical domain models in canonical/storyworld/02, 03, and 04. [Assessed by claude-agent 2026-07-28; ratified by the project owner 2026-07-28 via DEC-0003.]",
+        "status": "applicable"
+      },
+      "artifact_type_ids": [
+        "MOD-0001"
+      ],
+      "authority": "domain_model_entry_point",
+      "generated": false,
+      "id": "REP-0031",
+      "information_state": "canonical_target",
+      "legacy_v1_id": "MOD-0001",
+      "owner_role": "domain_owner",
+      "path": "project-dossier/models/README.md",
+      "profile": "high-assurance",
+      "representation_role": "conditional_entry_point",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_model_change",
+      "sensitivity": "internal",
+      "source_direction": "conditional_project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "entity_change",
+        "workflow_change",
+        "interface_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": "2026-07-28",
+        "rationale": "OPS-0001 assessed applicable; entry point routes to the canonical operations model in canonical/storyworld/05 and records that executable runbooks are deferred until implementation exists. [Assessed by claude-agent 2026-07-28; ratified by the project owner 2026-07-28 via DEC-0003.]",
+        "status": "applicable"
+      },
+      "artifact_type_ids": [
+        "OPS-0001"
+      ],
+      "authority": "operational_procedure_entry_point",
+      "generated": false,
+      "id": "REP-0032",
+      "information_state": "canonical_target",
+      "legacy_v1_id": "OPS-0001",
+      "owner_role": "operations_owner",
+      "path": "project-dossier/operations/README.md",
+      "profile": "high-assurance",
+      "representation_role": "conditional_entry_point",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "quarterly_and_per_release",
+      "sensitivity": "restricted",
+      "source_direction": "conditional_project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "deployment",
+        "external_effect",
+        "recovery_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Scaffolded trigger-assessment entry point; applicability is not established by generation.",
+        "status": "not_assessed"
+      },
+      "artifact_type_ids": [
+        "RES-0001"
+      ],
+      "authority": "research_method_entry_point",
+      "generated": false,
+      "id": "REP-0033",
+      "information_state": "provenance",
+      "legacy_v1_id": "RES-0001",
+      "owner_role": "research_owner",
+      "path": "project-dossier/research/README.md",
+      "profile": "high-assurance",
+      "representation_role": "conditional_entry_point",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_fact_expiry",
+      "sensitivity": "internal",
+      "source_direction": "conditional_project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "external_fact_used",
+        "source_expired",
+        "contradiction_found"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": "2026-07-28",
+        "rationale": "TRN-0001 assessed applicable; holds the established-project adoption transition package. [Assessed by claude-agent 2026-07-28; ratified by the project owner 2026-07-28 via DEC-0003.]",
+        "status": "applicable"
+      },
+      "artifact_type_ids": [
+        "TRN-0001"
+      ],
+      "authority": "transition_plan_entry_point",
+      "generated": false,
+      "id": "REP-0034",
+      "information_state": "planning",
+      "legacy_v1_id": "TRN-0001",
+      "owner_role": "transition_owner",
+      "path": "project-dossier/transition/README.md",
+      "profile": "high-assurance",
+      "representation_role": "conditional_entry_point",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "during_transition",
+      "sensitivity": "internal",
+      "source_direction": "conditional_project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "existing_project_adoption",
+        "blueprint_upgrade",
+        "system_replacement"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": "2026-07-28",
+        "rationale": "HIS-0001 assessed applicable; history holds the retained consolidated dossier baseline. [Assessed by claude-agent 2026-07-28; ratified by the project owner 2026-07-28 via DEC-0003.]",
+        "status": "applicable"
+      },
+      "artifact_type_ids": [
+        "HIS-0001"
+      ],
+      "authority": "noncurrent_history_entry_point",
+      "generated": false,
+      "id": "REP-0035",
+      "information_state": "historical",
+      "legacy_v1_id": "HIS-0001",
+      "owner_role": "dossier_custodian",
+      "path": "project-dossier/history/README.md",
+      "profile": "high-assurance",
+      "representation_role": "conditional_entry_point",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_archive_or_supersession",
+      "sensitivity": "internal",
+      "source_direction": "conditional_project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "baseline_archived",
+        "artifact_superseded"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Core representation for every selected profile.",
+        "status": "required"
+      },
+      "artifact_type_ids": [
+        "DOS-0010"
+      ],
+      "authority": "authoritative_project_local_artifact_metadata",
+      "generated": false,
+      "id": "REP-0036",
+      "information_state": "governance",
+      "owner_role": "dossier_maintainer",
+      "path": "project-dossier/machine-readable/artifact-registry.json",
+      "profile": "minimal",
+      "representation_role": "authoritative_registry",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_artifact_change_and_quarterly_for_active_projects",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source_seeded_by_generator",
+      "superseded_by": null,
+      "update_triggers": [
+        "artifact_added_or_removed",
+        "path_change",
+        "applicability_assessment",
+        "owner_or_review_change",
+        "supersession"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Scaffolded trigger-assessment entry point; applicability is not established by generation.",
+        "status": "not_assessed"
+      },
+      "artifact_type_ids": [
+        "DAT-0001"
+      ],
+      "authority": "data_governance_entry_point_not_a_qualified_conclusion",
+      "generated": false,
+      "id": "REP-0037",
+      "information_state": "canonical_target",
+      "owner_role": "data_owner",
+      "path": "project-dossier/data/README.md",
+      "profile": "high-assurance",
+      "representation_role": "conditional_entry_point",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_data_flow_or_obligation_change",
+      "sensitivity": "restricted",
+      "source_direction": "conditional_project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "data_class_or_flow_change",
+        "retention_change",
+        "provider_change",
+        "incident"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Scaffolded trigger-assessment entry point; applicability is not established by generation.",
+        "status": "not_assessed"
+      },
+      "artifact_type_ids": [
+        "SUP-0001"
+      ],
+      "authority": "supply_chain_entry_point_not_a_rights_or_risk_conclusion",
+      "generated": false,
+      "id": "REP-0038",
+      "information_state": "provenance",
+      "owner_role": "supply_chain_owner",
+      "path": "project-dossier/supply-chain/README.md",
+      "profile": "high-assurance",
+      "representation_role": "conditional_entry_point",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_dependency_change_and_per_release",
+      "sensitivity": "internal",
+      "source_direction": "conditional_project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "dependency_or_vendor_change",
+        "license_change",
+        "vulnerability",
+        "source_expiry"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Optional scaffolded trigger-assessment entry point; applicability is not established by generation.",
+        "status": "not_assessed"
+      },
+      "artifact_type_ids": [
+        "EVA-0001"
+      ],
+      "authority": "evaluation_method_entry_point_not_a_quality_result",
+      "generated": false,
+      "id": "REP-0039",
+      "information_state": "evidence",
+      "owner_role": "quality_owner",
+      "path": "project-dossier/evaluation/README.md",
+      "profile": "high-assurance",
+      "representation_role": "conditional_entry_point",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "per_material_method_change_and_periodic_calibration",
+      "sensitivity": "internal",
+      "source_direction": "conditional_project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "quality_standard_change",
+        "model_or_process_change",
+        "fixture_drift",
+        "evaluation_failure"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": null,
+        "rationale": "Optional scaffolded trigger-assessment entry point; applicability is not established by generation.",
+        "status": "not_assessed"
+      },
+      "artifact_type_ids": [
+        "CTX-0001"
+      ],
+      "authority": "derived_context_navigation_only",
+      "generated": false,
+      "id": "REP-0040",
+      "information_state": "navigation",
+      "owner_role": "dossier_maintainer",
+      "path": "project-dossier/context-packs/README.md",
+      "profile": "high-assurance",
+      "representation_role": "conditional_entry_point",
+      "review": {
+        "basis": "Generated scaffold provenance is not substantive project review.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_source_change_and_quarterly_when_active",
+      "sensitivity": "internal",
+      "source_direction": "conditional_project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "source_change",
+        "task_pattern_change",
+        "context_budget_breach",
+        "staleness"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": "2026-07-28",
+        "rationale": "Sub-index for the Storyworld canonical content pack; links the modular parts, diagrams, and the retained consolidated baseline. [Assessed by claude-agent 2026-07-28; ratified by the project owner 2026-07-28 via DEC-0003.]",
+        "status": "applicable"
+      },
+      "artifact_type_ids": [
+        "DOS-0001"
+      ],
+      "authority": "navigation_only",
+      "generated": false,
+      "id": "REP-0041",
+      "information_state": "navigation",
+      "owner_role": "dossier_maintainer",
+      "path": "project-dossier/canonical/storyworld/README.md",
+      "profile": "minimal",
+      "representation_role": "navigation",
+      "review": {
+        "basis": "Content authored and consolidated 2026-07-27 in Storyworld dossier v1.0; substantive in-repo review by the project owner is pending.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_path_or_entry_point_change",
+      "sensitivity": "internal",
+      "source_direction": "navigation_only",
+      "superseded_by": null,
+      "update_triggers": [
+        "artifact_path_change",
+        "entry_point_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": "2026-07-28",
+        "rationale": "Detailed executive context, recovered concept map, product family, principles, non-goals, personas, and authority matrix; the canonical entry file canonical/executive-project-definition.md summarizes and routes here. [Assessed by claude-agent 2026-07-28; ratified by the project owner 2026-07-28 via DEC-0003.]",
+        "status": "applicable"
+      },
+      "artifact_type_ids": [
+        "DEF-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "id": "REP-0042",
+      "information_state": "canonical_target",
+      "owner_role": "project_owner",
+      "path": "project-dossier/canonical/storyworld/01_executive_context_and_product_direction.md",
+      "profile": "minimal",
+      "representation_role": "canonical_human_source",
+      "review": {
+        "basis": "Content authored and consolidated 2026-07-27 in Storyworld dossier v1.0; substantive in-repo review by the project owner is pending.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_strategy_or_scope_change",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "strategy_change",
+        "scope_change",
+        "outcome_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": "2026-07-28",
+        "rationale": "Engine capability domains, Studio application definition, roles, lifecycle state machines, collaboration model, and property/production templates. [Assessed by claude-agent 2026-07-28; ratified by the project owner 2026-07-28 via DEC-0003.]",
+        "status": "applicable"
+      },
+      "artifact_type_ids": [
+        "MOD-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "id": "REP-0043",
+      "information_state": "canonical_target",
+      "owner_role": "project_owner",
+      "path": "project-dossier/canonical/storyworld/02_engine_studio_and_templates.md",
+      "profile": "high-assurance",
+      "representation_role": "canonical_human_source",
+      "review": {
+        "basis": "Content authored and consolidated 2026-07-27 in Storyworld dossier v1.0; substantive in-repo review by the project owner is pending.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_model_change",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "entity_change",
+        "workflow_change",
+        "vocabulary_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": "2026-07-28",
+        "rationale": "Sections 9-10 (implementation shape, stack, deployment, generation/continuity/revision architecture) implement ARC-0001; section 8 (canonical domain model, bounded contexts, fact model, placement contract, reference packs) implements MOD-0001. One project-maintained file with clearly separated numbered sections. [Assessed by claude-agent 2026-07-28; ratified by the project owner 2026-07-28 via DEC-0003.]",
+        "status": "combined"
+      },
+      "artifact_type_ids": [
+        "ARC-0001",
+        "MOD-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "id": "REP-0044",
+      "information_state": "canonical_target",
+      "owner_role": "project_owner",
+      "path": "project-dossier/canonical/storyworld/03_domain_architecture_and_media_pipeline.md",
+      "profile": "high-assurance",
+      "representation_role": "canonical_human_source",
+      "review": {
+        "basis": "Content authored and consolidated 2026-07-27 in Storyworld dossier v1.0; substantive in-repo review by the project owner is pending.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_accepted_design_change",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "accepted_design_change",
+        "boundary_change",
+        "entity_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": "2026-07-28",
+        "rationale": "Sections 11-13 (Commerce Foundry and BeKindRewind integration boundaries, channel strategy) implement ARC-0001; section 14 (API style, endpoints, event catalog, package envelope, versioning contracts) implements MOD-0001. One project-maintained file with clearly separated numbered sections. [Assessed by claude-agent 2026-07-28; ratified by the project owner 2026-07-28 via DEC-0003.]",
+        "status": "combined"
+      },
+      "artifact_type_ids": [
+        "ARC-0001",
+        "MOD-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "id": "REP-0045",
+      "information_state": "canonical_target",
+      "owner_role": "project_owner",
+      "path": "project-dossier/canonical/storyworld/04_foundry_rewind_channels_and_contracts.md",
+      "profile": "high-assurance",
+      "representation_role": "canonical_human_source",
+      "review": {
+        "basis": "Content authored and consolidated 2026-07-27 in Storyworld dossier v1.0; substantive in-repo review by the project owner is pending.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_accepted_design_change",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "boundary_change",
+        "interface_change",
+        "workflow_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": "2026-07-28",
+        "rationale": "Section 15 (identity, capability-based agent execution, rights, privacy, security) implements SEC-0001; section 16 (operations, reliability, administration) implements OPS-0001; section 17 (quality, evaluation, acceptance gates) implements GOV-0001. One project-maintained file with clearly separated numbered sections. [Assessed by claude-agent 2026-07-28; ratified by the project owner 2026-07-28 via DEC-0003.]",
+        "status": "combined"
+      },
+      "artifact_type_ids": [
+        "SEC-0001",
+        "OPS-0001",
+        "GOV-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "id": "REP-0046",
+      "information_state": "canonical_target",
+      "owner_role": "project_owner",
+      "path": "project-dossier/canonical/storyworld/05_governance_operations_and_quality.md",
+      "profile": "high-assurance",
+      "representation_role": "canonical_human_source",
+      "review": {
+        "basis": "Content authored and consolidated 2026-07-27 in Storyworld dossier v1.0; substantive in-repo review by the project owner is pending.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_risk_or_obligation_change",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "threat_or_obligation_change",
+        "gate_added_or_changed",
+        "recovery_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": "2026-07-28",
+        "rationale": "Canonical MVP definition, dependency-gated phase roadmap (F0-X1), vertical slices, and workstream matrix. Actionable near-term plan items are owned by machine-readable/plan.json; this file owns the canonical roadmap explanation. [Assessed by claude-agent 2026-07-28; ratified by the project owner 2026-07-28 via DEC-0003.]",
+        "status": "applicable"
+      },
+      "artifact_type_ids": [
+        "PLN-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "id": "REP-0047",
+      "information_state": "planning",
+      "owner_role": "project_owner",
+      "path": "project-dossier/canonical/storyworld/06_mvp_dependency_roadmap_and_vertical_slices.md",
+      "profile": "minimal",
+      "representation_role": "canonical_human_source",
+      "review": {
+        "basis": "Content authored and consolidated 2026-07-27 in Storyworld dossier v1.0; substantive in-repo review by the project owner is pending.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_dependency_or_status_change",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "dependency_change",
+        "gate_change",
+        "scope_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": "2026-07-28",
+        "rationale": "Sections 21-22 and 24-25 (implementation backlog, validation plan, decision checkpoints, final recommendation) implement PLN-0001; section 23 (risk table) implements REG-0001. Live tracked items are owned by machine-readable/plan.json and machine-readable/raidq.json; this file owns the canonical backlog and risk vocabulary. [Assessed by claude-agent 2026-07-28; ratified by the project owner 2026-07-28 via DEC-0003.]",
+        "status": "combined"
+      },
+      "artifact_type_ids": [
+        "PLN-0001",
+        "REG-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "id": "REP-0048",
+      "information_state": "planning",
+      "owner_role": "project_owner",
+      "path": "project-dossier/canonical/storyworld/07_backlog_validation_risks_and_recommendation.md",
+      "profile": "minimal",
+      "representation_role": "canonical_human_source",
+      "review": {
+        "basis": "Content authored and consolidated 2026-07-27 in Storyworld dossier v1.0; substantive in-repo review by the project owner is pending.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_dependency_or_status_change",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "finding_change",
+        "item_discovered",
+        "gate_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": "2026-07-28",
+        "rationale": "Appendices B and D (F1 contract artifact inventory and glossary) implement MOD-0001; appendices A and C (proposed architecture decisions and success metrics) implement GOV-0001 input material. Proposed ADRs become live decisions only through .agent/decisions records. [Assessed by claude-agent 2026-07-28; ratified by the project owner 2026-07-28 via DEC-0003.]",
+        "status": "combined"
+      },
+      "artifact_type_ids": [
+        "MOD-0001",
+        "GOV-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "id": "REP-0049",
+      "information_state": "canonical_target",
+      "owner_role": "project_owner",
+      "path": "project-dossier/canonical/storyworld/08_appendices.md",
+      "profile": "high-assurance",
+      "representation_role": "canonical_human_source",
+      "review": {
+        "basis": "Content authored and consolidated 2026-07-27 in Storyworld dossier v1.0; substantive in-repo review by the project owner is pending.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_model_change",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "vocabulary_change",
+        "gate_added_or_changed",
+        "interface_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": "2026-07-28",
+        "rationale": "Platform boundary diagram referenced by canonical/storyworld/01; maintained as a source image. [Assessed by claude-agent 2026-07-28; ratified by the project owner 2026-07-28 via DEC-0003.]",
+        "status": "applicable"
+      },
+      "artifact_type_ids": [
+        "ARC-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "id": "REP-0050",
+      "information_state": "canonical_target",
+      "owner_role": "project_owner",
+      "path": "project-dossier/canonical/storyworld/assets/storyworld_architecture.png",
+      "profile": "minimal",
+      "representation_role": "canonical_diagram",
+      "review": {
+        "basis": "Content authored and consolidated 2026-07-27 in Storyworld dossier v1.0; substantive in-repo review by the project owner is pending.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_accepted_design_change",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "accepted_design_change",
+        "boundary_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": "2026-07-28",
+        "rationale": "Dependency-based delivery roadmap diagram referenced by canonical/storyworld/06; maintained as a source image. [Assessed by claude-agent 2026-07-28; ratified by the project owner 2026-07-28 via DEC-0003.]",
+        "status": "applicable"
+      },
+      "artifact_type_ids": [
+        "PLN-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "id": "REP-0051",
+      "information_state": "planning",
+      "owner_role": "project_owner",
+      "path": "project-dossier/canonical/storyworld/assets/storyworld_roadmap.png",
+      "profile": "minimal",
+      "representation_role": "canonical_diagram",
+      "review": {
+        "basis": "Content authored and consolidated 2026-07-27 in Storyworld dossier v1.0; substantive in-repo review by the project owner is pending.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_dependency_or_status_change",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "dependency_change",
+        "gate_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": "2026-07-28",
+        "rationale": "Noncurrent banner and index for the retained consolidated Storyworld dossier v1.0 baseline; routes current readers to canonical/storyworld/. [Assessed by claude-agent 2026-07-28; ratified by the project owner 2026-07-28 via DEC-0003.]",
+        "status": "applicable"
+      },
+      "artifact_type_ids": [
+        "HIS-0001"
+      ],
+      "authority": "explicitly_noncurrent_history",
+      "generated": false,
+      "id": "REP-0052",
+      "information_state": "historical",
+      "owner_role": "dossier_custodian",
+      "path": "project-dossier/history/storyworld-dossier-v1.0-consolidated/README.md",
+      "profile": "high-assurance",
+      "representation_role": "noncurrent_baseline_index",
+      "review": {
+        "basis": "Content authored and consolidated 2026-07-27 in Storyworld dossier v1.0; substantive in-repo review by the project owner is pending.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_archive_or_retention_event",
+      "sensitivity": "internal",
+      "source_direction": "project_maintained_source",
+      "superseded_by": null,
+      "update_triggers": [
+        "retention_rule_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": "2026-07-28",
+        "rationale": "Immutable retained copy of the consolidated single-file Storyworld dossier v1.0 (2026-07-27). Superseded as an edit source by the modular parts under canonical/storyworld/ (SUP-0001); retained for provenance and recovery. [Assessed by claude-agent 2026-07-28; ratified by the project owner 2026-07-28 via DEC-0003.]",
+        "status": "applicable"
+      },
+      "artifact_type_ids": [
+        "HIS-0001"
+      ],
+      "authority": "explicitly_noncurrent_history",
+      "generated": false,
+      "id": "REP-0053",
+      "information_state": "historical",
+      "owner_role": "dossier_custodian",
+      "path": "project-dossier/history/storyworld-dossier-v1.0-consolidated/Storyworld_Platform_Dossier.md",
+      "profile": "high-assurance",
+      "representation_role": "immutable_baseline",
+      "review": {
+        "basis": "Content authored and consolidated 2026-07-27 in Storyworld dossier v1.0; substantive in-repo review by the project owner is pending.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_archive_or_retention_event",
+      "sensitivity": "internal",
+      "source_direction": "frozen_historical_copy",
+      "superseded_by": "REP-0041",
+      "update_triggers": [
+        "retention_rule_change"
+      ]
+    }
+  ],
+  "schema_version": "project-dossier.artifact-catalog.v2",
+  "source_registry": "project-dossier/machine-readable/artifact-registry.json"
+}

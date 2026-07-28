@@ -1,0 +1,209 @@
+{
+  "document_role": "unadopted_authoritative_store_candidate",
+  "permission_grant": false,
+  "plan_items": [
+    {
+      "acceptance_criteria": [
+        "Each of DEC-0001..DEC-0004 is accepted, revised, or rejected by the project owner.",
+        "Registry applicability assessments and proposed requirements/gates are ratified or corrected.",
+        ".agent/state/current.json and project.json adoption fields reflect the outcome."
+      ],
+      "blocked_by": [],
+      "depends_on": [],
+      "evidence_expected": [
+        "Updated decision records with accepted/rejected status and valid authority source."
+      ],
+      "evidence_refs": [
+        "DEC-0001",
+        "DEC-0002",
+        "DEC-0003",
+        "DEC-0004"
+      ],
+      "finding_refs": [],
+      "gate_refs": [],
+      "id": "PLAN-0001",
+      "limitations": [
+        "Ratified by the project owner (Ryan Cooper) on 2026-07-28 via acceptance of DEC-0001..DEC-0004 (PLAN-0001)."
+      ],
+      "objective": "Review and accept, revise, or reject the proposed adoption decisions (DEC-0001..DEC-0004), the artifact-registry applicability assessments, and the proposed requirement and gate records created during the 2026-07-28 adoption session.",
+      "owner_role": "project_owner",
+      "requirement_refs": [],
+      "status": "completed",
+      "title": "Owner review and ratification of blueprint adoption"
+    },
+    {
+      "acceptance_criteria": [
+        "Every important entity and decision has exactly one authoritative owner.",
+        "Creative approval cannot be interpreted as commercial publication approval.",
+        "Commerce Foundry, Storyworld, BeKindRewind, Octon, media tools, and connectors have unambiguous responsibilities.",
+        "First vertical slices and stop conditions are accepted."
+      ],
+      "blocked_by": [],
+      "depends_on": [],
+      "evidence_expected": [
+        "Accepted ADR set in .agent/decisions/ mirroring 08 Appendix A after owner review.",
+        "F0 exit-gate evaluation record."
+      ],
+      "evidence_refs": [],
+      "finding_refs": [
+        "FIND-0001"
+      ],
+      "gate_refs": [
+        "GATE-0002"
+      ],
+      "id": "PLAN-0002",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001) during the 2026-07-28 adoption session; project-ratified 2026-07-28 (PLAN-0001)."
+      ],
+      "objective": "Produce the F0 deliverables: canonical product definition and non-goals, system context and authority matrix, property classifications and authority-host rule, privacy/rights/risk classifications, approval taxonomy, initial architecture decision records, and named golden fixtures (canonical/storyworld/06 section 19.1).",
+      "owner_role": "project_owner",
+      "requirement_refs": [
+        "REQ-0010"
+      ],
+      "status": "planned",
+      "title": "F0 - product charter and authority pack"
+    },
+    {
+      "acceptance_criteria": [
+        "All representative fixtures can be modeled without mandatory commerce fields in generic canon or runtime execution fields in Storyworld.",
+        "Contracts round-trip deterministically and pass compatibility tests.",
+        "Narrative hierarchy is flexible without becoming untyped; revision time and story time are explicit."
+      ],
+      "blocked_by": [],
+      "depends_on": [
+        "PLAN-0002"
+      ],
+      "evidence_expected": [
+        "Contract pack artifacts per 08 Appendix B with passing round-trip and compatibility tests."
+      ],
+      "evidence_refs": [],
+      "finding_refs": [
+        "FIND-0001"
+      ],
+      "gate_refs": [
+        "GATE-0003"
+      ],
+      "id": "PLAN-0003",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001) during the 2026-07-28 adoption session; project-ratified 2026-07-28 (PLAN-0001)."
+      ],
+      "objective": "Produce versioned schemas, lifecycle state machines, the OpenAPI application contract, event and package catalogs, adapter interfaces, and contract fixtures for the four representative properties (canonical/storyworld/06 section 19.2; 08 Appendix B).",
+      "owner_role": "project_owner",
+      "requirement_refs": [
+        "REQ-0010",
+        "REQ-0005",
+        "REQ-0006"
+      ],
+      "status": "planned",
+      "title": "F1 - domain model and contract pack"
+    },
+    {
+      "acceptance_criteria": [
+        "Export, delete local copy, re-import preserves identifiers, hashes, lineage, rights, approvals.",
+        "Failed jobs cannot partially mutate canon; replay creates no duplicates.",
+        "A restore drill succeeds."
+      ],
+      "blocked_by": [],
+      "depends_on": [
+        "PLAN-0003"
+      ],
+      "evidence_expected": [
+        "F2 exit-gate evaluation record with drill evidence."
+      ],
+      "evidence_refs": [],
+      "finding_refs": [
+        "FIND-0002"
+      ],
+      "gate_refs": [
+        "GATE-0004"
+      ],
+      "id": "PLAN-0004",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001) during the 2026-07-28 adoption session; project-ratified 2026-07-28 (PLAN-0001)."
+      ],
+      "objective": "Establish repository/CI/local deployment, PostgreSQL persistence with tenant isolation, immutable revisions and content-addressed storage, rights/consent/policy hooks, identity and capability boundaries, audit receipts, outbox/inbox, deterministic signed export/import, telemetry, backup, and restore (canonical/storyworld/06 section 19.3).",
+      "owner_role": "project_owner",
+      "requirement_refs": [
+        "REQ-0001",
+        "REQ-0004",
+        "REQ-0005",
+        "REQ-0008"
+      ],
+      "status": "planned",
+      "title": "F2 - governed foundation"
+    },
+    {
+      "acceptance_criteria": [
+        "A user manually authors and approves a complete three-episode project through public contracts.",
+        "Proposals never silently change accepted canon; canon changes identify affected productions.",
+        "CLI and API complete a portable project round trip."
+      ],
+      "blocked_by": [],
+      "depends_on": [
+        "PLAN-0004"
+      ],
+      "evidence_expected": [
+        "F3 exit-gate evaluation record; VS0 round-trip evidence."
+      ],
+      "evidence_refs": [],
+      "finding_refs": [
+        "FIND-0002"
+      ],
+      "gate_refs": [
+        "GATE-0005"
+      ],
+      "id": "PLAN-0005",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001) during the 2026-07-28 adoption session; project-ratified 2026-07-28 (PLAN-0001)."
+      ],
+      "objective": "Deliver source ingestion and source-to-canon proposals, canon releases, entities/relationships/timeline/state, productions and narrative units, scene state packets, manual asset import/review/acceptance, canon change impact reports, and policy/approval commands through API and CLI (canonical/storyworld/06 section 19.4).",
+      "owner_role": "project_owner",
+      "requirement_refs": [
+        "REQ-0002",
+        "REQ-0004",
+        "REQ-0005",
+        "REQ-0006"
+      ],
+      "status": "planned",
+      "title": "F3 - headless narrative kernel"
+    },
+    {
+      "acceptance_criteria": [
+        "Each named type carries a dated, attributed applicable/not_applicable assessment in machine-readable/artifact-registry.json when its trigger arrives."
+      ],
+      "blocked_by": [],
+      "depends_on": [],
+      "evidence_expected": [
+        "Registry diff showing the assessments."
+      ],
+      "evidence_refs": [],
+      "finding_refs": [],
+      "gate_refs": [],
+      "id": "PLAN-0006",
+      "limitations": [
+        "Trigger timing depends on later phases; intentionally left unassessed now rather than guessed."
+      ],
+      "objective": "Assess DAT-0001 (before collecting/importing triggered data classes), SUP-0001 (before relying on external code/models/packages/vendors), RES-0001 (before a mutable external fact drives a consequential choice), EVA-0001 (when repeated quality review or model evaluation begins), and CTX-0001 (if routine dossier loading exceeds context budgets); record dated, attributed applicability decisions in the artifact registry.",
+      "owner_role": "project_owner",
+      "requirement_refs": [],
+      "status": "planned",
+      "title": "Assess deferred conditional dossier artifact types at their triggers"
+    }
+  ],
+  "project_slug": "storyworld-platform",
+  "review": {
+    "basis": "Generated scaffold provenance is not substantive project review.",
+    "last_reviewed_on": null,
+    "status": "not_reviewed"
+  },
+  "scaffold_generated_on": "2026-07-28",
+  "schema_version": "project.dossier.plan.v1",
+  "status_vocabulary": [
+    "planned",
+    "in_progress",
+    "blocked",
+    "completed",
+    "deferred",
+    "cancelled"
+  ]
+}

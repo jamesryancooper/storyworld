@@ -1,0 +1,588 @@
+{
+  "document_role": "generated_from_artifact_registry",
+  "generation_id": "40a696f549d2b4766d59f8116bf372bf",
+  "paths": [
+    {
+      "artifact_type_ids": [
+        "DOS-0004"
+      ],
+      "authority": "generated_non_authoritative_mirror_from_artifact_registry",
+      "generated": true,
+      "information_state": "governance",
+      "path": "project-dossier/ARTIFACT_CATALOG.json",
+      "representation_id": "REP-0004",
+      "source_direction": "generated_from_artifact_registry"
+    },
+    {
+      "artifact_type_ids": [
+        "DOS-0002"
+      ],
+      "authority": "dossier_interpretation_only",
+      "generated": false,
+      "information_state": "governance",
+      "path": "project-dossier/AUTHORITY.md",
+      "representation_id": "REP-0002",
+      "source_direction": "project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "DOS-0003"
+      ],
+      "authority": "source_ownership",
+      "generated": false,
+      "information_state": "governance",
+      "path": "project-dossier/CANONICAL_SOURCE_MAP.md",
+      "representation_id": "REP-0003",
+      "source_direction": "project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "DOS-0005"
+      ],
+      "authority": "byte_integrity_only",
+      "generated": true,
+      "information_state": "generated",
+      "path": "project-dossier/CHECKSUMS.sha256",
+      "representation_id": "REP-0009",
+      "source_direction": "generated_from_managed_files"
+    },
+    {
+      "artifact_type_ids": [
+        "DOS-0005"
+      ],
+      "authority": "generated_point_in_time_inventory",
+      "generated": true,
+      "information_state": "generated",
+      "path": "project-dossier/MANIFEST.json",
+      "representation_id": "REP-0005",
+      "source_direction": "generated_from_managed_files"
+    },
+    {
+      "artifact_type_ids": [
+        "DOS-0001"
+      ],
+      "authority": "navigation_only",
+      "generated": false,
+      "information_state": "navigation",
+      "path": "project-dossier/README.md",
+      "representation_id": "REP-0001",
+      "source_direction": "navigation_only"
+    },
+    {
+      "artifact_type_ids": [
+        "DOS-0007"
+      ],
+      "authority": "dossier_supersession",
+      "generated": false,
+      "information_state": "historical",
+      "path": "project-dossier/SUPERSESSION.json",
+      "representation_id": "REP-0007",
+      "source_direction": "project_maintained_source_seeded_by_generator"
+    },
+    {
+      "artifact_type_ids": [
+        "DOS-0006"
+      ],
+      "authority": "dossier_version",
+      "generated": false,
+      "information_state": "governance",
+      "path": "project-dossier/VERSION.md",
+      "representation_id": "REP-0006",
+      "source_direction": "project_maintained_source_seeded_by_generator"
+    },
+    {
+      "artifact_type_ids": [
+        "ARC-0001"
+      ],
+      "authority": "intended_structure",
+      "generated": false,
+      "information_state": "canonical_target",
+      "path": "project-dossier/canonical/architecture-or-outcome-model.md",
+      "representation_id": "REP-0013",
+      "source_direction": "project_maintained_source_seeded_by_generator"
+    },
+    {
+      "artifact_type_ids": [
+        "GOV-0001"
+      ],
+      "authority": "criteria_not_approval",
+      "generated": false,
+      "information_state": "canonical_target",
+      "path": "project-dossier/canonical/constraints-gates-and-readiness.md",
+      "representation_id": "REP-0015",
+      "source_direction": "project_maintained_source_seeded_by_generator"
+    },
+    {
+      "artifact_type_ids": [
+        "DEF-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "information_state": "canonical_target",
+      "path": "project-dossier/canonical/executive-project-definition.md",
+      "representation_id": "REP-0010",
+      "source_direction": "project_maintained_source_seeded_by_generator"
+    },
+    {
+      "artifact_type_ids": [
+        "REQ-0001"
+      ],
+      "authority": "requirement_policy_and_minimal_definitions",
+      "generated": false,
+      "information_state": "canonical_target",
+      "path": "project-dossier/canonical/requirements-and-constraints.md",
+      "representation_id": "REP-0011",
+      "source_direction": "profile_dependent_record_source"
+    },
+    {
+      "artifact_type_ids": [
+        "DEF-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "information_state": "canonical_target",
+      "path": "project-dossier/canonical/storyworld/01_executive_context_and_product_direction.md",
+      "representation_id": "REP-0042",
+      "source_direction": "project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "MOD-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "information_state": "canonical_target",
+      "path": "project-dossier/canonical/storyworld/02_engine_studio_and_templates.md",
+      "representation_id": "REP-0043",
+      "source_direction": "project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "ARC-0001",
+        "MOD-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "information_state": "canonical_target",
+      "path": "project-dossier/canonical/storyworld/03_domain_architecture_and_media_pipeline.md",
+      "representation_id": "REP-0044",
+      "source_direction": "project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "ARC-0001",
+        "MOD-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "information_state": "canonical_target",
+      "path": "project-dossier/canonical/storyworld/04_foundry_rewind_channels_and_contracts.md",
+      "representation_id": "REP-0045",
+      "source_direction": "project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "SEC-0001",
+        "OPS-0001",
+        "GOV-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "information_state": "canonical_target",
+      "path": "project-dossier/canonical/storyworld/05_governance_operations_and_quality.md",
+      "representation_id": "REP-0046",
+      "source_direction": "project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "PLN-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "information_state": "planning",
+      "path": "project-dossier/canonical/storyworld/06_mvp_dependency_roadmap_and_vertical_slices.md",
+      "representation_id": "REP-0047",
+      "source_direction": "project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "PLN-0001",
+        "REG-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "information_state": "planning",
+      "path": "project-dossier/canonical/storyworld/07_backlog_validation_risks_and_recommendation.md",
+      "representation_id": "REP-0048",
+      "source_direction": "project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "MOD-0001",
+        "GOV-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "information_state": "canonical_target",
+      "path": "project-dossier/canonical/storyworld/08_appendices.md",
+      "representation_id": "REP-0049",
+      "source_direction": "project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "DOS-0001"
+      ],
+      "authority": "navigation_only",
+      "generated": false,
+      "information_state": "navigation",
+      "path": "project-dossier/canonical/storyworld/README.md",
+      "representation_id": "REP-0041",
+      "source_direction": "navigation_only"
+    },
+    {
+      "artifact_type_ids": [
+        "ARC-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "information_state": "canonical_target",
+      "path": "project-dossier/canonical/storyworld/assets/storyworld_architecture.png",
+      "representation_id": "REP-0050",
+      "source_direction": "project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "PLN-0001"
+      ],
+      "authority": "project_target_definition",
+      "generated": false,
+      "information_state": "planning",
+      "path": "project-dossier/canonical/storyworld/assets/storyworld_roadmap.png",
+      "representation_id": "REP-0051",
+      "source_direction": "project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "CNF-0001"
+      ],
+      "authority": "assessment_method_and_summary",
+      "generated": false,
+      "information_state": "conformance",
+      "path": "project-dossier/conformance/README.md",
+      "representation_id": "REP-0017",
+      "source_direction": "profile_dependent_record_source"
+    },
+    {
+      "artifact_type_ids": [
+        "CTX-0001"
+      ],
+      "authority": "derived_context_navigation_only",
+      "generated": false,
+      "information_state": "navigation",
+      "path": "project-dossier/context-packs/README.md",
+      "representation_id": "REP-0040",
+      "source_direction": "conditional_project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "CUR-0001"
+      ],
+      "authority": "dated_observed_scope_only",
+      "generated": false,
+      "information_state": "current_state",
+      "path": "project-dossier/current-state/README.md",
+      "representation_id": "REP-0016",
+      "source_direction": "project_maintained_source_seeded_by_generator"
+    },
+    {
+      "artifact_type_ids": [
+        "DAT-0001"
+      ],
+      "authority": "data_governance_entry_point_not_a_qualified_conclusion",
+      "generated": false,
+      "information_state": "canonical_target",
+      "path": "project-dossier/data/README.md",
+      "representation_id": "REP-0037",
+      "source_direction": "conditional_project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "EVA-0001"
+      ],
+      "authority": "evaluation_method_entry_point_not_a_quality_result",
+      "generated": false,
+      "information_state": "evidence",
+      "path": "project-dossier/evaluation/README.md",
+      "representation_id": "REP-0039",
+      "source_direction": "conditional_project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "SEC-0001"
+      ],
+      "authority": "specialist_criteria_not_conclusion",
+      "generated": false,
+      "information_state": "canonical_target",
+      "path": "project-dossier/governance/README.md",
+      "representation_id": "REP-0030",
+      "source_direction": "conditional_project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "HOF-0002"
+      ],
+      "authority": "checklist_only",
+      "generated": false,
+      "information_state": "handoff",
+      "path": "project-dossier/handoff/ADOPTION_CHECKLIST.md",
+      "representation_id": "REP-0029",
+      "source_direction": "project_maintained_source_seeded_by_generator"
+    },
+    {
+      "artifact_type_ids": [
+        "HOF-0001"
+      ],
+      "authority": "navigation_only",
+      "generated": false,
+      "information_state": "handoff",
+      "path": "project-dossier/handoff/START_HERE.md",
+      "representation_id": "REP-0028",
+      "source_direction": "derived_navigation_maintained_by_task_owner"
+    },
+    {
+      "artifact_type_ids": [
+        "HIS-0001"
+      ],
+      "authority": "noncurrent_history_entry_point",
+      "generated": false,
+      "information_state": "historical",
+      "path": "project-dossier/history/README.md",
+      "representation_id": "REP-0035",
+      "source_direction": "conditional_project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "HIS-0001"
+      ],
+      "authority": "explicitly_noncurrent_history",
+      "generated": false,
+      "information_state": "historical",
+      "path": "project-dossier/history/storyworld-dossier-v1.0-consolidated/README.md",
+      "representation_id": "REP-0052",
+      "source_direction": "project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "HIS-0001"
+      ],
+      "authority": "explicitly_noncurrent_history",
+      "generated": false,
+      "information_state": "historical",
+      "path": "project-dossier/history/storyworld-dossier-v1.0-consolidated/Storyworld_Platform_Dossier.md",
+      "representation_id": "REP-0053",
+      "source_direction": "frozen_historical_copy"
+    },
+    {
+      "artifact_type_ids": [
+        "DOS-0010"
+      ],
+      "authority": "authoritative_project_local_artifact_metadata",
+      "generated": false,
+      "information_state": "governance",
+      "path": "project-dossier/machine-readable/artifact-registry.json",
+      "representation_id": "REP-0036",
+      "source_direction": "project_maintained_source_seeded_by_generator"
+    },
+    {
+      "artifact_type_ids": [
+        "VAL-0001"
+      ],
+      "authority": "authoritative_evidence_metadata",
+      "generated": false,
+      "information_state": "evidence",
+      "path": "project-dossier/machine-readable/evidence-index.json",
+      "representation_id": "REP-0027",
+      "source_direction": "authoritative_when_present"
+    },
+    {
+      "artifact_type_ids": [
+        "CNF-0001"
+      ],
+      "authority": "authoritative_finding_records",
+      "generated": false,
+      "information_state": "conformance",
+      "path": "project-dossier/machine-readable/findings.json",
+      "representation_id": "REP-0018",
+      "source_direction": "authoritative_when_present"
+    },
+    {
+      "artifact_type_ids": [
+        "DOS-0008"
+      ],
+      "authority": "generated_non_authoritative_path_authority_mirror",
+      "generated": true,
+      "information_state": "generated",
+      "path": "project-dossier/machine-readable/path-authority.json",
+      "representation_id": "REP-0008",
+      "source_direction": "generated_from_artifact_registry"
+    },
+    {
+      "artifact_type_ids": [
+        "PLN-0001"
+      ],
+      "authority": "authoritative_plan_item_records",
+      "generated": false,
+      "information_state": "planning",
+      "path": "project-dossier/machine-readable/plan.json",
+      "representation_id": "REP-0020",
+      "source_direction": "authoritative_when_present"
+    },
+    {
+      "artifact_type_ids": [
+        "REG-0001"
+      ],
+      "authority": "authoritative_unresolved_item_records",
+      "generated": false,
+      "information_state": "register",
+      "path": "project-dossier/machine-readable/raidq.json",
+      "representation_id": "REP-0022",
+      "source_direction": "authoritative_when_present"
+    },
+    {
+      "artifact_type_ids": [
+        "REQ-0001"
+      ],
+      "authority": "authoritative_requirement_records_in_standard_and_high_profiles",
+      "generated": false,
+      "information_state": "canonical_target",
+      "path": "project-dossier/machine-readable/requirements.json",
+      "representation_id": "REP-0012",
+      "source_direction": "authoritative_when_present"
+    },
+    {
+      "artifact_type_ids": [
+        "PRV-0001"
+      ],
+      "authority": "authoritative_source_records",
+      "generated": false,
+      "information_state": "provenance",
+      "path": "project-dossier/machine-readable/sources.json",
+      "representation_id": "REP-0024",
+      "source_direction": "authoritative_when_present"
+    },
+    {
+      "artifact_type_ids": [
+        "MOD-0001"
+      ],
+      "authority": "domain_model_entry_point",
+      "generated": false,
+      "information_state": "canonical_target",
+      "path": "project-dossier/models/README.md",
+      "representation_id": "REP-0031",
+      "source_direction": "conditional_project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "OPS-0001"
+      ],
+      "authority": "operational_procedure_entry_point",
+      "generated": false,
+      "information_state": "canonical_target",
+      "path": "project-dossier/operations/README.md",
+      "representation_id": "REP-0032",
+      "source_direction": "conditional_project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "PLN-0001"
+      ],
+      "authority": "planning_method_and_summary",
+      "generated": false,
+      "information_state": "planning",
+      "path": "project-dossier/plans/README.md",
+      "representation_id": "REP-0019",
+      "source_direction": "profile_dependent_record_source"
+    },
+    {
+      "artifact_type_ids": [
+        "PRV-0001"
+      ],
+      "authority": "provenance_method_and_summary",
+      "generated": false,
+      "information_state": "provenance",
+      "path": "project-dossier/provenance/README.md",
+      "representation_id": "REP-0023",
+      "source_direction": "profile_dependent_record_source"
+    },
+    {
+      "artifact_type_ids": [
+        "REG-0001"
+      ],
+      "authority": "register_method_and_summary",
+      "generated": false,
+      "information_state": "register",
+      "path": "project-dossier/registers/README.md",
+      "representation_id": "REP-0021",
+      "source_direction": "profile_dependent_record_source"
+    },
+    {
+      "artifact_type_ids": [
+        "RES-0001"
+      ],
+      "authority": "research_method_entry_point",
+      "generated": false,
+      "information_state": "provenance",
+      "path": "project-dossier/research/README.md",
+      "representation_id": "REP-0033",
+      "source_direction": "conditional_project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "SUP-0001"
+      ],
+      "authority": "supply_chain_entry_point_not_a_rights_or_risk_conclusion",
+      "generated": false,
+      "information_state": "provenance",
+      "path": "project-dossier/supply-chain/README.md",
+      "representation_id": "REP-0038",
+      "source_direction": "conditional_project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "TRN-0001"
+      ],
+      "authority": "transition_plan_entry_point",
+      "generated": false,
+      "information_state": "planning",
+      "path": "project-dossier/transition/README.md",
+      "representation_id": "REP-0034",
+      "source_direction": "conditional_project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "GOV-0001"
+      ],
+      "authority": "project_maintained_proposed_quality_gate_records",
+      "generated": false,
+      "information_state": "evidence",
+      "path": "project-dossier/validation/QUALITY_GATES.json",
+      "representation_id": "REP-0026",
+      "source_direction": "project_maintained_source_seeded_by_generator"
+    },
+    {
+      "artifact_type_ids": [
+        "VAL-0001"
+      ],
+      "authority": "validation_method_only",
+      "generated": false,
+      "information_state": "evidence",
+      "path": "project-dossier/validation/README.md",
+      "representation_id": "REP-0025",
+      "source_direction": "project_maintained_source_seeded_by_generator"
+    }
+  ],
+  "permission_grant": false,
+  "project_slug": "storyworld-platform",
+  "schema_version": "project.dossier.path-authority.v2",
+  "source_registry": "project-dossier/machine-readable/artifact-registry.json"
+}

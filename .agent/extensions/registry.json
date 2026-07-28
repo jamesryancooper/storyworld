@@ -1,0 +1,32 @@
+{
+  "core_version": "1.0.1",
+  "execution_boundary": "trusted_project_local_code_with_least_environment_and_post_execution_write_detection; external sandbox required for strong isolation",
+  "extension_api": "harness.extension.v1",
+  "extensions": [
+    {
+      "authority_effect": "restrictions_only",
+      "config": ".agent/extensions/sample-restriction/config.json",
+      "deprecated_at": null,
+      "enabled": false,
+      "filesystem_writes": "prohibited",
+      "id": "sample-restriction",
+      "network_access": "denied",
+      "owner": "unassigned",
+      "path": ".agent/extensions/sample-restriction",
+      "provenance": "generated_domain_neutral_reference_extension",
+      "removal_version": null,
+      "requires_core": "^1.0.0",
+      "side_effects": "read_only",
+      "successor": null,
+      "trust_class": "unassessed_project_local_code",
+      "trust_decision_ref": null,
+      "validator": ".agent/extensions/sample-restriction/validate.py",
+      "version": "1.0.1"
+    }
+  ],
+  "limitations": [
+    "Reference extension only; project adoption must assess actual needs."
+  ],
+  "permission_grant": false,
+  "schema_version": "harness.extension-registry.v1"
+}

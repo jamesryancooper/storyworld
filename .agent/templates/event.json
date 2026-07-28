@@ -1,0 +1,12 @@
+{
+  "schema_version": "harness.event.v1",
+  "id": "EVT-0001",
+  "sequence": 1,
+  "occurred_at": "2026-07-28T00:00:00Z",
+  "kind": "task_transition",
+  "subject": "TASK-0001",
+  "actor_or_source": "replace_with_trusted_reference",
+  "summary": "Replace with one fact-focused transition.",
+  "evidence": [],
+  "redaction_applied": false
+}

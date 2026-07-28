@@ -1,0 +1,211 @@
+{
+  "document_role": "unadopted_authoritative_store_candidate",
+  "permission_grant": false,
+  "project_slug": "storyworld-platform",
+  "requirements": [
+    {
+      "basis": "canonical/storyworld/01 (Decisions to lock; ADR-001 in 08 Appendix A)",
+      "id": "REQ-0001",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001); Ratified by the project owner (Ryan Cooper) on 2026-07-28 via acceptance of DEC-0001..DEC-0004 (PLAN-0001)."
+      ],
+      "owner_role": "project_owner",
+      "source_refs": [
+        "SRC-0001"
+      ],
+      "statement": "Storyworld Engine is independently deployable with its own public API and database; no other system hosts it.",
+      "status": "active",
+      "superseded_by": null,
+      "title": "Independent narrative authority",
+      "validation": {
+        "evidence_refs": [],
+        "method": "F2/F3 deployment profile review; boundary inspection showing no foreign host dependency."
+      }
+    },
+    {
+      "basis": "canonical/storyworld/01 section 2.2; ADR-002",
+      "id": "REQ-0002",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001); Ratified by the project owner (Ryan Cooper) on 2026-07-28 via acceptance of DEC-0001..DEC-0004 (PLAN-0001)."
+      ],
+      "owner_role": "project_owner",
+      "source_refs": [
+        "SRC-0001"
+      ],
+      "statement": "Storyworld Studio issues commands and renders state exclusively through public Engine contracts and keeps no independent copy of domain state.",
+      "status": "active",
+      "superseded_by": null,
+      "title": "Studio owns no second source of truth",
+      "validation": {
+        "evidence_refs": [],
+        "method": "B2 exit gate: every Studio workflow completes through public contracts; no Studio-owned domain tables exist."
+      }
+    },
+    {
+      "basis": "canonical/storyworld/01 section 3.2; 04 sections 11.1-11.7; ADR-010, ADR-011",
+      "id": "REQ-0003",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001); Ratified by the project owner (Ryan Cooper) on 2026-07-28 via acceptance of DEC-0001..DEC-0004 (PLAN-0001)."
+      ],
+      "owner_role": "project_owner",
+      "source_refs": [
+        "SRC-0001"
+      ],
+      "statement": "Storyworld and Commerce Foundry never share business tables, perform dual writes, or hold each other's credentials; exchange uses signed immutable packages, events, and receipts.",
+      "status": "active",
+      "superseded_by": null,
+      "title": "No shared business state with Commerce Foundry",
+      "validation": {
+        "evidence_refs": [],
+        "method": "B3/C1 integration acceptance test (04 section 11.7) including idempotent replay and audit-chain reconstruction."
+      }
+    },
+    {
+      "basis": "canonical/storyworld/01 sections 3.1-3.2; 05 section 15.2; ADR-008",
+      "id": "REQ-0004",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001); Ratified by the project owner (Ryan Cooper) on 2026-07-28 via acceptance of DEC-0001..DEC-0004 (PLAN-0001)."
+      ],
+      "owner_role": "project_owner",
+      "source_refs": [
+        "SRC-0001"
+      ],
+      "statement": "Generated plans, facts, assets, waivers, releases, and iterations remain candidates until an authorized person accepts them; no model, tool, or connector holds approval or unrestricted publication authority.",
+      "status": "active",
+      "superseded_by": null,
+      "title": "Models propose; humans authorize",
+      "validation": {
+        "evidence_refs": [],
+        "method": "Policy and lifecycle tests: no path from candidate to accepted/published state without a human decision record."
+      }
+    },
+    {
+      "basis": "canonical/storyworld/01 section 3.1 principle 4; ADR-009",
+      "id": "REQ-0005",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001); Ratified by the project owner (Ryan Cooper) on 2026-07-28 via acceptance of DEC-0001..DEC-0004 (PLAN-0001)."
+      ],
+      "owner_role": "project_owner",
+      "source_refs": [
+        "SRC-0001"
+      ],
+      "statement": "Every material change to canon, assets, approvals, and packages creates a new immutable version with derivation lineage; accepted work is never destructively overwritten.",
+      "status": "active",
+      "superseded_by": null,
+      "title": "Immutable versions with explicit supersession",
+      "validation": {
+        "evidence_refs": [],
+        "method": "F2 exit gate: export/delete/re-import round trip preserves identifiers, hashes, lineage, rights, and approvals."
+      }
+    },
+    {
+      "basis": "canonical/storyworld/01 section 3.1 principle 5; 05 section 15.6",
+      "id": "REQ-0006",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001); Ratified by the project owner (Ryan Cooper) on 2026-07-28 via acceptance of DEC-0001..DEC-0004 (PLAN-0001)."
+      ],
+      "owner_role": "project_owner",
+      "source_refs": [
+        "SRC-0001"
+      ],
+      "statement": "Approvals bind to exact content versions and hashes; a material change invalidates only the affected approval layers; creative approval never implies commercial or publication approval.",
+      "status": "active",
+      "superseded_by": null,
+      "title": "Approvals bind to exact content",
+      "validation": {
+        "evidence_refs": [],
+        "method": "Lifecycle tests: material change invalidates affected approvals; cross-layer approval inference is rejected."
+      }
+    },
+    {
+      "basis": "canonical/storyworld/01 Decisions to lock; 04 section 13.1; ADR-013",
+      "id": "REQ-0007",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001); Ratified by the project owner (Ryan Cooper) on 2026-07-28 via acceptance of DEC-0001..DEC-0004 (PLAN-0001)."
+      ],
+      "owner_role": "project_owner",
+      "source_refs": [
+        "SRC-0001"
+      ],
+      "statement": "Canonical projects and media masters remain channel-independent; platform specifics (Instagram first) live in independently versioned adapters.",
+      "status": "active",
+      "superseded_by": null,
+      "title": "Channel-neutral canonical masters",
+      "validation": {
+        "evidence_refs": [],
+        "method": "C2 exit gate: platform-rule changes require no narrative-domain migration; one episode yields three renditions from one lineage tree."
+      }
+    },
+    {
+      "basis": "canonical/storyworld/01 section 3.1 principle 8; ADR-014",
+      "id": "REQ-0008",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001); Ratified by the project owner (Ryan Cooper) on 2026-07-28 via acceptance of DEC-0001..DEC-0004 (PLAN-0001)."
+      ],
+      "owner_role": "project_owner",
+      "source_refs": [
+        "SRC-0001"
+      ],
+      "statement": "Users can always export content, metadata, lineage, and approvals as verifiable signed packages, independent of any connected integration.",
+      "status": "active",
+      "superseded_by": null,
+      "title": "Portable signed export always works",
+      "validation": {
+        "evidence_refs": [],
+        "method": "VS0 vertical slice: portable project round trip with deterministic package verification."
+      }
+    },
+    {
+      "basis": "canonical/storyworld/01 Decisions to lock; 04 section 12; ADR-012",
+      "id": "REQ-0009",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001); Ratified by the project owner (Ryan Cooper) on 2026-07-28 via acceptance of DEC-0001..DEC-0004 (PLAN-0001)."
+      ],
+      "owner_role": "project_owner",
+      "source_refs": [
+        "SRC-0001"
+      ],
+      "statement": "Storyworld compiles immutable runtime content releases for BeKindRewind; rendering, physics, runtime execution, player state, and saves remain in the runtime and never enter Storyworld canon.",
+      "status": "active",
+      "superseded_by": null,
+      "title": "Runtime boundary preserved",
+      "validation": {
+        "evidence_refs": [],
+        "method": "V1 vertical slice A plus schema review: no runtime-execution or player-state fields in Storyworld tables."
+      }
+    },
+    {
+      "basis": "canonical/storyworld/README (recommended first artifact); 07 section 25; 08 Appendix B",
+      "id": "REQ-0010",
+      "limitations": [
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001); Ratified by the project owner (Ryan Cooper) on 2026-07-28 via acceptance of DEC-0001..DEC-0004 (PLAN-0001)."
+      ],
+      "owner_role": "project_owner",
+      "source_refs": [
+        "SRC-0001"
+      ],
+      "statement": "The F0/F1 contract pack (authority ADRs, canonical schemas, lifecycle state machines, package envelopes, golden fixtures, acceptance tests) is produced and gated before large-scale implementation begins.",
+      "status": "active",
+      "superseded_by": null,
+      "title": "Contract pack precedes implementation",
+      "validation": {
+        "evidence_refs": [],
+        "method": "GATE-0002 and GATE-0003 evaluation against the Appendix B artifact inventory."
+      }
+    }
+  ],
+  "review": {
+    "basis": "Generated scaffold provenance is not substantive project review.",
+    "last_reviewed_on": null,
+    "status": "not_reviewed"
+  },
+  "scaffold_generated_on": "2026-07-28",
+  "schema_version": "project.dossier.requirements.v1",
+  "status_vocabulary": [
+    "active",
+    "proposed",
+    "gated",
+    "deferred",
+    "superseded"
+  ]
+}
