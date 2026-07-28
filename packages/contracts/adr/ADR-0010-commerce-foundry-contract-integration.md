@@ -1,6 +1,6 @@
 # ADR-0010 — Commerce Foundry integration uses snapshots, signed packages, events, and receipts; no shared business tables
 
-- Status: proposed (2026-07-28); acceptance via DEC-0006 at GATE-0002
+- Status: accepted (2026-07-28) via DEC-0006 (GATE-0002 passed)
 - Scope: the Storyworld ↔ Commerce Foundry exchange mechanism
 - Canonical sources: part 01 §3.2, part 04 §11, §14.3–14.5, Appendix A ADR-010
 

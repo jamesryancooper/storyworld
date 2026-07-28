@@ -1,6 +1,6 @@
 # ADR-0015 — Provider-neutral recipes are canonical; provider prompts and embeddings are derivatives
 
-- Status: proposed (2026-07-28); acceptance via DEC-0006 at GATE-0002
+- Status: accepted (2026-07-28) via DEC-0006 (GATE-0002 passed)
 - Scope: generation specification and provider attachment semantics
 - Canonical sources: part 03 §8.5, §10.2, Appendix A ADR-015
 

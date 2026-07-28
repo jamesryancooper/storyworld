@@ -1,0 +1,209 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tag:storyworld-platform,2026:contracts/scene-state-packet/v1",
+  "title": "Scene state packet",
+  "description": "Minimal pinned facts, entity states, references, and policies needed for a scene's generation or validation (canonical part 03 sections 8.1, 10.3; glossary). Reproducible: a later canon release never silently rewrites an in-flight production.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "packet_id",
+    "scene_ref",
+    "canon_release_ref",
+    "narrative_branch",
+    "story_time",
+    "entity_states",
+    "entering_state_summary",
+    "expected_effects",
+    "audience_knowledge_refs",
+    "character_knowledge",
+    "active_threads",
+    "reference_pack_refs",
+    "policy_refs",
+    "created_at",
+    "content_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "storyworld.scene-state-packet.v1"
+    },
+    "packet_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "scene_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canon_release_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "narrative_branch": {
+      "type": "string",
+      "minLength": 1
+    },
+    "story_time": {
+      "type": "string",
+      "minLength": 1
+    },
+    "entity_states": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "entity_ref",
+          "state"
+        ],
+        "properties": {
+          "entity_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "state": {
+            "description": "Attribute map at this story-time coordinate: appearance, location, condition, possessions, wardrobe, knowledge, goals as applicable",
+            "type": "object"
+          },
+          "locked_attributes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "entering_state_summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expected_effects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "entity_ref",
+          "attribute",
+          "to_value"
+        ],
+        "properties": {
+          "entity_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "attribute": {
+            "type": "string",
+            "minLength": 1
+          },
+          "to_value": {}
+        }
+      }
+    },
+    "audience_knowledge_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "character_knowledge": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "entity_ref",
+          "knows"
+        ],
+        "properties": {
+          "entity_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "knows": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "wrongly_believes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "active_threads": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "thread_ref",
+          "thread_type"
+        ],
+        "properties": {
+          "thread_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "thread_type": {
+            "enum": [
+              "promise",
+              "reveal",
+              "mystery",
+              "mission",
+              "dependency"
+            ]
+          },
+          "earliest_permitted_reveal_ref": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "product_snapshot_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "placement_contract_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "reference_pack_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "policy_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z)?$"
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

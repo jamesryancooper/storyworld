@@ -1,0 +1,121 @@
+{
+  "schema_version": "storyworld.lifecycle.media-artifacts.v1",
+  "document_role": "normative_lifecycle_state_machine",
+  "status": "accepted_format_draft_content",
+  "note": "Content drafted under TASK-0004 from canonical part 02 section 6.4; no state transition may be inferred from side effects (downloads, provider completion, comments). Branch transitions not literally enumerated in the canonical sequence are marked inferred.",
+  "permission_grant": false,
+  "source_refs": [
+    "02_engine_studio_and_templates.md#6.4",
+    "03_domain_architecture_and_media_pipeline.md#10.1"
+  ],
+  "applies_to": [
+    "asset_version",
+    "rendition",
+    "channel_package_item",
+    "runtime_derivative"
+  ],
+  "states": [
+    "source_imported",
+    "staging",
+    "candidate",
+    "under_review",
+    "accepted_master",
+    "rendition",
+    "submitted",
+    "published",
+    "runtime_released",
+    "superseded",
+    "withdrawn",
+    "archived"
+  ],
+  "entry_states": [
+    "source_imported",
+    "staging",
+    "rendition"
+  ],
+  "terminal_states": [
+    "superseded",
+    "withdrawn",
+    "archived"
+  ],
+  "transitions": {
+    "source_imported": [
+      "staging"
+    ],
+    "staging": [
+      "candidate"
+    ],
+    "candidate": [
+      "under_review",
+      "superseded",
+      "archived"
+    ],
+    "under_review": [
+      "candidate",
+      "accepted_master"
+    ],
+    "accepted_master": [
+      "superseded",
+      "archived"
+    ],
+    "rendition": [
+      "submitted",
+      "superseded",
+      "archived"
+    ],
+    "submitted": [
+      "published",
+      "runtime_released",
+      "rendition"
+    ],
+    "published": [
+      "superseded",
+      "withdrawn",
+      "archived"
+    ],
+    "runtime_released": [
+      "superseded",
+      "archived"
+    ],
+    "superseded": [],
+    "withdrawn": [],
+    "archived": []
+  },
+  "inferred_transitions": [
+    {
+      "transition": "entry at staging",
+      "rationale": "generated provider output enters quarantine/staging, never accepted state (part 03 section 10.1)"
+    },
+    {
+      "transition": "entry at rendition",
+      "rationale": "renditions are derived artifacts created from an accepted master; their lifecycle begins at rendition"
+    },
+    {
+      "transition": "candidate -> superseded",
+      "rationale": "rejected or unselected candidates are preserved as evidence and explicitly superseded, never deleted"
+    },
+    {
+      "transition": "under_review -> candidate",
+      "rationale": "typed revision request returns the item to candidate with the review preserved"
+    },
+    {
+      "transition": "submitted -> rendition",
+      "rationale": "a submission failure or channel rejection returns the rendition for revision without destroying lineage"
+    }
+  ],
+  "gates": {
+    "accepted_master": [
+      "authorized_human_decision",
+      "immutable_hash_recorded",
+      "derivation_lineage_complete",
+      "rights_evidence_linked"
+    ],
+    "published": [
+      "authority_host_authorization",
+      "publication_receipt_recorded"
+    ],
+    "runtime_released": [
+      "runtime_acceptance_receipt_recorded"
+    ]
+  }
+}

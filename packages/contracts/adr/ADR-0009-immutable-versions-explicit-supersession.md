@@ -1,6 +1,6 @@
 # ADR-0009 — Canon, artifact, approval, and package versions are immutable and explicitly superseded
 
-- Status: proposed (2026-07-28); acceptance via DEC-0006 at GATE-0002
+- Status: accepted (2026-07-28) via DEC-0006 (GATE-0002 passed)
 - Scope: version semantics for all accepted and published work
 - Canonical sources: part 01 §3.1 (principles 4–5), part 03 §8.2, Appendix A ADR-009
 

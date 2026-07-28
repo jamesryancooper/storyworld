@@ -2,17 +2,17 @@
 {
   "schema_version": "harness.decision.v1",
   "id": "DEC-0005",
-  "status": "proposed",
-  "previous_status": null,
+  "status": "accepted",
+  "previous_status": "proposed",
   "title": "Contract-pack formats and toolchain",
   "created_at": "2026-07-28",
-  "authority_source": "external:project-owner-acceptance-pending — proposed under TASK-0002 (owner-approved development-layer work); becomes authoritative through owner acceptance.",
+  "authority_source": "external:project-owner (Ryan Cooper) acceptance 2026-07-28 in the operator session.",
   "owner": "ryan-cooper (project owner)",
   "scope": "Formats and validation toolchain for packages/contracts/ (the F0/F1 contract pack) until superseded.",
   "supersedes": null,
   "successor": null,
   "limitations": [
-    "Proposed 2026-07-28; the contracts workspace READMEs reference this decision and note its unaccepted status.",
+    "Accepted 2026-07-28 by the project owner.",
     "Does not choose implementation-stack tooling (that is ASM-0001 / a later F2 decision)."
   ]
 }
@@ -59,3 +59,10 @@ TypeScript-first (canonical part 03 §9.2).
 - Evidence: first passing round-trip test run over schemas + fixtures.
 - Reversal: successor decision; formats are files, migration is mechanical
   this early.
+
+## Acceptance
+
+Accepted by the project owner (Ryan Cooper) on 2026-07-28 in the operator
+session: "I accept all these items," with one revision — Temporal is decided
+now (ADR-0006 revised at acceptance) — and confirmation that Octon must plug
+in cleanly later (ADR-0007 as drafted). Recorded by claude-agent.

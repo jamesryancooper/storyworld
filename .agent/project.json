@@ -22,8 +22,8 @@
   },
   "commands": {
     "project_test": {
-      "status": "not_assessed",
-      "run": null
+      "status": "configured",
+      "run": "python -B packages/contracts/tests/validate_contracts.py"
     },
     "project_lint": {
       "status": "not_assessed",

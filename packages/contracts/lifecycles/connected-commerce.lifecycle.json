@@ -1,0 +1,85 @@
+{
+  "schema_version": "storyworld.lifecycle.connected-commerce.v1",
+  "document_role": "normative_lifecycle_state_machine",
+  "status": "accepted_format_draft_content",
+  "note": "Content drafted under TASK-0004 from canonical part 02 section 6.4; no state transition may be inferred from side effects (downloads, provider completion, comments). Branch transitions not literally enumerated in the canonical sequence are marked inferred.",
+  "permission_grant": false,
+  "source_refs": [
+    "02_engine_studio_and_templates.md#6.4",
+    "04_foundry_rewind_channels_and_contracts.md#11.3"
+  ],
+  "applies_to": [
+    "connected_campaign"
+  ],
+  "states": [
+    "brief_received",
+    "story_plan_proposed",
+    "creative_production",
+    "creative_approved",
+    "submitted_to_cf",
+    "commercial_revision_requested",
+    "commercial_approved",
+    "publication_authorized",
+    "published",
+    "measured",
+    "superseded"
+  ],
+  "entry_states": [
+    "brief_received"
+  ],
+  "terminal_states": [
+    "superseded"
+  ],
+  "transitions": {
+    "brief_received": [
+      "story_plan_proposed"
+    ],
+    "story_plan_proposed": [
+      "creative_production"
+    ],
+    "creative_production": [
+      "creative_approved"
+    ],
+    "creative_approved": [
+      "submitted_to_cf"
+    ],
+    "submitted_to_cf": [
+      "commercial_revision_requested",
+      "commercial_approved"
+    ],
+    "commercial_revision_requested": [
+      "creative_production"
+    ],
+    "commercial_approved": [
+      "publication_authorized"
+    ],
+    "publication_authorized": [
+      "published"
+    ],
+    "published": [
+      "measured"
+    ],
+    "measured": [
+      "superseded"
+    ],
+    "superseded": []
+  },
+  "inferred_transitions": [
+    {
+      "transition": "commercial_revision_requested -> creative_production",
+      "rationale": "the focused-revision loop (part 04 section 11.3 steps 11-12) returns work to production against exact rejected versions"
+    }
+  ],
+  "gates": {
+    "creative_approved": [
+      "storyworld_creative_and_rights_receipts_bound_to_exact_versions"
+    ],
+    "commercial_approved": [
+      "commerce_foundry_exact_version_approval"
+    ],
+    "publication_authorized": [
+      "authority_host_is_commerce_foundry",
+      "no_stale_source_snapshots_or_explicit_waiver"
+    ]
+  }
+}

@@ -44,7 +44,10 @@
         "Accepted ADR set in .agent/decisions/ mirroring 08 Appendix A after owner review.",
         "F0 exit-gate evaluation record."
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "DEC-0006",
+        "EVD-0006"
+      ],
       "finding_refs": [
         "FIND-0001"
       ],
@@ -53,14 +56,14 @@
       ],
       "id": "PLAN-0002",
       "limitations": [
-        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001) during the 2026-07-28 adoption session; project-ratified 2026-07-28 (PLAN-0001)."
+        "Completed 2026-07-28: F0 pack accepted via DEC-0006 at GATE-0002, with the owner's ADR-0006 revision (Temporal selected)."
       ],
       "objective": "Produce the F0 deliverables: canonical product definition and non-goals, system context and authority matrix, property classifications and authority-host rule, privacy/rights/risk classifications, approval taxonomy, initial architecture decision records, and named golden fixtures (canonical/storyworld/06 section 19.1).",
       "owner_role": "project_owner",
       "requirement_refs": [
         "REQ-0010"
       ],
-      "status": "in_progress",
+      "status": "completed",
       "title": "F0 - product charter and authority pack"
     },
     {
@@ -94,7 +97,7 @@
         "REQ-0005",
         "REQ-0006"
       ],
-      "status": "planned",
+      "status": "in_progress",
       "title": "F1 - domain model and contract pack"
     },
     {

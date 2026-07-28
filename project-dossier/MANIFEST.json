@@ -70,12 +70,12 @@
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0005-contract-pack-toolchain.md",
-      "sha256": "be4692fa809a4106fa9f454f0a9c5123bc42bffe063af6a8282c319e14eae6ca"
+      "sha256": "e9f49c38f5cea6f7ddaf6280390dc2a0da57bb13ede66a04980d349c5ebb14ac"
     },
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0006-accept-f0-charter-and-authority-pack.md",
-      "sha256": "cd9b530e4def92ae2e02cef13b48368b48aa49b692b5b8bace220df573059e23"
+      "sha256": "5ad3f80ab573ed805d4b1470ed8a6474e0af7df076d34c226685b6b271ca826e"
     },
     {
       "layer": "agent_harness",
@@ -100,7 +100,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "d3bba361a7f9f6a9106c5d8697387d23cdd8e27e55a8cfdbb1b5457dc5421393"
+      "sha256": "39e581d621dfa29a2597dc68d2b0399c5d340812a119bda602a0ab45da8394c9"
     },
     {
       "layer": "agent_harness",
@@ -126,6 +126,11 @@
       "layer": "agent_harness",
       "path": ".agent/evidence/EVD-0005-f0-pack-validation-and-ci.md",
       "sha256": "c23861335ca8882cb2f4ad9d099768d92f968fbbd92c9b5674d0f5a31ea19cd1"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0006-gate-0002-acceptance-observation.md",
+      "sha256": "c46876ae1dfd2f462dd703009e55273da522074d594c2819a9344a2ddb299d6b"
     },
     {
       "layer": "agent_harness",
@@ -180,7 +185,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/project.json",
-      "sha256": "f7e5e2ab12928837a4e0d8f4df2205c5842e12c824f6bcaca672712e1bb4605e"
+      "sha256": "6d5879465fcb921dc14661d1c1653c46ea1f2b286dacf6635b7cf932c4627c0a"
     },
     {
       "layer": "agent_harness",
@@ -275,7 +280,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "9bdecc7d43fb23d410ecef6d9efcc3780db840aba5047c558ac8df91d6b7e09a"
+      "sha256": "0571423b50cc55e1d9f0b6b6cdac1f70277a3eb6159f18d9741d27f03fa4ba87"
     },
     {
       "layer": "agent_harness",
@@ -296,6 +301,11 @@
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0003-f0-charter-and-authority-pack.md",
       "sha256": "8e8ea614f95094418c3f94733c0ea629fc2aa107df6d483f66b2b4dab1921e06"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0004-f1-contract-pack.md",
+      "sha256": "f5d30f345ab31f517e288b5cbe82fa9969240b91d14828909d821103e1c57e24"
     },
     {
       "layer": "agent_harness",
@@ -410,7 +420,7 @@
     {
       "layer": "project_source",
       "path": ".github/workflows/validate.yml",
-      "sha256": "c571b848af159e22c8d235caac342fe50a3d819f6a898138f2c485bfbe0e243c"
+      "sha256": "d1b6434357fb9d9029b10f05cdfc7f0fcbc49dcaebdb60ab81c9ef53cb9c8dd3"
     },
     {
       "layer": "project_source",
@@ -440,92 +450,92 @@
     {
       "layer": "project_source",
       "path": "packages/contracts/README.md",
-      "sha256": "697365c7882b4dff3c2a48ecea037f80c04a26a78b028dff139890605e812088"
+      "sha256": "fc1f82ea73872681a2d40c44e116e389d0f40851da49e5257809bf907b8189fd"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/adr/ADR-0001-independent-deployment-and-database.md",
-      "sha256": "bde52d436d732fe2176c71c9679748161bde3f6fa108ff1525d360ee88acde0b"
+      "sha256": "e01438dd9556b616e42bc2945ed102a64600100adc20c61e668230497723745c"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/adr/ADR-0002-studio-uses-public-contracts-only.md",
-      "sha256": "ac9e09d573b6a0c833ad0b2e8d86da3899d84c654caf4ecdcc7d2b6eca1fa3ab"
+      "sha256": "fe1eb043ce5637a8598a8de695b0eff640d1314d1553f9db4a1b0f3858726f74"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/adr/ADR-0003-modular-monolith-plus-workers.md",
-      "sha256": "c4886c799340e2180b6dd22de3c05b28e9ae5085c83c5ce0a98770eaa28f8606"
+      "sha256": "97d3bff249ec76febf5e084931ab9d103a4bf19c88bf4a9b28d8febc4b72fc4c"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/adr/ADR-0004-postgresql-authoritative-projections-rebuildable.md",
-      "sha256": "26e8af4e79be4f7ba6751c466a96dded05b3f34dedfdb22fbe8b447b2c97b570"
+      "sha256": "ae4bbe5112ccc240636ebbab8de68242aa69c0d08e8a40047d76145dda1966a6"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/adr/ADR-0005-immutable-object-storage.md",
-      "sha256": "ed88e4554679d5860ab4ddb4748bb3a0777879e5b3daa6a0c3907fbd2e60963d"
+      "sha256": "6a45df374e058208901902274953a93511a8dedd786f8bb0b012b81b607e03b3"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/adr/ADR-0006-durable-workflow-orchestration.md",
-      "sha256": "4b80cfeb623e3f58f98f55ff5a7c70de9f9f98e856db35d83a4e54aef6335433"
+      "sha256": "4fe77e861ef27b3e3303d6d0c4f737f4fb889ba3883521abdabfa7863ba3e906"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/adr/ADR-0007-governed-agent-execution.md",
-      "sha256": "c47ad50c33b6050a31a04eef03f4d9a100dae9a09d0ef2e146d16e4a79d32078"
+      "sha256": "edb3ad7da43226f6b6ef89dc4652536cd02b6d421213ec74026587d8fe84b2a1"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/adr/ADR-0008-models-propose-humans-authorize.md",
-      "sha256": "9aaffc87ad482fec6b560dc79364154e5cd89b654eb87fac0e705eb584547171"
+      "sha256": "c170d1e8e66e6e55cb806f3402a32262f261cd2c1c9339ebbfd215539fbbeb8f"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/adr/ADR-0009-immutable-versions-explicit-supersession.md",
-      "sha256": "66ba3ef6b2c9951fc1c0aa89eb5b302d3ae385f1e75a8ddc3083892832b60be7"
+      "sha256": "fa07b639d6d80908cbc617cee78d30f9b9bfdf2c6d0cb64683943ec6c6fafacc"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/adr/ADR-0010-commerce-foundry-contract-integration.md",
-      "sha256": "f3f02c46f1671cc6cb874624896b7e469ad0fda602bb5e72f6df3c305ae000f3"
+      "sha256": "98e93e0cdcbda2c1f01915069bbc49a2941c4d8801a9502b7666a283bddc5384"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/adr/ADR-0011-commerce-foundry-final-commercial-authority.md",
-      "sha256": "c2487eefd587b57866ca47b3aa7f0928227c4b8be720457e8f8164e7cf63753f"
+      "sha256": "7fefd54ad9dcee5896192f786a685fc8ca3214eb6f3ab89169569e8081fdb9fa"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/adr/ADR-0012-runtime-content-boundary.md",
-      "sha256": "8dd28a04c7cfc3c0addb95fc3235e5c80ddb77170af23b1bc8666d0a376d8fd5"
+      "sha256": "683a27a82ceb723e8f953e849a3060f0e7fd81fdb992ac569e37ff3159e445b1"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/adr/ADR-0013-instagram-first-adapter-not-core.md",
-      "sha256": "f9f23f5322ec6880e195dda0fe2c16707ace4da42827fe30f14a08a0884749c8"
+      "sha256": "5d20afc46ec98c0508910b1c7d2207968d520686bee6d7b61bd1eaa61cad4862"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/adr/ADR-0014-portable-export-always-works.md",
-      "sha256": "8b46f5e41b3c2805b6cb37e532cb691787a339649cbf6686aa8ea6b9bf8166f0"
+      "sha256": "0d602667120a77b96daad01be71f609dcadeddbabc29e9780429fb19cd361431"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/adr/ADR-0015-provider-neutral-recipes-canonical.md",
-      "sha256": "e3a117167b3e6523fa65416a06de00affd761c546fb465e31dce0df26ef41909"
+      "sha256": "13f6eaa213760964ce40a3110447116688cd04097d304c1f5d58c05a4fa323b1"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/adr/ADR-0016-evidence-gated-service-extraction.md",
-      "sha256": "d8ba6bcb9969c77c2f9b2b17fa5e5280172a3fb6db278866bb64b91f1efe5797"
+      "sha256": "802a9e51b31b1fd2d9027fc21f1b11fc67c51d64ec58961d9ed6a02c61587b65"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/adr/README.md",
-      "sha256": "00bdbc41e499bbdcc3cf70daace3112c9db7afa3bece130f186ace3ace96698a"
+      "sha256": "f97b0dff7036eafc7819d995cd1cc8a9bd3f8b7cef715b4d918120e3a22b0e67"
     },
     {
       "layer": "project_source",
@@ -535,27 +545,27 @@
     {
       "layer": "project_source",
       "path": "packages/contracts/charter/approval-taxonomy.json",
-      "sha256": "b6b50e2edd07c1b17afecdc4bbd79b06cf29a3c86ab760ef168e519bd01f63b1"
+      "sha256": "697c8d1aa2a6cfae6b69e690fd38e77774e295bf92b0acf6277377ae555ccd0a"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/charter/authority-matrix.json",
-      "sha256": "ab418395a3f4c7ff62c0746ec807af6daff3793340736777a8f647373cd39187"
+      "sha256": "27cb0ed115ad0e11826d5685d9f4fb7f2836573f0f8250df5ba24edef9818a14"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/charter/fixtures-and-slices.json",
-      "sha256": "cff1968062a46628ef718217d41f1298fe6bc2b4c0809ad6ed37fc6459b54370"
+      "sha256": "6af7285d588415fda43065d5b56ddd1a5d7514d4217f0b8abe401105f3881554"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/charter/property-classifications.json",
-      "sha256": "538c8991fdd62edf4cac6f7608f7d05a46f62271054bbe256c1594389cfd6ad1"
+      "sha256": "37ba45dc0f2513ebb32fbf47693cc2c88b21bfc9f070627005ea1ea2ea1e3b3e"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/charter/sensitivity-and-rights-classifications.json",
-      "sha256": "ca522246ae8a5c7ff83f2f86deef5d15efcb75cc6a4a020da14ad8b844ac5e08"
+      "sha256": "c76f6b070d8bb84798c47f28cd9eb40f4d79b80d74cb1107427771eb3a2df59b"
     },
     {
       "layer": "project_source",
@@ -569,8 +579,43 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/contracts/fixtures/smoke/README.md",
+      "sha256": "25bff705a97bfd8f40abaee16fe4eb8e722ee6a4de0762abf42c762024679cbf"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/smoke/approval-receipt.instance.json",
+      "sha256": "61cdd6aeee023cfe11933fb8e36f2e3308329fbeeb882b9b62436d998210e6d8"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/smoke/common-package-envelope.instance.json",
+      "sha256": "c898dca07f7600ad8eab70dbc2fb97c0b0a5883dd1877b5b39b6e500e78cb4b8"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/contracts/lifecycles/README.md",
-      "sha256": "5e1d707c9d553876c39de96b746a6ebd8586aa72beba8e29980a56c3ca8691b3"
+      "sha256": "7eaec97d949b206ed23eb6eb2409e3b420cd8db76f0214f3996c051891a26052"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/lifecycles/canon-and-plans.lifecycle.json",
+      "sha256": "c12c862d59af1a799f851ba8bba9d5521aea1f345a247b102e608ac92d51d7b4"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/lifecycles/connected-commerce.lifecycle.json",
+      "sha256": "00b2283d5712b7ef9ce2fe2b6d017f86c046af51f206a61c33022bbe03ecb34d"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/lifecycles/media-artifacts.lifecycle.json",
+      "sha256": "0180150bf75dcab968097c6037363b17a53ff0f6993657d11ab8292c5d3fcaec"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/lifecycles/reviews.lifecycle.json",
+      "sha256": "fdd4d1a95c0c372c39a2f9e7cd79f88f29a996f1c1c3f4d849d6ba8fbd3c7f47"
     },
     {
       "layer": "project_source",
@@ -580,7 +625,27 @@
     {
       "layer": "project_source",
       "path": "packages/contracts/schemas/README.md",
-      "sha256": "c4928488cf0a5e7dd05911e81510ddcb2a80283f4bebc04a7007d31df49e0ac6"
+      "sha256": "4051a34cbcd29182032d5f2d199f05f5eebfac089885c637aa992923c544deae"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/schemas/approval-receipt.schema.json",
+      "sha256": "660f770567579a867c6151a7ec9459d62f8d4341c3d855f8daaa909277e1a42a"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/schemas/canon-release.schema.json",
+      "sha256": "c00b59932996ee4a01c436b90ac9e5e77bbb6b4c568a7cbae95b4b46f6fc1ecd"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/schemas/common-package-envelope.schema.json",
+      "sha256": "6103a7b2a26a8e4e1b6c0f652ada82fc2971ceab27eed69df154a57f665a06c1"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/schemas/scene-state-packet.schema.json",
+      "sha256": "aee6af171e51fcb13d2185cc691e0989dcbab4d939352d0a6d222e516f8682f3"
     },
     {
       "layer": "project_source",
@@ -591,6 +656,11 @@
       "layer": "project_source",
       "path": "packages/contracts/tests/README.md",
       "sha256": "76b07251a9d0e9d9d913f3baa8d59e8d6a6bb6462a718cc4da8fd5464fc5837b"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/tests/validate_contracts.py",
+      "sha256": "947cf25c1a78dd492f84c9ff6cd0f26df2ead996a5f9df60a04fdd2a7746c622"
     },
     {
       "layer": "project_dossier",
@@ -765,17 +835,17 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/findings.json",
-      "sha256": "af4d1b93a8e24c9c7c6847c6d2d2bdaa0172d1a38e71c852e813bf438a4eda9e"
+      "sha256": "1853a023ff190cdd8c488bbfbe91fbbb616e00fe747e0aed757b7bcd6039f820"
     },
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/plan.json",
-      "sha256": "2394e5a722790c287398b62c0de628dfb2fa6ff6408ff195731858821898cdfc"
+      "sha256": "f4ad3844f4635f610bb2563810f0f95ec31646686bb2a0adc1087065607e9504"
     },
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/raidq.json",
-      "sha256": "5084597f30d87739cba219145daa052c6ae542a3d10394ab33f1881464c3cda2"
+      "sha256": "43c80f8f94ac3716533f0de2cce3eab785c786f6ac7222a775262462ad2346e7"
     },
     {
       "layer": "project_dossier",
@@ -800,7 +870,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/plans/README.md",
-      "sha256": "6c8942eb935ce465f61c0c3a2ff46714fcb3979047a059c9458dadc3e96b3ed9"
+      "sha256": "085a8c2357601e5961bb70429f0a00e1bd8fb03fb08e63dddd47eda520f6478e"
     },
     {
       "layer": "project_dossier",
@@ -830,7 +900,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/validation/QUALITY_GATES.json",
-      "sha256": "546d97132576b17ee56bed8611e81acbd5f01c9365164d8166b41519ec23c14b"
+      "sha256": "8f1fa0cc01ae7a85a4f72550f21d584a6c2e52cf4c52b6d6c3b913290d816226"
     },
     {
       "layer": "project_dossier",
@@ -838,12 +908,12 @@
       "sha256": "789b814ca4ac5293bebd449b64ff606aa733539725a815b5e9a543ef8e6645ab"
     }
   ],
-  "generated_on": "2026-07-28T13:14:19.922153+00:00",
-  "generation_id": "c63f121abcdf055e8d4b1332f865acb8",
+  "generated_on": "2026-07-28T14:13:09.410287+00:00",
+  "generation_id": "091c4e84c010bc4a7606ed97229dad92",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "45c454b1ef5db5e31a21393551461e967d8a4368ccd2cb40d9ea6a92c72fa4f7",
+  "source_fingerprint": "cf101c71fab74342f4077dedecd13bae1f0098774d1a85131a9b5befe5606bae",
   "source_scope": {
     "exclusions": [],
     "git_metadata": "excluded_from_source_fingerprint",

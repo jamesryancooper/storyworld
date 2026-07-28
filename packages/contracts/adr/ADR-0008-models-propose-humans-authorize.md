@@ -1,6 +1,6 @@
 # ADR-0008 — Models and tools may create proposals and candidates only
 
-- Status: proposed (2026-07-28); acceptance via DEC-0006 at GATE-0002
+- Status: accepted (2026-07-28) via DEC-0006 (GATE-0002 passed)
 - Scope: the authority ceiling for all generative and analytic automation
 - Canonical sources: part 01 §3.1–3.2, part 03 §10.1, part 05 §15.2/§15.6, Appendix A ADR-008
 

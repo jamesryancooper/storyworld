@@ -1,6 +1,6 @@
 # ADR-0005 — S3-compatible object storage holds immutable bytes; semantic asset records remain product-owned
 
-- Status: proposed (2026-07-28); acceptance via DEC-0006 at GATE-0002
+- Status: accepted (2026-07-28) via DEC-0006 (GATE-0002 passed)
 - Scope: media byte custody versus asset semantics
 - Canonical sources: part 03 §9.2, §9.4, Appendix A ADR-005
 

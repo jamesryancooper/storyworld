@@ -1,6 +1,6 @@
 # ADR-0014 — Portable export and verification remain supported independently of connected integrations
 
-- Status: proposed (2026-07-28); acceptance via DEC-0006 at GATE-0002
+- Status: accepted (2026-07-28) via DEC-0006 (GATE-0002 passed)
 - Scope: portability guarantee for all project data
 - Canonical sources: part 01 §3.1 (principle 8), part 04 §13.2, §14.4, Appendix A ADR-014
 

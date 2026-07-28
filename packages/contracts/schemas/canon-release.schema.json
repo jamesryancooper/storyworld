@@ -1,0 +1,349 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tag:storyworld-platform,2026:contracts/canon-release/v1",
+  "title": "Canon release",
+  "description": "Immutable named/versioned snapshot of accepted canon (canonical part 03 section 8; glossary). Facts carry classification, scope, story-time validity, and visibility; models' outputs appear only as accepted content with acceptance receipts (ADR-0008, ADR-0009).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "canon_release_id",
+    "property_id",
+    "branch",
+    "release_name",
+    "release_version",
+    "created_at",
+    "accepted_by_receipt_ref",
+    "supersedes_ref",
+    "facts",
+    "entities",
+    "relationships",
+    "timeline_events",
+    "reference_pack_refs",
+    "content_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "storyworld.canon-release.v1"
+    },
+    "canon_release_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "property_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "branch": {
+      "description": "official, alternate, experimental, or adaptation branch name",
+      "type": "string",
+      "minLength": 1
+    },
+    "release_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "release_version": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "created_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z)?$"
+    },
+    "accepted_by_receipt_ref": {
+      "description": "Approval receipt for the canon_approval layer",
+      "type": "string",
+      "minLength": 1
+    },
+    "supersedes_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "fact_id",
+          "revision_id",
+          "subject_ref",
+          "predicate",
+          "value",
+          "classification",
+          "scope",
+          "visibility",
+          "status",
+          "source_ref"
+        ],
+        "properties": {
+          "fact_id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          },
+          "revision_id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          },
+          "subject_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "predicate": {
+            "type": "string",
+            "minLength": 1
+          },
+          "value": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "content"
+            ],
+            "properties": {
+              "type": {
+                "enum": [
+                  "text",
+                  "number",
+                  "boolean",
+                  "date",
+                  "entity_ref",
+                  "structured"
+                ]
+              },
+              "content": {},
+              "unit": {
+                "type": "string"
+              }
+            }
+          },
+          "classification": {
+            "enum": [
+              "hard_canon",
+              "soft_canon",
+              "world_rule",
+              "style_rule",
+              "production_local_fact",
+              "secret_truth",
+              "audience_visible_fact",
+              "character_belief",
+              "deprecated_fact"
+            ]
+          },
+          "scope": {
+            "type": "string",
+            "minLength": 1
+          },
+          "story_time_range": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [],
+            "properties": {
+              "from": {
+                "type": "string"
+              },
+              "to": {
+                "type": "string"
+              }
+            }
+          },
+          "visibility": {
+            "enum": [
+              "public",
+              "spoiler",
+              "team_private",
+              "restricted"
+            ]
+          },
+          "status": {
+            "enum": [
+              "accepted",
+              "deprecated"
+            ]
+          },
+          "source_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "superseded_by_fact_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "entity_id",
+          "entity_type",
+          "name",
+          "visibility"
+        ],
+        "properties": {
+          "entity_id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          },
+          "entity_type": {
+            "enum": [
+              "character",
+              "organization",
+              "faction",
+              "narrator",
+              "location",
+              "region",
+              "set",
+              "object",
+              "prop",
+              "product_reference",
+              "artifact",
+              "vehicle",
+              "collectible",
+              "symbol",
+              "wardrobe_item",
+              "voice_profile"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "visibility": {
+            "enum": [
+              "public",
+              "spoiler",
+              "team_private",
+              "restricted"
+            ]
+          },
+          "attributes": {
+            "type": "object"
+          },
+          "product_snapshot_ref": {
+            "description": "Present only for product_reference entities; pins a Commerce Foundry snapshot (ADR-0010) and is an optional extension, never a mandatory field of generic canon.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relationship_id",
+          "from_entity_ref",
+          "to_entity_ref",
+          "relationship_type"
+        ],
+        "properties": {
+          "relationship_id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          },
+          "from_entity_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "to_entity_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "relationship_type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "story_time_range": {
+            "type": "object"
+          },
+          "attributes": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "timeline_events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "event_id",
+          "story_time",
+          "summary"
+        ],
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          },
+          "story_time": {
+            "type": "string",
+            "minLength": 1
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1
+          },
+          "entity_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "state_transitions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "entity_ref",
+                "attribute",
+                "to_value"
+              ],
+              "properties": {
+                "entity_ref": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "attribute": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "from_value": {},
+                "to_value": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "reference_pack_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$",
+      "description": "Hash of the canonical serialized form of this release for exact-version binding"
+    }
+  }
+}

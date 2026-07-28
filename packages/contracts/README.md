@@ -26,10 +26,9 @@ evaluation and owner acceptance; this workspace never grants authority.
 
 ## Conventions
 
-- Proposed toolchain is `DEC-0005` in `.agent/decisions/` (JSON Schema
-  2020-12, OpenAPI 3.1, AsyncAPI 3/CloudEvents 1.0, strict JSON, stdlib
-  Python round-trip validator first; TypeScript generation when SDK work
-  starts). Confirm its status before relying on it.
+- Toolchain: `DEC-0005`, **accepted 2026-07-28** (JSON Schema 2020-12,
+  OpenAPI 3.1, AsyncAPI 3/CloudEvents 1.0, strict JSON, stdlib Python
+  round-trip validator first; TypeScript generation when SDK work starts).
 - Strict JSON for machine-readable contracts; YAML only where the format
   demands it (OpenAPI/AsyncAPI) with a pinned parser in the validator.
 - Every schema declares `$id`, a semantic version, and compatibility rules

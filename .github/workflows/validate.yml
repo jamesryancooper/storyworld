@@ -28,3 +28,5 @@ jobs:
         run: python -B .agent/scripts/validate.py --check
       - name: Harness unit and mutation tests
         run: python -B -m unittest discover -s .agent/tests -p "test_*.py"
+      - name: Contract-pack validation
+        run: python -B packages/contracts/tests/validate_contracts.py

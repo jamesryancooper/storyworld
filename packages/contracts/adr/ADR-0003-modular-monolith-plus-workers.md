@@ -1,6 +1,6 @@
 # ADR-0003 — Initial architecture is a modular monolith plus async workers
 
-- Status: proposed (2026-07-28); acceptance via DEC-0006 at GATE-0002
+- Status: accepted (2026-07-28) via DEC-0006 (GATE-0002 passed)
 - Scope: initial implementation shape; extraction governed by ADR-0016
 - Canonical sources: part 03 §9.1, §9.3, §9.5, Appendix A ADR-003
 

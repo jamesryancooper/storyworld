@@ -27,7 +27,7 @@
       "expires_on": null,
       "id": "GATE-0002",
       "limitations": [
-        "Gate definition ratified 2026-07-28 (PLAN-0001); evaluation occurs when its phase completes. Approval at evaluation: project owner."
+        "Passed 2026-07-28: owner accepted the F0 pack via DEC-0006 (with the ADR-0006 Temporal revision). Structural validation via EVD-0005; acceptance observation EVD-0006."
       ],
       "owner_role": "project_owner",
       "pass_criteria": [
@@ -37,11 +37,13 @@
         "The first vertical slices and stop conditions are accepted.",
         "Evidence expected at evaluation: Accepted charter/authority ADRs and fixture list reviewed by the owner."
       ],
-      "required_evidence": [],
+      "required_evidence": [
+        "EVD-0006"
+      ],
       "requirement_refs": [
         "REQ-0010"
       ],
-      "status": "not_assessed",
+      "status": "passed",
       "title": "F0 exit - charter and authority"
     },
     {

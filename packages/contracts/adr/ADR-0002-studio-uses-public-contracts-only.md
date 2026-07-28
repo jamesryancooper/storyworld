@@ -1,6 +1,6 @@
 # ADR-0002 — Studio uses only public Engine application contracts
 
-- Status: proposed (2026-07-28); acceptance via DEC-0006 at GATE-0002
+- Status: accepted (2026-07-28) via DEC-0006 (GATE-0002 passed)
 - Scope: relationship between Storyworld Studio and Storyworld Engine
 - Canonical sources: part 01 §2.2, part 02 §6, part 04 §14.1, Appendix A ADR-002
 

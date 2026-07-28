@@ -18,15 +18,15 @@ actionable near-term slice plus adoption work.
 
 ```text
 PLAN-0001  Owner ratification of blueprint adoption        completed 2026-07-28
-PLAN-0002  F0 — product charter and authority pack         (no deps)   → GATE-0002
-PLAN-0003  F1 — domain model and contract pack             (← PLAN-0002) → GATE-0003
+PLAN-0002  F0 — product charter and authority pack         completed 2026-07-28 (GATE-0002 passed)
+PLAN-0003  F1 — domain model and contract pack             in_progress → GATE-0003
 PLAN-0004  F2 — governed foundation                        (← PLAN-0003) → GATE-0004
 PLAN-0005  F3 — headless narrative kernel                  (← PLAN-0004) → GATE-0005
 PLAN-0006  Assess deferred conditional artifact types      (no deps; trigger-driven)
 PLAN-0007  Golden-fixture source content (owner-supplied)  (no deps)   → GATE-0003
 ```
 
-PLAN-0001 is `completed` (decisions DEC-0001..DEC-0004 accepted); the
+PLAN-0001 and PLAN-0002 are `completed`; PLAN-0003 is `in_progress`; the
 remaining items are `planned`; none is authorized by this file. The canonical
 "recommended first artifact" is the F0/F1 contract pack (PLAN-0002/0003) —
 not a large codebase. B1/B2/B3/B4 parallel-track items are added when F3

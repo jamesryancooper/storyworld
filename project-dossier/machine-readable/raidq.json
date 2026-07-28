@@ -97,7 +97,8 @@
       "id": "ASM-0001",
       "impact": "medium",
       "limitations": [
-        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001) during the 2026-07-28 adoption session; project-ratified 2026-07-28 (PLAN-0001)."
+        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001) during the 2026-07-28 adoption session; project-ratified 2026-07-28 (PLAN-0001).",
+        "Temporal component of the stack resolved 2026-07-28 by accepted ADR-0006; remaining stack elements (TypeScript/Next.js/PostgreSQL/S3) confirm at F2 as planned."
       ],
       "owner_role": "project_owner",
       "resolution_condition": "Owner confirms or revises the stack when F2 begins; ADR records the choice.",
@@ -164,12 +165,12 @@
       "type": "open_question"
     },
     {
-      "blocking": true,
+      "blocking": false,
       "description": "The drafted F0 charter and authority pack (ADR-0001..0016 plus five charter artifacts) awaits the owner's GATE-0002 evaluation via DEC-0006. DEC-0005 (contract toolchain) is also pending. F1 (PLAN-0003) is gated on both.",
       "id": "OQ-0002",
       "impact": "high",
       "limitations": [
-        "Created under TASK-0003 at the deliberate stopping point of the 2026-07-28 build session."
+        "Resolved 2026-07-28: DEC-0005 and DEC-0006 accepted; ADR-0006 revised at acceptance to select Temporal; ADR-0007 confirmed as drafted."
       ],
       "owner_role": "project_owner",
       "resolution_condition": "DEC-0006 accepted/revised/rejected by the owner; on acceptance GATE-0002 recorded passed and PLAN-0002 completed. DEC-0005 decided.",
@@ -177,8 +178,8 @@
       "source_refs": [
         "SRC-0001"
       ],
-      "status": "open",
-      "title": "GATE-0002 review: accept, revise, or reject the F0 pack (DEC-0006); DEC-0005 also pending",
+      "status": "resolved",
+      "title": "GATE-0002 review of the F0 pack (resolved: accepted with ADR-0006 revision)",
       "type": "open_question"
     }
   ],

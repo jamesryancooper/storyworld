@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tag:storyworld-platform,2026:contracts/approval-receipt/v1",
+  "title": "Approval receipt",
+  "description": "Immutable decision bound to exact content, source, and policy versions (canonical part 05 section 15.6; charter approval-taxonomy.json; ADR-0008/0009). A receipt from one layer never implies another layer's approval.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "receipt_id",
+    "approval_layer",
+    "decision",
+    "subject_refs",
+    "subject_sha256",
+    "policy_refs",
+    "decided_by",
+    "decided_by_role",
+    "decided_at",
+    "authority_host",
+    "invalidated_by",
+    "expiry"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "storyworld.approval-receipt.v1"
+    },
+    "receipt_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "approval_layer": {
+      "enum": [
+        "canon_approval",
+        "creative_plan_approval",
+        "asset_creative_approval",
+        "continuity_disposition",
+        "rights_clearance",
+        "channel_package_approval",
+        "commerce_approval",
+        "publication_or_runtime_acceptance"
+      ]
+    },
+    "decision": {
+      "enum": [
+        "approved",
+        "rejected",
+        "revision_requested",
+        "waived",
+        "escalated"
+      ]
+    },
+    "subject_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "subject_sha256": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{64}$"
+      },
+      "description": "Exact content hashes of every subject; a material change to any subject invalidates this receipt for that subject"
+    },
+    "policy_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "waiver": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reason",
+        "scope",
+        "expiry"
+      ],
+      "properties": {
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expiry": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "revision_request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "typed_findings"
+      ],
+      "properties": {
+        "typed_findings": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "finding_type",
+              "subject_ref",
+              "instruction"
+            ],
+            "properties": {
+              "finding_type": {
+                "type": "string",
+                "minLength": 1
+              },
+              "subject_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "instruction": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "decided_by": {
+      "description": "Human principal or delegated guest identity; never a model, tool, or connector (ADR-0008)",
+      "type": "string",
+      "minLength": 1
+    },
+    "decided_by_role": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decided_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z)?$"
+    },
+    "authority_host": {
+      "enum": [
+        "storyworld",
+        "commerce_foundry",
+        "bekindrewind_runtime"
+      ]
+    },
+    "delegation_ref": {
+      "type": "string"
+    },
+    "invalidated_by": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Reference to the material change or successor receipt that invalidated this one"
+    },
+    "expiry": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

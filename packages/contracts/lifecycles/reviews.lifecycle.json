@@ -1,0 +1,70 @@
+{
+  "schema_version": "storyworld.lifecycle.reviews.v1",
+  "document_role": "normative_lifecycle_state_machine",
+  "status": "accepted_format_draft_content",
+  "note": "Content drafted under TASK-0004 from canonical part 02 section 6.4; no state transition may be inferred from side effects (downloads, provider completion, comments). Branch transitions not literally enumerated in the canonical sequence are marked inferred.",
+  "permission_grant": false,
+  "source_refs": [
+    "02_engine_studio_and_templates.md#6.4",
+    "02_engine_studio_and_templates.md#6.2"
+  ],
+  "applies_to": [
+    "review_case"
+  ],
+  "states": [
+    "open",
+    "in_review",
+    "revision_requested",
+    "approved",
+    "rejected",
+    "waived",
+    "superseded"
+  ],
+  "entry_states": [
+    "open"
+  ],
+  "terminal_states": [
+    "superseded"
+  ],
+  "transitions": {
+    "open": [
+      "in_review"
+    ],
+    "in_review": [
+      "revision_requested",
+      "approved",
+      "rejected",
+      "waived"
+    ],
+    "revision_requested": [
+      "in_review",
+      "superseded"
+    ],
+    "approved": [
+      "superseded"
+    ],
+    "rejected": [
+      "superseded"
+    ],
+    "waived": [
+      "superseded"
+    ],
+    "superseded": []
+  },
+  "inferred_transitions": [
+    {
+      "transition": "revision_requested -> in_review",
+      "rationale": "a revised exact version re-enters review; the case binds to the new version"
+    }
+  ],
+  "gates": {
+    "approved": [
+      "exact_versions_bound",
+      "immutable_receipt_created"
+    ],
+    "waived": [
+      "waiver_reason_recorded",
+      "approver_scope_and_expiry_recorded"
+    ]
+  }
+}

@@ -1,8 +1,8 @@
 {
   "schema_version": "storyworld.charter.property-classifications.v1",
   "document_role": "derived_normative_charter_artifact",
-  "status": "proposed",
-  "acceptance": "DEC-0006 at GATE-0002; until accepted, the canonical pack governs on any conflict",
+  "status": "accepted",
+  "acceptance": "Accepted 2026-07-28 via DEC-0006 (GATE-0002 passed). This artifact now owns its enumerations; the canonical pack remains the prose explanation. Changes flow through ADRs and supersession.",
   "derived_from": "project-dossier/canonical/storyworld/ (see per-item source_refs)",
   "created_on": "2026-07-28",
   "permission_grant": false,

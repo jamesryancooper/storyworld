@@ -1,6 +1,6 @@
 # ADR-0012 — BeKindRewind imports immutable runtime content releases and owns all runtime and player state
 
-- Status: proposed (2026-07-28); acceptance via DEC-0006 at GATE-0002
+- Status: accepted (2026-07-28) via DEC-0006 (GATE-0002 passed)
 - Scope: the interactive-runtime boundary
 - Canonical sources: part 01 (executive decision), part 04 §12, Appendix A ADR-012
 

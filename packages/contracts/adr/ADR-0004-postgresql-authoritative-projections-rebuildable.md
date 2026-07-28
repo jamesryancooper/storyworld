@@ -1,6 +1,6 @@
 # ADR-0004 — PostgreSQL is authoritative; search, graph, vector, and caches are rebuildable projections
 
-- Status: proposed (2026-07-28); acceptance via DEC-0006 at GATE-0002
+- Status: accepted (2026-07-28) via DEC-0006 (GATE-0002 passed)
 - Scope: authoritative persistence and derived stores
 - Canonical sources: part 03 §9.2, Appendix A ADR-004
 

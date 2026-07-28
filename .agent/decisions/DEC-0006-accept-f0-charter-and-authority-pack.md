@@ -2,19 +2,19 @@
 {
   "schema_version": "harness.decision.v1",
   "id": "DEC-0006",
-  "status": "proposed",
-  "previous_status": null,
+  "status": "accepted",
+  "previous_status": "proposed",
   "title": "Accept the F0 charter and authority pack (GATE-0002)",
   "created_at": "2026-07-28",
-  "authority_source": "external:project-owner-acceptance-pending — drafted under TASK-0003; acceptance of this record constitutes the GATE-0002 approval by the project owner.",
+  "authority_source": "external:project-owner (Ryan Cooper) acceptance 2026-07-28; this acceptance constitutes the GATE-0002 approval, with the ADR-0006 revision (Temporal selected now) applied at acceptance.",
   "owner": "ryan-cooper (project owner)",
   "scope": "The complete F0 pack: ADR-0001..ADR-0016 in packages/contracts/adr/ and the five charter artifacts in packages/contracts/charter/. On acceptance: every ADR status flips to accepted (citing this decision), charter artifacts' status flips to accepted, GATE-0002 is evaluated passed with this decision and the pack as evidence, and PLAN-0002 completes.",
   "supersedes": null,
   "successor": null,
   "limitations": [
-    "Proposed 2026-07-28; nothing in the pack is authoritative until this decision is accepted.",
-    "ADR-0006 deliberately defers the workflow-orchestrator selection to an evidenced F2-entry decision; accepting this pack accepts that deferral, not Temporal.",
-    "Accepting the pack does not accept DEC-0005 (contract toolchain), which remains a separate pending decision."
+    "Accepted 2026-07-28 with one owner revision applied at acceptance: ADR-0006 selects Temporal now instead of deferring to an F2 comparison.",
+    "ADR-0006 was revised at acceptance on the owner's instruction: Temporal is selected; contracts remain orchestrator-neutral.",
+    "DEC-0005 (contract toolchain) was accepted in the same instruction."
   ]
 }
 ---
@@ -60,3 +60,10 @@ fixtures-and-slices) as the authoritative F0 charter and authority pack.
   substantive review is this decision's acceptance.
 - Reversal: reject or revise specific ADRs before acceptance; after
   acceptance, successor records.
+
+## Acceptance
+
+Accepted by the project owner (Ryan Cooper) on 2026-07-28 in the operator
+session: "I accept all these items," with one revision — Temporal is decided
+now (ADR-0006 revised at acceptance) — and confirmation that Octon must plug
+in cleanly later (ADR-0007 as drafted). Recorded by claude-agent.

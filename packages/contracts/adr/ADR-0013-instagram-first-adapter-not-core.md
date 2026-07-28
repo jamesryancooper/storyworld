@@ -1,6 +1,6 @@
 # ADR-0013 — Instagram is the first adapter, not a core domain
 
-- Status: proposed (2026-07-28); acceptance via DEC-0006 at GATE-0002
+- Status: accepted (2026-07-28) via DEC-0006 (GATE-0002 passed)
 - Scope: channel strategy and the adapter boundary
 - Canonical sources: part 01 §3.1 (principle 7), part 04 §13.1, Appendix A ADR-013
 

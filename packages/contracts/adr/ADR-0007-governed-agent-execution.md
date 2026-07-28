@@ -1,6 +1,6 @@
 # ADR-0007 — Agent execution is capability-leased and mission-scoped; Octon is not an authority store
 
-- Status: proposed (2026-07-28); acceptance via DEC-0006 at GATE-0002
+- Status: accepted (2026-07-28) via DEC-0006 (GATE-0002 passed)
 - Scope: how agentic work executes against Storyworld
 - Canonical sources: part 03 §9.2, part 05 §15.2, Appendix A ADR-007
 

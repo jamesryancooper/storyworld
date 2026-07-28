@@ -1,0 +1,82 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/common-package-envelope/v1",
+  "schema_version": "storyworld.package-envelope.v1",
+  "package_type": "portable_project",
+  "package_version": "0.1.0",
+  "origin": {
+    "system": "storyworld-engine-synthetic",
+    "system_version": "0.0.0",
+    "created_at": "2026-07-28T00:00:00Z"
+  },
+  "authority_host": "storyworld",
+  "identifiers": {
+    "workspace_id": "00000000-0000-7000-8000-000000000010",
+    "property_id": "00000000-0000-7000-8000-000000000011",
+    "correlation_id": "00000000-0000-7000-8000-000000000012"
+  },
+  "snapshots": {
+    "canon_release_ref": "synthetic:canon-release:smoke-0001"
+  },
+  "manifest": {
+    "entity_refs": [
+      "synthetic:entity:smoke-0001"
+    ],
+    "narrative_unit_refs": [],
+    "asset_version_refs": [
+      "synthetic:asset-version:smoke-0001"
+    ]
+  },
+  "asset_index": [
+    {
+      "asset_version_ref": "synthetic:asset-version:smoke-0001",
+      "location": "assets/smoke.png",
+      "content_type": "image/png",
+      "size_bytes": 0,
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "embedding": "embedded"
+    }
+  ],
+  "governance_metadata": {
+    "rights_evidence_refs": [],
+    "provenance_complete": true,
+    "disclosure_obligations": [],
+    "sensitivity": "internal"
+  },
+  "approval_receipts": [
+    {
+      "schema_version": "storyworld.approval-receipt.v1",
+      "receipt_id": "00000000-0000-7000-8000-000000000001",
+      "approval_layer": "asset_creative_approval",
+      "decision": "approved",
+      "subject_refs": [
+        "synthetic:asset-version:smoke-0001"
+      ],
+      "subject_sha256": [
+        "0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "policy_refs": [
+        "synthetic:policy:smoke"
+      ],
+      "decided_by": "synthetic-human-reviewer (smoke fixture; not a real decision)",
+      "decided_by_role": "visual_producer",
+      "decided_at": "2026-07-28T00:00:00Z",
+      "authority_host": "storyworld",
+      "invalidated_by": null,
+      "expiry": null
+    }
+  ],
+  "validation_reports": [
+    {
+      "report_type": "structural",
+      "result": "pass",
+      "produced_at": "2026-07-28T00:00:00Z",
+      "report_ref": "synthetic:report:smoke-0001"
+    }
+  ],
+  "integration_associations": {},
+  "signature": {
+    "algorithm": "ed25519",
+    "key_id": "synthetic-smoke-key",
+    "detached_signature_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

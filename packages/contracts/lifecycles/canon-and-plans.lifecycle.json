@@ -1,0 +1,80 @@
+{
+  "schema_version": "storyworld.lifecycle.canon-and-plans.v1",
+  "document_role": "normative_lifecycle_state_machine",
+  "status": "accepted_format_draft_content",
+  "note": "Content drafted under TASK-0004 from canonical part 02 section 6.4; no state transition may be inferred from side effects (downloads, provider completion, comments). Branch transitions not literally enumerated in the canonical sequence are marked inferred.",
+  "permission_grant": false,
+  "source_refs": [
+    "02_engine_studio_and_templates.md#6.4"
+  ],
+  "applies_to": [
+    "canon_fact",
+    "canon_release",
+    "world_rule",
+    "narrative_plan",
+    "brief",
+    "arc",
+    "template"
+  ],
+  "states": [
+    "draft",
+    "proposed",
+    "under_review",
+    "accepted",
+    "released",
+    "superseded",
+    "deprecated"
+  ],
+  "entry_states": [
+    "draft",
+    "proposed"
+  ],
+  "terminal_states": [
+    "superseded",
+    "deprecated"
+  ],
+  "transitions": {
+    "draft": [
+      "proposed"
+    ],
+    "proposed": [
+      "under_review"
+    ],
+    "under_review": [
+      "accepted",
+      "draft"
+    ],
+    "accepted": [
+      "released",
+      "superseded",
+      "deprecated"
+    ],
+    "released": [
+      "superseded",
+      "deprecated"
+    ],
+    "superseded": [],
+    "deprecated": []
+  },
+  "inferred_transitions": [
+    {
+      "transition": "under_review -> draft",
+      "rationale": "rejection or requested revision returns the item to authorship; evidence of the review is preserved on the review record, not by destroying the item"
+    },
+    {
+      "transition": "proposed entry state",
+      "rationale": "model-extracted proposals enter directly as proposed (part 02 section 6.2 source-to-canon flow)"
+    }
+  ],
+  "gates": {
+    "accepted": [
+      "authorized_human_decision",
+      "exact_version_bound",
+      "receipt_created"
+    ],
+    "released": [
+      "immutable_snapshot_created",
+      "supersession_links_recorded"
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 # ADR-0016 — Service extraction requires measured scale, isolation, or release-cadence evidence
 
-- Status: proposed (2026-07-28); acceptance via DEC-0006 at GATE-0002
+- Status: accepted (2026-07-28) via DEC-0006 (GATE-0002 passed)
 - Scope: the standing rule governing departures from ADR-0003
 - Canonical sources: part 03 §9.5, part 06 §19.15, Appendix A ADR-016
 
