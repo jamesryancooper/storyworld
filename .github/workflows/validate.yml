@@ -78,3 +78,8 @@ jobs:
         run: pnpm -r lint
       - name: Compose profile validates
         run: docker compose -f infra/compose.yaml config -q
+      - name: Restore drill (DEC-0010 rider)
+        run: |
+          PG_CONTAINER=$(docker ps -q --filter "ancestor=postgres:16" | head -1)
+          test -n "$PG_CONTAINER"
+          PG_CONTAINER="$PG_CONTAINER" bash infra/scripts/restore-drill.sh

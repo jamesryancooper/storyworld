@@ -95,7 +95,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0010-accept-f2-and-gate-0004.md",
-      "sha256": "43986d22d69997683394d7dd81c69a820673fe255fe34b1234a2bf36bb3e6818"
+      "sha256": "2aeab742e1b89fa77dcd6e206367c37daba9d3fb4875c4fd4688ce31ec8765cd"
     },
     {
       "layer": "agent_harness",
@@ -120,7 +120,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "e0417b66978f1103bf6e6b5577cce092827776eeb761ddc64dccffb1fda8d713"
+      "sha256": "4012802b29cc22d4d6fbc8f2a8186f827dba8a4494f6689bfc67885d3e108373"
     },
     {
       "layer": "agent_harness",
@@ -166,6 +166,11 @@
       "layer": "agent_harness",
       "path": ".agent/evidence/EVD-0009-f2-custody-vs0-and-restore-drill.md",
       "sha256": "a0f74920c13f50912e9301a8c046f90cfb1c599f38737ffd701008129fe6ec35"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0010-gate-0004-acceptance-observation.md",
+      "sha256": "afdd4560fd7a8f0bc3c5887449fd9a2862b3182f35a2533003d23daf9a061928"
     },
     {
       "layer": "agent_harness",
@@ -315,7 +320,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "53f059182635e9e31c05a9efb406514bf166caaadbed0f87dac66b0a2238e83e"
+      "sha256": "8686c9f4704d31568bedd16a9657c55249ec6bf03bf693c041381080c7fbf109"
     },
     {
       "layer": "agent_harness",
@@ -346,6 +351,11 @@
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0005-f2-governed-foundation.md",
       "sha256": "00f506a16dfdb303a376e468d67907464814a78c3cd43b5f6b6fd51dad371189"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0006-f3-headless-narrative-kernel.md",
+      "sha256": "28f82835fe5f88e2f241bdc9b344da32bb34c1ea30568490da49dcdb5419fde1"
     },
     {
       "layer": "agent_harness",
@@ -460,7 +470,7 @@
     {
       "layer": "project_source",
       "path": ".github/workflows/validate.yml",
-      "sha256": "da43e19b75d76967e29fb1e06d220a6211d47d1584c2517da0df48f89ee85189"
+      "sha256": "9e79ea6097e1871c524d17c6f8d1bf5cc3267b644fbd258fce8772497c12817f"
     },
     {
       "layer": "project_source",
@@ -520,7 +530,7 @@
     {
       "layer": "project_source",
       "path": "infra/scripts/restore-drill.sh",
-      "sha256": "e5faed6bc0948e6cf850ff54f79daf7b28096f042e08a7dd077981b10ad76eaf"
+      "sha256": "32acea5ba1481de6e4167f6adc5fd518cdf3c37c709e4d9894dead9d7cd7107c"
     },
     {
       "layer": "project_source",
@@ -1384,6 +1394,11 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/persistence/migrations/0005_canon_foundation.sql",
+      "sha256": "a985d23513ee0fb739786d8383336a71c6788e9acf27bf70b571b0124d805952"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/persistence/package.json",
       "sha256": "09c8a8442c2ca7c47e3fc9d865506559646493c8d8f72c451144f12019fa683f"
     },
@@ -1405,7 +1420,7 @@
     {
       "layer": "project_source",
       "path": "packages/persistence/src/persistence.test.ts",
-      "sha256": "dbff2fe7e286fde1e7a36a6f1d115fb6bd763dcf78fe8382c78ed163b5c1d9cc"
+      "sha256": "7e463b68f9f4f5efecfc7009b8097a91ed490060a8e444e5b827fe71475b69bb"
     },
     {
       "layer": "project_source",
@@ -1685,7 +1700,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/plan.json",
-      "sha256": "7a85e4bc52042fc61efaa40c6e20c24b0a59adcac6b50d6278d4011ba76896a3"
+      "sha256": "55067ea0dd9ee8ff8fab656983b87aaa7b68d3a80c16b93228c26ab7af00261c"
     },
     {
       "layer": "project_dossier",
@@ -1745,7 +1760,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/validation/QUALITY_GATES.json",
-      "sha256": "7dbc64e9b289b7cd0a596a82297f4f47837903e7bae5d4f6bf5fcdb7e2ae99bf"
+      "sha256": "b820ec17f75f38f6ec0ac688cc4903bfd5b5de88439bbfa4be0ffba4eac02f3e"
     },
     {
       "layer": "project_dossier",
@@ -1758,12 +1773,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-28T19:53:16.309871+00:00",
-  "generation_id": "254607bac246b2bda59b95c8b3f6a980",
+  "generated_on": "2026-07-28T22:23:50.006989+00:00",
+  "generation_id": "2e608c68da11b3081888cf0f47d85888",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "8e58cc7d42bba078bf0ab6c96e7cb2c60a460c81b817a9f2671526a7e5018d1f",
+  "source_fingerprint": "badcf55cec41b94a9f7e41c7aa5e008e2a2755e56f17b52f80093855f74c8a0f",
   "source_scope": {
     "exclusions": [
       {

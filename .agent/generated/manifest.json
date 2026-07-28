@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-28T19:53:16.309871+00:00",
-  "generation_id": "254607bac246b2bda59b95c8b3f6a980",
+  "generated_at": "2026-07-28T22:23:50.006989+00:00",
+  "generation_id": "2e608c68da11b3081888cf0f47d85888",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -42,6 +42,7 @@
     ".agent/evidence/EVD-0007-f1-boundary-validation.md",
     ".agent/evidence/EVD-0008-gate-0003-acceptance-observation.md",
     ".agent/evidence/EVD-0009-f2-custody-vs0-and-restore-drill.md",
+    ".agent/evidence/EVD-0010-gate-0004-acceptance-observation.md",
     ".agent/evidence/README.md",
     ".agent/extensions/README.md",
     ".agent/extensions/registry.json",
@@ -78,6 +79,7 @@
     ".agent/tasks/TASK-0003-f0-charter-and-authority-pack.md",
     ".agent/tasks/TASK-0004-f1-contract-pack.md",
     ".agent/tasks/TASK-0005-f2-governed-foundation.md",
+    ".agent/tasks/TASK-0006-f3-headless-narrative-kernel.md",
     ".agent/templates/artifact.json",
     ".agent/templates/checkpoint.md",
     ".agent/templates/decision.md",
@@ -285,6 +287,7 @@
     "packages/persistence/migrations/0002_custody.sql",
     "packages/persistence/migrations/0003_principals_and_leases.sql",
     "packages/persistence/migrations/0004_assets_and_lineage.sql",
+    "packages/persistence/migrations/0005_canon_foundation.sql",
     "packages/persistence/package.json",
     "packages/persistence/src/client.ts",
     "packages/persistence/src/index.ts",
@@ -362,7 +365,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "8e58cc7d42bba078bf0ab6c96e7cb2c60a460c81b817a9f2671526a7e5018d1f",
+  "source_fingerprint": "badcf55cec41b94a9f7e41c7aa5e008e2a2755e56f17b52f80093855f74c8a0f",
   "source_scope": {
     "exclusions": [
       {

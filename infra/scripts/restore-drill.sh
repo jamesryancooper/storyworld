@@ -4,8 +4,13 @@
 # integrity survive. Runs against the compose profile's version-matched
 # pg tools inside the postgres container. Dev-only.
 set -euo pipefail
-COMPOSE="docker compose -f infra/compose.yaml"
-PG="$COMPOSE exec -T postgres"
+# Local default: compose exec. CI override: set PG_CONTAINER to a container
+# id/name (e.g. the GitHub Actions postgres service) and we docker-exec it.
+if [ -n "${PG_CONTAINER:-}" ]; then
+  PG="docker exec -i $PG_CONTAINER"
+else
+  PG="docker compose -f infra/compose.yaml exec -T postgres"
+fi
 
 echo "== pre-drill state =="
 BEFORE_MIGRATIONS=$($PG psql -U storyworld -d storyworld -tAc "SELECT count(*) FROM public.schema_migrations")

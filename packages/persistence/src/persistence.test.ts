@@ -140,3 +140,68 @@ describe("asset lineage (ADR-0009)", () => {
     ).rejects.toThrow(/append-only/);
   });
 });
+
+describe("canon foundation (F3 tranche 1)", () => {
+  it("stores an immutable canon release whose stored hash matches domain canonicalJson", async () => {
+    const { canonicalJson, contentSha256 } = await import("@storyworld/domain");
+    const { readFile } = await import("node:fs/promises");
+    const fixture = join(
+      dirname(fileURLToPath(import.meta.url)),
+      "..", "..", "contracts", "fixtures", "stillhouse", "records",
+      "stillhouse-canon-release.instance.json",
+    );
+    const document = JSON.parse(await readFile(fixture, "utf8")) as Record<string, unknown>;
+    delete document["$comment_schema"];
+    const hash = contentSha256(canonicalJson(document));
+    const propertyId = uuidv7();
+    const branchId = uuidv7();
+    const releaseId = uuidv7();
+    const wsId = uuidv7();
+    await withTenant(app, orgA, async (c) => {
+      await c.query(
+        "INSERT INTO storyworld.workspaces (workspace_id, organization_id, name) VALUES ($1,$2,$3)",
+        [wsId, orgA, "canon-ws"],
+      );
+      await c.query(
+        "INSERT INTO storyworld.properties (property_id, organization_id, workspace_id, name, property_type) VALUES ($1,$2,$3,$4,'fictional')",
+        [propertyId, orgA, wsId, "stillhouse-fixture-property"],
+      );
+      await c.query(
+        "INSERT INTO storyworld.canon_branches (branch_id, organization_id, property_id, branch_name, branch_type) VALUES ($1,$2,$3,'official','official')",
+        [branchId, orgA, propertyId],
+      );
+      await c.query(
+        "INSERT INTO storyworld.canon_releases (canon_release_id, organization_id, property_id, branch_id, release_name, release_version, document, content_sha256, accepted_receipt_id) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)",
+        [releaseId, orgA, propertyId, branchId, "fixture-release", `1.0.${Date.now()}`, JSON.stringify(document), hash, uuidv7()],
+      );
+    });
+    const row = await withTenant(app, orgA, (c) =>
+      c.query("SELECT document, content_sha256 FROM storyworld.canon_releases WHERE canon_release_id=$1", [releaseId]));
+    expect(row.rows[0]?.content_sha256).toBe(hash);
+    expect(contentSha256(canonicalJson(row.rows[0]?.document))).toBe(hash);
+    await expect(
+      admin.query("UPDATE storyworld.canon_releases SET release_name='forged' WHERE canon_release_id=$1", [releaseId]),
+    ).rejects.toThrow(/append-only/);
+  });
+  it("requires adaptation branches to declare a parent", async () => {
+    const propertyId = uuidv7();
+    const wsId = uuidv7();
+    await withTenant(app, orgA, async (c) => {
+      await c.query(
+        "INSERT INTO storyworld.workspaces (workspace_id, organization_id, name) VALUES ($1,$2,$3)",
+        [wsId, orgA, "adapt-ws"],
+      );
+      await c.query(
+        "INSERT INTO storyworld.properties (property_id, organization_id, workspace_id, name, property_type) VALUES ($1,$2,$3,$4,'fictional')",
+        [propertyId, orgA, wsId, "adapt-property"],
+      );
+    });
+    await expect(
+      withTenant(app, orgA, (c) =>
+        c.query(
+          "INSERT INTO storyworld.canon_branches (branch_id, organization_id, property_id, branch_name, branch_type) VALUES ($1,$2,$3,'youth-cut','adaptation')",
+          [uuidv7(), orgA, propertyId],
+        )),
+    ).rejects.toThrow();
+  });
+});

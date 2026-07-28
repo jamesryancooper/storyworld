@@ -80,7 +80,7 @@
       "expires_on": null,
       "id": "GATE-0004",
       "limitations": [
-        "Gate definition ratified 2026-07-28 (PLAN-0001); evaluation occurs when its phase completes. Approval at evaluation: project owner."
+        "Passed 2026-07-28: owner accepted the F2 foundation via DEC-0010 with the CI-drill rider. Structural/behavioral evidence EVD-0009; acceptance observation EVD-0010."
       ],
       "owner_role": "project_owner",
       "pass_criteria": [
@@ -90,13 +90,16 @@
         "A restore drill succeeds.",
         "Evidence expected at evaluation: Round-trip, replay, and restore drill evidence records."
       ],
-      "required_evidence": [],
+      "required_evidence": [
+        "EVD-0009",
+        "EVD-0010"
+      ],
       "requirement_refs": [
         "REQ-0001",
         "REQ-0005",
         "REQ-0008"
       ],
-      "status": "not_assessed",
+      "status": "passed",
       "title": "F2 exit - governed foundation"
     },
     {
