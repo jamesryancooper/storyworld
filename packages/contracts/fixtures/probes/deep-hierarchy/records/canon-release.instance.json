@@ -1,0 +1,65 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/canon-release/v1",
+  "schema_version": "storyworld.canon-release.v1",
+  "canon_release_id": "00000000-0000-7000-8000-000000000620",
+  "property_id": "00000000-0000-7000-8000-000000000690",
+  "branch": "official",
+  "release_name": "probe-deep-hierarchy-canon",
+  "release_version": "1.0.0",
+  "created_at": "2026-07-28T00:00:00Z",
+  "accepted_by_receipt_ref": "synthetic:receipt:probe",
+  "supersedes_ref": null,
+  "facts": [],
+  "entities": [
+    {
+      "entity_id": "00000000-0000-7000-8000-000000000621",
+      "entity_type": "object",
+      "name": "The brass compass",
+      "visibility": "public"
+    }
+  ],
+  "relationships": [],
+  "timeline_events": [
+    {
+      "event_id": "00000000-0000-7000-8000-000000000622",
+      "story_time": "sy-111",
+      "summary": "The compass is scratched in the cellar.",
+      "state_transitions": [
+        {
+          "entity_ref": "entity:00000000-0000-7000-8000-000000000621",
+          "attribute": "condition",
+          "from_value": "intact",
+          "to_value": "scratched"
+        }
+      ]
+    },
+    {
+      "event_id": "00000000-0000-7000-8000-000000000623",
+      "story_time": "sy-150",
+      "summary": "The compass is lost on the causeway.",
+      "state_transitions": [
+        {
+          "entity_ref": "entity:00000000-0000-7000-8000-000000000621",
+          "attribute": "condition",
+          "from_value": "scratched",
+          "to_value": "lost"
+        }
+      ]
+    },
+    {
+      "event_id": "00000000-0000-7000-8000-000000000624",
+      "story_time": "sy-210",
+      "summary": "The compass is recovered at the lighthouse.",
+      "state_transitions": [
+        {
+          "entity_ref": "entity:00000000-0000-7000-8000-000000000621",
+          "attribute": "condition",
+          "from_value": "lost",
+          "to_value": "recovered"
+        }
+      ]
+    }
+  ],
+  "reference_pack_refs": [],
+  "content_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+}

@@ -181,6 +181,24 @@
       "status": "resolved",
       "title": "GATE-0002 review of the F0 pack (resolved: accepted with ADR-0006 revision)",
       "type": "open_question"
+    },
+    {
+      "blocking": false,
+      "description": "DEC-0007 proposes superseding the accepted fixtures-and-slices charter artifact with v2 (five-class fixture taxonomy) and ratifies the F1 domain-model additions grounded by the fixture packet (narrative-structure schema; canon-release additive extensions for assertions, branch metadata, and version-pinned shared-canon dependencies). Non-blocking for F1 implementation work; required before GATE-0003 evaluation.",
+      "id": "OQ-0003",
+      "impact": "medium",
+      "limitations": [
+        "Created under TASK-0004 during fixture-packet integration."
+      ],
+      "owner_role": "project_owner",
+      "resolution_condition": "DEC-0007 accepted, revised, or rejected; on acceptance charter v2 supersedes v1 via SUP-0002 and the registry taxonomy becomes charter-governed.",
+      "review_on": "2026-08-11",
+      "source_refs": [
+        "SRC-0003"
+      ],
+      "status": "open",
+      "title": "Owner acceptance of DEC-0007 (fixture-charter v2 supersession and F1 domain-model additions)",
+      "type": "open_question"
     }
   ],
   "permission_grant": false,

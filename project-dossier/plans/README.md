@@ -23,7 +23,10 @@ PLAN-0003  F1 — domain model and contract pack             in_progress → GAT
 PLAN-0004  F2 — governed foundation                        (← PLAN-0003) → GATE-0004
 PLAN-0005  F3 — headless narrative kernel                  (← PLAN-0004) → GATE-0005
 PLAN-0006  Assess deferred conditional artifact types      (no deps; trigger-driven)
-PLAN-0007  Golden-fixture source content (owner-supplied)  (no deps)   → GATE-0003
+PLAN-0007  Golden-fixture source content (owner-supplied)  completed 2026-07-28 (packet SRC-0003)
+PLAN-0008  F1 narrative-architecture probes (8)            in PLAN-0003 scope → GATE-0003
+PLAN-0009  Post-F1 pattern fixture corpus (19)             registered; dependency-phased
+PLAN-0010  Metamorphic regression suite                    MET-F1 active; MET-F3/B3/B4 phased
 ```
 
 PLAN-0001 and PLAN-0002 are `completed`; PLAN-0003 is `in_progress`; the

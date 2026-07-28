@@ -1,0 +1,139 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/rights-evidence/v1",
+  "schema_version": "storyworld.rights-evidence.v1",
+  "evidence_id": "00000000-0000-7000-8000-000000000800",
+  "property_id": "00000000-0000-7000-8000-000000000890",
+  "grants": [
+    {
+      "grant_id": "00000000-0000-7000-8000-000000000801",
+      "subject_asset_refs": [
+        "asset-version:probe-voice-take-2"
+      ],
+      "rights_holder": "Fictional performer Joral Venn (synthetic)",
+      "grant_type": "license",
+      "scope": {
+        "territories": [
+          "US"
+        ],
+        "channels": [
+          "audio",
+          "social_video"
+        ],
+        "purposes": [
+          "production",
+          "publication"
+        ],
+        "editorial_or_commercial": "editorial"
+      },
+      "valid_from": "2025-07-01",
+      "valid_until": "2026-07-01",
+      "modification_permitted": true,
+      "training_use_permitted": false,
+      "provider_retention_permitted": false,
+      "attribution_required": null,
+      "synthetic_media_disclosure_required": true,
+      "withdrawal": {
+        "withdrawn_on": "2026-06-15",
+        "reason": "Performer withdrew permission for future use; prior publications remain historically accurate."
+      },
+      "replacement_grant_ref": "00000000-0000-7000-8000-000000000804"
+    },
+    {
+      "grant_id": "00000000-0000-7000-8000-000000000802",
+      "subject_asset_refs": [
+        "asset-version:probe-photo-11"
+      ],
+      "rights_holder": "Fictional photographer Ines Vale (synthetic)",
+      "grant_type": "license",
+      "scope": {
+        "territories": [
+          "US",
+          "CA"
+        ],
+        "channels": [
+          "social_media"
+        ],
+        "purposes": [
+          "publication"
+        ],
+        "editorial_or_commercial": "editorial"
+      },
+      "valid_from": "2026-01-01",
+      "valid_until": null,
+      "modification_permitted": false,
+      "training_use_permitted": false,
+      "provider_retention_permitted": false,
+      "attribution_required": "Photo: I. Vale (fictional)",
+      "synthetic_media_disclosure_required": false,
+      "replacement_grant_ref": null
+    },
+    {
+      "grant_id": "00000000-0000-7000-8000-000000000803",
+      "subject_asset_refs": [
+        "asset-version:probe-music-cue-7"
+      ],
+      "rights_holder": "Fictional composer Bram Hollow (synthetic)",
+      "grant_type": "license",
+      "scope": {
+        "territories": [
+          "US"
+        ],
+        "channels": [
+          "audio",
+          "social_video"
+        ],
+        "purposes": [
+          "publication"
+        ],
+        "editorial_or_commercial": "editorial"
+      },
+      "valid_from": "2026-01-01",
+      "valid_until": "2027-01-01",
+      "modification_permitted": false,
+      "training_use_permitted": false,
+      "provider_retention_permitted": true,
+      "attribution_required": null,
+      "synthetic_media_disclosure_required": false,
+      "replacement_grant_ref": null
+    },
+    {
+      "grant_id": "00000000-0000-7000-8000-000000000804",
+      "subject_asset_refs": [
+        "asset-version:probe-voice-take-3-replacement"
+      ],
+      "rights_holder": "Fictional performer Sela Marsh (synthetic)",
+      "grant_type": "license",
+      "scope": {
+        "territories": [
+          "US"
+        ],
+        "channels": [
+          "audio",
+          "social_video"
+        ],
+        "purposes": [
+          "production",
+          "publication"
+        ],
+        "editorial_or_commercial": "editorial"
+      },
+      "valid_from": "2026-06-20",
+      "valid_until": null,
+      "modification_permitted": true,
+      "training_use_permitted": false,
+      "provider_retention_permitted": false,
+      "attribution_required": null,
+      "synthetic_media_disclosure_required": true,
+      "replacement_grant_ref": null
+    }
+  ],
+  "affected_on_expiry": {
+    "00000000-0000-7000-8000-000000000801": [
+      "approval-receipt:00000000-0000-7000-8000-000000000810",
+      "channel-package:probe-reel-0001",
+      "rendition:probe-audio-r2"
+    ]
+  },
+  "created_at": "2026-07-28",
+  "content_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+}

@@ -1,0 +1,95 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/canon-release/v1",
+  "schema_version": "storyworld.canon-release.v1",
+  "canon_release_id": "c0330000-0000-4000-8000-000000000001",
+  "property_id": "c0330000-0000-4000-8000-000000000000",
+  "branch": "vellumvale-campaign-local",
+  "release_name": "Vellumvale FF-17 campaign-local release",
+  "release_version": "1.0.0",
+  "created_at": "2026-07-28",
+  "accepted_by_receipt_ref": "receipt:commerce-canon-approval",
+  "supersedes_ref": null,
+  "facts": [
+    {
+      "fact_id": "c0330000-0000-4000-8000-000000000100",
+      "revision_id": "c0330000-0000-4000-8000-000000000600",
+      "subject_ref": "campaign:vellumvale-ff17-launch",
+      "predicate": "beat_1",
+      "value": {
+        "type": "text",
+        "content": "The Last Page on the Train: a fictional commuter reaches a dim stretch of the ride and clips the FF-17 to an unbranded book; the product solves a visible narrative problem without a spokesperson listing features. Permitted claim: 'Three warm-light brightness levels.' Required view: hinge and clip geometry visible."
+      },
+      "classification": "production_local_fact",
+      "scope": "vellumvale-ff17-launch",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/commerce/source/04-commerce-campaign.md"
+    },
+    {
+      "fact_id": "c0330000-0000-4000-8000-000000000101",
+      "revision_id": "c0330000-0000-4000-8000-000000000601",
+      "subject_ref": "campaign:vellumvale-ff17-launch",
+      "predicate": "beat_2",
+      "value": {
+        "type": "text",
+        "content": "Fold Flat: at the stop, the reader folds the light and slides it into a small side pocket. Permitted claim: 'Folds flat to 18 mm.' Required view: fully folded profile. No implication that it fits every pocket or bag."
+      },
+      "classification": "production_local_fact",
+      "scope": "vellumvale-ff17-launch",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/commerce/source/04-commerce-campaign.md"
+    },
+    {
+      "fact_id": "c0330000-0000-4000-8000-000000000102",
+      "revision_id": "c0330000-0000-4000-8000-000000000602",
+      "subject_ref": "campaign:vellumvale-ff17-launch",
+      "predicate": "beat_3",
+      "value": {
+        "type": "text",
+        "content": "One More Chapter: at home, the reader opens the book again; current version-2 packaging appears briefly on a side table in the final carousel panel. Permitted claim: 'USB-C rechargeable.' Caption may use the exact approved battery claim once. Disclosure and CTA present."
+      },
+      "classification": "production_local_fact",
+      "scope": "vellumvale-ff17-launch",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/commerce/source/04-commerce-campaign.md"
+    }
+  ],
+  "entities": [
+    {
+      "entity_id": "c0330000-0000-4000-8000-000000000200",
+      "entity_type": "character",
+      "name": "The Commuter Reader",
+      "visibility": "public",
+      "attributes": {
+        "description": "Fictional adult commuter who reads on the train and at home; unnamed; no health condition depicted"
+      }
+    },
+    {
+      "entity_id": "c0330000-0000-4000-8000-000000000201",
+      "entity_type": "product_reference",
+      "name": "Vellumvale FF-17 Reading Light",
+      "visibility": "public",
+      "product_snapshot_ref": "product-snapshot:vellumvale-ff17:v2",
+      "attributes": {
+        "narrative_role_note": "reading aid; never a lamp, flashlight, beacon, toy, or wearable"
+      }
+    },
+    {
+      "entity_id": "c0330000-0000-4000-8000-000000000202",
+      "entity_type": "prop",
+      "name": "Unbranded book",
+      "visibility": "public",
+      "attributes": {
+        "rule": "never a real branded or recognizable copyrighted cover"
+      }
+    }
+  ],
+  "relationships": [],
+  "timeline_events": [],
+  "reference_pack_refs": [
+    "ref-pack:vellumvale-ff17-fidelity-v2"
+  ],
+  "content_sha256": "6b5266fa2f69dd47a60931842bde3869975f2bf1e30fec193bce4960038ccef3"
+}

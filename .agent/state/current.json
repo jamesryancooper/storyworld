@@ -19,10 +19,10 @@
     "EVD-0006"
   ],
   "blocked_by": [],
-  "next_action": "continue_F1_tranche_2_schemas_openapi_events; real_fixtures_await_PLAN-0007_owner_content",
+  "next_action": "owner_reviews_DEC-0007; F1_remainder_openapi_events_adapters_sdk; then_GATE-0003_evaluation",
   "external_effects_authority_refs": [],
   "limitations": [
     "structural_validation_only_no_readiness_claim",
-    "GATE-0003_not_evaluable_until_PLAN-0007_fixtures_exist"
+    "DEC-0007_charter_v2_and_domain_additions_proposed_owner_decision_pending"
   ]
 }

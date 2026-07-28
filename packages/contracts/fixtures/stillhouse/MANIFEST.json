@@ -1,0 +1,39 @@
+{
+  "fixture_id": "FIX-STILLHOUSE",
+  "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+  "fictional": true,
+  "sensitivity": "internal",
+  "permitted_use": "test_fixture_in_this_repository_only",
+  "canon_classification": {
+    "established_property_direction": "The Stillhouse Archive; unnamed returning archivist; box under stairs; June; 4/17; Route 17; liminal archival form; places remember; blue chair, water glass, paper star, red float, white curtains, 417, Room 217; witness/investigator audience.",
+    "new_fixture_decisions": "Mara Venn and Cal Rowan; June as sister; exact 1989 water incident; survival and transfer; evidence text; three episode titles; complete reveal graph and chronology.",
+    "production_canon_effect": "Test branch only. Do not promote the mystery resolution into production canon without a separate decision.",
+    "creator_only_material": "Hidden truth (survival, transfer, erasure), symbol secret meanings, and the Archivist's identity are recorded as secret_truth facts with team_private visibility.",
+    "public_safe_material": "Episode content, artifacts as presented, audience-knowledge states, and ARG-safety rules."
+  },
+  "source_files": [
+    "source/01-stillhouse.md"
+  ],
+  "restricted_source_files": [],
+  "provenance": {
+    "packet_origin": "owner-supplied fixture authoring packet (SRC-0003)",
+    "canon_register_row": "packages/contracts/fixtures/sources/packet/CANON_DECISION_REGISTER.md (FIX-STILLHOUSE)",
+    "normalized_on": "2026-07-28",
+    "normalized_under": "TASK-0004"
+  },
+  "record_files": [
+    "stillhouse-approval-receipt.instance.json",
+    "stillhouse-canon-release.instance.json",
+    "stillhouse-scene-state.instance.json",
+    "stillhouse-structure.instance.json"
+  ],
+  "invalid_files": [
+    "stillhouse-reveal-missing-dependencies.invalid.json",
+    "stillhouse-testimony-as-fact.invalid.json"
+  ],
+  "neutral_synthetic_values": {
+    "uuids": "deterministic 57111000-prefixed UUIDs for machine identity fields",
+    "content_sha256": "deterministic seed hashes; canonical-form checksums live in expected/checksums.json",
+    "story_time sub-coordinates": "2026-07-a/b/c distinguish episode order within the source's July 2026 coordinate"
+  }
+}

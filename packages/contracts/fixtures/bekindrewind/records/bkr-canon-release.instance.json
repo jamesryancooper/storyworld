@@ -1,0 +1,502 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/canon-release/v1",
+  "schema_version": "storyworld.canon-release.v1",
+  "canon_release_id": "b1c40000-0000-4000-8000-000000000001",
+  "property_id": "b1c40000-0000-4000-8000-000000000000",
+  "branch": "rewind-plaza/release-test-001",
+  "release_name": "Rewind Plaza slice fixture release",
+  "release_version": "1.0.0",
+  "created_at": "2026-07-28",
+  "accepted_by_receipt_ref": "receipt:bkr-canon-approval",
+  "supersedes_ref": null,
+  "facts": [
+    {
+      "fact_id": "b1c40000-0000-4000-8000-000000000101",
+      "revision_id": "b1c40000-0000-4000-8000-000000000601",
+      "subject_ref": "property:rewind-plaza",
+      "predicate": "era",
+      "value": {
+        "type": "text",
+        "content": "Warm summer evening, 1986; one hour before the plaza closes."
+      },
+      "classification": "hard_canon",
+      "scope": "rewind-plaza-slice",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/bekindrewind/source/03-bekindrewind.md"
+    },
+    {
+      "fact_id": "b1c40000-0000-4000-8000-000000000102",
+      "revision_id": "b1c40000-0000-4000-8000-000000000602",
+      "subject_ref": "property:rewind-plaza",
+      "predicate": "tone_rule",
+      "value": {
+        "type": "text",
+        "content": "Cozy, funny, slightly dreamy, and safe; not a simulation of a real town; no real brands, films, games, songs, or businesses."
+      },
+      "classification": "style_rule",
+      "scope": "rewind-plaza-slice",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/bekindrewind/source/03-bekindrewind.md"
+    },
+    {
+      "fact_id": "b1c40000-0000-4000-8000-000000000103",
+      "revision_id": "b1c40000-0000-4000-8000-000000000603",
+      "subject_ref": "b1c40000-0000-4000-8000-000000000210",
+      "predicate": "spatial_relation",
+      "value": {
+        "type": "text",
+        "content": "Sunset Spool Video is across the parking court from Quarter Comet Arcade."
+      },
+      "classification": "hard_canon",
+      "scope": "rewind-plaza-slice",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/bekindrewind/source/03-bekindrewind.md"
+    },
+    {
+      "fact_id": "b1c40000-0000-4000-8000-000000000104",
+      "revision_id": "b1c40000-0000-4000-8000-000000000604",
+      "subject_ref": "b1c40000-0000-4000-8000-000000000211",
+      "predicate": "spatial_relation",
+      "value": {
+        "type": "text",
+        "content": "Pepperwheel Pizza is east of and adjacent to Sunset Spool Video."
+      },
+      "classification": "hard_canon",
+      "scope": "rewind-plaza-slice",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/bekindrewind/source/03-bekindrewind.md"
+    },
+    {
+      "fact_id": "b1c40000-0000-4000-8000-000000000105",
+      "revision_id": "b1c40000-0000-4000-8000-000000000605",
+      "subject_ref": "b1c40000-0000-4000-8000-000000000213",
+      "predicate": "spatial_relation",
+      "value": {
+        "type": "text",
+        "content": "Tin Rocket Toy Shop is west of Quarter Comet Arcade."
+      },
+      "classification": "hard_canon",
+      "scope": "rewind-plaza-slice",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/bekindrewind/source/03-bekindrewind.md"
+    },
+    {
+      "fact_id": "b1c40000-0000-4000-8000-000000000106",
+      "revision_id": "b1c40000-0000-4000-8000-000000000606",
+      "subject_ref": "b1c40000-0000-4000-8000-000000000214",
+      "predicate": "spatial_relation",
+      "value": {
+        "type": "text",
+        "content": "The rear service alley connects all four locations but begins inaccessible to the player."
+      },
+      "classification": "hard_canon",
+      "scope": "rewind-plaza-slice",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/bekindrewind/source/03-bekindrewind.md"
+    },
+    {
+      "fact_id": "b1c40000-0000-4000-8000-000000000107",
+      "revision_id": "b1c40000-0000-4000-8000-000000000607",
+      "subject_ref": "b1c40000-0000-4000-8000-000000000210",
+      "predicate": "spatial_relation",
+      "value": {
+        "type": "text",
+        "content": "No interior door directly connects the video store and pizza shop."
+      },
+      "classification": "hard_canon",
+      "scope": "rewind-plaza-slice",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/bekindrewind/source/03-bekindrewind.md"
+    },
+    {
+      "fact_id": "b1c40000-0000-4000-8000-000000000108",
+      "revision_id": "b1c40000-0000-4000-8000-000000000608",
+      "subject_ref": "era-rules",
+      "predicate": "ER-01",
+      "value": {
+        "type": "text",
+        "content": "No cell phones, internet, text messaging, GPS, QR codes, or app-based interfaces; payphone costs $0.25 for a local call; directions via landmarks, handwritten notes, printed maps, or dialogue."
+      },
+      "classification": "world_rule",
+      "scope": "rewind-plaza-slice",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/bekindrewind/source/03-bekindrewind.md"
+    },
+    {
+      "fact_id": "b1c40000-0000-4000-8000-000000000109",
+      "revision_id": "b1c40000-0000-4000-8000-000000000609",
+      "subject_ref": "era-rules",
+      "predicate": "ER-02",
+      "value": {
+        "type": "text",
+        "content": "Two-night VHS rental $2.49; late fee $0.50 per day; arcade token $0.25; pizza slice $1.10; small fountain soda $0.60; cash, coins, and a fictional paper rental card only."
+      },
+      "classification": "world_rule",
+      "scope": "rewind-plaza-slice",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/bekindrewind/source/03-bekindrewind.md"
+    },
+    {
+      "fact_id": "b1c40000-0000-4000-8000-000000000110",
+      "revision_id": "b1c40000-0000-4000-8000-000000000610",
+      "subject_ref": "era-rules",
+      "predicate": "ER-03",
+      "value": {
+        "type": "text",
+        "content": "CRT televisions, VHS and audio cassettes, incandescent and fluorescent fixtures, painted and hand-lettered signs, segmented digital clocks allowed; no real media titles, logos, mascots, celebrities, lyrics, or recognizable packages; NPCs avoid post-1986 slang and never explain the era as a nostalgia experience; no modern LED walls or touchscreens."
+      },
+      "classification": "world_rule",
+      "scope": "rewind-plaza-slice",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/bekindrewind/source/03-bekindrewind.md"
+    },
+    {
+      "fact_id": "b1c40000-0000-4000-8000-000000000111",
+      "revision_id": "b1c40000-0000-4000-8000-000000000611",
+      "subject_ref": "b1c40000-0000-4000-8000-000000000220",
+      "predicate": "dialogue_constraint",
+      "value": {
+        "type": "text",
+        "content": "No modern slang; does not reveal the cabinet reward before Mission 2 is complete; never insults Alex's intelligence or family."
+      },
+      "classification": "style_rule",
+      "scope": "rewind-plaza-slice",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/bekindrewind/source/03-bekindrewind.md"
+    },
+    {
+      "fact_id": "b1c40000-0000-4000-8000-000000000112",
+      "revision_id": "b1c40000-0000-4000-8000-000000000612",
+      "subject_ref": "b1c40000-0000-4000-8000-000000000221",
+      "predicate": "dialogue_constraint",
+      "value": {
+        "type": "text",
+        "content": "'Forty-two three' means a score of 42,300; does not hand over the mixtape before the score condition is met; no real game terminology or brand slogans."
+      },
+      "classification": "style_rule",
+      "scope": "rewind-plaza-slice",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/bekindrewind/source/03-bekindrewind.md"
+    },
+    {
+      "fact_id": "b1c40000-0000-4000-8000-000000000113",
+      "revision_id": "b1c40000-0000-4000-8000-000000000613",
+      "subject_ref": "b1c40000-0000-4000-8000-000000000222",
+      "predicate": "dialogue_constraint",
+      "value": {
+        "type": "text",
+        "content": "No ethnic stereotype, exaggerated dialect, or real restaurant reference; gives the booth-token hint only after Alex inspects the booth twice."
+      },
+      "classification": "style_rule",
+      "scope": "rewind-plaza-slice",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/bekindrewind/source/03-bekindrewind.md"
+    },
+    {
+      "fact_id": "b1c40000-0000-4000-8000-000000000114",
+      "revision_id": "b1c40000-0000-4000-8000-000000000614",
+      "subject_ref": "slice:release-test-001",
+      "predicate": "initial_state",
+      "value": {
+        "type": "structured",
+        "content": {
+          "world_time": "19:50",
+          "businesses_open": 4,
+          "item01_holder": "Alex",
+          "item02_location": "on_mira_lanyard",
+          "item04_holder": "D.J. Pierce",
+          "item05_state": "intact",
+          "npc_trust": 0,
+          "cabinet": "locked"
+        }
+      },
+      "classification": "production_local_fact",
+      "scope": "rewind-plaza-slice",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/bekindrewind/source/03-bekindrewind.md"
+    },
+    {
+      "fact_id": "b1c40000-0000-4000-8000-000000000115",
+      "revision_id": "b1c40000-0000-4000-8000-000000000615",
+      "subject_ref": "slice:release-test-001",
+      "predicate": "expected_final_state",
+      "value": {
+        "type": "structured",
+        "content": {
+          "world_time": ">= 20:45",
+          "vhs": "returned; account clear",
+          "tokens": "consumed",
+          "mixtape_holder": "Mira Chen",
+          "key": "on_cabinet_hook",
+          "cabinet": "unlocked_open",
+          "collectible_12": "available or collected",
+          "poster": "torn or repaired",
+          "mira_trust": 2,
+          "dj_trust": 1
+        }
+      },
+      "classification": "production_local_fact",
+      "scope": "rewind-plaza-slice",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/bekindrewind/source/03-bekindrewind.md"
+    },
+    {
+      "fact_id": "b1c40000-0000-4000-8000-000000000116",
+      "revision_id": "b1c40000-0000-4000-8000-000000000616",
+      "subject_ref": "property:rewind-plaza",
+      "predicate": "runtime_boundary",
+      "value": {
+        "type": "text",
+        "content": "Runtime owns player movement, inventory instance, save state, accessibility settings, and completion history; Storyworld supplies authored definitions and initial/default state only."
+      },
+      "classification": "world_rule",
+      "scope": "rewind-plaza-slice",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/bekindrewind/source/03-bekindrewind.md"
+    }
+  ],
+  "entities": [
+    {
+      "entity_id": "b1c40000-0000-4000-8000-000000000210",
+      "entity_type": "location",
+      "name": "Sunset Spool Video",
+      "visibility": "public",
+      "attributes": {
+        "position": "north side of the plaza, west storefront; entrance faces south into the parking court",
+        "features": [
+          "staff-only cabinet behind the counter",
+          "back door to service alley"
+        ],
+        "sound_zone": "low fluorescent hum, VHS cases sliding, soft fictional synth instrumental"
+      }
+    },
+    {
+      "entity_id": "b1c40000-0000-4000-8000-000000000211",
+      "entity_type": "location",
+      "name": "Pepperwheel Pizza",
+      "visibility": "public",
+      "attributes": {
+        "position": "north side, directly east of Sunset Spool Video; front booth window faces the arcade",
+        "sound_zone": "kitchen clatter, soda fountain, distant radio with non-lyrical original music"
+      }
+    },
+    {
+      "entity_id": "b1c40000-0000-4000-8000-000000000212",
+      "entity_type": "location",
+      "name": "Quarter Comet Arcade",
+      "visibility": "public",
+      "attributes": {
+        "position": "south side of the parking court, directly across from Sunset Spool Video; entrance faces north",
+        "features": [
+          "tournament poster fixed to exterior wall beside the door",
+          "side path west to Tin Rocket Toy Shop"
+        ],
+        "sound_zone": "layered fictional cabinet sounds, token drop, ventilation fan"
+      }
+    },
+    {
+      "entity_id": "b1c40000-0000-4000-8000-000000000213",
+      "entity_type": "location",
+      "name": "Tin Rocket Toy Shop",
+      "visibility": "public",
+      "attributes": {
+        "position": "southwest corner, west of Quarter Comet Arcade; display window faces east",
+        "features": [
+          "demonstration table just inside the entrance",
+          "rear stock door to service alley"
+        ],
+        "sound_zone": "wind-up mechanisms, quiet ceiling fan, bell over door"
+      }
+    },
+    {
+      "entity_id": "b1c40000-0000-4000-8000-000000000214",
+      "entity_type": "location",
+      "name": "Rear service alley",
+      "visibility": "public",
+      "attributes": {
+        "initial_access": "inaccessible to the player",
+        "connects": "all four businesses in a walkable loop"
+      }
+    },
+    {
+      "entity_id": "b1c40000-0000-4000-8000-000000000220",
+      "entity_type": "character",
+      "name": "Mira Chen",
+      "visibility": "public",
+      "attributes": {
+        "age": 19,
+        "role": "evening clerk at Sunset Spool Video",
+        "initial_disposition": "mildly annoyed but fair; trust = 0",
+        "dialogue_style": "dry, efficient, quietly kind; never cruel"
+      }
+    },
+    {
+      "entity_id": "b1c40000-0000-4000-8000-000000000221",
+      "entity_type": "character",
+      "name": "D.J. Pierce",
+      "visibility": "public",
+      "attributes": {
+        "age": 17,
+        "role": "arcade attendant and scorekeeper",
+        "initial_disposition": "competitive; trust = 0",
+        "dialogue_style": "brief challenges, playful confidence, no exposition dump"
+      }
+    },
+    {
+      "entity_id": "b1c40000-0000-4000-8000-000000000222",
+      "entity_type": "character",
+      "name": "Sal Bell",
+      "visibility": "public",
+      "attributes": {
+        "age": 52,
+        "role": "owner and counter cook at Pepperwheel Pizza",
+        "initial_disposition": "welcoming but busy",
+        "dialogue_style": "practical one-liners; no accent caricature"
+      }
+    },
+    {
+      "entity_id": "b1c40000-0000-4000-8000-000000000223",
+      "entity_type": "character",
+      "name": "Alex",
+      "visibility": "public",
+      "attributes": {
+        "age": 13,
+        "role": "player avatar",
+        "gender_presentation": "selectable at runtime without altering mission logic",
+        "starting_inventory": [
+          "canvas backpack",
+          "bicycle key",
+          "rental card",
+          "one overdue VHS"
+        ],
+        "caption_style": "concise observational captions, not voiced biography"
+      }
+    },
+    {
+      "entity_id": "b1c40000-0000-4000-8000-000000000230",
+      "entity_type": "object",
+      "name": "Overdue VHS: Summer Signal from Planet Nine",
+      "visibility": "public",
+      "attributes": {
+        "fictional_title": true,
+        "initial_owner": "Sunset Spool Video",
+        "initial_holder": "Alex",
+        "initial_state": {
+          "rental": "rented_overdue",
+          "rewound": true,
+          "case_condition": "worn_intact"
+        }
+      }
+    },
+    {
+      "entity_id": "b1c40000-0000-4000-8000-000000000231",
+      "entity_type": "object",
+      "name": "Brass STAFF PICKS key",
+      "visibility": "public",
+      "attributes": {
+        "state_path": [
+          "on_mira_lanyard",
+          "on_video_counter",
+          "held_by_alex",
+          "in_cabinet_lock",
+          "on_cabinet_hook"
+        ],
+        "rule": "cannot duplicate, teleport, or appear in two holders simultaneously"
+      }
+    },
+    {
+      "entity_id": "b1c40000-0000-4000-8000-000000000232",
+      "entity_type": "object",
+      "name": "Three Quarter Comet tokens",
+      "visibility": "public",
+      "attributes": {
+        "symbol": "comet-and-grid",
+        "initial_locations": [
+          "payphone coin-return tray",
+          "Pepperwheel Pizza booth seat",
+          "Tin Rocket Toy Shop demonstration-table drawer"
+        ],
+        "consumed_by": "Orbit Lancer cabinet during M2"
+      }
+    },
+    {
+      "entity_id": "b1c40000-0000-4000-8000-000000000233",
+      "entity_type": "object",
+      "name": "Mixtape: SUNSET SIDE B",
+      "visibility": "public",
+      "attributes": {
+        "label": "handwritten in blue marker; translucent amber shell",
+        "no_third_party_music": true,
+        "holder_path": [
+          "D.J. Pierce",
+          "Alex",
+          "Mira Chen"
+        ]
+      }
+    },
+    {
+      "entity_id": "b1c40000-0000-4000-8000-000000000234",
+      "entity_type": "object",
+      "name": "Arcade tournament poster",
+      "visibility": "public",
+      "attributes": {
+        "state_path": [
+          "intact",
+          "torn_lower_corner",
+          "repaired_with_clear_tape"
+        ],
+        "rule": "repaired version must retain the visible tear line"
+      }
+    },
+    {
+      "entity_id": "b1c40000-0000-4000-8000-000000000235",
+      "entity_type": "collectible",
+      "name": "Memory Card #12: Closing Time Glow",
+      "visibility": "public",
+      "attributes": {
+        "content": "stylized illustration of the plaza signs turning off one by one",
+        "award": "inside the staff-pick cabinet after M3",
+        "ownership_note": "collection metadata is Storyworld-authored; player ownership is runtime state"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "b1c40000-0000-4000-8000-000000000300",
+      "from_entity_ref": "b1c40000-0000-4000-8000-000000000220",
+      "to_entity_ref": "b1c40000-0000-4000-8000-000000000210",
+      "relationship_type": "works_at"
+    },
+    {
+      "relationship_id": "b1c40000-0000-4000-8000-000000000301",
+      "from_entity_ref": "b1c40000-0000-4000-8000-000000000221",
+      "to_entity_ref": "b1c40000-0000-4000-8000-000000000212",
+      "relationship_type": "works_at"
+    },
+    {
+      "relationship_id": "b1c40000-0000-4000-8000-000000000302",
+      "from_entity_ref": "b1c40000-0000-4000-8000-000000000222",
+      "to_entity_ref": "b1c40000-0000-4000-8000-000000000211",
+      "relationship_type": "owns"
+    }
+  ],
+  "timeline_events": [],
+  "reference_pack_refs": [],
+  "content_sha256": "6bec36e80990102257d07291b8cfb1184d24c52571cdd5b27b8735c0126879f6"
+}

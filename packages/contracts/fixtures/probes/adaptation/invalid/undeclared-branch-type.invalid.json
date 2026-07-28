@@ -1,0 +1,78 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/canon-release/v1",
+  "$description": "Planned rejection (probe D): accepting an adaptation change must never mutate the source branch. Schema-level proxy: an undeclared branch_type ('adaptation-ish') is rejected — every divergent branch must declare its typed relationship to its parent.",
+  "$expect_errors": [
+    ".branch_metadata.branch_type",
+    "not in enum"
+  ],
+  "instance": {
+    "schema_version": "storyworld.canon-release.v1",
+    "canon_release_id": "00000000-0000-7000-8000-000000000420",
+    "property_id": "00000000-0000-7000-8000-000000000490",
+    "branch": "youth-adaptation",
+    "release_name": "probe-adaptation-youth",
+    "release_version": "1.0.0",
+    "created_at": "2026-07-28T00:00:00Z",
+    "accepted_by_receipt_ref": "synthetic:receipt:probe",
+    "supersedes_ref": null,
+    "facts": [
+      {
+        "fact_id": "00000000-0000-7000-8000-000000000422",
+        "revision_id": "00000000-0000-7000-8000-000000000423",
+        "subject_ref": "story:the-crossing",
+        "predicate": "season",
+        "value": {
+          "type": "text",
+          "content": "In the youth edition the story is set in high summer."
+        },
+        "classification": "production_local_fact",
+        "scope": "probe",
+        "visibility": "public",
+        "status": "accepted",
+        "source_ref": "synthetic:probe-source"
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "00000000-0000-7000-8000-000000000421",
+        "entity_type": "character",
+        "name": "Pellquist the river-keeper (composite)",
+        "visibility": "public"
+      },
+      {
+        "entity_id": "00000000-0000-7000-8000-000000000415",
+        "entity_type": "character",
+        "name": "Wren (protagonist)",
+        "visibility": "public"
+      }
+    ],
+    "relationships": [],
+    "timeline_events": [],
+    "reference_pack_refs": [],
+    "content_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "branch_metadata": {
+      "branch_type": "adaptation-ish",
+      "parent_branch": "official",
+      "pinned_source_release_ref": "00000000-0000-7000-8000-000000000410",
+      "overrides": [
+        {
+          "override_id": "ov-season",
+          "target_ref": "fact:00000000-0000-7000-8000-000000000411",
+          "change_summary": "Winter setting becomes summer for the youth-audience edition; source branch unchanged."
+        }
+      ],
+      "composites": [
+        {
+          "composite_entity_ref": "entity:00000000-0000-7000-8000-000000000421",
+          "replaces_entity_refs": [
+            "entity:00000000-0000-7000-8000-000000000413",
+            "entity:00000000-0000-7000-8000-000000000414"
+          ]
+        }
+      ],
+      "omissions": [
+        "scene:cellar-flashback omitted from the audio and youth editions for pacing"
+      ]
+    }
+  }
+}

@@ -1,0 +1,487 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/runtime-content-release/v1",
+  "$description": "Planned rejection: a compiled package carrying player-specific state. The closed schema rejects the foreign 'player_state' member outright (ADR-0012: player state never enters Storyworld packages). The registry's circular-prerequisite scenario is graph-semantic and is enforced by kernel validation at F3; the schema layer guarantees prerequisites are declared, typed references.",
+  "$expect_errors": [
+    "unknown property 'player_state'"
+  ],
+  "instance": {
+    "schema_version": "storyworld.runtime-content-release.v1",
+    "release_id": "b1c40000-0000-4000-8000-000000000900",
+    "property_id": "b1c40000-0000-4000-8000-000000000000",
+    "canon_release_ref": "b1c40000-0000-4000-8000-000000000001",
+    "target": {
+      "runtime": "bekindrewind-runtime",
+      "target_version": "test-001",
+      "capability_requirements": [
+        "walkable-2d-or-3d-plaza",
+        "npc-dialogue",
+        "inventory-instances",
+        "world-clock",
+        "trigger-conditions"
+      ]
+    },
+    "compiler": {
+      "name": "storyworld-runtime-compiler-fixture",
+      "version": "0.1.0"
+    },
+    "locations": [
+      {
+        "location_id": "b1c40000-0000-4000-8000-000000000210",
+        "name": "Sunset Spool Video",
+        "era_rules": [
+          "ER-01",
+          "ER-02",
+          "ER-03"
+        ],
+        "attributes": {
+          "entrance": "faces south into parking court",
+          "staff_cabinet": "behind counter",
+          "back_door": "service alley"
+        }
+      },
+      {
+        "location_id": "b1c40000-0000-4000-8000-000000000211",
+        "name": "Pepperwheel Pizza",
+        "era_rules": [
+          "ER-01",
+          "ER-02",
+          "ER-03"
+        ],
+        "attributes": {
+          "booth_window_faces": "arcade across the parking court"
+        }
+      },
+      {
+        "location_id": "b1c40000-0000-4000-8000-000000000212",
+        "name": "Quarter Comet Arcade",
+        "era_rules": [
+          "ER-01",
+          "ER-02",
+          "ER-03"
+        ],
+        "attributes": {
+          "poster": "exterior wall beside door",
+          "side_path": "west to Tin Rocket Toy Shop"
+        }
+      },
+      {
+        "location_id": "b1c40000-0000-4000-8000-000000000213",
+        "name": "Tin Rocket Toy Shop",
+        "era_rules": [
+          "ER-01",
+          "ER-02",
+          "ER-03"
+        ],
+        "attributes": {
+          "demonstration_table": "just inside entrance"
+        }
+      },
+      {
+        "location_id": "b1c40000-0000-4000-8000-000000000214",
+        "name": "Rear service alley",
+        "era_rules": [
+          "ER-01"
+        ],
+        "attributes": {
+          "initial_access": "inaccessible"
+        }
+      }
+    ],
+    "spatial_relationships": [
+      {
+        "from_location_ref": "b1c40000-0000-4000-8000-000000000210",
+        "to_location_ref": "b1c40000-0000-4000-8000-000000000212",
+        "relation": "across_parking_court_from"
+      },
+      {
+        "from_location_ref": "b1c40000-0000-4000-8000-000000000211",
+        "to_location_ref": "b1c40000-0000-4000-8000-000000000210",
+        "relation": "east_of_and_adjacent_to"
+      },
+      {
+        "from_location_ref": "b1c40000-0000-4000-8000-000000000213",
+        "to_location_ref": "b1c40000-0000-4000-8000-000000000212",
+        "relation": "west_of"
+      },
+      {
+        "from_location_ref": "b1c40000-0000-4000-8000-000000000214",
+        "to_location_ref": "b1c40000-0000-4000-8000-000000000210",
+        "relation": "connects_rear"
+      },
+      {
+        "from_location_ref": "b1c40000-0000-4000-8000-000000000214",
+        "to_location_ref": "b1c40000-0000-4000-8000-000000000211",
+        "relation": "connects_rear"
+      },
+      {
+        "from_location_ref": "b1c40000-0000-4000-8000-000000000214",
+        "to_location_ref": "b1c40000-0000-4000-8000-000000000212",
+        "relation": "connects_rear"
+      },
+      {
+        "from_location_ref": "b1c40000-0000-4000-8000-000000000214",
+        "to_location_ref": "b1c40000-0000-4000-8000-000000000213",
+        "relation": "connects_rear"
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "b1c40000-0000-4000-8000-000000000220",
+        "name": "Mira Chen",
+        "role": "evening clerk",
+        "runtime_metadata": {
+          "initial_trust": 0,
+          "location_ref": "b1c40000-0000-4000-8000-000000000210"
+        }
+      },
+      {
+        "entity_id": "b1c40000-0000-4000-8000-000000000221",
+        "name": "D.J. Pierce",
+        "role": "arcade attendant",
+        "runtime_metadata": {
+          "initial_trust": 0,
+          "location_ref": "b1c40000-0000-4000-8000-000000000212"
+        }
+      },
+      {
+        "entity_id": "b1c40000-0000-4000-8000-000000000222",
+        "name": "Sal Bell",
+        "role": "owner and counter cook",
+        "runtime_metadata": {
+          "initial_trust": 0,
+          "location_ref": "b1c40000-0000-4000-8000-000000000211",
+          "booth_hint_condition": "after Alex inspects the booth twice"
+        }
+      },
+      {
+        "entity_id": "b1c40000-0000-4000-8000-000000000223",
+        "name": "Alex",
+        "role": "player_avatar_definition",
+        "runtime_metadata": {
+          "age": 13,
+          "gender_presentation": "runtime-selectable",
+          "starting_items": [
+            "b1c40000-0000-4000-8000-000000000230"
+          ]
+        }
+      }
+    ],
+    "dialogue": [
+      {
+        "dialogue_id": "b1c40000-0000-4000-8000-000000000910",
+        "entity_ref": "b1c40000-0000-4000-8000-000000000220",
+        "nodes": [
+          {
+            "node_id": "mira-01",
+            "speaker_ref": "b1c40000-0000-4000-8000-000000000220",
+            "line": "Rewind it, return it, and do not make me explain the late-fee chart again.",
+            "conditions": [
+              "M1 active"
+            ],
+            "next_node_refs": []
+          },
+          {
+            "node_id": "mira-02",
+            "speaker_ref": "b1c40000-0000-4000-8000-000000000220",
+            "line": "The staff-pick cabinet opens for people who finish what they start.",
+            "conditions": [
+              "M2 complete"
+            ],
+            "next_node_refs": []
+          }
+        ]
+      },
+      {
+        "dialogue_id": "b1c40000-0000-4000-8000-000000000911",
+        "entity_ref": "b1c40000-0000-4000-8000-000000000221",
+        "nodes": [
+          {
+            "node_id": "dj-01",
+            "speaker_ref": "b1c40000-0000-4000-8000-000000000221",
+            "line": "Three tokens. One life. No blaming the joystick.",
+            "conditions": [
+              "M2 active"
+            ],
+            "next_node_refs": []
+          },
+          {
+            "node_id": "dj-02",
+            "speaker_ref": "b1c40000-0000-4000-8000-000000000221",
+            "line": "Beat forty-two three and I will trust you with Side B.",
+            "conditions": [
+              "M2 active"
+            ],
+            "next_node_refs": []
+          }
+        ]
+      },
+      {
+        "dialogue_id": "b1c40000-0000-4000-8000-000000000912",
+        "entity_ref": "b1c40000-0000-4000-8000-000000000222",
+        "nodes": [
+          {
+            "node_id": "sal-01",
+            "speaker_ref": "b1c40000-0000-4000-8000-000000000222",
+            "line": "Slice is a dollar ten. Advice is free and usually ignored.",
+            "conditions": [],
+            "next_node_refs": []
+          },
+          {
+            "node_id": "sal-02",
+            "speaker_ref": "b1c40000-0000-4000-8000-000000000222",
+            "line": "That envelope goes to Mira before nine, not after.",
+            "conditions": [],
+            "next_node_refs": []
+          }
+        ]
+      }
+    ],
+    "missions": [
+      {
+        "mission_id": "b1c40000-0000-4000-8000-000000000801",
+        "name": "Return Before Nine",
+        "prerequisites": [
+          "alex_possesses:b1c40000-0000-4000-8000-000000000230",
+          "location_open:b1c40000-0000-4000-8000-000000000210",
+          "world_time_before:21:00"
+        ],
+        "authored_outcomes": [
+          "VHS returned to tray",
+          "rental account clear",
+          "M2 unlocked"
+        ],
+        "state_effects": [
+          {
+            "entity_ref": "b1c40000-0000-4000-8000-000000000230",
+            "attribute": "holder",
+            "to_value": "sunset-spool-return-tray"
+          },
+          {
+            "entity_ref": "b1c40000-0000-4000-8000-000000000230",
+            "attribute": "rental",
+            "to_value": "returned_processing"
+          },
+          {
+            "entity_ref": "b1c40000-0000-4000-8000-000000000223",
+            "attribute": "rental_account",
+            "to_value": "clear"
+          },
+          {
+            "entity_ref": "b1c40000-0000-4000-8000-000000000220",
+            "attribute": "trust",
+            "to_value": 1
+          },
+          {
+            "entity_ref": "b1c40000-0000-4000-8000-000000000231",
+            "attribute": "location",
+            "to_value": "on_video_counter"
+          }
+        ]
+      },
+      {
+        "mission_id": "b1c40000-0000-4000-8000-000000000802",
+        "name": "Three Tokens, One Life",
+        "prerequisites": [
+          "mission_complete:b1c40000-0000-4000-8000-000000000801"
+        ],
+        "authored_outcomes": [
+          "three tokens consumed by Orbit Lancer",
+          "score >= 42300 in one run",
+          "mixtape obtained",
+          "M3 unlocked",
+          "failed run does not respawn consumed tokens; retry credit is runtime state"
+        ],
+        "state_effects": [
+          {
+            "entity_ref": "b1c40000-0000-4000-8000-000000000232",
+            "attribute": "state",
+            "to_value": "consumed"
+          },
+          {
+            "entity_ref": "b1c40000-0000-4000-8000-000000000221",
+            "attribute": "trust",
+            "to_value": 1
+          },
+          {
+            "entity_ref": "b1c40000-0000-4000-8000-000000000233",
+            "attribute": "holder",
+            "to_value": "b1c40000-0000-4000-8000-000000000223"
+          },
+          {
+            "entity_ref": "b1c40000-0000-4000-8000-000000000234",
+            "attribute": "state",
+            "to_value": "torn_lower_corner"
+          }
+        ]
+      },
+      {
+        "mission_id": "b1c40000-0000-4000-8000-000000000803",
+        "name": "Staff Pick After Dark",
+        "prerequisites": [
+          "mission_complete:b1c40000-0000-4000-8000-000000000802",
+          "alex_possesses:b1c40000-0000-4000-8000-000000000233",
+          "world_time_at_or_after:20:45"
+        ],
+        "authored_outcomes": [
+          "mixtape delivered to Mira",
+          "cabinet opened with staff key",
+          "Memory Card #12 available",
+          "key returned to cabinet hook",
+          "closing-time ambience"
+        ],
+        "state_effects": [
+          {
+            "entity_ref": "b1c40000-0000-4000-8000-000000000233",
+            "attribute": "holder",
+            "to_value": "b1c40000-0000-4000-8000-000000000220"
+          },
+          {
+            "entity_ref": "b1c40000-0000-4000-8000-000000000231",
+            "attribute": "location",
+            "to_value": "on_cabinet_hook"
+          },
+          {
+            "entity_ref": "cabinet:staff-picks",
+            "attribute": "state",
+            "to_value": "unlocked_open"
+          },
+          {
+            "entity_ref": "b1c40000-0000-4000-8000-000000000235",
+            "attribute": "availability",
+            "to_value": "available"
+          },
+          {
+            "entity_ref": "b1c40000-0000-4000-8000-000000000220",
+            "attribute": "trust",
+            "to_value": 2
+          },
+          {
+            "entity_ref": "plaza:ambience",
+            "attribute": "state",
+            "to_value": "closing_time"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "item_id": "b1c40000-0000-4000-8000-000000000230",
+        "name": "Overdue VHS: Summer Signal from Planet Nine",
+        "item_type": "vhs_cassette",
+        "collectible": false,
+        "state_rules": [
+          "rented_overdue -> returned_processing -> shelved"
+        ]
+      },
+      {
+        "item_id": "b1c40000-0000-4000-8000-000000000231",
+        "name": "Brass STAFF PICKS key",
+        "item_type": "key",
+        "collectible": false,
+        "state_rules": [
+          "on_mira_lanyard -> on_video_counter -> held_by_alex -> in_cabinet_lock -> on_cabinet_hook",
+          "never in two holders simultaneously"
+        ]
+      },
+      {
+        "item_id": "b1c40000-0000-4000-8000-000000000232",
+        "name": "Quarter Comet token (x3)",
+        "item_type": "token",
+        "collectible": false,
+        "state_rules": [
+          "placed -> collected -> consumed"
+        ]
+      },
+      {
+        "item_id": "b1c40000-0000-4000-8000-000000000233",
+        "name": "Mixtape: SUNSET SIDE B",
+        "item_type": "cassette",
+        "collectible": false,
+        "state_rules": [
+          "held_by_dj -> held_by_alex -> held_by_mira"
+        ]
+      },
+      {
+        "item_id": "b1c40000-0000-4000-8000-000000000234",
+        "name": "Arcade tournament poster",
+        "item_type": "poster",
+        "collectible": false,
+        "state_rules": [
+          "intact -> torn_lower_corner -> repaired_with_clear_tape (tear line remains visible)"
+        ]
+      },
+      {
+        "item_id": "b1c40000-0000-4000-8000-000000000235",
+        "name": "Memory Card #12: Closing Time Glow",
+        "item_type": "memory_card",
+        "collectible": true,
+        "state_rules": [
+          "in_cabinet -> available -> collected (player ownership is runtime state)"
+        ]
+      }
+    ],
+    "triggers": [
+      {
+        "trigger_id": "b1c40000-0000-4000-8000-000000000920",
+        "condition": "player enters Sunset Spool Video at or after 20:45 with M2 complete and M3 not started",
+        "effect_refs": [
+          "lights_off_sequence:back_shelves",
+          "dialogue:mira_closing",
+          "mission_start:b1c40000-0000-4000-8000-000000000803"
+        ]
+      },
+      {
+        "trigger_id": "b1c40000-0000-4000-8000-000000000921",
+        "condition": "player inspects tournament poster in state torn_lower_corner and possesses or receives clear tape from Sal",
+        "effect_refs": [
+          "item_state:b1c40000-0000-4000-8000-000000000234:repaired_with_clear_tape",
+          "dialogue:dj_gratitude_line"
+        ]
+      }
+    ],
+    "sound_zones": [
+      {
+        "zone_id": "b1c40000-0000-4000-8000-000000000930",
+        "location_ref": "b1c40000-0000-4000-8000-000000000210",
+        "intent": "low fluorescent hum, VHS cases sliding, soft fictional synth instrumental",
+        "source_asset_refs": []
+      },
+      {
+        "zone_id": "b1c40000-0000-4000-8000-000000000931",
+        "location_ref": "b1c40000-0000-4000-8000-000000000211",
+        "intent": "kitchen clatter, soda fountain, distant radio with non-lyrical original music",
+        "source_asset_refs": []
+      },
+      {
+        "zone_id": "b1c40000-0000-4000-8000-000000000932",
+        "location_ref": "b1c40000-0000-4000-8000-000000000212",
+        "intent": "layered fictional cabinet sounds, token drop, ventilation fan",
+        "source_asset_refs": []
+      },
+      {
+        "zone_id": "b1c40000-0000-4000-8000-000000000933",
+        "location_ref": "b1c40000-0000-4000-8000-000000000213",
+        "intent": "wind-up mechanisms, quiet ceiling fan, bell over door",
+        "source_asset_refs": []
+      }
+    ],
+    "asset_index": [],
+    "governance_metadata": {
+      "rights_evidence_refs": [],
+      "provenance_complete": true,
+      "disclosure_obligations": [],
+      "sensitivity": "internal"
+    },
+    "release_notes": "Fixture slice rewind-plaza.release-test-001. Includes stable IDs, spatial references, initial state, mission graph, prerequisites, authored effects, triggers, item state transitions, dialogue constraints, and sound-zone intent. Contains no player save files, input mappings, collision, physics, platform achievements, rendering implementation, or live telemetry.",
+    "created_at": "2026-07-28",
+    "content_sha256": "d499429d5f89d54d8009996902590527f74089bd0fe3f98c649c6af4ef1aabaa",
+    "player_state": {
+      "save_slot": 1,
+      "alex_position": [
+        12,
+        4
+      ],
+      "completed_missions": []
+    }
+  }
+}

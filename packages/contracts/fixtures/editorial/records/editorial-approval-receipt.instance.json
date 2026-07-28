@@ -1,0 +1,24 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/approval-receipt/v1",
+  "schema_version": "storyworld.approval-receipt.v1",
+  "receipt_id": "ed170000-0000-4000-8000-000000000900",
+  "approval_layer": "asset_creative_approval",
+  "decision": "approved",
+  "subject_refs": [
+    "ed170000-0000-4000-8000-000000000001",
+    "ed170000-0000-4000-8000-000000000850"
+  ],
+  "subject_sha256": [
+    "73736d44e23245719a580d24a5ca623d7e28c94cd27f5a1485c1cee7be891c41",
+    "4e342cef8b59daea15e10fff41a25772f14680d1cfcca66e46b39fe3e1efb94f"
+  ],
+  "policy_refs": [
+    "policy:dignity-and-prohibited-identifiers-SRC-ED-001"
+  ],
+  "decided_by": "fixture-owner (synthetic decision for test fixture)",
+  "decided_by_role": "editor",
+  "decided_at": "2026-07-28T00:00:00Z",
+  "authority_host": "storyworld",
+  "invalidated_by": null,
+  "expiry": null
+}

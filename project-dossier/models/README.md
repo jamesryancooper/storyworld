@@ -26,3 +26,15 @@
 When the F1 contract pack is produced (PLAN-0003), its machine-readable
 schemas become additional registered representations; this directory may then
 hold model explanations that the schemas do not carry.
+
+## Narrative architecture patterns
+
+The fixture program validates the domain model against **narrative
+architecture patterns** — structural behaviors (branching, nonlinear
+chronology, contested truth, adaptation, shared canon, evidence correction,
+changing rights) rather than genres or channels. The pattern program and
+its machine-readable inventory live at
+`packages/contracts/fixtures/sources/packet/PATTERN_DRIVEN_EXPANSION.md`
+and `packages/contracts/fixtures/registry.json`; taxonomy governance is the
+fixture charter (v2 proposed, DEC-0007). Recommended dossier/planning title
+for this body of work: **Pattern-Driven Narrative Architecture Coverage**.

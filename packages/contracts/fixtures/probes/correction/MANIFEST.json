@@ -1,0 +1,17 @@
+{
+  "fixture_id": "PROBE-CORRECTION",
+  "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+  "fictional": true,
+  "sensitivity": "internal",
+  "permitted_use": "test_fixture_in_this_repository_only",
+  "canon_classification": "synthetic_probe_content — wholly invented minimal content exercising a structural pattern; never production canon",
+  "source_files": [
+    "../sources/packet/PATTERN_DRIVEN_EXPANSION.md"
+  ],
+  "restricted_source_files": [],
+  "provenance": {
+    "packet_section": "section G (Evidence-based nonfiction and post-publication correction)",
+    "purpose": "F1 schema probe: correction",
+    "authored_under": "TASK-0004"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/approval-receipt/v1",
+  "schema_version": "storyworld.approval-receipt.v1",
+  "receipt_id": "c0330000-0000-4000-8000-000000000301",
+  "approval_layer": "commerce_approval",
+  "decision": "revision_requested",
+  "subject_refs": [
+    "NAB-VELLUMVALE-001-v1",
+    "IG-CAROUSEL-PANEL-08-v1"
+  ],
+  "subject_sha256": [
+    "3e5aa81d6b8c48b8e96229a7a3396bf914eebc1ae202ac722f3610550d993e99",
+    "5ebb2e0d4b83d580ae792f20b84b6926747b75ded171d2934b0311786083022f"
+  ],
+  "policy_refs": [
+    "policy:vellumvale-claims-and-depictions",
+    "rule:packaging-current-version-only"
+  ],
+  "decided_by": "commerce-foundry-reviewer (synthetic decision for test fixture)",
+  "decided_by_role": "commerce_reviewer",
+  "decided_at": "2026-07-28T00:00:00Z",
+  "authority_host": "commerce_foundry",
+  "invalidated_by": null,
+  "expiry": null,
+  "revision_request": {
+    "typed_findings": [
+      {
+        "finding_type": "PACKAGING_VERSION_MISMATCH",
+        "subject_ref": "IG-CAROUSEL-PANEL-08-v1",
+        "instruction": "Rendition shows obsolete packaging version 1. Replace package region with pinned version 2; retain accepted character, book, product, lighting, composition, caption, and disclosure."
+      }
+    ]
+  }
+}

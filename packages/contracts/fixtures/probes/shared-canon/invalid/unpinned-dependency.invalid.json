@@ -1,0 +1,33 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/canon-release/v1",
+  "$description": "Planned rejection (probe E): a consumer renaming the shared station inside its own property must not silently propagate — cross-property use is only legal through a version-pinned dependency. Schema-level proxy: a dependency without pinned_canon_release_ref is rejected; unpinned live references are structurally impossible.",
+  "$expect_errors": [
+    "missing required property 'pinned_canon_release_ref'"
+  ],
+  "instance": {
+    "schema_version": "storyworld.canon-release.v1",
+    "canon_release_id": "00000000-0000-7000-8000-000000000520",
+    "property_id": "00000000-0000-7000-8000-000000000502",
+    "branch": "official",
+    "release_name": "probe-consumer-lanternward",
+    "release_version": "1.0.0",
+    "created_at": "2026-07-28T00:00:00Z",
+    "accepted_by_receipt_ref": "synthetic:receipt:probe",
+    "supersedes_ref": null,
+    "facts": [],
+    "entities": [],
+    "relationships": [],
+    "timeline_events": [],
+    "reference_pack_refs": [],
+    "content_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "shared_canon_dependencies": [
+      {
+        "provider_property_ref": "property:00000000-0000-7000-8000-000000000501",
+        "entity_refs": [
+          "entity:00000000-0000-7000-8000-000000000511"
+        ],
+        "fork_lineage": null
+      }
+    ]
+  }
+}

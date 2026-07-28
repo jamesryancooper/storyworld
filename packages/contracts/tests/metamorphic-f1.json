@@ -1,0 +1,81 @@
+{
+  "schema_version": "storyworld.metamorphic-f1.v1",
+  "document_role": "active_f1_metamorphic_test_registry",
+  "permission_grant": false,
+  "note": "MET-F1 schema-level transformations (PLAN-0010). Targets are repo-relative to packages/contracts. Later families (MET-F3, MET-B3, MET-B4) are registered in fixtures/registry.json and activate with their phases.",
+  "tests": [
+    {
+      "id": "met-f1-export-reimport",
+      "transformation": "export_reimport_all",
+      "target": null,
+      "params": {},
+      "invariant": "IDs, hashes, and canonical form survive export/re-import (enforced universally by fixture round-trip and checksum checks)."
+    },
+    {
+      "id": "met-f1-reorder",
+      "transformation": "reorder_units",
+      "target": "fixtures/probes/nonlinear-time/records/narrative-structure.instance.json",
+      "params": {
+        "units_key": "narrative_units"
+      },
+      "invariant": "Reordering release units never changes story chronology: story_time and presentation_order are explicit per unit; the unit set is order-independent."
+    },
+    {
+      "id": "met-f1-insert",
+      "transformation": "insert_unit",
+      "target": "fixtures/probes/deep-hierarchy/records/narrative-structure.instance.json",
+      "params": {
+        "units_key": "narrative_units",
+        "new_unit": {
+          "unit_id": "00000000-0000-7000-8000-000000000699",
+          "unit_type": "chapter",
+          "display_number": "2A",
+          "presentation_order": 10,
+          "story_time": "sy-160",
+          "publication_time": null,
+          "parent_unit_ref": "00000000-0000-7000-8000-000000000602"
+        }
+      },
+      "invariant": "Inserting Chapter 2A preserves every existing stable ID and keeps thread references resolvable."
+    },
+    {
+      "id": "met-f1-fork",
+      "transformation": "fork_adaptation",
+      "target": "fixtures/probes/adaptation/records/adaptation-canon-release.instance.json",
+      "params": {
+        "source": "fixtures/probes/adaptation/records/source-canon-release.instance.json",
+        "source_canonical_sha256": "0de0c9d8086f4a46e7dc075ff3d3fd57fdac4519afc37b91040527c411c4e124"
+      },
+      "invariant": "Forking an adaptation pins the exact source release, declares explicit overrides, and leaves source canon byte-identical."
+    },
+    {
+      "id": "met-f1-correct",
+      "transformation": "correct_assertion",
+      "target": "fixtures/probes/correction/records/canon-release.instance.json",
+      "params": {
+        "superseded_assertion_id": "00000000-0000-7000-8000-000000000705",
+        "successor_assertion_id": "00000000-0000-7000-8000-000000000706"
+      },
+      "invariant": "Correcting a source-backed assertion preserves the superseded record with a typed successor; history is never rewritten."
+    },
+    {
+      "id": "met-f1-expire",
+      "transformation": "expire_right",
+      "target": "fixtures/probes/rights-change/records/rights-evidence.instance.json",
+      "params": {
+        "grant_id": "00000000-0000-7000-8000-000000000801",
+        "reference_date": "2026-07-28",
+        "expected_affected_refs": [
+          "approval-receipt:00000000-0000-7000-8000-000000000810",
+          "channel-package:probe-reel-0001",
+          "rendition:probe-audio-r2"
+        ],
+        "expected_unaffected_refs": [
+          "approval-receipt:probe-print-run-untouched",
+          "asset-version:probe-photo-11"
+        ]
+      },
+      "invariant": "Expiring/withdrawing one grant invalidates exactly the declared affected uses and nothing else; history is preserved."
+    }
+  ]
+}

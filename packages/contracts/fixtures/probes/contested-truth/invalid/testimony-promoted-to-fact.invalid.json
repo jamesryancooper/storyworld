@@ -1,0 +1,112 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/canon-release/v1",
+  "$description": "Planned rejection (probe B): a character's testimony must never be auto-promoted to canon fact merely because it appears in dialogue. Encoded schema-level as a fact whose classification claims to be 'testimony' — testimony is not a fact classification; it must be an assertion.",
+  "$expect_errors": [
+    ".facts[0].classification",
+    "not in enum"
+  ],
+  "instance": {
+    "schema_version": "storyworld.canon-release.v1",
+    "canon_release_id": "00000000-0000-7000-8000-000000000210",
+    "property_id": "00000000-0000-7000-8000-000000000290",
+    "branch": "official",
+    "release_name": "probe-contested-truth",
+    "release_version": "1.0.0",
+    "created_at": "2026-07-28T00:00:00Z",
+    "accepted_by_receipt_ref": "synthetic:receipt:probe",
+    "supersedes_ref": null,
+    "facts": [
+      {
+        "fact_id": "00000000-0000-7000-8000-000000000225",
+        "revision_id": "00000000-0000-7000-8000-000000000226",
+        "subject_ref": "event:the-yard-incident",
+        "predicate": "who_opened_gate",
+        "value": {
+          "type": "text",
+          "content": "A stranger forced the gate (as testified)."
+        },
+        "classification": "testimony",
+        "scope": "probe",
+        "visibility": "public",
+        "status": "accepted",
+        "source_ref": "synthetic:probe-source"
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "00000000-0000-7000-8000-000000000201",
+        "entity_type": "narrator",
+        "name": "Narrator Abel",
+        "visibility": "public"
+      },
+      {
+        "entity_id": "00000000-0000-7000-8000-000000000202",
+        "entity_type": "narrator",
+        "name": "Narrator Brill",
+        "visibility": "public"
+      },
+      {
+        "entity_id": "00000000-0000-7000-8000-000000000203",
+        "entity_type": "narrator",
+        "name": "Narrator Coss",
+        "visibility": "public"
+      },
+      {
+        "entity_id": "00000000-0000-7000-8000-000000000204",
+        "entity_type": "object",
+        "name": "Door-camera log",
+        "visibility": "public"
+      }
+    ],
+    "relationships": [],
+    "timeline_events": [],
+    "reference_pack_refs": [],
+    "content_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "assertions": [
+      {
+        "assertion_id": "00000000-0000-7000-8000-000000000211",
+        "speaker_ref": "entity:00000000-0000-7000-8000-000000000201",
+        "claim": "A stranger forced the gate from the street side.",
+        "asserted_at_story_time": "sy-incident-night",
+        "speaker_knowledge_basis": "present at or reviewing the fictional probe incident",
+        "honesty": "honest",
+        "accuracy": "mistaken",
+        "confidence": "certain",
+        "visibility": "public",
+        "status": "active",
+        "superseded_by_ref": null,
+        "evidence_refs": []
+      },
+      {
+        "assertion_id": "00000000-0000-7000-8000-000000000212",
+        "speaker_ref": "entity:00000000-0000-7000-8000-000000000202",
+        "claim": "The gate was opened from inside.",
+        "asserted_at_story_time": "sy-incident-night",
+        "speaker_knowledge_basis": "present at or reviewing the fictional probe incident",
+        "honesty": "deliberate_lie",
+        "accuracy": "accurate",
+        "confidence": "certain",
+        "visibility": "public",
+        "status": "active",
+        "superseded_by_ref": null,
+        "evidence_refs": [
+          "note:brill-motive — Brill intends to mislead about HOW they know, yet the claim itself is accurate; honesty and accuracy are independent axes"
+        ]
+      },
+      {
+        "assertion_id": "00000000-0000-7000-8000-000000000213",
+        "speaker_ref": "entity:00000000-0000-7000-8000-000000000203",
+        "claim": "Someone was at the gate after dark; I saw only a lantern.",
+        "asserted_at_story_time": "sy-incident-night",
+        "speaker_knowledge_basis": "present at or reviewing the fictional probe incident",
+        "honesty": "honest",
+        "accuracy": "partial",
+        "confidence": "uncertain",
+        "visibility": "public",
+        "status": "active",
+        "superseded_by_ref": null,
+        "evidence_refs": []
+      }
+    ]
+  }
+}

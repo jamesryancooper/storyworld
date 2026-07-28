@@ -1,0 +1,80 @@
+{
+  "schema_version": "storyworld.fixture-authoring-inventory.v0",
+  "status": "author_proposed",
+  "canon_boundary": "fixture decisions become fixture canon only unless separately promoted to production property canon",
+  "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+  "fixtures": [
+    {
+      "id": "FIX-STILLHOUSE",
+      "path": "F1/01-stillhouse.md",
+      "phase": "F1",
+      "property": "The Stillhouse Archive",
+      "sample": "The Second Chair",
+      "primary_tests": ["reveal_dependencies", "symbol_continuity", "chronology", "creator_truth", "audience_knowledge", "spoiler_safety"]
+    },
+    {
+      "id": "FIX-EDITORIAL",
+      "path": "F1/02-editorial-carousel.md",
+      "phase": "F1",
+      "property": "Hingeweather Notes",
+      "sample": "The Gate Is Part of the Repair",
+      "primary_tests": ["voice", "recurring_metaphor", "privacy", "dignity", "source_separation", "carousel_structure"]
+    },
+    {
+      "id": "FIX-BKR",
+      "path": "F1/03-bekindrewind.md",
+      "phase": "F1",
+      "property": "BeKindRewind / Rewind Plaza",
+      "sample": "Return Before Nine mission chain",
+      "primary_tests": ["locations", "era_rules", "npcs", "mission_dependencies", "collectibles", "dialogue", "runtime_export"]
+    },
+    {
+      "id": "FIX-COMMERCE",
+      "path": "F1/04-commerce-campaign.md",
+      "phase": "F1",
+      "property": "Vellumvale Fixture Works",
+      "sample": "FF-17 launch",
+      "primary_tests": ["product_snapshot", "approved_claims", "prohibited_claims", "product_fidelity", "commercial_rejection", "focused_revision", "resubmission"]
+    },
+    {
+      "id": "FIX-DFF-CARDS",
+      "path": "extended/05-dumpster-fire-friends.md",
+      "phase": "post-F1",
+      "property": "Dumpster Fire Friends",
+      "sample": "Cards 007 and 008",
+      "primary_tests": ["recurring_character_schema", "stable_card_number", "stats", "layout_reuse", "behavior_impact_recovery"]
+    },
+    {
+      "id": "FIX-NOTES-DAUGHTER",
+      "path": "extended/06-notes-to-my-daughter.md",
+      "phase": "post-F1",
+      "property": "Notes to My Daughter",
+      "sample": "The Porch Light Is Still On",
+      "primary_tests": ["dignity", "prohibited_identifiers", "likeness_prohibition", "source_separation", "metaphor_progression"]
+    },
+    {
+      "id": "FIX-LIVING-INHERITANCE",
+      "path": "extended/07-living-inheritance.md",
+      "phase": "post-F1",
+      "property": "Living Inheritance",
+      "sample": "Ordinary Days",
+      "primary_tests": ["editorial_taxonomy", "source_photo_rights", "private_public_separation", "cross_format_lineage"]
+    },
+    {
+      "id": "FIX-FIELD-MANUAL",
+      "path": "extended/08-proper-manhood.md",
+      "phase": "post-F1",
+      "property": "Proper Manhood",
+      "sample": "Field Note 001",
+      "primary_tests": ["lesson_taxonomy", "scenario_principle_exercise_takeaway", "design_tokens", "numbering", "cross_references", "derivatives"]
+    },
+    {
+      "id": "FIX-LANTERNS",
+      "path": "extended/09-the-lanterns.md",
+      "phase": "post-F1",
+      "property": "The Lanterns",
+      "sample": "Kael Vire season one",
+      "primary_tests": ["world_rules", "character_false_belief", "moral_agency", "long_reveal_graph", "audience_belief_phases", "safety_policy"]
+    }
+  ]
+}

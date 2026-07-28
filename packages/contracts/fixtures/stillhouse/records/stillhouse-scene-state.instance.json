@@ -1,0 +1,100 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/scene-state-packet/v1",
+  "schema_version": "storyworld.scene-state-packet.v1",
+  "packet_id": "57111000-0000-4000-8000-000000000900",
+  "scene_ref": "57111000-0000-4000-8000-000000000703",
+  "canon_release_ref": "57111000-0000-4000-8000-000000000001",
+  "narrative_branch": "stillhouse-test/the-second-chair",
+  "story_time": "2026-07-c",
+  "entity_states": [
+    {
+      "entity_ref": "57111000-0000-4000-8000-000000000200",
+      "state": {
+        "location": "The Stillhouse kitchen",
+        "emotional_state": "quiet recognition",
+        "concealing": "recurring flashes of a red float and two wet sets of footprints"
+      },
+      "locked_attributes": [
+        "public_name_never_stated"
+      ]
+    },
+    {
+      "entity_ref": "57111000-0000-4000-8000-000000000208",
+      "state": {
+        "identified_as": "room key only; annex association not yet public"
+      },
+      "locked_attributes": [
+        "annex_identity_before_R3"
+      ]
+    },
+    {
+      "entity_ref": "57111000-0000-4000-8000-000000000213",
+      "state": {
+        "depiction": "split seam shown; outcome withheld"
+      },
+      "locked_attributes": [
+        "outcome_withheld"
+      ]
+    }
+  ],
+  "entering_state_summary": "Dispatch carbon reconstructed; key tag matched to a cropped white-curtain photograph; the Archivist is prepared to state that June was her sister while the outcome remains hidden.",
+  "expected_effects": [
+    {
+      "entity_ref": "57111000-0000-4000-8000-000000000200",
+      "attribute": "public_claim",
+      "to_value": "June was my sister"
+    },
+    {
+      "entity_ref": "audience",
+      "attribute": "knowledge_state",
+      "to_value": "post-episode-3"
+    }
+  ],
+  "audience_knowledge_refs": [
+    "fact:57111000-0000-4000-8000-000000000119"
+  ],
+  "character_knowledge": [
+    {
+      "entity_ref": "57111000-0000-4000-8000-000000000200",
+      "knows": [
+        "She lived in the house as a child.",
+        "Her mother refused to discuss April 1989.",
+        "June was her younger sister and was involved in a water emergency on 4/17."
+      ],
+      "wrongly_believes": []
+    },
+    {
+      "entity_ref": "57111000-0000-4000-8000-000000000203",
+      "knows": [
+        "A conscious child from a Route 17 water emergency was admitted to Room 217.",
+        "The intake line was later removed from the bound ledger.",
+        "The child was transferred three days later."
+      ],
+      "wrongly_believes": [
+        "June died shortly after transfer."
+      ]
+    }
+  ],
+  "active_threads": [
+    {
+      "thread_ref": "57111000-0000-4000-8000-000000000803",
+      "thread_type": "reveal",
+      "earliest_permitted_reveal_ref": "57111000-0000-4000-8000-000000000703"
+    },
+    {
+      "thread_ref": "57111000-0000-4000-8000-000000000804",
+      "thread_type": "reveal",
+      "earliest_permitted_reveal_ref": "57111000-0000-4000-8000-000000000703"
+    },
+    {
+      "thread_ref": "57111000-0000-4000-8000-000000000805",
+      "thread_type": "reveal"
+    }
+  ],
+  "reference_pack_refs": [],
+  "policy_refs": [
+    "policy:arg-safety-stillhouse"
+  ],
+  "created_at": "2026-07-28",
+  "content_sha256": "d987f7a3192b6600433b144bfce019f68f0b4230adddf650e3ba7aa6e5449017"
+}

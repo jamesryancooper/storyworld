@@ -1,0 +1,77 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/narrative-structure/v1",
+  "schema_version": "storyworld.narrative-structure.v1",
+  "structure_id": "b1c40000-0000-4000-8000-000000000800",
+  "property_id": "b1c40000-0000-4000-8000-000000000000",
+  "canon_release_ref": "b1c40000-0000-4000-8000-000000000001",
+  "production_ref": "production:rewind-plaza-slice",
+  "narrative_units": [
+    {
+      "unit_id": "b1c40000-0000-4000-8000-000000000801",
+      "unit_type": "mission",
+      "display_number": "M1",
+      "presentation_order": 1,
+      "story_time": "1986-summer-evening-19:50",
+      "publication_time": null,
+      "parent_unit_ref": null,
+      "pov_entity_ref": "b1c40000-0000-4000-8000-000000000223",
+      "temporal_marker": "linear"
+    },
+    {
+      "unit_id": "b1c40000-0000-4000-8000-000000000802",
+      "unit_type": "mission",
+      "display_number": "M2",
+      "presentation_order": 2,
+      "story_time": "1986-summer-evening-20:10",
+      "publication_time": null,
+      "parent_unit_ref": null,
+      "pov_entity_ref": "b1c40000-0000-4000-8000-000000000223",
+      "temporal_marker": "linear"
+    },
+    {
+      "unit_id": "b1c40000-0000-4000-8000-000000000803",
+      "unit_type": "mission",
+      "display_number": "M3",
+      "presentation_order": 3,
+      "story_time": "1986-summer-evening-20:45",
+      "publication_time": null,
+      "parent_unit_ref": null,
+      "pov_entity_ref": "b1c40000-0000-4000-8000-000000000223",
+      "temporal_marker": "linear"
+    }
+  ],
+  "choices": [],
+  "branches": [],
+  "threads": [
+    {
+      "thread_id": "b1c40000-0000-4000-8000-000000000811",
+      "thread_type": "mission",
+      "introduced_in_unit_ref": "b1c40000-0000-4000-8000-000000000801",
+      "resolved_in_unit_ref": "b1c40000-0000-4000-8000-000000000801",
+      "earliest_permitted_unit_ref": "b1c40000-0000-4000-8000-000000000801",
+      "depends_on_thread_refs": []
+    },
+    {
+      "thread_id": "b1c40000-0000-4000-8000-000000000812",
+      "thread_type": "mission",
+      "introduced_in_unit_ref": "b1c40000-0000-4000-8000-000000000802",
+      "resolved_in_unit_ref": "b1c40000-0000-4000-8000-000000000802",
+      "earliest_permitted_unit_ref": "b1c40000-0000-4000-8000-000000000802",
+      "depends_on_thread_refs": [
+        "b1c40000-0000-4000-8000-000000000811"
+      ]
+    },
+    {
+      "thread_id": "b1c40000-0000-4000-8000-000000000813",
+      "thread_type": "mission",
+      "introduced_in_unit_ref": "b1c40000-0000-4000-8000-000000000803",
+      "resolved_in_unit_ref": "b1c40000-0000-4000-8000-000000000803",
+      "earliest_permitted_unit_ref": "b1c40000-0000-4000-8000-000000000803",
+      "depends_on_thread_refs": [
+        "b1c40000-0000-4000-8000-000000000812"
+      ]
+    }
+  ],
+  "created_at": "2026-07-28",
+  "content_sha256": "bbb9c15e76025bdf01f11d916f26a0188f7095ed5e7f9a9546de5424def9989a"
+}

@@ -1,0 +1,37 @@
+{
+  "fixture_id": "FIX-BKR",
+  "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+  "fictional": true,
+  "sensitivity": "internal",
+  "permitted_use": "test_fixture_in_this_repository_only",
+  "canon_classification": {
+    "established_property_direction": "BeKindRewind / Rewind Plaza; cozy explorable 1980s memory world; video store, arcade, pizza shop, toy store, missions, NPCs, collectibles, ambience, runtime boundary.",
+    "new_fixture_decisions": "Year 1986; Alex age thirteen; all synthetic business names; prices; Mira, D.J., and Sal; items; exact three-mission chain; triggers; state transitions.",
+    "production_canon_effect": "Fixture canon for the runtime slice only unless promoted.",
+    "public_safe_material": "All slice content; no real brands, media titles, or businesses."
+  },
+  "source_files": [
+    "source/03-bekindrewind.md"
+  ],
+  "restricted_source_files": [],
+  "provenance": {
+    "packet_origin": "owner-supplied fixture authoring packet (SRC-0003)",
+    "canon_register_row": "packages/contracts/fixtures/sources/packet/CANON_DECISION_REGISTER.md (FIX-BKR)",
+    "normalized_on": "2026-07-28",
+    "normalized_under": "TASK-0004"
+  },
+  "record_files": [
+    "bkr-approval-receipt.instance.json",
+    "bkr-canon-release.instance.json",
+    "bkr-runtime-acceptance-receipt.instance.json",
+    "bkr-runtime-release.instance.json",
+    "bkr-structure.instance.json"
+  ],
+  "invalid_files": [
+    "bkr-player-state-contamination.invalid.json"
+  ],
+  "neutral_synthetic_values": {
+    "uuids": "deterministic b1c40000-prefixed UUIDs",
+    "retry_credit": "modeled as authored outcome text; the credit itself is runtime state and appears in no Storyworld record"
+  }
+}

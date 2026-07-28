@@ -1,0 +1,146 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/narrative-campaign-brief/v1",
+  "schema_version": "storyworld.narrative-campaign-brief.v1",
+  "brief_id": "c0330000-0000-4000-8000-000000000010",
+  "origin": {
+    "system": "commerce-foundry-fixture",
+    "system_version": "0.0.0",
+    "created_at": "2026-07-28T00:00:00Z"
+  },
+  "authority_host": "commerce_foundry",
+  "identifiers": {
+    "workspace_id": "c0330000-0000-4000-8000-000000000020",
+    "campaign_id": "c0330000-0000-4000-8000-000000000021",
+    "correlation_id": "c0330000-0000-4000-8000-000000000022"
+  },
+  "objective": "Introduce the fictional FF-17 and drive qualified visits to a fictional product-detail page while demonstrating natural product placement inside a small reading story.",
+  "audience": "Adults who read during commutes, travel, or quiet evening routines; no health-condition targeting.",
+  "channels": [
+    "instagram"
+  ],
+  "offer_context": null,
+  "budget": {
+    "amount": 2500,
+    "currency": "USD"
+  },
+  "target_conditions": [
+    "carousel completion",
+    "saves",
+    "product-detail clicks",
+    "first-pass approval",
+    "revision count",
+    "placement-naturalness review"
+  ],
+  "products": [
+    {
+      "product_snapshot_ref": "product-snapshot:vellumvale-ff17:v2",
+      "product_version": "2"
+    }
+  ],
+  "collections": [],
+  "approved_source_images": [
+    {
+      "image_ref": "ref-image:ff17-product-angles",
+      "sha256": "8926ef639ab9ff1e4a7c6448afdd0b7e3ca1924b04f2326d0317a78e2d76dc4f",
+      "purpose": "product fidelity reference"
+    },
+    {
+      "image_ref": "ref-image:ff17-packaging-v2",
+      "sha256": "b930f731f2f5e14d23697a4321d0f8ccfb39d2e826ca8e1a1aee7d7d8c29b153",
+      "purpose": "current version-2 packaging reference"
+    }
+  ],
+  "product_fidelity_reference_refs": [
+    "ref-pack:vellumvale-ff17-fidelity-v2"
+  ],
+  "approved_facts": [
+    {
+      "fact_id": "FACT-APPEARANCE",
+      "statement": "Matte deep-moss body; cream silicone clip pad; one brass-tone circular hinge; narrow rectangular light head with six warm-white light apertures; USB-C port on the right side of the base when the logo faces the viewer; VELLUMVALE wordmark in cream on the outer clip arm; FF-17 model mark beneath the wordmark."
+    },
+    {
+      "fact_id": "FACT-PACKAGING-V2",
+      "statement": "Rectangular deep-moss uncoated paper carton about 165 x 70 x 28 mm; horizontal cream belly band on the middle third; copper-foil VELLUMVALE wordmark centered on the front; cream line drawing of the folded light; crescent thumb notch at the top flap; FF-17 at lower right; no plastic window."
+    }
+  ],
+  "approved_claims": [
+    {
+      "claim_id": "CLAIM-1",
+      "exact_wording": "Three warm-light brightness levels."
+    },
+    {
+      "claim_id": "CLAIM-2",
+      "exact_wording": "USB-C rechargeable."
+    },
+    {
+      "claim_id": "CLAIM-3",
+      "exact_wording": "Folds flat to 18 mm."
+    },
+    {
+      "claim_id": "CLAIM-4",
+      "exact_wording": "Up to 20 hours of light on the lowest setting."
+    },
+    {
+      "claim_id": "CLAIM-5",
+      "exact_wording": "Includes one FF-17 reading light and one 30 cm USB-C cable."
+    }
+  ],
+  "prohibited_claims": [
+    "Eliminates eye strain.",
+    "Clinically proven to improve sleep.",
+    "Waterproof.",
+    "medical-grade",
+    "blue-light-free",
+    "better than every lamp",
+    "all-night battery",
+    "indestructible",
+    "any unapproved superlative"
+  ],
+  "prohibited_depictions": [
+    "Product cracked, scorched, submerged, wet, visibly unsafe, or intentionally damaged.",
+    "FF-17 used as a full-room lamp, flashlight for outdoor navigation, emergency beacon, toy, or wearable device.",
+    "USB-C port moved, controls added, hinge count changed, logo altered, or product recolored.",
+    "Obsolete version-1 packaging in an approved rendition.",
+    "Product beside a real branded book, device, package, logo, or recognizable copyrighted cover.",
+    "Any implication that the warm light treats a medical or sleep condition."
+  ],
+  "constraints": {
+    "brand": [
+      "Vellumvale Fixture Works is a wholly fictional, test-only brand.",
+      "Wordmark VELLUMVALE must be legible whenever the logo side faces camera at a readable scale."
+    ],
+    "style": [
+      "Narrative role is a reading aid: attached to a book or folded beside a book.",
+      "Product proportions consistent with pinned reference images."
+    ],
+    "safety": [
+      "No health-condition targeting.",
+      "No implication of medical or sleep treatment."
+    ],
+    "ip": [
+      "No real branded book, device, package, logo, or recognizable copyrighted cover."
+    ],
+    "policy": [
+      "Any panel using a product claim binds to the exact approved claim text and product snapshot version.",
+      "Packaging shown must be current version 2."
+    ]
+  },
+  "required_disclosures": [
+    "#ad must appear in the first visible line of the caption and in any Story/Reel disclosure field supported by the channel adapter."
+  ],
+  "accessibility_requirements": [
+    "Alt text must identify the product as a fictional clip-on reading light and must not introduce unapproved claims."
+  ],
+  "responsibilities": {
+    "creative_approval_owner": "storyworld",
+    "commercial_approval_owner": "commerce_foundry",
+    "publication_authority": "commerce_foundry"
+  },
+  "expiry": null,
+  "source_drift_behavior": "On product, packaging, or claim change, Commerce Foundry emits a source-change event; Storyworld marks affected drafts, accepted assets, scheduled packages, and published instances stale and proposes revalidation, replacement, withdrawal, or documented waiver to the proper authority.",
+  "signature": {
+    "algorithm": "ed25519",
+    "key_id": "cf-fixture-key",
+    "detached_signature_sha256": "42d8a2663c8902c45f07b371e74c7545ec953440a59e96b09965c1937103e66d"
+  }
+}

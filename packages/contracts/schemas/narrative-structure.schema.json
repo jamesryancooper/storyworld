@@ -1,0 +1,306 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tag:storyworld-platform,2026:contracts/narrative-structure/v1",
+  "title": "Narrative structure",
+  "description": "Narrative units, choices, branches, and threads for a production: flexible hierarchy with stable identity, explicit time coordinates, branching with reconvergence, and promise/reveal threads (canonical part 03 sections 8.1-8.2; part 02 section 5.2). New F1 primitive grounded by probes A/C/F and the BeKindRewind and Stillhouse fixtures.",
+  "$comment": "Display numbering and presentation order are presentation concerns; unit_id is the only identity. Story time, presentation order, publication time, and revision lineage are independent coordinates and must never be conflated (probe C). Authored choices are canonical structure; an individual player's selection is runtime state and never appears here (ADR-0012).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "structure_id",
+    "property_id",
+    "canon_release_ref",
+    "production_ref",
+    "narrative_units",
+    "choices",
+    "branches",
+    "threads",
+    "created_at",
+    "content_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "storyworld.narrative-structure.v1"
+    },
+    "structure_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "property_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "canon_release_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "production_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "description": "Null for schema probes and property-level structures not yet bound to a production."
+    },
+    "narrative_units": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "unit_id",
+          "unit_type",
+          "display_number",
+          "presentation_order",
+          "story_time",
+          "publication_time",
+          "parent_unit_ref"
+        ],
+        "properties": {
+          "unit_id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          },
+          "unit_type": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Template-configurable label: season, episode, scene, chapter, panel, mission, spread, interlude..."
+          },
+          "display_number": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Presentation-only numbering; renumbering never changes unit_id."
+          },
+          "presentation_order": {
+            "type": "integer",
+            "description": "Explicit audience-encounter order; never derived from array position."
+          },
+          "story_time": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Fictional story-time coordinate; state computation binds here, never to presentation or release position."
+          },
+          "publication_time": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "revision_of_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "parent_unit_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "pov_entity_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "temporal_marker": {
+            "enum": [
+              "linear",
+              "flashback",
+              "flash_forward",
+              "replay_alternate_perspective"
+            ]
+          }
+        }
+      }
+    },
+    "choices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "choice_id",
+          "at_unit_ref",
+          "prompt",
+          "options"
+        ],
+        "properties": {
+          "choice_id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          },
+          "at_unit_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "prompt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "options": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "option_id",
+                "label",
+                "prerequisites",
+                "effects",
+                "leads_to_unit_ref",
+                "branch_label"
+              ],
+              "properties": {
+                "option_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "prerequisites": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "effects": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "entity_ref",
+                      "attribute",
+                      "to_value"
+                    ],
+                    "properties": {
+                      "entity_ref": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "attribute": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "to_value": {}
+                    }
+                  }
+                },
+                "leads_to_unit_ref": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "branch_label": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "branches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "branch_label",
+          "reconverges_at_unit_ref",
+          "mutually_exclusive_with"
+        ],
+        "properties": {
+          "branch_label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reconverges_at_unit_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "mutually_exclusive_with": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "threads": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "thread_id",
+          "thread_type",
+          "introduced_in_unit_ref",
+          "resolved_in_unit_ref",
+          "earliest_permitted_unit_ref",
+          "depends_on_thread_refs"
+        ],
+        "properties": {
+          "thread_id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          },
+          "thread_type": {
+            "enum": [
+              "promise",
+              "reveal",
+              "mystery",
+              "mission",
+              "dependency"
+            ]
+          },
+          "introduced_in_unit_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "resolved_in_unit_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "earliest_permitted_unit_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "depends_on_thread_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z)?$"
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

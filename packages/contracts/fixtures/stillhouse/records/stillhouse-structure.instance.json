@@ -1,0 +1,118 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/narrative-structure/v1",
+  "schema_version": "storyworld.narrative-structure.v1",
+  "structure_id": "57111000-0000-4000-8000-000000000700",
+  "property_id": "57111000-0000-4000-8000-000000000000",
+  "canon_release_ref": "57111000-0000-4000-8000-000000000001",
+  "production_ref": "production:stillhouse-mini-season",
+  "narrative_units": [
+    {
+      "unit_id": "57111000-0000-4000-8000-000000000701",
+      "unit_type": "episode",
+      "display_number": "1",
+      "presentation_order": 1,
+      "story_time": "2026-07-a",
+      "publication_time": null,
+      "parent_unit_ref": null,
+      "pov_entity_ref": "57111000-0000-4000-8000-000000000200",
+      "temporal_marker": "linear"
+    },
+    {
+      "unit_id": "57111000-0000-4000-8000-000000000702",
+      "unit_type": "episode",
+      "display_number": "2",
+      "presentation_order": 2,
+      "story_time": "2026-07-b",
+      "publication_time": null,
+      "parent_unit_ref": null,
+      "pov_entity_ref": "57111000-0000-4000-8000-000000000200",
+      "temporal_marker": "linear"
+    },
+    {
+      "unit_id": "57111000-0000-4000-8000-000000000703",
+      "unit_type": "episode",
+      "display_number": "3",
+      "presentation_order": 3,
+      "story_time": "2026-07-c",
+      "publication_time": null,
+      "parent_unit_ref": null,
+      "pov_entity_ref": "57111000-0000-4000-8000-000000000200",
+      "temporal_marker": "linear"
+    }
+  ],
+  "choices": [],
+  "branches": [],
+  "threads": [
+    {
+      "thread_id": "57111000-0000-4000-8000-000000000801",
+      "thread_type": "reveal",
+      "introduced_in_unit_ref": "57111000-0000-4000-8000-000000000701",
+      "resolved_in_unit_ref": "57111000-0000-4000-8000-000000000701",
+      "earliest_permitted_unit_ref": "57111000-0000-4000-8000-000000000701",
+      "depends_on_thread_refs": []
+    },
+    {
+      "thread_id": "57111000-0000-4000-8000-000000000802",
+      "thread_type": "reveal",
+      "introduced_in_unit_ref": "57111000-0000-4000-8000-000000000701",
+      "resolved_in_unit_ref": "57111000-0000-4000-8000-000000000702",
+      "earliest_permitted_unit_ref": "57111000-0000-4000-8000-000000000702",
+      "depends_on_thread_refs": [
+        "57111000-0000-4000-8000-000000000801"
+      ]
+    },
+    {
+      "thread_id": "57111000-0000-4000-8000-000000000803",
+      "thread_type": "reveal",
+      "introduced_in_unit_ref": "57111000-0000-4000-8000-000000000702",
+      "resolved_in_unit_ref": "57111000-0000-4000-8000-000000000703",
+      "earliest_permitted_unit_ref": "57111000-0000-4000-8000-000000000703",
+      "depends_on_thread_refs": [
+        "57111000-0000-4000-8000-000000000802"
+      ]
+    },
+    {
+      "thread_id": "57111000-0000-4000-8000-000000000804",
+      "thread_type": "reveal",
+      "introduced_in_unit_ref": "57111000-0000-4000-8000-000000000702",
+      "resolved_in_unit_ref": "57111000-0000-4000-8000-000000000703",
+      "earliest_permitted_unit_ref": "57111000-0000-4000-8000-000000000703",
+      "depends_on_thread_refs": [
+        "57111000-0000-4000-8000-000000000802"
+      ]
+    },
+    {
+      "thread_id": "57111000-0000-4000-8000-000000000805",
+      "thread_type": "reveal",
+      "introduced_in_unit_ref": "57111000-0000-4000-8000-000000000703",
+      "resolved_in_unit_ref": null,
+      "earliest_permitted_unit_ref": null,
+      "depends_on_thread_refs": [
+        "57111000-0000-4000-8000-000000000803"
+      ]
+    },
+    {
+      "thread_id": "57111000-0000-4000-8000-000000000806",
+      "thread_type": "reveal",
+      "introduced_in_unit_ref": "57111000-0000-4000-8000-000000000703",
+      "resolved_in_unit_ref": null,
+      "earliest_permitted_unit_ref": null,
+      "depends_on_thread_refs": [
+        "57111000-0000-4000-8000-000000000804",
+        "57111000-0000-4000-8000-000000000805"
+      ]
+    },
+    {
+      "thread_id": "57111000-0000-4000-8000-000000000807",
+      "thread_type": "reveal",
+      "introduced_in_unit_ref": "57111000-0000-4000-8000-000000000703",
+      "resolved_in_unit_ref": null,
+      "earliest_permitted_unit_ref": null,
+      "depends_on_thread_refs": [
+        "57111000-0000-4000-8000-000000000806"
+      ]
+    }
+  ],
+  "created_at": "2026-07-28",
+  "content_sha256": "22420fe970f74f7060c7fa070e9737eada9705e6580f4ed0c0952f7a8da81c32"
+}

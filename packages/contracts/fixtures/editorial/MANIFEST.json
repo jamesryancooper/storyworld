@@ -1,0 +1,41 @@
+{
+  "fixture_id": "FIX-EDITORIAL",
+  "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+  "fictional": true,
+  "sensitivity": "internal",
+  "permitted_use": "test_fixture_in_this_repository_only",
+  "canon_classification": {
+    "established_property_direction": "Repository requirement for a fully fictionalized editorial carousel exercising voice, privacy, dignity, metaphor, and source separation.",
+    "new_fixture_decisions": "Hingeweather Notes; Nora Bell; garden-gate thesis; all panel copy; restricted note and public abstraction.",
+    "production_canon_effect": "Fixture-only fictional property.",
+    "restricted_material": "SRC-ED-001 body relocated verbatim to source/restricted/restricted-note.md; registered only by reference in editorial-restricted-source-record.instance.json (restricted visibility); prohibited-identifier list lives only in that restricted-named record.",
+    "public_safe_material": "Voice rules, thesis, metaphor evolution, nine-panel outline, caption style, and the generalized public abstraction PUB-ED-001."
+  },
+  "source_files": [
+    "source/02-editorial-carousel.md"
+  ],
+  "restricted_source_files": [
+    "source/restricted/restricted-note.md"
+  ],
+  "provenance": {
+    "packet_origin": "owner-supplied fixture authoring packet (SRC-0003)",
+    "canon_register_row": "packages/contracts/fixtures/sources/packet/CANON_DECISION_REGISTER.md (FIX-EDITORIAL)",
+    "normalized_on": "2026-07-28",
+    "normalized_under": "TASK-0004"
+  },
+  "record_files": [
+    "editorial-approval-receipt.instance.json",
+    "editorial-canon-release.instance.json",
+    "editorial-restricted-rights-receipt.instance.json",
+    "editorial-restricted-source-record.instance.json",
+    "editorial-structure.instance.json"
+  ],
+  "invalid_files": [
+    "editorial-uncontrolled-visibility.invalid.json"
+  ],
+  "notes": "Source defines a nine-panel structure (header and outline); records model nine panels accordingly.",
+  "neutral_synthetic_values": {
+    "uuids": "deterministic ed170000-prefixed UUIDs",
+    "story_time": "'editorial-timeless' neutral coordinate; editorial installments carry no fictional chronology"
+  }
+}

@@ -1,0 +1,406 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tag:storyworld-platform,2026:contracts/narrative-campaign-brief/v1",
+  "title": "Narrative campaign brief",
+  "description": "Immutable Commerce Foundry input pinning approved product, claim, policy, audience, objective, and channel context for a connected narrative campaign (canonical part 04 section 11.4; ADR-0010, ADR-0011). Storyworld can never mutate the pinned snapshots.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "brief_id",
+    "origin",
+    "authority_host",
+    "identifiers",
+    "objective",
+    "audience",
+    "channels",
+    "offer_context",
+    "budget",
+    "target_conditions",
+    "products",
+    "collections",
+    "approved_source_images",
+    "product_fidelity_reference_refs",
+    "approved_facts",
+    "approved_claims",
+    "prohibited_claims",
+    "prohibited_depictions",
+    "constraints",
+    "required_disclosures",
+    "accessibility_requirements",
+    "responsibilities",
+    "expiry",
+    "source_drift_behavior",
+    "signature"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "storyworld.narrative-campaign-brief.v1"
+    },
+    "brief_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "origin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "system",
+        "system_version",
+        "created_at"
+      ],
+      "properties": {
+        "system": {
+          "type": "string",
+          "minLength": 1
+        },
+        "system_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_at": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z)?$"
+        }
+      }
+    },
+    "authority_host": {
+      "enum": [
+        "storyworld",
+        "commerce_foundry",
+        "bekindrewind_runtime"
+      ],
+      "description": "Final release authority for this campaign; commerce_foundry for CF-originated work (ADR-0011)."
+    },
+    "identifiers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "workspace_id",
+        "campaign_id",
+        "correlation_id"
+      ],
+      "properties": {
+        "workspace_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "campaign_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "correlation_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "causation_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        }
+      }
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "audience": {
+      "type": "string",
+      "minLength": 1
+    },
+    "channels": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "offer_context": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "amount",
+        "currency"
+      ],
+      "properties": {
+        "amount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "currency": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "target_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "products": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "product_snapshot_ref",
+          "product_version"
+        ],
+        "properties": {
+          "product_snapshot_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "product_version": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "collections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "collection_snapshot_ref",
+          "collection_version"
+        ],
+        "properties": {
+          "collection_snapshot_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "collection_version": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "approved_source_images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "image_ref",
+          "sha256"
+        ],
+        "properties": {
+          "image_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "product_fidelity_reference_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "approved_facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "fact_id",
+          "statement"
+        ],
+        "properties": {
+          "fact_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "approved_claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "claim_id",
+          "exact_wording"
+        ],
+        "properties": {
+          "claim_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "exact_wording": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "prohibited_claims": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "prohibited_depictions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "brand",
+        "style",
+        "safety",
+        "ip",
+        "policy"
+      ],
+      "properties": {
+        "brand": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "style": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "safety": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "ip": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "policy": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "required_disclosures": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "accessibility_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "responsibilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "creative_approval_owner",
+        "commercial_approval_owner",
+        "publication_authority"
+      ],
+      "properties": {
+        "creative_approval_owner": {
+          "type": "string",
+          "minLength": 1
+        },
+        "commercial_approval_owner": {
+          "type": "string",
+          "minLength": 1
+        },
+        "publication_authority": {
+          "enum": [
+            "storyworld",
+            "commerce_foundry",
+            "bekindrewind_runtime"
+          ]
+        }
+      }
+    },
+    "expiry": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "After this date the brief's snapshots are stale and uses must be revalidated, replaced, or explicitly waived (part 04 section 11.6)."
+    },
+    "source_drift_behavior": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Declared handling when pinned sources change before expiry, e.g. block stale use, flag for revalidation, or require an authority waiver (part 04 sections 11.4 and 11.6); exact vocabulary is policy-pack-specific."
+    },
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "algorithm",
+        "key_id",
+        "detached_signature_sha256"
+      ],
+      "properties": {
+        "algorithm": {
+          "type": "string",
+          "minLength": 1
+        },
+        "key_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "detached_signature_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "SHA-256 of the detached signature file shipped alongside the package; the signature itself is never embedded."
+        }
+      }
+    }
+  }
+}

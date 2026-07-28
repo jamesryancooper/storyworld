@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tag:storyworld-platform,2026:contracts/performance-observation/v1",
+  "title": "Performance observation",
+  "description": "Normalized result received from a channel connector, Commerce Foundry, or a runtime, correlated to narrative structure while preserving source definitions (canonical part 04 sections 13.3-13.4; glossary).",
+  "$comment": "ADR-0008: observations inform reviewed iteration proposals only; they never mutate canon, approved claims, rights, or publication state automatically.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "observation_id",
+    "source",
+    "channel_account_ref",
+    "subject_refs",
+    "metrics",
+    "observed_period",
+    "sample_size",
+    "uncertainty_note",
+    "received_at",
+    "normalization_version"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "storyworld.performance-observation.v1"
+    },
+    "observation_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "source": {
+      "enum": [
+        "channel_connector",
+        "commerce_foundry",
+        "runtime"
+      ]
+    },
+    "channel_account_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "subject_refs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "property_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "production_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "narrative_unit_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "asset_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "placement_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "campaign_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "experiment_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "metrics": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "metric_name",
+          "value",
+          "unit",
+          "source_definition_ref"
+        ],
+        "properties": {
+          "metric_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "value": {
+            "type": "number"
+          },
+          "unit": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_definition_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "observed_period": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "from",
+        "to"
+      ],
+      "properties": {
+        "from": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z)?$"
+        },
+        "to": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z)?$"
+        }
+      }
+    },
+    "sample_size": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "uncertainty_note": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Small-sample or source-quality caveats must be visible (part 04 section 13.4)."
+    },
+    "received_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z)?$"
+    },
+    "normalization_version": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

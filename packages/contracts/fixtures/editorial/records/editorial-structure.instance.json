@@ -1,0 +1,134 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/narrative-structure/v1",
+  "schema_version": "storyworld.narrative-structure.v1",
+  "structure_id": "ed170000-0000-4000-8000-000000000850",
+  "property_id": "ed170000-0000-4000-8000-000000000000",
+  "canon_release_ref": "ed170000-0000-4000-8000-000000000001",
+  "production_ref": "production:hingeweather-note-01",
+  "narrative_units": [
+    {
+      "unit_id": "ed170000-0000-4000-8000-000000000800",
+      "unit_type": "carousel",
+      "display_number": "NOTE 01",
+      "presentation_order": 0,
+      "story_time": "editorial-timeless",
+      "publication_time": null,
+      "parent_unit_ref": null,
+      "pov_entity_ref": "ed170000-0000-4000-8000-000000000200",
+      "temporal_marker": "linear"
+    },
+    {
+      "unit_id": "ed170000-0000-4000-8000-000000000801",
+      "unit_type": "panel",
+      "display_number": "1",
+      "presentation_order": 1,
+      "story_time": "editorial-timeless",
+      "publication_time": null,
+      "parent_unit_ref": "ed170000-0000-4000-8000-000000000800",
+      "pov_entity_ref": "ed170000-0000-4000-8000-000000000200",
+      "temporal_marker": "linear"
+    },
+    {
+      "unit_id": "ed170000-0000-4000-8000-000000000802",
+      "unit_type": "panel",
+      "display_number": "2",
+      "presentation_order": 2,
+      "story_time": "editorial-timeless",
+      "publication_time": null,
+      "parent_unit_ref": "ed170000-0000-4000-8000-000000000800",
+      "pov_entity_ref": "ed170000-0000-4000-8000-000000000200",
+      "temporal_marker": "linear"
+    },
+    {
+      "unit_id": "ed170000-0000-4000-8000-000000000803",
+      "unit_type": "panel",
+      "display_number": "3",
+      "presentation_order": 3,
+      "story_time": "editorial-timeless",
+      "publication_time": null,
+      "parent_unit_ref": "ed170000-0000-4000-8000-000000000800",
+      "pov_entity_ref": "ed170000-0000-4000-8000-000000000200",
+      "temporal_marker": "linear"
+    },
+    {
+      "unit_id": "ed170000-0000-4000-8000-000000000804",
+      "unit_type": "panel",
+      "display_number": "4",
+      "presentation_order": 4,
+      "story_time": "editorial-timeless",
+      "publication_time": null,
+      "parent_unit_ref": "ed170000-0000-4000-8000-000000000800",
+      "pov_entity_ref": "ed170000-0000-4000-8000-000000000200",
+      "temporal_marker": "linear"
+    },
+    {
+      "unit_id": "ed170000-0000-4000-8000-000000000805",
+      "unit_type": "panel",
+      "display_number": "5",
+      "presentation_order": 5,
+      "story_time": "editorial-timeless",
+      "publication_time": null,
+      "parent_unit_ref": "ed170000-0000-4000-8000-000000000800",
+      "pov_entity_ref": "ed170000-0000-4000-8000-000000000200",
+      "temporal_marker": "linear"
+    },
+    {
+      "unit_id": "ed170000-0000-4000-8000-000000000806",
+      "unit_type": "panel",
+      "display_number": "6",
+      "presentation_order": 6,
+      "story_time": "editorial-timeless",
+      "publication_time": null,
+      "parent_unit_ref": "ed170000-0000-4000-8000-000000000800",
+      "pov_entity_ref": "ed170000-0000-4000-8000-000000000200",
+      "temporal_marker": "linear"
+    },
+    {
+      "unit_id": "ed170000-0000-4000-8000-000000000807",
+      "unit_type": "panel",
+      "display_number": "7",
+      "presentation_order": 7,
+      "story_time": "editorial-timeless",
+      "publication_time": null,
+      "parent_unit_ref": "ed170000-0000-4000-8000-000000000800",
+      "pov_entity_ref": "ed170000-0000-4000-8000-000000000200",
+      "temporal_marker": "linear"
+    },
+    {
+      "unit_id": "ed170000-0000-4000-8000-000000000808",
+      "unit_type": "panel",
+      "display_number": "8",
+      "presentation_order": 8,
+      "story_time": "editorial-timeless",
+      "publication_time": null,
+      "parent_unit_ref": "ed170000-0000-4000-8000-000000000800",
+      "pov_entity_ref": "ed170000-0000-4000-8000-000000000200",
+      "temporal_marker": "linear"
+    },
+    {
+      "unit_id": "ed170000-0000-4000-8000-000000000809",
+      "unit_type": "panel",
+      "display_number": "9",
+      "presentation_order": 9,
+      "story_time": "editorial-timeless",
+      "publication_time": null,
+      "parent_unit_ref": "ed170000-0000-4000-8000-000000000800",
+      "pov_entity_ref": "ed170000-0000-4000-8000-000000000200",
+      "temporal_marker": "linear"
+    }
+  ],
+  "choices": [],
+  "branches": [],
+  "threads": [
+    {
+      "thread_id": "ed170000-0000-4000-8000-000000000860",
+      "thread_type": "promise",
+      "introduced_in_unit_ref": "ed170000-0000-4000-8000-000000000801",
+      "resolved_in_unit_ref": "ed170000-0000-4000-8000-000000000809",
+      "earliest_permitted_unit_ref": null,
+      "depends_on_thread_refs": []
+    }
+  ],
+  "created_at": "2026-07-28",
+  "content_sha256": "4e342cef8b59daea15e10fff41a25772f14680d1cfcca66e46b39fe3e1efb94f"
+}

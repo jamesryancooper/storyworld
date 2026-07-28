@@ -44,6 +44,23 @@
       "rights_or_license": "Project-owner authored blueprint repository.",
       "sensitivity": "internal",
       "version_or_revision": "1.0.1 (generation_id 8a719518f6307009dd1b6602ef6b4ac5)"
+    },
+    {
+      "accepted_as_project_authority": true,
+      "classification": "owner_authored_fixture_source_material",
+      "fresh_until": "2027-07-28",
+      "id": "SRC-0003",
+      "intended_use": "Rights-safe creative source for the four F1 golden fixtures (PLAN-0007), the eight F1 schema probes (PLAN-0008), and the registered post-F1 fixture corpus (PLAN-0009); pattern program basis for PLAN-0010.",
+      "limitations": [
+        "All content is fictional per the packet's rights and safety rules; fixture decisions are fixture canon only and never silently promote into production property canon (CANON_DECISION_REGISTER decision-handling rule).",
+        "The packet's review basis notes that not every historical conversation was retrievable; uncertain details are labeled new fixture decisions rather than recovered canon."
+      ],
+      "location": "packages/contracts/fixtures/sources/ (packet provenance under sources/packet/; F1 creative sources under each fixture's source/; post-F1 property sources under sources/post-f1/)",
+      "name": "Storyworld fixture authoring packet (owner-supplied)",
+      "observed_on": "2026-07-28",
+      "rights_or_license": "Owner-authored; ownership statement: 'I authored this; fictional; permitted use: test fixture in this repository.'",
+      "sensitivity": "internal",
+      "version_or_revision": "as supplied 2026-07-28 (author-inventory.json schema storyworld.fixture-authoring-inventory.v0)"
     }
   ]
 }

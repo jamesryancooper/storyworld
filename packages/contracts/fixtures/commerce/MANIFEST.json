@@ -1,0 +1,38 @@
+{
+  "fixture_id": "FIX-COMMERCE",
+  "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+  "fictional": true,
+  "sensitivity": "internal",
+  "permitted_use": "test_fixture_in_this_repository_only",
+  "canon_classification": {
+    "established_property_direction": "Commerce Foundry brief -> Storyworld production -> commercial rejection -> focused revision -> resubmission loop.",
+    "new_fixture_decisions": "Vellumvale Fixture Works; FF-17 product; packaging versions; exact approved/prohibited claims; campaign story; rejection finding and revision details.",
+    "production_canon_effect": "Test-only brand and product; no real commercial use implied.",
+    "test_only_commercial_data": "All product facts, claims, prices, and the brand itself are test-only; the brand is deliberately marked not for real-world registration or commerce."
+  },
+  "source_files": [
+    "source/04-commerce-campaign.md"
+  ],
+  "restricted_source_files": [],
+  "provenance": {
+    "packet_origin": "owner-supplied fixture authoring packet (SRC-0003)",
+    "canon_register_row": "packages/contracts/fixtures/sources/packet/CANON_DECISION_REGISTER.md (FIX-COMMERCE)",
+    "normalized_on": "2026-07-28",
+    "normalized_under": "TASK-0004"
+  },
+  "record_files": [
+    "commerce-brief.instance.json",
+    "commerce-bundle-v1.instance.json",
+    "commerce-bundle-v2.instance.json",
+    "commerce-canon-release.instance.json",
+    "commerce-rejection-receipt.instance.json"
+  ],
+  "invalid_files": [
+    "commerce-uncontrolled-narrative-role.invalid.json"
+  ],
+  "neutral_synthetic_values": {
+    "uuids": "deterministic c0330000-prefixed UUIDs",
+    "budget": "2500 USD neutral synthetic (source specifies no amount)",
+    "asset/signature sha256": "deterministic seed hashes standing in for real bytes"
+  }
+}

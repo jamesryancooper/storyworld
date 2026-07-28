@@ -1,0 +1,120 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/canon-release/v1",
+  "schema_version": "storyworld.canon-release.v1",
+  "canon_release_id": "00000000-0000-7000-8000-000000000210",
+  "property_id": "00000000-0000-7000-8000-000000000290",
+  "branch": "official",
+  "release_name": "probe-contested-truth",
+  "release_version": "1.0.0",
+  "created_at": "2026-07-28T00:00:00Z",
+  "accepted_by_receipt_ref": "synthetic:receipt:probe",
+  "supersedes_ref": null,
+  "facts": [
+    {
+      "fact_id": "00000000-0000-7000-8000-000000000221",
+      "revision_id": "00000000-0000-7000-8000-000000000222",
+      "subject_ref": "event:the-yard-incident",
+      "predicate": "door_camera_clock_reading",
+      "value": {
+        "type": "text",
+        "content": "The door camera stamps 21:42, contradicting one testimonial detail but resolving nothing else."
+      },
+      "classification": "audience_visible_fact",
+      "scope": "probe",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "artifact:door-camera-log"
+    },
+    {
+      "fact_id": "00000000-0000-7000-8000-000000000223",
+      "revision_id": "00000000-0000-7000-8000-000000000224",
+      "subject_ref": "event:the-yard-incident",
+      "predicate": "what_actually_happened",
+      "value": {
+        "type": "text",
+        "content": "The gate was opened from inside by the caretaker."
+      },
+      "classification": "secret_truth",
+      "scope": "probe",
+      "visibility": "team_private",
+      "status": "accepted",
+      "source_ref": "creator:probe-author"
+    }
+  ],
+  "entities": [
+    {
+      "entity_id": "00000000-0000-7000-8000-000000000201",
+      "entity_type": "narrator",
+      "name": "Narrator Abel",
+      "visibility": "public"
+    },
+    {
+      "entity_id": "00000000-0000-7000-8000-000000000202",
+      "entity_type": "narrator",
+      "name": "Narrator Brill",
+      "visibility": "public"
+    },
+    {
+      "entity_id": "00000000-0000-7000-8000-000000000203",
+      "entity_type": "narrator",
+      "name": "Narrator Coss",
+      "visibility": "public"
+    },
+    {
+      "entity_id": "00000000-0000-7000-8000-000000000204",
+      "entity_type": "object",
+      "name": "Door-camera log",
+      "visibility": "public"
+    }
+  ],
+  "relationships": [],
+  "timeline_events": [],
+  "reference_pack_refs": [],
+  "content_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "assertions": [
+    {
+      "assertion_id": "00000000-0000-7000-8000-000000000211",
+      "speaker_ref": "entity:00000000-0000-7000-8000-000000000201",
+      "claim": "A stranger forced the gate from the street side.",
+      "asserted_at_story_time": "sy-incident-night",
+      "speaker_knowledge_basis": "present at or reviewing the fictional probe incident",
+      "honesty": "honest",
+      "accuracy": "mistaken",
+      "confidence": "certain",
+      "visibility": "public",
+      "status": "active",
+      "superseded_by_ref": null,
+      "evidence_refs": []
+    },
+    {
+      "assertion_id": "00000000-0000-7000-8000-000000000212",
+      "speaker_ref": "entity:00000000-0000-7000-8000-000000000202",
+      "claim": "The gate was opened from inside.",
+      "asserted_at_story_time": "sy-incident-night",
+      "speaker_knowledge_basis": "present at or reviewing the fictional probe incident",
+      "honesty": "deliberate_lie",
+      "accuracy": "accurate",
+      "confidence": "certain",
+      "visibility": "public",
+      "status": "active",
+      "superseded_by_ref": null,
+      "evidence_refs": [
+        "note:brill-motive — Brill intends to mislead about HOW they know, yet the claim itself is accurate; honesty and accuracy are independent axes"
+      ]
+    },
+    {
+      "assertion_id": "00000000-0000-7000-8000-000000000213",
+      "speaker_ref": "entity:00000000-0000-7000-8000-000000000203",
+      "claim": "Someone was at the gate after dark; I saw only a lantern.",
+      "asserted_at_story_time": "sy-incident-night",
+      "speaker_knowledge_basis": "present at or reviewing the fictional probe incident",
+      "honesty": "honest",
+      "accuracy": "partial",
+      "confidence": "uncertain",
+      "visibility": "public",
+      "status": "active",
+      "superseded_by_ref": null,
+      "evidence_refs": []
+    }
+  ]
+}

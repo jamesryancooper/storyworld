@@ -1,0 +1,40 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/canon-release/v1",
+  "schema_version": "storyworld.canon-release.v1",
+  "canon_release_id": "00000000-0000-7000-8000-000000000510",
+  "property_id": "00000000-0000-7000-8000-000000000501",
+  "branch": "official",
+  "release_name": "northbridge-commons-shared-canon",
+  "release_version": "1.0.0",
+  "created_at": "2026-07-28T00:00:00Z",
+  "accepted_by_receipt_ref": "synthetic:receipt:probe",
+  "supersedes_ref": null,
+  "facts": [],
+  "entities": [
+    {
+      "entity_id": "00000000-0000-7000-8000-000000000511",
+      "entity_type": "location",
+      "name": "Northbridge Union Station",
+      "visibility": "public"
+    },
+    {
+      "entity_id": "00000000-0000-7000-8000-000000000512",
+      "entity_type": "character",
+      "name": "Old Marta the flower seller",
+      "visibility": "public"
+    }
+  ],
+  "relationships": [],
+  "timeline_events": [
+    {
+      "event_id": "00000000-0000-7000-8000-000000000513",
+      "story_time": "ny-1901",
+      "summary": "The Bridgefire of 1901 scorches the station's east wall.",
+      "entity_refs": [
+        "entity:00000000-0000-7000-8000-000000000511"
+      ]
+    }
+  ],
+  "reference_pack_refs": [],
+  "content_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+}

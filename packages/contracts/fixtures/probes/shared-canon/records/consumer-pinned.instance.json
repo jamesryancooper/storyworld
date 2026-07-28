@@ -1,0 +1,29 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/canon-release/v1",
+  "schema_version": "storyworld.canon-release.v1",
+  "canon_release_id": "00000000-0000-7000-8000-000000000520",
+  "property_id": "00000000-0000-7000-8000-000000000502",
+  "branch": "official",
+  "release_name": "probe-consumer-lanternward",
+  "release_version": "1.0.0",
+  "created_at": "2026-07-28T00:00:00Z",
+  "accepted_by_receipt_ref": "synthetic:receipt:probe",
+  "supersedes_ref": null,
+  "facts": [],
+  "entities": [],
+  "relationships": [],
+  "timeline_events": [],
+  "reference_pack_refs": [],
+  "content_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "shared_canon_dependencies": [
+    {
+      "provider_property_ref": "property:00000000-0000-7000-8000-000000000501",
+      "pinned_canon_release_ref": "canon-release:00000000-0000-7000-8000-000000000510",
+      "entity_refs": [
+        "entity:00000000-0000-7000-8000-000000000511",
+        "entity:00000000-0000-7000-8000-000000000512"
+      ],
+      "fork_lineage": null
+    }
+  ]
+}

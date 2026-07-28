@@ -1,0 +1,76 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/narrative-structure/v1",
+  "$description": "Planned rejection (probe C): object state must never be computed from release position. Schema-level proxy: a unit without an explicit story_time cannot exist — story time may never be inferred from presentation order. The state-computation rejection itself is semantic (F3 kernel).",
+  "$expect_errors": [
+    "missing required property 'story_time'"
+  ],
+  "instance": {
+    "schema_version": "storyworld.narrative-structure.v1",
+    "structure_id": "00000000-0000-7000-8000-000000000300",
+    "property_id": "00000000-0000-7000-8000-000000000390",
+    "canon_release_ref": "canon-release:probe-nonlinear",
+    "production_ref": null,
+    "narrative_units": [
+      {
+        "unit_id": "00000000-0000-7000-8000-000000000301",
+        "unit_type": "event_scene",
+        "display_number": "A",
+        "presentation_order": 2,
+        "publication_time": "2026-02-01",
+        "parent_unit_ref": null
+      },
+      {
+        "unit_id": "00000000-0000-7000-8000-000000000302",
+        "unit_type": "event_scene",
+        "display_number": "B",
+        "presentation_order": 4,
+        "story_time": "sy-200",
+        "publication_time": "2026-04-01",
+        "parent_unit_ref": null
+      },
+      {
+        "unit_id": "00000000-0000-7000-8000-000000000303",
+        "unit_type": "event_scene",
+        "display_number": "C",
+        "presentation_order": 1,
+        "story_time": "sy-300",
+        "publication_time": "2026-01-01",
+        "parent_unit_ref": null
+      },
+      {
+        "unit_id": "00000000-0000-7000-8000-000000000304",
+        "unit_type": "event_scene",
+        "display_number": "D",
+        "presentation_order": 3,
+        "story_time": "sy-400",
+        "publication_time": "2026-03-01",
+        "parent_unit_ref": null
+      },
+      {
+        "unit_id": "00000000-0000-7000-8000-000000000305",
+        "unit_type": "event_scene",
+        "display_number": "B-replay",
+        "presentation_order": 5,
+        "story_time": "sy-200",
+        "publication_time": "2026-05-01",
+        "parent_unit_ref": null,
+        "temporal_marker": "replay_alternate_perspective",
+        "pov_entity_ref": "entity:the-porter"
+      }
+    ],
+    "choices": [],
+    "branches": [],
+    "threads": [
+      {
+        "thread_id": "00000000-0000-7000-8000-000000000310",
+        "thread_type": "reveal",
+        "introduced_in_unit_ref": "00000000-0000-7000-8000-000000000303",
+        "resolved_in_unit_ref": "00000000-0000-7000-8000-000000000302",
+        "earliest_permitted_unit_ref": "00000000-0000-7000-8000-000000000303",
+        "depends_on_thread_refs": []
+      }
+    ],
+    "created_at": "2026-07-28",
+    "content_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

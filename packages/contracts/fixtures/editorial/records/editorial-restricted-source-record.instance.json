@@ -1,0 +1,104 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/canon-release/v1",
+  "schema_version": "storyworld.canon-release.v1",
+  "canon_release_id": "ed170000-0000-4000-8000-000000000002",
+  "property_id": "ed170000-0000-4000-8000-000000000000",
+  "branch": "hingeweather-notes/fixture-restricted-sources",
+  "release_name": "Restricted source registration SRC-ED-001",
+  "release_version": "1.0.0",
+  "created_at": "2026-07-28",
+  "accepted_by_receipt_ref": "receipt:editorial-rights-clearance",
+  "supersedes_ref": null,
+  "facts": [
+    {
+      "fact_id": "ed170000-0000-4000-8000-000000000300",
+      "revision_id": "ed170000-0000-4000-8000-000000000700",
+      "subject_ref": "source:SRC-ED-001",
+      "predicate": "access_classification",
+      "value": {
+        "type": "text",
+        "content": "restricted-private-source"
+      },
+      "classification": "world_rule",
+      "scope": "hingeweather-note-01",
+      "visibility": "restricted",
+      "status": "accepted",
+      "source_ref": "fixtures/editorial/source/restricted/restricted-note.md"
+    },
+    {
+      "fact_id": "ed170000-0000-4000-8000-000000000301",
+      "revision_id": "ed170000-0000-4000-8000-000000000701",
+      "subject_ref": "source:SRC-ED-001",
+      "predicate": "permitted_processing",
+      "value": {
+        "type": "text",
+        "content": "theme extraction and generalized editorial transformation only"
+      },
+      "classification": "world_rule",
+      "scope": "hingeweather-note-01",
+      "visibility": "restricted",
+      "status": "accepted",
+      "source_ref": "fixtures/editorial/source/restricted/restricted-note.md"
+    },
+    {
+      "fact_id": "ed170000-0000-4000-8000-000000000302",
+      "revision_id": "ed170000-0000-4000-8000-000000000702",
+      "subject_ref": "source:SRC-ED-001",
+      "predicate": "prohibited_processing",
+      "value": {
+        "type": "text",
+        "content": "quotation in public copy; entity extraction into public canon; likeness generation; geographic inference"
+      },
+      "classification": "world_rule",
+      "scope": "hingeweather-note-01",
+      "visibility": "restricted",
+      "status": "accepted",
+      "source_ref": "fixtures/editorial/source/restricted/restricted-note.md"
+    },
+    {
+      "fact_id": "ed170000-0000-4000-8000-000000000303",
+      "revision_id": "ed170000-0000-4000-8000-000000000703",
+      "subject_ref": "source:SRC-ED-001",
+      "predicate": "prohibited_identifiers",
+      "value": {
+        "type": "structured",
+        "content": [
+          "Elian Mercer",
+          "the exact date March 8",
+          "the apartment-key event",
+          "the blue saucer",
+          "the courtyard or apartment setting",
+          "the December argument",
+          "any address, city, workplace, relationship label, or facial likeness inferred from the note",
+          "any direct phrase of dialogue from the restricted note"
+        ]
+      },
+      "classification": "world_rule",
+      "scope": "hingeweather-note-01",
+      "visibility": "restricted",
+      "status": "accepted",
+      "source_ref": "fixtures/editorial/source/restricted/restricted-note.md",
+      "rationale": "These identifiers must never surface in public panels, caption, alt text, channel metadata, ordinary-collaborator prompt logs, or generated imagery."
+    },
+    {
+      "fact_id": "ed170000-0000-4000-8000-000000000304",
+      "revision_id": "ed170000-0000-4000-8000-000000000704",
+      "subject_ref": "source:SRC-ED-001",
+      "predicate": "deletion_behavior",
+      "value": {
+        "type": "text",
+        "content": "Deleting or replacing the restricted note must not silently alter an already accepted public rendition; lineage and revalidation implications are marked explicitly."
+      },
+      "classification": "world_rule",
+      "scope": "hingeweather-note-01",
+      "visibility": "restricted",
+      "status": "accepted",
+      "source_ref": "fixtures/editorial/source/restricted/restricted-note.md"
+    }
+  ],
+  "entities": [],
+  "relationships": [],
+  "timeline_events": [],
+  "reference_pack_refs": [],
+  "content_sha256": "bca81a25b3411bfe0c4281f737b7a615c659fe6106e785753da539311a4ae34e"
+}

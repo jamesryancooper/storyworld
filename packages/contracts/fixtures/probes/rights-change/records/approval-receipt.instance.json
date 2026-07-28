@@ -1,0 +1,22 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/approval-receipt/v1",
+  "schema_version": "storyworld.approval-receipt.v1",
+  "receipt_id": "00000000-0000-7000-8000-000000000810",
+  "approval_layer": "channel_package_approval",
+  "decision": "approved",
+  "subject_refs": [
+    "channel-package:probe-reel-0001"
+  ],
+  "subject_sha256": [
+    "0000000000000000000000000000000000000000000000000000000000000000"
+  ],
+  "policy_refs": [
+    "policy:probe-rights"
+  ],
+  "decided_by": "synthetic-human-publisher (probe; not a real decision)",
+  "decided_by_role": "publisher",
+  "decided_at": "2026-05-01T00:00:00Z",
+  "authority_host": "storyworld",
+  "invalidated_by": "rights-evidence:00000000-0000-7000-8000-000000000800:grant:00000000-0000-7000-8000-000000000801 expired 2026-07-01 and was withdrawn for future use; approval no longer authorizes scheduling",
+  "expiry": null
+}

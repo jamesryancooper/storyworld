@@ -1,0 +1,945 @@
+{
+  "schema_version": "storyworld.fixture-registry.v1",
+  "document_role": "authoritative_machine_readable_fixture_inventory",
+  "status": "active_inventory; classification taxonomy governed by charter fixtures-and-slices (v2 proposed via DEC-0007)",
+  "permission_grant": false,
+  "created_on": "2026-07-28",
+  "source_provenance": "Owner-supplied fixture authoring packet (sources/packet/, SRC-0003); pattern program per sources/packet/PATTERN_DRIVEN_EXPANSION.md",
+  "canon_boundary_rule": "Fixture decisions are fixture canon only; promotion into production property canon requires a separate explicit owner decision (sources/packet/CANON_DECISION_REGISTER.md).",
+  "classes": {
+    "f1_production_fixtures": [
+      {
+        "id": "FIX-STILLHOUSE",
+        "name": "The Stillhouse Archive — The Second Chair mini-season",
+        "family": "serialized_mystery",
+        "narrative_architecture_pattern": "curated_linear_with_hidden_truth",
+        "purpose_and_capabilities": "Reveal dependency graph, symbol continuity, chronology, creator truth vs audience knowledge vs character belief, spoiler scopes",
+        "dependencies": [
+          "PLAN-0007"
+        ],
+        "intended_phase": "F1",
+        "valid_scenario": "Three-episode mini-season with hidden truth, evidence artifacts, reveal order with dependencies, symbol dictionary, dual chronology",
+        "planned_invalid_scenario": "A reveal is packaged before its declared prerequisite reveal",
+        "expected_finding_or_blocked_transition": "blocked transition / reveal-dependency finding",
+        "acceptance_criteria": [
+          "records round-trip deterministically",
+          "creator-only truth never appears in public-visibility records",
+          "reveal graph is acyclic and dependency-checked"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "fixture_only_canon; established property direction retained per canon register row 1",
+        "required_adapters_or_capabilities": [],
+        "applicable_metamorphic_families": [
+          "MET-F1"
+        ],
+        "path": "fixtures/stillhouse"
+      },
+      {
+        "id": "FIX-EDITORIAL",
+        "name": "Hingeweather Notes — The Gate Is Part of the Repair",
+        "family": "editorial_carousel",
+        "narrative_architecture_pattern": "voice_led_editorial_with_restricted_source",
+        "purpose_and_capabilities": "Voice constraints, recurring metaphor, restricted-source separation, dignity/prohibited identifiers, 10-panel carousel structure",
+        "dependencies": [
+          "PLAN-0007"
+        ],
+        "intended_phase": "F1",
+        "valid_scenario": "Ten-panel carousel with narrator voice rules, evolving metaphor, restricted source note and its public abstraction",
+        "planned_invalid_scenario": "A restricted source detail (or prohibited identifier) appears in a public-visibility record",
+        "expected_finding_or_blocked_transition": "restricted-source leakage finding / sensitivity violation",
+        "acceptance_criteria": [
+          "restricted source records carry restricted visibility and never enter package outputs",
+          "public abstraction traces to its restricted source via provenance"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "fixture_only_fictional_property",
+        "required_adapters_or_capabilities": [],
+        "applicable_metamorphic_families": [
+          "MET-F1"
+        ],
+        "path": "fixtures/editorial"
+      },
+      {
+        "id": "FIX-BKR",
+        "name": "BeKindRewind / Rewind Plaza — Return Before Nine slice",
+        "family": "interactive_world",
+        "narrative_architecture_pattern": "authored_interactive_content_with_runtime_boundary",
+        "purpose_and_capabilities": "Spatial graph, era rules, NPC dialogue constraints, three-mission dependency chain, items with state, triggers, runtime export",
+        "dependencies": [
+          "PLAN-0007"
+        ],
+        "intended_phase": "F1",
+        "valid_scenario": "Connected locations, era rules, NPCs, item state transitions, mission chain with prerequisites and effects, runtime content release package",
+        "planned_invalid_scenario": "A mission chain contains a circular prerequisite (or the package carries player-state fields)",
+        "expected_finding_or_blocked_transition": "dependency-cycle finding / schema rejection of runtime-state contamination",
+        "acceptance_criteria": [
+          "runtime release validates with no player or execution state",
+          "mission graph acyclic",
+          "era rules represented as world rules, not prose"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "fixture_canon_for_runtime_slice_only",
+        "required_adapters_or_capabilities": [
+          "runtime_compiler_interface"
+        ],
+        "applicable_metamorphic_families": [
+          "MET-F1"
+        ],
+        "path": "fixtures/bekindrewind"
+      },
+      {
+        "id": "FIX-COMMERCE",
+        "name": "Vellumvale Fixture Works — FF-17 launch campaign",
+        "family": "commerce_campaign",
+        "narrative_architecture_pattern": "brand_campaign_with_external_commercial_authority",
+        "purpose_and_capabilities": "Product/claim snapshots, approved vs prohibited claims, depiction rules, disclosure, commercial rejection -> focused revision -> resubmission",
+        "dependencies": [
+          "PLAN-0007"
+        ],
+        "intended_phase": "F1",
+        "valid_scenario": "Campaign brief with pinned product snapshot and claims; asset bundle; typed commercial rejection; revised resubmission",
+        "planned_invalid_scenario": "A bundle uses a prohibited claim (or mutates a product snapshot fact)",
+        "expected_finding_or_blocked_transition": "claim-violation finding / snapshot-immutability rejection",
+        "acceptance_criteria": [
+          "brief and bundle round-trip",
+          "rejection targets exact versions",
+          "revision preserves lineage",
+          "no commerce fields required by generic canon records"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "test_only_brand_and_product",
+        "required_adapters_or_capabilities": [
+          "commerce_foundry_connector_interface"
+        ],
+        "applicable_metamorphic_families": [
+          "MET-F1"
+        ],
+        "path": "fixtures/commerce"
+      }
+    ],
+    "f1_schema_probes": [
+      {
+        "id": "PROBE-BRANCHING",
+        "name": "Branching and reconvergence",
+        "family": "schema_probe",
+        "narrative_architecture_pattern": "branching_reconvergent_narrative",
+        "purpose_and_capabilities": "Branch-local state, mutually exclusive facts, choice prerequisites/effects, reconvergence without flattening, unreachable/circular detection; authored choice vs runtime player choice",
+        "dependencies": [
+          "PLAN-0003"
+        ],
+        "intended_phase": "F1",
+        "valid_scenario": "Choice with two branches (key kept vs destroyed), branch scenes, reconvergence, branch-conditional dialogue, branch-gated ending",
+        "planned_invalid_scenario": "A package grants both mutually exclusive branch states simultaneously",
+        "expected_finding_or_blocked_transition": "mutually-exclusive-state finding",
+        "acceptance_criteria": [
+          "branch-local state distinguishable",
+          "cycle and unreachable detection works",
+          "round-trip deterministic"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "synthetic_probe_content",
+        "required_adapters_or_capabilities": [],
+        "applicable_metamorphic_families": [
+          "MET-F1"
+        ],
+        "path": "fixtures/probes/branching"
+      },
+      {
+        "id": "PROBE-CONTESTED-TRUTH",
+        "name": "Multiple POVs and contested truth",
+        "family": "schema_probe",
+        "narrative_architecture_pattern": "contested_truth_testimony",
+        "purpose_and_capabilities": "Assertion/testimony distinct from canon fact; speaker knowledge at testimony time; honesty vs accuracy; uncertainty; POV visibility",
+        "dependencies": [
+          "PLAN-0003"
+        ],
+        "intended_phase": "F1",
+        "valid_scenario": "Three contradictory testimonies plus a partial mechanical record and separately recorded creator truth",
+        "planned_invalid_scenario": "A testimony is promoted to accepted fact solely because it appears in dialogue",
+        "expected_finding_or_blocked_transition": "testimony-promotion rejection",
+        "acceptance_criteria": [
+          "said/believes/true remain distinguishable",
+          "assertions carry honesty, accuracy, confidence",
+          "round-trip deterministic"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "synthetic_probe_content",
+        "required_adapters_or_capabilities": [],
+        "applicable_metamorphic_families": [
+          "MET-F1"
+        ],
+        "path": "fixtures/probes/contested-truth"
+      },
+      {
+        "id": "PROBE-NONLINEAR-TIME",
+        "name": "Nonlinear chronology",
+        "family": "schema_probe",
+        "narrative_architecture_pattern": "nonlinear_chronology",
+        "purpose_and_capabilities": "Story time vs presentation order vs publication time vs revision time; state computed by story time; out-of-order spoiler handling",
+        "dependencies": [
+          "PLAN-0003"
+        ],
+        "intended_phase": "F1",
+        "valid_scenario": "Events A-D in story order released C-A-D-B with a state dependency crossing the orders and one event shown from two perspectives",
+        "planned_invalid_scenario": "Object state read from release position instead of story time",
+        "expected_finding_or_blocked_transition": "time-coordinate conflation finding",
+        "acceptance_criteria": [
+          "four time coordinates explicit and independent",
+          "state assertions bind story time",
+          "round-trip deterministic"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "synthetic_probe_content",
+        "required_adapters_or_capabilities": [],
+        "applicable_metamorphic_families": [
+          "MET-F1"
+        ],
+        "path": "fixtures/probes/nonlinear-time"
+      },
+      {
+        "id": "PROBE-ADAPTATION",
+        "name": "Alternate canon and adaptation branches",
+        "family": "schema_probe",
+        "narrative_architecture_pattern": "adaptation_branching",
+        "purpose_and_capabilities": "Branch ancestry, inherited canon, explicit overrides, composites, omissions, source pinning, impact analysis; retcon vs fork vs adaptation vs production-local change",
+        "dependencies": [
+          "PLAN-0003"
+        ],
+        "intended_phase": "F1",
+        "valid_scenario": "One source story; graphic-novel, audio (composited characters), and youth (season change) adaptations, each with explicit overrides",
+        "planned_invalid_scenario": "Accepting an adaptation override mutates the source branch",
+        "expected_finding_or_blocked_transition": "source-branch mutation rejection",
+        "acceptance_criteria": [
+          "adaptations pin source releases",
+          "overrides explicit and branch-local",
+          "source unchanged after fork (metamorphic)"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "synthetic_probe_content",
+        "required_adapters_or_capabilities": [],
+        "applicable_metamorphic_families": [
+          "MET-F1"
+        ],
+        "path": "fixtures/probes/adaptation"
+      },
+      {
+        "id": "PROBE-SHARED-CANON",
+        "name": "Shared universe and cross-property dependencies",
+        "family": "schema_probe",
+        "narrative_architecture_pattern": "shared_canon_dependency",
+        "purpose_and_capabilities": "Version-pinned cross-property references, shared-entity ownership, authority to alter shared facts, cross-property impact, deliberate forking",
+        "dependencies": [
+          "PLAN-0003"
+        ],
+        "intended_phase": "F1",
+        "valid_scenario": "Three properties share a station, event, and character via version-pinned dependencies on the owning property's canon release",
+        "planned_invalid_scenario": "A consuming property renames the shared station and the change propagates silently",
+        "expected_finding_or_blocked_transition": "cross-property mutation rejection",
+        "acceptance_criteria": [
+          "shared entities referenced by pinned version, never copied silently",
+          "consumer forks record lineage",
+          "impact analysis lists dependents"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "synthetic_probe_content",
+        "required_adapters_or_capabilities": [],
+        "applicable_metamorphic_families": [
+          "MET-F1"
+        ],
+        "path": "fixtures/probes/shared-canon"
+      },
+      {
+        "id": "PROBE-DEEP-HIERARCHY",
+        "name": "Deep long-form hierarchy",
+        "family": "schema_probe",
+        "narrative_architecture_pattern": "deep_hierarchy",
+        "purpose_and_capabilities": "Arbitrary depth, stable IDs independent of display numbering, promise/thread tracking across spans, insertion and reordering without identity loss",
+        "dependencies": [
+          "PLAN-0003"
+        ],
+        "intended_phase": "F1",
+        "valid_scenario": "Book/Part/Chapter/Scene tree with interlude, a promise paid off across parts, a recurring object with three state changes, and an inserted chapter",
+        "planned_invalid_scenario": "Inserting Chapter 2A renumbers stable IDs or breaks a promise's originating reference",
+        "expected_finding_or_blocked_transition": "identity-stability rejection",
+        "acceptance_criteria": [
+          "IDs survive insertion and reordering",
+          "display numbering is presentation-only",
+          "threads resolve across depth"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "synthetic_probe_content",
+        "required_adapters_or_capabilities": [],
+        "applicable_metamorphic_families": [
+          "MET-F1"
+        ],
+        "path": "fixtures/probes/deep-hierarchy"
+      },
+      {
+        "id": "PROBE-CORRECTION",
+        "name": "Evidence correction and retraction",
+        "family": "schema_probe",
+        "narrative_architecture_pattern": "evidence_correction",
+        "purpose_and_capabilities": "Claims linked to evidence, conflicting sources, confidence, correction vs clarification vs retraction, published-record preservation, derivative invalidation",
+        "dependencies": [
+          "PLAN-0003"
+        ],
+        "intended_phase": "F1",
+        "valid_scenario": "Fictional local-history article: five claims, disagreeing sources, one probable claim, post-publication correction with preserved original",
+        "planned_invalid_scenario": "A record states the disputed date as certain (or the superseded date survives correction in active records)",
+        "expected_finding_or_blocked_transition": "certainty-overclaim finding / stale-claim finding",
+        "acceptance_criteria": [
+          "corrections supersede without deletion",
+          "confidence explicit",
+          "downstream invalidation selective"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "synthetic_probe_content",
+        "required_adapters_or_capabilities": [],
+        "applicable_metamorphic_families": [
+          "MET-F1"
+        ],
+        "path": "fixtures/probes/correction"
+      },
+      {
+        "id": "PROBE-RIGHTS-CHANGE",
+        "name": "Rights expiry, withdrawal, and replacement",
+        "family": "schema_probe",
+        "narrative_architecture_pattern": "rights_change",
+        "purpose_and_capabilities": "Territory/channel/purpose/duration scoping, expiry, withdrawal, selective invalidation, replacement, historical-receipt preservation",
+        "dependencies": [
+          "PLAN-0003"
+        ],
+        "intended_phase": "F1",
+        "valid_scenario": "Time-limited voice license, channel-limited photo, territory-limited music; withdrawal blocks a scheduled package; replacement created",
+        "planned_invalid_scenario": "A scheduled package remains publishable because approval predates the license expiry",
+        "expected_finding_or_blocked_transition": "expired-rights blocked transition",
+        "acceptance_criteria": [
+          "invalidation touches only affected uses",
+          "history preserved",
+          "replacement carries new lineage"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "synthetic_probe_content",
+        "required_adapters_or_capabilities": [],
+        "applicable_metamorphic_families": [
+          "MET-F1"
+        ],
+        "path": "fixtures/probes/rights-change"
+      }
+    ],
+    "post_f1_production_fixtures": [
+      {
+        "id": "FIX-FIELD-MANUAL",
+        "name": "Proper Manhood — Field Note 001",
+        "family": "field_manual",
+        "narrative_architecture_pattern": "numbered_lesson_template",
+        "purpose_and_capabilities": "Lesson taxonomy, scenario/principle/exercise/takeaway, fixed design tokens, series numbering, cross-references, derivatives",
+        "dependencies": [
+          "GATE-0003"
+        ],
+        "intended_phase": "post-F1 (B1/B2)",
+        "valid_scenario": "Field Note 001 with PARK exercise and cross-references to planned notes 006/012",
+        "planned_invalid_scenario": "A derivative drops the fixed design tokens or renumbers the series",
+        "expected_finding_or_blocked_transition": "template-token violation finding",
+        "acceptance_criteria": [
+          "template reuse without storage fork",
+          "numbering stable"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "fixture_edition_of_established_property",
+        "required_adapters_or_capabilities": [
+          "template_system"
+        ],
+        "applicable_metamorphic_families": [
+          "MET-F1",
+          "MET-B4"
+        ]
+      },
+      {
+        "id": "FIX-DFF-CARDS",
+        "name": "Dumpster Fire Friends — Cards 007 and 008",
+        "family": "collectible_cards",
+        "narrative_architecture_pattern": "reusable_numbered_schema",
+        "purpose_and_capabilities": "Stable card identity, stats, layout reuse across characters, behavior-impact-recovery arc, collection membership",
+        "dependencies": [
+          "GATE-0003"
+        ],
+        "intended_phase": "post-F1 (B1/B2)",
+        "valid_scenario": "Cards 007 (Reality-Revision Riley) and 008 (Doomscroll Daisy) sharing semantic positions with differing content",
+        "planned_invalid_scenario": "A second card silently customizes the shared layout schema",
+        "expected_finding_or_blocked_transition": "schema-reuse violation finding",
+        "acceptance_criteria": [
+          "two cards prove genuine reuse",
+          "anti-diagnosis rules enforced as policy, not canon"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "fixture_copy_on_established_property_concepts",
+        "required_adapters_or_capabilities": [
+          "template_system"
+        ],
+        "applicable_metamorphic_families": [
+          "MET-F1",
+          "MET-B4"
+        ]
+      },
+      {
+        "id": "FIX-LANTERNS",
+        "name": "The Lanterns — Kael Vire season one",
+        "family": "serialized_speculative_drama",
+        "narrative_architecture_pattern": "hard_world_rules_with_false_belief",
+        "purpose_and_capabilities": "Hard world-rule validation, character self-protective false belief vs creator truth, moral-agency reveal dependencies, audience-belief phases, safety policy separate from canon",
+        "dependencies": [
+          "GATE-0003"
+        ],
+        "intended_phase": "post-F1 (B1/B4)",
+        "valid_scenario": "Season-one slice with ten-episode belief arc, reveal graph, and safety guardrails as policy records",
+        "planned_invalid_scenario": "A safety constraint is stored as a canon fact inside the story world",
+        "expected_finding_or_blocked_transition": "policy-canon conflation finding",
+        "acceptance_criteria": [
+          "world rules validated",
+          "belief vs truth distinguishable",
+          "policy constrains generation without entering canon"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "extended_fixture_branch_of_established_property",
+        "required_adapters_or_capabilities": [],
+        "applicable_metamorphic_families": [
+          "MET-F1",
+          "MET-F3"
+        ]
+      },
+      {
+        "id": "FIX-NOTES-DAUGHTER",
+        "name": "Notes to My Daughter — The Porch Light Is Still On",
+        "family": "editorial_carousel",
+        "narrative_architecture_pattern": "high_sensitivity_dignity_controls",
+        "purpose_and_capabilities": "Dignity under emotionally charged material, likeness prohibition, indirect-identification prevention, no coercive framing",
+        "dependencies": [
+          "GATE-0003"
+        ],
+        "intended_phase": "post-F1 (B1)",
+        "valid_scenario": "Ten-panel fixture with fully fictional family and strict prohibited-identifier list",
+        "planned_invalid_scenario": "An output enables indirect identification of the fictional 'real' subject",
+        "expected_finding_or_blocked_transition": "dignity/identification finding",
+        "acceptance_criteria": [
+          "prohibited identifiers block outputs",
+          "no real likeness imported"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "fully_fictional_test_branch",
+        "required_adapters_or_capabilities": [],
+        "applicable_metamorphic_families": [
+          "MET-F1",
+          "MET-B4"
+        ]
+      },
+      {
+        "id": "FIX-LIVING-INHERITANCE",
+        "name": "Living Inheritance — Ordinary Days",
+        "family": "editorial_carousel",
+        "narrative_architecture_pattern": "photo_rights_and_cross_format_lineage",
+        "purpose_and_capabilities": "Original-photo rights, ordinary-memory abstraction, long-lived taxonomy, carousel -> Reel voiceover -> owned-media derivation",
+        "dependencies": [
+          "GATE-0003"
+        ],
+        "intended_phase": "post-F1 (B1/C2)",
+        "valid_scenario": "Nine-panel sequence with source-photo IDs, rights records, and cross-format lineage",
+        "planned_invalid_scenario": "A derivative recovers a private identifier from the source photo notes",
+        "expected_finding_or_blocked_transition": "source-recovery finding",
+        "acceptance_criteria": [
+          "photo rights scoped per use",
+          "cross-format lineage complete"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "fixture_only_sample_within_property_taxonomy",
+        "required_adapters_or_capabilities": [
+          "channel_adapters"
+        ],
+        "applicable_metamorphic_families": [
+          "MET-F1",
+          "MET-B4"
+        ]
+      },
+      {
+        "id": "FIX-LOCALIZATION",
+        "name": "Localization and accessibility variants",
+        "family": "pattern_fixture",
+        "narrative_architecture_pattern": "localization_accessibility",
+        "purpose_and_capabilities": "Transcreation, captions, transcript, audio description, alt text, simplified reading, high contrast, locale signage — without changing facts, claims, or identity",
+        "dependencies": [
+          "GATE-0003"
+        ],
+        "intended_phase": "post-F1 (C2)",
+        "valid_scenario": "One accepted master producing the full variant set as renditions with locale data",
+        "planned_invalid_scenario": "A translated caption strengthens an approved claim into a prohibited one",
+        "expected_finding_or_blocked_transition": "claim-drift finding",
+        "acceptance_criteria": [
+          "localization is rendition/locale data, not a canon branch",
+          "claims and disclosures invariant"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "synthetic_pattern_content",
+        "required_adapters_or_capabilities": [
+          "localization_pipeline",
+          "channel_adapters"
+        ],
+        "applicable_metamorphic_families": [
+          "MET-B4"
+        ]
+      },
+      {
+        "id": "FIX-AUDIO-FIRST",
+        "name": "Audio-first temporal narrative",
+        "family": "pattern_fixture",
+        "narrative_architecture_pattern": "temporal_audio_narrative",
+        "purpose_and_capabilities": "Speakers, voice profiles, overlap, cues, authored silence, timecodes, dub, voice/music rights, focused single-line replacement",
+        "dependencies": [
+          "GATE-0003"
+        ],
+        "intended_phase": "post-F1 (B1 audio gates)",
+        "valid_scenario": "Short fictional audio episode with timed assets and a one-line replacement",
+        "planned_invalid_scenario": "Replacing one line rerenders/invalidates the whole episode",
+        "expected_finding_or_blocked_transition": "focused-revision violation",
+        "acceptance_criteria": [
+          "region-scoped revision",
+          "temporal assets first-class"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "synthetic_pattern_content",
+        "required_adapters_or_capabilities": [
+          "audio_pipeline"
+        ],
+        "applicable_metamorphic_families": [
+          "MET-B4"
+        ]
+      },
+      {
+        "id": "FIX-AUDIENCE-DIRECTED",
+        "name": "Audience-directed serialization",
+        "family": "pattern_fixture",
+        "narrative_architecture_pattern": "audience_participation_without_authority",
+        "purpose_and_capabilities": "Poll input, moderation, close time, winning result, pre-approved branches, human authorization, non-winning material handling, spoiler management",
+        "dependencies": [
+          "GATE-0003"
+        ],
+        "intended_phase": "post-F1 (A1/C2)",
+        "valid_scenario": "Poll between two pre-approved episodes with human-authorized adoption",
+        "planned_invalid_scenario": "The poll result publishes a canon change automatically",
+        "expected_finding_or_blocked_transition": "authority-bypass rejection",
+        "acceptance_criteria": [
+          "audience input is never authority",
+          "losing branch preserved non-canon"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "synthetic_pattern_content",
+        "required_adapters_or_capabilities": [
+          "publishing_adapters"
+        ],
+        "applicable_metamorphic_families": [
+          "MET-B4"
+        ]
+      },
+      {
+        "id": "FIX-CONVERSATIONAL-NPC",
+        "name": "Conversational character export",
+        "family": "pattern_fixture",
+        "narrative_architecture_pattern": "conversational_runtime_boundary",
+        "purpose_and_capabilities": "Persona, knowledge/false-belief boundaries, unrevealable secrets, relationship-dependent dialogue, fallback, prohibited topics, session-memory policy",
+        "dependencies": [
+          "GATE-0003"
+        ],
+        "intended_phase": "post-F1 (C2 runtime)",
+        "valid_scenario": "Immutable character package for a conversational runtime with knowledge boundaries",
+        "planned_invalid_scenario": "The character reveals creator-only truth or converts improvised dialogue into canon",
+        "expected_finding_or_blocked_transition": "boundary-breach rejection",
+        "acceptance_criteria": [
+          "character memory, session memory, and canon strictly separated"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "synthetic_pattern_content",
+        "required_adapters_or_capabilities": [
+          "conversational_runtime_interface"
+        ],
+        "applicable_metamorphic_families": [
+          "MET-B4"
+        ]
+      },
+      {
+        "id": "FIX-EXPERIMENT",
+        "name": "Governed content experiment",
+        "family": "pattern_fixture",
+        "narrative_architecture_pattern": "governed_variant_experiment",
+        "purpose_and_capabilities": "Hypothesis, approved variation ranges, allocation, canon-invariant fields, stopping criteria, uncertainty, human adoption decision",
+        "dependencies": [
+          "GATE-0003"
+        ],
+        "intended_phase": "post-F1 (A1)",
+        "valid_scenario": "Two approved opening panels, fixed body, declared hypothesis and window",
+        "planned_invalid_scenario": "The winning variant silently becomes the default or changes canon",
+        "expected_finding_or_blocked_transition": "automatic-adoption rejection",
+        "acceptance_criteria": [
+          "experiments never mutate canon",
+          "uncertainty visible"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "synthetic_pattern_content",
+        "required_adapters_or_capabilities": [
+          "experiment_framework"
+        ],
+        "applicable_metamorphic_families": [
+          "MET-B4"
+        ]
+      },
+      {
+        "id": "FIX-BRAND-UNIVERSE",
+        "name": "Persistent multi-product brand universe",
+        "family": "pattern_fixture",
+        "narrative_architecture_pattern": "long_lived_commerce_narrative",
+        "purpose_and_capabilities": "Product snapshots over time, cross-campaign continuity, multiple placements per scene, selective source-drift invalidation, discontinued SKU, withdrawn claim",
+        "dependencies": [
+          "GATE-0003"
+        ],
+        "intended_phase": "post-F1 (C1)",
+        "valid_scenario": "Three campaigns over catalog versions; one stays valid after claim withdrawal, one goes stale",
+        "planned_invalid_scenario": "A later episode shows current packaging but reuses an obsolete claim",
+        "expected_finding_or_blocked_transition": "stale-claim finding",
+        "acceptance_criteria": [
+          "drift invalidation selective",
+          "narrative continuity owned by Storyworld, product truth by Commerce Foundry"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "test_only_brand_universe",
+        "required_adapters_or_capabilities": [
+          "commerce_foundry_connector"
+        ],
+        "applicable_metamorphic_families": [
+          "MET-B3",
+          "MET-B4"
+        ]
+      },
+      {
+        "id": "FIX-COLLAB-MERGE",
+        "name": "Collaborative authorship and branch merging",
+        "family": "pattern_fixture",
+        "narrative_architecture_pattern": "collaborative_merge_authority",
+        "purpose_and_capabilities": "Competing proposals on the same scene, partial acceptance, rights block, guest annotation limits, merged canon release",
+        "dependencies": [
+          "GATE-0003"
+        ],
+        "intended_phase": "post-F1 (B2 collaboration)",
+        "valid_scenario": "Two writers' conflicting proposals merged by an editor into a new release",
+        "planned_invalid_scenario": "A comment, guest edit, or AI proposal changes accepted canon without authority",
+        "expected_finding_or_blocked_transition": "authority-violation rejection",
+        "acceptance_criteria": [
+          "merge is explicit and authorized",
+          "partial acceptance preserves both proposals' lineage"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "synthetic_pattern_content",
+        "required_adapters_or_capabilities": [
+          "collaboration_features"
+        ],
+        "applicable_metamorphic_families": [
+          "MET-F3",
+          "MET-B4"
+        ]
+      },
+      {
+        "id": "FIX-PROCEDURAL",
+        "name": "Procedural episodic series",
+        "family": "pattern_fixture",
+        "narrative_architecture_pattern": "procedural_generation_governance",
+        "purpose_and_capabilities": "Rules/templates generating episode instances with deterministic seeds, allowed variation, auditable canon invariants",
+        "dependencies": [
+          "GATE-0003"
+        ],
+        "intended_phase": "post-F1 (conditional)",
+        "valid_scenario": "Template-driven episode instances with recorded seeds",
+        "planned_invalid_scenario": "A generated instance violates a canon invariant without a finding",
+        "expected_finding_or_blocked_transition": "invariant-breach finding",
+        "acceptance_criteria": [
+          "generation auditable and reproducible"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "synthetic_pattern_content",
+        "required_adapters_or_capabilities": [
+          "generation_pipeline"
+        ],
+        "applicable_metamorphic_families": [
+          "MET-B4"
+        ]
+      },
+      {
+        "id": "FIX-CURRICULUM",
+        "name": "Curriculum and learning pathway",
+        "family": "pattern_fixture",
+        "narrative_architecture_pattern": "learning_pathway",
+        "purpose_and_capabilities": "Objectives, prerequisites, assessments, instructor-only answers, age/reading variants, learner privacy",
+        "dependencies": [
+          "GATE-0003"
+        ],
+        "intended_phase": "post-F1 (conditional)",
+        "valid_scenario": "Lesson pathway with gated assessments and restricted answer keys",
+        "planned_invalid_scenario": "Instructor-only answers appear in a learner-visible package",
+        "expected_finding_or_blocked_transition": "visibility-breach finding",
+        "acceptance_criteria": [
+          "prerequisite graph validated",
+          "privacy classes enforced"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "synthetic_pattern_content",
+        "required_adapters_or_capabilities": [
+          "template_system"
+        ],
+        "applicable_metamorphic_families": [
+          "MET-B4"
+        ]
+      },
+      {
+        "id": "FIX-LIVE-EVENT",
+        "name": "Live-event / time-window narrative",
+        "family": "pattern_fixture",
+        "narrative_architecture_pattern": "time_window_release",
+        "purpose_and_capabilities": "Embargoes, time zones, cancellation branches, scheduled reveals, contingency releases, stale conditions",
+        "dependencies": [
+          "GATE-0003"
+        ],
+        "intended_phase": "post-F1 (conditional)",
+        "valid_scenario": "Event narrative with embargoed reveals and a cancellation contingency",
+        "planned_invalid_scenario": "An embargoed reveal publishes before its window",
+        "expected_finding_or_blocked_transition": "embargo-violation blocked transition",
+        "acceptance_criteria": [
+          "contingency branches pre-approved",
+          "windows explicit"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "synthetic_pattern_content",
+        "required_adapters_or_capabilities": [
+          "publishing_adapters"
+        ],
+        "applicable_metamorphic_families": [
+          "MET-B4"
+        ]
+      },
+      {
+        "id": "FIX-REGIONAL-CUTS",
+        "name": "Regional or age-profile cuts",
+        "family": "pattern_fixture",
+        "narrative_architecture_pattern": "territory_rated_editions",
+        "purpose_and_capabilities": "Territory rights, content classification, alternate edits, warnings, release approval per region",
+        "dependencies": [
+          "GATE-0003"
+        ],
+        "intended_phase": "post-F1 (conditional)",
+        "valid_scenario": "Two regional edits with classification and warnings",
+        "planned_invalid_scenario": "A region receives an edit its rights or rating prohibit",
+        "expected_finding_or_blocked_transition": "territory-violation blocked transition",
+        "acceptance_criteria": [
+          "edits are renditions with explicit divergence records"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "synthetic_pattern_content",
+        "required_adapters_or_capabilities": [
+          "channel_adapters"
+        ],
+        "applicable_metamorphic_families": [
+          "MET-B4"
+        ]
+      },
+      {
+        "id": "FIX-GENERATIONAL-SAGA",
+        "name": "Generational saga",
+        "family": "pattern_fixture",
+        "narrative_architecture_pattern": "long_span_temporal_continuity",
+        "purpose_and_capabilities": "Aging, inheritance, relationship evolution, long temporal gaps, entity continuity across decades",
+        "dependencies": [
+          "GATE-0003"
+        ],
+        "intended_phase": "post-F1 (conditional)",
+        "valid_scenario": "Multi-generation timeline with inherited objects and evolving relationships",
+        "planned_invalid_scenario": "An entity's age or possession state contradicts the long-span timeline",
+        "expected_finding_or_blocked_transition": "temporal-continuity finding",
+        "acceptance_criteria": [
+          "state computation works across decade gaps"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "synthetic_pattern_content",
+        "required_adapters_or_capabilities": [],
+        "applicable_metamorphic_families": [
+          "MET-F3"
+        ]
+      },
+      {
+        "id": "FIX-SIMULATION-EXPORT",
+        "name": "Simulation-schedule export",
+        "family": "pattern_fixture",
+        "narrative_architecture_pattern": "authored_simulation_boundary",
+        "purpose_and_capabilities": "Authored NPC schedules and world-state rules exported to a runtime; no live simulation state re-imported into canon",
+        "dependencies": [
+          "GATE-0003"
+        ],
+        "intended_phase": "post-F1 (conditional)",
+        "valid_scenario": "Schedule package for a runtime with authored rules only",
+        "planned_invalid_scenario": "Live simulation state is written back into canon",
+        "expected_finding_or_blocked_transition": "runtime-state contamination rejection",
+        "acceptance_criteria": [
+          "boundary mirrors ADR-0012"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "synthetic_pattern_content",
+        "required_adapters_or_capabilities": [
+          "runtime_compiler_interface"
+        ],
+        "applicable_metamorphic_families": [
+          "MET-B3"
+        ]
+      },
+      {
+        "id": "FIX-CONCEPT-ALBUM",
+        "name": "Concept album / visual-album narrative",
+        "family": "pattern_fixture",
+        "narrative_architecture_pattern": "cross_media_release_dependency",
+        "purpose_and_capabilities": "Track order, recurring lyrical/musical motifs, cover art, videos, performance rights, cross-media release dependencies",
+        "dependencies": [
+          "GATE-0003"
+        ],
+        "intended_phase": "post-F1 (conditional)",
+        "valid_scenario": "Album narrative with track-video dependencies and performance rights",
+        "planned_invalid_scenario": "A video releases before its dependent track clears rights",
+        "expected_finding_or_blocked_transition": "dependency/rights blocked transition",
+        "acceptance_criteria": [
+          "cross-media dependencies explicit"
+        ],
+        "ownership_statement": "I authored this; fictional; permitted use: test fixture in this repository.",
+        "sensitivity": "internal",
+        "permitted_use": "test_fixture_in_this_repository_only",
+        "canon_classification": "synthetic_pattern_content",
+        "required_adapters_or_capabilities": [
+          "audio_pipeline",
+          "channel_adapters"
+        ],
+        "applicable_metamorphic_families": [
+          "MET-B4"
+        ]
+      }
+    ],
+    "metamorphic_test_families": [
+      {
+        "id": "MET-F1",
+        "phase": "F1",
+        "status": "active",
+        "tests": [
+          "reorder_release_units_preserves_story_chronology",
+          "insert_unit_preserves_stable_identities",
+          "fork_adaptation_preserves_source_canon",
+          "correct_assertion_preserves_superseded_history",
+          "expire_right_identifies_affected_records",
+          "export_reimport_preserves_ids_and_hashes"
+        ],
+        "registry": "../tests/metamorphic-f1.json"
+      },
+      {
+        "id": "MET-F3",
+        "phase": "F3",
+        "status": "registered_inactive",
+        "tests": [
+          "canon_change_impact",
+          "branch_ancestry_and_overrides",
+          "state_recomputation_by_story_time",
+          "deep_hierarchy_insertion_and_reordering",
+          "shared_dependency_version_changes",
+          "promise_and_thread_preservation"
+        ]
+      },
+      {
+        "id": "MET-B3",
+        "phase": "B3",
+        "status": "registered_inactive",
+        "tests": [
+          "source_drift_propagation",
+          "package_invalidation",
+          "commerce_snapshot_changes",
+          "runtime_package_recompilation",
+          "connected_vs_portable_equivalence",
+          "duplicate_delivery_and_replay"
+        ]
+      },
+      {
+        "id": "MET-B4",
+        "phase": "B4+",
+        "status": "registered_inactive",
+        "tests": [
+          "provider_replacement",
+          "localization_invariants",
+          "audio_region_replacement",
+          "rights_revocation_across_scheduled_releases",
+          "experiment_variants_without_canon_mutation",
+          "publication_corrections_and_retractions",
+          "collaboration_merge_behavior",
+          "runtime_and_conversational_boundary"
+        ]
+      }
+    ],
+    "vertical_slices": "owned by charter fixtures-and-slices (VS0-VS6); unchanged by this registry"
+  }
+}

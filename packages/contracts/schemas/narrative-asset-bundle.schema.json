@@ -1,0 +1,518 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tag:storyworld-platform,2026:contracts/narrative-asset-bundle/v1",
+  "title": "Narrative asset bundle",
+  "description": "Signed Storyworld output containing narrative media, placement contracts, lineage, reports, and creative approvals for receiving-authority review (canonical part 04 section 11.5; part 03 section 8.4; ADR-0010, ADR-0011). The receiving system imports every bundle as unapproved.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "bundle_id",
+    "package_version",
+    "origin",
+    "authority_host",
+    "identifiers",
+    "story_concept",
+    "narrative_unit_refs",
+    "placements",
+    "snapshot_refs",
+    "master_assets",
+    "copy",
+    "derivation_lineage",
+    "provider_provenance",
+    "rights_evidence_refs",
+    "reports",
+    "approval_receipts",
+    "required_receiving_authority_checks",
+    "expiry",
+    "signature"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "storyworld.narrative-asset-bundle.v1"
+    },
+    "bundle_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "package_version": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "origin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "system",
+        "system_version",
+        "created_at"
+      ],
+      "properties": {
+        "system": {
+          "type": "string",
+          "minLength": 1
+        },
+        "system_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_at": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z)?$"
+        }
+      }
+    },
+    "authority_host": {
+      "enum": [
+        "storyworld",
+        "commerce_foundry",
+        "bekindrewind_runtime"
+      ]
+    },
+    "identifiers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "workspace_id",
+        "campaign_id",
+        "brief_ref",
+        "correlation_id"
+      ],
+      "properties": {
+        "workspace_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "campaign_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "brief_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "correlation_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "causation_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        }
+      }
+    },
+    "story_concept": {
+      "type": "string",
+      "minLength": 1
+    },
+    "narrative_unit_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "placements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "placement_id",
+          "product_snapshot_ref",
+          "scene_ref",
+          "narrative_role",
+          "rationale",
+          "required_depictions",
+          "prohibited_depictions",
+          "allowed_transformations",
+          "approved_claims_used",
+          "disclosure_obligations",
+          "correlation_ids"
+        ],
+        "properties": {
+          "placement_id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          },
+          "product_snapshot_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "scene_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "narrative_role": {
+            "enum": [
+              "hero",
+              "utility",
+              "gift",
+              "background_texture",
+              "problem_solver",
+              "optional_cameo",
+              "custom"
+            ]
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1
+          },
+          "required_depictions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "prohibited_depictions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "fidelity_requirements": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "minimum_visibility": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1
+          },
+          "allowed_transformations": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "approved_claims_used": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "disclosure_obligations": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "cta_obligations": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "offer_association": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1
+          },
+          "correlation_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "snapshot_refs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "product_snapshot_refs",
+        "claim_snapshot_refs",
+        "policy_snapshot_refs",
+        "source_snapshot_refs"
+      ],
+      "properties": {
+        "product_snapshot_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "claim_snapshot_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "policy_snapshot_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "source_snapshot_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "master_assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "asset_version_ref",
+          "sha256",
+          "renditions"
+        ],
+        "properties": {
+          "asset_version_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "renditions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "rendition_ref",
+                "target_channel",
+                "sha256"
+              ],
+              "properties": {
+                "rendition_ref": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "target_channel": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "copy": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "copy_id",
+          "copy_type",
+          "text",
+          "disclosures"
+        ],
+        "properties": {
+          "copy_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "copy_type": {
+            "enum": [
+              "caption",
+              "script",
+              "cta",
+              "alt_text",
+              "description"
+            ]
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "disclosures": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "subject_asset_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "derivation_lineage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "asset_version_ref",
+          "derived_from_refs",
+          "transformation"
+        ],
+        "properties": {
+          "asset_version_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "derived_from_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "transformation": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "provider_provenance": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "asset_version_ref",
+          "provider"
+        ],
+        "properties": {
+          "asset_version_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "provider": {
+            "type": "string",
+            "minLength": 1
+          },
+          "model": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1
+          },
+          "workflow_sha256": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    },
+    "rights_evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "reports": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "report_type",
+          "result",
+          "produced_at",
+          "report_ref"
+        ],
+        "properties": {
+          "report_type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "result": {
+            "enum": [
+              "pass",
+              "findings",
+              "fail"
+            ]
+          },
+          "produced_at": {
+            "type": "string",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z)?$"
+          },
+          "report_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "approval_receipts": {
+      "type": "array",
+      "items": {
+        "$ref": "tag:storyworld-platform,2026:contracts/approval-receipt/v1"
+      },
+      "description": "Creative and rights approvals; evidence for the receiving authority, never commercial authorization (ADR-0011)."
+    },
+    "required_receiving_authority_checks": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "expiry": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "algorithm",
+        "key_id",
+        "detached_signature_sha256"
+      ],
+      "properties": {
+        "algorithm": {
+          "type": "string",
+          "minLength": 1
+        },
+        "key_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "detached_signature_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "SHA-256 of the detached signature file shipped alongside the package; the signature itself is never embedded."
+        }
+      }
+    }
+  }
+}

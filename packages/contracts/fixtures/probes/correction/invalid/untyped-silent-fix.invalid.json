@@ -1,0 +1,143 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/canon-release/v1",
+  "$description": "Planned rejection (probe G): a correction must be typed (correction/clarification/retraction) — a 'silent-fix' that would overwrite history is structurally rejected. The stale-derivative rejection (captions still using the superseded date) is a B3/B4 metamorphic behavior.",
+  "$expect_errors": [
+    "correction_type",
+    "not in enum"
+  ],
+  "instance": {
+    "schema_version": "storyworld.canon-release.v1",
+    "canon_release_id": "00000000-0000-7000-8000-000000000710",
+    "property_id": "00000000-0000-7000-8000-000000000790",
+    "branch": "official",
+    "release_name": "probe-evidence-correction",
+    "release_version": "1.0.0",
+    "created_at": "2026-07-28T00:00:00Z",
+    "accepted_by_receipt_ref": "synthetic:receipt:probe",
+    "supersedes_ref": null,
+    "facts": [
+      {
+        "fact_id": "00000000-0000-7000-8000-000000000711",
+        "revision_id": "00000000-0000-7000-8000-000000000712",
+        "subject_ref": "publication:northbridge-annals-no4",
+        "predicate": "publication_status",
+        "value": {
+          "type": "text",
+          "content": "Issue No. 4 of the fictional Northbridge Annals was published on 2026-05-01 and its published edition is preserved unchanged."
+        },
+        "classification": "audience_visible_fact",
+        "scope": "probe",
+        "visibility": "public",
+        "status": "accepted",
+        "source_ref": "publication:northbridge-annals-no4"
+      }
+    ],
+    "entities": [],
+    "relationships": [],
+    "timeline_events": [],
+    "reference_pack_refs": [],
+    "content_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "assertions": [
+      {
+        "assertion_id": "00000000-0000-7000-8000-000000000701",
+        "speaker_ref": "narrator:probe-historian",
+        "claim": "The mill on Coldwater Lane operated for forty years.",
+        "asserted_at_story_time": "sy-incident-night",
+        "speaker_knowledge_basis": "present at or reviewing the fictional probe incident",
+        "honesty": "honest",
+        "accuracy": "accurate",
+        "confidence": "certain",
+        "visibility": "public",
+        "status": "active",
+        "superseded_by_ref": null,
+        "evidence_refs": [
+          "source:mill-ledger-1870",
+          "source:county-survey-1902"
+        ]
+      },
+      {
+        "assertion_id": "00000000-0000-7000-8000-000000000702",
+        "speaker_ref": "narrator:probe-historian",
+        "claim": "The founder wrote: 'the wheel never stopped for winter' (quoted under limited excerpt permission).",
+        "asserted_at_story_time": "sy-incident-night",
+        "speaker_knowledge_basis": "present at or reviewing the fictional probe incident",
+        "honesty": "honest",
+        "accuracy": "accurate",
+        "confidence": "certain",
+        "visibility": "public",
+        "status": "active",
+        "superseded_by_ref": null,
+        "evidence_refs": [
+          "source:founder-letter (limited excerpt permission; quote-only)"
+        ]
+      },
+      {
+        "assertion_id": "00000000-0000-7000-8000-000000000703",
+        "speaker_ref": "narrator:probe-historian",
+        "claim": "The mill probably supplied the eastern garrison.",
+        "asserted_at_story_time": "sy-incident-night",
+        "speaker_knowledge_basis": "present at or reviewing the fictional probe incident",
+        "honesty": "honest",
+        "accuracy": "undetermined",
+        "confidence": "probable",
+        "visibility": "public",
+        "status": "active",
+        "superseded_by_ref": null,
+        "evidence_refs": [
+          "source:garrison-requisition-fragment"
+        ]
+      },
+      {
+        "assertion_id": "00000000-0000-7000-8000-000000000704",
+        "speaker_ref": "narrator:probe-historian",
+        "claim": "Two records disagree on the fire's date; the disagreement itself is reported.",
+        "asserted_at_story_time": "sy-incident-night",
+        "speaker_knowledge_basis": "present at or reviewing the fictional probe incident",
+        "honesty": "honest",
+        "accuracy": "partial",
+        "confidence": "disputed",
+        "visibility": "public",
+        "status": "active",
+        "superseded_by_ref": null,
+        "evidence_refs": [
+          "source:gazette-1893-03",
+          "source:parish-note-1894"
+        ]
+      },
+      {
+        "assertion_id": "00000000-0000-7000-8000-000000000705",
+        "speaker_ref": "narrator:probe-historian",
+        "claim": "The mill fire occurred in 1894.",
+        "asserted_at_story_time": "sy-incident-night",
+        "speaker_knowledge_basis": "present at or reviewing the fictional probe incident",
+        "honesty": "honest",
+        "accuracy": "mistaken",
+        "confidence": "probable",
+        "visibility": "public",
+        "status": "superseded",
+        "superseded_by_ref": "00000000-0000-7000-8000-000000000706",
+        "evidence_refs": [
+          "source:parish-note-1894"
+        ]
+      },
+      {
+        "assertion_id": "00000000-0000-7000-8000-000000000706",
+        "speaker_ref": "narrator:probe-historian",
+        "claim": "The mill fire occurred in 1893, per the newly discovered parish ledger; a public correction notice was issued.",
+        "asserted_at_story_time": "sy-incident-night",
+        "speaker_knowledge_basis": "present at or reviewing the fictional probe incident",
+        "honesty": "honest",
+        "accuracy": "accurate",
+        "confidence": "certain",
+        "visibility": "public",
+        "status": "active",
+        "superseded_by_ref": null,
+        "evidence_refs": [
+          "source:parish-ledger-1893 (newly discovered)",
+          "notice:correction-2026-06-10"
+        ],
+        "correction_type": "silent-fix"
+      }
+    ]
+  }
+}

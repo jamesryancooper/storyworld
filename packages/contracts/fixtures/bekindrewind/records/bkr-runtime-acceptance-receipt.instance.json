@@ -1,0 +1,20 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/approval-receipt/v1",
+  "schema_version": "storyworld.approval-receipt.v1",
+  "receipt_id": "b1c40000-0000-4000-8000-000000000951",
+  "approval_layer": "publication_or_runtime_acceptance",
+  "decision": "approved",
+  "subject_refs": [
+    "b1c40000-0000-4000-8000-000000000900"
+  ],
+  "subject_sha256": [
+    "d499429d5f89d54d8009996902590527f74089bd0fe3f98c649c6af4ef1aabaa"
+  ],
+  "policy_refs": [],
+  "decided_by": "bekindrewind-runtime acceptance (synthetic receipt for test fixture)",
+  "decided_by_role": "runtime_acceptance",
+  "decided_at": "2026-07-28T00:00:00Z",
+  "authority_host": "bekindrewind_runtime",
+  "invalidated_by": null,
+  "expiry": null
+}

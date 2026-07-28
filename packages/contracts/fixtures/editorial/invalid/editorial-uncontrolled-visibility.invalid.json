@@ -1,0 +1,217 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/canon-release/v1",
+  "$description": "Planned rejection (nearest schema-detectable form): a fact derived from the restricted source is marked with visibility 'private', which is not a controlled visibility class - restricted material must use the controlled 'restricted' visibility so policy hooks can gate it. The full leakage scenario (restricted text in a public output) is enforced by the validator's restricted-source separation check.",
+  "$expect_errors": [
+    "not in enum"
+  ],
+  "instance": {
+    "schema_version": "storyworld.canon-release.v1",
+    "canon_release_id": "ed170000-0000-4000-8000-000000000001",
+    "property_id": "ed170000-0000-4000-8000-000000000000",
+    "branch": "hingeweather-notes/fixture",
+    "release_name": "Hingeweather Note 01 fixture release",
+    "release_version": "1.0.0",
+    "created_at": "2026-07-28",
+    "accepted_by_receipt_ref": "receipt:editorial-canon-approval",
+    "supersedes_ref": null,
+    "facts": [
+      {
+        "fact_id": "ed170000-0000-4000-8000-000000000101",
+        "revision_id": "ed170000-0000-4000-8000-000000000601",
+        "subject_ref": "ed170000-0000-4000-8000-000000000200",
+        "predicate": "voice_rule_1",
+        "value": {
+          "type": "text",
+          "content": "Specific but not exposing: begin with an ordinary image, then generalize the lesson; never preserve details that could identify the source situation."
+        },
+        "classification": "style_rule",
+        "scope": "hingeweather-note-01",
+        "visibility": "public",
+        "status": "accepted",
+        "source_ref": "fixtures/editorial/source/02-editorial-carousel.md"
+      },
+      {
+        "fact_id": "ed170000-0000-4000-8000-000000000102",
+        "revision_id": "ed170000-0000-4000-8000-000000000602",
+        "subject_ref": "ed170000-0000-4000-8000-000000000200",
+        "predicate": "voice_rule_2",
+        "value": {
+          "type": "text",
+          "content": "Firm without accusation: name choices and consequences, not diagnoses, labels, or character verdicts."
+        },
+        "classification": "style_rule",
+        "scope": "hingeweather-note-01",
+        "visibility": "public",
+        "status": "accepted",
+        "source_ref": "fixtures/editorial/source/02-editorial-carousel.md"
+      },
+      {
+        "fact_id": "ed170000-0000-4000-8000-000000000103",
+        "revision_id": "ed170000-0000-4000-8000-000000000603",
+        "subject_ref": "ed170000-0000-4000-8000-000000000200",
+        "predicate": "voice_rule_3",
+        "value": {
+          "type": "text",
+          "content": "Humble authority: use 'I learned,' 'I noticed,' or 'sometimes,' rather than universal commands or claims of expertise."
+        },
+        "classification": "style_rule",
+        "scope": "hingeweather-note-01",
+        "visibility": "public",
+        "status": "accepted",
+        "source_ref": "fixtures/editorial/source/02-editorial-carousel.md"
+      },
+      {
+        "fact_id": "ed170000-0000-4000-8000-000000000104",
+        "revision_id": "ed170000-0000-4000-8000-000000000604",
+        "subject_ref": "ed170000-0000-4000-8000-000000000200",
+        "predicate": "voice_rule_4",
+        "value": {
+          "type": "text",
+          "content": "Hope without guaranteed reconciliation: repair is possible, but no panel promises access, forgiveness, or reunion."
+        },
+        "classification": "style_rule",
+        "scope": "hingeweather-note-01",
+        "visibility": "public",
+        "status": "accepted",
+        "source_ref": "fixtures/editorial/source/02-editorial-carousel.md"
+      },
+      {
+        "fact_id": "ed170000-0000-4000-8000-000000000105",
+        "revision_id": "ed170000-0000-4000-8000-000000000605",
+        "subject_ref": "ed170000-0000-4000-8000-000000000200",
+        "predicate": "voice_rule_5",
+        "value": {
+          "type": "text",
+          "content": "Dignity test: a person represented by the private source should be able to read the public piece without feeling publicly cornered or exposed."
+        },
+        "classification": "style_rule",
+        "scope": "hingeweather-note-01",
+        "visibility": "public",
+        "status": "accepted",
+        "source_ref": "fixtures/editorial/source/02-editorial-carousel.md"
+      },
+      {
+        "fact_id": "ed170000-0000-4000-8000-000000000106",
+        "revision_id": "ed170000-0000-4000-8000-000000000606",
+        "subject_ref": "installment:note-01",
+        "predicate": "thesis",
+        "value": {
+          "type": "text",
+          "content": "A boundary is not a punishment. It is the repair line that makes safe closeness possible."
+        },
+        "classification": "audience_visible_fact",
+        "scope": "hingeweather-note-01",
+        "visibility": "public",
+        "status": "accepted",
+        "source_ref": "fixtures/editorial/source/02-editorial-carousel.md"
+      },
+      {
+        "fact_id": "ed170000-0000-4000-8000-000000000107",
+        "revision_id": "ed170000-0000-4000-8000-000000000607",
+        "subject_ref": "ed170000-0000-4000-8000-000000000201",
+        "predicate": "metaphor_evolution",
+        "value": {
+          "type": "text",
+          "content": "Stuck gate pushed harder; bent hinge revealed; gate removed, cleaned, aligned, repaired; opens only when someone on each side chooses to meet without forcing it; rests closed but functional - closed is not broken, and open is not owed."
+        },
+        "classification": "style_rule",
+        "scope": "hingeweather-note-01",
+        "visibility": "public",
+        "status": "accepted",
+        "source_ref": "fixtures/editorial/source/02-editorial-carousel.md"
+      },
+      {
+        "fact_id": "ed170000-0000-4000-8000-000000000108",
+        "revision_id": "ed170000-0000-4000-8000-000000000608",
+        "subject_ref": "ed170000-0000-4000-8000-000000000201",
+        "predicate": "secret_editorial_meaning",
+        "value": {
+          "type": "text",
+          "content": "The boundary is the hinge repair, not the wall."
+        },
+        "classification": "secret_truth",
+        "scope": "hingeweather-note-01",
+        "visibility": "team_private",
+        "status": "accepted",
+        "source_ref": "fixtures/editorial/source/02-editorial-carousel.md"
+      },
+      {
+        "fact_id": "ed170000-0000-4000-8000-000000000109",
+        "revision_id": "ed170000-0000-4000-8000-000000000609",
+        "subject_ref": "installment:note-01",
+        "predicate": "caption_style_rule",
+        "value": {
+          "type": "text",
+          "content": "90-160 words; opens with one concrete image; short paragraphs; no list of diagnoses; no hashtags naming a behavior disorder; ends with one reflective question, not a demand for disclosure."
+        },
+        "classification": "style_rule",
+        "scope": "hingeweather-note-01",
+        "visibility": "public",
+        "status": "accepted",
+        "source_ref": "fixtures/editorial/source/02-editorial-carousel.md"
+      },
+      {
+        "fact_id": "ed170000-0000-4000-8000-000000000110",
+        "revision_id": "ed170000-0000-4000-8000-000000000610",
+        "subject_ref": "installment:note-01",
+        "predicate": "public_abstraction_PUB-ED-001",
+        "value": {
+          "type": "text",
+          "content": "Sometimes a boundary arrives after trust has been strained. It can feel like distance, especially when part of us wants to restore peace immediately. But taking back a necessary limit may restore access without repairing what made the limit necessary. A boundary can be the hinge work that gives future closeness a safer way to move."
+        },
+        "classification": "audience_visible_fact",
+        "scope": "hingeweather-note-01",
+        "visibility": "public",
+        "status": "accepted",
+        "source_ref": "SRC-ED-001",
+        "rationale": "Generalized public transformation of restricted source SRC-ED-001; provenance preserved by reference only - the restricted body never enters public records."
+      },
+      {
+        "fact_id": "ed170000-0000-4000-8000-000000000199",
+        "revision_id": "ed170000-0000-4000-8000-000000000699",
+        "subject_ref": "source:SRC-ED-001",
+        "predicate": "note_body",
+        "value": {
+          "type": "text",
+          "content": "[body withheld]"
+        },
+        "classification": "world_rule",
+        "scope": "hingeweather-note-01",
+        "visibility": "private",
+        "status": "accepted",
+        "source_ref": "fixtures/editorial/source/restricted/restricted-note.md"
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "ed170000-0000-4000-8000-000000000200",
+        "entity_type": "narrator",
+        "name": "Nora Bell",
+        "visibility": "public",
+        "attributes": {
+          "public_identification": "Nora, editor of Hingeweather Notes",
+          "description": "Fictional retired school librarian in her late sixties; writes short visual essays to an unnamed younger reader",
+          "not_presented_as": [
+            "therapist",
+            "clinician",
+            "clergy member",
+            "authority over the reader's life"
+          ]
+        }
+      },
+      {
+        "entity_id": "ed170000-0000-4000-8000-000000000201",
+        "entity_type": "symbol",
+        "name": "The garden gate",
+        "visibility": "public",
+        "attributes": {
+          "role": "recurring metaphor of Note 01"
+        }
+      }
+    ],
+    "relationships": [],
+    "timeline_events": [],
+    "reference_pack_refs": [],
+    "content_sha256": "73736d44e23245719a580d24a5ca623d7e28c94cd27f5a1485c1cee7be891c41"
+  }
+}

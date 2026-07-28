@@ -1,0 +1,42 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/scene-state-packet/v1",
+  "schema_version": "storyworld.scene-state-packet.v1",
+  "packet_id": "00000000-0000-7000-8000-000000000320",
+  "scene_ref": "unit:00000000-0000-7000-8000-000000000303",
+  "canon_release_ref": "canon-release:probe-nonlinear",
+  "narrative_branch": "official",
+  "story_time": "sy-300",
+  "entity_states": [
+    {
+      "entity_ref": "entity:signal-lamp",
+      "state": {
+        "condition": "cracked",
+        "cause": "damaged during event B at sy-200; story time sy-300 is after sy-200 regardless of B releasing later"
+      },
+      "locked_attributes": [
+        "condition"
+      ]
+    }
+  ],
+  "entering_state_summary": "Scene C occurs at sy-300: the signal lamp is already cracked because event B (sy-200) precedes it in story time, even though B is released after C.",
+  "expected_effects": [],
+  "audience_knowledge_refs": [],
+  "character_knowledge": [
+    {
+      "entity_ref": "entity:the-porter",
+      "knows": [
+        "the lamp cracked during event B"
+      ]
+    }
+  ],
+  "active_threads": [
+    {
+      "thread_ref": "thread:00000000-0000-7000-8000-000000000310",
+      "thread_type": "reveal"
+    }
+  ],
+  "reference_pack_refs": [],
+  "policy_refs": [],
+  "created_at": "2026-07-28T00:00:00Z",
+  "content_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+}

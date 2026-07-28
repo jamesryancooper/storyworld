@@ -1,0 +1,111 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/narrative-structure/v1",
+  "$description": "Planned rejection (probe F): inserting Chapter 2A must never renumber stable identities or orphan a promise. Schema-level proxy: a unit without unit_id is rejected — identity is mandatory and display numbering can never substitute for it. Renumber-on-insert is exercised positively by MET-F1 insert_unit.",
+  "$expect_errors": [
+    "missing required property 'unit_id'"
+  ],
+  "instance": {
+    "schema_version": "storyworld.narrative-structure.v1",
+    "structure_id": "00000000-0000-7000-8000-000000000600",
+    "property_id": "00000000-0000-7000-8000-000000000690",
+    "canon_release_ref": "canon-release:00000000-0000-7000-8000-000000000620",
+    "production_ref": null,
+    "narrative_units": [
+      {
+        "unit_id": "00000000-0000-7000-8000-000000000601",
+        "unit_type": "book",
+        "display_number": "—",
+        "presentation_order": 1,
+        "story_time": "sy-000",
+        "publication_time": null,
+        "parent_unit_ref": null
+      },
+      {
+        "unit_id": "00000000-0000-7000-8000-000000000602",
+        "unit_type": "part",
+        "display_number": "I",
+        "presentation_order": 2,
+        "story_time": "sy-100",
+        "publication_time": null,
+        "parent_unit_ref": "00000000-0000-7000-8000-000000000601"
+      },
+      {
+        "unit_id": "00000000-0000-7000-8000-000000000603",
+        "unit_type": "chapter",
+        "display_number": "1",
+        "presentation_order": 3,
+        "story_time": "sy-110",
+        "publication_time": null,
+        "parent_unit_ref": "00000000-0000-7000-8000-000000000602"
+      },
+      {
+        "unit_id": "00000000-0000-7000-8000-000000000604",
+        "unit_type": "scene",
+        "display_number": "1.1",
+        "presentation_order": 4,
+        "story_time": "sy-111",
+        "publication_time": null,
+        "parent_unit_ref": "00000000-0000-7000-8000-000000000603"
+      },
+      {
+        "unit_id": "00000000-0000-7000-8000-000000000605",
+        "unit_type": "scene",
+        "display_number": "1.2",
+        "presentation_order": 5,
+        "story_time": "sy-112",
+        "publication_time": null,
+        "parent_unit_ref": "00000000-0000-7000-8000-000000000603"
+      },
+      {
+        "unit_id": "00000000-0000-7000-8000-000000000606",
+        "unit_type": "chapter",
+        "display_number": "2",
+        "presentation_order": 6,
+        "story_time": "sy-120",
+        "publication_time": null,
+        "parent_unit_ref": "00000000-0000-7000-8000-000000000602"
+      },
+      {
+        "unit_id": "00000000-0000-7000-8000-000000000607",
+        "unit_type": "interlude",
+        "display_number": null,
+        "presentation_order": 7,
+        "story_time": "sy-150",
+        "publication_time": null,
+        "parent_unit_ref": "00000000-0000-7000-8000-000000000601",
+        "pov_entity_ref": "entity:the-archivist"
+      },
+      {
+        "unit_id": "00000000-0000-7000-8000-000000000608",
+        "unit_type": "part",
+        "display_number": "II",
+        "presentation_order": 8,
+        "story_time": "sy-200",
+        "publication_time": null,
+        "parent_unit_ref": "00000000-0000-7000-8000-000000000601"
+      },
+      {
+        "unit_type": "chapter",
+        "display_number": "3",
+        "presentation_order": 9,
+        "story_time": "sy-210",
+        "publication_time": null,
+        "parent_unit_ref": "00000000-0000-7000-8000-000000000608"
+      }
+    ],
+    "choices": [],
+    "branches": [],
+    "threads": [
+      {
+        "thread_id": "00000000-0000-7000-8000-000000000610",
+        "thread_type": "promise",
+        "introduced_in_unit_ref": "00000000-0000-7000-8000-000000000603",
+        "resolved_in_unit_ref": "00000000-0000-7000-8000-000000000609",
+        "earliest_permitted_unit_ref": null,
+        "depends_on_thread_refs": []
+      }
+    ],
+    "created_at": "2026-07-28",
+    "content_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

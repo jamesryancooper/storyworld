@@ -1,0 +1,120 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/narrative-structure/v1",
+  "schema_version": "storyworld.narrative-structure.v1",
+  "structure_id": "00000000-0000-7000-8000-000000000100",
+  "property_id": "00000000-0000-7000-8000-000000000190",
+  "canon_release_ref": "canon-release:probe-branching",
+  "production_ref": null,
+  "narrative_units": [
+    {
+      "unit_id": "00000000-0000-7000-8000-000000000101",
+      "unit_type": "scene",
+      "display_number": "1",
+      "presentation_order": 1,
+      "story_time": "sy-010",
+      "publication_time": null,
+      "parent_unit_ref": null
+    },
+    {
+      "unit_id": "00000000-0000-7000-8000-000000000102",
+      "unit_type": "scene",
+      "display_number": "2K",
+      "presentation_order": 2,
+      "story_time": "sy-020",
+      "publication_time": null,
+      "parent_unit_ref": null
+    },
+    {
+      "unit_id": "00000000-0000-7000-8000-000000000103",
+      "unit_type": "scene",
+      "display_number": "2D",
+      "presentation_order": 3,
+      "story_time": "sy-020",
+      "publication_time": null,
+      "parent_unit_ref": null
+    },
+    {
+      "unit_id": "00000000-0000-7000-8000-000000000104",
+      "unit_type": "scene",
+      "display_number": "3",
+      "presentation_order": 4,
+      "story_time": "sy-030",
+      "publication_time": null,
+      "parent_unit_ref": null
+    },
+    {
+      "unit_id": "00000000-0000-7000-8000-000000000105",
+      "unit_type": "ending",
+      "display_number": "4",
+      "presentation_order": 5,
+      "story_time": "sy-040",
+      "publication_time": null,
+      "parent_unit_ref": null
+    }
+  ],
+  "choices": [
+    {
+      "choice_id": "00000000-0000-7000-8000-000000000120",
+      "at_unit_ref": "00000000-0000-7000-8000-000000000101",
+      "prompt": "The brass key is in your hand. Keep it or drop it into the furnace?",
+      "options": [
+        {
+          "option_id": "opt-keep",
+          "label": "Keep the key",
+          "prerequisites": [],
+          "effects": [
+            {
+              "entity_ref": "entity:brass-key",
+              "attribute": "possession",
+              "to_value": "protagonist"
+            }
+          ],
+          "leads_to_unit_ref": "00000000-0000-7000-8000-000000000102",
+          "branch_label": "branch-keep"
+        },
+        {
+          "option_id": "opt-destroy",
+          "label": "Destroy the key",
+          "prerequisites": [],
+          "effects": [
+            {
+              "entity_ref": "entity:brass-key",
+              "attribute": "condition",
+              "to_value": "destroyed"
+            }
+          ],
+          "leads_to_unit_ref": "00000000-0000-7000-8000-000000000103",
+          "branch_label": "branch-destroy"
+        }
+      ]
+    }
+  ],
+  "branches": [
+    {
+      "branch_label": "branch-keep",
+      "reconverges_at_unit_ref": "00000000-0000-7000-8000-000000000104",
+      "mutually_exclusive_with": [
+        "branch-destroy"
+      ]
+    },
+    {
+      "branch_label": "branch-destroy",
+      "reconverges_at_unit_ref": "00000000-0000-7000-8000-000000000104",
+      "mutually_exclusive_with": [
+        "branch-keep"
+      ]
+    }
+  ],
+  "threads": [
+    {
+      "thread_id": "00000000-0000-7000-8000-000000000110",
+      "thread_type": "dependency",
+      "introduced_in_unit_ref": "00000000-0000-7000-8000-000000000102",
+      "resolved_in_unit_ref": "00000000-0000-7000-8000-000000000105",
+      "earliest_permitted_unit_ref": null,
+      "depends_on_thread_refs": []
+    }
+  ],
+  "created_at": "2026-07-28",
+  "content_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+}

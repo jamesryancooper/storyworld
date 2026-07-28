@@ -1,0 +1,628 @@
+{
+  "$comment_schema": "tag:storyworld-platform,2026:contracts/canon-release/v1",
+  "schema_version": "storyworld.canon-release.v1",
+  "canon_release_id": "57111000-0000-4000-8000-000000000001",
+  "property_id": "57111000-0000-4000-8000-000000000000",
+  "branch": "stillhouse-test/the-second-chair",
+  "release_name": "The Second Chair fixture release",
+  "release_version": "1.0.0",
+  "created_at": "2026-07-28",
+  "accepted_by_receipt_ref": "receipt:stillhouse-canon-approval",
+  "supersedes_ref": null,
+  "facts": [
+    {
+      "fact_id": "57111000-0000-4000-8000-000000000101",
+      "revision_id": "57111000-0000-4000-8000-000000000601",
+      "subject_ref": "property:stillhouse-archive",
+      "predicate": "premise",
+      "value": {
+        "type": "text",
+        "content": "Ordinary places appear to remember a missing person more faithfully than the people who lived there."
+      },
+      "classification": "hard_canon",
+      "scope": "stillhouse-mini-season",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/stillhouse/source/01-stillhouse.md"
+    },
+    {
+      "fact_id": "57111000-0000-4000-8000-000000000102",
+      "revision_id": "57111000-0000-4000-8000-000000000602",
+      "subject_ref": "property:stillhouse-archive",
+      "predicate": "story_present_era",
+      "value": {
+        "type": "text",
+        "content": "2026"
+      },
+      "classification": "hard_canon",
+      "scope": "stillhouse-mini-season",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/stillhouse/source/01-stillhouse.md"
+    },
+    {
+      "fact_id": "57111000-0000-4000-8000-000000000103",
+      "revision_id": "57111000-0000-4000-8000-000000000603",
+      "subject_ref": "property:stillhouse-archive",
+      "predicate": "artifact_era",
+      "value": {
+        "type": "text",
+        "content": "primarily 1988-1989"
+      },
+      "classification": "hard_canon",
+      "scope": "stillhouse-mini-season",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/stillhouse/source/01-stillhouse.md"
+    },
+    {
+      "fact_id": "57111000-0000-4000-8000-000000000104",
+      "revision_id": "57111000-0000-4000-8000-000000000604",
+      "subject_ref": "property:stillhouse-archive",
+      "predicate": "mystery_ratio_excerpt",
+      "value": {
+        "type": "text",
+        "content": "roughly 70% atmosphere, 20% story, 10% solvable clue"
+      },
+      "classification": "style_rule",
+      "scope": "stillhouse-mini-season",
+      "visibility": "team_private",
+      "status": "accepted",
+      "source_ref": "fixtures/stillhouse/source/01-stillhouse.md"
+    },
+    {
+      "fact_id": "57111000-0000-4000-8000-000000000105",
+      "revision_id": "57111000-0000-4000-8000-000000000605",
+      "subject_ref": "property:stillhouse-archive",
+      "predicate": "narrative_tone_rule",
+      "value": {
+        "type": "text",
+        "content": "Intimate, credible, understated; captions never claim the supernatural as settled fact."
+      },
+      "classification": "style_rule",
+      "scope": "stillhouse-mini-season",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/stillhouse/source/01-stillhouse.md"
+    },
+    {
+      "fact_id": "57111000-0000-4000-8000-000000000106",
+      "revision_id": "57111000-0000-4000-8000-000000000606",
+      "subject_ref": "57111000-0000-4000-8000-000000000200",
+      "predicate": "identity",
+      "value": {
+        "type": "text",
+        "content": "The Archivist is Mara Venn, age 38, June's older sister."
+      },
+      "classification": "secret_truth",
+      "scope": "stillhouse-mini-season",
+      "visibility": "team_private",
+      "status": "accepted",
+      "source_ref": "fixtures/stillhouse/source/01-stillhouse.md",
+      "rationale": "Creator-only fixture identity; public credit is only The Archivist. Public revelation of sisterhood occurs via R4; the name remains withheld."
+    },
+    {
+      "fact_id": "57111000-0000-4000-8000-000000000107",
+      "revision_id": "57111000-0000-4000-8000-000000000607",
+      "subject_ref": "57111000-0000-4000-8000-000000000202",
+      "predicate": "hidden_truth_incident",
+      "value": {
+        "type": "text",
+        "content": "On April 17, 1989, at 4:17 p.m., June nearly drowned in the pool of the Red Current Motor Lodge beside Route 17 after being left without adult supervision."
+      },
+      "classification": "secret_truth",
+      "scope": "stillhouse-mini-season",
+      "visibility": "team_private",
+      "status": "accepted",
+      "source_ref": "fixtures/stillhouse/source/01-stillhouse.md"
+    },
+    {
+      "fact_id": "57111000-0000-4000-8000-000000000108",
+      "revision_id": "57111000-0000-4000-8000-000000000608",
+      "subject_ref": "57111000-0000-4000-8000-000000000202",
+      "predicate": "hidden_truth_recovery",
+      "value": {
+        "type": "text",
+        "content": "June survived and recovered in Room 217 of the Stillwater County Recovery Annex."
+      },
+      "classification": "secret_truth",
+      "scope": "stillhouse-mini-season",
+      "visibility": "team_private",
+      "status": "accepted",
+      "source_ref": "fixtures/stillhouse/source/01-stillhouse.md",
+      "rationale": "Grounds withheld reveal R5; must not be public in this excerpt."
+    },
+    {
+      "fact_id": "57111000-0000-4000-8000-000000000109",
+      "revision_id": "57111000-0000-4000-8000-000000000609",
+      "subject_ref": "57111000-0000-4000-8000-000000000202",
+      "predicate": "hidden_truth_transfer",
+      "value": {
+        "type": "text",
+        "content": "To conceal the neglect, June was sent to live with a distant aunt under the aunt's surname; family records and references to her were altered."
+      },
+      "classification": "secret_truth",
+      "scope": "stillhouse-mini-season",
+      "visibility": "team_private",
+      "status": "accepted",
+      "source_ref": "fixtures/stillhouse/source/01-stillhouse.md",
+      "rationale": "Grounds withheld reveals R6-R7."
+    },
+    {
+      "fact_id": "57111000-0000-4000-8000-000000000110",
+      "revision_id": "57111000-0000-4000-8000-000000000610",
+      "subject_ref": "57111000-0000-4000-8000-000000000204",
+      "predicate": "hidden_truth_box",
+      "value": {
+        "type": "text",
+        "content": "Their mother hid a small evidence box under the stairs so the truth would outlive the family's silence."
+      },
+      "classification": "secret_truth",
+      "scope": "stillhouse-mini-season",
+      "visibility": "team_private",
+      "status": "accepted",
+      "source_ref": "fixtures/stillhouse/source/01-stillhouse.md"
+    },
+    {
+      "fact_id": "57111000-0000-4000-8000-000000000111",
+      "revision_id": "57111000-0000-4000-8000-000000000611",
+      "subject_ref": "57111000-0000-4000-8000-000000000210",
+      "predicate": "surface_meaning",
+      "value": {
+        "type": "text",
+        "content": "Ordinary child's furniture."
+      },
+      "classification": "audience_visible_fact",
+      "scope": "stillhouse-mini-season",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/stillhouse/source/01-stillhouse.md"
+    },
+    {
+      "fact_id": "57111000-0000-4000-8000-000000000112",
+      "revision_id": "57111000-0000-4000-8000-000000000612",
+      "subject_ref": "57111000-0000-4000-8000-000000000210",
+      "predicate": "secret_meaning",
+      "value": {
+        "type": "text",
+        "content": "The place a family can remove from a photograph but not from a room's repeated arrangement."
+      },
+      "classification": "secret_truth",
+      "scope": "stillhouse-mini-season",
+      "visibility": "team_private",
+      "status": "accepted",
+      "source_ref": "fixtures/stillhouse/source/01-stillhouse.md"
+    },
+    {
+      "fact_id": "57111000-0000-4000-8000-000000000113",
+      "revision_id": "57111000-0000-4000-8000-000000000613",
+      "subject_ref": "57111000-0000-4000-8000-000000000210",
+      "predicate": "cadence_rule",
+      "value": {
+        "type": "text",
+        "content": "Visible or verbally referenced in every episode."
+      },
+      "classification": "style_rule",
+      "scope": "stillhouse-mini-season",
+      "visibility": "team_private",
+      "status": "accepted",
+      "source_ref": "fixtures/stillhouse/source/01-stillhouse.md"
+    },
+    {
+      "fact_id": "57111000-0000-4000-8000-000000000114",
+      "revision_id": "57111000-0000-4000-8000-000000000614",
+      "subject_ref": "57111000-0000-4000-8000-000000000211",
+      "predicate": "secret_meaning",
+      "value": {
+        "type": "text",
+        "content": "Truth held in plain sight; water is both the site of harm and the family's ritual of pretending everything is normal."
+      },
+      "classification": "secret_truth",
+      "scope": "stillhouse-mini-season",
+      "visibility": "team_private",
+      "status": "accepted",
+      "source_ref": "fixtures/stillhouse/source/01-stillhouse.md"
+    },
+    {
+      "fact_id": "57111000-0000-4000-8000-000000000115",
+      "revision_id": "57111000-0000-4000-8000-000000000615",
+      "subject_ref": "57111000-0000-4000-8000-000000000211",
+      "predicate": "cadence_rule",
+      "value": {
+        "type": "text",
+        "content": "Still water in episode 1, audible glass in episode 2, spilled water in episode 3."
+      },
+      "classification": "style_rule",
+      "scope": "stillhouse-mini-season",
+      "visibility": "team_private",
+      "status": "accepted",
+      "source_ref": "fixtures/stillhouse/source/01-stillhouse.md"
+    },
+    {
+      "fact_id": "57111000-0000-4000-8000-000000000116",
+      "revision_id": "57111000-0000-4000-8000-000000000616",
+      "subject_ref": "57111000-0000-4000-8000-000000000212",
+      "predicate": "secret_meaning",
+      "value": {
+        "type": "text",
+        "content": "June's self-authored proof of existence; a small record made by someone adults attempted to edit out."
+      },
+      "classification": "secret_truth",
+      "scope": "stillhouse-mini-season",
+      "visibility": "team_private",
+      "status": "accepted",
+      "source_ref": "fixtures/stillhouse/source/01-stillhouse.md"
+    },
+    {
+      "fact_id": "57111000-0000-4000-8000-000000000117",
+      "revision_id": "57111000-0000-4000-8000-000000000617",
+      "subject_ref": "symbol:417",
+      "predicate": "secret_meaning",
+      "value": {
+        "type": "text",
+        "content": "4:17 / 417 marks the moment memory split into before and after."
+      },
+      "classification": "secret_truth",
+      "scope": "stillhouse-mini-season",
+      "visibility": "team_private",
+      "status": "accepted",
+      "source_ref": "fixtures/stillhouse/source/01-stillhouse.md"
+    },
+    {
+      "fact_id": "57111000-0000-4000-8000-000000000118",
+      "revision_id": "57111000-0000-4000-8000-000000000618",
+      "subject_ref": "57111000-0000-4000-8000-000000000213",
+      "predicate": "secret_meaning",
+      "value": {
+        "type": "text",
+        "content": "Failed protection and adult negligence."
+      },
+      "classification": "secret_truth",
+      "scope": "stillhouse-mini-season",
+      "visibility": "team_private",
+      "status": "accepted",
+      "source_ref": "fixtures/stillhouse/source/01-stillhouse.md"
+    },
+    {
+      "fact_id": "57111000-0000-4000-8000-000000000119",
+      "revision_id": "57111000-0000-4000-8000-000000000619",
+      "subject_ref": "audience",
+      "predicate": "knowledge_after_episode_3",
+      "value": {
+        "type": "text",
+        "content": "June was a real child and the Archivist's younger sister; June had a repeated place in the Stillhouse; a water emergency occurred at 4:17 p.m. near Route 17; Room 217 and white curtains are connected to the aftermath."
+      },
+      "classification": "audience_visible_fact",
+      "scope": "stillhouse-mini-season",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/stillhouse/source/01-stillhouse.md"
+    },
+    {
+      "fact_id": "57111000-0000-4000-8000-000000000120",
+      "revision_id": "57111000-0000-4000-8000-000000000620",
+      "subject_ref": "audience",
+      "predicate": "knowledge_withheld",
+      "value": {
+        "type": "text",
+        "content": "The audience does not know that June survived, was transferred, or was deliberately erased."
+      },
+      "classification": "secret_truth",
+      "scope": "stillhouse-mini-season",
+      "visibility": "team_private",
+      "status": "accepted",
+      "source_ref": "fixtures/stillhouse/source/01-stillhouse.md"
+    },
+    {
+      "fact_id": "57111000-0000-4000-8000-000000000121",
+      "revision_id": "57111000-0000-4000-8000-000000000621",
+      "subject_ref": "property:stillhouse-archive",
+      "predicate": "arg_safety_rule",
+      "value": {
+        "type": "text",
+        "content": "No clues at real addresses; no implied real missing-child case; all numbers, maps, institutions, and records visibly fictional or non-routable; replies respect the audience-knowledge state and never confirm R5-R7 early."
+      },
+      "classification": "world_rule",
+      "scope": "stillhouse-mini-season",
+      "visibility": "public",
+      "status": "accepted",
+      "source_ref": "fixtures/stillhouse/source/01-stillhouse.md"
+    }
+  ],
+  "entities": [
+    {
+      "entity_id": "57111000-0000-4000-8000-000000000200",
+      "entity_type": "narrator",
+      "name": "The Archivist",
+      "visibility": "public",
+      "attributes": {
+        "public_name": "never stated; credited only as The Archivist"
+      }
+    },
+    {
+      "entity_id": "57111000-0000-4000-8000-000000000201",
+      "entity_type": "character",
+      "name": "Mara Venn",
+      "visibility": "team_private",
+      "attributes": {
+        "age_story_present": 38,
+        "creator_only": "fixture identity of The Archivist; June's older sister"
+      }
+    },
+    {
+      "entity_id": "57111000-0000-4000-8000-000000000202",
+      "entity_type": "character",
+      "name": "June Venn",
+      "visibility": "spoiler",
+      "attributes": {
+        "age_artifact_period": 8,
+        "role": "erased child at the center of the archive"
+      }
+    },
+    {
+      "entity_id": "57111000-0000-4000-8000-000000000203",
+      "entity_type": "character",
+      "name": "Cal Rowan",
+      "visibility": "public",
+      "attributes": {
+        "age_story_present": 76,
+        "role": "retired night intake clerk, Stillwater County Recovery Annex (fictional)"
+      }
+    },
+    {
+      "entity_id": "57111000-0000-4000-8000-000000000204",
+      "entity_type": "location",
+      "name": "The Stillhouse, 17 Stillwater Road",
+      "visibility": "public",
+      "attributes": {
+        "subareas": [
+          "under-stair cupboard",
+          "kitchen",
+          "upstairs small room",
+          "back threshold"
+        ],
+        "stability": "spatially stable across all three episodes"
+      }
+    },
+    {
+      "entity_id": "57111000-0000-4000-8000-000000000205",
+      "entity_type": "artifact",
+      "name": "Kitchen photograph ART-PHOTO-CHAIR-1988",
+      "visibility": "public",
+      "attributes": {
+        "artifact_id": "ART-PHOTO-CHAIR-1988",
+        "dated": "November 1988"
+      }
+    },
+    {
+      "entity_id": "57111000-0000-4000-8000-000000000206",
+      "entity_type": "artifact",
+      "name": "Folded paper star ART-STAR-JUNE-01",
+      "visibility": "public",
+      "attributes": {
+        "artifact_id": "ART-STAR-JUNE-01",
+        "inside_handwriting": "JUNE V. — MARA SAID SHE'D COME BACK."
+      }
+    },
+    {
+      "entity_id": "57111000-0000-4000-8000-000000000207",
+      "entity_type": "artifact",
+      "name": "Dispatch carbon ART-DISPATCH-0417",
+      "visibility": "public",
+      "attributes": {
+        "artifact_id": "ART-DISPATCH-0417",
+        "legible_fragments": [
+          "4:17",
+          "child",
+          "red float",
+          "Route 17",
+          "transport"
+        ]
+      }
+    },
+    {
+      "entity_id": "57111000-0000-4000-8000-000000000208",
+      "entity_type": "artifact",
+      "name": "Brass key tag ART-KEY-217",
+      "visibility": "public",
+      "attributes": {
+        "artifact_id": "ART-KEY-217",
+        "stamp": "217; small white-curtain icon on reverse"
+      }
+    },
+    {
+      "entity_id": "57111000-0000-4000-8000-000000000209",
+      "entity_type": "artifact",
+      "name": "Cassette fragment ART-CASSETTE-TWO-VOICES",
+      "visibility": "public",
+      "attributes": {
+        "artifact_id": "ART-CASSETTE-TWO-VOICES",
+        "audio_seconds": 11
+      }
+    },
+    {
+      "entity_id": "57111000-0000-4000-8000-000000000210",
+      "entity_type": "symbol",
+      "name": "Blue chair",
+      "visibility": "public"
+    },
+    {
+      "entity_id": "57111000-0000-4000-8000-000000000211",
+      "entity_type": "symbol",
+      "name": "Glass of water",
+      "visibility": "public"
+    },
+    {
+      "entity_id": "57111000-0000-4000-8000-000000000212",
+      "entity_type": "symbol",
+      "name": "Paper star",
+      "visibility": "public"
+    },
+    {
+      "entity_id": "57111000-0000-4000-8000-000000000213",
+      "entity_type": "symbol",
+      "name": "Red float",
+      "visibility": "public"
+    },
+    {
+      "entity_id": "57111000-0000-4000-8000-000000000214",
+      "entity_type": "location",
+      "name": "Red Current Motor Lodge (fictional)",
+      "visibility": "team_private",
+      "attributes": {
+        "beside": "Route 17"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "57111000-0000-4000-8000-000000000300",
+      "from_entity_ref": "57111000-0000-4000-8000-000000000201",
+      "to_entity_ref": "57111000-0000-4000-8000-000000000202",
+      "relationship_type": "older_sister_of",
+      "attributes": {
+        "visibility_note": "public only after reveal R4"
+      }
+    },
+    {
+      "relationship_id": "57111000-0000-4000-8000-000000000301",
+      "from_entity_ref": "57111000-0000-4000-8000-000000000202",
+      "to_entity_ref": "57111000-0000-4000-8000-000000000210",
+      "relationship_type": "repeated_place_marked_by"
+    }
+  ],
+  "timeline_events": [
+    {
+      "event_id": "57111000-0000-4000-8000-000000000500",
+      "story_time": "1988-11",
+      "summary": "June and Mara make paper stars at the kitchen table; a photograph captures both blue chairs.",
+      "entity_refs": [
+        "57111000-0000-4000-8000-000000000202",
+        "57111000-0000-4000-8000-000000000201"
+      ],
+      "state_transitions": []
+    },
+    {
+      "event_id": "57111000-0000-4000-8000-000000000501",
+      "story_time": "1989-04-17T16:17:00Z",
+      "summary": "June is pulled from the Red Current Motor Lodge pool beside Route 17 and transported conscious.",
+      "entity_refs": [
+        "57111000-0000-4000-8000-000000000202"
+      ],
+      "state_transitions": [
+        {
+          "entity_ref": "57111000-0000-4000-8000-000000000202",
+          "attribute": "condition",
+          "from_value": "unsupervised_at_pool",
+          "to_value": "transported_conscious"
+        }
+      ]
+    },
+    {
+      "event_id": "57111000-0000-4000-8000-000000000502",
+      "story_time": "1989-04-20",
+      "summary": "June leaves Room 217 in a private transfer; family photographs and household references begin to be altered.",
+      "entity_refs": [
+        "57111000-0000-4000-8000-000000000202"
+      ],
+      "state_transitions": [
+        {
+          "entity_ref": "57111000-0000-4000-8000-000000000202",
+          "attribute": "family_record_presence",
+          "from_value": "present",
+          "to_value": "being_erased"
+        }
+      ]
+    },
+    {
+      "event_id": "57111000-0000-4000-8000-000000000503",
+      "story_time": "2026-07",
+      "summary": "The Archivist returns to the Stillhouse, opens the under-stair box, and begins publishing the archive.",
+      "entity_refs": [
+        "57111000-0000-4000-8000-000000000200"
+      ],
+      "state_transitions": [
+        {
+          "entity_ref": "57111000-0000-4000-8000-000000000204",
+          "attribute": "archive_box",
+          "from_value": "hidden_under_stairs",
+          "to_value": "opened"
+        }
+      ]
+    }
+  ],
+  "reference_pack_refs": [],
+  "assertions": [
+    {
+      "assertion_id": "57111000-0000-4000-8000-000000000401",
+      "speaker_ref": "57111000-0000-4000-8000-000000000200",
+      "claim": "June may have been a name I invented to cope with loneliness.",
+      "asserted_at_story_time": "2026-07",
+      "speaker_knowledge_basis": "Displaced childhood memory shaped by adult explanations",
+      "honesty": "honest",
+      "accuracy": "mistaken",
+      "confidence": "uncertain",
+      "visibility": "public",
+      "status": "active",
+      "superseded_by_ref": null,
+      "evidence_refs": []
+    },
+    {
+      "assertion_id": "57111000-0000-4000-8000-000000000402",
+      "speaker_ref": "family-adults",
+      "claim": "June was an imaginary friend.",
+      "asserted_at_story_time": "1989-05",
+      "speaker_knowledge_basis": "Deliberate family concealment of the 4/17 neglect incident",
+      "honesty": "deliberate_lie",
+      "accuracy": "mistaken",
+      "confidence": "certain",
+      "visibility": "team_private",
+      "status": "active",
+      "superseded_by_ref": null,
+      "evidence_refs": []
+    },
+    {
+      "assertion_id": "57111000-0000-4000-8000-000000000403",
+      "speaker_ref": "57111000-0000-4000-8000-000000000203",
+      "claim": "The child from the Route 17 emergency died shortly after transfer.",
+      "asserted_at_story_time": "2026-07",
+      "speaker_knowledge_basis": "No follow-up record ever returned to the annex",
+      "honesty": "honest",
+      "accuracy": "mistaken",
+      "confidence": "probable",
+      "visibility": "team_private",
+      "status": "active",
+      "superseded_by_ref": null,
+      "evidence_refs": []
+    },
+    {
+      "assertion_id": "57111000-0000-4000-8000-000000000404",
+      "speaker_ref": "57111000-0000-4000-8000-000000000202",
+      "claim": "Mara deliberately abandoned me at the pool.",
+      "asserted_at_story_time": "1989-04-17",
+      "speaker_knowledge_basis": "A child's partial view of the promise to return before the pool closed",
+      "honesty": "honest",
+      "accuracy": "mistaken",
+      "confidence": "certain",
+      "visibility": "team_private",
+      "status": "active",
+      "superseded_by_ref": null,
+      "evidence_refs": []
+    },
+    {
+      "assertion_id": "57111000-0000-4000-8000-000000000405",
+      "speaker_ref": "57111000-0000-4000-8000-000000000203",
+      "claim": "A conscious child from a Route 17 water emergency was admitted to Room 217, the intake line was later removed from the bound ledger, and the child was transferred three days later.",
+      "asserted_at_story_time": "2026-07",
+      "speaker_knowledge_basis": "Direct participation as night intake clerk",
+      "honesty": "honest",
+      "accuracy": "accurate",
+      "confidence": "certain",
+      "visibility": "spoiler",
+      "status": "active",
+      "superseded_by_ref": null,
+      "evidence_refs": []
+    }
+  ],
+  "content_sha256": "c92d292485fe3fea3f4b0d7d0f1a9211239558a9e69c51b942f30a050143768a"
+}

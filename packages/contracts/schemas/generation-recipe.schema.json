@@ -1,0 +1,393 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tag:storyworld-platform,2026:contracts/generation-recipe/v1",
+  "title": "Generation recipe",
+  "description": "Structured, auditable, provider-neutral media specification compiled from pinned canon and scene state (canonical part 03 section 10.2; glossary).",
+  "$comment": "ADR-0015: this recipe is canonical; rendered provider prompts, embeddings, LoRAs, seeds, and persistent IDs are replaceable derivatives attached elsewhere and never stored as canonical data.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "recipe_id",
+    "scene_ref",
+    "scene_state_packet_ref",
+    "purpose",
+    "entering_state_summary",
+    "intended_exiting_state_summary",
+    "pinned_canon",
+    "cast_refs",
+    "location_refs",
+    "object_refs",
+    "wardrobe_refs",
+    "product_snapshot_refs",
+    "constraints",
+    "attribute_locks",
+    "reference_packs",
+    "negative_references",
+    "prohibited_traits",
+    "format",
+    "provider_requirements",
+    "evaluation",
+    "created_at",
+    "content_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "storyworld.generation-recipe.v1"
+    },
+    "recipe_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "scene_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scene_state_packet_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scene_purpose",
+        "emotional_objective"
+      ],
+      "properties": {
+        "scene_purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "emotional_objective": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "entering_state_summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "intended_exiting_state_summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pinned_canon": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "canon_release_ref",
+        "fact_refs"
+      ],
+      "properties": {
+        "canon_release_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fact_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "cast_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "location_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "object_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "wardrobe_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "product_snapshot_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "narrative",
+        "visual",
+        "voice",
+        "safety"
+      ],
+      "properties": {
+        "narrative": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "visual": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "voice": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "safety": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "attribute_locks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "locked",
+        "flexible",
+        "provider_adjustable"
+      ],
+      "properties": {
+        "locked": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "flexible": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "provider_adjustable": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "reference_packs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "reference_pack_ref",
+          "version"
+        ],
+        "properties": {
+          "reference_pack_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "negative_references": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "prohibited_traits": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "commerce_requirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fidelity_requirements",
+        "claim_refs",
+        "disclosure_obligations",
+        "placement_contract_refs"
+      ],
+      "properties": {
+        "fidelity_requirements": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "claim_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "disclosure_obligations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "placement_contract_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "description": "Optional commerce extension; absent for non-commerce work (product concepts are never mandatory in generic records)."
+    },
+    "format": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target",
+        "aspect_ratio",
+        "duration_seconds",
+        "safe_area_rules",
+        "format_rules"
+      ],
+      "properties": {
+        "target": {
+          "type": "string",
+          "minLength": 1
+        },
+        "aspect_ratio": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "duration_seconds": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "safe_area_rules": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "format_rules": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "provider_requirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "capabilities",
+        "cost_ceiling"
+      ],
+      "properties": {
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "cost_ceiling": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "amount",
+            "currency"
+          ],
+          "properties": {
+            "amount": {
+              "type": "number",
+              "minimum": 0
+            },
+            "currency": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "evaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "plan_refs",
+        "acceptance_rubric_refs"
+      ],
+      "properties": {
+        "plan_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "acceptance_rubric_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z)?$"
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

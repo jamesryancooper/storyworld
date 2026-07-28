@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tag:storyworld-platform,2026:contracts/continuity-finding/v1",
+  "title": "Continuity finding",
+  "description": "Evidence-backed issue or advisory produced by deterministic or model-assisted checks, with disposition workflow (canonical part 02 section 5.2; part 03 section 10.4; glossary). Pass never means legal certainty; a human decides dispositions (ADR-0008).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "finding_id",
+    "check_layer",
+    "severity",
+    "confidence",
+    "description",
+    "evidence_refs",
+    "subject_refs",
+    "subject_sha256",
+    "suggested_remediation",
+    "disposition",
+    "disposition_receipt_ref",
+    "found_at"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "storyworld.continuity-finding.v1"
+    },
+    "finding_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "check_layer": {
+      "enum": [
+        "structural",
+        "technical_media",
+        "temporal_state",
+        "narrative",
+        "visual_continuity",
+        "commerce_fidelity",
+        "rights_safety"
+      ]
+    },
+    "severity": {
+      "enum": [
+        "blocker",
+        "major",
+        "minor",
+        "advisory"
+      ]
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "description": "0 to 1; upper bound enforced by application invariants (subset validator has no maximum keyword)."
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "subject_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "subject_sha256": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{64}$"
+      },
+      "description": "Exact content hashes of the checked subjects; findings bind to exact versions."
+    },
+    "suggested_remediation": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "disposition": {
+      "enum": [
+        "open",
+        "resolved",
+        "waived",
+        "intentional_exception",
+        "canon_change_proposed"
+      ]
+    },
+    "waiver": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reason",
+        "approver_receipt_ref",
+        "scope",
+        "expiry"
+      ],
+      "properties": {
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "approver_receipt_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expiry": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "description": "Present only for waived or intentional_exception dispositions."
+    },
+    "disposition_receipt_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Approval receipt (continuity_disposition layer) for a non-open disposition."
+    },
+    "found_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z)?$"
+    }
+  }
+}

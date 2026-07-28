@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tag:storyworld-platform,2026:contracts/rights-evidence/v1",
+  "title": "Rights evidence",
+  "description": "Rights, consent, and license grants with scope, expiry, withdrawal, replacement, and the affected-use index (canonical part 05 section 15.3; charter sensitivity-and-rights-classifications.json). Rights checks are evidence and workflow controls, not legal guarantees.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "evidence_id",
+    "property_id",
+    "grants",
+    "affected_on_expiry",
+    "created_at",
+    "content_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "storyworld.rights-evidence.v1"
+    },
+    "evidence_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "property_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "grants": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "grant_id",
+          "subject_asset_refs",
+          "rights_holder",
+          "grant_type",
+          "scope",
+          "valid_from",
+          "valid_until",
+          "modification_permitted",
+          "training_use_permitted",
+          "provider_retention_permitted",
+          "attribution_required",
+          "synthetic_media_disclosure_required",
+          "replacement_grant_ref"
+        ],
+        "properties": {
+          "grant_id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          },
+          "subject_asset_refs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "rights_holder": {
+            "type": "string",
+            "minLength": 1
+          },
+          "grant_type": {
+            "enum": [
+              "license",
+              "consent",
+              "ownership",
+              "permission"
+            ]
+          },
+          "scope": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "territories",
+              "channels",
+              "purposes",
+              "editorial_or_commercial"
+            ],
+            "properties": {
+              "territories": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "channels": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "purposes": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "editorial_or_commercial": {
+                "enum": [
+                  "editorial",
+                  "commercial",
+                  "both"
+                ]
+              }
+            }
+          },
+          "valid_from": {
+            "type": "string",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z)?$"
+          },
+          "valid_until": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Null means no expiry; a date in the past means the grant is expired for future uses."
+          },
+          "modification_permitted": {
+            "type": "boolean"
+          },
+          "training_use_permitted": {
+            "type": "boolean"
+          },
+          "provider_retention_permitted": {
+            "type": "boolean"
+          },
+          "attribution_required": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "synthetic_media_disclosure_required": {
+            "type": "boolean"
+          },
+          "withdrawal": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "withdrawn_on",
+              "reason"
+            ],
+            "properties": {
+              "withdrawn_on": {
+                "type": "string",
+                "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z)?$"
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "description": "Present only when consent or license was withdrawn for future use; history is preserved."
+          },
+          "replacement_grant_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "affected_on_expiry": {
+      "type": "object",
+      "description": "Map of grant_id to the array of receipt, package, and rendition refs invalidated for future use when that grant expires or is withdrawn; previously published records remain historically accurate. Consumed by the expire_right metamorphic test."
+    },
+    "created_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z)?$"
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

@@ -203,22 +203,119 @@
       "evidence_expected": [
         "Fixture manifests and owner sign-off recorded in the fixture directories."
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "SRC-0003"
+      ],
       "finding_refs": [],
       "gate_refs": [
         "GATE-0003"
       ],
       "id": "PLAN-0007",
       "limitations": [
-        "Owner-supplied creative content; agents must not invent it (see context pack f0-f1-contract-pack.md). Feeds PLAN-0003/GATE-0003; also usable as section 18.5 concierge material."
+        "The project owner supplied an expanded pattern-driven fixture corpus (packages/contracts/fixtures/sources/packet/, SRC-0003) in addition to the four required F1 source sets. Completion of PLAN-0007 is determined by the four F1 fixtures: Stillhouse mini-season, editorial carousel, BeKindRewind slice, and the fictional Commerce Foundry campaign — all present with ownership statements, fictional status, sensitivity, permitted use, and canon-boundary classifications (CANON_DECISION_REGISTER). Schema probes, post-F1 production fixtures, and metamorphic tests are governed by separate plan items (PLAN-0008, PLAN-0009, PLAN-0010)."
       ],
       "objective": "Owner supplies the creative source material for the four golden fixtures (canonical part 05 section 17.1): a Stillhouse mini-season excerpt (hidden truth, reveal graph, symbols), an editorial carousel sample (voice, recurring metaphor, privacy posture), a BeKindRewind slice (several locations, recurring NPCs, objects, one mission chain), and a fictitious commerce campaign (product, approved/prohibited claims, imagery constraints). Each fixture records ownership, sensitivity, and permitted use; no real personal data or third-party IP.",
       "owner_role": "project_owner",
       "requirement_refs": [
         "REQ-0010"
       ],
-      "status": "planned",
+      "status": "completed",
       "title": "Supply rights-safe golden-fixture source content"
+    },
+    {
+      "acceptance_criteria": [
+        "Every valid schema probe round-trips deterministically.",
+        "Every invalid schema probe produces the expected typed finding or blocked transition.",
+        "Branch-local state and mutually exclusive facts remain distinguishable.",
+        "Assertions, testimony, beliefs, uncertainty, and accepted facts remain distinguishable.",
+        "Story time, presentation order, publication time, and revision time remain explicit.",
+        "Adaptation branches cannot mutate source canon.",
+        "Shared-canon changes require explicit authority and versioned dependency handling.",
+        "Deep hierarchy preserves stable identity independently of display numbering or ordering.",
+        "Corrections and retractions preserve historical publication evidence.",
+        "Rights expiry or withdrawal invalidates only affected future uses, packages, and approvals.",
+        "No schema probe requires a property-specific storage fork.",
+        "Any proposed generic primitive is justified by at least two materially different fixture needs or is explicitly documented as a narrowly necessary foundational concept.",
+        "Probe coverage is machine-readable (fixtures/registry.json) and enforced in CI."
+      ],
+      "blocked_by": [],
+      "depends_on": [
+        "PLAN-0003"
+      ],
+      "evidence_expected": [
+        "Probe directories with valid/invalid cases and expected findings; contract-validator runs in CI."
+      ],
+      "evidence_refs": [],
+      "finding_refs": [],
+      "gate_refs": [
+        "GATE-0003"
+      ],
+      "id": "PLAN-0008",
+      "limitations": [
+        "Uses owner-authored source material from the fixture packet (SRC-0003); contributes evidence to GATE-0003."
+      ],
+      "objective": "Formalize and execute compact schema probes for branching, contested truth, nonlinear chronology, adaptation, shared canon, deep hierarchy, evidence correction, and rights change against the F1 contracts, proving that the generic domain model can represent materially different narrative architectures without commerce, runtime, or genre-specific contamination.",
+      "owner_role": "project_owner",
+      "requirement_refs": [
+        "REQ-0010"
+      ],
+      "status": "in_progress",
+      "title": "Validate F1 narrative architecture compatibility"
+    },
+    {
+      "acceptance_criteria": [
+        "Each fixture implemented in its registered phase with valid scenario, planned rejection, expected finding, manifest, and deterministic snapshots per fixtures/registry.json.",
+        "No fixture introduces a property-specific storage fork.",
+        "Implementation evidence linked per fixture as phases complete."
+      ],
+      "blocked_by": [],
+      "depends_on": [
+        "PLAN-0003"
+      ],
+      "evidence_expected": [
+        "Per-fixture directories and validator coverage as capability phases land."
+      ],
+      "evidence_refs": [],
+      "finding_refs": [],
+      "gate_refs": [],
+      "id": "PLAN-0009",
+      "limitations": [
+        "Committed validation obligations, not an informal backlog; execution is dependency-phased (audio, localization, experiments, collaboration, publication, runtime, channel adapters). Does not block GATE-0003."
+      ],
+      "objective": "Implement the nineteen registered post-F1 production fixtures (five property fixtures: Field Manual, Dumpster Fire Friends, The Lanterns, Notes to My Daughter, Living Inheritance; plus fourteen pattern fixtures: localization/accessibility, audio-first, audience-directed serialization, conversational character export, governed experiment, persistent brand universe, collaborative merge, procedural episodic, curriculum pathway, live-event window, regional/age cuts, generational saga, simulation-schedule export, concept album) as full production fixtures in the phases their capabilities arrive.",
+      "owner_role": "project_owner",
+      "requirement_refs": [],
+      "status": "planned",
+      "title": "Implement pattern-driven production fixture corpus"
+    },
+    {
+      "acceptance_criteria": [
+        "MET-F1 schema-level transformations (reorder, insert, adaptation fork, assertion correction, rights expiry, export/re-import) active in the contract validator and CI during F1.",
+        "MET-F3, MET-B3, and MET-B4 families registered with phase activation criteria and implemented when their capabilities exist.",
+        "Each test defines starting fixture and exact version, transformation, expected changed and unchanged records, invalidated approvals or packages, preserved lineage, expected findings, and round-trip expectations."
+      ],
+      "blocked_by": [],
+      "depends_on": [
+        "PLAN-0003"
+      ],
+      "evidence_expected": [
+        "tests/metamorphic-f1.json entries executing in CI; phased families in fixtures/registry.json."
+      ],
+      "evidence_refs": [],
+      "finding_refs": [],
+      "gate_refs": [],
+      "id": "PLAN-0010",
+      "limitations": [
+        "MET-F1 active now; later families activate at F3, B3, and B4 respectively."
+      ],
+      "objective": "Validate that authorized transformations of canon, productions, assets, renditions, rights, packages, and integrations preserve the correct identities and invariants while invalidating only the affected dependencies, approvals, and outputs.",
+      "owner_role": "project_owner",
+      "requirement_refs": [
+        "REQ-0005",
+        "REQ-0006"
+      ],
+      "status": "planned",
+      "title": "Implement narrative transformation regression suite"
     }
   ],
   "project_slug": "storyworld-platform",

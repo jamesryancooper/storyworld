@@ -344,6 +344,260 @@
       "type": "string",
       "pattern": "^[a-f0-9]{64}$",
       "description": "Hash of the canonical serialized form of this release for exact-version binding"
+    },
+    "assertions": {
+      "type": "array",
+      "description": "Optional testimony/assertion records, distinct from facts: what a speaker claimed, with honesty, accuracy, confidence, and correction lineage (probes B and G; Stillhouse and Lanterns fixtures). Said, believed, and true remain distinguishable; an assertion never becomes an accepted fact without a separate canon decision.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "assertion_id",
+          "speaker_ref",
+          "claim",
+          "asserted_at_story_time",
+          "speaker_knowledge_basis",
+          "honesty",
+          "accuracy",
+          "confidence",
+          "visibility",
+          "status",
+          "superseded_by_ref",
+          "evidence_refs"
+        ],
+        "properties": {
+          "assertion_id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          },
+          "speaker_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "claim": {
+            "type": "string",
+            "minLength": 1
+          },
+          "asserted_at_story_time": {
+            "type": "string",
+            "minLength": 1
+          },
+          "speaker_knowledge_basis": {
+            "type": "string",
+            "minLength": 1,
+            "description": "What the speaker knew or could know at the moment of testimony."
+          },
+          "honesty": {
+            "enum": [
+              "honest",
+              "deliberate_lie",
+              "unknown"
+            ]
+          },
+          "accuracy": {
+            "enum": [
+              "accurate",
+              "mistaken",
+              "partial",
+              "undetermined"
+            ]
+          },
+          "confidence": {
+            "enum": [
+              "certain",
+              "probable",
+              "disputed",
+              "uncertain"
+            ]
+          },
+          "visibility": {
+            "enum": [
+              "public",
+              "spoiler",
+              "team_private",
+              "restricted"
+            ]
+          },
+          "status": {
+            "enum": [
+              "active",
+              "superseded"
+            ]
+          },
+          "superseded_by_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "correction_type": {
+            "enum": [
+              "correction",
+              "clarification",
+              "retraction"
+            ],
+            "description": "Present on a successor assertion that corrects, clarifies, or retracts a superseded one; publication history is preserved, never deleted."
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "branch_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "branch_type",
+        "parent_branch",
+        "pinned_source_release_ref",
+        "overrides",
+        "composites",
+        "omissions"
+      ],
+      "properties": {
+        "branch_type": {
+          "enum": [
+            "official",
+            "alternate",
+            "experimental",
+            "adaptation"
+          ]
+        },
+        "parent_branch": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pinned_source_release_ref": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The exact source canon release this branch adapts; a later source change never silently rewrites the adaptation (probe D)."
+        },
+        "overrides": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "override_id",
+              "target_ref",
+              "change_summary"
+            ],
+            "properties": {
+              "override_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "target_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "change_summary": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "composites": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "composite_entity_ref",
+              "replaces_entity_refs"
+            ],
+            "properties": {
+              "composite_entity_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "replaces_entity_refs": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        },
+        "omissions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "description": "Optional branch ancestry for alternate, experimental, and adaptation branches: explicit overrides, composites, and omissions; adaptations never mutate their source branch (probe D; ADR-0009)."
+    },
+    "shared_canon_dependencies": {
+      "type": "array",
+      "description": "Optional version-pinned dependencies on another property's canon release, mirroring the accepted product-snapshot pattern (probe E). Shared entities are referenced by pinned version, never copied silently and never mutated by consumers; deliberate forks record lineage.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "provider_property_ref",
+          "pinned_canon_release_ref",
+          "entity_refs"
+        ],
+        "properties": {
+          "provider_property_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pinned_canon_release_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "entity_refs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "fork_lineage": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": false,
+            "required": [
+              "forked_entity_ref",
+              "forked_from_ref",
+              "forked_on"
+            ],
+            "properties": {
+              "forked_entity_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "forked_from_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "forked_on": {
+                "type": "string",
+                "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z)?$"
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -79,6 +79,11 @@
     },
     {
       "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0007-fixture-charter-v2-and-domain-additions.md",
+      "sha256": "31b7fb4396a601a05df3b168a1553e9d050cc2055166c3c29e2f63736c9ce3ab"
+    },
+    {
+      "layer": "agent_harness",
       "path": ".agent/decisions/README.md",
       "sha256": "321f2910e7e6256e00dad950baf69484dc8b777249d62e5f8f0aa84ac018e1c2"
     },
@@ -100,7 +105,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "39e581d621dfa29a2597dc68d2b0399c5d340812a119bda602a0ab45da8394c9"
+      "sha256": "5a8932c2606025e05babb3dc478801feb2b94ce58b878f300c28788bb4664c65"
     },
     {
       "layer": "agent_harness",
@@ -280,7 +285,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "0571423b50cc55e1d9f0b6b6cdac1f70277a3eb6159f18d9741d27f03fa4ba87"
+      "sha256": "8611d2a292d3ae4b4953727138fad22b3dcb6067a65ddc7e8055e943c26a27d6"
     },
     {
       "layer": "agent_harness",
@@ -305,7 +310,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0004-f1-contract-pack.md",
-      "sha256": "f5d30f345ab31f517e288b5cbe82fa9969240b91d14828909d821103e1c57e24"
+      "sha256": "7e5ba09bd7ab0ead838257fac30708bd91d01d782cb5f817a676918a00252007"
     },
     {
       "layer": "agent_harness",
@@ -554,6 +559,11 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/contracts/charter/fixtures-and-slices-v2.json",
+      "sha256": "4c8207b3be5d8bec11a709f4aca4f41ded246e7532f56435f8f87d01439de4ce"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/contracts/charter/fixtures-and-slices.json",
       "sha256": "6af7285d588415fda43065d5b56ddd1a5d7514d4217f0b8abe401105f3881554"
     },
@@ -575,7 +585,382 @@
     {
       "layer": "project_source",
       "path": "packages/contracts/fixtures/README.md",
-      "sha256": "b8c27478369bf8e51a6c3cd89401127f66e5ee96e637afa142cb4d18034c21bb"
+      "sha256": "34814d1a9668f4f055aebcb10ced83266da21e30c9d9afc954e74fc3baa54059"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/bekindrewind/MANIFEST.json",
+      "sha256": "c0f5d53f43f0df3ec517ef3eeed8f1737c2e95d883973b0650e86e8ff1df594c"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/bekindrewind/expected/checksums.json",
+      "sha256": "b4df510428634ce24b1e4b88001ebca9d2907c910b5afdeb0b43c9dfa6e1f582"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/bekindrewind/invalid/bkr-player-state-contamination.invalid.json",
+      "sha256": "70e28d3f43232976ea2c849aa2b45c77fb1d7a7aaba43f25d4f661c022955354"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/bekindrewind/records/bkr-approval-receipt.instance.json",
+      "sha256": "3a4dd488343402419fe32f6376fbc50dda7627bb487827883e09a762be81c3c0"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/bekindrewind/records/bkr-canon-release.instance.json",
+      "sha256": "c806909f077b35a381410fce570479aeb5965c9d7697bdeb3bee363e70c7f824"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/bekindrewind/records/bkr-runtime-acceptance-receipt.instance.json",
+      "sha256": "0950da7db6763a0c58e21c0518a63a97fd2cdcdc0dac6fb09458cd88c6d26031"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/bekindrewind/records/bkr-runtime-release.instance.json",
+      "sha256": "7336060a369f8ccfd9c824aacb9b51665adde097a0fc3ebf63ebd84c31f5744c"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/bekindrewind/records/bkr-structure.instance.json",
+      "sha256": "27fe94f084842f20cb60d4a6f27ffd323b261e8ed5b4dc361589b8d13b84650b"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/bekindrewind/source/03-bekindrewind.md",
+      "sha256": "3b26dbf18ece325e6a276c1e042bc2da2f85b29a7ac1291af3d742671742da9d"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/commerce/MANIFEST.json",
+      "sha256": "ac5aa3279d5f04b076cd202b4d13eabe7f027976e377b0e14255a05e24949bf9"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/commerce/expected/checksums.json",
+      "sha256": "49466288f88a500d2687b1bbff7f73925b1e95ce8f93d5e5de4556415262e5a6"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/commerce/invalid/commerce-uncontrolled-narrative-role.invalid.json",
+      "sha256": "8f3c62aed1d501bb27c6e4d81047efd2f43d782675785032000063a749b41816"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/commerce/records/commerce-brief.instance.json",
+      "sha256": "1016545fbaf776b219574b6c493a9b069802105353dc135c439334b414d9764c"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/commerce/records/commerce-bundle-v1.instance.json",
+      "sha256": "0382e16617f6afd713799f4c5814ed229773b23e2ecadc18adfeddbddc879ae9"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/commerce/records/commerce-bundle-v2.instance.json",
+      "sha256": "a137bd93430f3e15182a63c60cfad8e1249eef92d2449696fa6aa5738d2fb3aa"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/commerce/records/commerce-canon-release.instance.json",
+      "sha256": "91cc7c80b253aadd409cb11750e591f39ce513cba137ae99c50b6ecf03364c6a"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/commerce/records/commerce-rejection-receipt.instance.json",
+      "sha256": "0f149c8607f1f0f5b8b652b5db80d73fac0ee29eb6afa8b8bf6b6a97c67b5108"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/commerce/source/04-commerce-campaign.md",
+      "sha256": "b3a937a7454ae23cb9d38633b967801a42671121be9dfa8993ef19993c2d81a2"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/editorial/MANIFEST.json",
+      "sha256": "3a7a05fe831d178cf51008c56a14f8729138e6f2236150fdd0e94e8ee67aff88"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/editorial/expected/checksums.json",
+      "sha256": "ac111d6c15fe0f0780d46ecc0b65890a33116fd435181fae4e06757b602ba0a6"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/editorial/invalid/editorial-uncontrolled-visibility.invalid.json",
+      "sha256": "a064ed90f34ccdd1996db662284237680b6703bf7d2e8810e5961c8a8116946a"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/editorial/records/editorial-approval-receipt.instance.json",
+      "sha256": "eb0186a158f760204135f384b2a29bee9b6ed11f378ae45f29b940f84e410783"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/editorial/records/editorial-canon-release.instance.json",
+      "sha256": "004f1ce0f2a7193439b6268cce3af1d8be1182291fba0024574773c335814b3f"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/editorial/records/editorial-restricted-rights-receipt.instance.json",
+      "sha256": "6c07d8bd757608413bf5164d0a7a154c6276810ac5154c49fb003913a20337b1"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/editorial/records/editorial-restricted-source-record.instance.json",
+      "sha256": "e52010b005cb09c72fa5f12a64128fd2c1de789f3e155d2f4b4cdf2b8c7ff430"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/editorial/records/editorial-structure.instance.json",
+      "sha256": "105a10141136d1a157fb426595189f068ac8ec87c9ef82f0d8f4aec8da0ea2ab"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/editorial/source/02-editorial-carousel.md",
+      "sha256": "bb67019617ea7a4149eea8b0f5d443de45b18f2eab0412a82686daab6dd5a4b1"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/editorial/source/restricted/restricted-note.md",
+      "sha256": "241270193ca60e899b013dbac6ee05de3df4a9497e153726627b92bac3cec96e"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/adaptation/MANIFEST.json",
+      "sha256": "bdf0d14284b5eb316ddc5315631cc03af62041eede2f3e2bb1c2895e6593f95a"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/adaptation/PROBE.md",
+      "sha256": "8c1206163d323323ec4781ada34532ff28cf20a79e87f4c847574ee01b08c54e"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/adaptation/expected/checksums.json",
+      "sha256": "cc7277987201078bccda7e507ac792a5bd6647b9c3102d52c65fa9a8856bb029"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/adaptation/invalid/undeclared-branch-type.invalid.json",
+      "sha256": "3a3ce8e0253f4a02374c48c10422bc5a794d4fecd6bf236241e4e6819e216822"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/adaptation/records/adaptation-canon-release.instance.json",
+      "sha256": "448677b7d6458aac7678b82de6867773887747bc6ed18362fc448f9426feaf8f"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/adaptation/records/source-canon-release.instance.json",
+      "sha256": "17f3314f4d5ea577828c1673b1a72eb138ef2d4fd7ec3bb5e73bc9a105264579"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/branching/MANIFEST.json",
+      "sha256": "9e35c86f2b877fa44d6f8b07d21fef4b6e02d9e151a4234e4b5396cb9c750dd4"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/branching/PROBE.md",
+      "sha256": "8934fad4c145bb94d3768a24c06803aafca3f827ca631eafc6403be4ba584eea"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/branching/expected/checksums.json",
+      "sha256": "90d1355fb3b8d4302c8ffce87f4a882c958bec824644fa6634fbbe254e4ea41b"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/branching/invalid/single-option-choice.invalid.json",
+      "sha256": "a5c2bd510443c697d5a0b84981081586a1e81a6488ea1edab1384033620988e5"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/branching/records/narrative-structure.instance.json",
+      "sha256": "a90f29b13a5024968e9fcc9ec81b85f3c3841c4c1cac1d3546ff931c7ebb29c2"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/contested-truth/MANIFEST.json",
+      "sha256": "452c7ef9157f0c7084ca642f72f17dbb3ad28248afd2f4c8e7c2c90147916fec"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/contested-truth/PROBE.md",
+      "sha256": "2e6fb4ad8edc5e2ce950cdfad784dc1571baf1a979f7357bbe0da695dcc9b1c8"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/contested-truth/expected/checksums.json",
+      "sha256": "082864729c45f3dc44b6674b8bc6af7167ee36b49a2f57934e29f9ee5c685540"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/contested-truth/invalid/testimony-promoted-to-fact.invalid.json",
+      "sha256": "83015d024f91056ebe136c67d8d4186d21c864c1fd47a5d97bf0f357ac138a3b"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/contested-truth/records/canon-release.instance.json",
+      "sha256": "a27858dc62ec43b3dda6606400a3d13db02acf9fb4f8e86a585e110fd08a66fd"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/correction/MANIFEST.json",
+      "sha256": "8a6151a49c42823cfdf5805b6c7cad14741d25cb034fbd74cf1497b1b81f07ea"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/correction/PROBE.md",
+      "sha256": "fe57e0818d2df2953da3275a32509ac9e0a6565d8ba55059ae1108c52ef3da5e"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/correction/expected/checksums.json",
+      "sha256": "5718ebe4942e15d5c4c4ca526197f8cf7f08503697cd815f2621822b0f68073d"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/correction/invalid/untyped-silent-fix.invalid.json",
+      "sha256": "f4cfaa2d2ace27bdf2dcc4c4ee373d60db76b445e509360d912338ff10510343"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/correction/records/canon-release.instance.json",
+      "sha256": "7dbdbfa25c972bb33008635eb73de5aae66fd8745c0b4230cde617ae1946c51f"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/deep-hierarchy/MANIFEST.json",
+      "sha256": "3170e0b8d37acd05e6a72da9d84e2492123a6ba411d6360c31f3d2c6aa9de134"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/deep-hierarchy/PROBE.md",
+      "sha256": "507bdee99805ea8ad4596d1beaa862967ddd755fc033f7ba4122a27dd4abc064"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/deep-hierarchy/expected/checksums.json",
+      "sha256": "49cc682aeeb12eee5b7f1b964606f787977c32799c51923b7117bcd7cd25a407"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/deep-hierarchy/invalid/unit-without-identity.invalid.json",
+      "sha256": "1e3711d91e62caa6d0543f828028c1226e1e24677070117d94d45ce9f2a85c7e"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/deep-hierarchy/records/canon-release.instance.json",
+      "sha256": "5d897f92dad6216d51486dcbdedc8cbf7d1aaccc3a5fb7f1ca6126a89c5c1516"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/deep-hierarchy/records/narrative-structure.instance.json",
+      "sha256": "92847f44b730c01fdcda09f2628c92b3d21df7d193ae6ac1939ddf80b057fff6"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/nonlinear-time/MANIFEST.json",
+      "sha256": "bbb40eb679ebc35132ee6048dcd07cb505424af53715aee5de101423eeb765a2"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/nonlinear-time/PROBE.md",
+      "sha256": "740862a879f4f8a576eda84ba6ee634cde5c8af39dd144fb84019c7b13c0b51d"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/nonlinear-time/expected/checksums.json",
+      "sha256": "4675ef1798dc1172e52b523a14944d574a33fea0bf05d90764db7b8e8544417d"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/nonlinear-time/invalid/unit-without-story-time.invalid.json",
+      "sha256": "798a113c8ec2d30e5e99bb28cdc0ded052fa670eb6b1ed1ca8949ae2dc4e21ef"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/nonlinear-time/records/narrative-structure.instance.json",
+      "sha256": "0618caff4ea7aecfdad1d2f6f8c39d04dad2b26cf74f54acc959f1429d9f79eb"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/nonlinear-time/records/scene-state-packet.instance.json",
+      "sha256": "bbc2fcffe7c5dbd7a50c5f9df85270338fc8e5b2bfcc1c6ad5f85d81a878c144"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/rights-change/MANIFEST.json",
+      "sha256": "64865f3f99677a5d9f6c97ba026ecf3af40c3b53359cf7ceeff445d758bf7507"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/rights-change/PROBE.md",
+      "sha256": "1efb5cae7d10cf117bde8155c1e2a98c008f1c3c3fbcac83b2093eb3b2bccc70"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/rights-change/expected/checksums.json",
+      "sha256": "90ae4b3a4b21e5b00c94c0b9613dd3943b6443ab2ab0d9804961799576a71907"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/rights-change/invalid/grant-without-window.invalid.json",
+      "sha256": "132e851a272048fc4f2e00c340fc75eb9703ef49038b36440e29ca6a6dba45c9"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/rights-change/records/approval-receipt.instance.json",
+      "sha256": "0ffe4b956971bcc738f16902f5da6d4684b62ee37901fac5259012af255dc25f"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/rights-change/records/rights-evidence.instance.json",
+      "sha256": "28ac422bdbaa3adae105113cc898a2d5b1cd3fb9bf1de8c3d461941e376c0869"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/shared-canon/MANIFEST.json",
+      "sha256": "34639a9dc738415474bcfcf7bb3ec886e4cd8af6cc4cc1f62ead77e9e5c387cb"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/shared-canon/PROBE.md",
+      "sha256": "785124c5ccae6ed42b4931687bafaf8d7a6aff25e6e378f0f939ad180ab666a8"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/shared-canon/expected/checksums.json",
+      "sha256": "7c8b72a180361a1d50d89418f38adf549bcddbe26bfb889c94050f3c8e577ba2"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/shared-canon/invalid/unpinned-dependency.invalid.json",
+      "sha256": "1ff60f84325e5cc957e8d14c26dcf06d041d0e734db6ee3f709cc0eb8fa5d65b"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/shared-canon/records/consumer-forked.instance.json",
+      "sha256": "eb1fe79ce226bf2150c9b9cdad27df5a94ad048f311f6075e1e408e65d23d6f3"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/shared-canon/records/consumer-pinned.instance.json",
+      "sha256": "b49a3b0928adbefc138a666b6ed4583c7a9fb051f0824e21eeb83604636256d6"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/probes/shared-canon/records/provider-canon-release.instance.json",
+      "sha256": "7d0ff5d0e95f407be0253020d64329934ee65d7c88be794fa9aecc4c61836168"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/registry.json",
+      "sha256": "61e19e68db86177671bc0e495ef0d3f960e96bcd1e1e870239338e4e57e74c0c"
     },
     {
       "layer": "project_source",
@@ -591,6 +976,111 @@
       "layer": "project_source",
       "path": "packages/contracts/fixtures/smoke/common-package-envelope.instance.json",
       "sha256": "c898dca07f7600ad8eab70dbc2fb97c0b0a5883dd1877b5b39b6e500e78cb4b8"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/sources/packet/CANON_DECISION_REGISTER.md",
+      "sha256": "ecfb3de3b3b00094a9017a27562b235cfac752073cb3b585ab2e33ef79855faa"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/sources/packet/COVERAGE_MATRIX.md",
+      "sha256": "cce3b95eadb0d3cccc467f42b2fd16f65e547602c6d660f4afc189ec68ed63b9"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/sources/packet/PACKET_README.md",
+      "sha256": "3b107d1b1346e27cea33671fa2b52b29f265e9878c06ebe5bff00e4c1ff8ecf3"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/sources/packet/PATTERN_DRIVEN_EXPANSION.md",
+      "sha256": "09c0c3fd122989f5560f5dcf66524798b9f7eabe714b8a0d80dc65bf0ca92f7e"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/sources/packet/author-inventory.json",
+      "sha256": "8d9c30b5e6ece0007e2140f0582fd4c17017e0baf84813bc2cbb583a02f52c2a"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/sources/packet/authoring-note-completed.md",
+      "sha256": "bf6041640e0c5f153370a204146b9b8f0599d8fe1a682f530eff81b334ed5bbd"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/sources/packet/authoring-note-updated.md",
+      "sha256": "31fe2ae8f90ee7736ad036cd91ea14edc243e84c7975cb21e9da7a4d5e216283"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/sources/post-f1/05-dumpster-fire-friends.md",
+      "sha256": "3cb84aaaa570ba6585af4ac37cb02a85f5210e4cea6b7e72d4bad8e32e36a35f"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/sources/post-f1/06-notes-to-my-daughter.md",
+      "sha256": "549623402f90d60eb524aa2a5a87a960e4711878486ebc0904833552fcd380c4"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/sources/post-f1/07-living-inheritance.md",
+      "sha256": "c69374e989f728baf9de7c0e630c49bdefbbfdfbdfbe7f8e7392342a6ae9da96"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/sources/post-f1/08-proper-manhood.md",
+      "sha256": "05ba2097f3f465027425003cde14a22a1448cbad0874dffe619c6fd77af34f9b"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/sources/post-f1/09-the-lanterns.md",
+      "sha256": "a317f2695bd3b9abab0024d89a9c8deeaa8066534fe2d901b32a1031e009068d"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/stillhouse/MANIFEST.json",
+      "sha256": "b08d4774d5e04934d578d9c5e1f863e3146e94a13b56868c07f47445955b4e27"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/stillhouse/expected/checksums.json",
+      "sha256": "d300a1a39b086c4467ac81bda01ddfa53b82149eaedd0f46539cb14cbb894a90"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/stillhouse/invalid/stillhouse-reveal-missing-dependencies.invalid.json",
+      "sha256": "3d3e3363f4853fc4ebd689dfca2bfa2b6ee52dadf522a5e8e9cf3e804bcc1ad9"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/stillhouse/invalid/stillhouse-testimony-as-fact.invalid.json",
+      "sha256": "283a94e7e1ef97bb68a2abce3ca021b1d1152f9e85ee80b8357c7742120e6495"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/stillhouse/records/stillhouse-approval-receipt.instance.json",
+      "sha256": "aab4d37418011d35c33d6c6eab929572278863328694af733967601087bf2a85"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/stillhouse/records/stillhouse-canon-release.instance.json",
+      "sha256": "04d76c82f55d3f95c2fdd6008a297bf4ad544231279c52fbd40f34f762b7511b"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/stillhouse/records/stillhouse-scene-state.instance.json",
+      "sha256": "9cd203983f42c9024f35ab856b53b40e6bed09157737d99eeb22aefb89993b7b"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/stillhouse/records/stillhouse-structure.instance.json",
+      "sha256": "5fc8dee8af752d3e5aa7037a9545a210c55c776efd55c3c31a204f0826b178a3"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/stillhouse/source/01-stillhouse.md",
+      "sha256": "fb1bef42e8a2f2dbc8d72f32fa85109e4e1f8451642b4118658390a4aa678160"
     },
     {
       "layer": "project_source",
@@ -625,7 +1115,7 @@
     {
       "layer": "project_source",
       "path": "packages/contracts/schemas/README.md",
-      "sha256": "4051a34cbcd29182032d5f2d199f05f5eebfac089885c637aa992923c544deae"
+      "sha256": "ea5e9bebf9a21284ec672f2fd49aabaaebf7ace5072f24ca412ba7b18269f1f2"
     },
     {
       "layer": "project_source",
@@ -635,12 +1125,52 @@
     {
       "layer": "project_source",
       "path": "packages/contracts/schemas/canon-release.schema.json",
-      "sha256": "c00b59932996ee4a01c436b90ac9e5e77bbb6b4c568a7cbae95b4b46f6fc1ecd"
+      "sha256": "1e83cfe8693ce587c7fd2c5314954f942221fd7d4ad18008f5f6ddb086910c07"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/schemas/common-package-envelope.schema.json",
       "sha256": "6103a7b2a26a8e4e1b6c0f652ada82fc2971ceab27eed69df154a57f665a06c1"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/schemas/continuity-finding.schema.json",
+      "sha256": "669d8331e960807d25d3d409b042a36960771bf4968d1e538268ec6fef52243b"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/schemas/generation-recipe.schema.json",
+      "sha256": "5776cd4429e4e3dc426ea27e3c21434fa040196b32a7a598805b94de865bcfe2"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/schemas/narrative-asset-bundle.schema.json",
+      "sha256": "2f83540b42fd7e448e64a5f42db810cfaea6b74b6183b18fdf976fd24d1e4908"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/schemas/narrative-campaign-brief.schema.json",
+      "sha256": "d74d17c5fcb35d848cca17527eac6a0e941647e52216dde69c681ad4f75bb6c7"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/schemas/narrative-structure.schema.json",
+      "sha256": "7fa5ed4832702ca46b1b22258c46387daf8695414d89033fbb11a8159c3f3f68"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/schemas/performance-observation.schema.json",
+      "sha256": "5cc5761b8f4f409cd3a5d8989a821c568568642a8a91629a272a8dfc92b9b261"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/schemas/rights-evidence.schema.json",
+      "sha256": "e9b93eaf67611f08140e7f7ec70bfc974128b4e0a890659fc348508b909165ba"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/schemas/runtime-content-release.schema.json",
+      "sha256": "12b8a4f23ff7f6512acd4ef4b29db61935a2f000337c0a6e19a1469894d0ae8d"
     },
     {
       "layer": "project_source",
@@ -659,8 +1189,13 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/contracts/tests/metamorphic-f1.json",
+      "sha256": "842177de379c0b2546a30a259f9255808a08ef26ebc90c3ce0221a1256db3be8"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/contracts/tests/validate_contracts.py",
-      "sha256": "947cf25c1a78dd492f84c9ff6cd0f26df2ead996a5f9df60a04fdd2a7746c622"
+      "sha256": "34221082276a21e13a5a9643859f83eb016c9f1fb135e7a610d91f52e4c6787b"
     },
     {
       "layer": "project_dossier",
@@ -840,12 +1375,12 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/plan.json",
-      "sha256": "f4ad3844f4635f610bb2563810f0f95ec31646686bb2a0adc1087065607e9504"
+      "sha256": "1df41d5c2ff715f856c2587bcbdb4f5e8a46d944c2e0b2e924835f45e53cb67f"
     },
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/raidq.json",
-      "sha256": "43c80f8f94ac3716533f0de2cce3eab785c786f6ac7222a775262462ad2346e7"
+      "sha256": "56c7b8d61152ce0f641f42ff1c18c03bbc07e324f0da2be7d79883b7a144c616"
     },
     {
       "layer": "project_dossier",
@@ -855,12 +1390,12 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/sources.json",
-      "sha256": "a523d6b3d91260d53aa267c20f5ebddf354af6d60f08e49807bfe39dbc4c6efb"
+      "sha256": "702fc6f32da103a62cd853fd1bf1cf9ad51c140d7e4c94e208ceed7f2a74990e"
     },
     {
       "layer": "project_dossier",
       "path": "project-dossier/models/README.md",
-      "sha256": "39d47ecbae610750812169cac4cd8027dcb0478c9167fcad22bc7f9f29e03dd5"
+      "sha256": "dbd8fbd185d5321b8a055a0ffa55c5c0925389ec326a49f6053561b9fb513a18"
     },
     {
       "layer": "project_dossier",
@@ -870,7 +1405,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/plans/README.md",
-      "sha256": "085a8c2357601e5961bb70429f0a00e1bd8fb03fb08e63dddd47eda520f6478e"
+      "sha256": "ece9e8ed7267a9d33c7ff2fa39d72381eaa6232c70462266575c704819037ad1"
     },
     {
       "layer": "project_dossier",
@@ -908,12 +1443,12 @@
       "sha256": "789b814ca4ac5293bebd449b64ff606aa733539725a815b5e9a543ef8e6645ab"
     }
   ],
-  "generated_on": "2026-07-28T14:13:09.410287+00:00",
-  "generation_id": "091c4e84c010bc4a7606ed97229dad92",
+  "generated_on": "2026-07-28T16:48:24.264764+00:00",
+  "generation_id": "659f40384b736bf34297648b88817435",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "cf101c71fab74342f4077dedecd13bae1f0098774d1a85131a9b5befe5606bae",
+  "source_fingerprint": "d874980623debcc49060edf070f0212c7a8cbd81ee197eb15e8d641f280629ee",
   "source_scope": {
     "exclusions": [],
     "git_metadata": "excluded_from_source_fingerprint",
