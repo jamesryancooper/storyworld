@@ -69,6 +69,11 @@
     },
     {
       "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0005-contract-pack-toolchain.md",
+      "sha256": "be4692fa809a4106fa9f454f0a9c5123bc42bffe063af6a8282c319e14eae6ca"
+    },
+    {
+      "layer": "agent_harness",
       "path": ".agent/decisions/README.md",
       "sha256": "321f2910e7e6256e00dad950baf69484dc8b777249d62e5f8f0aa84ac018e1c2"
     },
@@ -90,7 +95,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "ea969777f890466c452d5d5da34c482fc1e02e2602216dcb96bd17e0526f8359"
+      "sha256": "5c75b06bcd89e6008b5f1c7218eefb27b813ccea3c9a986a9f73f53ecf9270e2"
     },
     {
       "layer": "agent_harness",
@@ -255,7 +260,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "7e5f4df662d6f5c2e277372f1a1b2944943ba13a6db29d2486a59d31b9d2945b"
+      "sha256": "e3de438022f2fdd974cf04f888a20a7e1c80d9caaa9b29e7aed2368030dddc4d"
     },
     {
       "layer": "agent_harness",
@@ -266,6 +271,11 @@
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0001-blueprint-adoption-and-dossier-buildout.md",
       "sha256": "3149ad8a9573bbbd262d1bed7a0a6d0fd7840c592f175a25bd4d580e666acc8e"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0002-development-layer-and-remote.md",
+      "sha256": "d1a85debaf10ae973d2c68cfc80942776f6e3380b4d0d1e294e251291435d3c1"
     },
     {
       "layer": "agent_harness",
@@ -379,6 +389,11 @@
     },
     {
       "layer": "project_source",
+      "path": ".github/workflows/validate.yml",
+      "sha256": "c571b848af159e22c8d235caac342fe50a3d819f6a898138f2c485bfbe0e243c"
+    },
+    {
+      "layer": "project_source",
       "path": ".gitignore",
       "sha256": "53f0c100a33a56ebada040287b3d0f5dbab21c6ec6b66209fec5515c508f1144"
     },
@@ -396,6 +411,56 @@
       "layer": "project_source",
       "path": "CLAUDE.md",
       "sha256": "e1afeb79fe35886eae5cdccec712c7bf5a14126e97591dd7c23766f94b7249f5"
+    },
+    {
+      "layer": "project_source",
+      "path": "README.md",
+      "sha256": "eff79b09147712d08cb596262501f81b1358ccf50dfd4ee7f440d5e2eea40fb5"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/README.md",
+      "sha256": "697365c7882b4dff3c2a48ecea037f80c04a26a78b028dff139890605e812088"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/adr/README.md",
+      "sha256": "914c7c9e816ae409ee6d391adaaba474f30bb94b3c43b72420a39d1025a8424f"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/events/README.md",
+      "sha256": "091771e8dca4dde2266fa12e9d9db0d007430b276e557737e36067396b840ee6"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/fixtures/README.md",
+      "sha256": "b8c27478369bf8e51a6c3cd89401127f66e5ee96e637afa142cb4d18034c21bb"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/lifecycles/README.md",
+      "sha256": "5e1d707c9d553876c39de96b746a6ebd8586aa72beba8e29980a56c3ca8691b3"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/openapi/README.md",
+      "sha256": "9fa49c90074c7fdb63e8222b92a3f150e8f39f2ff9de9977b156d5b6724a961f"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/schemas/README.md",
+      "sha256": "c4928488cf0a5e7dd05911e81510ddcb2a80283f4bebc04a7007d31df49e0ac6"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/sdk/README.md",
+      "sha256": "b1ab8c9b1abd85a921299c48b878cebbd9e2ef91618525c493d06b92a5012358"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/contracts/tests/README.md",
+      "sha256": "76b07251a9d0e9d9d913f3baa8d59e8d6a6bb6462a718cc4da8fd5464fc5837b"
     },
     {
       "layer": "project_dossier",
@@ -505,7 +570,12 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/context-packs/README.md",
-      "sha256": "41d76d5c2aee3aab170d9d8a391d249b01da1b82b602204a8599ea55898cc21c"
+      "sha256": "66fc2b25367a07b92224fb4c541df36b85fac5e775249a02fd6f0d241c74b13e"
+    },
+    {
+      "layer": "project_dossier",
+      "path": "project-dossier/context-packs/f0-f1-contract-pack.md",
+      "sha256": "c52e16de92aaec4f04f30c73b0147631a192cd1180f531ec7a244721d12d5216"
     },
     {
       "layer": "project_dossier",
@@ -555,7 +625,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/artifact-registry.json",
-      "sha256": "9d3a3b6b2e8324a263639f5808ffde1efed065f8781c6c623d1413464e0af12a"
+      "sha256": "443333d70fcdbf44bdf7f4d4551949f086aa9dad3a82f47bdc3a1d751ea93911"
     },
     {
       "layer": "project_dossier",
@@ -570,7 +640,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/plan.json",
-      "sha256": "7f64748f814a38b9c4b2832932ac35474a427e60c9d90e6752bbc335b09eac70"
+      "sha256": "e98a559b39bfbb19710117ca9604205a46860a45cf34a0d4f0e87cfc889891ea"
     },
     {
       "layer": "project_dossier",
@@ -600,7 +670,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/plans/README.md",
-      "sha256": "35278e8f9063a5cab0ec36ea1a6c82d175d595ceb43afc3f094c8e74e5693e5c"
+      "sha256": "6c8942eb935ce465f61c0c3a2ff46714fcb3979047a059c9458dadc3e96b3ed9"
     },
     {
       "layer": "project_dossier",
@@ -638,12 +708,12 @@
       "sha256": "789b814ca4ac5293bebd449b64ff606aa733539725a815b5e9a543ef8e6645ab"
     }
   ],
-  "generated_on": "2026-07-28T12:06:55.819001+00:00",
-  "generation_id": "40a696f549d2b4766d59f8116bf372bf",
+  "generated_on": "2026-07-28T12:38:57.351676+00:00",
+  "generation_id": "fe17fb809d738e15a0bc845a14b7fee4",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "8699a8ca5e073fa1f53cc26949490ecdee95a47fbb814ac038acd7f74e2ef804",
+  "source_fingerprint": "c82c699c66ee0007cccc4c00dabf32e2b18299d4e32a16c9d365e54c3c966c68",
   "source_scope": {
     "exclusions": [],
     "git_metadata": "excluded_from_source_fingerprint",

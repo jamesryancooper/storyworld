@@ -4,7 +4,9 @@
   "updated_at": "2026-07-28",
   "authority": "project_maintained_compact_operational_index_not_permission",
   "adoption_status": "adopted",
-  "active_tasks": [],
+  "active_tasks": [
+    "TASK-0002"
+  ],
   "accepted_decisions": [
     "DEC-0001",
     "DEC-0002",
@@ -17,7 +19,7 @@
     "EVD-0003"
   ],
   "blocked_by": [],
-  "next_action": "commit_the_working_tree_then_begin_PLAN-0002_F0_charter_pack",
+  "next_action": "push_main_to_owner_provided_remote_then_observe_first_CI_run",
   "external_effects_authority_refs": [],
   "limitations": [
     "structural_validation_only_no_readiness_claim",

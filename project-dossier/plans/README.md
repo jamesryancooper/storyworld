@@ -23,6 +23,7 @@ PLAN-0003  F1 — domain model and contract pack             (← PLAN-0002) →
 PLAN-0004  F2 — governed foundation                        (← PLAN-0003) → GATE-0004
 PLAN-0005  F3 — headless narrative kernel                  (← PLAN-0004) → GATE-0005
 PLAN-0006  Assess deferred conditional artifact types      (no deps; trigger-driven)
+PLAN-0007  Golden-fixture source content (owner-supplied)  (no deps)   → GATE-0003
 ```
 
 PLAN-0001 is `completed` (decisions DEC-0001..DEC-0004 accepted); the

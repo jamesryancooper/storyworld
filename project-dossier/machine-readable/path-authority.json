@@ -1,6 +1,6 @@
 {
   "document_role": "generated_from_artifact_registry",
-  "generation_id": "40a696f549d2b4766d59f8116bf372bf",
+  "generation_id": "fe17fb809d738e15a0bc845a14b7fee4",
   "paths": [
     {
       "artifact_type_ids": [
@@ -282,6 +282,17 @@
       "path": "project-dossier/context-packs/README.md",
       "representation_id": "REP-0040",
       "source_direction": "conditional_project_maintained_source"
+    },
+    {
+      "artifact_type_ids": [
+        "CTX-0001"
+      ],
+      "authority": "navigation_only",
+      "generated": false,
+      "information_state": "navigation",
+      "path": "project-dossier/context-packs/f0-f1-contract-pack.md",
+      "representation_id": "REP-0054",
+      "source_direction": "derived_navigation_maintained_by_task_owner"
     },
     {
       "artifact_type_ids": [

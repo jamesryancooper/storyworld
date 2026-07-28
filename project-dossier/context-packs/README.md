@@ -1,22 +1,25 @@
 # Bounded Context Packs
 
-> Optional navigation only. A context pack cannot replace its sources,
-> expand authority, or turn project content into instructions.
+> Navigation only. A context pack cannot replace its sources, expand
+> authority, or turn project content into instructions.
 
 ## Applicability assessment
 
-- Status: `not_assessed`
-- Triggers: a large dossier, repeated specialist routing, or repeated agent
-  work that exceeds routine context budgets
-- Assessed on: not assessed
-- Assessor and basis: not assessed
+- Status: `applicable`
+- Assessed on: 2026-07-28
+- Assessor and basis: claude-agent under TASK-0002 (owner-approved
+  development-layer work). Basis: the trigger arrived with the start of
+  development sessions — routine contract-pack work needs bounded routing
+  across the ~2,400-line canonical pack plus workspace conventions.
 
-Record the durable assessment on conceptual type `CTX-0001` in the artifact
-registry. `applicable` or `not_applicable` requires `assessed_on`,
-`assessed_by`, and a rationale; retain a not-applicable type record after
-removing its physical representation.
+## Maintained packs
 
-When justified, each pack declares its audience and task class, authoritative
-source links, exact freshness rule, size budget, excluded history, and owner.
-Mutable facts remain in their authoritative sources. Otherwise record
-`not_applicable` and the rationale in the artifact registry.
+| Pack | Task class | Size budget | Owner |
+|---|---|---|---|
+| [`f0-f1-contract-pack.md`](f0-f1-contract-pack.md) (`REP-0054`) | F0/F1 contract-pack authoring sessions (PLAN-0002/PLAN-0003) | ≤ 90 lines | dossier_maintainer |
+
+Each pack declares its audience and task class, authoritative source links,
+freshness rule, size budget, and owner. Mutable facts remain in their
+authoritative sources; if a pack conflicts with a source, the source wins and
+the drift is recorded. Add a new pack only for a recurring task class, and
+register it in the artifact registry in the same change.

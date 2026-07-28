@@ -2118,10 +2118,10 @@
     },
     {
       "applicability": {
-        "assessed_by": null,
-        "assessed_on": null,
-        "rationale": "Generation does not establish trigger applicability.",
-        "status": "not_assessed"
+        "assessed_by": "claude-agent (owner-approved development-layer work, TASK-0002); consistent with DEC-0003's ratified assessment pattern",
+        "assessed_on": "2026-07-28",
+        "rationale": "Trigger arrived with the start of development sessions (TASK-0002): routine contract-pack work needs bounded routing across a ~2,400-line canonical pack plus contracts-workspace conventions. First pack: f0-f1-contract-pack.md.",
+        "status": "applicable"
       },
       "category": "agent_context",
       "classification": "optional",
@@ -2186,7 +2186,7 @@
   ],
   "document_role": "generated_non_authoritative_mirror_from_artifact_registry",
   "dossier_version": "1.0.1",
-  "generation_id": "40a696f549d2b4766d59f8116bf372bf",
+  "generation_id": "fe17fb809d738e15a0bc845a14b7fee4",
   "permission_grant": false,
   "profile": "high-assurance",
   "project_slug": "storyworld-platform",
@@ -3466,9 +3466,9 @@
     },
     {
       "applicability": {
-        "assessed_on": null,
-        "rationale": "Optional scaffolded trigger-assessment entry point; applicability is not established by generation.",
-        "status": "not_assessed"
+        "assessed_on": "2026-07-28",
+        "rationale": "CTX-0001 assessed applicable; entry point indexes the maintained context packs. [Assessed by claude-agent 2026-07-28 under TASK-0002.]",
+        "status": "applicable"
       },
       "artifact_type_ids": [
         "CTX-0001"
@@ -3910,6 +3910,38 @@
       "superseded_by": "REP-0041",
       "update_triggers": [
         "retention_rule_change"
+      ]
+    },
+    {
+      "applicability": {
+        "assessed_on": "2026-07-28",
+        "rationale": "Bounded routing pack for F0/F1 contract-pack sessions (PLAN-0002/PLAN-0003); pointers only, no mutable-fact duplication; 90-line size budget declared in the file. [Assessed by claude-agent 2026-07-28 under TASK-0002.]",
+        "status": "applicable"
+      },
+      "artifact_type_ids": [
+        "CTX-0001"
+      ],
+      "authority": "navigation_only",
+      "generated": false,
+      "id": "REP-0054",
+      "information_state": "navigation",
+      "owner_role": "dossier_maintainer",
+      "path": "project-dossier/context-packs/f0-f1-contract-pack.md",
+      "profile": "high-assurance",
+      "representation_role": "curated_context_pack",
+      "review": {
+        "basis": "Created 2026-07-28 under TASK-0002; owner review with the next dossier review pass.",
+        "last_reviewed_on": null,
+        "status": "not_reviewed"
+      },
+      "review_cadence": "on_source_change_and_quarterly_when_active",
+      "sensitivity": "internal",
+      "source_direction": "derived_navigation_maintained_by_task_owner",
+      "superseded_by": null,
+      "update_triggers": [
+        "source_change",
+        "task_pattern_change",
+        "context_budget_breach"
       ]
     }
   ],

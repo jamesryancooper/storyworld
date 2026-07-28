@@ -181,13 +181,41 @@
       "gate_refs": [],
       "id": "PLAN-0006",
       "limitations": [
-        "Trigger timing depends on later phases; intentionally left unassessed now rather than guessed."
+        "Trigger timing depends on later phases; intentionally left unassessed now rather than guessed.",
+        "CTX-0001 assessed applicable 2026-07-28 (REP-0054, TASK-0002); DAT-0001, SUP-0001, RES-0001, and EVA-0001 remain deliberately unassessed pending their triggers."
       ],
       "objective": "Assess DAT-0001 (before collecting/importing triggered data classes), SUP-0001 (before relying on external code/models/packages/vendors), RES-0001 (before a mutable external fact drives a consequential choice), EVA-0001 (when repeated quality review or model evaluation begins), and CTX-0001 (if routine dossier loading exceeds context budgets); record dated, attributed applicability decisions in the artifact registry.",
       "owner_role": "project_owner",
       "requirement_refs": [],
       "status": "planned",
       "title": "Assess deferred conditional dossier artifact types at their triggers"
+    },
+    {
+      "acceptance_criteria": [
+        "All four fixture source sets exist under packages/contracts/fixtures/ with ownership/sensitivity/permitted-use manifests.",
+        "Content is rights-safe: no real personal data, no third-party IP, dignity/privacy posture recorded for the editorial fixture."
+      ],
+      "blocked_by": [],
+      "depends_on": [],
+      "evidence_expected": [
+        "Fixture manifests and owner sign-off recorded in the fixture directories."
+      ],
+      "evidence_refs": [],
+      "finding_refs": [],
+      "gate_refs": [
+        "GATE-0003"
+      ],
+      "id": "PLAN-0007",
+      "limitations": [
+        "Owner-supplied creative content; agents must not invent it (see context pack f0-f1-contract-pack.md). Feeds PLAN-0003/GATE-0003; also usable as section 18.5 concierge material."
+      ],
+      "objective": "Owner supplies the creative source material for the four golden fixtures (canonical part 05 section 17.1): a Stillhouse mini-season excerpt (hidden truth, reveal graph, symbols), an editorial carousel sample (voice, recurring metaphor, privacy posture), a BeKindRewind slice (several locations, recurring NPCs, objects, one mission chain), and a fictitious commerce campaign (product, approved/prohibited claims, imagery constraints). Each fixture records ownership, sensitivity, and permitted use; no real personal data or third-party IP.",
+      "owner_role": "project_owner",
+      "requirement_refs": [
+        "REQ-0010"
+      ],
+      "status": "planned",
+      "title": "Supply rights-safe golden-fixture source content"
     }
   ],
   "project_slug": "storyworld-platform",

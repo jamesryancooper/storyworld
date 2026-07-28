@@ -1,0 +1,30 @@
+name: validate
+
+# Independent trust boundary for the harness and dossier contracts:
+# runs the read-only structural check and the mutation test suite on the
+# exact pushed tree. Read-only by design — refresh (the derived-file writer)
+# is never run in CI; a stale manifest is a failure to fix locally.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  harness:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Read-only structural check
+        run: python -B .agent/scripts/validate.py --check
+      - name: Harness unit and mutation tests
+        run: python -B -m unittest discover -s .agent/tests -p "test_*.py"
