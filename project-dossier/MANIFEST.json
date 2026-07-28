@@ -1530,7 +1530,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/raidq.json",
-      "sha256": "37af1999ee4dba1eb966e5d7da73919059e21bf800e0bb2557d86147be0bb416"
+      "sha256": "0142e6356da572a766e12e79eee1c31d2582c78178deff0966876d4acaa8e68a"
     },
     {
       "layer": "project_dossier",
@@ -1565,7 +1565,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/registers/README.md",
-      "sha256": "29ec1db0bab9e7d2af9326e564486b91a375af72c80aa15ff9778701f8b8ab29"
+      "sha256": "a797d3e97171ec02189d006e3a3e7ad35fb23ab057b4c526c9eec128dc99042d"
     },
     {
       "layer": "project_dossier",
@@ -1598,12 +1598,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-28T17:53:35.790162+00:00",
-  "generation_id": "dd8491d0b38f3fb1d6853b637499d6fb",
+  "generated_on": "2026-07-28T19:24:49.811624+00:00",
+  "generation_id": "28378beb698e252c8015770b0bd04603",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "bbfd691a72d766f49bc1267c3a80827242df1403f2eb2b482642ba4a8768d85b",
+  "source_fingerprint": "12af57955554e7900ae89874730beaf93b1bc659ff71b7fcf308e3e24d9b3ef7",
   "source_scope": {
     "exclusions": [
       {
