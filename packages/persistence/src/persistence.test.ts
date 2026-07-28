@@ -93,3 +93,50 @@ describe("outbox and inbox", () => {
     ).rejects.toThrow(/duplicate key/);
   });
 });
+
+describe("asset lineage (ADR-0009)", () => {
+  it("chains immutable versions through the derivation graph and rejects mutation", async () => {
+    const shaSource = (await import("node:crypto"))
+      .createHash("sha256").update(`lineage-src-${uuidv7()}`).digest("hex");
+    const shaDerived = (await import("node:crypto"))
+      .createHash("sha256").update(`lineage-out-${uuidv7()}`).digest("hex");
+    const assetId = uuidv7();
+    const v1 = uuidv7();
+    const v2 = uuidv7();
+    await withTenant(app, orgA, async (c) => {
+      for (const sha of [shaSource, shaDerived]) {
+        await c.query(
+          "INSERT INTO storyworld.content_blobs (sha256, organization_id, size_bytes, media_type, storage_uri) VALUES ($1,$2,$3,$4,$5)",
+          [sha, orgA, 1, "application/octet-stream", `file:///dev/null#${sha.slice(0, 8)}`],
+        );
+      }
+      await c.query(
+        "INSERT INTO storyworld.asset_versions (asset_version_id, organization_id, asset_id, version, content_sha256, state) VALUES ($1,$2,$3,1,$4,'source_imported')",
+        [v1, orgA, assetId, shaSource],
+      );
+      await c.query(
+        "INSERT INTO storyworld.asset_versions (asset_version_id, organization_id, asset_id, version, content_sha256, state) VALUES ($1,$2,$3,2,$4,'candidate')",
+        [v2, orgA, assetId, shaDerived],
+      );
+      await c.query(
+        "INSERT INTO storyworld.derivations (derivation_id, organization_id, from_asset_version_id, to_asset_version_id, transformation) VALUES ($1,$2,$3,$4,'test.generation')",
+        [uuidv7(), orgA, v1, v2],
+      );
+    });
+    const lineage = await withTenant(app, orgA, (c) =>
+      c.query(
+        `WITH RECURSIVE chain AS (
+           SELECT to_asset_version_id AS node, from_asset_version_id AS parent
+             FROM storyworld.derivations WHERE to_asset_version_id = $1
+           UNION ALL
+           SELECT d.to_asset_version_id, d.from_asset_version_id
+             FROM storyworld.derivations d JOIN chain ON d.to_asset_version_id = chain.parent)
+         SELECT parent FROM chain`,
+        [v2],
+      ));
+    expect(lineage.rows.map((r) => r.parent)).toContain(v1);
+    await expect(
+      admin.query("UPDATE storyworld.asset_versions SET state='accepted_master' WHERE asset_version_id=$1", [v2]),
+    ).rejects.toThrow(/append-only/);
+  });
+});

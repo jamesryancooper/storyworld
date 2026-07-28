@@ -203,11 +203,11 @@
     },
     {
       "blocking": false,
-      "description": "Owner leaning recorded 2026-07-28: ComfyUI as the primary media path (allowlisted versioned workflows per canonical part 03 section 10.5), with fal.ai — already used by Commerce Foundry — as the hosted execution/second-provider option: (a) fal's serverless ComfyUI runtime executing fal-format-exported workflows, and/or (b) fal direct model endpoints as a distinct provider adapter. Same fal organization as Commerce Foundry but separate API keys and budget ceilings per system (part 05 section 15.1: separate connector credentials per authority host), with portfolio-level cost attribution.",
+      "description": "Owner refinement 2026-07-28: ComfyUI executes LOCALLY (owner's hardware; allowlisted versioned workflows per canonical part 03 sections 10.5-10.6; sensitive sources never leave the machine). fal.ai — already used by Commerce Foundry — remains the candidate hosted path via its DIRECT model endpoints as a distinct provider adapter (not fal's serverless ComfyUI runtime), giving the B1 provider-swap proof a genuinely remote boundary. Same fal organization as Commerce Foundry, separate API keys and budget ceilings per system.",
       "id": "ASM-0002",
       "impact": "medium",
       "limitations": [
-        "Leaning, not a decision; B1 is not yet open. Cross-executor determinism is not assumed: the same workflow on Apple Silicon vs fal GPUs may produce different outputs; provenance records executor identity and approvals bind to outputs."
+        "Refined leaning, not a decision; formalize at B1 entry with terms verification. Cross-executor determinism not assumed; provenance records executor identity."
       ],
       "owner_role": "project_owner",
       "resolution_condition": "Formalized as an accepted decision at B1 entry, after verifying fal's then-current ComfyUI runtime constraints (fal-format export, supported nodes), asset retention/training terms for uploaded LoRAs/reference attachments (feeds rights evidence), and the sensitive-source local-only policy hook.",
@@ -216,7 +216,7 @@
         "SRC-0001"
       ],
       "status": "open",
-      "title": "B1 provider posture: ComfyUI-first with fal.ai as hosted executor and second provider path",
+      "title": "B1 provider posture: LOCAL ComfyUI primary; fal.ai direct endpoints as hosted second provider",
       "type": "assumption"
     }
   ],

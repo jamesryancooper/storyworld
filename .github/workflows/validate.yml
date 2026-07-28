@@ -47,8 +47,18 @@ jobs:
           --health-interval 5s
           --health-timeout 3s
           --health-retries 20
+      minio:
+        image: bitnami/minio:latest
+        env:
+          MINIO_ROOT_USER: storyworld
+          MINIO_ROOT_PASSWORD: storyworld-dev-only
+        ports:
+          - 9000:9000
     env:
       DATABASE_URL: postgres://storyworld:storyworld-dev-only@localhost:5432/storyworld
+      S3_ENDPOINT: http://localhost:9000
+      S3_ACCESS_KEY: storyworld
+      S3_SECRET_KEY: storyworld-dev-only
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

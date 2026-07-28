@@ -27,7 +27,7 @@ tracks the actively managed subset.
 | OQ-0001 | open_question | Owner ratification of the 2026-07-28 adoption — **resolved 2026-07-28** | no |
 | OQ-0002 | open_question | GATE-0002 review of the F0 pack — **resolved** | no |
 | OQ-0003 | open_question | DEC-0007 charter v2 acceptance — **resolved** | no |
-| ASM-0002 | assumption | B1 provider posture: ComfyUI-first + fal.ai (owner leaning; decide at B1) | no |
+| ASM-0002 | assumption | B1 provider posture: local ComfyUI primary; fal.ai direct endpoints second (owner leaning; decide at B1) | no |
 
 Review method: revisit each item by its `review_on` date, at phase gates, and
 when its trigger condition changes; resolve only against the recorded
