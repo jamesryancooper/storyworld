@@ -9,7 +9,7 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "lint": "eslint src migrations-check"
+    "lint": "eslint src"
   },
   "dependencies": {
     "pg": "^8.12.0",

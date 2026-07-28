@@ -1355,7 +1355,7 @@
     {
       "layer": "project_source",
       "path": "packages/persistence/package.json",
-      "sha256": "bd3b1a2623d01f69ad97c30918edc5b56349d2ba623ab2689e53a7ebda4b0178"
+      "sha256": "09c8a8442c2ca7c47e3fc9d865506559646493c8d8f72c451144f12019fa683f"
     },
     {
       "layer": "project_source",
@@ -1648,12 +1648,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-28T19:28:51.181205+00:00",
-  "generation_id": "57243d39902810de14d254dac2670092",
+  "generated_on": "2026-07-28T19:31:04.510742+00:00",
+  "generation_id": "5f7a5d3d84634854f6a16827088dca1b",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "9d2392dc6cdd2a958fd6f8dc13c36d986df4e54bcf0837d640a732447a12ba83",
+  "source_fingerprint": "a5a1790f0b9eecb77b28ed36f7f51e1ac5eaea4911a066ec58c7487a997dd362",
   "source_scope": {
     "exclusions": [
       {
