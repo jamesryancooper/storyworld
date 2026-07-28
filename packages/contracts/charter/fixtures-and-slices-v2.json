@@ -1,8 +1,8 @@
 {
   "schema_version": "storyworld.charter.fixtures-and-slices.v2",
   "document_role": "derived_normative_charter_artifact",
-  "status": "proposed",
-  "acceptance": "Proposed successor to fixtures-and-slices.json (v1, accepted via DEC-0006). Acceptance vehicle: DEC-0007; on acceptance SUP-0002 records the supersession and this file becomes the governing fixture taxonomy. Until then v1 governs.",
+  "status": "accepted",
+  "acceptance": "Accepted 2026-07-28 via DEC-0007; governs the fixture taxonomy from this date. Supersedes v1 per the supersession record below.",
   "derived_from": "v1 charter artifact; owner-supplied fixture authoring packet (SRC-0003); pattern program (fixtures/sources/packet/PATTERN_DRIVEN_EXPANSION.md)",
   "created_on": "2026-07-28",
   "permission_grant": false,
@@ -141,5 +141,16 @@
       "family": "initial_production_gates",
       "source_ref": "05_governance_operations_and_quality.md#17.3"
     }
-  ]
+  ],
+  "supersession": {
+    "id": "SUP-0002",
+    "superseded_artifact": "packages/contracts/charter/fixtures-and-slices.json (v1)",
+    "successor_artifact": "packages/contracts/charter/fixtures-and-slices-v2.json",
+    "effective_on": "2026-07-28",
+    "reason": "Flat seven-fixture enumeration replaced by the five-class pattern-driven taxonomy with enumeration delegated to fixtures/registry.json.",
+    "migration_impact": "Taxonomy only; vertical slices, stop conditions, fixture rules, and metric families carry forward unchanged. GATE-0003 evaluated under the v2 meaning.",
+    "retained_history": "v1 file retained in place with superseded status",
+    "authority_source": "DEC-0007 accepted by the project owner 2026-07-28",
+    "namespace_note": "Recorded in-artifact: contract-pack files are outside the dossier REP-#### supersession-ledger namespace."
+  }
 }

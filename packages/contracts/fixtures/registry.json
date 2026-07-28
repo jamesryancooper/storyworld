@@ -1,7 +1,7 @@
 {
   "schema_version": "storyworld.fixture-registry.v1",
   "document_role": "authoritative_machine_readable_fixture_inventory",
-  "status": "active_inventory; classification taxonomy governed by charter fixtures-and-slices (v2 proposed via DEC-0007)",
+  "status": "active_inventory; classification taxonomy governed by charter fixtures-and-slices-v2 (accepted 2026-07-28 via DEC-0007)",
   "permission_grant": false,
   "created_on": "2026-07-28",
   "source_provenance": "Owner-supplied fixture authoring packet (sources/packet/, SRC-0003); pattern program per sources/packet/PATTERN_DRIVEN_EXPANSION.md",

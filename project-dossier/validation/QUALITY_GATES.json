@@ -52,7 +52,7 @@
       "expires_on": null,
       "id": "GATE-0003",
       "limitations": [
-        "Gate definition ratified 2026-07-28 (PLAN-0001); evaluation occurs when its phase completes. Approval at evaluation: project owner."
+        "Passed 2026-07-28: owner accepted the F1 contract pack via DEC-0008 (with DEC-0007 charter v2 defining the fixture meaning). Structural evidence EVD-0007; acceptance observation EVD-0008. Semantic-enforcement items are documented F3-kernel scope (DESIGN_NOTES)."
       ],
       "owner_role": "project_owner",
       "pass_criteria": [
@@ -62,13 +62,16 @@
         "Revision time and fictional story time are explicit.",
         "Evidence expected at evaluation: Contract pack per canonical/storyworld/08 Appendix B; passing round-trip/compatibility test runs."
       ],
-      "required_evidence": [],
+      "required_evidence": [
+        "EVD-0007",
+        "EVD-0008"
+      ],
       "requirement_refs": [
         "REQ-0010",
         "REQ-0005",
         "REQ-0006"
       ],
-      "status": "not_assessed",
+      "status": "passed",
       "title": "F1 exit - domain model and contracts"
     },
     {

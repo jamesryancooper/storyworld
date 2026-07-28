@@ -9,18 +9,22 @@
     "DEC-0001",
     "DEC-0002",
     "DEC-0003",
-    "DEC-0004"
+    "DEC-0004",
+    "DEC-0005",
+    "DEC-0006",
+    "DEC-0007",
+    "DEC-0008"
   ],
   "fresh_evidence": [
-    "EVD-0005",
     "EVD-0006",
-    "EVD-0007"
+    "EVD-0007",
+    "EVD-0008"
   ],
   "blocked_by": [],
-  "next_action": "owner_decides_DEC-0007_and_DEC-0008_GATE-0003; then_F2_with_ASM-0001_stack_confirmation_and_B1_provider_posture",
+  "next_action": "F2_entry: owner_confirms_ASM-0001_stack_choices_then_open_PLAN-0004_task; queue_B1_provider_posture",
   "external_effects_authority_refs": [],
   "limitations": [
     "structural_validation_only_no_readiness_claim",
-    "DEC-0007_and_DEC-0008_proposed_owner_decisions_pending"
+    "F2_not_started"
   ]
 }

@@ -2,17 +2,17 @@
 {
   "schema_version": "harness.decision.v1",
   "id": "DEC-0007",
-  "status": "proposed",
-  "previous_status": null,
+  "status": "accepted",
+  "previous_status": "proposed",
   "title": "Supersede the fixture charter with v2 (pattern-driven taxonomy) and ratify the F1 domain-model additions",
   "created_at": "2026-07-28",
-  "authority_source": "external:project-owner-acceptance-pending — proposed under TASK-0004 while integrating the owner-supplied fixture authoring packet (SRC-0003); becomes authoritative through owner acceptance.",
+  "authority_source": "external:project-owner (Ryan Cooper) acceptance 2026-07-28 in the operator session.",
   "owner": "ryan-cooper (project owner)",
   "scope": "1) charter/fixtures-and-slices-v2.json supersedes the accepted v1 artifact (SUP-0002 on acceptance), replacing the flat fixture enumeration with the five-class taxonomy (f1_production_fixtures, f1_schema_probes, post_f1_production_fixtures, metamorphic_test_families, vertical_slices) whose enumeration is owned by fixtures/registry.json. 2) The F1 domain-model additions grounded by the packet: narrative-structure schema (units/choices/branches/threads with explicit time coordinates) and three additive canon-release extensions (assertions/testimony, branch metadata for adaptations, version-pinned shared-canon dependencies).",
   "supersedes": null,
   "successor": null,
   "limitations": [
-    "Proposed 2026-07-28; v1 remains the governing charter artifact until acceptance. Non-blocking for F1 implementation; required before GATE-0003 evaluation (OQ-0003).",
+    "Accepted 2026-07-28; charter v2 now governs, v1 superseded via SUP-0002 (recorded in-artifact: contract-pack files sit outside the dossier REP namespace, so the supersession lives in the charter files themselves).",
     "Vertical slices, stop conditions, fixture rules, and metric families carry into v2 unchanged."
   ]
 }
@@ -71,3 +71,9 @@ must carry.
   registry coverage checks.
 - Reversal: reject before acceptance; after acceptance, successor decision
   and charter v3.
+
+## Acceptance
+
+Accepted by the project owner (Ryan Cooper) on 2026-07-28 in the operator
+session ("I accept the decisions"), covering DEC-0007 and DEC-0008 together.
+Recorded by claude-agent.

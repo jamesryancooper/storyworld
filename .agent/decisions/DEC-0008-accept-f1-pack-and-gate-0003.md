@@ -2,17 +2,17 @@
 {
   "schema_version": "harness.decision.v1",
   "id": "DEC-0008",
-  "status": "proposed",
-  "previous_status": null,
+  "status": "accepted",
+  "previous_status": "proposed",
   "title": "Accept the F1 contract pack and evaluate GATE-0003 as passed",
   "created_at": "2026-07-28",
-  "authority_source": "external:project-owner-acceptance-pending — staged at the F1 boundary under TASK-0004; acceptance constitutes the GATE-0003 approval. Depends on DEC-0007 (charter v2 defines the gate's fixture meaning); accept DEC-0007 first or together.",
+  "authority_source": "external:project-owner (Ryan Cooper) acceptance 2026-07-28; accepted together with DEC-0007, constituting the GATE-0003 approval.",
   "owner": "ryan-cooper (project owner)",
   "scope": "The complete F1 contract pack: 12 record/package schemas + CloudEvents envelope, 4 lifecycle state machines, OpenAPI 3.1 application contract (33 paths), AsyncAPI 3 event catalog (24 events), 3 adapter interface contracts, SDK generation config (deferred activation), 4 normalized production fixtures, 8 schema probes, MET-F1 metamorphic suite, fixture registry, and the contract validator enforcing all of it in CI. On acceptance: GATE-0003 records passed with this decision and EVD-0007 as evidence; PLAN-0003 completes; F2 (PLAN-0004) unblocks.",
   "supersedes": null,
   "successor": null,
   "limitations": [
-    "Proposed 2026-07-28. One deliberate format decision: OpenAPI and AsyncAPI are authored as strict JSON (both formats permit it) so the zero-dependency validator covers them; a YAML derivative can be generated for external tooling (recorded in DESIGN_NOTES).",
+    "Accepted 2026-07-28. One deliberate format decision: OpenAPI and AsyncAPI are authored as strict JSON (both formats permit it) so the zero-dependency validator covers them; a YAML derivative can be generated for external tooling (recorded in DESIGN_NOTES).",
     "Semantic enforcement items (reveal-order graphs, branch exclusivity, story-time state computation) are deliberately F3-kernel scope, documented per probe; F1 proves representability and schema-level rejection.",
     "Accepting this decision also implies the ASM-0001 stack-confirmation conversation at F2 entry (TypeScript/Node/package-manager choices) — flagged as the next owner touchpoint alongside the B1 provider posture."
   ]
@@ -47,3 +47,9 @@ suite — all enforced by the contract validator locally and in CI.
 
 - Evidence: EVD-0007 (F1-boundary validation + CI).
 - Reversal: revise named artifacts before acceptance; after, supersession.
+
+## Acceptance
+
+Accepted by the project owner (Ryan Cooper) on 2026-07-28 in the operator
+session ("I accept the decisions"), covering DEC-0007 and DEC-0008 together.
+Recorded by claude-agent.

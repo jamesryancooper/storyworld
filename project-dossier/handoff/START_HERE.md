@@ -3,7 +3,7 @@
 > Navigation only. Reinspect the repository and current instructions before
 > resuming work.
 
-## Current position (2026-07-28, F1 boundary)
+## Current position (2026-07-28, F1 complete)
 
 - Exact revision: `main` at `2a337bb` plus closing bookkeeping, pushed;
   CI green on every substantive commit (latest run 30382310094).
@@ -12,27 +12,26 @@
   contract, 24-event catalog, 3 adapter interfaces, 4 production fixtures
   normalized from the owner's packet, 8 architecture probes, active MET-F1
   metamorphic suite, and the fixture registry — all CI-enforced.
-- Pending owner decisions: **DEC-0007** (fixture charter v2 + domain-model
-  additions) and **DEC-0008** (F1 pack acceptance = GATE-0003 evaluation).
-  Accept in that order or together.
-- Active task: none. TASK-0001–TASK-0004 completed. PLAN-0003 completes on
-  GATE-0003; PLAN-0009/0010 registered and phased.
-- Fresh evidence: EVD-0005–EVD-0007.
+- **F1 is complete and accepted**: DEC-0007 and DEC-0008 accepted
+  2026-07-28; charter v2 governs (SUP-0002); GATE-0003 passed; PLAN-0003
+  completed. PLAN-0009/0010 registered and phased.
+- Active task: none. TASK-0001–TASK-0004 completed.
+- Fresh evidence: EVD-0006–EVD-0008.
 
 ## Next safe action
 
-Owner: decide `DEC-0007` then `DEC-0008` (.agent/decisions/ — DEC-0008
-carries the GATE-0003 criterion mapping). On acceptance, F2 opens; the next
-owner touchpoints after that are the ASM-0001 stack confirmation (F2 entry)
-and the B1 media-provider posture (credentials/budget or local ComfyUI).
+F2 (governed foundation, PLAN-0004) is open. Entry touchpoint: confirm the
+ASM-0001 stack specifics (TypeScript/Node versions, package manager,
+monorepo tooling) — then implementation begins. Queue in parallel: the B1
+media-provider posture (credentials/budget or local ComfyUI).
 
 ## Resume in this order
 
 1. Read `AGENTS.md` and `.agent/START_HERE.md`.
 2. Read `.agent/state/current.json` and `.agent/state/RESUME.md`.
-3. For the pending decisions: `.agent/decisions/DEC-0007-*.md` and
-   `DEC-0008-*.md`, then `packages/contracts/DESIGN_NOTES.md` and
-   `packages/contracts/fixtures/registry.json`.
+3. For F2 context: `.agent/decisions/` (all accepted), `packages/contracts/`
+   (the build target), `project-dossier/machine-readable/plan.json`
+   (PLAN-0004 criteria).
 4. For contract work after acceptance:
    `../context-packs/f0-f1-contract-pack.md`.
 5. Validate before and after changes:

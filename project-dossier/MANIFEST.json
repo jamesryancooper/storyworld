@@ -80,12 +80,12 @@
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0007-fixture-charter-v2-and-domain-additions.md",
-      "sha256": "31b7fb4396a601a05df3b168a1553e9d050cc2055166c3c29e2f63736c9ce3ab"
+      "sha256": "d03b6274d89da1d308d3079ac75001dfb205b5904c1a1aaf0025f9c866ef97ae"
     },
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0008-accept-f1-pack-and-gate-0003.md",
-      "sha256": "c74fda850e4f274189d9be123d8c031400633626d592c95978f6b6f4c27398b2"
+      "sha256": "420df7d2a3637e14391933a0433a9dc75e2120a5d3ee7dde51de423734e64a57"
     },
     {
       "layer": "agent_harness",
@@ -110,7 +110,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "391f304feef494fe7c18b48cb902c5a3e689399b4528d7051da346438a27b98f"
+      "sha256": "1169b7344265ea32326028f9089dcbbdddaa186470dd11802df715a4db7e0d43"
     },
     {
       "layer": "agent_harness",
@@ -146,6 +146,11 @@
       "layer": "agent_harness",
       "path": ".agent/evidence/EVD-0007-f1-boundary-validation.md",
       "sha256": "29dfb86ff30555acad7d9c6bd241b2db5b95d806532e4b664239e4b9fa0a3bc1"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0008-gate-0003-acceptance-observation.md",
+      "sha256": "938bc4f62163b5c835fdd1a6873890b8007f25644ecbb12001affa1b84fde755"
     },
     {
       "layer": "agent_harness",
@@ -290,12 +295,12 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/RESUME.md",
-      "sha256": "c200c36c6000186e5c58a9bb799b87dde8a1353c3134cd59d1cba6ad9a7a8ffc"
+      "sha256": "b5953806372bf781b53c070f9031fe74dea51f0d3ed8c5016305b72006677445"
     },
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "b10edb125cc16a42f8a0e42bc5ac27812a4a14836b55055df7b6845ee75a8de9"
+      "sha256": "e4639113a875ec0859615d17d104980628f61a4f64a7dee26f336ae07d139f5b"
     },
     {
       "layer": "agent_harness",
@@ -575,12 +580,12 @@
     {
       "layer": "project_source",
       "path": "packages/contracts/charter/fixtures-and-slices-v2.json",
-      "sha256": "4c8207b3be5d8bec11a709f4aca4f41ded246e7532f56435f8f87d01439de4ce"
+      "sha256": "a98b80e0129df30782642d9e212945471c7b655315ae09fbad40f8e5c7a9b69a"
     },
     {
       "layer": "project_source",
       "path": "packages/contracts/charter/fixtures-and-slices.json",
-      "sha256": "6af7285d588415fda43065d5b56ddd1a5d7514d4217f0b8abe401105f3881554"
+      "sha256": "ef9f5b145561283d602af65d15e4705aa55572ac99d0cbab18e4a9ea265a86ba"
     },
     {
       "layer": "project_source",
@@ -610,7 +615,7 @@
     {
       "layer": "project_source",
       "path": "packages/contracts/fixtures/README.md",
-      "sha256": "34814d1a9668f4f055aebcb10ced83266da21e30c9d9afc954e74fc3baa54059"
+      "sha256": "19f485142179068fe2dbc989e90a75080efb2847099b97460887dbdb8c9f88cb"
     },
     {
       "layer": "project_source",
@@ -985,7 +990,7 @@
     {
       "layer": "project_source",
       "path": "packages/contracts/fixtures/registry.json",
-      "sha256": "61e19e68db86177671bc0e495ef0d3f960e96bcd1e1e870239338e4e57e74c0c"
+      "sha256": "8caf454a3b4308ecd5ea61f4ba7b4b654ee5098c06c0c24375dc5354c7752b69"
     },
     {
       "layer": "project_source",
@@ -1285,7 +1290,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/canonical/constraints-gates-and-readiness.md",
-      "sha256": "74de74a45496d0c76a5d3444339a9b8312a2b164d0b00228038f6b3c20b2e606"
+      "sha256": "c92f673d8d9b06daaa89e75d9f6163ec396bd5ea95e1f41c498eb111b8ef2e52"
     },
     {
       "layer": "project_dossier",
@@ -1395,7 +1400,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/handoff/START_HERE.md",
-      "sha256": "7f00f989038f2c8396a1baa86179d279fbfac37a6b11031fe32d18bf77f8dec0"
+      "sha256": "b2590f81b177a42a94746772fb38f407c5a89f440544ae12e5a25f1a79745d60"
     },
     {
       "layer": "project_dossier",
@@ -1430,12 +1435,12 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/plan.json",
-      "sha256": "1f29d3adef626ddc1b0f3e78033378b9f5a2f3e2de653942502a3501ab5f7f51"
+      "sha256": "445e9a12b5263f94bf97d3c6c832242ae24865f3f484d4fac49ce7ab0df3ae3e"
     },
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/raidq.json",
-      "sha256": "56c7b8d61152ce0f641f42ff1c18c03bbc07e324f0da2be7d79883b7a144c616"
+      "sha256": "dc634d1215002d379bf7b36ce1cc48f926e703b4b5bfa49d4f11becd21f5cce5"
     },
     {
       "layer": "project_dossier",
@@ -1450,7 +1455,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/models/README.md",
-      "sha256": "dbd8fbd185d5321b8a055a0ffa55c5c0925389ec326a49f6053561b9fb513a18"
+      "sha256": "fa1681051e7c51303635fda3a6c2f45036fc324edc0ae56141c12f6adb03dd87"
     },
     {
       "layer": "project_dossier",
@@ -1460,7 +1465,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/plans/README.md",
-      "sha256": "ece9e8ed7267a9d33c7ff2fa39d72381eaa6232c70462266575c704819037ad1"
+      "sha256": "ef856be4b92809acff21d9f1850b875dcfa18cc4c2b9105df5ce33da23fb9c75"
     },
     {
       "layer": "project_dossier",
@@ -1490,7 +1495,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/validation/QUALITY_GATES.json",
-      "sha256": "8f1fa0cc01ae7a85a4f72550f21d584a6c2e52cf4c52b6d6c3b913290d816226"
+      "sha256": "7dbc64e9b289b7cd0a596a82297f4f47837903e7bae5d4f6bf5fcdb7e2ae99bf"
     },
     {
       "layer": "project_dossier",
@@ -1498,12 +1503,12 @@
       "sha256": "789b814ca4ac5293bebd449b64ff606aa733539725a815b5e9a543ef8e6645ab"
     }
   ],
-  "generated_on": "2026-07-28T17:21:28.616685+00:00",
-  "generation_id": "b6627fbe0c5dd8cd9cb93f54dea9cc10",
+  "generated_on": "2026-07-28T17:38:19.471507+00:00",
+  "generation_id": "cdf18b5d1e353758d2c540ddaa15fa43",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "9c55394cde3b5b244daa49bc4f17295231c0d155f1a35ded9afd6cd4bbf8af66",
+  "source_fingerprint": "f2f3ff41874cd4f012fa87d7db469e3248500ae19038ec6835385ff17ef95103",
   "source_scope": {
     "exclusions": [],
     "git_metadata": "excluded_from_source_fingerprint",

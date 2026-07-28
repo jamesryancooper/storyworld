@@ -2,7 +2,7 @@
 
 Rights-safe fixtures proving the contracts. Enumeration and classification
 are owned by [`registry.json`](registry.json) (taxonomy governed by the
-charter — v2 proposed via DEC-0007). Source content is owner-supplied
+charter v2, accepted 2026-07-28 via DEC-0007). Source content is owner-supplied
 (SRC-0003, PLAN-0007); all content is fictional and is test material, never
 commercializable inventory. Fixture-only canon never silently promotes into
 production property canon.

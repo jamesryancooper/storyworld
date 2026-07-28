@@ -79,7 +79,11 @@
       "evidence_expected": [
         "Contract pack artifacts per 08 Appendix B with passing round-trip and compatibility tests."
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "DEC-0008",
+        "EVD-0007",
+        "EVD-0008"
+      ],
       "finding_refs": [
         "FIND-0001"
       ],
@@ -88,7 +92,7 @@
       ],
       "id": "PLAN-0003",
       "limitations": [
-        "All F1 artifacts complete (EVD-0007); item remains in_progress solely pending the GATE-0003 owner evaluation (DEC-0007 + DEC-0008)."
+        "Completed 2026-07-28: GATE-0003 passed on owner acceptance of DEC-0007+DEC-0008. F2 (PLAN-0004) entry touchpoint: ASM-0001 stack confirmation."
       ],
       "objective": "Produce versioned schemas, lifecycle state machines, the OpenAPI application contract, event and package catalogs, adapter interfaces, and contract fixtures for the four representative properties (canonical/storyworld/06 section 19.2; 08 Appendix B).",
       "owner_role": "project_owner",
@@ -97,7 +101,7 @@
         "REQ-0005",
         "REQ-0006"
       ],
-      "status": "in_progress",
+      "status": "completed",
       "title": "F1 - domain model and contract pack"
     },
     {

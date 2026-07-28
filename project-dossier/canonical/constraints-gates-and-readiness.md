@@ -20,8 +20,9 @@
 ## Approval gates
 
 Gate records are owned by `../validation/QUALITY_GATES.json`. Definitions
-ratified 2026-07-28 (PLAN-0001); GATE-0001 passed on EVD-0001, the phase
-gates await their phase evaluations:
+ratified 2026-07-28 (PLAN-0001). GATE-0001 passed (EVD-0001); GATE-0002
+passed (DEC-0006, EVD-0006); GATE-0003 passed (DEC-0007/DEC-0008,
+EVD-0007/EVD-0008); later phase gates await their evaluations:
 
 | Gate | Scope | Canonical basis |
 |---|---|---|

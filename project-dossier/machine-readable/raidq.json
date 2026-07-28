@@ -188,7 +188,7 @@
       "id": "OQ-0003",
       "impact": "medium",
       "limitations": [
-        "Created under TASK-0004 during fixture-packet integration."
+        "Resolved 2026-07-28: DEC-0007 and DEC-0008 accepted; charter v2 governs (SUP-0002); GATE-0003 passed."
       ],
       "owner_role": "project_owner",
       "resolution_condition": "DEC-0007 accepted, revised, or rejected; on acceptance charter v2 supersedes v1 via SUP-0002 and the registry taxonomy becomes charter-governed.",
@@ -196,8 +196,8 @@
       "source_refs": [
         "SRC-0003"
       ],
-      "status": "open",
-      "title": "Owner acceptance of DEC-0007 (fixture-charter v2 supersession and F1 domain-model additions)",
+      "status": "resolved",
+      "title": "Owner acceptance of DEC-0007 (resolved: accepted with DEC-0008)",
       "type": "open_question"
     }
   ],
