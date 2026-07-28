@@ -47,13 +47,6 @@ jobs:
           --health-interval 5s
           --health-timeout 3s
           --health-retries 20
-      minio:
-        image: bitnami/minio:latest
-        env:
-          MINIO_ROOT_USER: storyworld
-          MINIO_ROOT_PASSWORD: storyworld-dev-only
-        ports:
-          - 9000:9000
     env:
       DATABASE_URL: postgres://storyworld:storyworld-dev-only@localhost:5432/storyworld
       S3_ENDPOINT: http://localhost:9000
@@ -66,6 +59,15 @@ jobs:
           node-version: "22"
       - name: Enable corepack (pnpm pinned via packageManager)
         run: corepack enable
+      - name: Start MinIO (official image needs a command; services cannot pass one)
+        run: |
+          docker run -d --name minio -p 9000:9000 \
+            -e MINIO_ROOT_USER=storyworld -e MINIO_ROOT_PASSWORD=storyworld-dev-only \
+            minio/minio server /data
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:9000/minio/health/live && break
+            sleep 2
+          done
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Typecheck

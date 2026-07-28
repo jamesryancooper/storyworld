@@ -460,7 +460,7 @@
     {
       "layer": "project_source",
       "path": ".github/workflows/validate.yml",
-      "sha256": "c339e485ce98d8d52d627b703518ad428df02c6ad92983492efb2e086199f226"
+      "sha256": "da43e19b75d76967e29fb1e06d220a6211d47d1584c2517da0df48f89ee85189"
     },
     {
       "layer": "project_source",
@@ -1758,12 +1758,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-28T19:46:17.581572+00:00",
-  "generation_id": "09b5bb2c840745942ca55b76a7f6571f",
+  "generated_on": "2026-07-28T19:49:43.765064+00:00",
+  "generation_id": "cacd3bdd6bcd9919101d581ee41d9173",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "bdc17de5873817e67d581dac4c658313bd2319946d48d142d3a0dc2cb2346d96",
+  "source_fingerprint": "06accc81d10b28ee384572a6e403d5a1712cb00d5b646b3aa6933a931c3b3975",
   "source_scope": {
     "exclusions": [
       {
