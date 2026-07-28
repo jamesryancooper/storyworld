@@ -37,13 +37,13 @@
   "external_effects": "repository_local_derived_metadata_refresh_only",
   "failures": [],
   "freshness_rule": "Invalid when any non-excluded repository source byte or path changes.",
-  "generated_at": "2026-07-28T22:23:50.006989+00:00",
-  "generation_id": "2e608c68da11b3081888cf0f47d85888",
+  "generated_at": "2026-07-28T22:33:31.574908+00:00",
+  "generation_id": "49c79b8ab7c08869fd9304a902766855",
   "git_scope": {
     "available": true,
-    "ignored": 4,
-    "tracked_modified": 8,
-    "untracked": 3
+    "ignored": 5,
+    "tracked_modified": 3,
+    "untracked": 2
   },
   "limitations": [
     "Structural pass does not prove implementation or project readiness.",
@@ -60,7 +60,7 @@
     "binary, non-UTF-8, encoded, and files larger than 4 MiB require a dedicated secret scanner",
     "project-specific build, test, security, legal, and operational checks"
   ],
-  "source_fingerprint": "badcf55cec41b94a9f7e41c7aa5e008e2a2755e56f17b52f80093855f74c8a0f",
+  "source_fingerprint": "7d2ba369d6ae63aa9b1292253541698d55c1fc4e7726c1674d3e580ff5f4db65",
   "source_scope": {
     "exclusions": [
       {
@@ -81,6 +81,10 @@
       },
       {
         "path": "packages/portability/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/kernel/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
       }
     ],

@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-28T22:23:50.006989+00:00",
-  "generation_id": "2e608c68da11b3081888cf0f47d85888",
+  "generated_at": "2026-07-28T22:33:31.574908+00:00",
+  "generation_id": "49c79b8ab7c08869fd9304a902766855",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -282,12 +282,22 @@
     "packages/domain/src/index.ts",
     "packages/domain/tsconfig.json",
     "packages/domain/vitest.config.ts",
+    "packages/kernel/package.json",
+    "packages/kernel/src/actors.ts",
+    "packages/kernel/src/commands.ts",
+    "packages/kernel/src/index.ts",
+    "packages/kernel/src/kernel.test.ts",
+    "packages/kernel/src/releases.ts",
+    "packages/kernel/src/state-packet.ts",
+    "packages/kernel/tsconfig.json",
+    "packages/kernel/vitest.config.ts",
     "packages/persistence/README.md",
     "packages/persistence/migrations/0001_foundation.sql",
     "packages/persistence/migrations/0002_custody.sql",
     "packages/persistence/migrations/0003_principals_and_leases.sql",
     "packages/persistence/migrations/0004_assets_and_lineage.sql",
     "packages/persistence/migrations/0005_canon_foundation.sql",
+    "packages/persistence/migrations/0006_narrative_kernel.sql",
     "packages/persistence/package.json",
     "packages/persistence/src/client.ts",
     "packages/persistence/src/index.ts",
@@ -365,7 +375,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "badcf55cec41b94a9f7e41c7aa5e008e2a2755e56f17b52f80093855f74c8a0f",
+  "source_fingerprint": "7d2ba369d6ae63aa9b1292253541698d55c1fc4e7726c1674d3e580ff5f4db65",
   "source_scope": {
     "exclusions": [
       {
@@ -386,6 +396,10 @@
       },
       {
         "path": "packages/portability/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/kernel/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
       }
     ],

@@ -5,5 +5,14 @@ export default tseslint.config(
   { ignores: ["node_modules/**", "**/dist/**", ".agent/**", ".agents/**"] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
-  { files: ["**/*.ts"], rules: { "@typescript-eslint/explicit-module-boundary-types": "error" } },
+  {
+    files: ["**/*.ts"],
+    rules: {
+      "@typescript-eslint/explicit-module-boundary-types": "error",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_", ignoreRestSiblings: true },
+      ],
+    },
+  },
 );

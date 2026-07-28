@@ -225,7 +225,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/project.json",
-      "sha256": "ff2df7a1d4c6443adffa34890f4800b0e2424144d8864825205d3c7aca511255"
+      "sha256": "a0c1ac91398cb207aed7a9ae5bac078e0cf2ca57edcf4c1883d7b60e2c073332"
     },
     {
       "layer": "agent_harness",
@@ -515,7 +515,7 @@
     {
       "layer": "project_source",
       "path": "eslint.config.js",
-      "sha256": "0219596fc742faee8fc5d411bcc432c767afe939596d6a2482e9436aaa25834a"
+      "sha256": "c84f351c51e1ed980405073f7a3546b23d647e7a02eb0895b0bd3efa75dcb352"
     },
     {
       "layer": "project_source",
@@ -1369,6 +1369,51 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/kernel/package.json",
+      "sha256": "ee6fe9fd386d8a23eba4b62642ff82ab4c65ac1b231b5f82cf7e98290965349f"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/kernel/src/actors.ts",
+      "sha256": "72c4255a80d0ce7e1b83524b27723484b1386f44e2219a6a546730d5a081594e"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/kernel/src/commands.ts",
+      "sha256": "d41dcee7248f66b4d89d154aa0d6850ad80659521796c901642ad46b6bf6e470"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/kernel/src/index.ts",
+      "sha256": "801b8086abc74006e0e7cdd48d1210a9618559dd82dc0998cc46ea5e299874f8"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/kernel/src/kernel.test.ts",
+      "sha256": "3560dee02fc4e1d60d1480571d503aff9e4f4ad5d216b48a577468db26ead0b4"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/kernel/src/releases.ts",
+      "sha256": "eb755cf7e435adbf33076b448d420d9d43d12451e455f8292ee72edb6a968f5f"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/kernel/src/state-packet.ts",
+      "sha256": "0f608b2c014665b61a671a36e7e449860a3d3c2a66cb79282ad4fba1ac10ba52"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/kernel/tsconfig.json",
+      "sha256": "60ec341167f566872eb13bb129a03488c35fa356e4025360e760c52c5e680290"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/kernel/vitest.config.ts",
+      "sha256": "d9b4960e784c47af6c3f9a48da0270ea343d1bc069b2d309c9f88be062f683f4"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/persistence/README.md",
       "sha256": "1601e8f5cf9f42bf15f9f58a82d5774832c10e2e012c835d9eb5f647133e5df2"
     },
@@ -1396,6 +1441,11 @@
       "layer": "project_source",
       "path": "packages/persistence/migrations/0005_canon_foundation.sql",
       "sha256": "a985d23513ee0fb739786d8383336a71c6788e9acf27bf70b571b0124d805952"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/persistence/migrations/0006_narrative_kernel.sql",
+      "sha256": "cf86dbe28975d7f6b7b2c1afb70c34b940151dba808309073d7f5b75060570a5"
     },
     {
       "layer": "project_source",
@@ -1515,7 +1565,7 @@
     {
       "layer": "project_source",
       "path": "pnpm-lock.yaml",
-      "sha256": "f015b3472cb0cd3c0a8419151350b7c71de7faca20530a6636c9a4e4ce2f8cbe"
+      "sha256": "5c25eff7ff0f96e1b0af137f86b02f38245513b90d75cc8c71e992a914ec4734"
     },
     {
       "layer": "project_source",
@@ -1773,12 +1823,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-28T22:23:50.006989+00:00",
-  "generation_id": "2e608c68da11b3081888cf0f47d85888",
+  "generated_on": "2026-07-28T22:33:31.574908+00:00",
+  "generation_id": "49c79b8ab7c08869fd9304a902766855",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "badcf55cec41b94a9f7e41c7aa5e008e2a2755e56f17b52f80093855f74c8a0f",
+  "source_fingerprint": "7d2ba369d6ae63aa9b1292253541698d55c1fc4e7726c1674d3e580ff5f4db65",
   "source_scope": {
     "exclusions": [
       {
@@ -1799,6 +1849,10 @@
       },
       {
         "path": "packages/portability/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/kernel/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
       }
     ],

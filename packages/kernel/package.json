@@ -1,0 +1,23 @@
+{
+  "name": "@storyworld/kernel",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "@storyworld/domain": "workspace:*",
+    "@storyworld/persistence": "workspace:*",
+    "@storyworld/storage": "workspace:*",
+    "@storyworld/portability": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.11.0"
+  }
+}

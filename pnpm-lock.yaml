@@ -32,6 +32,25 @@ importers:
 
   packages/domain: {}
 
+  packages/kernel:
+    dependencies:
+      '@storyworld/domain':
+        specifier: workspace:*
+        version: link:../domain
+      '@storyworld/persistence':
+        specifier: workspace:*
+        version: link:../persistence
+      '@storyworld/portability':
+        specifier: workspace:*
+        version: link:../portability
+      '@storyworld/storage':
+        specifier: workspace:*
+        version: link:../storage
+    devDependencies:
+      '@types/pg':
+        specifier: ^8.11.0
+        version: 8.20.0
+
   packages/persistence:
     dependencies:
       '@storyworld/domain':
