@@ -755,12 +755,12 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/arc-board.test.tsx",
-      "sha256": "40ca265e5af85d02ce8dbfcf79e743be9b12a5cf1213e57691eb0b1ba2093dec"
+      "sha256": "21fe29f8b7133dd20d37079639defc8481ad68dedd4bfb60fcbc27261c499d3c"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/arc-board.tsx",
-      "sha256": "2b79387e9f1f2b0f87c7d8b7604f8fbe512428df909751142883275c16ee5d38"
+      "sha256": "d42b3da4905ef54fda0a47fbc0a8b1fbf579ac1602caddc58a5374b05b6adc07"
     },
     {
       "layer": "project_source",
@@ -770,7 +770,7 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/command-center.tsx",
-      "sha256": "af73f88013e84eb800b3c08205b145da4277b32bec90225e5c6ae57d0f6714e6"
+      "sha256": "47d42f4722c43d535f03f869d844d0847d232c52c0d2ffd1cb248c27f01bde3d"
     },
     {
       "layer": "project_source",
@@ -790,7 +790,7 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/generation-workbench.tsx",
-      "sha256": "87d77f62d32e991651a9dffee59347055bbeaf3f10614f28a38da8daecfa370c"
+      "sha256": "dd48358ecbf03797d2169343c23f3486a144894e4063844b122b825ee43a0ed7"
     },
     {
       "layer": "project_source",
@@ -805,7 +805,7 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/release-builder.tsx",
-      "sha256": "5fd16983e9e4b69d6d11733e40d4a5834197b85a18b3b28bab7961fe497f88f6"
+      "sha256": "7c7f02215bb3d74f5ea464a99dbe14641e678a8a19998ec2722e638ca791d29c"
     },
     {
       "layer": "project_source",
@@ -841,6 +841,11 @@
       "layer": "project_source",
       "path": "apps/studio/src/components/ui/card.tsx",
       "sha256": "06dfe6d8d370b7dc6952ef1bb1f642746969a37930bcd799bbba389189dcdfcf"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/ui/info-hint.tsx",
+      "sha256": "5a4f157c73760aaf4d356bc515e323c3ad151c4f203d3886c42aa6f6d4f531fe"
     },
     {
       "layer": "project_source",
@@ -2653,12 +2658,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-29T18:03:34.626788+00:00",
-  "generation_id": "958f8d7642b10d04fd9f860f7ae00405",
+  "generated_on": "2026-07-29T18:17:20.196090+00:00",
+  "generation_id": "88ee423e11f3bf6556cdb316f01e0de0",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "bdd68ac3ce35f3ee230561418b1e79e47423fe384372e0353b149efaea810b81",
+  "source_fingerprint": "6b3881059351df21c789bd40e37b8492f9e3a8d34fbb96c03ac04487c8b333d3",
   "source_scope": {
     "exclusions": [
       {

@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { InfoHint } from "@/components/ui/info-hint";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -209,7 +210,13 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
                   <Input id="rb-name" value={releaseName} onChange={(event) => setReleaseName(event.target.value)} placeholder="stillhouse-canon" />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <Label htmlFor="rb-version">Version</Label>
+                  <span className="flex items-center gap-1.5">
+                    <Label htmlFor="rb-version">Version</Label>
+                    <InfoHint
+                      id="hint-release-version"
+                      text="A label for this immutable snapshot of accepted canon (e.g. 1.1.0). Every release is content-hash-bound; productions pin exactly one and never drift."
+                    />
+                  </span>
                   <Input id="rb-version" value={releaseVersion} onChange={(event) => setReleaseVersion(event.target.value)} placeholder="1.1.0" />
                 </div>
                 <Button type="submit" disabled={busy || !releaseName || !releaseVersion}>
@@ -231,7 +238,13 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
                   <Input id="rb-production" value={productionName} onChange={(event) => setProductionName(event.target.value)} placeholder="Season One" />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <Label htmlFor="rb-pin">Pinned release</Label>
+                  <span className="flex items-center gap-1.5">
+                    <Label htmlFor="rb-pin">Pinned release</Label>
+                    <InfoHint
+                      id="hint-pinned-release"
+                      text="The exact canon snapshot this production works against. Later canon changes never reach it silently — repinning is an explicit decision."
+                    />
+                  </span>
                   <Select id="rb-pin" value={pinReleaseId} onChange={(event) => setPinReleaseId(event.target.value)} disabled={releases.length === 0}>
                     {releases.map((release) => (
                       <option key={release.canonReleaseId} value={release.canonReleaseId}>

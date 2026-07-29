@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { InfoHint } from "@/components/ui/info-hint";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -187,7 +188,13 @@ export function GenerationWorkbench({ client }: { client?: EngineClient }): Reac
                 />
               </div>
               <div className="flex flex-col gap-1.5">
-                <Label htmlFor="gw-locked">Locked attributes (comma-separated)</Label>
+                <span className="flex items-center gap-1.5">
+                  <Label htmlFor="gw-locked">Locked attributes (comma-separated)</Label>
+                  <InfoHint
+                    id="hint-locked"
+                    text="Canonical details generation must not change — e.g. character:mara:appearance. They travel with every recipe and are stamped into each candidate's provenance receipt."
+                  />
+                </span>
                 <Input
                   id="gw-locked"
                   value={locked}
@@ -197,7 +204,13 @@ export function GenerationWorkbench({ client }: { client?: EngineClient }): Reac
               </div>
               <div className="flex gap-4">
                 <div className="flex w-28 flex-col gap-1.5">
-                  <Label htmlFor="gw-seed">Seed</Label>
+                  <span className="flex items-center gap-1.5">
+                    <Label htmlFor="gw-seed">Seed</Label>
+                    <InfoHint
+                      id="hint-seed"
+                      text="Fixes the provider's randomness: the same recipe with the same seed reproduces the same image. Change it to explore variations."
+                    />
+                  </span>
                   <Input
                     id="gw-seed"
                     inputMode="numeric"

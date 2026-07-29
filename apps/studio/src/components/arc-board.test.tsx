@@ -34,6 +34,17 @@ describe("Arc Board", () => {
     expect(units[2]?.["presentation_order"]).toBe(3);
   });
 
+  it("explains jargon fields inline (walkthrough finding #4)", async () => {
+    render(<ArcBoard client={mockEngine()} />);
+    await waitFor(() => expect(screen.getAllByText(/1989-06/).length).toBeGreaterThan(0));
+    const hints = screen.getAllByRole("button", { name: "What is this?" });
+    expect(hints.length).toBeGreaterThanOrEqual(2);
+    const storyTimeHint = document.getElementById("hint-story-time");
+    expect(storyTimeHint?.textContent).toMatch(/story's own chronology/);
+    const described = hints.find((h) => h.getAttribute("aria-describedby") === "hint-story-time");
+    expect(described).toBeDefined();
+  });
+
   it("has no accessibility violations", async () => {
     const { container } = render(<ArcBoard client={mockEngine()} />);
     await waitFor(() => expect(screen.getAllByText(/1989-06/)).toHaveLength(2));

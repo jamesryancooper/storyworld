@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { InfoHint } from "@/components/ui/info-hint";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -126,7 +127,13 @@ export function CommandCenter({ client }: { client?: EngineClient }): React.JSX.
                 />
               </div>
               <div className="flex flex-col gap-1.5">
-                <Label htmlFor="property-type">Property type</Label>
+                <span className="flex items-center gap-1.5">
+                  <Label htmlFor="property-type">Property type</Label>
+                  <InfoHint
+                    id="hint-property-type"
+                    text="What kind of world this is: fictional (story canon), editorial, brand, interactive, or a hybrid. It shapes which rules and surfaces matter most."
+                  />
+                </span>
                 <Select
                   id="property-type"
                   value={propertyType}

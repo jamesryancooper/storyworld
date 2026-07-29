@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { InfoHint } from "@/components/ui/info-hint";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -113,7 +114,7 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead>#</TableHead>
+                      <TableHead>Order</TableHead>
                       <TableHead>Type</TableHead>
                       <TableHead>Story time</TableHead>
                     </TableRow>
@@ -147,7 +148,13 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
             <CardContent>
               <form onSubmit={onAddUnit} className="flex flex-col gap-4">
                 <div className="flex flex-col gap-1.5">
-                  <Label htmlFor="unit-type">Unit type</Label>
+                  <span className="flex items-center gap-1.5">
+                    <Label htmlFor="unit-type">Unit type</Label>
+                    <InfoHint
+                      id="hint-unit-type"
+                      text="The granularity of this narrative unit: a full episode, a single scene, a chapter, a social post, or a comic panel."
+                    />
+                  </span>
                   <Select
                     id="unit-type"
                     value={unitType}
@@ -161,7 +168,13 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
                   </Select>
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <Label htmlFor="unit-story-time">Story time</Label>
+                  <span className="flex items-center gap-1.5">
+                    <Label htmlFor="unit-story-time">Story time</Label>
+                    <InfoHint
+                      id="hint-story-time"
+                      text="When this unit happens inside the story's own chronology (e.g. 2031-04-05) — independent of the order you present units in. The world's state at a scene is derived from story time, so flashbacks and nonlinear cuts stay consistent."
+                    />
+                  </span>
                   <Input
                     id="unit-story-time"
                     value={storyTime}

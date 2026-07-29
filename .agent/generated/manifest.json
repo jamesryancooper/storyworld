@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-29T18:03:34.626788+00:00",
-  "generation_id": "958f8d7642b10d04fd9f860f7ae00405",
+  "generated_at": "2026-07-29T18:17:20.196090+00:00",
+  "generation_id": "88ee423e11f3bf6556cdb316f01e0de0",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -177,6 +177,7 @@
     "apps/studio/src/components/ui/badge.tsx",
     "apps/studio/src/components/ui/button.tsx",
     "apps/studio/src/components/ui/card.tsx",
+    "apps/studio/src/components/ui/info-hint.tsx",
     "apps/studio/src/components/ui/input.tsx",
     "apps/studio/src/components/ui/label.tsx",
     "apps/studio/src/components/ui/select.tsx",
@@ -541,7 +542,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "bdd68ac3ce35f3ee230561418b1e79e47423fe384372e0353b149efaea810b81",
+  "source_fingerprint": "6b3881059351df21c789bd40e37b8492f9e3a8d34fbb96c03ac04487c8b333d3",
   "source_scope": {
     "exclusions": [
       {
