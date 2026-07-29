@@ -580,7 +580,7 @@
     {
       "layer": "project_source",
       "path": "apps/engine-api/package.json",
-      "sha256": "95600eaed47684a74728922656b316e355484ab64ac30f406176980df7264dbe"
+      "sha256": "874dfff5b550cfbf5e994af6e34c2a4562507957966797ada6edac32cfd14e3e"
     },
     {
       "layer": "project_source",
@@ -595,7 +595,7 @@
     {
       "layer": "project_source",
       "path": "apps/engine-api/src/server.ts",
-      "sha256": "bdbd50a2e5b1956af3d10d9cfc34a7bf24fc8b9f7608f76a17642da152d20492"
+      "sha256": "b6978331af984a45be6bfeb91686c07f41d93b650d5e69819180e283584e13de"
     },
     {
       "layer": "project_source",
@@ -644,6 +644,11 @@
     },
     {
       "layer": "project_source",
+      "path": "apps/studio/src/app/continuity/page.tsx",
+      "sha256": "fc0f36c9308f9434121ffde18513f382e58ad2e62a6d95a5ad140ffb912ea5f3"
+    },
+    {
+      "layer": "project_source",
       "path": "apps/studio/src/app/generation/page.tsx",
       "sha256": "1cd54cbe78966c8ad62641b6298ddde24c4d93d80a9b06e98edd20ff664419f0"
     },
@@ -655,12 +660,22 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/app/layout.tsx",
-      "sha256": "4bb8b82605b02f43b66b02de3b522b4996ef0d0287d245a77bfd6e7434ca5b4e"
+      "sha256": "af9c1838faf94a6ecc506bdf7325efcbce2be48d303b0d12a2f15851760fa3b4"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/app/page.tsx",
       "sha256": "38de0f914fac196c6c4f8ce6f430fbbdcb0812751182f0580792c9d766a5e308"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/app/release-builder/page.tsx",
+      "sha256": "81268e63342107449c331e7d980715708694912cee15ec1de2b67f125dd5d730"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/app/review/page.tsx",
+      "sha256": "bbd12514521b8ba0dcc9e93d55e2643bf220d6a1a7c15893e2606e4c81f11455"
     },
     {
       "layer": "project_source",
@@ -689,6 +704,16 @@
     },
     {
       "layer": "project_source",
+      "path": "apps/studio/src/components/continuity-console.test.tsx",
+      "sha256": "27a510bfac62044ee4556c39d84909b2053b3984919c4dcd90c0e2e4ffc7f3e2"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/continuity-console.tsx",
+      "sha256": "789fc58b0be8632e5f949f1302958e7072dc8eae620dcfffddef1704020d4953"
+    },
+    {
+      "layer": "project_source",
       "path": "apps/studio/src/components/generation-workbench.test.tsx",
       "sha256": "0f506e50ac54efba5d2cc09b33591f11d9b6f2bf1b79ebcd4e3bcf9a1ccadb6d"
     },
@@ -701,6 +726,26 @@
       "layer": "project_source",
       "path": "apps/studio/src/components/production-picker.tsx",
       "sha256": "1d7f080a79655d60d7ad201bcf4f11b7857cd633aaf2581f5923099071fe87d4"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/release-builder.test.tsx",
+      "sha256": "2b065e77e44077367e72fad41942227c978bd63c2f15d0fe9b7a4eb3f92264ef"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/release-builder.tsx",
+      "sha256": "0510a4497c79d956272683a2ebd4942382fcc64cbd44572fc692fbc1dc7ed8df"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/review-room.test.tsx",
+      "sha256": "aacfd6e230e4a4ad06e43b1b1ab02f57787bef2c5f8afe619ffbeccddcc716b9"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/review-room.tsx",
+      "sha256": "ca7f41ba54b5e160b91ec140af799c36edbb7f51341ff63f57cd548f68a6395e"
     },
     {
       "layer": "project_source",
@@ -750,12 +795,12 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/lib/engine.integration.test.ts",
-      "sha256": "4b52518c7ef643ef09dc769d6626df5cb2378ffb35af1b3cfa14ef0dbe5918e0"
+      "sha256": "2746b42c50c96ff137067a4cff2b17425f6d41a06b85c2ca8373533dbe372671"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/lib/engine.ts",
-      "sha256": "0a0ca465ef2f64d92666a6243bed9b5c4db9113d09a6e01188ed412e13d0a573"
+      "sha256": "3103b1656d765bbf5586d88760be03cf84f37b968f793b4becd81b1cfb55ee27"
     },
     {
       "layer": "project_source",
@@ -770,7 +815,7 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/test/mock-engine.ts",
-      "sha256": "868e655258367dda9fc8a1a20eccc34df0604e8dd8b901c23b74541aef4ac56d"
+      "sha256": "5c9c223670dd77e1b27af8b63572d858ff9a74e7cdacf4e1bba320919ec7d0d3"
     },
     {
       "layer": "project_source",
@@ -1760,7 +1805,7 @@
     {
       "layer": "project_source",
       "path": "packages/kernel/src/queries.ts",
-      "sha256": "6b206e4a8debdf9d731245daeb0676b2b4ef3e87871b629afba7d22a899b738e"
+      "sha256": "d60a319a6a9e47f3ec94be3f0da211101af77027c169c570d3850d131e64aca3"
     },
     {
       "layer": "project_source",
@@ -2025,7 +2070,7 @@
     {
       "layer": "project_source",
       "path": "pnpm-lock.yaml",
-      "sha256": "31e109c4734b2665c56241747a8156001fcaba411d47984f7447366135295fbb"
+      "sha256": "8ccfede5dae373c81c7ee80e0289c8d0955b234e415d6e75b78b20a8a1df005e"
     },
     {
       "layer": "project_source",
@@ -2283,12 +2328,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-29T03:17:39.230807+00:00",
-  "generation_id": "e227ce781df1e60b47611f59f20e4115",
+  "generated_on": "2026-07-29T03:29:32.453757+00:00",
+  "generation_id": "1c4af8d92c4ab36595a806f8482b4a5f",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "ef8c8d08e4f141c914b28f99815e85a3400f076fc906a15d7092f4cb2c4eee77",
+  "source_fingerprint": "c34f61b36ff11a30e88066d17fcd0f540c40119e147a817f6fc961922aec0c3e",
   "source_scope": {
     "exclusions": [
       {

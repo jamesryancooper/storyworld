@@ -10,6 +10,9 @@ import {
   getNarrativeStructure,
   ingestSource,
   latestCanonRelease,
+  listCanonProposals,
+  listCanonReleases,
+  listContinuityFindings,
   listGenerationCandidates,
   listProductions,
   listProperties,
@@ -26,6 +29,7 @@ import {
   createMockAdapter,
   runGeneration,
 } from "@storyworld/providers";
+import { disposeFinding, runEvaluation } from "@storyworld/evaluation";
 import { correlationId, logLine } from "./telemetry.js";
 
 /**
@@ -162,6 +166,27 @@ async function route(
       });
       return { status: 201, body: { ...run, recipeSha256: recipe.sha256 } };
     }
+    case "/v1/evaluations": {
+      const findings = await runEvaluation(ctx, actor, {
+        productionId: String(body["productionId"]),
+        unitId: String(body["unitId"]),
+        ...(typeof body["assetVersionId"] === "string" ? { assetVersionId: body["assetVersionId"] } : {}),
+      });
+      return {
+        status: 201,
+        body: {
+          findings: findings.map((f) => ({ findingId: f.findingId, document: f.document, sha256: f.sha256 })),
+        },
+      };
+    }
+    case "/v1/finding-dispositions": {
+      const out = await disposeFinding(ctx, actor, {
+        findingId: String(body["findingId"]),
+        disposition: String(body["disposition"]) as never,
+        ...(body["waiver"] ? { waiver: body["waiver"] as never } : {}),
+      });
+      return { status: 201, body: { ...out } };
+    }
     default:
       throw Object.assign(new Error(`no route ${path}`), { statusCode: 404 });
   }
@@ -192,6 +217,21 @@ async function readRoute(
   }
   if (path === "/v1/generation-candidates") {
     return { body: { candidates: await listGenerationCandidates(ctx) } };
+  }
+  if (path === "/v1/canon-proposals") {
+    const propertyId = url.searchParams.get("propertyId");
+    if (!propertyId) throw Object.assign(new Error("propertyId query parameter required"), { statusCode: 400 });
+    return { body: { proposals: await listCanonProposals(ctx, { propertyId }) } };
+  }
+  if (path === "/v1/canon-releases") {
+    const propertyId = url.searchParams.get("propertyId");
+    if (!propertyId) throw Object.assign(new Error("propertyId query parameter required"), { statusCode: 400 });
+    return { body: { releases: await listCanonReleases(ctx, { propertyId }) } };
+  }
+  if (path === "/v1/continuity-findings") {
+    const productionId = url.searchParams.get("productionId");
+    if (!productionId) throw Object.assign(new Error("productionId query parameter required"), { statusCode: 400 });
+    return { body: { findings: await listContinuityFindings(ctx, { productionId }) } };
   }
   return null;
 }

@@ -57,6 +57,9 @@ importers:
       '@storyworld/domain':
         specifier: workspace:*
         version: link:../../packages/domain
+      '@storyworld/evaluation':
+        specifier: workspace:*
+        version: link:../../packages/evaluation
       '@storyworld/kernel':
         specifier: workspace:*
         version: link:../../packages/kernel

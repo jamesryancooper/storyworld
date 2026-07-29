@@ -102,6 +102,71 @@ export interface EngineClient {
     endpoint?: string;
   }): Promise<{ generationRunId: string; candidateAssetVersionIds: string[] }>;
   listGenerationCandidates(): Promise<GenerationCandidateView[]>;
+  listCanonProposals(propertyId: string): Promise<ProposalView[]>;
+  decideProposal(input: {
+    proposalId: string;
+    decision: "accepted" | "rejected" | "revision_requested";
+    stableId?: string;
+  }): Promise<{ decisionId: string }>;
+  listCanonReleases(propertyId: string): Promise<ReleaseSummary[]>;
+  snapshotCanonRelease(input: {
+    propertyId: string;
+    branchId: string;
+    releaseName: string;
+    releaseVersion: string;
+    supersedesReleaseId?: string;
+  }): Promise<{ canonReleaseId: string }>;
+  createProduction(input: {
+    propertyId: string;
+    pinnedCanonReleaseId: string;
+    name: string;
+  }): Promise<{ productionId: string }>;
+  runEvaluation(input: {
+    productionId: string;
+    unitId: string;
+    assetVersionId?: string;
+  }): Promise<{ findings: { findingId: string; document: Record<string, unknown> }[] }>;
+  listContinuityFindings(productionId: string): Promise<FindingView[]>;
+  disposeFinding(input: {
+    findingId: string;
+    disposition: "resolved" | "waived" | "intentional_exception" | "canon_change_proposed";
+    waiver?: { reason: string; scope: string; expiry: string | null };
+  }): Promise<{ findingRevisionId: string }>;
+}
+
+export interface ProposalView {
+  proposalId: string;
+  branchId: string;
+  proposalType: string;
+  payload: Record<string, unknown>;
+  proposedBy: string;
+  proposerKind: string;
+  createdAt: string;
+  decision: string | null;
+}
+
+export interface ReleaseSummary {
+  canonReleaseId: string;
+  releaseName: string;
+  releaseVersion: string;
+  contentSha256: string;
+  createdAt: string;
+  supersedesReleaseId: string | null;
+}
+
+export interface FindingView {
+  findingId: string;
+  findingRevisionId: string;
+  checkLayer: string;
+  severity: string;
+  disposition: string;
+  document: {
+    description?: string;
+    suggested_remediation?: string | null;
+    confidence?: number;
+    [key: string]: unknown;
+  };
+  createdAt: string;
 }
 
 export const DEV_ACTOR: StudioActor = {
@@ -199,6 +264,42 @@ export function createEngineClient(
     async listGenerationCandidates() {
       const out = await get<{ candidates: GenerationCandidateView[] }>("/v1/generation-candidates");
       return out.candidates;
+    },
+    async listCanonProposals(propertyId) {
+      const out = await get<{ proposals: ProposalView[] }>(
+        `/v1/canon-proposals?propertyId=${encodeURIComponent(propertyId)}`,
+      );
+      return out.proposals;
+    },
+    async decideProposal(input) {
+      return post<{ decisionId: string }>("/v1/review-decisions", input);
+    },
+    async listCanonReleases(propertyId) {
+      const out = await get<{ releases: ReleaseSummary[] }>(
+        `/v1/canon-releases?propertyId=${encodeURIComponent(propertyId)}`,
+      );
+      return out.releases;
+    },
+    async snapshotCanonRelease(input) {
+      return post<{ canonReleaseId: string }>("/v1/canon-releases", input);
+    },
+    async createProduction(input) {
+      return post<{ productionId: string }>("/v1/productions", input);
+    },
+    async runEvaluation(input) {
+      return post<{ findings: { findingId: string; document: Record<string, unknown> }[] }>(
+        "/v1/evaluations",
+        input,
+      );
+    },
+    async listContinuityFindings(productionId) {
+      const out = await get<{ findings: FindingView[] }>(
+        `/v1/continuity-findings?productionId=${encodeURIComponent(productionId)}`,
+      );
+      return out.findings;
+    },
+    async disposeFinding(input) {
+      return post<{ findingRevisionId: string }>("/v1/finding-dispositions", input);
     },
   };
 }

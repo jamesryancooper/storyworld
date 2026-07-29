@@ -110,3 +110,90 @@ export async function listGenerationCandidates(
     return rows.rows.map((r) => ({ ...r, createdAt: new Date(r.createdAt as string).toISOString() }));
   });
 }
+
+/** Canon proposals with their decision state; undecided ones are the review queue. */
+export async function listCanonProposals(
+  ctx: KernelContext,
+  input: { propertyId: string },
+): Promise<{
+  proposalId: string;
+  branchId: string;
+  proposalType: string;
+  payload: Record<string, unknown>;
+  proposedBy: string;
+  proposerKind: string;
+  createdAt: string;
+  decision: string | null;
+}[]> {
+  return withTenant(ctx.pool, ctx.organizationId, async (c) => {
+    const rows = await c.query(
+      `SELECT p.proposal_id AS "proposalId", p.branch_id AS "branchId",
+              p.proposal_type AS "proposalType", p.payload, p.proposed_by AS "proposedBy",
+              p.proposer_kind AS "proposerKind", p.created_at AS "createdAt", d.decision
+         FROM storyworld.canon_proposals p
+         LEFT JOIN storyworld.proposal_decisions d ON d.proposal_id = p.proposal_id
+        WHERE p.property_id = $1
+        ORDER BY p.created_at DESC
+        LIMIT 100`,
+      [input.propertyId],
+    );
+    return rows.rows.map((r) => ({ ...r, createdAt: new Date(r.createdAt as string).toISOString() }));
+  });
+}
+
+/** All canon releases of a property, newest first, without full documents. */
+export async function listCanonReleases(
+  ctx: KernelContext,
+  input: { propertyId: string },
+): Promise<{
+  canonReleaseId: string;
+  releaseName: string;
+  releaseVersion: string;
+  contentSha256: string;
+  createdAt: string;
+  supersedesReleaseId: string | null;
+}[]> {
+  return withTenant(ctx.pool, ctx.organizationId, async (c) => {
+    const rows = await c.query(
+      `SELECT r.canon_release_id AS "canonReleaseId", r.release_name AS "releaseName",
+              r.release_version AS "releaseVersion", r.content_sha256 AS "contentSha256",
+              r.created_at AS "createdAt", r.supersedes_release_id AS "supersedesReleaseId"
+         FROM storyworld.canon_releases r
+        WHERE r.property_id = $1
+        ORDER BY r.created_at DESC`,
+      [input.propertyId],
+    );
+    return rows.rows.map((r) => ({ ...r, createdAt: new Date(r.createdAt as string).toISOString() }));
+  });
+}
+
+/** Current (unsuperseded) continuity-finding revisions for a production. */
+export async function listContinuityFindings(
+  ctx: KernelContext,
+  input: { productionId: string },
+): Promise<{
+  findingId: string;
+  findingRevisionId: string;
+  checkLayer: string;
+  severity: string;
+  disposition: string;
+  document: Record<string, unknown>;
+  createdAt: string;
+}[]> {
+  return withTenant(ctx.pool, ctx.organizationId, async (c) => {
+    const rows = await c.query(
+      `SELECT f.finding_id AS "findingId", f.finding_revision_id AS "findingRevisionId",
+              f.check_layer AS "checkLayer", f.severity, f.disposition, f.document,
+              f.created_at AS "createdAt"
+         FROM storyworld.continuity_findings f
+        WHERE f.production_id = $1
+          AND NOT EXISTS (SELECT 1 FROM storyworld.continuity_findings s
+                           WHERE s.supersedes_revision_id = f.finding_revision_id)
+        ORDER BY CASE f.severity WHEN 'blocker' THEN 0 WHEN 'major' THEN 1 WHEN 'minor' THEN 2 ELSE 3 END,
+                 f.created_at DESC
+        LIMIT 200`,
+      [input.productionId],
+    );
+    return rows.rows.map((r) => ({ ...r, createdAt: new Date(r.createdAt as string).toISOString() }));
+  });
+}

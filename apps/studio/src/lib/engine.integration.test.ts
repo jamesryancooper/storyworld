@@ -131,6 +131,43 @@ describe("Studio engine client against a live engine-api", () => {
     expect(staged?.provenance.provider).toBe("mock");
     expect(typeof staged?.provenance.latency_ms).toBe("number");
 
+    // Review Room path: a model proposal decided by a human through the client.
+    const secondEntity = uuidv7();
+    await post("/v1/canon-proposals", {
+      propertyId, branchId: officialBranchId, proposalType: "entity",
+      payload: { entity_id: secondEntity, entity_type: "location", name: "The Archive", visibility: "team_private" },
+    });
+    const queue = await client.listCanonProposals(propertyId);
+    const pending = queue.find((q) => q.decision === null);
+    expect(pending).toBeDefined();
+    await client.decideProposal({
+      proposalId: pending!.proposalId, decision: "accepted", stableId: secondEntity,
+    });
+    expect((await client.listCanonProposals(propertyId)).every((q) => q.decision !== null)).toBe(true);
+
+    // Release Builder path: snapshot + pin through the client.
+    const releases = await client.listCanonReleases(propertyId);
+    expect(releases.length).toBeGreaterThanOrEqual(1);
+    const snap = await client.snapshotCanonRelease({
+      propertyId, branchId: officialBranchId,
+      releaseName: "b2t3-canon", releaseVersion: `1.1.${Date.now()}`,
+      supersedesReleaseId: releases[0]!.canonReleaseId,
+    });
+    const { productionId: pinnedProduction } = await client.createProduction({
+      propertyId, pinnedCanonReleaseId: snap.canonReleaseId, name: "b2t3-production",
+    });
+    expect((await client.listProductions(propertyId)).some((x) => x.productionId === pinnedProduction)).toBe(true);
+
+    // Continuity Console path: evaluate, list, dispose — receipted end to end.
+    const evaluation = await client.runEvaluation({ productionId, unitId });
+    expect(evaluation.findings.length).toBeGreaterThanOrEqual(1);
+    const findings = await client.listContinuityFindings(productionId);
+    const openFinding = findings.find((f) => f.disposition === "open");
+    expect(openFinding).toBeDefined();
+    await client.disposeFinding({ findingId: openFinding!.findingId, disposition: "resolved" });
+    const after = await client.listContinuityFindings(productionId);
+    expect(after.find((f) => f.findingId === openFinding!.findingId)?.disposition).toBe("resolved");
+
     // Reserved crossing surfaces as a 403 problem, never a silent failure.
     delete process.env["FAL_KEY"];
     await expect(

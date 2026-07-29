@@ -1,10 +1,12 @@
 import type {
   CanonReleaseView,
   EngineClient,
+  FindingView,
   GenerationCandidateView,
   NarrativeStructureView,
   ProductionSummary,
   PropertySummary,
+  ProposalView,
   ScenePacketView,
 } from "@/lib/engine";
 
@@ -12,6 +14,11 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
   created: { workspaceName: string; propertyName: string; propertyType: string }[];
   saved: { productionId: string; document: Record<string, unknown>; supersedesRevisionId?: string }[];
   runs: Record<string, unknown>[];
+  decisions: Record<string, unknown>[];
+  snapshots: Record<string, unknown>[];
+  productions: Record<string, unknown>[];
+  evaluations: Record<string, unknown>[];
+  dispositions: Record<string, unknown>[];
 } {
   const properties: PropertySummary[] = [
     {
@@ -40,10 +47,20 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
   const created: { workspaceName: string; propertyName: string; propertyType: string }[] = [];
   const saved: { productionId: string; document: Record<string, unknown>; supersedesRevisionId?: string }[] = [];
   const runs: Record<string, unknown>[] = [];
+  const decisions: Record<string, unknown>[] = [];
+  const snapshots: Record<string, unknown>[] = [];
+  const productions: Record<string, unknown>[] = [];
+  const evaluations: Record<string, unknown>[] = [];
+  const dispositions: Record<string, unknown>[] = [];
   return {
     created,
     saved,
     runs,
+    decisions,
+    snapshots,
+    productions,
+    evaluations,
+    dispositions,
     async health() {
       return true;
     },
@@ -117,6 +134,84 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
           },
         },
       ];
+    },
+    async listCanonProposals(): Promise<ProposalView[]> {
+      return [
+        {
+          proposalId: "cp-1",
+          branchId: "b-1",
+          proposalType: "entity",
+          payload: { entity_id: "e-9", entity_type: "character", name: "The Archivist" },
+          proposedBy: "extraction-model",
+          proposerKind: "model",
+          createdAt: "2026-07-28T00:00:00.000Z",
+          decision: null,
+        },
+        {
+          proposalId: "cp-0",
+          branchId: "b-1",
+          proposalType: "entity",
+          payload: { entity_id: "e-1", entity_type: "character", name: "Mara" },
+          proposedBy: "ryan-cooper",
+          proposerKind: "human",
+          createdAt: "2026-07-27T00:00:00.000Z",
+          decision: "accepted",
+        },
+      ];
+    },
+    async decideProposal(input) {
+      decisions.push(input);
+      return { decisionId: `d-${decisions.length}` };
+    },
+    async listCanonReleases() {
+      return [
+        {
+          canonReleaseId: "r-1",
+          releaseName: "stillhouse-canon",
+          releaseVersion: "1.0.0",
+          contentSha256: "a".repeat(64),
+          createdAt: "2026-07-28T00:00:00.000Z",
+          supersedesReleaseId: null,
+        },
+      ];
+    },
+    async snapshotCanonRelease(input) {
+      snapshots.push(input);
+      return { canonReleaseId: `r-${snapshots.length + 1}` };
+    },
+    async createProduction(input) {
+      productions.push(input);
+      return { productionId: `prod-${productions.length + 1}` };
+    },
+    async runEvaluation(input) {
+      evaluations.push(input);
+      return { findings: [{ findingId: "f-new", document: { severity: "advisory" } }] };
+    },
+    async listContinuityFindings(): Promise<FindingView[]> {
+      return [
+        {
+          findingId: "f-1",
+          findingRevisionId: "fr-1",
+          checkLayer: "temporal_state",
+          severity: "blocker",
+          disposition: "open",
+          document: { description: "Contradictory state: entity:e-1.left_hand at 1989-06-03." },
+          createdAt: "2026-07-28T00:00:00.000Z",
+        },
+        {
+          findingId: "f-2",
+          findingRevisionId: "fr-2",
+          checkLayer: "narrative",
+          severity: "advisory",
+          disposition: "resolved",
+          document: { description: "Scene enters with no established state." },
+          createdAt: "2026-07-28T00:00:00.000Z",
+        },
+      ];
+    },
+    async disposeFinding(input) {
+      dispositions.push(input);
+      return { findingRevisionId: `fr-${dispositions.length + 10}` };
     },
     ...overrides,
   };

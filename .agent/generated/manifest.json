@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-29T03:17:39.230807+00:00",
-  "generation_id": "e227ce781df1e60b47611f59f20e4115",
+  "generated_at": "2026-07-29T03:29:32.453757+00:00",
+  "generation_id": "1c4af8d92c4ab36595a806f8482b4a5f",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -137,18 +137,27 @@
     "apps/studio/package.json",
     "apps/studio/postcss.config.mjs",
     "apps/studio/src/app/arc-board/page.tsx",
+    "apps/studio/src/app/continuity/page.tsx",
     "apps/studio/src/app/generation/page.tsx",
     "apps/studio/src/app/globals.css",
     "apps/studio/src/app/layout.tsx",
     "apps/studio/src/app/page.tsx",
+    "apps/studio/src/app/release-builder/page.tsx",
+    "apps/studio/src/app/review/page.tsx",
     "apps/studio/src/app/world-bible/page.tsx",
     "apps/studio/src/components/arc-board.test.tsx",
     "apps/studio/src/components/arc-board.tsx",
     "apps/studio/src/components/command-center.test.tsx",
     "apps/studio/src/components/command-center.tsx",
+    "apps/studio/src/components/continuity-console.test.tsx",
+    "apps/studio/src/components/continuity-console.tsx",
     "apps/studio/src/components/generation-workbench.test.tsx",
     "apps/studio/src/components/generation-workbench.tsx",
     "apps/studio/src/components/production-picker.tsx",
+    "apps/studio/src/components/release-builder.test.tsx",
+    "apps/studio/src/components/release-builder.tsx",
+    "apps/studio/src/components/review-room.test.tsx",
+    "apps/studio/src/components/review-room.tsx",
     "apps/studio/src/components/ui/badge.tsx",
     "apps/studio/src/components/ui/button.tsx",
     "apps/studio/src/components/ui/card.tsx",
@@ -467,7 +476,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "ef8c8d08e4f141c914b28f99815e85a3400f076fc906a15d7092f4cb2c4eee77",
+  "source_fingerprint": "c34f61b36ff11a30e88066d17fcd0f540c40119e147a817f6fc961922aec0c3e",
   "source_scope": {
     "exclusions": [
       {
