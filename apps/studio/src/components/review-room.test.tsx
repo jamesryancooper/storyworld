@@ -31,6 +31,45 @@ describe("Review Room", () => {
     });
   });
 
+  it("files a human proposal through the same governed doorway (finding #5)", async () => {
+    const engine = mockEngine();
+    const user = userEvent.setup();
+    render(<ReviewRoom client={engine} />);
+    await waitFor(() => expect(screen.getByText(/The Archivist/)).toBeDefined());
+    await user.selectOptions(screen.getByLabelText("Entity type"), "location");
+    await user.type(screen.getByLabelText("Name"), "The Stillhouse Cellar");
+    await user.click(screen.getByRole("button", { name: "File proposal" }));
+    await waitFor(() => expect(engine.filed).toHaveLength(1));
+    expect(engine.filed[0]).toMatchObject({
+      propertyId: "p-1",
+      branchId: "b-1",
+      proposalType: "entity",
+    });
+    const payload = engine.filed[0]!["payload"] as Record<string, unknown>;
+    expect(payload["name"]).toBe("The Stillhouse Cellar");
+    expect(payload["entity_type"]).toBe("location");
+    expect(typeof payload["entity_id"]).toBe("string");
+    // The filed proposal appears in the pending queue immediately.
+    await waitFor(() => expect(screen.getByText(/location: The Stillhouse Cellar/)).toBeDefined());
+    expect(screen.getByText("2 awaiting decision")).toBeDefined();
+  });
+
+  it("switches to timeline-event fields and files with story time", async () => {
+    const engine = mockEngine();
+    const user = userEvent.setup();
+    render(<ReviewRoom client={engine} />);
+    await waitFor(() => expect(screen.getByText(/The Archivist/)).toBeDefined());
+    await user.selectOptions(screen.getByLabelText("Proposal type"), "timeline_event");
+    await user.type(screen.getByLabelText("Story time"), "1989-06-03");
+    await user.type(screen.getByLabelText("Summary"), "The cellar door is found unlocked");
+    await user.click(screen.getByRole("button", { name: "File proposal" }));
+    await waitFor(() => expect(engine.filed).toHaveLength(1));
+    const payload = engine.filed[0]!["payload"] as Record<string, unknown>;
+    expect(engine.filed[0]!["proposalType"]).toBe("timeline_event");
+    expect(payload["story_time"]).toBe("1989-06-03");
+    expect(payload["summary"]).toBe("The cellar door is found unlocked");
+  });
+
   it("has no accessibility violations", async () => {
     const { container } = render(<ReviewRoom client={mockEngine()} />);
     await waitFor(() => expect(screen.getByText(/The Archivist/)).toBeDefined());

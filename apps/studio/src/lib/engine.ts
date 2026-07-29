@@ -103,6 +103,12 @@ export interface EngineClient {
   }): Promise<{ generationRunId: string; candidateAssetVersionIds: string[] }>;
   listGenerationCandidates(): Promise<GenerationCandidateView[]>;
   listCanonProposals(propertyId: string): Promise<ProposalView[]>;
+  proposeCanon(input: {
+    propertyId: string;
+    branchId: string;
+    proposalType: "entity" | "timeline_event";
+    payload: Record<string, unknown>;
+  }): Promise<{ proposalId: string }>;
   decideProposal(input: {
     proposalId: string;
     decision: "accepted" | "rejected" | "revision_requested";
@@ -285,6 +291,9 @@ export function createEngineClient(
     async listGenerationCandidates() {
       const out = await get<{ candidates: GenerationCandidateView[] }>("/v1/generation-candidates");
       return out.candidates;
+    },
+    async proposeCanon(input) {
+      return post<{ proposalId: string }>("/v1/canon-proposals", input);
     },
     async listCanonProposals(propertyId) {
       const out = await get<{ proposals: ProposalView[] }>(

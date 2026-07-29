@@ -133,7 +133,8 @@ describe("Studio engine client against a live engine-api", () => {
 
     // Review Room path: a model proposal decided by a human through the client.
     const secondEntity = uuidv7();
-    await post("/v1/canon-proposals", {
+    // Human authoring path (finding #5): the client files through the same door.
+    await client.proposeCanon({
       propertyId, branchId: officialBranchId, proposalType: "entity",
       payload: { entity_id: secondEntity, entity_type: "location", name: "The Archive", visibility: "team_private" },
     });

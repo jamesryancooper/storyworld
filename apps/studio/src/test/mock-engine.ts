@@ -23,6 +23,7 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
   dispositions: Record<string, unknown>[];
   storedKeys: Record<string, unknown>[];
   revokedKeys: Record<string, unknown>[];
+  filed: Record<string, unknown>[];
 } {
   const properties: PropertySummary[] = [
     {
@@ -58,9 +59,11 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
   const dispositions: Record<string, unknown>[] = [];
   const storedKeys: Record<string, unknown>[] = [];
   const revokedKeys: Record<string, unknown>[] = [];
+  const filed: Record<string, unknown>[] = [];
   return {
     storedKeys,
     revokedKeys,
+    filed,
     created,
     saved,
     runs,
@@ -149,8 +152,22 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
         },
       ];
     },
+    async proposeCanon(input) {
+      filed.push(input);
+      return { proposalId: `cp-filed-${filed.length}` };
+    },
     async listCanonProposals(): Promise<ProposalView[]> {
       return [
+        ...filed.map((input, index) => ({
+          proposalId: `cp-filed-${index + 1}`,
+          branchId: String(input["branchId"]),
+          proposalType: String(input["proposalType"]),
+          payload: input["payload"] as Record<string, unknown>,
+          proposedBy: "ryan-cooper",
+          proposerKind: "human",
+          createdAt: "2026-07-29T12:00:00.000Z",
+          decision: null,
+        })),
         {
           proposalId: "cp-1",
           branchId: "b-1",

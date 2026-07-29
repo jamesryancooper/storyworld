@@ -810,12 +810,12 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/review-room.test.tsx",
-      "sha256": "aacfd6e230e4a4ad06e43b1b1ab02f57787bef2c5f8afe619ffbeccddcc716b9"
+      "sha256": "c6605c8d254602f0bdb2c93624641a2ebb4d292acb57306554fa9ec42b3324ce"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/review-room.tsx",
-      "sha256": "ca7f41ba54b5e160b91ec140af799c36edbb7f51341ff63f57cd548f68a6395e"
+      "sha256": "d770ae07706e815373e0033806cf0d5960fbd5c6644dfdb0d90d7b94f415dcd1"
     },
     {
       "layer": "project_source",
@@ -880,12 +880,12 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/lib/engine.integration.test.ts",
-      "sha256": "6ad9af78b5e906f27a62449d8cac23d6ea28e416380a6ba39a9c96b88eabf512"
+      "sha256": "0c3e1d7dda65e2b5bded7ed2349ff59322378db41ac567d18cf8af4704ce6484"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/lib/engine.ts",
-      "sha256": "614db6cb073daaf8015671317c26d0c8c804cba6dc6e617c6decfddbc87f4ba5"
+      "sha256": "53a96e2e4b93b019a56bbdaf819b55f14326998a494472937dfc328236ef75f0"
     },
     {
       "layer": "project_source",
@@ -900,7 +900,7 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/test/mock-engine.ts",
-      "sha256": "9cbbd478c167a1eb5a31f853bc298585850dcdc7416055add07db0688cf659ab"
+      "sha256": "9ac761776d268f545927cc42c3bfa47cac99140b6f471ab1022a3b9c7d7bab4b"
     },
     {
       "layer": "project_source",
@@ -2658,12 +2658,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-29T18:17:20.196090+00:00",
-  "generation_id": "88ee423e11f3bf6556cdb316f01e0de0",
+  "generated_on": "2026-07-29T18:54:34.282554+00:00",
+  "generation_id": "d3ec0120c08daa23443aecd4e954d736",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "6b3881059351df21c789bd40e37b8492f9e3a8d34fbb96c03ac04487c8b333d3",
+  "source_fingerprint": "efaafd057269789c164d559c34bdcc08146fd43dd096699a6993361d9143512e",
   "source_scope": {
     "exclusions": [
       {
