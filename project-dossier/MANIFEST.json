@@ -135,7 +135,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "518fb97b916fe70ed1795603695b481f958599daa8974f642d3295dc57372d5b"
+      "sha256": "49b2bdb5986245280e919c716506f9e600a92c81d35dbc19d6aeef664459890d"
     },
     {
       "layer": "agent_harness",
@@ -2108,12 +2108,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-29T02:46:12.573660+00:00",
-  "generation_id": "89f9ee89b8363aaef6362f0b5b1e2979",
+  "generated_on": "2026-07-29T02:52:18.563527+00:00",
+  "generation_id": "281dea4b28b1b99bc20440e738ec888b",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "a9906b668bab41bdbad34bbbfc4cb29339f54516893837893ade76101bc65a16",
+  "source_fingerprint": "141141201204f651d3ed5f8a6cc72b04d6d73780ff4faab819d5770aa2696d55",
   "source_scope": {
     "exclusions": [
       {
