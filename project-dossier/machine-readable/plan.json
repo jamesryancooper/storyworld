@@ -224,7 +224,7 @@
       ],
       "id": "PLAN-0007",
       "limitations": [
-        "The project owner supplied an expanded pattern-driven fixture corpus (packages/contracts/fixtures/sources/packet/, SRC-0003) in addition to the four required F1 source sets. Completion of PLAN-0007 is determined by the four F1 fixtures: Stillhouse mini-season, editorial carousel, BeKindRewind slice, and the fictional Commerce Foundry campaign — all present with ownership statements, fictional status, sensitivity, permitted use, and canon-boundary classifications (CANON_DECISION_REGISTER). Schema probes, post-F1 production fixtures, and metamorphic tests are governed by separate plan items (PLAN-0008, PLAN-0009, PLAN-0010)."
+        "The project owner supplied an expanded pattern-driven fixture corpus (packages/contracts/fixtures/sources/packet/, SRC-0003) in addition to the four required F1 source sets. Completion of PLAN-0007 is determined by the four F1 fixtures: Stillhouse mini-season, editorial carousel, BeKindRewind slice, and the fictional Commerce Foundry campaign \u2014 all present with ownership statements, fictional status, sensitivity, permitted use, and canon-boundary classifications (CANON_DECISION_REGISTER). Schema probes, post-F1 production fixtures, and metamorphic tests are governed by separate plan items (PLAN-0008, PLAN-0009, PLAN-0010)."
       ],
       "objective": "Owner supplies the creative source material for the four golden fixtures (canonical part 05 section 17.1): a Stillhouse mini-season excerpt (hidden truth, reveal graph, symbols), an editorial carousel sample (voice, recurring metaphor, privacy posture), a BeKindRewind slice (several locations, recurring NPCs, objects, one mission chain), and a fictitious commerce campaign (product, approved/prohibited claims, imagery constraints). Each fixture records ownership, sensitivity, and permitted use; no real personal data or third-party IP.",
       "owner_role": "project_owner",
@@ -342,7 +342,9 @@
       "evidence_expected": [
         "Ship-check-gated tranches with CI evidence; staged gate decision per DEC-0012."
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "EVD-0013"
+      ],
       "finding_refs": [],
       "gate_refs": [],
       "id": "PLAN-0011",
@@ -352,8 +354,8 @@
       "objective": "Provider gateway with replaceable hosted adapters (fal.ai first; mock adapter for swap proof), recipe compiler from pinned canon and scene state, Temporal generation workflows with budget/cancel/retry, staging/quarantine/provenance, evaluation framework (deterministic layers real, model-assisted mocked until keys), focused regeneration, editor round trip (InvokeAI-local via the CF-proven fal provider pattern).",
       "owner_role": "project_owner",
       "requirement_refs": [],
-      "status": "in_progress",
-      "title": "B1 — media orchestration and continuity pipeline"
+      "status": "completed",
+      "title": "B1 \u2014 media orchestration and continuity pipeline"
     },
     {
       "acceptance_criteria": [
@@ -374,8 +376,8 @@
       "objective": "Next.js Studio (DEC-0012) with a delegated design-system choice, delivered in the canonical dependency order: auth/Command Center/property/source inbox; World Bible/entities/timeline; Arc Board/scene builder; Generation Workbench; Continuity Console/Review Room; Release Builder.",
       "owner_role": "project_owner",
       "requirement_refs": [],
-      "status": "planned",
-      "title": "B2 — Storyworld Studio workbench"
+      "status": "in_progress",
+      "title": "B2 \u2014 Storyworld Studio workbench"
     },
     {
       "acceptance_criteria": [
@@ -397,7 +399,7 @@
       "owner_role": "project_owner",
       "requirement_refs": [],
       "status": "planned",
-      "title": "B3 — integration substrate and portable packages"
+      "title": "B3 \u2014 integration substrate and portable packages"
     },
     {
       "acceptance_criteria": [
@@ -419,7 +421,7 @@
       "owner_role": "project_owner",
       "requirement_refs": [],
       "status": "planned",
-      "title": "B4 — evaluation and regression harness"
+      "title": "B4 \u2014 evaluation and regression harness"
     }
   ],
   "project_slug": "storyworld-platform",

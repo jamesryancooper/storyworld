@@ -5,7 +5,7 @@
   "authority": "project_maintained_compact_operational_index_not_permission",
   "adoption_status": "adopted",
   "active_tasks": [
-    "TASK-0007"
+    "TASK-0008"
   ],
   "accepted_decisions": [
     "DEC-0001",
@@ -22,11 +22,10 @@
     "DEC-0012"
   ],
   "fresh_evidence": [
-    "EVD-0011",
-    "EVD-0012"
+    "EVD-0013"
   ],
   "blocked_by": [],
-  "next_action": "B_run_in_progress: B1_tranche_1_provider_gateway; consolidated_owner_review_at_V1",
+  "next_action": "Execute B2 (PLAN-0012, TASK-0008): Storyworld Studio in canonical dependency order over engine-api, ship-check-gated tranches; DEC-0013 (B1 gate) staged provisionally passed per DEC-0012 for the consolidated V1 review.",
   "external_effects_authority_refs": [],
   "limitations": [
     "behavioral_proofs_only_no_readiness_claim",

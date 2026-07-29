@@ -109,6 +109,11 @@
     },
     {
       "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0013-b1-gate-staged.md",
+      "sha256": "3e2f73c51ea3d328a3783c7596861f5b18544ffd24df84d1005655fc8b7ed4a4"
+    },
+    {
+      "layer": "agent_harness",
       "path": ".agent/decisions/README.md",
       "sha256": "321f2910e7e6256e00dad950baf69484dc8b777249d62e5f8f0aa84ac018e1c2"
     },
@@ -130,7 +135,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "098f2e7ad8a54b615db65b7772b3eb70f2bc995dbca1ecf301f9e5e082b4083d"
+      "sha256": "518fb97b916fe70ed1795603695b481f958599daa8974f642d3295dc57372d5b"
     },
     {
       "layer": "agent_harness",
@@ -194,6 +199,11 @@
     },
     {
       "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0013-b1-pipeline-behavioral-proofs.md",
+      "sha256": "f935fb7d2d87027f90e118822a0a3fc15b7df3c1a9f15432c323c6b97702e98d"
+    },
+    {
+      "layer": "agent_harness",
       "path": ".agent/evidence/README.md",
       "sha256": "68138e16a1146373c40e760402e3da10f90969c38f2bd6371cf72bbeaa25439a"
     },
@@ -245,7 +255,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/project.json",
-      "sha256": "848b0cebdd1300fba9d4617d669790a78f069590e89431c745a8f8dce1b6e52d"
+      "sha256": "94c762d81557684e60c6ad5d76a13d1ec17889031f12b2ece539d6c47a4e9f70"
     },
     {
       "layer": "agent_harness",
@@ -340,7 +350,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "f2ffdfdb57b59f41e9704ccc49a6d8ecf55520ea4a024542ccbdc101e2c84bcd"
+      "sha256": "c19cfe09786b63696909fbf691de5dec3d66a7a0900b3e2d3906c27a2e742f5f"
     },
     {
       "layer": "agent_harness",
@@ -380,7 +390,12 @@
     {
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0007-b1-media-orchestration.md",
-      "sha256": "a496927e90c9e67d5f8570c746b90f89ac824ea17d53336cc638bf5b41a80858"
+      "sha256": "05d0219f8fcd64e25dacca9ddf8f3f340cceab620229c26e7ce10be1a394dfa9"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0008-b2-storyworld-studio.md",
+      "sha256": "46ffbc93427587437c0cfc62f159108640d0103d3f68a33fce925872a7e0f17f"
     },
     {
       "layer": "agent_harness",
@@ -494,13 +509,8 @@
     },
     {
       "layer": "project_source",
-      "path": ".env.local",
-      "sha256": "999a4afc7b91c6de72c93fe48799cfb29cb798bff1bd06a3bae11d24669db3bf"
-    },
-    {
-      "layer": "project_source",
       "path": ".github/workflows/validate.yml",
-      "sha256": "29c641d1b62da3d8ea73309cfdf4fc151c44134b323fb0278c90153db4444feb"
+      "sha256": "44371aa089770a778998df90039fed49e35becc26e71dd20aeb0108e2615a797"
     },
     {
       "layer": "project_source",
@@ -2025,7 +2035,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/plan.json",
-      "sha256": "86f8691398af9a54b64d8be2847ca9fd706865f59b3bbb8167f67c05aec03189"
+      "sha256": "4c9415622c6d40be15a0e996330f7c0d46ba91b722e480ac02875fef56b3a4b2"
     },
     {
       "layer": "project_dossier",
@@ -2098,12 +2108,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-29T02:35:11.397670+00:00",
-  "generation_id": "b11c756524dd693bd88d461b2f3efd32",
+  "generated_on": "2026-07-29T02:46:12.573660+00:00",
+  "generation_id": "89f9ee89b8363aaef6362f0b5b1e2979",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "0cea3e1e490681d4405a03c2815c1f5b28a983f6846facc98fdeb1ccb6ccbc31",
+  "source_fingerprint": "a9906b668bab41bdbad34bbbfc4cb29339f54516893837893ade76101bc65a16",
   "source_scope": {
     "exclusions": [
       {
@@ -2149,6 +2159,14 @@
       {
         "path": "packages/evaluation/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": ".env.local",
+        "reason": "Local-only credentials placeholder; gitignored and never committed, so it must not enter fingerprints or manifests the CI-checked tree cannot contain."
+      },
+      {
+        "path": ".env",
+        "reason": "Local-only credentials placeholder; gitignored and never committed, so it must not enter fingerprints or manifests the CI-checked tree cannot contain."
       }
     ],
     "git_metadata": "excluded_from_source_fingerprint",

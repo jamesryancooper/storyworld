@@ -66,6 +66,14 @@
       {
         "path": "packages/evaluation/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": ".env.local",
+        "reason": "Local-only credentials placeholder; gitignored and never committed, so it must not enter fingerprints or manifests the CI-checked tree cannot contain."
+      },
+      {
+        "path": ".env",
+        "reason": "Local-only credentials placeholder; gitignored and never committed, so it must not enter fingerprints or manifests the CI-checked tree cannot contain."
       }
     ]
   },

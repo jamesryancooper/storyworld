@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-29T02:35:11.397670+00:00",
-  "generation_id": "b11c756524dd693bd88d461b2f3efd32",
+  "generated_at": "2026-07-29T02:46:12.573660+00:00",
+  "generation_id": "89f9ee89b8363aaef6362f0b5b1e2979",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -30,6 +30,7 @@
     ".agent/decisions/DEC-0010-accept-f2-and-gate-0004.md",
     ".agent/decisions/DEC-0011-accept-f3-and-gate-0005.md",
     ".agent/decisions/DEC-0012-b-phase-execution-authorization.md",
+    ".agent/decisions/DEC-0013-b1-gate-staged.md",
     ".agent/decisions/README.md",
     ".agent/evaluations/README.md",
     ".agent/evaluations/registry.json",
@@ -47,6 +48,7 @@
     ".agent/evidence/EVD-0010-gate-0004-acceptance-observation.md",
     ".agent/evidence/EVD-0011-f3-boundary-gate-demonstration.md",
     ".agent/evidence/EVD-0012-gate-0005-acceptance-and-b-run-authorization.md",
+    ".agent/evidence/EVD-0013-b1-pipeline-behavioral-proofs.md",
     ".agent/evidence/README.md",
     ".agent/extensions/README.md",
     ".agent/extensions/registry.json",
@@ -85,6 +87,7 @@
     ".agent/tasks/TASK-0005-f2-governed-foundation.md",
     ".agent/tasks/TASK-0006-f3-headless-narrative-kernel.md",
     ".agent/tasks/TASK-0007-b1-media-orchestration.md",
+    ".agent/tasks/TASK-0008-b2-storyworld-studio.md",
     ".agent/templates/artifact.json",
     ".agent/templates/checkpoint.md",
     ".agent/templates/decision.md",
@@ -107,7 +110,6 @@
     ".agents/skills/change-review/SKILL.md",
     ".agents/skills/change-review/references/provenance.json",
     ".agents/workflows/safe-change.json",
-    ".env.local",
     ".github/workflows/validate.yml",
     ".gitignore",
     ".npmrc",
@@ -430,7 +432,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "0cea3e1e490681d4405a03c2815c1f5b28a983f6846facc98fdeb1ccb6ccbc31",
+  "source_fingerprint": "a9906b668bab41bdbad34bbbfc4cb29339f54516893837893ade76101bc65a16",
   "source_scope": {
     "exclusions": [
       {
@@ -476,6 +478,14 @@
       {
         "path": "packages/evaluation/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": ".env.local",
+        "reason": "Local-only credentials placeholder; gitignored and never committed, so it must not enter fingerprints or manifests the CI-checked tree cannot contain."
+      },
+      {
+        "path": ".env",
+        "reason": "Local-only credentials placeholder; gitignored and never committed, so it must not enter fingerprints or manifests the CI-checked tree cannot contain."
       }
     ],
     "git_metadata": "excluded_from_source_fingerprint",
