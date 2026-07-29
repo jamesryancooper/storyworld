@@ -114,6 +114,11 @@
     },
     {
       "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0014-b2-gate-staged.md",
+      "sha256": "3e890bbc3e123c3b129f82260391e0bf6c157798fa858c0131a24ce885fae6dd"
+    },
+    {
+      "layer": "agent_harness",
       "path": ".agent/decisions/README.md",
       "sha256": "321f2910e7e6256e00dad950baf69484dc8b777249d62e5f8f0aa84ac018e1c2"
     },
@@ -135,7 +140,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "49b2bdb5986245280e919c716506f9e600a92c81d35dbc19d6aeef664459890d"
+      "sha256": "696d1d8de659b7e9177df8942e9456410bbe62ee3268d2e2c7c5b0e5f2a7a729"
     },
     {
       "layer": "agent_harness",
@@ -201,6 +206,11 @@
       "layer": "agent_harness",
       "path": ".agent/evidence/EVD-0013-b1-pipeline-behavioral-proofs.md",
       "sha256": "f935fb7d2d87027f90e118822a0a3fc15b7df3c1a9f15432c323c6b97702e98d"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0014-b2-studio-behavioral-proofs.md",
+      "sha256": "5fd5b29e4ae7a2de474c5c447df93cdc7447f8115c061879c09a0ed9126c57bb"
     },
     {
       "layer": "agent_harness",
@@ -350,7 +360,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "c19cfe09786b63696909fbf691de5dec3d66a7a0900b3e2d3906c27a2e742f5f"
+      "sha256": "9ac31530eb774bd4cb2294044fe7a583b7fb76899ae4cebc65630e7215234bbd"
     },
     {
       "layer": "agent_harness",
@@ -395,7 +405,12 @@
     {
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0008-b2-storyworld-studio.md",
-      "sha256": "46ffbc93427587437c0cfc62f159108640d0103d3f68a33fce925872a7e0f17f"
+      "sha256": "3f7740948251a451c94f81f51fe310e4448676c49f1e4cb779e21cfd97011d10"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0009-b3-integration-substrate.md",
+      "sha256": "23ad4b18a48f24acb9f2633bb0ffecc573407402a7e2508775237140d7eff5a3"
     },
     {
       "layer": "agent_harness",
@@ -2255,7 +2270,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/plan.json",
-      "sha256": "4c9415622c6d40be15a0e996330f7c0d46ba91b722e480ac02875fef56b3a4b2"
+      "sha256": "7f1b0b2b71845e1fb635ef44d9356d964606c6cd9ea3a2ecff3a68407e2f36f8"
     },
     {
       "layer": "project_dossier",
@@ -2328,12 +2343,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-29T03:29:32.453757+00:00",
-  "generation_id": "1c4af8d92c4ab36595a806f8482b4a5f",
+  "generated_on": "2026-07-29T03:37:37.987572+00:00",
+  "generation_id": "34b5a0493e35d6d27d3cdb3d9fec3575",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "c34f61b36ff11a30e88066d17fcd0f540c40119e147a817f6fc961922aec0c3e",
+  "source_fingerprint": "4a13a8cac6c9781fe9640aea541d63c83a52fc4a48fae98d638359cc8545946e",
   "source_scope": {
     "exclusions": [
       {

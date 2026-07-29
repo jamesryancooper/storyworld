@@ -368,7 +368,9 @@
       "evidence_expected": [
         "Ship-check-gated tranches with CI evidence; staged gate decision per DEC-0012."
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "EVD-0014"
+      ],
       "finding_refs": [],
       "gate_refs": [],
       "id": "PLAN-0012",
@@ -376,7 +378,7 @@
       "objective": "Next.js Studio (DEC-0012) with a delegated design-system choice, delivered in the canonical dependency order: auth/Command Center/property/source inbox; World Bible/entities/timeline; Arc Board/scene builder; Generation Workbench; Continuity Console/Review Room; Release Builder.",
       "owner_role": "project_owner",
       "requirement_refs": [],
-      "status": "in_progress",
+      "status": "completed",
       "title": "B2 \u2014 Storyworld Studio workbench"
     },
     {
@@ -398,7 +400,7 @@
       "objective": "CF connector implementation against the contract fixtures with a CF-simulator in CI plus an exportable conformance suite for the real Commerce Foundry repo; source-drift detection; SSO interface (mock IdP); runtime compiler; Instagram export-first renditions.",
       "owner_role": "project_owner",
       "requirement_refs": [],
-      "status": "planned",
+      "status": "in_progress",
       "title": "B3 \u2014 integration substrate and portable packages"
     },
     {

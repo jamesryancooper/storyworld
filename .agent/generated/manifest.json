@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-29T03:29:32.453757+00:00",
-  "generation_id": "1c4af8d92c4ab36595a806f8482b4a5f",
+  "generated_at": "2026-07-29T03:37:37.987572+00:00",
+  "generation_id": "34b5a0493e35d6d27d3cdb3d9fec3575",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -31,6 +31,7 @@
     ".agent/decisions/DEC-0011-accept-f3-and-gate-0005.md",
     ".agent/decisions/DEC-0012-b-phase-execution-authorization.md",
     ".agent/decisions/DEC-0013-b1-gate-staged.md",
+    ".agent/decisions/DEC-0014-b2-gate-staged.md",
     ".agent/decisions/README.md",
     ".agent/evaluations/README.md",
     ".agent/evaluations/registry.json",
@@ -49,6 +50,7 @@
     ".agent/evidence/EVD-0011-f3-boundary-gate-demonstration.md",
     ".agent/evidence/EVD-0012-gate-0005-acceptance-and-b-run-authorization.md",
     ".agent/evidence/EVD-0013-b1-pipeline-behavioral-proofs.md",
+    ".agent/evidence/EVD-0014-b2-studio-behavioral-proofs.md",
     ".agent/evidence/README.md",
     ".agent/extensions/README.md",
     ".agent/extensions/registry.json",
@@ -88,6 +90,7 @@
     ".agent/tasks/TASK-0006-f3-headless-narrative-kernel.md",
     ".agent/tasks/TASK-0007-b1-media-orchestration.md",
     ".agent/tasks/TASK-0008-b2-storyworld-studio.md",
+    ".agent/tasks/TASK-0009-b3-integration-substrate.md",
     ".agent/templates/artifact.json",
     ".agent/templates/checkpoint.md",
     ".agent/templates/decision.md",
@@ -476,7 +479,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "c34f61b36ff11a30e88066d17fcd0f540c40119e147a817f6fc961922aec0c3e",
+  "source_fingerprint": "4a13a8cac6c9781fe9640aea541d63c83a52fc4a48fae98d638359cc8545946e",
   "source_scope": {
     "exclusions": [
       {

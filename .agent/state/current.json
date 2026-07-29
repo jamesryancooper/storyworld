@@ -1,11 +1,11 @@
 {
   "schema_version": "harness.current-state.v1",
   "project_slug": "storyworld-platform",
-  "updated_at": "2026-07-28",
+  "updated_at": "2026-07-29",
   "authority": "project_maintained_compact_operational_index_not_permission",
   "adoption_status": "adopted",
   "active_tasks": [
-    "TASK-0008"
+    "TASK-0009"
   ],
   "accepted_decisions": [
     "DEC-0001",
@@ -22,10 +22,11 @@
     "DEC-0012"
   ],
   "fresh_evidence": [
-    "EVD-0013"
+    "EVD-0013",
+    "EVD-0014"
   ],
   "blocked_by": [],
-  "next_action": "Execute B2 (PLAN-0012, TASK-0008): Storyworld Studio in canonical dependency order over engine-api, ship-check-gated tranches; DEC-0013 (B1 gate) staged provisionally passed per DEC-0012 for the consolidated V1 review.",
+  "next_action": "Execute B3 (PLAN-0013, TASK-0009): CF connector vs fixtures with simulator CI + exportable conformance suite, drift detection, mock-IdP interface, runtime compiler, Instagram-first renditions. DEC-0013/DEC-0014 staged provisionally passed per DEC-0012 for the consolidated V1 review.",
   "external_effects_authority_refs": [],
   "limitations": [
     "behavioral_proofs_only_no_readiness_claim",
