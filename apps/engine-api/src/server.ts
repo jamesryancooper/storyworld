@@ -7,8 +7,10 @@ import {
   createWorkspaceAndProperty,
   decideProposal,
   importAsset,
+  getNarrativeStructure,
   ingestSource,
   latestCanonRelease,
+  listGenerationCandidates,
   listProductions,
   listProperties,
   proposeCanon,
@@ -18,6 +20,12 @@ import {
   type Actor,
   type KernelContext,
 } from "@storyworld/kernel";
+import {
+  compileGenerationRecipe,
+  createFalAdapter,
+  createMockAdapter,
+  runGeneration,
+} from "@storyworld/providers";
 import { correlationId, logLine } from "./telemetry.js";
 
 /**
@@ -81,6 +89,12 @@ export function createEngineServer(ctx: KernelContext): Server {
       if (error instanceof AuthorityError) {
         return problem(res, corr, 403, "authority", error.message);
       }
+      if (error instanceof Error && /reserved crossing/i.test(error.message)) {
+        return problem(res, corr, 403, "reserved-crossing", error.message);
+      }
+      if (error instanceof Error && /exceeds recipe ceiling/.test(error.message)) {
+        return problem(res, corr, 409, "budget-exceeded", error.message);
+      }
       logLine("error", "unhandled", { message: String(error), correlation_id: corr });
       return problem(res, corr, 500, "internal", String(error));
     }
@@ -123,6 +137,31 @@ async function route(
     }
     case "/v1/asset-acceptances":
       return { status: 201, body: { ...(await acceptAssetVersion(ctx, actor, body as never)) } };
+    case "/v1/generation-runs": {
+      const recipe = await compileGenerationRecipe(ctx, {
+        productionId: String(body["productionId"]),
+        unitId: String(body["unitId"]),
+        scenePurpose: String(body["scenePurpose"] ?? "unspecified"),
+        emotionalObjective: String(body["emotionalObjective"] ?? "unspecified"),
+        prompt: String(body["prompt"]),
+        lockedAttributes: Array.isArray(body["lockedAttributes"])
+          ? (body["lockedAttributes"] as string[])
+          : [],
+        seed: typeof body["seed"] === "number" ? body["seed"] : 1,
+      });
+      const adapter =
+        body["adapterId"] === "fal"
+          ? createFalAdapter({ falKey: process.env["FAL_KEY"] ?? null })
+          : createMockAdapter();
+      const endpoint = String(body["endpoint"] ?? "mock/deterministic");
+      const run = await runGeneration(ctx, actor, {
+        recipeDocument: recipe.document,
+        recipeSha256: recipe.sha256,
+        adapter,
+        endpoint,
+      });
+      return { status: 201, body: { ...run, recipeSha256: recipe.sha256 } };
+    }
     default:
       throw Object.assign(new Error(`no route ${path}`), { statusCode: 404 });
   }
@@ -146,6 +185,13 @@ async function readRoute(
   if (latest) {
     const release = await latestCanonRelease(ctx, { propertyId: String(latest[1]) });
     return { body: { release } };
+  }
+  const structure = path.match(/^\/v1\/productions\/([^/]+)\/narrative-structure$/);
+  if (structure) {
+    return { body: { structure: await getNarrativeStructure(ctx, { productionId: String(structure[1]) }) } };
+  }
+  if (path === "/v1/generation-candidates") {
+    return { body: { candidates: await listGenerationCandidates(ctx) } };
   }
   return null;
 }

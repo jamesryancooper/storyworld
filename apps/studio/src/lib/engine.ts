@@ -36,6 +36,43 @@ export interface CanonReleaseView {
   };
 }
 
+export interface NarrativeStructureView {
+  structureRevisionId: string;
+  document: {
+    structure_id?: string;
+    narrative_units?: Record<string, unknown>[];
+    threads?: Record<string, unknown>[];
+    [key: string]: unknown;
+  };
+}
+
+export interface ScenePacketView {
+  packet_id: string;
+  scene_ref: string;
+  story_time: string;
+  entering_state_summary: string;
+  entity_states: { entity_ref: string; state: Record<string, unknown> }[];
+  active_threads: Record<string, unknown>[];
+  content_sha256: string;
+  [key: string]: unknown;
+}
+
+export interface GenerationCandidateView {
+  assetVersionId: string;
+  contentSha256: string;
+  state: string;
+  createdAt: string;
+  generationRunId: string;
+  provenance: {
+    provider?: string;
+    endpoint?: string;
+    seed?: number;
+    latency_ms?: number;
+    locked_attributes?: string[];
+    [key: string]: unknown;
+  };
+}
+
 export interface EngineClient {
   health(): Promise<boolean>;
   listProperties(): Promise<PropertySummary[]>;
@@ -46,6 +83,25 @@ export interface EngineClient {
   }): Promise<{ propertyId: string }>;
   listProductions(propertyId: string): Promise<ProductionSummary[]>;
   latestCanonRelease(propertyId: string): Promise<CanonReleaseView | null>;
+  getNarrativeStructure(productionId: string): Promise<NarrativeStructureView | null>;
+  saveNarrativeStructure(input: {
+    productionId: string;
+    document: Record<string, unknown>;
+    supersedesRevisionId?: string;
+  }): Promise<{ structureRevisionId: string }>;
+  getScenePacket(productionId: string, unitId: string): Promise<ScenePacketView>;
+  runGeneration(input: {
+    productionId: string;
+    unitId: string;
+    prompt: string;
+    scenePurpose: string;
+    emotionalObjective: string;
+    lockedAttributes: string[];
+    seed: number;
+    adapterId: "mock" | "fal";
+    endpoint?: string;
+  }): Promise<{ generationRunId: string; candidateAssetVersionIds: string[] }>;
+  listGenerationCandidates(): Promise<GenerationCandidateView[]>;
 }
 
 export const DEV_ACTOR: StudioActor = {
@@ -119,6 +175,30 @@ export function createEngineClient(
         `/v1/properties/${encodeURIComponent(propertyId)}/canon-releases/latest`,
       );
       return out.release;
+    },
+    async getNarrativeStructure(productionId) {
+      const out = await get<{ structure: NarrativeStructureView | null }>(
+        `/v1/productions/${encodeURIComponent(productionId)}/narrative-structure`,
+      );
+      return out.structure;
+    },
+    async saveNarrativeStructure(input) {
+      return post<{ structureRevisionId: string }>("/v1/narrative-units", input);
+    },
+    async getScenePacket(productionId, unitId) {
+      return get<ScenePacketView>(
+        `/v1/scenes/${encodeURIComponent(unitId)}/state-packet?productionId=${encodeURIComponent(productionId)}`,
+      );
+    },
+    async runGeneration(input) {
+      return post<{ generationRunId: string; candidateAssetVersionIds: string[] }>(
+        "/v1/generation-runs",
+        input,
+      );
+    },
+    async listGenerationCandidates() {
+      const out = await get<{ candidates: GenerationCandidateView[] }>("/v1/generation-candidates");
+      return out.candidates;
     },
   };
 }

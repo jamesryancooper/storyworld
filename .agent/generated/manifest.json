@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-29T02:58:36.783649+00:00",
-  "generation_id": "ce8ac45407b37c21bed6935a34ab0454",
+  "generated_at": "2026-07-29T03:09:54.945444+00:00",
+  "generation_id": "3142c6fdae9fadeb1ad4a3df105beccd",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -136,12 +136,19 @@
     "apps/studio/next.config.ts",
     "apps/studio/package.json",
     "apps/studio/postcss.config.mjs",
+    "apps/studio/src/app/arc-board/page.tsx",
+    "apps/studio/src/app/generation/page.tsx",
     "apps/studio/src/app/globals.css",
     "apps/studio/src/app/layout.tsx",
     "apps/studio/src/app/page.tsx",
     "apps/studio/src/app/world-bible/page.tsx",
+    "apps/studio/src/components/arc-board.test.tsx",
+    "apps/studio/src/components/arc-board.tsx",
     "apps/studio/src/components/command-center.test.tsx",
     "apps/studio/src/components/command-center.tsx",
+    "apps/studio/src/components/generation-workbench.test.tsx",
+    "apps/studio/src/components/generation-workbench.tsx",
+    "apps/studio/src/components/production-picker.tsx",
     "apps/studio/src/components/ui/badge.tsx",
     "apps/studio/src/components/ui/button.tsx",
     "apps/studio/src/components/ui/card.tsx",
@@ -461,7 +468,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "551750b4cbf74a86d04f2a15c319bcc4f7ed8f92423b1551080507f943af83dc",
+  "source_fingerprint": "b5de04adf786a99ee0b4ed8ab3801e95f388257727685bd4e878a1d7e74d2c9f",
   "source_scope": {
     "exclusions": [
       {

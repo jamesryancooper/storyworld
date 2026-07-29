@@ -580,7 +580,7 @@
     {
       "layer": "project_source",
       "path": "apps/engine-api/package.json",
-      "sha256": "4096fca0ac0cc5ddc8a11f6c2ac4ce146fe29d3e6803da4edf563994217909da"
+      "sha256": "95600eaed47684a74728922656b316e355484ab64ac30f406176980df7264dbe"
     },
     {
       "layer": "project_source",
@@ -595,7 +595,7 @@
     {
       "layer": "project_source",
       "path": "apps/engine-api/src/server.ts",
-      "sha256": "6bcc8b8d2ba5dd3b08b9ef2c674d3b4d4d6b40119631c496b2aa7be5bee47371"
+      "sha256": "bdbd50a2e5b1956af3d10d9cfc34a7bf24fc8b9f7608f76a17642da152d20492"
     },
     {
       "layer": "project_source",
@@ -639,13 +639,23 @@
     },
     {
       "layer": "project_source",
+      "path": "apps/studio/src/app/arc-board/page.tsx",
+      "sha256": "8327b628c893c728943e9746f93e333a3b3c8f92fe2d40f29f8d576cfc7e5451"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/app/generation/page.tsx",
+      "sha256": "1cd54cbe78966c8ad62641b6298ddde24c4d93d80a9b06e98edd20ff664419f0"
+    },
+    {
+      "layer": "project_source",
       "path": "apps/studio/src/app/globals.css",
       "sha256": "fddadf4a67e818ef24790b10c5bd72586297d8958bbdd9453e1a6d80f9535824"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/app/layout.tsx",
-      "sha256": "378736088b1a0358339b43edac471389f1fb1e2a5295f65882c97513f3437be9"
+      "sha256": "4bb8b82605b02f43b66b02de3b522b4996ef0d0287d245a77bfd6e7434ca5b4e"
     },
     {
       "layer": "project_source",
@@ -659,6 +669,16 @@
     },
     {
       "layer": "project_source",
+      "path": "apps/studio/src/components/arc-board.test.tsx",
+      "sha256": "40ca265e5af85d02ce8dbfcf79e743be9b12a5cf1213e57691eb0b1ba2093dec"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/arc-board.tsx",
+      "sha256": "2b79387e9f1f2b0f87c7d8b7604f8fbe512428df909751142883275c16ee5d38"
+    },
+    {
+      "layer": "project_source",
       "path": "apps/studio/src/components/command-center.test.tsx",
       "sha256": "552889e3a803ba1357a6051f6902e89e144e74e808e18e485e9cd1db5c09380b"
     },
@@ -666,6 +686,21 @@
       "layer": "project_source",
       "path": "apps/studio/src/components/command-center.tsx",
       "sha256": "af73f88013e84eb800b3c08205b145da4277b32bec90225e5c6ae57d0f6714e6"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/generation-workbench.test.tsx",
+      "sha256": "0f506e50ac54efba5d2cc09b33591f11d9b6f2bf1b79ebcd4e3bcf9a1ccadb6d"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/generation-workbench.tsx",
+      "sha256": "5a8bdaf76553ca6f0194b4afb1917716e22a2494d10f68e44187555b9001774b"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/production-picker.tsx",
+      "sha256": "1d7f080a79655d60d7ad201bcf4f11b7857cd633aaf2581f5923099071fe87d4"
     },
     {
       "layer": "project_source",
@@ -715,12 +750,12 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/lib/engine.integration.test.ts",
-      "sha256": "2dcc3246b46f8220167f59c5854a08f4e76c4d3bd648a812ccf30a4ca9dee2e5"
+      "sha256": "4b52518c7ef643ef09dc769d6626df5cb2378ffb35af1b3cfa14ef0dbe5918e0"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/lib/engine.ts",
-      "sha256": "96ccfb84456ea1487be59bc18a2ea4415c6e1833beb3854646b326caee50a452"
+      "sha256": "0a0ca465ef2f64d92666a6243bed9b5c4db9113d09a6e01188ed412e13d0a573"
     },
     {
       "layer": "project_source",
@@ -735,7 +770,7 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/test/mock-engine.ts",
-      "sha256": "6856e4c03d762c25752e57b41133051c23464fca25af6a3cd11814f300972f85"
+      "sha256": "868e655258367dda9fc8a1a20eccc34df0604e8dd8b901c23b74541aef4ac56d"
     },
     {
       "layer": "project_source",
@@ -745,7 +780,7 @@
     {
       "layer": "project_source",
       "path": "apps/studio/tsconfig.tsbuildinfo",
-      "sha256": "8c76e302576ac888cb385fe60264f39a303184077ac97664e2168c1c0bd01e44"
+      "sha256": "1ad9d6c6b0eec8957400db21df8cc3b57f92c17fefc9b10aa3e267e73490dd6a"
     },
     {
       "layer": "project_source",
@@ -1730,7 +1765,7 @@
     {
       "layer": "project_source",
       "path": "packages/kernel/src/queries.ts",
-      "sha256": "cbd8e0ca0de0459ebe19dadce43958ee5a4f505229217f0d123577cea83f8437"
+      "sha256": "6b206e4a8debdf9d731245daeb0676b2b4ef3e87871b629afba7d22a899b738e"
     },
     {
       "layer": "project_source",
@@ -1995,7 +2030,7 @@
     {
       "layer": "project_source",
       "path": "pnpm-lock.yaml",
-      "sha256": "287d95e36b98f67ff0f9a1b81673ab9011688c5823936c55af5c8366d5485877"
+      "sha256": "31e109c4734b2665c56241747a8156001fcaba411d47984f7447366135295fbb"
     },
     {
       "layer": "project_source",
@@ -2253,12 +2288,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-29T02:58:36.783649+00:00",
-  "generation_id": "ce8ac45407b37c21bed6935a34ab0454",
+  "generated_on": "2026-07-29T03:09:54.945444+00:00",
+  "generation_id": "3142c6fdae9fadeb1ad4a3df105beccd",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "551750b4cbf74a86d04f2a15c319bcc4f7ed8f92423b1551080507f943af83dc",
+  "source_fingerprint": "b5de04adf786a99ee0b4ed8ab3801e95f388257727685bd4e878a1d7e74d2c9f",
   "source_scope": {
     "exclusions": [
       {

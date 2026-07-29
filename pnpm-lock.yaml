@@ -66,6 +66,9 @@ importers:
       '@storyworld/portability':
         specifier: workspace:*
         version: link:../../packages/portability
+      '@storyworld/providers':
+        specifier: workspace:*
+        version: link:../../packages/providers
       '@storyworld/storage':
         specifier: workspace:*
         version: link:../../packages/storage

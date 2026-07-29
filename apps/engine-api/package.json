@@ -16,7 +16,8 @@
     "@storyworld/kernel": "workspace:*",
     "@storyworld/persistence": "workspace:*",
     "@storyworld/storage": "workspace:*",
-    "@storyworld/portability": "workspace:*"
+    "@storyworld/portability": "workspace:*",
+    "@storyworld/providers": "workspace:*"
   },
   "devDependencies": {
     "@types/pg": "^8.11.0",

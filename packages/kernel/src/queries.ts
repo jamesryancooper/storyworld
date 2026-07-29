@@ -64,3 +64,49 @@ export async function latestCanonRelease(
     return row ?? null;
   });
 }
+
+/** Current (unsuperseded) narrative structure of a production, with its revision id. */
+export async function getNarrativeStructure(
+  ctx: KernelContext,
+  input: { productionId: string },
+): Promise<{ structureRevisionId: string; document: Record<string, unknown> } | null> {
+  return withTenant(ctx.pool, ctx.organizationId, async (c) => {
+    const row = (await c.query(
+      `SELECT s.structure_revision_id AS "structureRevisionId", s.document
+         FROM storyworld.narrative_structures s
+        WHERE s.production_id=$1
+          AND NOT EXISTS (SELECT 1 FROM storyworld.narrative_structures t
+                           WHERE t.supersedes_revision_id = s.structure_revision_id)`,
+      [input.productionId],
+    )).rows[0];
+    return row ?? null;
+  });
+}
+
+/** Recent staged generation candidates with their binding provenance receipts. */
+export async function listGenerationCandidates(
+  ctx: KernelContext,
+): Promise<{
+  assetVersionId: string;
+  contentSha256: string;
+  state: string;
+  createdAt: string;
+  provenance: Record<string, unknown>;
+  generationRunId: string;
+}[]> {
+  return withTenant(ctx.pool, ctx.organizationId, async (c) => {
+    const rows = await c.query(
+      `SELECT v.asset_version_id AS "assetVersionId", v.content_sha256 AS "contentSha256",
+              v.state, v.created_at AS "createdAt", r.detail AS provenance,
+              r.correlation_id AS "generationRunId"
+         FROM storyworld.asset_versions v
+         JOIN storyworld.audit_receipts r
+           ON r.subject_ref = 'asset-version:' || v.asset_version_id
+          AND r.action = 'generation.candidate.staged'
+        WHERE v.state = 'candidate'
+        ORDER BY v.created_at DESC
+        LIMIT 50`,
+    );
+    return rows.rows.map((r) => ({ ...r, createdAt: new Date(r.createdAt as string).toISOString() }));
+  });
+}

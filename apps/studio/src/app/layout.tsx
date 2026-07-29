@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 const SURFACES: { href: string; label: string; ready: boolean }[] = [
   { href: "/", label: "Command Center", ready: true },
   { href: "/world-bible", label: "World Bible", ready: true },
-  { href: "/arc-board", label: "Arc Board", ready: false },
-  { href: "/generation", label: "Generation Workbench", ready: false },
+  { href: "/arc-board", label: "Arc Board", ready: true },
+  { href: "/generation", label: "Generation Workbench", ready: true },
   { href: "/continuity", label: "Continuity Console", ready: false },
   { href: "/release-builder", label: "Release Builder", ready: false },
 ];
