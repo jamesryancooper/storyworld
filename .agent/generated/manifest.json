@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-29T00:06:02.302223+00:00",
-  "generation_id": "7ac886d6c57968a9ef126b8bb34a1f2d",
+  "generated_at": "2026-07-29T02:35:11.397670+00:00",
+  "generation_id": "b11c756524dd693bd88d461b2f3efd32",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -107,6 +107,7 @@
     ".agents/skills/change-review/SKILL.md",
     ".agents/skills/change-review/references/provenance.json",
     ".agents/workflows/safe-change.json",
+    ".env.local",
     ".github/workflows/validate.yml",
     ".gitignore",
     ".npmrc",
@@ -135,6 +136,10 @@
     "infra/compose.yaml",
     "infra/scripts/restore-drill.sh",
     "infra/scripts/ship-check.sh",
+    "integrations/invokeai-fal-provider/README.md",
+    "integrations/invokeai-fal-provider/_fal_edit.py",
+    "integrations/invokeai-fal-provider/fal.py",
+    "integrations/setup-invokeai.sh",
     "package.json",
     "packages/contracts/DESIGN_NOTES.md",
     "packages/contracts/README.md",
@@ -301,10 +306,21 @@
     "packages/domain/src/index.ts",
     "packages/domain/tsconfig.json",
     "packages/domain/vitest.config.ts",
+    "packages/evaluation/package.json",
+    "packages/evaluation/src/deterministic.ts",
+    "packages/evaluation/src/evaluate.ts",
+    "packages/evaluation/src/evaluation.test.ts",
+    "packages/evaluation/src/findings.ts",
+    "packages/evaluation/src/index.ts",
+    "packages/evaluation/src/model-assisted.ts",
+    "packages/evaluation/tsconfig.json",
+    "packages/evaluation/vitest.config.ts",
     "packages/kernel/package.json",
     "packages/kernel/src/actors.ts",
     "packages/kernel/src/assets.ts",
     "packages/kernel/src/commands.ts",
+    "packages/kernel/src/editor.test.ts",
+    "packages/kernel/src/editor.ts",
     "packages/kernel/src/export.ts",
     "packages/kernel/src/index.ts",
     "packages/kernel/src/kernel.test.ts",
@@ -319,6 +335,7 @@
     "packages/persistence/migrations/0004_assets_and_lineage.sql",
     "packages/persistence/migrations/0005_canon_foundation.sql",
     "packages/persistence/migrations/0006_narrative_kernel.sql",
+    "packages/persistence/migrations/0007_continuity_findings.sql",
     "packages/persistence/package.json",
     "packages/persistence/src/client.ts",
     "packages/persistence/src/index.ts",
@@ -352,6 +369,13 @@
     "packages/storage/src/store.ts",
     "packages/storage/tsconfig.json",
     "packages/storage/vitest.config.ts",
+    "packages/workflows/package.json",
+    "packages/workflows/src/activities.ts",
+    "packages/workflows/src/index.ts",
+    "packages/workflows/src/workflows.test.ts",
+    "packages/workflows/src/workflows.ts",
+    "packages/workflows/tsconfig.json",
+    "packages/workflows/vitest.config.ts",
     "pnpm-lock.yaml",
     "pnpm-workspace.yaml",
     "project-dossier/AUTHORITY.md",
@@ -406,7 +430,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "0f0730ccd02d994c657358e0b35aa89d285604954af1b5015575e7a83275c5ec",
+  "source_fingerprint": "0cea3e1e490681d4405a03c2815c1f5b28a983f6846facc98fdeb1ccb6ccbc31",
   "source_scope": {
     "exclusions": [
       {
@@ -443,6 +467,14 @@
       },
       {
         "path": "packages/providers/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/workflows/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/evaluation/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
       }
     ],

@@ -245,7 +245,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/project.json",
-      "sha256": "ac3492469a6072226344039fd332b66f8d1d2d630bd14ceaa53f866906b68ef6"
+      "sha256": "848b0cebdd1300fba9d4617d669790a78f069590e89431c745a8f8dce1b6e52d"
     },
     {
       "layer": "agent_harness",
@@ -494,13 +494,18 @@
     },
     {
       "layer": "project_source",
+      "path": ".env.local",
+      "sha256": "999a4afc7b91c6de72c93fe48799cfb29cb798bff1bd06a3bae11d24669db3bf"
+    },
+    {
+      "layer": "project_source",
       "path": ".github/workflows/validate.yml",
-      "sha256": "9e79ea6097e1871c524d17c6f8d1bf5cc3267b644fbd258fce8772497c12817f"
+      "sha256": "29c641d1b62da3d8ea73309cfdf4fc151c44134b323fb0278c90153db4444feb"
     },
     {
       "layer": "project_source",
       "path": ".gitignore",
-      "sha256": "4e8fc70236a0fd87e5695a354354b4753a5fc40a60545cccf3e295f9ffad9983"
+      "sha256": "babc4a55f25ac22d1ead48af49f43b90ff9f3b989afbcb955d88a3ab1a888a32"
     },
     {
       "layer": "project_source",
@@ -620,7 +625,7 @@
     {
       "layer": "project_source",
       "path": "infra/compose.yaml",
-      "sha256": "3c6e3704341ce6be9b62245f4da91ea3f0f8bb4adb1eca26a485c1004a07af13"
+      "sha256": "222397b38bcf4273356d864e8e1ae9b4a91a14268a65fc2fb75fac2be27635e3"
     },
     {
       "layer": "project_source",
@@ -631,6 +636,26 @@
       "layer": "project_source",
       "path": "infra/scripts/ship-check.sh",
       "sha256": "af8e1aa666c2ced7c7068cfe82a5f21fe2ce67e7811e7ea597397d15f0c7c775"
+    },
+    {
+      "layer": "project_source",
+      "path": "integrations/invokeai-fal-provider/README.md",
+      "sha256": "d2620609d164eab2b9363e88ba21ed0c0d9038b274cac77b50ab5b98243eb3f5"
+    },
+    {
+      "layer": "project_source",
+      "path": "integrations/invokeai-fal-provider/_fal_edit.py",
+      "sha256": "8db9983ab69ff6950355bfce4c8cff420b2e6fe292742d1b7cd1fb999c3efeea"
+    },
+    {
+      "layer": "project_source",
+      "path": "integrations/invokeai-fal-provider/fal.py",
+      "sha256": "a9566290c6ee30e6fce7d8b1ad71f44757ca62e901d8dab2845b3930b473b6b5"
+    },
+    {
+      "layer": "project_source",
+      "path": "integrations/setup-invokeai.sh",
+      "sha256": "fc8eddd666813c3e890443cfb843e356128565ea82d1a369b3fce45539f4868e"
     },
     {
       "layer": "project_source",
@@ -1464,6 +1489,51 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/evaluation/package.json",
+      "sha256": "6298143cc6b03c16556f9f054c531d21628b43389b7fec13aba20961a5b5392c"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/evaluation/src/deterministic.ts",
+      "sha256": "d27f4de7574fc570eaab15ab71f27182228136cfceccebab01dab6a4a2726b0c"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/evaluation/src/evaluate.ts",
+      "sha256": "db178e8d2ee37c739c68c1f5a0a7bf9cbec89108e7787dc57a3ed38136f1ee03"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/evaluation/src/evaluation.test.ts",
+      "sha256": "46276537f7a1e65df4792c72f3400b4df825e32b06f280f954a16b88bdf00e97"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/evaluation/src/findings.ts",
+      "sha256": "c3bdc94fdc8b7224a3a844a59f0e85ee513a2b6b0bee9fd966e3821e1f33b15b"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/evaluation/src/index.ts",
+      "sha256": "95a25933a99c8910d57fa69d6098f06ab496cda3d3817148eb9bd0df271fdf51"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/evaluation/src/model-assisted.ts",
+      "sha256": "7305b69a73f6b6cf1a24c2e1e7b0a45b228dd396d533c056893c71096f8b6df4"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/evaluation/tsconfig.json",
+      "sha256": "34893bef7f98e46e0fb4675dd22cda30d20fa63a4a451e34100210dcb9dd0e20"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/evaluation/vitest.config.ts",
+      "sha256": "cc5a1e7822b20cc1652b0e74570ec4dffaa1de653742b2e239596be88f452a18"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/kernel/package.json",
       "sha256": "ee6fe9fd386d8a23eba4b62642ff82ab4c65ac1b231b5f82cf7e98290965349f"
     },
@@ -1484,13 +1554,23 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/kernel/src/editor.test.ts",
+      "sha256": "1e96be936076a6ca585cebab51e63eb8e206ed36cc456ec35b3a66f6719079b4"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/kernel/src/editor.ts",
+      "sha256": "df81aa42547ddac0fc78fe2dfb26113fe14f0329925273ae74989f1e016f7c11"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/kernel/src/export.ts",
       "sha256": "2548174e8b2fdf95f62a0356ca50a22f029dfa231ef1d8280593fc0888f46919"
     },
     {
       "layer": "project_source",
       "path": "packages/kernel/src/index.ts",
-      "sha256": "ecb5760b36403f3121d0d6020815038bde6adc3757539338dc76c38315984728"
+      "sha256": "9f60db1e1c23d6db6b17c34029c59f15b5c77b7b589ac6cd6ebb57718d96c119"
     },
     {
       "layer": "project_source",
@@ -1554,6 +1634,11 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/persistence/migrations/0007_continuity_findings.sql",
+      "sha256": "8b5e6694d3cc3f2d81b4b53d928ffbd83d2a0ee65189c75de19706ce85c4cfde"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/persistence/package.json",
       "sha256": "09c8a8442c2ca7c47e3fc9d865506559646493c8d8f72c451144f12019fa683f"
     },
@@ -1570,7 +1655,7 @@
     {
       "layer": "project_source",
       "path": "packages/persistence/src/migrate.ts",
-      "sha256": "3daa33ef28c60c7025c4e65ba09e0736bd8185292c2687ab8803a47ac057103a"
+      "sha256": "80fe55f279b9a33d8ccc75d4810a5872ad0011f40713e0d58129db4588ad9e1a"
     },
     {
       "layer": "project_source",
@@ -1635,7 +1720,7 @@
     {
       "layer": "project_source",
       "path": "packages/providers/src/generation.ts",
-      "sha256": "fb0815b411112f2e8edb99ea24321e8305afaf3bbfcfce87f8885ea12e1afd9f"
+      "sha256": "84be5beaaba0669eba09060ff9a2da2c7871c78164c1022c5a1274b382c68c08"
     },
     {
       "layer": "project_source",
@@ -1650,7 +1735,7 @@
     {
       "layer": "project_source",
       "path": "packages/providers/src/providers.test.ts",
-      "sha256": "812d05a36bc4f3cf83e1faae52cd81a99be4601a5d836542f5a87b4baccb9193"
+      "sha256": "2cef9f87e7e8137af0381e58776f2cd90cbfbd0e1bd3492300173896e72a7f91"
     },
     {
       "layer": "project_source",
@@ -1719,8 +1804,43 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/workflows/package.json",
+      "sha256": "d3ab46ecbec8fc6949964b32fb9beaa464b4d8a1ad5155b80a6f34244b2be411"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/workflows/src/activities.ts",
+      "sha256": "066120b7d5b6ed0ed06733cdaec10791e532af6d26942c0daec337a855bfde0a"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/workflows/src/index.ts",
+      "sha256": "529e5a12886173cbaeb1054afa6dd884eb47f21450c952f5803145b580d86358"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/workflows/src/workflows.test.ts",
+      "sha256": "fea0cc527699dbeb6c120a06e72e295b47b4daf097f5b0cccf0e3ea0d8f82c4b"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/workflows/src/workflows.ts",
+      "sha256": "11d0b4122b3a7cef5fd8939ddf629e714939a0fc6f6410151b4caa5764c9bbf4"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/workflows/tsconfig.json",
+      "sha256": "60ec341167f566872eb13bb129a03488c35fa356e4025360e760c52c5e680290"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/workflows/vitest.config.ts",
+      "sha256": "7793db73b8894a3874b0b8b6e186ec4b1ab605961c8eff26eecde1db18c32989"
+    },
+    {
+      "layer": "project_source",
       "path": "pnpm-lock.yaml",
-      "sha256": "dd5dcd064ee927d80e422d7caa4e1825addc518f6c6f88d24fb994418be2937e"
+      "sha256": "9439211c43436e1ee9c5655f1e8657b3b25591d1d8f543a1c853036d5b809e38"
     },
     {
       "layer": "project_source",
@@ -1978,12 +2098,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-29T00:06:02.302223+00:00",
-  "generation_id": "7ac886d6c57968a9ef126b8bb34a1f2d",
+  "generated_on": "2026-07-29T02:35:11.397670+00:00",
+  "generation_id": "b11c756524dd693bd88d461b2f3efd32",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "0f0730ccd02d994c657358e0b35aa89d285604954af1b5015575e7a83275c5ec",
+  "source_fingerprint": "0cea3e1e490681d4405a03c2815c1f5b28a983f6846facc98fdeb1ccb6ccbc31",
   "source_scope": {
     "exclusions": [
       {
@@ -2020,6 +2140,14 @@
       },
       {
         "path": "packages/providers/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/workflows/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/evaluation/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
       }
     ],

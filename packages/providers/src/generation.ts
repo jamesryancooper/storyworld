@@ -18,10 +18,14 @@ export async function runGeneration(
     recipeSha256: string;
     adapter: ProviderAdapter;
     endpoint: string;
+    /** Focused regeneration: derive the new candidates from an existing version, replacing only the named focus. */
+    regenerateOf?: { assetVersionId: string; focus: string };
   },
 ): Promise<{ generationRunId: string; candidateAssetVersionIds: string[] }> {
   const request = normalizeRecipe(input.recipeDocument, input.recipeSha256);
+  const startedAt = performance.now();
   const outcome = await input.adapter.generate(input.endpoint, request);
+  const latencyMs = Math.round(performance.now() - startedAt);
   if (outcome.costEstimate.amount > request.costCeiling.amount) {
     throw new ProviderRequestError(
       `estimated cost ${outcome.costEstimate.amount} exceeds recipe ceiling ${request.costCeiling.amount}`,
@@ -56,8 +60,19 @@ export async function runGeneration(
            seed: candidate.seed,
            cost_estimate: outcome.costEstimate,
            locked_attributes: request.lockedAttributes,
+           latency_ms: latencyMs,
+           ...(input.regenerateOf
+             ? { regenerate_of: input.regenerateOf.assetVersionId, focus: input.regenerateOf.focus }
+             : {}),
          })],
       );
+      if (input.regenerateOf) {
+        await c.query(
+          "INSERT INTO storyworld.derivations (derivation_id, organization_id, from_asset_version_id, to_asset_version_id, transformation, provider_provenance) VALUES ($1,$2,$3,$4,'generation.focused_regeneration',$5)",
+          [uuidv7(), ctx.organizationId, input.regenerateOf.assetVersionId, assetVersionId,
+           JSON.stringify({ focus: input.regenerateOf.focus, recipe_sha256: input.recipeSha256 })],
+        );
+      }
       candidateAssetVersionIds.push(assetVersionId);
     }
   });

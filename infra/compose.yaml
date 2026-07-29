@@ -46,7 +46,7 @@ services:
       POSTGRES_PWD: storyworld-dev-only
       POSTGRES_SEEDS: postgres
     ports:
-      - "7233:7233"
+      - "7235:7233"  # 7233 is Commerce Foundry's local Temporal; Storyworld gets its own
 
 volumes:
   pgdata:

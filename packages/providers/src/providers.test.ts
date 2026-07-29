@@ -124,6 +124,36 @@ describe("B1 gateway with mock adapter", () => {
     expect(detail["recipe_sha256"]).toBe(recipe.sha256);
     expect(detail["locked_attributes"]).toEqual(recipeInput().lockedAttributes);
     expect(detail["provider_request_id"]).toBeTruthy();
+    expect(typeof detail["latency_ms"]).toBe("number");
+  });
+  it("focused regeneration derives from the prior version and records its focus", async () => {
+    const recipe = await compileGenerationRecipe(ctx, recipeInput());
+    const first = await runGeneration(ctx, ryan, {
+      recipeDocument: recipe.document, recipeSha256: recipe.sha256,
+      adapter: createMockAdapter(), endpoint: "mock/deterministic",
+    });
+    const priorVersionId = first.candidateAssetVersionIds[0]!;
+    const focusedRecipe = await compileGenerationRecipe(ctx, {
+      ...recipeInput(), prompt: "the archive at dusk, panel 2 only: lamplight corrected", seed: 8,
+    });
+    const regen = await runGeneration(ctx, ryan, {
+      recipeDocument: focusedRecipe.document, recipeSha256: focusedRecipe.sha256,
+      adapter: createMockAdapter(), endpoint: "mock/deterministic",
+      regenerateOf: { assetVersionId: priorVersionId, focus: "panel-2-lamplight" },
+    });
+    const rows = await withTenant(ctx.pool, org, (c) =>
+      c.query(
+        "SELECT transformation, provider_provenance FROM storyworld.derivations WHERE from_asset_version_id=$1 AND to_asset_version_id=$2",
+        [priorVersionId, regen.candidateAssetVersionIds[0]],
+      ));
+    expect(rows.rows[0]?.transformation).toBe("generation.focused_regeneration");
+    expect((rows.rows[0]?.provider_provenance as Record<string, unknown>)["focus"]).toBe("panel-2-lamplight");
+    const receipts = await withTenant(ctx.pool, org, (c) =>
+      c.query("SELECT detail FROM storyworld.audit_receipts WHERE correlation_id=$1", [regen.generationRunId]));
+    const detail = receipts.rows[0]?.detail as Record<string, unknown>;
+    expect(detail["regenerate_of"]).toBe(priorVersionId);
+    expect(detail["focus"]).toBe("panel-2-lamplight");
+    expect(detail["locked_attributes"]).toEqual(recipeInput().lockedAttributes);
   });
   it("identical recipes are deterministic through the mock adapter (revision fixed point)", async () => {
     const recipe = await compileGenerationRecipe(ctx, recipeInput());
