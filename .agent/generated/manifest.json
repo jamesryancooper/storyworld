@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-29T18:54:34.282554+00:00",
-  "generation_id": "d3ec0120c08daa23443aecd4e954d736",
+  "generated_at": "2026-07-29T19:09:19.856256+00:00",
+  "generation_id": "e5bd33b65bd647e3d1effcfe41b702c4",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -57,6 +57,7 @@
     ".agent/evidence/EVD-0015-b3-integration-substrate-proofs.md",
     ".agent/evidence/EVD-0016-b4-regression-harness-proofs.md",
     ".agent/evidence/EVD-0017-credential-store-proofs.md",
+    ".agent/evidence/EVD-0018-v1-owner-walkthrough-and-acceptance.md",
     ".agent/evidence/README.md",
     ".agent/extensions/README.md",
     ".agent/extensions/registry.json",
@@ -542,7 +543,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "efaafd057269789c164d559c34bdcc08146fd43dd096699a6993361d9143512e",
+  "source_fingerprint": "3cac4c26174a28f1411e551383de4ed710f37bf63df10f1db4b6c400fabd9e4b",
   "source_scope": {
     "exclusions": [
       {

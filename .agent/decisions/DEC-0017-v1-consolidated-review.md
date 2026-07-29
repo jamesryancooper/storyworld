@@ -2,11 +2,11 @@
 {
   "schema_version": "harness.decision.v1",
   "id": "DEC-0017",
-  "status": "proposed",
-  "previous_status": null,
+  "status": "accepted",
+  "previous_status": "proposed",
   "title": "V1 consolidated owner review: accept the B run (B1-B4) and open the V1 dual-use alpha",
   "created_at": "2026-07-29",
-  "authority_source": "external:project-owner (Ryan Cooper) — DEC-0012 named this consolidated review as the hard stop; only the owner can decide it.",
+  "authority_source": "external:project-owner (Ryan Cooper) \u2014 DEC-0012 named this consolidated review as the hard stop; only the owner can decide it. Accepted in-session by the owner on 2026-07-29 (DEC-0017 consolidated acceptance).",
   "owner": "ryan-cooper (project owner)",
   "scope": "Consolidated acceptance of the four provisionally passed B gates (DEC-0013 B1 media pipeline, DEC-0014 B2 Studio, DEC-0015 B3 integration substrate, DEC-0016 B4 regression harness) on their evidence (EVD-0013..0016, all CI-validated), plus the owner actions that were deferred to this boundary. On acceptance: DEC-0013..0016 flip accepted, the B run closes, and V1 alpha operation begins.",
   "supersedes": null,
@@ -67,3 +67,19 @@
 - Evidence: EVD-0013..0016; every tranche CI-green on the pushed tree.
 - Reversal: reject or amend here; individual gates reopen without
   ceremony (append-only history preserves everything).
+
+## Acceptance (2026-07-29)
+
+The owner performed the full walkthrough — every surface, the governed
+generation flow, the credential store, and the complete human authorship
+loop (propose -> decide -> snapshot -> World Bible) — and accepted
+in-session: "I've tested it and it works well. I believe my
+walkthrough/review is complete and I accept the decision."
+
+Five walkthrough findings were raised, fixed same-day with regression
+tests, and CI-validated before acceptance (EVD-0018): CORS at the engine
+boundary; fal model selection with per-model pricing (and the ~8x dev
+cost-estimate correction); productions visible where they are created;
+inline field explanations; human proposal authoring. DEC-0013..0016 are
+accepted by consolidation. The B run is closed; V1 alpha operation
+begins. Reserved crossings continue to be governed individually.

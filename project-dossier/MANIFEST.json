@@ -110,27 +110,27 @@
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0013-b1-gate-staged.md",
-      "sha256": "3e2f73c51ea3d328a3783c7596861f5b18544ffd24df84d1005655fc8b7ed4a4"
+      "sha256": "14c76ce3bbb2c67afd16ad0910fb693507806f6783804cf18ab326d77b455e86"
     },
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0014-b2-gate-staged.md",
-      "sha256": "3e890bbc3e123c3b129f82260391e0bf6c157798fa858c0131a24ce885fae6dd"
+      "sha256": "abde48b3ee84393a126d52a3d97e88ed4d1a7916af679c8cbb9e103932cb9d80"
     },
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0015-b3-gate-staged.md",
-      "sha256": "451d5678741186c5e42e92ac29e9aba8d48b14f015e3cd8b45866638aa538b4d"
+      "sha256": "def47843741442f26db945f5b56d159af156222e2bfa0b1c2b8885eb98f6c55a"
     },
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0016-b4-gate-staged.md",
-      "sha256": "caa67202ab62135fb85b60bfd6a104abc140facafd440889403e6fac665b8b3f"
+      "sha256": "5200e26d697ad34c72691dfe82cc103e87c601cfd9e2cafd53495ca03c055f78"
     },
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0017-v1-consolidated-review.md",
-      "sha256": "379e8dfccf401c02eb412ebe854087b4d040de4e5005a6ad6290643aacd85c31"
+      "sha256": "fabaf2260fc913af3e021946531f51e605dc26ac2afc8d2f3be8a681b7ec476c"
     },
     {
       "layer": "agent_harness",
@@ -155,7 +155,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "d869a6fba411bde2334ab8f6747b7c17b0e104d49ab210dca1fce44a43fe8366"
+      "sha256": "1ca5428cd9d13800e1075463ec63bfbebbc9c39c34d61109fd95424fff351914"
     },
     {
       "layer": "agent_harness",
@@ -241,6 +241,11 @@
       "layer": "agent_harness",
       "path": ".agent/evidence/EVD-0017-credential-store-proofs.md",
       "sha256": "93cf93e322befa6f918e6b3e3786907d44cf4b90513847f02de589db2c6be965"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0018-v1-owner-walkthrough-and-acceptance.md",
+      "sha256": "e0be376991b316521aeeed7e73ca207976cb3f49969e0f3d30a2d9a7ff4968d9"
     },
     {
       "layer": "agent_harness",
@@ -385,12 +390,12 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/RESUME.md",
-      "sha256": "79b7dd952e3af1e64d5ba1da9ef3d465d78f9ea240594212b53955100b946f42"
+      "sha256": "1e5226f1e0c77b6f0e5bc3e2f54e1240a4ad75f2f658fa9c856f07a03c791fd7"
     },
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "ef1074d33f3f37c204baf1b11c99480196fb4a084141747d8e478a60eb14ebf2"
+      "sha256": "e38d9d41f0c30bd8d20ff1d0f2443e95f92a4e065a394bd954eee530b10bcb75"
     },
     {
       "layer": "agent_harness",
@@ -2550,7 +2555,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/handoff/START_HERE.md",
-      "sha256": "edb1a9dfcb3e253024c6af21a97377256206d2a86703d265a1b1c70ac5c8c582"
+      "sha256": "e2ee777fd15cff0b910ac43035f826a5cf328daa4d0ab9ea270b67b60704d096"
     },
     {
       "layer": "project_dossier",
@@ -2658,12 +2663,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-29T18:54:34.282554+00:00",
-  "generation_id": "d3ec0120c08daa23443aecd4e954d736",
+  "generated_on": "2026-07-29T19:09:19.856256+00:00",
+  "generation_id": "e5bd33b65bd647e3d1effcfe41b702c4",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "efaafd057269789c164d559c34bdcc08146fd43dd096699a6993361d9143512e",
+  "source_fingerprint": "3cac4c26174a28f1411e551383de4ed710f37bf63df10f1db4b6c400fabd9e4b",
   "source_scope": {
     "exclusions": [
       {

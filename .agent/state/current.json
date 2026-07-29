@@ -17,17 +17,19 @@
     "DEC-0009",
     "DEC-0010",
     "DEC-0011",
-    "DEC-0012"
+    "DEC-0012",
+    "DEC-0013",
+    "DEC-0014",
+    "DEC-0015",
+    "DEC-0016",
+    "DEC-0017"
   ],
   "fresh_evidence": [
-    "EVD-0013",
-    "EVD-0014",
-    "EVD-0015",
-    "EVD-0016",
-    "EVD-0017"
+    "EVD-0017",
+    "EVD-0018"
   ],
   "blocked_by": [],
-  "next_action": "HARD STOP (DEC-0012): owner decides DEC-0017 (amended: provider keys enter via Studio Settings, encrypted at rest). The owner may enter the fal key in Settings to live-test generation during the walkthrough; that entry is the receipted reserved-crossing act.",
+  "next_action": "V1 alpha is operational (DEC-0017 accepted 2026-07-29). No phase work is open. Next work is owner-directed: O1 backlog (production key custody, real IdP + TLS, monthly spend aggregation, model-assisted evaluation when keys, CF conformance handoff to a real endpoint, live channel publication policy) or alpha production use.",
   "external_effects_authority_refs": [],
   "limitations": [
     "behavioral_proofs_only_no_readiness_claim",
