@@ -775,12 +775,7 @@
     {
       "layer": "project_source",
       "path": "apps/studio/tsconfig.json",
-      "sha256": "6249e4dbba893e953a94e802aec3498322f61364602d03a450a1828820d3f6c1"
-    },
-    {
-      "layer": "project_source",
-      "path": "apps/studio/tsconfig.tsbuildinfo",
-      "sha256": "1ad9d6c6b0eec8957400db21df8cc3b57f92c17fefc9b10aa3e267e73490dd6a"
+      "sha256": "1ac34ae36035c218a3d4da63fffb04154b84d24a7e7e739b9267352b05d65f93"
     },
     {
       "layer": "project_source",
@@ -2288,12 +2283,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-29T03:09:54.945444+00:00",
-  "generation_id": "3142c6fdae9fadeb1ad4a3df105beccd",
+  "generated_on": "2026-07-29T03:17:39.230807+00:00",
+  "generation_id": "e227ce781df1e60b47611f59f20e4115",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "b5de04adf786a99ee0b4ed8ab3801e95f388257727685bd4e878a1d7e74d2c9f",
+  "source_fingerprint": "ef8c8d08e4f141c914b28f99815e85a3400f076fc906a15d7092f4cb2c4eee77",
   "source_scope": {
     "exclusions": [
       {

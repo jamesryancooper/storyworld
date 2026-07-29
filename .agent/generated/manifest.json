@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-29T03:09:54.945444+00:00",
-  "generation_id": "3142c6fdae9fadeb1ad4a3df105beccd",
+  "generated_at": "2026-07-29T03:17:39.230807+00:00",
+  "generation_id": "e227ce781df1e60b47611f59f20e4115",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -164,7 +164,6 @@
     "apps/studio/src/test/axe.ts",
     "apps/studio/src/test/mock-engine.ts",
     "apps/studio/tsconfig.json",
-    "apps/studio/tsconfig.tsbuildinfo",
     "apps/studio/vitest.config.ts",
     "docs/guidance/README.md",
     "docs/guidance/invokeai-fal-provider-guide.md",
@@ -468,7 +467,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "b5de04adf786a99ee0b4ed8ab3801e95f388257727685bd4e878a1d7e74d2c9f",
+  "source_fingerprint": "ef8c8d08e4f141c914b28f99815e85a3400f076fc906a15d7092f4cb2c4eee77",
   "source_scope": {
     "exclusions": [
       {
