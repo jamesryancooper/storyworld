@@ -1,5 +1,5 @@
 {
-  "document_role": "proposed_unadopted_quality_gate_baseline",
+  "document_role": "authoritative_project_local_quality_gate_store",
   "gates": [
     {
       "approval_required": false,
@@ -136,7 +136,8 @@
       "expires_on": null,
       "id": "GATE-0006",
       "limitations": [
-        "Gate definition ratified 2026-07-28 (PLAN-0001); evaluation occurs when its phase completes. Approval at evaluation: project owner."
+        "Passed 2026-07-29: the project owner completed the deferred Studio walkthrough and accepted DEC-0017 on EVD-0018; DEC-0013..0016 were accepted by consolidation.",
+        "This is the dual-use architectural alpha gate only. It does not establish production readiness; live providers, Commerce Foundry, channel publication, real identity, and production operations remain separately gated."
       ],
       "owner_role": "project_owner",
       "pass_criteria": [
@@ -146,23 +147,30 @@
         "A second editorial or fictional property imports without schema changes.",
         "Evidence expected at evaluation: V1 vertical-slice evidence for both slices; stop-or-branch review record."
       ],
-      "required_evidence": [],
+      "required_evidence": [
+        "EVD-0013",
+        "EVD-0014",
+        "EVD-0015",
+        "EVD-0016",
+        "EVD-0017",
+        "EVD-0018"
+      ],
       "requirement_refs": [
         "REQ-0003",
         "REQ-0007",
         "REQ-0009"
       ],
-      "status": "not_assessed",
+      "status": "passed",
       "title": "V1 exit - dual-use architectural alpha"
     }
   ],
   "permission_grant": false,
   "project_slug": "storyworld-platform",
-  "readiness": "not_assessed",
+  "readiness": "not_ready",
   "review": {
-    "basis": "Generated scaffold provenance is not substantive project review.",
-    "last_reviewed_on": null,
-    "status": "not_reviewed"
+    "basis": "GATE-0001..0005 were accepted through their recorded decisions/evidence; GATE-0006 was accepted by the project owner through DEC-0017/EVD-0018. Production readiness remains not ready.",
+    "last_reviewed_on": "2026-07-29",
+    "status": "reviewed"
   },
   "scaffold_generated_on": "2026-07-28",
   "schema_version": "project.dossier.quality-gates.v1"

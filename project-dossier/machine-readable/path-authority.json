@@ -1,6 +1,6 @@
 {
   "document_role": "generated_from_artifact_registry",
-  "generation_id": "e5bd33b65bd647e3d1effcfe41b702c4",
+  "generation_id": "1526d33989f6e51a2aae870df2244f83",
   "paths": [
     {
       "artifact_type_ids": [
@@ -573,7 +573,7 @@
       "artifact_type_ids": [
         "GOV-0001"
       ],
-      "authority": "project_maintained_proposed_quality_gate_records",
+      "authority": "project_maintained_quality_gate_records",
       "generated": false,
       "information_state": "evidence",
       "path": "project-dossier/validation/QUALITY_GATES.json",

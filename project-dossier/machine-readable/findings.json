@@ -8,47 +8,54 @@
     "not_assessed",
     "not_applicable"
   ],
-  "document_role": "unadopted_authoritative_store_candidate",
+  "document_role": "authoritative_project_local_findings_store",
   "findings": [
     {
-      "assessed_on": "2026-07-28",
+      "assessed_on": "2026-07-29",
       "id": "FIND-0001",
       "inspected_evidence": [
-        "EVD-0003",
-        "EVD-0005",
-        "EVD-0006"
+        "DEC-0006",
+        "DEC-0008",
+        "EVD-0007",
+        "EVD-0008",
+        "EVD-0018"
       ],
       "limitations": [
-        "Derived by claude-agent from direct inspection (EVD-0003); Ratified by the project owner (Ryan Cooper) on 2026-07-28 via acceptance of DEC-0001..DEC-0004 (PLAN-0001)."
+        "Conformance is scoped to the accepted contract-pack formats, artifacts, fixtures, and validators; it does not prove later production operations or external integration readiness."
       ],
       "owner_role": "project_owner",
-      "rationale": "The F0 half of the contract pack now exists and is accepted (ADR set + charter artifacts, GATE-0002 passed). The F1 half (schemas, OpenAPI, events, lifecycles, fixtures, tests) remains absent; PLAN-0003 is in progress.",
-      "remediation_plan_refs": [
-        "PLAN-0002",
-        "PLAN-0003"
-      ],
+      "rationale": "The accepted F0/F1 contract pack is implemented: sixteen product ADRs and charter artifacts; twelve record/package schemas plus the CloudEvents envelope; four lifecycle machines; 33-path OpenAPI; 24-event AsyncAPI; three adapter interfaces; production fixtures, probes, metamorphic tests, and CI-enforced validation. GATE-0002 and GATE-0003 passed through DEC-0006 and DEC-0008.",
+      "remediation_plan_refs": [],
       "requirement_refs": [
         "REQ-0010"
       ],
-      "status": "transitional",
-      "subject_version": "main after commit 895e2f5 (F0 pack) and DEC-0006 acceptance",
-      "title": "F0/F1 contract pack absent"
+      "status": "conformant",
+      "subject_version": "main at 23d3050, V1 accepted 2026-07-29",
+      "title": "Accepted F0/F1 contract pack implemented and CI-validated"
     },
     {
-      "assessed_on": "2026-07-28",
+      "assessed_on": "2026-07-29",
       "id": "FIND-0002",
       "inspected_evidence": [
-        "EVD-0003"
+        "DEC-0010",
+        "DEC-0011",
+        "DEC-0017",
+        "EVD-0009",
+        "EVD-0011",
+        "EVD-0013",
+        "EVD-0014",
+        "EVD-0015",
+        "EVD-0016",
+        "EVD-0017",
+        "EVD-0018"
       ],
       "limitations": [
-        "Derived by claude-agent from direct inspection (EVD-0003); Ratified by the project owner (Ryan Cooper) on 2026-07-28 via acceptance of DEC-0001..DEC-0004 (PLAN-0001)."
+        "Compatibility is an alpha-level architecture and behavior assessment, not a production-readiness, legal, security, privacy, accessibility, reliability, or live-integration determination.",
+        "Production key custody, TLS/real identity, aggregate spend accounting, real model-assisted evaluation, live Commerce Foundry/channel crossings, and production operations remain deferred or gated."
       ],
       "owner_role": "project_owner",
-      "rationale": "No implementation exists; all platform behavior requirements are unimplemented by direct observation, consistent with the dossier's own maturity claims (part 01, section 1.2).",
-      "remediation_plan_refs": [
-        "PLAN-0004",
-        "PLAN-0005"
-      ],
+      "rationale": "The accepted V1 alpha implements the canonical authority boundaries and core behaviors: independent Engine authority, Studio over public contracts, human authorization, immutable/superseding revisions, exact-content approvals, channel-neutral masters, signed portability, and the runtime boundary. DEC-0017/EVD-0018 record the owner walkthrough and acceptance. Production and live external crossings remain later work, so the assessment is compatible rather than a production-level conformance claim.",
+      "remediation_plan_refs": [],
       "requirement_refs": [
         "REQ-0001",
         "REQ-0002",
@@ -60,17 +67,17 @@
         "REQ-0008",
         "REQ-0009"
       ],
-      "status": "absent",
-      "subject_version": "Uncommitted working tree, 2026-07-28 (repository has no git commits)",
-      "title": "Platform implementation not assessable"
+      "status": "compatible",
+      "subject_version": "main at 23d3050, V1 accepted 2026-07-29",
+      "title": "V1 alpha implements the core architecture; production crossings remain gated"
     }
   ],
   "permission_grant": false,
   "project_slug": "storyworld-platform",
   "review": {
-    "basis": "Generated scaffold provenance is not substantive project review.",
-    "last_reviewed_on": null,
-    "status": "not_reviewed"
+    "basis": "Reassessed from the accepted decision/evidence chain through DEC-0017/EVD-0018 and direct inspection during TASK-0012; no production-readiness inference.",
+    "last_reviewed_on": "2026-07-29",
+    "status": "reviewed"
   },
   "scaffold_generated_on": "2026-07-28",
   "schema_version": "project.dossier.findings.v1"

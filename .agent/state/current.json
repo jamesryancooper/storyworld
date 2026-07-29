@@ -25,11 +25,11 @@
     "DEC-0017"
   ],
   "fresh_evidence": [
-    "EVD-0017",
-    "EVD-0018"
+    "EVD-0019",
+    "EVD-0020"
   ],
   "blocked_by": [],
-  "next_action": "V1 alpha is operational (DEC-0017 accepted 2026-07-29). No phase work is open. Next work is owner-directed: O1 backlog (production key custody, real IdP + TLS, monthly spend aggregation, model-assisted evaluation when keys, CF conformance handoff to a real endpoint, live channel publication policy) or alpha production use.",
+  "next_action": "V1 alpha is operational and newcomer/explanatory documentation is unified (TASK-0012/TASK-0013; EVD-0019/EVD-0020). No phase work is open. Next work is owner-directed: alpha use, a bounded O1 backlog task, or an explicit registered follow-on validation/corpus task.",
   "external_effects_authority_refs": [],
   "limitations": [
     "behavioral_proofs_only_no_readiness_claim",

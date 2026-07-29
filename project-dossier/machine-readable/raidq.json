@@ -1,5 +1,5 @@
 {
-  "document_role": "unadopted_authoritative_store_candidate",
+  "document_role": "authoritative_project_local_raidq_store",
   "items": [
     {
       "blocking": false,
@@ -223,9 +223,9 @@
   "permission_grant": false,
   "project_slug": "storyworld-platform",
   "review": {
-    "basis": "Generated scaffold provenance is not substantive project review.",
-    "last_reviewed_on": null,
-    "status": "not_reviewed"
+    "basis": "The project register was ratified through PLAN-0001 and its stack/provider assumptions were reconciled through DEC-0009 and DEC-0012; reviewed during TASK-0012.",
+    "last_reviewed_on": "2026-07-29",
+    "status": "reviewed"
   },
   "scaffold_generated_on": "2026-07-28",
   "schema_version": "project.dossier.raidq.v1"

@@ -1,11 +1,11 @@
 {
-  "document_role": "unadopted_authoritative_store_candidate",
+  "document_role": "authoritative_project_local_sources_store",
   "permission_grant": false,
   "project_slug": "storyworld-platform",
   "review": {
-    "basis": "Generated scaffold provenance is not substantive project review.",
-    "last_reviewed_on": null,
-    "status": "not_reviewed"
+    "basis": "Source classifications were adopted through DEC-0001..DEC-0004 and subsequent task evidence; reviewed for current routing during TASK-0012.",
+    "last_reviewed_on": "2026-07-29",
+    "status": "reviewed"
   },
   "scaffold_generated_on": "2026-07-28",
   "schema_version": "project.dossier.sources.v1",

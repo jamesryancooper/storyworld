@@ -1,5 +1,5 @@
 {
-  "document_role": "unadopted_authoritative_store_candidate",
+  "document_role": "authoritative_project_local_requirements_store",
   "permission_grant": false,
   "project_slug": "storyworld-platform",
   "requirements": [
@@ -195,9 +195,9 @@
     }
   ],
   "review": {
-    "basis": "Generated scaffold provenance is not substantive project review.",
-    "last_reviewed_on": null,
-    "status": "not_reviewed"
+    "basis": "Requirements were ratified with the adopted dossier through DEC-0001..DEC-0004/PLAN-0001 and reviewed against the accepted V1 evidence during TASK-0012.",
+    "last_reviewed_on": "2026-07-29",
+    "status": "reviewed"
   },
   "scaffold_generated_on": "2026-07-28",
   "schema_version": "project.dossier.requirements.v1",

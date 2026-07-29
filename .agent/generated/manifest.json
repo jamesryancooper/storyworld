@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-29T19:09:19.856256+00:00",
-  "generation_id": "e5bd33b65bd647e3d1effcfe41b702c4",
+  "generated_at": "2026-07-29T21:15:17.440540+00:00",
+  "generation_id": "1526d33989f6e51a2aae870df2244f83",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -58,6 +58,8 @@
     ".agent/evidence/EVD-0016-b4-regression-harness-proofs.md",
     ".agent/evidence/EVD-0017-credential-store-proofs.md",
     ".agent/evidence/EVD-0018-v1-owner-walkthrough-and-acceptance.md",
+    ".agent/evidence/EVD-0019-v1-documentation-synchronization.md",
+    ".agent/evidence/EVD-0020-unified-newcomer-documentation.md",
     ".agent/evidence/README.md",
     ".agent/extensions/README.md",
     ".agent/extensions/registry.json",
@@ -100,6 +102,8 @@
     ".agent/tasks/TASK-0009-b3-integration-substrate.md",
     ".agent/tasks/TASK-0010-b4-evaluation-harness.md",
     ".agent/tasks/TASK-0011-credential-store.md",
+    ".agent/tasks/TASK-0012-v1-documentation-synchronization.md",
+    ".agent/tasks/TASK-0013-unify-newcomer-documentation.md",
     ".agent/templates/artifact.json",
     ".agent/templates/checkpoint.md",
     ".agent/templates/decision.md",
@@ -543,7 +547,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "3cac4c26174a28f1411e551383de4ed710f37bf63df10f1db4b6c400fabd9e4b",
+  "source_fingerprint": "8316cd65e5e632bb5eff8757f8eca4cb2c8d4352d8a4a2212bea715fb501e52a",
   "source_scope": {
     "exclusions": [
       {

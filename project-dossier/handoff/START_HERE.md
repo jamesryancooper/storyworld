@@ -10,8 +10,8 @@
   2026-07-29** (DEC-0013..0016 accepted by consolidation; EVD-0018
   records the walkthrough, the five findings fixed before acceptance,
   and the in-session acceptance).
-- The platform is a working dual-use alpha: engine + seven-surface
-  Studio + credential store + CF connector/simulator + runtime compiler
+- The platform is a working dual-use alpha: engine + Studio workbench
+  with credential settings + CF connector/simulator + runtime compiler
   + Instagram export adapter + regression harness, all CI-enforced.
 - Reserved crossings are governed individually and remain closed unless
   the owner opens them: fal key via Studio -> Settings (receipted),

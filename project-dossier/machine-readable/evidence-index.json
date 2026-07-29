@@ -1,13 +1,13 @@
 {
   "schema_version": "project.dossier.evidence-index.v1",
-  "document_role": "unadopted_authoritative_store_candidate",
+  "document_role": "authoritative_project_local_evidence_index",
   "permission_grant": false,
   "project_slug": "storyworld-platform",
   "scaffold_generated_on": "2026-07-28",
   "review": {
-    "status": "not_reviewed",
-    "last_reviewed_on": null,
-    "basis": "Generated scaffold provenance is not substantive project review."
+    "status": "reviewed",
+    "last_reviewed_on": "2026-07-29",
+    "basis": "Evidence routing was reviewed against the accepted decision/evidence chain through EVD-0018 during TASK-0012; individual evidence limitations remain controlling."
   },
   "evidence": []
 }

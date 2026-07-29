@@ -8,9 +8,9 @@
 - Position: **V1 ACCEPTED (DEC-0017, 2026-07-29); alpha operational.**
   All 17 decisions accepted; no active task; next work is owner-directed
   (alpha use or the O1 backlog named in current.json).
-- Platform: 13 packages + 3 apps; Temporal dev on 7235 (7233 is Commerce
-  Foundry's); InvokeAI local at ~/storyworld-tools, provider disabled;
-  credential-store master key at ~/.storyworld/kek.key (0600)
+- Platform: 14 implementation packages + 3 apps; Temporal dev on 7235 (7233
+  is Commerce Foundry's); InvokeAI local at ~/storyworld-tools, provider
+  disabled; credential-store master key at ~/.storyworld/kek.key (0600)
 - Working practice: ship-check before every commit, run UNPIPED with its
   exit code checked; refresh + git add -A together (never selectively
   stage after refresh); restart dev servers after installs; serve the

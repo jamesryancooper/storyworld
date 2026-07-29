@@ -23,19 +23,22 @@ profile on 2026-07-28.
 8. Use `history/` only when the active catalog or supersession record routes
    there.
 
-## Dossier state (2026-07-28)
+## Dossier state (2026-07-29)
 
 - Project definition: populated from the Storyworld canonical content pack
   v1.0 (`canonical/storyworld/`); adoption ratified by the project owner
   2026-07-28 (DEC-0001–DEC-0004, PLAN-0001)
-- Current implementation: observed 2026-07-28 — documentation and harness
-  only; no implementation exists (`current-state/README.md`)
-- Conformance: assessed 2026-07-28 — FIND-0001/FIND-0002 (`absent`, expected
-  pre-implementation)
-- Readiness: not assessed
+- Current implementation: owner-accepted V1 dual-use alpha at `23d3050`
+  (DEC-0017/EVD-0018); Engine, Studio, contracts, persistence/custody,
+  workflows, integrations, and regression harness are implemented
+  (`current-state/README.md`)
+- Conformance: reassessed 2026-07-29 — the contract pack is conformant
+  (FIND-0001); the implemented alpha is compatible with the canonical
+  architecture while production crossings remain gated (FIND-0002)
+- Readiness: V1 alpha gate passed; production readiness is `not_ready`
 - Conditional artifact applicability: MOD/SEC/OPS/TRN/HIS assessed
-  `applicable`; DAT/SUP/RES/EVA/CTX deliberately `not_assessed` until their
-  triggers arrive (PLAN-0006)
+  `applicable`; CTX assessed `applicable`; DAT/SUP/RES/EVA remain
+  `not_assessed` pending their explicit stewardship assessments (PLAN-0006)
 - External authority: none created by this dossier
 
 ## Major layers

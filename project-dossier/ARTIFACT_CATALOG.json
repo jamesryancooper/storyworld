@@ -2186,7 +2186,7 @@
   ],
   "document_role": "generated_non_authoritative_mirror_from_artifact_registry",
   "dossier_version": "1.0.1",
-  "generation_id": "e5bd33b65bd647e3d1effcfe41b702c4",
+  "generation_id": "1526d33989f6e51a2aae870df2244f83",
   "permission_grant": false,
   "profile": "high-assurance",
   "project_slug": "storyworld-platform",
@@ -2210,9 +2210,9 @@
       "profile": "minimal",
       "representation_role": "navigation",
       "review": {
-        "basis": "Generated scaffold provenance is not substantive project review.",
-        "last_reviewed_on": null,
-        "status": "not_reviewed"
+        "basis": "Reconciled with the adopted dossier and accepted V1 state during TASK-0012.",
+        "last_reviewed_on": "2026-07-29",
+        "status": "reviewed"
       },
       "review_cadence": "on_path_or_entry_point_change",
       "sensitivity": "internal",
@@ -2565,9 +2565,9 @@
       "profile": "standard",
       "representation_role": "structured_record_source",
       "review": {
-        "basis": "Generated scaffold provenance is not substantive project review.",
-        "last_reviewed_on": null,
-        "status": "not_reviewed"
+        "basis": "Ratified through DEC-0001..DEC-0004/PLAN-0001 and reviewed against the accepted V1 evidence during TASK-0012.",
+        "last_reviewed_on": "2026-07-29",
+        "status": "reviewed"
       },
       "review_cadence": "on_requirement_change",
       "sensitivity": "internal",
@@ -2695,9 +2695,9 @@
       "profile": "minimal",
       "representation_role": "current_state_source",
       "review": {
-        "basis": "Generated scaffold provenance is not substantive project review.",
-        "last_reviewed_on": null,
-        "status": "not_reviewed"
+        "basis": "Reassessed from direct repository inspection and DEC-0017/EVD-0018 during TASK-0012.",
+        "last_reviewed_on": "2026-07-29",
+        "status": "reviewed"
       },
       "review_cadence": "on_material_change_or_evidence_expiry",
       "sensitivity": "internal",
@@ -2728,9 +2728,9 @@
       "profile": "minimal",
       "representation_role": "method_and_summary_source",
       "review": {
-        "basis": "Generated scaffold provenance is not substantive project review.",
-        "last_reviewed_on": null,
-        "status": "not_reviewed"
+        "basis": "Reassessed against active requirements and the accepted V1 evidence during TASK-0012.",
+        "last_reviewed_on": "2026-07-29",
+        "status": "reviewed"
       },
       "review_cadence": "on_target_or_evidence_change",
       "sensitivity": "internal",
@@ -2760,9 +2760,9 @@
       "profile": "standard",
       "representation_role": "structured_record_source",
       "review": {
-        "basis": "Generated scaffold provenance is not substantive project review.",
-        "last_reviewed_on": null,
-        "status": "not_reviewed"
+        "basis": "Reassessed from the accepted decision/evidence chain through DEC-0017/EVD-0018 during TASK-0012.",
+        "last_reviewed_on": "2026-07-29",
+        "status": "reviewed"
       },
       "review_cadence": "on_finding_change",
       "sensitivity": "internal",
@@ -2793,9 +2793,9 @@
       "profile": "minimal",
       "representation_role": "method_and_summary_source",
       "review": {
-        "basis": "Generated scaffold provenance is not substantive project review.",
-        "last_reviewed_on": null,
-        "status": "not_reviewed"
+        "basis": "Reconciled with completed F0-V1 plans and the unscheduled follow-on records during TASK-0012.",
+        "last_reviewed_on": "2026-07-29",
+        "status": "reviewed"
       },
       "review_cadence": "on_dependency_or_status_change",
       "sensitivity": "internal",
@@ -2826,9 +2826,9 @@
       "profile": "standard",
       "representation_role": "structured_record_source",
       "review": {
-        "basis": "Generated scaffold provenance is not substantive project review.",
-        "last_reviewed_on": null,
-        "status": "not_reviewed"
+        "basis": "Ratified through PLAN-0001 and reconciled with completed F0-V1 tasks, gates, and evidence during TASK-0012.",
+        "last_reviewed_on": "2026-07-29",
+        "status": "reviewed"
       },
       "review_cadence": "on_plan_change",
       "sensitivity": "internal",
@@ -2859,9 +2859,9 @@
       "profile": "minimal",
       "representation_role": "method_and_summary_source",
       "review": {
-        "basis": "Generated scaffold provenance is not substantive project review.",
-        "last_reviewed_on": null,
-        "status": "not_reviewed"
+        "basis": "Reconciled with the resolved stack and provider assumptions during TASK-0012.",
+        "last_reviewed_on": "2026-07-29",
+        "status": "reviewed"
       },
       "review_cadence": "weekly_during_active_work",
       "sensitivity": "internal",
@@ -2891,9 +2891,9 @@
       "profile": "standard",
       "representation_role": "structured_record_source",
       "review": {
-        "basis": "Generated scaffold provenance is not substantive project review.",
-        "last_reviewed_on": null,
-        "status": "not_reviewed"
+        "basis": "Ratified through PLAN-0001 and reviewed against DEC-0009/DEC-0012 during TASK-0012.",
+        "last_reviewed_on": "2026-07-29",
+        "status": "reviewed"
       },
       "review_cadence": "weekly_during_active_work",
       "sensitivity": "internal",
@@ -2957,9 +2957,9 @@
       "profile": "standard",
       "representation_role": "structured_record_source",
       "review": {
-        "basis": "Generated scaffold provenance is not substantive project review.",
-        "last_reviewed_on": null,
-        "status": "not_reviewed"
+        "basis": "Adopted source routing reviewed for current V1 documentation synchronization during TASK-0012.",
+        "last_reviewed_on": "2026-07-29",
+        "status": "reviewed"
       },
       "review_cadence": "on_source_change_or_expiry",
       "sensitivity": "internal",
@@ -2990,9 +2990,9 @@
       "profile": "minimal",
       "representation_role": "validation_method_source",
       "review": {
-        "basis": "Generated scaffold provenance is not substantive project review.",
-        "last_reviewed_on": null,
-        "status": "not_reviewed"
+        "basis": "Updated to the implemented harness, contract, platform, CI, and restore validation layers during TASK-0012.",
+        "last_reviewed_on": "2026-07-29",
+        "status": "reviewed"
       },
       "review_cadence": "on_validation_contract_change",
       "sensitivity": "internal",
@@ -3013,7 +3013,7 @@
       "artifact_type_ids": [
         "GOV-0001"
       ],
-      "authority": "project_maintained_proposed_quality_gate_records",
+      "authority": "project_maintained_quality_gate_records",
       "generated": false,
       "id": "REP-0026",
       "information_state": "evidence",
@@ -3021,11 +3021,11 @@
       "owner_role": "validation_owner",
       "path": "project-dossier/validation/QUALITY_GATES.json",
       "profile": "minimal",
-      "representation_role": "proposed_gate_record_source",
+      "representation_role": "gate_record_source",
       "review": {
-        "basis": "Generated scaffold provenance is not substantive project review.",
-        "last_reviewed_on": null,
-        "status": "not_reviewed"
+        "basis": "GATE-0001..0006 reconciled with their accepted decisions and evidence through DEC-0017/EVD-0018 during TASK-0012.",
+        "last_reviewed_on": "2026-07-29",
+        "status": "reviewed"
       },
       "review_cadence": "on_gate_change",
       "sensitivity": "internal",
@@ -3055,9 +3055,9 @@
       "profile": "standard",
       "representation_role": "structured_record_source",
       "review": {
-        "basis": "Generated scaffold provenance is not substantive project review.",
-        "last_reviewed_on": null,
-        "status": "not_reviewed"
+        "basis": "Evidence routing reviewed through EVD-0018 during TASK-0012; individual evidence limitations remain controlling.",
+        "last_reviewed_on": "2026-07-29",
+        "status": "reviewed"
       },
       "review_cadence": "on_evidence_change_or_expiry",
       "sensitivity": "internal",
@@ -3088,9 +3088,9 @@
       "profile": "minimal",
       "representation_role": "handoff_view",
       "review": {
-        "basis": "Generated scaffold provenance is not substantive project review.",
-        "last_reviewed_on": null,
-        "status": "not_reviewed"
+        "basis": "Reconciled with the accepted V1 alpha and owner-directed next-work boundary during TASK-0012.",
+        "last_reviewed_on": "2026-07-29",
+        "status": "reviewed"
       },
       "review_cadence": "before_handoff",
       "sensitivity": "internal",

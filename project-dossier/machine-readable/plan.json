@@ -1,5 +1,5 @@
 {
-  "document_role": "unadopted_authoritative_store_candidate",
+  "document_role": "authoritative_project_local_plan_store",
   "permission_grant": false,
   "plan_items": [
     {
@@ -294,7 +294,7 @@
       "gate_refs": [],
       "id": "PLAN-0009",
       "limitations": [
-        "Committed validation obligations, not an informal backlog; execution is dependency-phased (audio, localization, experiments, collaboration, publication, runtime, channel adapters). Does not block GATE-0003."
+        "Committed validation obligations, not an informal backlog; source scenarios are registered, but full production-fixture implementations remain unscheduled after V1. They do not block the accepted V1 alpha."
       ],
       "objective": "Implement the nineteen registered post-F1 production fixtures (five property fixtures: Field Manual, Dumpster Fire Friends, The Lanterns, Notes to My Daughter, Living Inheritance; plus fourteen pattern fixtures: localization/accessibility, audio-first, audience-directed serialization, conversational character export, governed experiment, persistent brand universe, collaborative merge, procedural episodic, curriculum pathway, live-event window, regional/age cuts, generational saga, simulation-schedule export, concept album) as full production fixtures in the phases their capabilities arrive.",
       "owner_role": "project_owner",
@@ -320,7 +320,7 @@
       "gate_refs": [],
       "id": "PLAN-0010",
       "limitations": [
-        "MET-F1 active now; later families activate at F3, B3, and B4 respectively."
+        "MET-F1 is active and CI-enforced. The registered MET-F3, MET-B3, and MET-B4 transformation families remain unscheduled follow-on work; B4's current golden-corpus and defect-injection harness does not by itself complete those registered families."
       ],
       "objective": "Validate that authorized transformations of canon, productions, assets, renditions, rights, packages, and integrations preserve the correct identities and invariants while invalidating only the affected dependencies, approvals, and outputs.",
       "owner_role": "project_owner",
@@ -432,9 +432,9 @@
   ],
   "project_slug": "storyworld-platform",
   "review": {
-    "basis": "Generated scaffold provenance is not substantive project review.",
-    "last_reviewed_on": null,
-    "status": "not_reviewed"
+    "basis": "Plan records were ratified through PLAN-0001 and reconciled with completed F0-V1 tasks, gates, and evidence during TASK-0012.",
+    "last_reviewed_on": "2026-07-29",
+    "status": "reviewed"
   },
   "scaffold_generated_on": "2026-07-28",
   "schema_version": "project.dossier.plan.v1",

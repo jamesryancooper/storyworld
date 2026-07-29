@@ -21,11 +21,19 @@ with class-variance-authority + tailwind-merge. Rationale:
 
 1. Command Center (`/`) — identity, property portfolio, governed create.
 2. World Bible (`/world-bible`) — pinned canon: releases, entities, events.
-3. Arc Board, Generation Workbench, Continuity Console / Review Room,
-   Release Builder — subsequent tranches, in order.
+3. Arc Board (`/arc-board`) — nonlinear-safe structures and supersession.
+4. Generation Workbench (`/generation`) — governed recipes, models, costs,
+   candidates, and provenance.
+5. Continuity Console (`/continuity`) — deterministic/model-assisted findings
+   and human dispositions.
+6. Review Room (`/review`) — human-authored proposals and explicit decisions.
+7. Release Builder (`/release-builder`) — hash-bound releases and productions.
+8. Settings (`/settings`) — masked, encrypted provider-credential entry,
+   status, and revocation.
 
 Accessibility is CI-enforced: every surface renders through axe-core in
 the component suites with zero violations tolerated.
 
 Set `NEXT_PUBLIC_ENGINE_URL` (default `http://localhost:4400`) and run
-`pnpm dev`.
+`pnpm dev`. Studio is an accepted alpha surface, not production identity,
+transport-security, publication, or operations configuration.

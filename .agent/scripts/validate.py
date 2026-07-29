@@ -4520,7 +4520,10 @@ def main() -> int:
     if errors:
         return 1
     print("[PASS] harness and dossier structural contracts")
-    print("[INFO] project adoption, implementation, and readiness remain unassessed")
+    print(
+        "[INFO] structural validation does not determine implementation or "
+        "production readiness"
+    )
     return 0
 
 
