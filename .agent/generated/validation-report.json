@@ -37,13 +37,13 @@
   "external_effects": "repository_local_derived_metadata_refresh_only",
   "failures": [],
   "freshness_rule": "Invalid when any non-excluded repository source byte or path changes.",
-  "generated_at": "2026-07-29T03:37:37.987572+00:00",
-  "generation_id": "34b5a0493e35d6d27d3cdb3d9fec3575",
+  "generated_at": "2026-07-29T03:51:40.366191+00:00",
+  "generation_id": "83693fa31a544be0b4edb4dcf26ae430",
   "git_scope": {
     "available": true,
-    "ignored": 13,
-    "tracked_modified": 10,
-    "untracked": 3
+    "ignored": 17,
+    "tracked_modified": 5,
+    "untracked": 4
   },
   "limitations": [
     "Structural pass does not prove implementation or project readiness.",
@@ -60,7 +60,7 @@
     "binary, non-UTF-8, encoded, and files larger than 4 MiB require a dedicated secret scanner",
     "project-specific build, test, security, legal, and operational checks"
   ],
-  "source_fingerprint": "4a13a8cac6c9781fe9640aea541d63c83a52fc4a48fae98d638359cc8545946e",
+  "source_fingerprint": "1117b58d510c2f8ac03e704bc725ffd0ff0cd96ac00117c539614abde5cfba7a",
   "source_scope": {
     "exclusions": [
       {
@@ -114,6 +114,22 @@
       {
         "path": "apps/studio/.next",
         "reason": "Next.js build/dev output; generated, gitignored, never source."
+      },
+      {
+        "path": "packages/commerce-connector/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/runtime-compiler/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/channel-instagram/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/identity/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
       },
       {
         "path": ".env.local",

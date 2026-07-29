@@ -60,6 +60,9 @@ importers:
       '@storyworld/evaluation':
         specifier: workspace:*
         version: link:../../packages/evaluation
+      '@storyworld/identity':
+        specifier: workspace:*
+        version: link:../../packages/identity
       '@storyworld/kernel':
         specifier: workspace:*
         version: link:../../packages/kernel
@@ -153,6 +156,28 @@ importers:
         specifier: ^4.1.0
         version: 4.3.3
 
+  packages/channel-instagram:
+    dependencies:
+      '@storyworld/domain':
+        specifier: workspace:*
+        version: link:../domain
+      '@storyworld/kernel':
+        specifier: workspace:*
+        version: link:../kernel
+      '@storyworld/persistence':
+        specifier: workspace:*
+        version: link:../persistence
+      '@storyworld/portability':
+        specifier: workspace:*
+        version: link:../portability
+      '@storyworld/storage':
+        specifier: workspace:*
+        version: link:../storage
+    devDependencies:
+      '@types/pg':
+        specifier: ^8.11.0
+        version: 8.20.0
+
   packages/commerce-connector:
     dependencies:
       '@storyworld/domain':
@@ -188,6 +213,16 @@ importers:
       '@storyworld/storage':
         specifier: workspace:*
         version: link:../storage
+    devDependencies:
+      '@types/pg':
+        specifier: ^8.11.0
+        version: 8.20.0
+
+  packages/identity:
+    dependencies:
+      '@storyworld/domain':
+        specifier: workspace:*
+        version: link:../domain
     devDependencies:
       '@types/pg':
         specifier: ^8.11.0
@@ -242,6 +277,25 @@ importers:
         version: 8.20.0
 
   packages/providers:
+    dependencies:
+      '@storyworld/domain':
+        specifier: workspace:*
+        version: link:../domain
+      '@storyworld/kernel':
+        specifier: workspace:*
+        version: link:../kernel
+      '@storyworld/persistence':
+        specifier: workspace:*
+        version: link:../persistence
+      '@storyworld/storage':
+        specifier: workspace:*
+        version: link:../storage
+    devDependencies:
+      '@types/pg':
+        specifier: ^8.11.0
+        version: 8.20.0
+
+  packages/runtime-compiler:
     dependencies:
       '@storyworld/domain':
         specifier: workspace:*

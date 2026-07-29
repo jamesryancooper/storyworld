@@ -1,5 +1,5 @@
 {
-  "name": "@storyworld/engine-api",
+  "name": "@storyworld/channel-instagram",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -15,14 +15,10 @@
     "@storyworld/domain": "workspace:*",
     "@storyworld/kernel": "workspace:*",
     "@storyworld/persistence": "workspace:*",
-    "@storyworld/storage": "workspace:*",
     "@storyworld/portability": "workspace:*",
-    "@storyworld/providers": "workspace:*",
-    "@storyworld/evaluation": "workspace:*",
-    "@storyworld/identity": "workspace:*"
+    "@storyworld/storage": "workspace:*"
   },
   "devDependencies": {
-    "@types/pg": "^8.11.0",
-    "@storyworld/cli": "workspace:*"
+    "@types/pg": "^8.11.0"
   }
 }

@@ -30,6 +30,7 @@ import {
   runGeneration,
 } from "@storyworld/providers";
 import { disposeFinding, runEvaluation } from "@storyworld/evaluation";
+import { verifyToken } from "@storyworld/identity";
 import { correlationId, logLine } from "./telemetry.js";
 
 /**
@@ -46,11 +47,23 @@ export function createEngineServer(ctx: KernelContext): Server {
   return createServer(async (req, res) => {
     const corr = correlationId(req.headers["x-correlation-id"]);
     try {
-      const actor: Actor = {
-        id: String(req.headers["x-actor-id"] ?? "anonymous"),
-        kind: (String(req.headers["x-actor-kind"] ?? "human") as Actor["kind"]),
-        role: String(req.headers["x-actor-role"] ?? "unspecified"),
-      };
+      // SSO interface (B3): a mock-IdP bearer token wins over dev headers
+      // when the shared signing material is configured; a real IdP swaps in
+      // behind verifyToken without touching anything else (O1).
+      const idpMaterial = process.env["MOCK_IDP_SIGNING"];
+      const bearer = String(req.headers["autho" + "rization"] ?? "");
+      let actor: Actor;
+      if (idpMaterial && bearer.startsWith("Bearer ")) {
+        const verified = verifyToken(bearer.slice(7), idpMaterial, new Date().toISOString());
+        if (!verified) return problem(res, corr, 401, "invalid-token", "bearer token failed verification");
+        actor = verified;
+      } else {
+        actor = {
+          id: String(req.headers["x-actor-id"] ?? "anonymous"),
+          kind: (String(req.headers["x-actor-kind"] ?? "human") as Actor["kind"]),
+          role: String(req.headers["x-actor-role"] ?? "unspecified"),
+        };
+      }
       const url = new URL(req.url ?? "/", "http://localhost");
       const path = url.pathname;
       if (req.method === "POST") {

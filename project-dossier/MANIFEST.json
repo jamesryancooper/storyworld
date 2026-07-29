@@ -265,7 +265,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/project.json",
-      "sha256": "421972cb7deafc4418bde6f198961dff9fd1dae4db94e7221e91727b3ae6cef0"
+      "sha256": "522a6e1cc61e99acca3796b864ba4387e83ed00f9083a5a4d478a568f5f012cf"
     },
     {
       "layer": "agent_harness",
@@ -595,7 +595,7 @@
     {
       "layer": "project_source",
       "path": "apps/engine-api/package.json",
-      "sha256": "874dfff5b550cfbf5e994af6e34c2a4562507957966797ada6edac32cfd14e3e"
+      "sha256": "5754398b4bea685a9447c7fbde511a20196a4e96336b13d6a7c09efd8bed66fd"
     },
     {
       "layer": "project_source",
@@ -610,7 +610,12 @@
     {
       "layer": "project_source",
       "path": "apps/engine-api/src/server.ts",
-      "sha256": "b6978331af984a45be6bfeb91686c07f41d93b650d5e69819180e283584e13de"
+      "sha256": "eb82ebb8d0023fb97b2eb7949e7f800fdc0e798cacbef4f166e6cb5938653db6"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/engine-api/src/sso.test.ts",
+      "sha256": "810c3c9163ce22ca040f4ddd156c68e438d1606cd9f05bfe874a4399a742532f"
     },
     {
       "layer": "project_source",
@@ -855,7 +860,7 @@
     {
       "layer": "project_source",
       "path": "eslint.config.js",
-      "sha256": "c84f351c51e1ed980405073f7a3546b23d647e7a02eb0895b0bd3efa75dcb352"
+      "sha256": "d1eea43979f28274d55941abacae5cc80ebe9d9e8cdd2bb40a1cae110dcf3d49"
     },
     {
       "layer": "project_source",
@@ -901,6 +906,81 @@
       "layer": "project_source",
       "path": "package.json",
       "sha256": "bf2e937b41f9babd223a1603e13bdaf905bafc63e1cb7c66fa2e53711eee7c76"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/channel-instagram/package.json",
+      "sha256": "8400a6abdf91fce37b3354366bce700f3281a98f9c87e41c99a17ebe8f3085d1"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/channel-instagram/src/adapter.test.ts",
+      "sha256": "91114a794328fdc9098754515d39bc0e0b6f20f5e608f8bd2975ed78eec0a64e"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/channel-instagram/src/adapter.ts",
+      "sha256": "20b0fd13d6c7ef199f126547d5fe128b779f37f404462a0c70c7cc1cb16e55e0"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/channel-instagram/src/index.ts",
+      "sha256": "19e2242d4110618c8789a6b5b8de24dd4c427948df41cac67e4ebea234fa5700"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/channel-instagram/tsconfig.json",
+      "sha256": "34893bef7f98e46e0fb4675dd22cda30d20fa63a4a451e34100210dcb9dd0e20"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/channel-instagram/vitest.config.ts",
+      "sha256": "608ccea1602dfbab092f3db402145a61e4054b01b7d781e785399605443e2551"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/commerce-connector/conformance/README.md",
+      "sha256": "3672d534d55e96875e5aacfb8369100a76ce5fb8b5abae8dec79cc3989c80d14"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/commerce-connector/conformance/conformance.mjs",
+      "sha256": "6bef9ab4f7963e44fa5e97a4d021e6c5e62e4d058cc75f66583aba5795a3c418"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/commerce-connector/package.json",
+      "sha256": "05485f694d91cac932d170e0d1f1c4655802926d8771ea2b46dc4da25ddaec17"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/commerce-connector/src/connector.test.ts",
+      "sha256": "d73b413a986646688a5a9dab0856c14bc614459b164084d5165a7ef91f398650"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/commerce-connector/src/connector.ts",
+      "sha256": "24ddc3330a517b78751e285f508ca0472900e3dc0e5c1f47cd9e071525843ae2"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/commerce-connector/src/index.ts",
+      "sha256": "c9547a4f59342e142697e10a30e3bf0105e1e30208180a82c27d76c7026d683b"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/commerce-connector/src/simulator.ts",
+      "sha256": "8a20bbe03de1cb1352efd063982477783cc213d911a46f50207da777e72c13da"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/commerce-connector/tsconfig.json",
+      "sha256": "34893bef7f98e46e0fb4675dd22cda30d20fa63a4a451e34100210dcb9dd0e20"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/commerce-connector/vitest.config.ts",
+      "sha256": "a61b031fbe9c425c1f46804132e088bda2a3ddab79dffa56e9569d0d9e8ea9f4"
     },
     {
       "layer": "project_source",
@@ -1774,6 +1854,36 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/identity/package.json",
+      "sha256": "0b0251431ae2505e6848158e67b2c41f454979b1a8cee270db3d40492ec0b7da"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/identity/src/index.ts",
+      "sha256": "665c08b98c3585dbd31853ad87810363b55ef2bc8f304f19245c4691f0004b0f"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/identity/src/mock-idp.test.ts",
+      "sha256": "5b35c822ee9adb7ab260f1a50f9f10aaf71b5d4256aeb823a99a61441f7f0aa0"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/identity/src/mock-idp.ts",
+      "sha256": "44fb635483a72a7b328247e1906d1c027768a71b407565326b77db6211add542"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/identity/tsconfig.json",
+      "sha256": "34893bef7f98e46e0fb4675dd22cda30d20fa63a4a451e34100210dcb9dd0e20"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/identity/vitest.config.ts",
+      "sha256": "5e2ed82f07af27eb4150e5441b7e5eee503a38e44e6be08d9f7d70048c9bb764"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/kernel/package.json",
       "sha256": "ee6fe9fd386d8a23eba4b62642ff82ab4c65ac1b231b5f82cf7e98290965349f"
     },
@@ -1881,6 +1991,11 @@
       "layer": "project_source",
       "path": "packages/persistence/migrations/0007_continuity_findings.sql",
       "sha256": "8b5e6694d3cc3f2d81b4b53d928ffbd83d2a0ee65189c75de19706ce85c4cfde"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/persistence/migrations/0008_connected_campaigns.sql",
+      "sha256": "ef78b9db6fa951a9d8eba58b746c38aeceea087f7d9357228b63b471b5b1038c"
     },
     {
       "layer": "project_source",
@@ -2004,6 +2119,36 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/runtime-compiler/package.json",
+      "sha256": "35a6a6ade5989469081be1db7e2e14e2c88c486ae6b0f0db3ee4e2431debceda"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/runtime-compiler/src/compiler.test.ts",
+      "sha256": "096b3b3cbc64264572ad12d9112bb10ee289abe9e44634940ccd4e32b724129a"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/runtime-compiler/src/compiler.ts",
+      "sha256": "f526131bd8ecb9c82fab25042355a5f0c4822de6359b4af14b2ab026be64bae3"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/runtime-compiler/src/index.ts",
+      "sha256": "534e6a3676953652cdaa718f55fc29e28daf15e1e169ac398436fd44cdff6bba"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/runtime-compiler/tsconfig.json",
+      "sha256": "34893bef7f98e46e0fb4675dd22cda30d20fa63a4a451e34100210dcb9dd0e20"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/runtime-compiler/vitest.config.ts",
+      "sha256": "b99de334151db379aa010aad6388ef1d8593c887d3055fb6ca67aa629e3da574"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/storage/README.md",
       "sha256": "58bb74ed1d1d6b0e325517b6ac0834265d6420799bc571c58d1be01d0d4828df"
     },
@@ -2085,7 +2230,7 @@
     {
       "layer": "project_source",
       "path": "pnpm-lock.yaml",
-      "sha256": "8ccfede5dae373c81c7ee80e0289c8d0955b234e415d6e75b78b20a8a1df005e"
+      "sha256": "82ef78718295d22c8d70a4f58fdd2670ce9a60dc083524285ef7e129cd75eddd"
     },
     {
       "layer": "project_source",
@@ -2343,12 +2488,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-29T03:37:37.987572+00:00",
-  "generation_id": "34b5a0493e35d6d27d3cdb3d9fec3575",
+  "generated_on": "2026-07-29T03:51:40.366191+00:00",
+  "generation_id": "83693fa31a544be0b4edb4dcf26ae430",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "4a13a8cac6c9781fe9640aea541d63c83a52fc4a48fae98d638359cc8545946e",
+  "source_fingerprint": "1117b58d510c2f8ac03e704bc725ffd0ff0cd96ac00117c539614abde5cfba7a",
   "source_scope": {
     "exclusions": [
       {
@@ -2402,6 +2547,22 @@
       {
         "path": "apps/studio/.next",
         "reason": "Next.js build/dev output; generated, gitignored, never source."
+      },
+      {
+        "path": "packages/commerce-connector/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/runtime-compiler/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/channel-instagram/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/identity/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
       },
       {
         "path": ".env.local",
