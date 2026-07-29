@@ -39,9 +39,11 @@
   publication, source-drift staleness (`pnpm --filter
   @storyworld/commerce-connector test`).
 - **Studio walkthrough (deferred to here)**: `docker compose -f
-  infra/compose.yaml up -d`, then an engine (`TASK: see README`) and
-  `pnpm --filter @storyworld/studio dev` — six surfaces operate the
-  governed flows end to end.
+  infra/compose.yaml up -d`, then `pnpm --filter @storyworld/engine-api
+  dev` (engine on :4400, migrates and provisions the credential-store
+  master key at boot) and `pnpm --filter @storyworld/studio dev`
+  (:3000) — seven surfaces incl. Settings operate the governed flows
+  end to end.
 
 ## Owner actions at this boundary
 
