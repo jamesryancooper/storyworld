@@ -16,6 +16,7 @@ const SURFACES: { href: string; label: string; ready: boolean }[] = [
   { href: "/continuity", label: "Continuity Console", ready: true },
   { href: "/review", label: "Review Room", ready: true },
   { href: "/release-builder", label: "Release Builder", ready: true },
+  { href: "/settings", label: "Settings", ready: true },
 ];
 
 export default function RootLayout({ children }: { children: React.ReactNode }): React.JSX.Element {

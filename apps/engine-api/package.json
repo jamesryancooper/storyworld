@@ -20,7 +20,8 @@
     "@storyworld/portability": "workspace:*",
     "@storyworld/providers": "workspace:*",
     "@storyworld/evaluation": "workspace:*",
-    "@storyworld/identity": "workspace:*"
+    "@storyworld/identity": "workspace:*",
+    "@storyworld/credentials": "workspace:*"
   },
   "devDependencies": {
     "@types/pg": "^8.11.0",

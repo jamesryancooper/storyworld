@@ -48,9 +48,15 @@
 1. Decide this record (accept / amend / reopen any staged gate).
 2. Studio usability walkthrough (the DEC-0012 deferral) — notes become
    findings or backlog.
-3. When ready to open live generation: supply FAL_KEY (+ a separate
-   metered key for InvokeAI) and a monthly budget ceiling in .env.local —
-   each activation is a reserved crossing recorded by its own receipt.
+3. When ready to open live generation: enter the fal.ai key in
+   **Studio -> Settings** (owner-instructed amendment 2026-07-29,
+   TASK-0011/EVD-0017): envelope-encrypted at rest, receipted with a
+   redacted hint, revocable with immediate deny. Entering the key IS the
+   reserved-crossing act and is receipted as such. The InvokeAI install
+   takes its own separate metered key inside InvokeAI's External
+   Providers settings. FAL_KEY in .env.local remains only a headless/CI
+   fallback and never overrides a revocation. Spend control is the
+   per-recipe cost ceiling (default 0.50 USD per generation).
 4. Optionally hand packages/commerce-connector/conformance/ to the CF
    side to run against a real endpoint.
 

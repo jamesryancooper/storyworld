@@ -7,6 +7,7 @@ import { createPool, migrate } from "@storyworld/persistence";
 import { createFsStore } from "@storyworld/storage";
 import { uuidv7 } from "@storyworld/domain";
 import type { KernelContext } from "@storyworld/kernel";
+import { defaultKekPath, loadMasterKey } from "@storyworld/credentials";
 import { createEngineServer } from "./server.js";
 import { logLine } from "./telemetry.js";
 
@@ -49,6 +50,14 @@ const ctx: KernelContext = {
   organizationId,
 };
 
+// Provision the credential-store master key at boot so the Settings page
+// reports the store ready before any secret is entered. Dev default lives
+// OUTSIDE the working tree; production sets STORYWORLD_SECRET_KEY(_FILE).
+const kekReady = loadMasterKey() !== null;
+
 createEngineServer(ctx).listen(port, () => {
-  logLine("info", "engine.listening", { port, organization: DEV_ORG_NAME, blob_root: blobRoot });
+  logLine("info", "engine.listening", {
+    port, organization: DEV_ORG_NAME, blob_root: blobRoot,
+    credential_store: kekReady ? `ready (master key at ${defaultKekPath()})` : "DISABLED (no master key)",
+  });
 });

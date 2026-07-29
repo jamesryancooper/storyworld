@@ -178,5 +178,73 @@ describe("Studio engine client against a live engine-api", () => {
         endpoint: "fal-ai/flux/schnell",
       }),
     ).rejects.toThrow(/403/);
+
+    // Credential store loop (V1 amendment): enter a key in Settings ->
+    // hosted generation reachable; revoke -> refused again, no env fallback.
+    process.env["STORYWORLD_SECRET_KEY"] = Buffer.from(crypto.getRandomValues(new Uint8Array(32))).toString("base64url");
+    const { createServer } = await import("node:http");
+    const png = Uint8Array.from([0x89, 0x50, 0x4e, 0x47, 9, 9, 9, 9]);
+    const falQueue = createServer((req, res) => {
+      const q = req.url ?? "";
+      if (req.method === "POST" && q.startsWith("/fal-ai/")) {
+        const port = (falQueue.address() as AddressInfo).port;
+        res.writeHead(200, { "content-type": "application/json" });
+        return res.end(JSON.stringify({
+          request_id: "int-1",
+          status_url: `http://localhost:${port}/status/int-1`,
+          response_url: `http://localhost:${port}/result/int-1`,
+        }));
+      }
+      if (q === "/status/int-1") {
+        res.writeHead(200, { "content-type": "application/json" });
+        return res.end(JSON.stringify({ status: "COMPLETED" }));
+      }
+      if (q === "/result/int-1") {
+        const port = (falQueue.address() as AddressInfo).port;
+        res.writeHead(200, { "content-type": "application/json" });
+        return res.end(JSON.stringify({ images: [{ url: `http://localhost:${port}/image.png`, width: 8, height: 8 }], seed: 7 }));
+      }
+      res.writeHead(200, { "content-type": "image/png" });
+      res.end(Buffer.from(png));
+    }).listen(0);
+    process.env["FAL_BASE_URL"] = `http://localhost:${(falQueue.address() as AddressInfo).port}`;
+    try {
+      const before = await client.listCredentials();
+      expect(before.credentials.find((c) => c.name === "fal")?.status).toBe("absent");
+
+      const saved = await client.setCredential({ name: "fal", value: "fal-int-0123456789abcdef" });
+      expect(saved.hint).toContain("fal-");
+      const after = await client.listCredentials();
+      expect(after.credentials.find((c) => c.name === "fal")?.status).toBe("active");
+      expect(JSON.stringify(after)).not.toContain("fal-int-0123456789abcdef");
+
+      const hosted = await client.runGeneration({
+        productionId, unitId, prompt: "the archive at dusk, hosted",
+        scenePurpose: "integration", emotionalObjective: "calm",
+        lockedAttributes: [], seed: 7, adapterId: "fal",
+        endpoint: "fal-ai/flux/schnell",
+      });
+      expect(hosted.candidateAssetVersionIds).toHaveLength(1);
+      const staged = (await client.listGenerationCandidates()).find(
+        (c) => c.generationRunId === hosted.generationRunId,
+      );
+      expect(staged?.provenance.provider).toBe("fal");
+
+      await client.revokeCredential({ name: "fal" });
+      process.env["FAL_KEY"] = "env-should-never-win";
+      await expect(
+        client.runGeneration({
+          productionId, unitId, prompt: "dusk again",
+          scenePurpose: "integration", emotionalObjective: "calm",
+          lockedAttributes: [], seed: 7, adapterId: "fal",
+          endpoint: "fal-ai/flux/schnell",
+        }),
+      ).rejects.toThrow(/403/);
+    } finally {
+      delete process.env["FAL_KEY"];
+      delete process.env["FAL_BASE_URL"];
+      delete process.env["STORYWORLD_SECRET_KEY"];
+      falQueue.close();
+    }
   });
 });

@@ -23,10 +23,11 @@
     "EVD-0013",
     "EVD-0014",
     "EVD-0015",
-    "EVD-0016"
+    "EVD-0016",
+    "EVD-0017"
   ],
   "blocked_by": [],
-  "next_action": "HARD STOP (DEC-0012): owner decides DEC-0017 \u2014 the V1 consolidated review of the four provisionally passed B gates (DEC-0013..0016), plus the deferred Studio usability walkthrough and the reserved-crossing key decisions. No further phase work without the owner.",
+  "next_action": "HARD STOP (DEC-0012): owner decides DEC-0017 (amended: provider keys enter via Studio Settings, encrypted at rest). The owner may enter the fal key in Settings to live-test generation during the walkthrough; that entry is the receipted reserved-crossing act.",
   "external_effects_authority_refs": [],
   "limitations": [
     "behavioral_proofs_only_no_readiness_claim",

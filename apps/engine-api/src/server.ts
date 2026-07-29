@@ -30,6 +30,14 @@ import {
   runGeneration,
 } from "@storyworld/providers";
 import { disposeFinding, runEvaluation } from "@storyworld/evaluation";
+import {
+  createCredentialBroker,
+  credentialStatuses,
+  revokeCredential,
+  setCredential,
+  storeEnabled,
+  type CredentialBroker,
+} from "@storyworld/credentials";
 import { verifyToken } from "@storyworld/identity";
 import { correlationId, logLine } from "./telemetry.js";
 
@@ -43,6 +51,7 @@ import { correlationId, logLine } from "./telemetry.js";
  */
 export function createEngineServer(ctx: KernelContext): Server {
   const idempotency = new Map<string, { status: number; body: string }>();
+  const broker = createCredentialBroker(ctx);
 
   return createServer(async (req, res) => {
     const corr = correlationId(req.headers["x-correlation-id"]);
@@ -98,7 +107,7 @@ export function createEngineServer(ctx: KernelContext): Server {
           return res.end(cached.body);
         }
         const body = await readJson(req);
-        const result = await route(ctx, actor, path, body);
+        const result = await route(ctx, actor, path, body, broker);
         const payload = JSON.stringify(result.body);
         idempotency.set(key, { status: result.status, body: payload });
         logLine("info", "command", { path, status: result.status, actor: `${actor.kind}:${actor.id}`, correlation_id: corr });
@@ -144,6 +153,7 @@ async function route(
   actor: Actor,
   path: string,
   body: Record<string, unknown>,
+  broker: CredentialBroker,
 ): Promise<{ status: number; body: Record<string, unknown> }> {
   switch (path) {
     case "/v1/properties":
@@ -187,9 +197,14 @@ async function route(
           : [],
         seed: typeof body["seed"] === "number" ? body["seed"] : 1,
       });
+      // The broker is the sole path to provider material: encrypted store
+      // first, operator environment second; a revoked key never falls back.
       const adapter =
         body["adapterId"] === "fal"
-          ? createFalAdapter({ falKey: process.env["FAL_KEY"] ?? null })
+          ? createFalAdapter({
+              falKey: await broker.resolve("fal", "generation"),
+              ...(process.env["FAL_BASE_URL"] ? { baseUrl: process.env["FAL_BASE_URL"] } : {}),
+            })
           : createMockAdapter();
       const endpoint = String(body["endpoint"] ?? "mock/deterministic");
       const run = await runGeneration(ctx, actor, {
@@ -213,6 +228,16 @@ async function route(
         },
       };
     }
+    case "/v1/credentials": {
+      const entered = await setCredential(ctx, actor, {
+        name: String(body["name"]),
+        value: String(body["value"] ?? ""),
+        ...(typeof body["expiresAt"] === "string" ? { expiresAt: body["expiresAt"] } : {}),
+      });
+      return { status: 201, body: { credentialRevisionId: entered.credentialRevisionId, hint: entered.hint } };
+    }
+    case "/v1/credential-revocations":
+      return { status: 201, body: { ...(await revokeCredential(ctx, actor, { name: String(body["name"]) })) } };
     case "/v1/finding-dispositions": {
       const out = await disposeFinding(ctx, actor, {
         findingId: String(body["findingId"]),
@@ -261,6 +286,9 @@ async function readRoute(
     const propertyId = url.searchParams.get("propertyId");
     if (!propertyId) throw Object.assign(new Error("propertyId query parameter required"), { statusCode: 400 });
     return { body: { releases: await listCanonReleases(ctx, { propertyId }) } };
+  }
+  if (path === "/v1/credentials") {
+    return { body: { storeEnabled: storeEnabled(), credentials: await credentialStatuses(ctx) } };
   }
   if (path === "/v1/continuity-findings") {
     const productionId = url.searchParams.get("productionId");

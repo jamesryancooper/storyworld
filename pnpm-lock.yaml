@@ -54,6 +54,9 @@ importers:
 
   apps/engine-api:
     dependencies:
+      '@storyworld/credentials':
+        specifier: workspace:*
+        version: link:../../packages/credentials
       '@storyworld/domain':
         specifier: workspace:*
         version: link:../../packages/domain
@@ -196,6 +199,25 @@ importers:
         specifier: workspace:*
         version: link:../storage
     devDependencies:
+      '@types/pg':
+        specifier: ^8.11.0
+        version: 8.20.0
+
+  packages/credentials:
+    dependencies:
+      '@storyworld/domain':
+        specifier: workspace:*
+        version: link:../domain
+      '@storyworld/kernel':
+        specifier: workspace:*
+        version: link:../kernel
+      '@storyworld/persistence':
+        specifier: workspace:*
+        version: link:../persistence
+    devDependencies:
+      '@storyworld/storage':
+        specifier: workspace:*
+        version: link:../storage
       '@types/pg':
         specifier: ^8.11.0
         version: 8.20.0
@@ -344,6 +366,9 @@ importers:
 
   packages/workflows:
     dependencies:
+      '@storyworld/credentials':
+        specifier: workspace:*
+        version: link:../credentials
       '@storyworld/domain':
         specifier: workspace:*
         version: link:../domain

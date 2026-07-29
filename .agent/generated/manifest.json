@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-29T15:38:26.270300+00:00",
-  "generation_id": "ddb2e4d97b3772e40173e462091802f6",
+  "generated_at": "2026-07-29T17:02:14.754390+00:00",
+  "generation_id": "1c42de256005165d56849617d74748bb",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -56,6 +56,7 @@
     ".agent/evidence/EVD-0014-b2-studio-behavioral-proofs.md",
     ".agent/evidence/EVD-0015-b3-integration-substrate-proofs.md",
     ".agent/evidence/EVD-0016-b4-regression-harness-proofs.md",
+    ".agent/evidence/EVD-0017-credential-store-proofs.md",
     ".agent/evidence/README.md",
     ".agent/extensions/README.md",
     ".agent/extensions/registry.json",
@@ -97,6 +98,7 @@
     ".agent/tasks/TASK-0008-b2-storyworld-studio.md",
     ".agent/tasks/TASK-0009-b3-integration-substrate.md",
     ".agent/tasks/TASK-0010-b4-evaluation-harness.md",
+    ".agent/tasks/TASK-0011-credential-store.md",
     ".agent/templates/artifact.json",
     ".agent/templates/checkpoint.md",
     ".agent/templates/decision.md",
@@ -155,6 +157,7 @@
     "apps/studio/src/app/page.tsx",
     "apps/studio/src/app/release-builder/page.tsx",
     "apps/studio/src/app/review/page.tsx",
+    "apps/studio/src/app/settings/page.tsx",
     "apps/studio/src/app/world-bible/page.tsx",
     "apps/studio/src/components/arc-board.test.tsx",
     "apps/studio/src/components/arc-board.tsx",
@@ -169,6 +172,8 @@
     "apps/studio/src/components/release-builder.tsx",
     "apps/studio/src/components/review-room.test.tsx",
     "apps/studio/src/components/review-room.tsx",
+    "apps/studio/src/components/settings.test.tsx",
+    "apps/studio/src/components/settings.tsx",
     "apps/studio/src/components/ui/badge.tsx",
     "apps/studio/src/components/ui/button.tsx",
     "apps/studio/src/components/ui/card.tsx",
@@ -371,6 +376,15 @@
     "packages/contracts/tests/README.md",
     "packages/contracts/tests/metamorphic-f1.json",
     "packages/contracts/tests/validate_contracts.py",
+    "packages/credentials/package.json",
+    "packages/credentials/src/broker.ts",
+    "packages/credentials/src/credentials.test.ts",
+    "packages/credentials/src/crypto.ts",
+    "packages/credentials/src/index.ts",
+    "packages/credentials/src/service.ts",
+    "packages/credentials/src/slots.ts",
+    "packages/credentials/tsconfig.json",
+    "packages/credentials/vitest.config.ts",
     "packages/domain/README.md",
     "packages/domain/package.json",
     "packages/domain/src/identifiers.test.ts",
@@ -416,6 +430,7 @@
     "packages/persistence/migrations/0006_narrative_kernel.sql",
     "packages/persistence/migrations/0007_continuity_findings.sql",
     "packages/persistence/migrations/0008_connected_campaigns.sql",
+    "packages/persistence/migrations/0009_provider_credentials.sql",
     "packages/persistence/package.json",
     "packages/persistence/src/client.ts",
     "packages/persistence/src/index.ts",
@@ -525,7 +540,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "9aafc5c260e7945ed9e325585f5d0768d46223dbbc15c7e2c4ea21c479a08b08",
+  "source_fingerprint": "46aff143cc44e13c04d3c15ee70f99b5b9bb3d68c6e49c3d47038c2a803ab2c4",
   "source_scope": {
     "exclusions": [
       {
@@ -598,6 +613,10 @@
       },
       {
         "path": "packages/regression/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/credentials/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
       },
       {

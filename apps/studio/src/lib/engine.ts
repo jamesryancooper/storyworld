@@ -132,6 +132,20 @@ export interface EngineClient {
     disposition: "resolved" | "waived" | "intentional_exception" | "canon_change_proposed";
     waiver?: { reason: string; scope: string; expiry: string | null };
   }): Promise<{ findingRevisionId: string }>;
+  listCredentials(): Promise<{ storeEnabled: boolean; credentials: CredentialStatusView[] }>;
+  setCredential(input: { name: string; value: string }): Promise<{ hint: string }>;
+  revokeCredential(input: { name: string }): Promise<{ credentialRevisionId: string }>;
+}
+
+export interface CredentialStatusView {
+  name: string;
+  provider: string;
+  label: string;
+  note: string;
+  scopes: string[];
+  status: "absent" | "active" | "revoked" | "expired";
+  hint: string | null;
+  updatedAt: string | null;
 }
 
 export interface ProposalView {
@@ -300,6 +314,15 @@ export function createEngineClient(
     },
     async disposeFinding(input) {
       return post<{ findingRevisionId: string }>("/v1/finding-dispositions", input);
+    },
+    async listCredentials() {
+      return get<{ storeEnabled: boolean; credentials: CredentialStatusView[] }>("/v1/credentials");
+    },
+    async setCredential(input) {
+      return post<{ hint: string }>("/v1/credentials", input);
+    },
+    async revokeCredential(input) {
+      return post<{ credentialRevisionId: string }>("/v1/credential-revocations", input);
     },
   };
 }

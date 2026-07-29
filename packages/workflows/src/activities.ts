@@ -1,5 +1,6 @@
 import { heartbeat } from "@temporalio/activity";
 import { ApplicationFailure } from "@temporalio/common";
+import { createCredentialBroker } from "@storyworld/credentials";
 import type { KernelContext } from "@storyworld/kernel";
 import {
   createFalAdapter,
@@ -28,7 +29,9 @@ export function buildActivities(makeCtx: (organizationId: string) => KernelConte
         input.adapterId === "mock"
           ? createMockAdapter()
           : createFalAdapter({
-              falKey: process.env["FAL_KEY"] ?? null,
+              // Broker chain: encrypted store first, environment second; a
+              // revoked key denies and never falls back (reserved crossing).
+              falKey: await createCredentialBroker(ctx).resolve("fal", "generation"),
               ...(process.env["FAL_BASE_URL"] ? { baseUrl: process.env["FAL_BASE_URL"] } : {}),
             });
       try {

@@ -1,5 +1,6 @@
 import type {
   CanonReleaseView,
+  CredentialStatusView,
   EngineClient,
   FindingView,
   GenerationCandidateView,
@@ -19,6 +20,8 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
   productions: Record<string, unknown>[];
   evaluations: Record<string, unknown>[];
   dispositions: Record<string, unknown>[];
+  storedKeys: Record<string, unknown>[];
+  revokedKeys: Record<string, unknown>[];
 } {
   const properties: PropertySummary[] = [
     {
@@ -52,7 +55,11 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
   const productions: Record<string, unknown>[] = [];
   const evaluations: Record<string, unknown>[] = [];
   const dispositions: Record<string, unknown>[] = [];
+  const storedKeys: Record<string, unknown>[] = [];
+  const revokedKeys: Record<string, unknown>[] = [];
   return {
+    storedKeys,
+    revokedKeys,
     created,
     saved,
     runs,
@@ -212,6 +219,27 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
     async disposeFinding(input) {
       dispositions.push(input);
       return { findingRevisionId: `fr-${dispositions.length + 10}` };
+    },
+    async listCredentials() {
+      const credentials: CredentialStatusView[] = [{
+        name: "fal",
+        provider: "fal.ai",
+        label: "fal.ai key (engine generation)",
+        note: "Entering a key opens the hosted-generation reserved crossing.",
+        scopes: ["generation"],
+        status: storedKeys.length === 0 ? "absent" : revokedKeys.length >= storedKeys.length ? "revoked" : "active",
+        hint: storedKeys.length > 0 ? "fal-…89 (20 chars)" : null,
+        updatedAt: storedKeys.length > 0 ? "2026-07-29T00:00:00.000Z" : null,
+      }];
+      return { storeEnabled: true, credentials };
+    },
+    async setCredential(input) {
+      storedKeys.push(input);
+      return { hint: "fal-…89 (20 chars)" };
+    },
+    async revokeCredential(input) {
+      revokedKeys.push(input);
+      return { credentialRevisionId: `cr-${revokedKeys.length}` };
     },
     ...overrides,
   };

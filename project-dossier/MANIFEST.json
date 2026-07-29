@@ -130,7 +130,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0017-v1-consolidated-review.md",
-      "sha256": "179e8b845e1000b363217bbddcfd4fafa5f3466056a2d81979585c13b0a66716"
+      "sha256": "d7fac07eae7f741bf53b6172028b3d8fb04193151ada2cabe0048f9ef7403459"
     },
     {
       "layer": "agent_harness",
@@ -155,7 +155,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "4a169fa0111e48f19a02e8e4d5f2df426fa8e09a9cdc21abd86f9606ab313f5f"
+      "sha256": "27c51d06bfc915c95e730178c8400999970fdf4c83d6d221fefcf1fb30fe3bfe"
     },
     {
       "layer": "agent_harness",
@@ -239,6 +239,11 @@
     },
     {
       "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0017-credential-store-proofs.md",
+      "sha256": "93cf93e322befa6f918e6b3e3786907d44cf4b90513847f02de589db2c6be965"
+    },
+    {
+      "layer": "agent_harness",
       "path": ".agent/evidence/README.md",
       "sha256": "68138e16a1146373c40e760402e3da10f90969c38f2bd6371cf72bbeaa25439a"
     },
@@ -290,7 +295,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/project.json",
-      "sha256": "7e34afd194f94a704d82031360a5f424fb7c36665cfed52ed72e1cbbfb1d33e5"
+      "sha256": "1dd67a193242ef43db3574167d1dfbf9a4bc2d51b5412fbeff6a8077dac66aa6"
     },
     {
       "layer": "agent_harness",
@@ -385,7 +390,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "e24872f1a3de50d10e45afb6c6139e71db1dd8749ef39ee7b601cbd8d810447d"
+      "sha256": "ef1074d33f3f37c204baf1b11c99480196fb4a084141747d8e478a60eb14ebf2"
     },
     {
       "layer": "agent_harness",
@@ -441,6 +446,11 @@
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0010-b4-evaluation-harness.md",
       "sha256": "8b097af68cec9aa4134dcf71c3e89c9b1e031a7575d66dc2978d05beea823f8f"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0011-credential-store.md",
+      "sha256": "d506136002bb1c5750cd312cb55e3ddc64016eb0a1c1c17fcc14377a636ef12a"
     },
     {
       "layer": "agent_harness",
@@ -625,7 +635,7 @@
     {
       "layer": "project_source",
       "path": "apps/engine-api/package.json",
-      "sha256": "237d8f3538c7261f8936aac40e7a82ffe1d8748adc0edaa8bee3d6f2270c50ef"
+      "sha256": "df7b55a9c9c682d12a1083fb6d0d691460e5f1905b5fe893eff769d9c9336058"
     },
     {
       "layer": "project_source",
@@ -640,12 +650,12 @@
     {
       "layer": "project_source",
       "path": "apps/engine-api/src/serve.ts",
-      "sha256": "adc3b8bdd159030e51fa47e597aba8312f1940969a5b5e7eb8eedddb178e1be8"
+      "sha256": "34b9d27410beda4b5a75154909c40d8c41878fe86451dbe9185b4bea0438a766"
     },
     {
       "layer": "project_source",
       "path": "apps/engine-api/src/server.ts",
-      "sha256": "cd5cb4b719c027cf947e0357530369b9cd6cd9b039a2b830685bfec5f321b630"
+      "sha256": "63c1033efa4d467bb5f76e7ea0b89ecab933af27d6e8686d9c908d120d8665bb"
     },
     {
       "layer": "project_source",
@@ -715,7 +725,7 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/app/layout.tsx",
-      "sha256": "af9c1838faf94a6ecc506bdf7325efcbce2be48d303b0d12a2f15851760fa3b4"
+      "sha256": "9bb58116fa92e3107c172e3814d079165dde9d2a1f70d94fcb0562e73dc7e2de"
     },
     {
       "layer": "project_source",
@@ -731,6 +741,11 @@
       "layer": "project_source",
       "path": "apps/studio/src/app/review/page.tsx",
       "sha256": "bbd12514521b8ba0dcc9e93d55e2643bf220d6a1a7c15893e2606e4c81f11455"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/app/settings/page.tsx",
+      "sha256": "f1e457a208cd6a311a6e3e317af68e5c542aedde4b234a730e47733c0b2ae959"
     },
     {
       "layer": "project_source",
@@ -804,6 +819,16 @@
     },
     {
       "layer": "project_source",
+      "path": "apps/studio/src/components/settings.test.tsx",
+      "sha256": "518c06c09767374396cde6f3df3585d062ca3784fef2bffdc9c74c7657f31a12"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/settings.tsx",
+      "sha256": "679afcfb15e48ea1fd7e8e277a67b90592430bf46c39943851e32f70f86db0c8"
+    },
+    {
+      "layer": "project_source",
       "path": "apps/studio/src/components/ui/badge.tsx",
       "sha256": "f52229fe32460de43bb1002fc6ba84a85a44ad16785f01472cc20bfde4a2f678"
     },
@@ -850,12 +875,12 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/lib/engine.integration.test.ts",
-      "sha256": "2746b42c50c96ff137067a4cff2b17425f6d41a06b85c2ca8373533dbe372671"
+      "sha256": "6ad9af78b5e906f27a62449d8cac23d6ea28e416380a6ba39a9c96b88eabf512"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/lib/engine.ts",
-      "sha256": "3103b1656d765bbf5586d88760be03cf84f37b968f793b4becd81b1cfb55ee27"
+      "sha256": "404aeab52662e4be5230c8c6066917f0e79f9a972004fc39e93007b00d9e1a45"
     },
     {
       "layer": "project_source",
@@ -870,7 +895,7 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/test/mock-engine.ts",
-      "sha256": "5c9c223670dd77e1b27af8b63572d858ff9a74e7cdacf4e1bba320919ec7d0d3"
+      "sha256": "616df93dfe3a10e28edc3eab7c3711ea83340575c0df097319542c682788dc57"
     },
     {
       "layer": "project_source",
@@ -1814,6 +1839,51 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/credentials/package.json",
+      "sha256": "11fcd9192ead26827c0c7784656c45241b17a87fd342c4539f4bb08666f0a27f"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/credentials/src/broker.ts",
+      "sha256": "9baa465f8c2ea2ce5fe765697a446be9ae58e08bab21c9e84dafb169df0fcc3b"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/credentials/src/credentials.test.ts",
+      "sha256": "a6b6dbc9e643b8bdbfbd1db4d9be6894b7f7e75e48747676a51bf609073d4c5f"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/credentials/src/crypto.ts",
+      "sha256": "9e4d6d61a23201b670746094dd419959e5d616a7c6492b2c5d201bcf4f9d777a"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/credentials/src/index.ts",
+      "sha256": "5f1708caad1c36177c5570726d7b97797e19045a689fab6192e2e1ca0d73110d"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/credentials/src/service.ts",
+      "sha256": "2fdb27f3e299585cd7470c0aa6074366d85e390e4e715e0ddb9f324c6fd108c9"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/credentials/src/slots.ts",
+      "sha256": "b07a84ecc860b05fe34340f60a3fe6bc6b7925060498690da9232c35eb582ce2"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/credentials/tsconfig.json",
+      "sha256": "34893bef7f98e46e0fb4675dd22cda30d20fa63a4a451e34100210dcb9dd0e20"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/credentials/vitest.config.ts",
+      "sha256": "eacafdcc3d92a6c8705b91dba49df181d1c0dcc07270c8ab947deca7c15b9391"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/domain/README.md",
       "sha256": "2692d2c70e31ed613ef50133875da9450c99a436559f04b3cd8f2ec581efe7cf"
     },
@@ -2036,6 +2106,11 @@
       "layer": "project_source",
       "path": "packages/persistence/migrations/0008_connected_campaigns.sql",
       "sha256": "ef78b9db6fa951a9d8eba58b746c38aeceea087f7d9357228b63b471b5b1038c"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/persistence/migrations/0009_provider_credentials.sql",
+      "sha256": "c9c1021de72b76fec021a67f04e301c0759e9a7ed9450b0fc8d5937804f4caf8"
     },
     {
       "layer": "project_source",
@@ -2280,12 +2355,12 @@
     {
       "layer": "project_source",
       "path": "packages/workflows/package.json",
-      "sha256": "d3ab46ecbec8fc6949964b32fb9beaa464b4d8a1ad5155b80a6f34244b2be411"
+      "sha256": "009d121cd0f3cb91a235f8ca72c36f45d7291e5acdb25532778f2e7ce930d309"
     },
     {
       "layer": "project_source",
       "path": "packages/workflows/src/activities.ts",
-      "sha256": "066120b7d5b6ed0ed06733cdaec10791e532af6d26942c0daec337a855bfde0a"
+      "sha256": "a52445eb7b618acc3c4e46f77ae3621ce2b38822cba04a72a788fd299b3723e4"
     },
     {
       "layer": "project_source",
@@ -2315,7 +2390,7 @@
     {
       "layer": "project_source",
       "path": "pnpm-lock.yaml",
-      "sha256": "b74c1654878e4a9b291dc46c1d20441f4784bfbf7b42693afd714e0a1a6866bd"
+      "sha256": "b32b8da2175113cddb829b3a897de3f62bff9a381ba076bf42a32a03ec566f12"
     },
     {
       "layer": "project_source",
@@ -2573,12 +2648,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-29T15:38:26.270300+00:00",
-  "generation_id": "ddb2e4d97b3772e40173e462091802f6",
+  "generated_on": "2026-07-29T17:02:14.754390+00:00",
+  "generation_id": "1c42de256005165d56849617d74748bb",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "9aafc5c260e7945ed9e325585f5d0768d46223dbbc15c7e2c4ea21c479a08b08",
+  "source_fingerprint": "46aff143cc44e13c04d3c15ee70f99b5b9bb3d68c6e49c3d47038c2a803ab2c4",
   "source_scope": {
     "exclusions": [
       {
@@ -2651,6 +2726,10 @@
       },
       {
         "path": "packages/regression/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/credentials/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
       },
       {
