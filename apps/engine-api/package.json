@@ -9,7 +9,8 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "dev": "tsx src/serve.ts"
   },
   "dependencies": {
     "@storyworld/domain": "workspace:*",
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@types/pg": "^8.11.0",
-    "@storyworld/cli": "workspace:*"
+    "@storyworld/cli": "workspace:*",
+    "tsx": "^4.19.0"
   }
 }

@@ -625,7 +625,7 @@
     {
       "layer": "project_source",
       "path": "apps/engine-api/package.json",
-      "sha256": "5754398b4bea685a9447c7fbde511a20196a4e96336b13d6a7c09efd8bed66fd"
+      "sha256": "237d8f3538c7261f8936aac40e7a82ffe1d8748adc0edaa8bee3d6f2270c50ef"
     },
     {
       "layer": "project_source",
@@ -636,6 +636,11 @@
       "layer": "project_source",
       "path": "apps/engine-api/src/index.ts",
       "sha256": "cf5a1e052a0cb633a20afbadb8f34a57ff18e8fa4373c13941641ede06fb1f96"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/engine-api/src/serve.ts",
+      "sha256": "adc3b8bdd159030e51fa47e597aba8312f1940969a5b5e7eb8eedddb178e1be8"
     },
     {
       "layer": "project_source",
@@ -2310,7 +2315,7 @@
     {
       "layer": "project_source",
       "path": "pnpm-lock.yaml",
-      "sha256": "c555da88838cdb2c3a29caafcd581af230c6b2bbc4196ad640f0e3a606ab3902"
+      "sha256": "b74c1654878e4a9b291dc46c1d20441f4784bfbf7b42693afd714e0a1a6866bd"
     },
     {
       "layer": "project_source",
@@ -2568,12 +2573,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-29T04:13:44.629267+00:00",
-  "generation_id": "ee7ab40f057528603e0aeab7bcb725cf",
+  "generated_on": "2026-07-29T15:07:01.446063+00:00",
+  "generation_id": "dc9a589e82832bc327abcb5b34d4fe7e",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "ed65c32c8146b14914e65290d70f64109e2e388131ac0a2b4d62bb94147fbc6c",
+  "source_fingerprint": "78ad52d7c3b435b09c47d0b5daae4001ad59d77921363fdbc3ea1bd5ebc0506d",
   "source_scope": {
     "exclusions": [
       {
