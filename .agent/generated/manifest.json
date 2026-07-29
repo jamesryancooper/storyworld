@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-29T03:51:40.366191+00:00",
-  "generation_id": "83693fa31a544be0b4edb4dcf26ae430",
+  "generated_at": "2026-07-29T04:00:45.901303+00:00",
+  "generation_id": "3e1a4363ec8a19ab6d49cd533ea645aa",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -32,6 +32,7 @@
     ".agent/decisions/DEC-0012-b-phase-execution-authorization.md",
     ".agent/decisions/DEC-0013-b1-gate-staged.md",
     ".agent/decisions/DEC-0014-b2-gate-staged.md",
+    ".agent/decisions/DEC-0015-b3-gate-staged.md",
     ".agent/decisions/README.md",
     ".agent/evaluations/README.md",
     ".agent/evaluations/registry.json",
@@ -51,6 +52,7 @@
     ".agent/evidence/EVD-0012-gate-0005-acceptance-and-b-run-authorization.md",
     ".agent/evidence/EVD-0013-b1-pipeline-behavioral-proofs.md",
     ".agent/evidence/EVD-0014-b2-studio-behavioral-proofs.md",
+    ".agent/evidence/EVD-0015-b3-integration-substrate-proofs.md",
     ".agent/evidence/README.md",
     ".agent/extensions/README.md",
     ".agent/extensions/registry.json",
@@ -91,6 +93,7 @@
     ".agent/tasks/TASK-0007-b1-media-orchestration.md",
     ".agent/tasks/TASK-0008-b2-storyworld-studio.md",
     ".agent/tasks/TASK-0009-b3-integration-substrate.md",
+    ".agent/tasks/TASK-0010-b4-evaluation-harness.md",
     ".agent/templates/artifact.json",
     ".agent/templates/checkpoint.md",
     ".agent/templates/decision.md",
@@ -432,6 +435,12 @@
     "packages/providers/src/types.ts",
     "packages/providers/tsconfig.json",
     "packages/providers/vitest.config.ts",
+    "packages/regression/package.json",
+    "packages/regression/src/corpus.ts",
+    "packages/regression/src/defects.ts",
+    "packages/regression/src/index.ts",
+    "packages/regression/tsconfig.json",
+    "packages/regression/vitest.config.ts",
     "packages/runtime-compiler/package.json",
     "packages/runtime-compiler/src/compiler.test.ts",
     "packages/runtime-compiler/src/compiler.ts",
@@ -508,7 +517,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "1117b58d510c2f8ac03e704bc725ffd0ff0cd96ac00117c539614abde5cfba7a",
+  "source_fingerprint": "944695053d2915a741d2183e39d64685e17864b1f35a8b847d57b6fa1c008b19",
   "source_scope": {
     "exclusions": [
       {
@@ -577,6 +586,10 @@
       },
       {
         "path": "packages/identity/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/regression/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
       },
       {

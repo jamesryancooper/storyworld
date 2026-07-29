@@ -119,6 +119,11 @@
     },
     {
       "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0015-b3-gate-staged.md",
+      "sha256": "451d5678741186c5e42e92ac29e9aba8d48b14f015e3cd8b45866638aa538b4d"
+    },
+    {
+      "layer": "agent_harness",
       "path": ".agent/decisions/README.md",
       "sha256": "321f2910e7e6256e00dad950baf69484dc8b777249d62e5f8f0aa84ac018e1c2"
     },
@@ -140,7 +145,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "696d1d8de659b7e9177df8942e9456410bbe62ee3268d2e2c7c5b0e5f2a7a729"
+      "sha256": "11763a62779d66cfe0fb400865a0d535d31d6e9fc17694d6afde2344812654ff"
     },
     {
       "layer": "agent_harness",
@@ -214,6 +219,11 @@
     },
     {
       "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0015-b3-integration-substrate-proofs.md",
+      "sha256": "73ac64a17dd369b3fc21c7938ed7db13be043dd0e3d68898347792504910522e"
+    },
+    {
+      "layer": "agent_harness",
       "path": ".agent/evidence/README.md",
       "sha256": "68138e16a1146373c40e760402e3da10f90969c38f2bd6371cf72bbeaa25439a"
     },
@@ -265,7 +275,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/project.json",
-      "sha256": "522a6e1cc61e99acca3796b864ba4387e83ed00f9083a5a4d478a568f5f012cf"
+      "sha256": "7e34afd194f94a704d82031360a5f424fb7c36665cfed52ed72e1cbbfb1d33e5"
     },
     {
       "layer": "agent_harness",
@@ -360,7 +370,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "9ac31530eb774bd4cb2294044fe7a583b7fb76899ae4cebc65630e7215234bbd"
+      "sha256": "82871fcc73d707fd6bad0fc1b2d68af3d3c43e03d1bca6aadf6a75771c9df26e"
     },
     {
       "layer": "agent_harness",
@@ -410,7 +420,12 @@
     {
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0009-b3-integration-substrate.md",
-      "sha256": "23ad4b18a48f24acb9f2633bb0ffecc573407402a7e2508775237140d7eff5a3"
+      "sha256": "e561b6f1863bf7a309e5079be4c57255ed2f2397b8479cf7bc79b229aa409be3"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0010-b4-evaluation-harness.md",
+      "sha256": "0de54dce8cda8ab71b906eea57e2bfad351d70f523bdbee54705a903794bf34c"
     },
     {
       "layer": "agent_harness",
@@ -2119,6 +2134,36 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/regression/package.json",
+      "sha256": "c41546a57bb47ed8f3218d9cc21cb690283a8cb08fb7cee04457755ab959c533"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/regression/src/corpus.ts",
+      "sha256": "a68177a59313fbc80fe1a652fb84e2ae3b8061641a9063567efd5873419e418f"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/regression/src/defects.ts",
+      "sha256": "ed46d14857c114b8a2eba3883f977b1138f8d0029622180bea09b87f0247213b"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/regression/src/index.ts",
+      "sha256": "68615987357c828ea262498ff1c776831234fb2cf29cf8fab70f9ee43c56cfa7"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/regression/tsconfig.json",
+      "sha256": "34893bef7f98e46e0fb4675dd22cda30d20fa63a4a451e34100210dcb9dd0e20"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/regression/vitest.config.ts",
+      "sha256": "33246fff5776b34a4b0241bafc879a886a7a4e368ea604b487415851a7dd24c5"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/runtime-compiler/package.json",
       "sha256": "35a6a6ade5989469081be1db7e2e14e2c88c486ae6b0f0db3ee4e2431debceda"
     },
@@ -2415,7 +2460,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/plan.json",
-      "sha256": "7f1b0b2b71845e1fb635ef44d9356d964606c6cd9ea3a2ecff3a68407e2f36f8"
+      "sha256": "6153ceae308e0ff89112d844bb9c60c699301fd26800a5c8fceaa6fb2b89f460"
     },
     {
       "layer": "project_dossier",
@@ -2488,12 +2533,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-29T03:51:40.366191+00:00",
-  "generation_id": "83693fa31a544be0b4edb4dcf26ae430",
+  "generated_on": "2026-07-29T04:00:45.901303+00:00",
+  "generation_id": "3e1a4363ec8a19ab6d49cd533ea645aa",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "1117b58d510c2f8ac03e704bc725ffd0ff0cd96ac00117c539614abde5cfba7a",
+  "source_fingerprint": "944695053d2915a741d2183e39d64685e17864b1f35a8b847d57b6fa1c008b19",
   "source_scope": {
     "exclusions": [
       {
@@ -2562,6 +2607,10 @@
       },
       {
         "path": "packages/identity/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/regression/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
       },
       {

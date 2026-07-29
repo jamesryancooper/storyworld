@@ -2,8 +2,8 @@
 {
   "schema_version": "harness.task.v1",
   "id": "TASK-0009",
-  "status": "in_progress",
-  "previous_status": "ready",
+  "status": "completed",
+  "previous_status": "review",
   "title": "B3 \u2014 integration substrate and portable packages (PLAN-0013)",
   "authority_basis": "external:operator-instruction-2026-07-28 (project owner Ryan Cooper) \u2014 DEC-0012 B-run authorization with the Commerce-Foundry deferral: CF-side verification via a simulator in CI plus an exportable conformance suite.",
   "owner": "claude-agent (storyworld-steward working mode)",
@@ -21,12 +21,16 @@
     "bash infra/scripts/ship-check.sh",
     "git push; observe CI (resolve the run by head SHA)"
   ],
-  "implementation_result": null,
-  "review_evidence": [],
+  "implementation_result": "Two ship-check-gated tranches (baaf36c, f4874e5): @storyworld/commerce-connector (signed-brief intake with interface-declared idempotency, append-only connected_campaigns lifecycle with legal-transition map \u2014 migration 0008, HTTP bundle submission with outbox + hash-bound receipts, commercial review/approval/publication receipts with CF authority kept CF-side, source-drift staleness with proposed actions and published work retained) + CF simulator enforcing import-as-unapproved/idempotent-replay/typed-422s + exportable zero-dependency conformance runner executed in CI; @storyworld/runtime-compiler (deterministic runtime-content-release compilation with dangling-ref and circular-mission refusal, embedded asset index, runtime acceptance receipts, hotfix-reconcile records); @storyworld/channel-instagram (versioned capabilities, accepted-masters-only renditions with lineage, Ed25519-signed common-package-envelope, C2 platform-rule-isolation proof, export-only posture); @storyworld/identity mock-IdP with bearer verification at the engine boundary (401 forgeries). Incident: tranche 1 pushed stale manifests because ship-check was piped through tail \u2014 root-caused, fixed, and the unpiped invocation recorded as working practice.",
+  "review_evidence": [
+    "EVD-0015"
+  ],
   "blocked_by": [],
   "reopened_by": null,
-  "acceptance_criteria_met": false,
-  "closure_evidence": [],
+  "acceptance_criteria_met": true,
+  "closure_evidence": [
+    "EVD-0015"
+  ],
   "external_effects": "external_reversible",
   "limitations": [
     "External effect detail: pushes to the owner-provided remote; lockfile-pinned registry fetches.",
@@ -41,4 +45,7 @@ B3 in ship-check-gated tranches under DEC-0012.
 
 ## Evidence and closure
 
-- Filled per tranche and at closure.
+- Evidence: EVD-0015. CI green on f4874e5 (follow-up event records the run).
+- Residual: CF simulator stands in for CF (deferral); export-only
+  publication; mock IdP only.
+- Next action: B4 (PLAN-0014, TASK-0010).
