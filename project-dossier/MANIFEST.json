@@ -800,12 +800,12 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/release-builder.test.tsx",
-      "sha256": "2b065e77e44077367e72fad41942227c978bd63c2f15d0fe9b7a4eb3f92264ef"
+      "sha256": "af88c81a8f19ab27a3d7102f774097e5d5bbaa4f1c51942b4bf2d3e3e1e22fb4"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/release-builder.tsx",
-      "sha256": "0510a4497c79d956272683a2ebd4942382fcc64cbd44572fc692fbc1dc7ed8df"
+      "sha256": "5fd16983e9e4b69d6d11733e40d4a5834197b85a18b3b28bab7961fe497f88f6"
     },
     {
       "layer": "project_source",
@@ -895,7 +895,7 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/test/mock-engine.ts",
-      "sha256": "d52820d0939ba60239a67dc80c5ab3a1c7a12729ff8d6bb84c7c266fed0f113c"
+      "sha256": "9cbbd478c167a1eb5a31f853bc298585850dcdc7416055add07db0688cf659ab"
     },
     {
       "layer": "project_source",
@@ -2653,12 +2653,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-29T17:34:38.210275+00:00",
-  "generation_id": "cd1d4dd51635e972f258c6b976060ac1",
+  "generated_on": "2026-07-29T18:03:34.626788+00:00",
+  "generation_id": "958f8d7642b10d04fd9f860f7ae00405",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "218e771cb50503ea4840b809e80aa31bcb99bd8b39483512459da84b16163a71",
+  "source_fingerprint": "bdd68ac3ce35f3ee230561418b1e79e47423fe384372e0353b149efaea810b81",
   "source_scope": {
     "exclusions": [
       {

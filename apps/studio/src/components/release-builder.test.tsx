@@ -32,11 +32,12 @@ describe("Release Builder", () => {
     });
   });
 
-  it("creates a production pinned to an exact release", async () => {
+  it("creates a production pinned to an exact release and shows it immediately", async () => {
     const engine = mockEngine();
     const user = userEvent.setup();
     render(<ReleaseBuilder client={engine} />);
     await waitFor(() => expect(screen.getByText("stillhouse-canon")).toBeDefined());
+    expect(screen.getByText("Season One")).toBeDefined();
     await user.type(screen.getByLabelText("Production name"), "Season Two");
     await user.click(screen.getByRole("button", { name: "Create production" }));
     await waitFor(() => expect(engine.productions).toHaveLength(1));
@@ -45,6 +46,9 @@ describe("Release Builder", () => {
       pinnedCanonReleaseId: "r-1",
       name: "Season Two",
     });
+    // Walkthrough finding #3: the new production must be visible right here,
+    // not only as a notice line or on other surfaces.
+    await waitFor(() => expect(screen.getByText("Season Two")).toBeDefined());
   });
 
   it("has no accessibility violations", async () => {

@@ -11,6 +11,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import {
   createEngineClient,
   type EngineClient,
+  type ProductionSummary,
   type PropertySummary,
   type ReleaseSummary,
 } from "@/lib/engine";
@@ -20,6 +21,7 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
   const [properties, setProperties] = React.useState<PropertySummary[]>([]);
   const [propertyId, setPropertyId] = React.useState("");
   const [releases, setReleases] = React.useState<ReleaseSummary[]>([]);
+  const [productions, setProductions] = React.useState<ProductionSummary[]>([]);
   const [releaseName, setReleaseName] = React.useState("");
   const [releaseVersion, setReleaseVersion] = React.useState("");
   const [productionName, setProductionName] = React.useState("");
@@ -40,6 +42,7 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
     const list = await engine.listCanonReleases(propertyId);
     setReleases(list);
     if (list.length > 0) setPinReleaseId(list[0]!.canonReleaseId);
+    setProductions(await engine.listProductions(propertyId));
   }, [engine, propertyId]);
 
   React.useEffect(() => {
@@ -85,6 +88,7 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
       });
       setNotice(`Production "${productionName}" pinned to the selected release.`);
       setProductionName("");
+      await refresh();
     } catch (cause) {
       setNotice(String(cause));
     } finally {
@@ -118,6 +122,7 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
+        <div className="flex flex-col gap-6">
         <Card>
           <CardHeader>
             <CardTitle>Canon releases</CardTitle>
@@ -153,6 +158,43 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
             )}
           </CardContent>
         </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Productions</CardTitle>
+            <CardDescription>
+              Each production works against exactly the release it pinned;
+              canon changes never reach it silently.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            {productions.length === 0 ? (
+              <p className="text-sm text-muted-foreground">
+                No productions yet — pin one to a release on the right.
+              </p>
+            ) : (
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Name</TableHead>
+                    <TableHead>Pinned release</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {productions.map((production) => (
+                    <TableRow key={production.productionId}>
+                      <TableCell className="font-medium">{production.name}</TableCell>
+                      <TableCell>
+                        <Badge variant="muted">v{production.releaseVersion}</Badge>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            )}
+          </CardContent>
+        </Card>
+        </div>
 
         <div className="flex flex-col gap-6">
           <Card>

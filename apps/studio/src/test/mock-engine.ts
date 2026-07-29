@@ -87,6 +87,12 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
           pinnedCanonReleaseId: "r-1",
           releaseVersion: "1.0.0",
         },
+        ...productions.map((input, index) => ({
+          productionId: `prod-${index + 2}`,
+          name: String(input["name"]),
+          pinnedCanonReleaseId: String(input["pinnedCanonReleaseId"]),
+          releaseVersion: "1.0.0",
+        })),
       ];
     },
     async latestCanonRelease() {
