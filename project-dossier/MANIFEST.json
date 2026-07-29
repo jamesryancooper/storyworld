@@ -255,7 +255,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/project.json",
-      "sha256": "94c762d81557684e60c6ad5d76a13d1ec17889031f12b2ece539d6c47a4e9f70"
+      "sha256": "421972cb7deafc4418bde6f198961dff9fd1dae4db94e7221e91727b3ae6cef0"
     },
     {
       "layer": "agent_harness",
@@ -510,12 +510,12 @@
     {
       "layer": "project_source",
       "path": ".github/workflows/validate.yml",
-      "sha256": "44371aa089770a778998df90039fed49e35becc26e71dd20aeb0108e2615a797"
+      "sha256": "bcb97aad4928302645a020eb5037a5e6327ffb47c445d96a7340b9928a0f577b"
     },
     {
       "layer": "project_source",
       "path": ".gitignore",
-      "sha256": "babc4a55f25ac22d1ead48af49f43b90ff9f3b989afbcb955d88a3ab1a888a32"
+      "sha256": "d571356a2d68ed8da5454d54f7283d7e482420b62aebbc79abddadb3352cd655"
     },
     {
       "layer": "project_source",
@@ -595,7 +595,7 @@
     {
       "layer": "project_source",
       "path": "apps/engine-api/src/server.ts",
-      "sha256": "9544d93d894df956397cdb6661387764b48a479f7d146448b31a89aa4d118daa"
+      "sha256": "6bcc8b8d2ba5dd3b08b9ef2c674d3b4d4d6b40119631c496b2aa7be5bee47371"
     },
     {
       "layer": "project_source",
@@ -611,6 +611,146 @@
       "layer": "project_source",
       "path": "apps/engine-api/vitest.config.ts",
       "sha256": "47622e81174575d63d877f441e7716147a3a03ba45f89d2d995558add079e456"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/README.md",
+      "sha256": "6f76c43dc53a6e35c5e7d350b179ef667fb0dbfb516908be5942e618bcd442a1"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/next-env.d.ts",
+      "sha256": "85ae5aee75f011967cf2d25cbc342f62d69314e9d925f7f4aa3456fc2cffcca6"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/next.config.ts",
+      "sha256": "ce8a89225178b811782ab361aa05b18fa094f709437d4def937b6237c3ba3182"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/package.json",
+      "sha256": "011b947fd7a34388ed2b0fee396c6a330c9ec405c81a55556c19e0710e032175"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/postcss.config.mjs",
+      "sha256": "f8ed6853d2d91797f125edbb2af4052bd0adc52ba638d0de65d696a62d1ad3f7"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/app/globals.css",
+      "sha256": "fddadf4a67e818ef24790b10c5bd72586297d8958bbdd9453e1a6d80f9535824"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/app/layout.tsx",
+      "sha256": "378736088b1a0358339b43edac471389f1fb1e2a5295f65882c97513f3437be9"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/app/page.tsx",
+      "sha256": "38de0f914fac196c6c4f8ce6f430fbbdcb0812751182f0580792c9d766a5e308"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/app/world-bible/page.tsx",
+      "sha256": "821ffeb43fbf79972ad58500ef7895fe954b28f4ec98d84dffad3dfeaa75751a"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/command-center.test.tsx",
+      "sha256": "552889e3a803ba1357a6051f6902e89e144e74e808e18e485e9cd1db5c09380b"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/command-center.tsx",
+      "sha256": "af73f88013e84eb800b3c08205b145da4277b32bec90225e5c6ae57d0f6714e6"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/ui/badge.tsx",
+      "sha256": "f52229fe32460de43bb1002fc6ba84a85a44ad16785f01472cc20bfde4a2f678"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/ui/button.tsx",
+      "sha256": "329842d9b9f45d181ce2ee0acc4c2d5978eb09d1f2c5b58426ce791804356114"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/ui/card.tsx",
+      "sha256": "06dfe6d8d370b7dc6952ef1bb1f642746969a37930bcd799bbba389189dcdfcf"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/ui/input.tsx",
+      "sha256": "848c99272611e289fc30e2913e446812653aaa287f237078d67a03077a1e8918"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/ui/label.tsx",
+      "sha256": "18614dc4e261cdc4a44e1dd802aecae4e171bbc11dae53638df59516fd27ebf0"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/ui/select.tsx",
+      "sha256": "7c2f0c98ba105599f926eb225341b75087f99c3ca611894f9d6d522872b56852"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/ui/table.tsx",
+      "sha256": "5d0b14cf213989d16595a9e582b551cb6dc7c9077aacb53975627a3e963c30b1"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/world-bible.test.tsx",
+      "sha256": "6792e02a05851bea0ccf425a7d24b5755e550bec1e80979c217010f651339333"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/world-bible.tsx",
+      "sha256": "ea2f35d9a52c26c0455f1869f2b808dbf57dfebbd1598f4a7459d76d7d770421"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/lib/engine.integration.test.ts",
+      "sha256": "2dcc3246b46f8220167f59c5854a08f4e76c4d3bd648a812ccf30a4ca9dee2e5"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/lib/engine.ts",
+      "sha256": "96ccfb84456ea1487be59bc18a2ea4415c6e1833beb3854646b326caee50a452"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/lib/utils.ts",
+      "sha256": "53f3d3d070f0a9082934da25b875f9499855c2b0693868dd28be8c23d8730f68"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/test/axe.ts",
+      "sha256": "dd6b362ee66ec61a6923803143a2a9b3df7c2eb4c77916a23adc57253a09ca0b"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/test/mock-engine.ts",
+      "sha256": "6856e4c03d762c25752e57b41133051c23464fca25af6a3cd11814f300972f85"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/tsconfig.json",
+      "sha256": "6249e4dbba893e953a94e802aec3498322f61364602d03a450a1828820d3f6c1"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/tsconfig.tsbuildinfo",
+      "sha256": "8c76e302576ac888cb385fe60264f39a303184077ac97664e2168c1c0bd01e44"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/vitest.config.ts",
+      "sha256": "82a776e2f20cd1ff66d9bbfba9f63b9979f27ef1a079ac34c6465178cdab0004"
     },
     {
       "layer": "project_source",
@@ -645,7 +785,7 @@
     {
       "layer": "project_source",
       "path": "infra/scripts/ship-check.sh",
-      "sha256": "af8e1aa666c2ced7c7068cfe82a5f21fe2ce67e7811e7ea597397d15f0c7c775"
+      "sha256": "ee91ed279b1dd36a558cafdf2cbcdb81ecb2b28658bd365802e6e4c2d05a12db"
     },
     {
       "layer": "project_source",
@@ -1580,12 +1720,17 @@
     {
       "layer": "project_source",
       "path": "packages/kernel/src/index.ts",
-      "sha256": "9f60db1e1c23d6db6b17c34029c59f15b5c77b7b589ac6cd6ebb57718d96c119"
+      "sha256": "5292a16fbba5922cca29450093a8e5616bc0049ca1ed67eca0f00975547bf407"
     },
     {
       "layer": "project_source",
       "path": "packages/kernel/src/kernel.test.ts",
       "sha256": "3560dee02fc4e1d60d1480571d503aff9e4f4ad5d216b48a577468db26ead0b4"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/kernel/src/queries.ts",
+      "sha256": "cbd8e0ca0de0459ebe19dadce43958ee5a4f505229217f0d123577cea83f8437"
     },
     {
       "layer": "project_source",
@@ -1850,7 +1995,7 @@
     {
       "layer": "project_source",
       "path": "pnpm-lock.yaml",
-      "sha256": "9439211c43436e1ee9c5655f1e8657b3b25591d1d8f543a1c853036d5b809e38"
+      "sha256": "287d95e36b98f67ff0f9a1b81673ab9011688c5823936c55af5c8366d5485877"
     },
     {
       "layer": "project_source",
@@ -2108,12 +2253,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-29T02:52:18.563527+00:00",
-  "generation_id": "281dea4b28b1b99bc20440e738ec888b",
+  "generated_on": "2026-07-29T02:58:36.783649+00:00",
+  "generation_id": "ce8ac45407b37c21bed6935a34ab0454",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "141141201204f651d3ed5f8a6cc72b04d6d73780ff4faab819d5770aa2696d55",
+  "source_fingerprint": "551750b4cbf74a86d04f2a15c319bcc4f7ed8f92423b1551080507f943af83dc",
   "source_scope": {
     "exclusions": [
       {
@@ -2159,6 +2304,14 @@
       {
         "path": "packages/evaluation/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "apps/studio/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "apps/studio/.next",
+        "reason": "Next.js build/dev output; generated, gitignored, never source."
       },
       {
         "path": ".env.local",

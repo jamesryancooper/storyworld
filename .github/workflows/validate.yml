@@ -96,6 +96,8 @@ jobs:
         run: pnpm -r test
       - name: Lint
         run: pnpm -r lint
+      - name: Studio production build
+        run: pnpm --filter @storyworld/studio build
       - name: Compose profile validates
         run: docker compose -f infra/compose.yaml config -q
       - name: Restore drill (DEC-0010 rider)

@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-29T02:52:18.563527+00:00",
-  "generation_id": "281dea4b28b1b99bc20440e738ec888b",
+  "generated_at": "2026-07-29T02:58:36.783649+00:00",
+  "generation_id": "ce8ac45407b37c21bed6935a34ab0454",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -131,6 +131,34 @@
     "apps/engine-api/src/telemetry.ts",
     "apps/engine-api/tsconfig.json",
     "apps/engine-api/vitest.config.ts",
+    "apps/studio/README.md",
+    "apps/studio/next-env.d.ts",
+    "apps/studio/next.config.ts",
+    "apps/studio/package.json",
+    "apps/studio/postcss.config.mjs",
+    "apps/studio/src/app/globals.css",
+    "apps/studio/src/app/layout.tsx",
+    "apps/studio/src/app/page.tsx",
+    "apps/studio/src/app/world-bible/page.tsx",
+    "apps/studio/src/components/command-center.test.tsx",
+    "apps/studio/src/components/command-center.tsx",
+    "apps/studio/src/components/ui/badge.tsx",
+    "apps/studio/src/components/ui/button.tsx",
+    "apps/studio/src/components/ui/card.tsx",
+    "apps/studio/src/components/ui/input.tsx",
+    "apps/studio/src/components/ui/label.tsx",
+    "apps/studio/src/components/ui/select.tsx",
+    "apps/studio/src/components/ui/table.tsx",
+    "apps/studio/src/components/world-bible.test.tsx",
+    "apps/studio/src/components/world-bible.tsx",
+    "apps/studio/src/lib/engine.integration.test.ts",
+    "apps/studio/src/lib/engine.ts",
+    "apps/studio/src/lib/utils.ts",
+    "apps/studio/src/test/axe.ts",
+    "apps/studio/src/test/mock-engine.ts",
+    "apps/studio/tsconfig.json",
+    "apps/studio/tsconfig.tsbuildinfo",
+    "apps/studio/vitest.config.ts",
     "docs/guidance/README.md",
     "docs/guidance/invokeai-fal-provider-guide.md",
     "eslint.config.js",
@@ -326,6 +354,7 @@
     "packages/kernel/src/export.ts",
     "packages/kernel/src/index.ts",
     "packages/kernel/src/kernel.test.ts",
+    "packages/kernel/src/queries.ts",
     "packages/kernel/src/releases.ts",
     "packages/kernel/src/state-packet.ts",
     "packages/kernel/tsconfig.json",
@@ -432,7 +461,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "141141201204f651d3ed5f8a6cc72b04d6d73780ff4faab819d5770aa2696d55",
+  "source_fingerprint": "551750b4cbf74a86d04f2a15c319bcc4f7ed8f92423b1551080507f943af83dc",
   "source_scope": {
     "exclusions": [
       {
@@ -478,6 +507,14 @@
       {
         "path": "packages/evaluation/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "apps/studio/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "apps/studio/.next",
+        "reason": "Next.js build/dev output; generated, gitignored, never source."
       },
       {
         "path": ".env.local",

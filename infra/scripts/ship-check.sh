@@ -6,6 +6,7 @@ cd "$(git rev-parse --show-toplevel)"
 pnpm -r typecheck
 pnpm -r test
 pnpm -r lint
+pnpm --filter @storyworld/studio build
 python3 -B packages/contracts/tests/validate_contracts.py
 python3 -B .agent/scripts/refresh.py --refresh
 python3 -B .agent/scripts/validate.py --check

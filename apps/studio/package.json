@@ -1,0 +1,39 @@
+{
+  "name": "@storyworld/studio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "next": "^15.4.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.6.0"
+  },
+  "devDependencies": {
+    "@storyworld/domain": "workspace:*",
+    "@storyworld/engine-api": "workspace:*",
+    "@storyworld/kernel": "workspace:*",
+    "@storyworld/persistence": "workspace:*",
+    "@storyworld/storage": "workspace:*",
+    "@tailwindcss/postcss": "^4.1.0",
+    "@testing-library/jest-dom": "^6.6.0",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.5.0",
+    "@types/pg": "^8.11.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "axe-core": "^4.10.0",
+    "jsdom": "^26.0.0",
+    "tailwindcss": "^4.1.0"
+  }
+}

@@ -5,3 +5,4 @@ export * from "./state-packet.js";
 export * from "./assets.js";
 export * from "./export.js";
 export * from "./editor.js";
+export * from "./queries.js";

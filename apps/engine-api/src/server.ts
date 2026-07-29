@@ -8,6 +8,9 @@ import {
   decideProposal,
   importAsset,
   ingestSource,
+  latestCanonRelease,
+  listProductions,
+  listProperties,
   proposeCanon,
   saveNarrativeStructure,
   snapshotCanonRelease,
@@ -66,6 +69,12 @@ export function createEngineServer(ctx: KernelContext): Server {
           res.writeHead(200, { "content-type": "application/json", "x-correlation-id": corr, etag: String(packet["content_sha256"]) });
           return res.end(canonicalJson(packet));
         }
+        const read = await readRoute(ctx, path, url);
+        if (read) {
+          logLine("info", "query", { path, status: 200, correlation_id: corr });
+          res.writeHead(200, { "content-type": "application/json", "x-correlation-id": corr });
+          return res.end(JSON.stringify(read.body));
+        }
       }
       return problem(res, corr, 404, "not-found", `no route for ${req.method} ${path}`);
     } catch (error) {
@@ -117,6 +126,28 @@ async function route(
     default:
       throw Object.assign(new Error(`no route ${path}`), { statusCode: 404 });
   }
+}
+
+/** Read surface for client applications (B2): list/inspect, never mutate. */
+async function readRoute(
+  ctx: KernelContext,
+  path: string,
+  url: URL,
+): Promise<{ body: unknown } | null> {
+  if (path === "/v1/properties") {
+    return { body: { properties: await listProperties(ctx) } };
+  }
+  if (path === "/v1/productions") {
+    const propertyId = url.searchParams.get("propertyId");
+    if (!propertyId) throw Object.assign(new Error("propertyId query parameter required"), { statusCode: 400 });
+    return { body: { productions: await listProductions(ctx, { propertyId }) } };
+  }
+  const latest = path.match(/^\/v1\/properties\/([^/]+)\/canon-releases\/latest$/);
+  if (latest) {
+    const release = await latestCanonRelease(ctx, { propertyId: String(latest[1]) });
+    return { body: { release } };
+  }
+  return null;
 }
 
 function problem(res: ServerResponse, corr: string, status: number, type: string, detail: string): void {

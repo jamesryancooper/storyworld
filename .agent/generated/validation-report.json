@@ -37,13 +37,13 @@
   "external_effects": "repository_local_derived_metadata_refresh_only",
   "failures": [],
   "freshness_rule": "Invalid when any non-excluded repository source byte or path changes.",
-  "generated_at": "2026-07-29T02:52:18.563527+00:00",
-  "generation_id": "281dea4b28b1b99bc20440e738ec888b",
+  "generated_at": "2026-07-29T02:58:36.783649+00:00",
+  "generation_id": "ce8ac45407b37c21bed6935a34ab0454",
   "git_scope": {
     "available": true,
-    "ignored": 11,
-    "tracked_modified": 1,
-    "untracked": 0
+    "ignored": 14,
+    "tracked_modified": 7,
+    "untracked": 2
   },
   "limitations": [
     "Structural pass does not prove implementation or project readiness.",
@@ -60,7 +60,7 @@
     "binary, non-UTF-8, encoded, and files larger than 4 MiB require a dedicated secret scanner",
     "project-specific build, test, security, legal, and operational checks"
   ],
-  "source_fingerprint": "141141201204f651d3ed5f8a6cc72b04d6d73780ff4faab819d5770aa2696d55",
+  "source_fingerprint": "551750b4cbf74a86d04f2a15c319bcc4f7ed8f92423b1551080507f943af83dc",
   "source_scope": {
     "exclusions": [
       {
@@ -106,6 +106,14 @@
       {
         "path": "packages/evaluation/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "apps/studio/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "apps/studio/.next",
+        "reason": "Next.js build/dev output; generated, gitignored, never source."
       },
       {
         "path": ".env.local",
