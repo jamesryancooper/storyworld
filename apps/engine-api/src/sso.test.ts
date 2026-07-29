@@ -64,6 +64,36 @@ describe("B3 SSO interface: mock-IdP bearer tokens at the engine boundary", () =
     expect(response.status).toBe(201);
   });
 
+  it("answers browser CORS preflights for localhost origins only", async () => {
+    const preflight = await fetch(`${base}/v1/properties`, {
+      method: "OPTIONS",
+      headers: {
+        origin: "http://localhost:3000",
+        "access-control-request-method": "GET",
+        "access-control-request-headers": "x-actor-id",
+      },
+    });
+    expect(preflight.status).toBe(204);
+    expect(preflight.headers.get("access-control-allow-origin")).toBe("http://localhost:3000");
+    expect(preflight.headers.get("access-control-allow-headers")).toContain("idempotency-key");
+
+    const foreign = await fetch(`${base}/v1/properties`, {
+      method: "OPTIONS",
+      headers: { origin: "https://evil.example", "access-control-request-method": "GET" },
+    });
+    expect(foreign.status).toBe(403);
+    expect(foreign.headers.get("access-control-allow-origin")).toBeNull();
+
+    const browserGet = await fetch(`${base}/v1/properties`, {
+      headers: {
+        origin: "http://localhost:3000",
+        "x-actor-id": "ryan-cooper", "x-actor-kind": "human", "x-actor-role": "property_owner",
+      },
+    });
+    expect(browserGet.status).toBe(200);
+    expect(browserGet.headers.get("access-control-allow-origin")).toBe("http://localhost:3000");
+  });
+
   it("refuses forged tokens with a 401 problem", async () => {
     const headerName = "autho" + "rization";
     const response = await fetch(`${base}/v1/properties`, {

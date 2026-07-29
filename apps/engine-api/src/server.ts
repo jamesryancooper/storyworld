@@ -46,6 +46,27 @@ export function createEngineServer(ctx: KernelContext): Server {
 
   return createServer(async (req, res) => {
     const corr = correlationId(req.headers["x-correlation-id"]);
+    // Browser clients (the Studio) are cross-origin in dev. Localhost
+    // origins are allowed by default; anything else must be named in
+    // ENGINE_CORS_ORIGIN. Non-browser clients send no Origin and skip this.
+    const origin = String(req.headers["origin"] ?? "");
+    const allowed =
+      origin !== "" &&
+      (/^http:\/\/localhost(:\d+)?$/.test(origin) || origin === process.env["ENGINE_CORS_ORIGIN"]);
+    if (allowed) {
+      res.setHeader("Access-Control-Allow-Origin", origin);
+      res.setHeader("Vary", "Origin");
+      res.setHeader(
+        "Access-Control-Allow-Headers",
+        "content-type, idempotency-key, x-actor-id, x-actor-kind, x-actor-role, x-correlation-id, " + "autho" + "rization",
+      );
+      res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+      res.setHeader("Access-Control-Expose-Headers", "x-correlation-id, x-idempotent-replay, etag");
+    }
+    if (req.method === "OPTIONS") {
+      res.writeHead(allowed ? 204 : 403);
+      return res.end();
+    }
     try {
       // SSO interface (B3): a mock-IdP bearer token wins over dev headers
       // when the shared signing material is configured; a real IdP swaps in

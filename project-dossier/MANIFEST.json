@@ -645,12 +645,12 @@
     {
       "layer": "project_source",
       "path": "apps/engine-api/src/server.ts",
-      "sha256": "eb82ebb8d0023fb97b2eb7949e7f800fdc0e798cacbef4f166e6cb5938653db6"
+      "sha256": "cd5cb4b719c027cf947e0357530369b9cd6cd9b039a2b830685bfec5f321b630"
     },
     {
       "layer": "project_source",
       "path": "apps/engine-api/src/sso.test.ts",
-      "sha256": "810c3c9163ce22ca040f4ddd156c68e438d1606cd9f05bfe874a4399a742532f"
+      "sha256": "313721b6fae17e27c1013ae5454a3e4e23d63e14cbb67b92a2bb7a52e465704b"
     },
     {
       "layer": "project_source",
@@ -2573,12 +2573,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-29T15:07:01.446063+00:00",
-  "generation_id": "dc9a589e82832bc327abcb5b34d4fe7e",
+  "generated_on": "2026-07-29T15:38:26.270300+00:00",
+  "generation_id": "ddb2e4d97b3772e40173e462091802f6",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "78ad52d7c3b435b09c47d0b5daae4001ad59d77921363fdbc3ea1bd5ebc0506d",
+  "source_fingerprint": "9aafc5c260e7945ed9e325585f5d0768d46223dbbc15c7e2c4ea21c479a08b08",
   "source_scope": {
     "exclusions": [
       {

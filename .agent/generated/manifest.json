@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-29T15:07:01.446063+00:00",
-  "generation_id": "dc9a589e82832bc327abcb5b34d4fe7e",
+  "generated_at": "2026-07-29T15:38:26.270300+00:00",
+  "generation_id": "ddb2e4d97b3772e40173e462091802f6",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -525,7 +525,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "78ad52d7c3b435b09c47d0b5daae4001ad59d77921363fdbc3ea1bd5ebc0506d",
+  "source_fingerprint": "9aafc5c260e7945ed9e325585f5d0768d46223dbbc15c7e2c4ea21c479a08b08",
   "source_scope": {
     "exclusions": [
       {
