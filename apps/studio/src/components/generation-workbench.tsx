@@ -14,6 +14,7 @@ import {
   type EngineClient,
   type GenerationCandidateView,
   type ProductionSummary,
+  type ProviderCatalogView,
   type ScenePacketView,
 } from "@/lib/engine";
 
@@ -28,12 +29,22 @@ export function GenerationWorkbench({ client }: { client?: EngineClient }): Reac
   const [locked, setLocked] = React.useState("");
   const [seed, setSeed] = React.useState("7");
   const [adapterId, setAdapterId] = React.useState<"mock" | "fal">("mock");
+  const [providers, setProviders] = React.useState<ProviderCatalogView[]>([]);
+  const [modelId, setModelId] = React.useState("");
   const [busy, setBusy] = React.useState(false);
   const [notice, setNotice] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     void (async () => setCandidates(await engine.listGenerationCandidates()))();
+    void (async () => setProviders(await engine.listGenerationProviders()))();
   }, [engine]);
+
+  const activeProvider = providers.find((p) => p.adapterId === adapterId) ?? null;
+
+  React.useEffect(() => {
+    const first = providers.find((p) => p.adapterId === adapterId)?.models[0];
+    setModelId(first?.id ?? "");
+  }, [providers, adapterId]);
 
   React.useEffect(() => {
     setPacket(null);
@@ -74,6 +85,7 @@ export function GenerationWorkbench({ client }: { client?: EngineClient }): Reac
           .filter(Boolean),
         seed: Number(seed) || 1,
         adapterId,
+        ...(modelId ? { endpoint: modelId } : {}),
       });
       setNotice(`Staged ${run.candidateAssetVersionIds.length} candidate(s) — run ${run.generationRunId.slice(0, 8)}`);
       setCandidates(await engine.listGenerationCandidates());
@@ -205,6 +217,18 @@ export function GenerationWorkbench({ client }: { client?: EngineClient }): Reac
                   </Select>
                 </div>
               </div>
+              {adapterId === "fal" && activeProvider ? (
+                <div className="flex flex-col gap-1.5">
+                  <Label htmlFor="gw-model">Model</Label>
+                  <Select id="gw-model" value={modelId} onChange={(event) => setModelId(event.target.value)}>
+                    {activeProvider.models.map((model) => (
+                      <option key={model.id} value={model.id}>
+                        {model.label} · ~${model.costPerImage.toFixed(3)}/image
+                      </option>
+                    ))}
+                  </Select>
+                </div>
+              ) : null}
               {notice ? <p className="text-sm text-muted-foreground">{notice}</p> : null}
               <Button type="submit" disabled={busy || !production || !unitId || !prompt.trim()}>
                 {busy ? "Generating…" : "Generate candidates"}

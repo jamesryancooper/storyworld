@@ -132,9 +132,16 @@ export interface EngineClient {
     disposition: "resolved" | "waived" | "intentional_exception" | "canon_change_proposed";
     waiver?: { reason: string; scope: string; expiry: string | null };
   }): Promise<{ findingRevisionId: string }>;
+  listGenerationProviders(): Promise<ProviderCatalogView[]>;
   listCredentials(): Promise<{ storeEnabled: boolean; credentials: CredentialStatusView[] }>;
   setCredential(input: { name: string; value: string }): Promise<{ hint: string }>;
   revokeCredential(input: { name: string }): Promise<{ credentialRevisionId: string }>;
+}
+
+export interface ProviderCatalogView {
+  adapterId: "mock" | "fal";
+  label: string;
+  models: { id: string; label: string; costPerImage: number }[];
 }
 
 export interface CredentialStatusView {
@@ -314,6 +321,10 @@ export function createEngineClient(
     },
     async disposeFinding(input) {
       return post<{ findingRevisionId: string }>("/v1/finding-dispositions", input);
+    },
+    async listGenerationProviders() {
+      const out = await get<{ providers: ProviderCatalogView[] }>("/v1/generation-providers");
+      return out.providers;
     },
     async listCredentials() {
       return get<{ storeEnabled: boolean; credentials: CredentialStatusView[] }>("/v1/credentials");

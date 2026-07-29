@@ -27,6 +27,7 @@ import {
   compileGenerationRecipe,
   createFalAdapter,
   createMockAdapter,
+  providerCatalog,
   runGeneration,
 } from "@storyworld/providers";
 import { disposeFinding, runEvaluation } from "@storyworld/evaluation";
@@ -206,7 +207,11 @@ async function route(
               ...(process.env["FAL_BASE_URL"] ? { baseUrl: process.env["FAL_BASE_URL"] } : {}),
             })
           : createMockAdapter();
-      const endpoint = String(body["endpoint"] ?? "mock/deterministic");
+      // Default model per adapter: an endpoint-less fal call must never
+      // mis-route to the mock endpoint id.
+      const endpoint = String(
+        body["endpoint"] ?? (body["adapterId"] === "fal" ? "fal-ai/flux/schnell" : "mock/deterministic"),
+      );
       const run = await runGeneration(ctx, actor, {
         recipeDocument: recipe.document,
         recipeSha256: recipe.sha256,
@@ -289,6 +294,9 @@ async function readRoute(
   }
   if (path === "/v1/credentials") {
     return { body: { storeEnabled: storeEnabled(), credentials: await credentialStatuses(ctx) } };
+  }
+  if (path === "/v1/generation-providers") {
+    return { body: { providers: providerCatalog() } };
   }
   if (path === "/v1/continuity-findings") {
     const productionId = url.searchParams.get("productionId");

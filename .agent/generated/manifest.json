@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-29T17:02:14.754390+00:00",
-  "generation_id": "1c42de256005165d56849617d74748bb",
+  "generated_at": "2026-07-29T17:17:10.944884+00:00",
+  "generation_id": "16f9d8669777e8676fc0b6622f2eaf67",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -446,6 +446,7 @@
     "packages/portability/tsconfig.json",
     "packages/portability/vitest.config.ts",
     "packages/providers/package.json",
+    "packages/providers/src/catalog.ts",
     "packages/providers/src/fal-adapter.ts",
     "packages/providers/src/generation.ts",
     "packages/providers/src/index.ts",
@@ -540,7 +541,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "46aff143cc44e13c04d3c15ee70f99b5b9bb3d68c6e49c3d47038c2a803ab2c4",
+  "source_fingerprint": "6b706b875f8055dcf4c42bbc7ceb79a189adbcde4e50c207b501f5a6c914ca4d",
   "source_scope": {
     "exclusions": [
       {

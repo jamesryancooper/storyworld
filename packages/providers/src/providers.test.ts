@@ -100,6 +100,18 @@ function recipeInput() {
   };
 }
 
+describe("provider catalog (model options for client surfaces)", () => {
+  it("derives from the adapter allowlists with per-model pricing", async () => {
+    const { providerCatalog } = await import("./catalog.js");
+    const catalog = providerCatalog();
+    const fal = catalog.find((entry) => entry.adapterId === "fal");
+    expect(fal?.models.map((m) => m.id)).toEqual(["fal-ai/flux/schnell", "fal-ai/flux/dev"]);
+    const schnell = fal?.models.find((m) => m.id === "fal-ai/flux/schnell");
+    const dev = fal?.models.find((m) => m.id === "fal-ai/flux/dev");
+    expect(schnell!.costPerImage).toBeLessThan(dev!.costPerImage);
+  });
+});
+
 describe("B1 recipe compiler", () => {
   it("locked attributes and pinned state always reach the recipe", async () => {
     const recipe = await compileGenerationRecipe(ctx, recipeInput());

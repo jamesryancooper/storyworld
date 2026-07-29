@@ -2,6 +2,7 @@ import type {
   CanonReleaseView,
   CredentialStatusView,
   EngineClient,
+  ProviderCatalogView,
   FindingView,
   GenerationCandidateView,
   NarrativeStructureView,
@@ -219,6 +220,23 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
     async disposeFinding(input) {
       dispositions.push(input);
       return { findingRevisionId: `fr-${dispositions.length + 10}` };
+    },
+    async listGenerationProviders(): Promise<ProviderCatalogView[]> {
+      return [
+        {
+          adapterId: "mock",
+          label: "mock (deterministic, free)",
+          models: [{ id: "mock/deterministic", label: "Deterministic mock", costPerImage: 0 }],
+        },
+        {
+          adapterId: "fal",
+          label: "fal.ai (hosted, requires key)",
+          models: [
+            { id: "fal-ai/flux/schnell", label: "FLUX schnell (fast drafts)", costPerImage: 0.003 },
+            { id: "fal-ai/flux/dev", label: "FLUX dev (higher fidelity)", costPerImage: 0.025 },
+          ],
+        },
+      ];
     },
     async listCredentials() {
       const credentials: CredentialStatusView[] = [{

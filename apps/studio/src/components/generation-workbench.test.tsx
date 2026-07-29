@@ -50,6 +50,22 @@ describe("Generation Workbench", () => {
     await waitFor(() => expect(screen.getByText(/reserved crossing/)).toBeDefined());
   });
 
+  it("offers the allowlisted fal models with costs and passes the chosen one through", async () => {
+    const engine = mockEngine();
+    const user = userEvent.setup();
+    render(<GenerationWorkbench client={engine} />);
+    await waitFor(() => expect(screen.getByText(/Computed state/)).toBeDefined());
+    expect(screen.queryByLabelText("Model")).toBeNull();
+    await user.selectOptions(screen.getByLabelText("Provider"), "fal");
+    await waitFor(() => expect(screen.getByLabelText("Model")).toBeDefined());
+    expect(screen.getByText(/FLUX schnell \(fast drafts\) · ~\$0.003\/image/)).toBeDefined();
+    await user.selectOptions(screen.getByLabelText("Model"), "fal-ai/flux/dev");
+    await user.type(screen.getByLabelText("Prompt"), "dusk");
+    await user.click(screen.getByRole("button", { name: "Generate candidates" }));
+    await waitFor(() => expect(engine.runs).toHaveLength(1));
+    expect(engine.runs[0]).toMatchObject({ adapterId: "fal", endpoint: "fal-ai/flux/dev" });
+  });
+
   it("has no accessibility violations", async () => {
     const { container } = render(<GenerationWorkbench client={mockEngine()} />);
     await waitFor(() => expect(screen.getByText(/Computed state/)).toBeDefined());

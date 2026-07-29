@@ -655,7 +655,7 @@
     {
       "layer": "project_source",
       "path": "apps/engine-api/src/server.ts",
-      "sha256": "63c1033efa4d467bb5f76e7ea0b89ecab933af27d6e8686d9c908d120d8665bb"
+      "sha256": "09206fa57629f680103937255220b80922a33ca4cf2a50d39e88fac53c2abdd3"
     },
     {
       "layer": "project_source",
@@ -785,12 +785,12 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/generation-workbench.test.tsx",
-      "sha256": "0f506e50ac54efba5d2cc09b33591f11d9b6f2bf1b79ebcd4e3bcf9a1ccadb6d"
+      "sha256": "4eea091faccbbb357ca6673b691ea2f8c4c70e4a35d76be88e5a29fe349b71f6"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/generation-workbench.tsx",
-      "sha256": "5a8bdaf76553ca6f0194b4afb1917716e22a2494d10f68e44187555b9001774b"
+      "sha256": "87d77f62d32e991651a9dffee59347055bbeaf3f10614f28a38da8daecfa370c"
     },
     {
       "layer": "project_source",
@@ -880,7 +880,7 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/lib/engine.ts",
-      "sha256": "404aeab52662e4be5230c8c6066917f0e79f9a972004fc39e93007b00d9e1a45"
+      "sha256": "614db6cb073daaf8015671317c26d0c8c804cba6dc6e617c6decfddbc87f4ba5"
     },
     {
       "layer": "project_source",
@@ -895,7 +895,7 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/test/mock-engine.ts",
-      "sha256": "616df93dfe3a10e28edc3eab7c3711ea83340575c0df097319542c682788dc57"
+      "sha256": "d52820d0939ba60239a67dc80c5ab3a1c7a12729ff8d6bb84c7c266fed0f113c"
     },
     {
       "layer": "project_source",
@@ -2189,8 +2189,13 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/providers/src/catalog.ts",
+      "sha256": "0760d5d00ff73e079d9bb5f4ede93d8a62de6cd95cff58df1204897dc3619273"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/providers/src/fal-adapter.ts",
-      "sha256": "ba0ecfd04f57a87641756f0effc6674e7ae07814215bf06c82c54483241e7677"
+      "sha256": "63c2afdde9adb8508d4dc343bab7a04d5a22dbaedbed706d57971350dd00a9ca"
     },
     {
       "layer": "project_source",
@@ -2200,7 +2205,7 @@
     {
       "layer": "project_source",
       "path": "packages/providers/src/index.ts",
-      "sha256": "49e465b622f9264277d45c4524f4b808f5f47a325ba8476551a66993c251a7dc"
+      "sha256": "a0cda164c0c22b89700e228b6dd7fd9fd3ab5420525a16971d3b05a24d428211"
     },
     {
       "layer": "project_source",
@@ -2210,7 +2215,7 @@
     {
       "layer": "project_source",
       "path": "packages/providers/src/providers.test.ts",
-      "sha256": "2cef9f87e7e8137af0381e58776f2cd90cbfbd0e1bd3492300173896e72a7f91"
+      "sha256": "a007e82bc1d3d08f53d67bc3825483508ff1093330c6537e039a2a72263b7e03"
     },
     {
       "layer": "project_source",
@@ -2648,12 +2653,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-29T17:02:14.754390+00:00",
-  "generation_id": "1c42de256005165d56849617d74748bb",
+  "generated_on": "2026-07-29T17:17:10.944884+00:00",
+  "generation_id": "16f9d8669777e8676fc0b6622f2eaf67",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "46aff143cc44e13c04d3c15ee70f99b5b9bb3d68c6e49c3d47038c2a803ab2c4",
+  "source_fingerprint": "6b706b875f8055dcf4c42bbc7ceb79a189adbcde4e50c207b501f5a6c914ca4d",
   "source_scope": {
     "exclusions": [
       {

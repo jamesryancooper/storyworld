@@ -19,6 +19,8 @@ import {
  */
 interface FalEndpointSpec {
   endpointId: string;
+  label: string;
+  costPerImage: number;
   buildArguments(request: GenerationRequestNormalized): Record<string, unknown>;
   maxImages: number;
   timeoutMs: number;
@@ -32,6 +34,8 @@ const IMAGE_SIZE = (request: GenerationRequestNormalized): Record<string, number
 export const FAL_ENDPOINT_SPECS: Record<string, FalEndpointSpec> = {
   "fal-ai/flux/schnell": {
     endpointId: "fal-ai/flux/schnell",
+    label: "FLUX schnell (fast drafts)",
+    costPerImage: 0.003,
     buildArguments: (request) => ({
       prompt: request.prompt,
       image_size: IMAGE_SIZE(request),
@@ -43,6 +47,8 @@ export const FAL_ENDPOINT_SPECS: Record<string, FalEndpointSpec> = {
   },
   "fal-ai/flux/dev": {
     endpointId: "fal-ai/flux/dev",
+    label: "FLUX dev (higher fidelity)",
+    costPerImage: 0.025,
     buildArguments: (request) => ({
       prompt: request.prompt,
       image_size: IMAGE_SIZE(request),
@@ -148,7 +154,7 @@ export function createFalAdapter(config: FalAdapterConfig): ProviderAdapter {
         providerId: "fal",
         endpoint,
         providerRequestId: requestId,
-        costEstimate: { amount: 0.003 * candidates.length, currency: "USD" },
+        costEstimate: { amount: spec.costPerImage * candidates.length, currency: "USD" },
       };
     },
   };
