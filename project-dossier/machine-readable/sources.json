@@ -61,6 +61,38 @@
       "rights_or_license": "Owner-authored; ownership statement: 'I authored this; fictional; permitted use: test fixture in this repository.'",
       "sensitivity": "internal",
       "version_or_revision": "as supplied 2026-07-28 (author-inventory.json schema storyworld.fixture-authoring-inventory.v0)"
+    },
+    {
+      "accepted_as_project_authority": false,
+      "classification": "owner_supplied_implementation_guidance",
+      "fresh_until": "2026-10-28",
+      "id": "SRC-0004",
+      "intended_use": "Guidance (explicitly not warranted accurate) for the B1 InvokeAI-local + fal.ai external-provider integration; to be analyzed against the actual InvokeAI checkout and the CF reference implementation.",
+      "limitations": [
+        "Owner: 'I don't claim these instructions are 100% accurate for this usecase... They may be accurate or they may not, you will need to analyze them.' Cross-checked 2026-07-28 against the CF live-verified provider: the core interface claims (ExternalProvider contract, provider registration in dependencies.py, external_fal_api_key config pattern) are corroborated; frontend/starter-model specifics remain to be verified against the pinned InvokeAI checkout."
+      ],
+      "location": "docs/guidance/invokeai-fal-provider-guide.md",
+      "name": "Owner-supplied guide: first-class fal.ai provider in InvokeAI",
+      "observed_on": "2026-07-28",
+      "rights_or_license": "Owner-authored guidance.",
+      "sensitivity": "internal",
+      "version_or_revision": "as pasted 2026-07-28"
+    },
+    {
+      "accepted_as_project_authority": false,
+      "classification": "owner_owned_reference_implementation",
+      "fresh_until": "2026-10-28",
+      "id": "SRC-0005",
+      "intended_use": "Proven patterns for Storyworld's B1: InvokeAI fork-addition fal provider (img2img/inpaint, verified interface, white-regenerates mask polarity), governed fal edit contract (202-poll, SSRF/size guards), subordinate-workspace governance (handoff ticket -> verified receipt -> re-QA -> human approval), per-tool metered keys, CPU-only local apps, Python 3.11/3.12 requirement for InvokeAI.",
+      "limitations": [
+        "Read-only reference; Storyworld adapts rather than imports wholesale — our round trip uses Storyworld's own editor-checkout contract and receipts. CF authority boundaries unchanged (ADR-0010/0011)."
+      ],
+      "location": "/Users/jamesryancooper/Projects/commerce-foundry/integrations/ (invokeai-fal-provider, comfyui-foundry-fal, setup scripts) and packages/shared fal contract + tests",
+      "name": "Commerce Foundry integrations (reference implementation)",
+      "observed_on": "2026-07-28",
+      "rights_or_license": "Owner-owned sibling project.",
+      "sensitivity": "internal",
+      "version_or_revision": "working tree as read 2026-07-28"
     }
   ]
 }

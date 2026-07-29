@@ -127,6 +127,25 @@ importers:
         specifier: ^8.11.0
         version: 8.20.0
 
+  packages/providers:
+    dependencies:
+      '@storyworld/domain':
+        specifier: workspace:*
+        version: link:../domain
+      '@storyworld/kernel':
+        specifier: workspace:*
+        version: link:../kernel
+      '@storyworld/persistence':
+        specifier: workspace:*
+        version: link:../persistence
+      '@storyworld/storage':
+        specifier: workspace:*
+        version: link:../storage
+    devDependencies:
+      '@types/pg':
+        specifier: ^8.11.0
+        version: 8.20.0
+
   packages/storage:
     dependencies:
       '@aws-sdk/client-s3':

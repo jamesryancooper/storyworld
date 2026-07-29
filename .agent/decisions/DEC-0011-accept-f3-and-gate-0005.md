@@ -2,11 +2,11 @@
 {
   "schema_version": "harness.decision.v1",
   "id": "DEC-0011",
-  "status": "proposed",
-  "previous_status": null,
+  "status": "accepted",
+  "previous_status": "proposed",
   "title": "Accept the F3 headless narrative kernel and evaluate GATE-0005 as passed",
   "created_at": "2026-07-28",
-  "authority_source": "external:project-owner-acceptance-pending — staged at the F3 boundary under TASK-0006; acceptance constitutes the GATE-0005 approval.",
+  "authority_source": "external:project-owner (Ryan Cooper) acceptance 2026-07-28 (sign-off on the three staged items); constitutes the GATE-0005 approval.",
   "owner": "ryan-cooper (project owner)",
   "scope": "The F3 kernel: migrations 0005-0006 (canon foundation; sources, proposals/decisions, working-canon revisions, productions, structures); @storyworld/kernel (actor-enforced commands, release snapshots, story-time state packets, impact analysis, asset import/acceptance, signed production export); @storyworld/engine-api (public HTTP surface with idempotency, Problem Details, correlation-id telemetry baseline); @storyworld/cli (export/verify surface). On acceptance: GATE-0005 records passed on EVD-0011; PLAN-0005 completes; the parallel B-phase tracks (B1 media, B2 Studio, B3 integration, B4 evaluation) unblock per the canonical roadmap.",
   "supersedes": null,
@@ -32,3 +32,9 @@
 - Evidence: EVD-0011 (25 tests across 6 packages against live Postgres +
   MinIO, locally and in CI; restore drill in CI every push).
 - Reversal: revise named items before acceptance; after, supersession.
+
+## Acceptance
+
+Accepted by the project owner (Ryan Cooper) on 2026-07-28 in the operator
+session: "I do sign off on the remaining three items." Recorded by
+claude-agent.

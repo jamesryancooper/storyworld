@@ -156,7 +156,11 @@
       "evidence_expected": [
         "F3 exit-gate evaluation record; VS0 round-trip evidence."
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "DEC-0011",
+        "EVD-0011",
+        "EVD-0012"
+      ],
       "finding_refs": [
         "FIND-0002"
       ],
@@ -165,7 +169,7 @@
       ],
       "id": "PLAN-0005",
       "limitations": [
-        "Derived by claude-agent from the canonical Storyworld dossier v1.0 (SRC-0001) during the 2026-07-28 adoption session; project-ratified 2026-07-28 (PLAN-0001)."
+        "Completed 2026-07-28: GATE-0005 passed via DEC-0011; B phases opened under DEC-0012's provisional-gate authorization."
       ],
       "objective": "Deliver source ingestion and source-to-canon proposals, canon releases, entities/relationships/timeline/state, productions and narrative units, scene state packets, manual asset import/review/acceptance, canon change impact reports, and policy/approval commands through API and CLI (canonical/storyworld/06 section 19.4).",
       "owner_role": "project_owner",
@@ -175,7 +179,7 @@
         "REQ-0005",
         "REQ-0006"
       ],
-      "status": "in_progress",
+      "status": "completed",
       "title": "F3 - headless narrative kernel"
     },
     {
@@ -326,6 +330,96 @@
       ],
       "status": "planned",
       "title": "Implement narrative transformation regression suite"
+    },
+    {
+      "acceptance_criteria": [
+        "Canonical part 06 section 19.5 exit criteria; gate decision staged per DEC-0012 for consolidated V1 review."
+      ],
+      "blocked_by": [],
+      "depends_on": [
+        "PLAN-0005"
+      ],
+      "evidence_expected": [
+        "Ship-check-gated tranches with CI evidence; staged gate decision per DEC-0012."
+      ],
+      "evidence_refs": [],
+      "finding_refs": [],
+      "gate_refs": [],
+      "id": "PLAN-0011",
+      "limitations": [
+        "Provider-swap proof runs between fal adapter (mocked transport) and deterministic mock adapter; live fal activation awaits an owner-supplied key (reserved crossing)."
+      ],
+      "objective": "Provider gateway with replaceable hosted adapters (fal.ai first; mock adapter for swap proof), recipe compiler from pinned canon and scene state, Temporal generation workflows with budget/cancel/retry, staging/quarantine/provenance, evaluation framework (deterministic layers real, model-assisted mocked until keys), focused regeneration, editor round trip (InvokeAI-local via the CF-proven fal provider pattern).",
+      "owner_role": "project_owner",
+      "requirement_refs": [],
+      "status": "in_progress",
+      "title": "B1 — media orchestration and continuity pipeline"
+    },
+    {
+      "acceptance_criteria": [
+        "Canonical part 06 section 19.6 exit criteria; owner usability walkthrough deferred to the V1 review per DEC-0012."
+      ],
+      "blocked_by": [],
+      "depends_on": [
+        "PLAN-0005"
+      ],
+      "evidence_expected": [
+        "Ship-check-gated tranches with CI evidence; staged gate decision per DEC-0012."
+      ],
+      "evidence_refs": [],
+      "finding_refs": [],
+      "gate_refs": [],
+      "id": "PLAN-0012",
+      "limitations": [],
+      "objective": "Next.js Studio (DEC-0012) with a delegated design-system choice, delivered in the canonical dependency order: auth/Command Center/property/source inbox; World Bible/entities/timeline; Arc Board/scene builder; Generation Workbench; Continuity Console/Review Room; Release Builder.",
+      "owner_role": "project_owner",
+      "requirement_refs": [],
+      "status": "planned",
+      "title": "B2 — Storyworld Studio workbench"
+    },
+    {
+      "acceptance_criteria": [
+        "Canonical part 06 section 19.7 exit criteria; CF-side CI adoption deferred per DEC-0012 (DEP-0001)."
+      ],
+      "blocked_by": [],
+      "depends_on": [
+        "PLAN-0005"
+      ],
+      "evidence_expected": [
+        "Ship-check-gated tranches with CI evidence; staged gate decision per DEC-0012."
+      ],
+      "evidence_refs": [],
+      "finding_refs": [],
+      "gate_refs": [],
+      "id": "PLAN-0013",
+      "limitations": [],
+      "objective": "CF connector implementation against the contract fixtures with a CF-simulator in CI plus an exportable conformance suite for the real Commerce Foundry repo; source-drift detection; SSO interface (mock IdP); runtime compiler; Instagram export-first renditions.",
+      "owner_role": "project_owner",
+      "requirement_refs": [],
+      "status": "planned",
+      "title": "B3 — integration substrate and portable packages"
+    },
+    {
+      "acceptance_criteria": [
+        "Canonical part 06 section 19.8 exit criteria."
+      ],
+      "blocked_by": [],
+      "depends_on": [
+        "PLAN-0005"
+      ],
+      "evidence_expected": [
+        "Ship-check-gated tranches with CI evidence; staged gate decision per DEC-0012."
+      ],
+      "evidence_refs": [],
+      "finding_refs": [],
+      "gate_refs": [],
+      "id": "PLAN-0014",
+      "limitations": [],
+      "objective": "Golden-corpus execution over the fixture registry, defect injection, provider-adapter fixtures, human evaluation rubrics (definitions now, human runs at V1), and cost/latency/quality baselines.",
+      "owner_role": "project_owner",
+      "requirement_refs": [],
+      "status": "planned",
+      "title": "B4 — evaluation and regression harness"
     }
   ],
   "project_slug": "storyworld-platform",

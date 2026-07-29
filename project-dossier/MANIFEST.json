@@ -100,7 +100,12 @@
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0011-accept-f3-and-gate-0005.md",
-      "sha256": "0151962ed5265269095e91c322e865f8434a80fef4ed0d89faa90d6c6655f585"
+      "sha256": "c1307e26e82ee5eb4aea9115e3891cc2743945bd81a1fffe68669bc8c72548f5"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0012-b-phase-execution-authorization.md",
+      "sha256": "ad58bc725de2210815e70d7ecac20c54bf8e2ce2bb788522f74eac0badfc01bb"
     },
     {
       "layer": "agent_harness",
@@ -125,7 +130,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "92f9712f9396e9c241597ed8317bdd6619688f4da3b06ac4cd2b84c5f1f6a4ed"
+      "sha256": "098f2e7ad8a54b615db65b7772b3eb70f2bc995dbca1ecf301f9e5e082b4083d"
     },
     {
       "layer": "agent_harness",
@@ -184,6 +189,11 @@
     },
     {
       "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0012-gate-0005-acceptance-and-b-run-authorization.md",
+      "sha256": "ce9b05b9e1e693586c79c285ab6f20506a31f507574a63112d4c6f9a919c540c"
+    },
+    {
+      "layer": "agent_harness",
       "path": ".agent/evidence/README.md",
       "sha256": "68138e16a1146373c40e760402e3da10f90969c38f2bd6371cf72bbeaa25439a"
     },
@@ -235,7 +245,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/project.json",
-      "sha256": "453c31d333127a8612461f033f4e2d248d077cafe90bad658125fe41b9094701"
+      "sha256": "ac3492469a6072226344039fd332b66f8d1d2d630bd14ceaa53f866906b68ef6"
     },
     {
       "layer": "agent_harness",
@@ -330,7 +340,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "8cfcb40e61e97e436323fa99e2e5984f08071ec72242073f199a844efefbb0dc"
+      "sha256": "f2ffdfdb57b59f41e9704ccc49a6d8ecf55520ea4a024542ccbdc101e2c84bcd"
     },
     {
       "layer": "agent_harness",
@@ -366,6 +376,11 @@
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0006-f3-headless-narrative-kernel.md",
       "sha256": "d9cde2454cdf7207d05b7eb781c6606a3756b016a0c64b970e324f9cf8443627"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0007-b1-media-orchestration.md",
+      "sha256": "a496927e90c9e67d5f8570c746b90f89ac824ea17d53336cc638bf5b41a80858"
     },
     {
       "layer": "agent_harness",
@@ -581,6 +596,16 @@
       "layer": "project_source",
       "path": "apps/engine-api/vitest.config.ts",
       "sha256": "47622e81174575d63d877f441e7716147a3a03ba45f89d2d995558add079e456"
+    },
+    {
+      "layer": "project_source",
+      "path": "docs/guidance/README.md",
+      "sha256": "b4c67ea25cac9d8a2a65b989eb94e0b15d5d00209020ec719f737c6a49026de3"
+    },
+    {
+      "layer": "project_source",
+      "path": "docs/guidance/invokeai-fal-provider-guide.md",
+      "sha256": "0ef166f55a01dee05cb9935ff22da6727ee8a9a1bf6d7a79f89c4cc41448418e"
     },
     {
       "layer": "project_source",
@@ -1599,6 +1624,56 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/providers/package.json",
+      "sha256": "b256f176673ac87dd1e5ffefe2aa45d8b36915eab2cbafdf3336e9a1847539f5"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/providers/src/fal-adapter.ts",
+      "sha256": "ba0ecfd04f57a87641756f0effc6674e7ae07814215bf06c82c54483241e7677"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/providers/src/generation.ts",
+      "sha256": "fb0815b411112f2e8edb99ea24321e8305afaf3bbfcfce87f8885ea12e1afd9f"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/providers/src/index.ts",
+      "sha256": "49e465b622f9264277d45c4524f4b808f5f47a325ba8476551a66993c251a7dc"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/providers/src/mock-adapter.ts",
+      "sha256": "2721d2c81f02ce149a3884544ae3287505daf3c20510450f3ded290f78019bc5"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/providers/src/providers.test.ts",
+      "sha256": "812d05a36bc4f3cf83e1faae52cd81a99be4601a5d836542f5a87b4baccb9193"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/providers/src/recipe.ts",
+      "sha256": "b53625cfbe9627e6824a8e5edf247eae6584b7e60972df8114b5713100a227c0"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/providers/src/types.ts",
+      "sha256": "ff721ac75704823d31a6ff353a23e82f795bfd25347a004e1678cbccfe13e6c1"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/providers/tsconfig.json",
+      "sha256": "60ec341167f566872eb13bb129a03488c35fa356e4025360e760c52c5e680290"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/providers/vitest.config.ts",
+      "sha256": "21d6700a90bf6b2561f6e9ccf8f122a232734754c0f105ad0d25a7325658967a"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/storage/README.md",
       "sha256": "58bb74ed1d1d6b0e325517b6ac0834265d6420799bc571c58d1be01d0d4828df"
     },
@@ -1645,7 +1720,7 @@
     {
       "layer": "project_source",
       "path": "pnpm-lock.yaml",
-      "sha256": "47c7382cff39804612a208cd793d79a68bbe6158b5972f9723cd80fa9fb41d70"
+      "sha256": "dd5dcd064ee927d80e422d7caa4e1825addc518f6c6f88d24fb994418be2937e"
     },
     {
       "layer": "project_source",
@@ -1830,12 +1905,12 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/plan.json",
-      "sha256": "55067ea0dd9ee8ff8fab656983b87aaa7b68d3a80c16b93228c26ab7af00261c"
+      "sha256": "86f8691398af9a54b64d8be2847ca9fd706865f59b3bbb8167f67c05aec03189"
     },
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/raidq.json",
-      "sha256": "8681e66c45401c538954fa2d313cd70302251c13853d48329fa07969b7c879b5"
+      "sha256": "9b75c413ab7342b547a4bbfbf5468aa2ef685430e9c45ccdcc1281138981d743"
     },
     {
       "layer": "project_dossier",
@@ -1845,7 +1920,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/sources.json",
-      "sha256": "702fc6f32da103a62cd853fd1bf1cf9ad51c140d7e4c94e208ceed7f2a74990e"
+      "sha256": "7016d6f49cfe802b6c0ead19b4bf327ee4b83fc747f3b54d6b1db18035be2542"
     },
     {
       "layer": "project_dossier",
@@ -1890,7 +1965,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/validation/QUALITY_GATES.json",
-      "sha256": "b820ec17f75f38f6ec0ac688cc4903bfd5b5de88439bbfa4be0ffba4eac02f3e"
+      "sha256": "27dcf3ba3d04b388090d31c70d483a3c5eab35e17ff70b7edbc8c302b270c093"
     },
     {
       "layer": "project_dossier",
@@ -1903,12 +1978,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-28T22:41:16.477940+00:00",
-  "generation_id": "61b2824d4284140ab85f08be99e8064e",
+  "generated_on": "2026-07-29T00:06:02.302223+00:00",
+  "generation_id": "7ac886d6c57968a9ef126b8bb34a1f2d",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "a50a7814c02bad2ebc9c72b5fe2c11a66213c45acf007edbc8806aa724e93fee",
+  "source_fingerprint": "0f0730ccd02d994c657358e0b35aa89d285604954af1b5015575e7a83275c5ec",
   "source_scope": {
     "exclusions": [
       {
@@ -1941,6 +2016,10 @@
       },
       {
         "path": "apps/cli/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/providers/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
       }
     ],

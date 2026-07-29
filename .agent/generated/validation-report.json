@@ -37,12 +37,12 @@
   "external_effects": "repository_local_derived_metadata_refresh_only",
   "failures": [],
   "freshness_rule": "Invalid when any non-excluded repository source byte or path changes.",
-  "generated_at": "2026-07-28T22:41:16.477940+00:00",
-  "generation_id": "61b2824d4284140ab85f08be99e8064e",
+  "generated_at": "2026-07-29T00:06:02.302223+00:00",
+  "generation_id": "7ac886d6c57968a9ef126b8bb34a1f2d",
   "git_scope": {
     "available": true,
-    "ignored": 7,
-    "tracked_modified": 6,
+    "ignored": 8,
+    "tracked_modified": 9,
     "untracked": 5
   },
   "limitations": [
@@ -60,7 +60,7 @@
     "binary, non-UTF-8, encoded, and files larger than 4 MiB require a dedicated secret scanner",
     "project-specific build, test, security, legal, and operational checks"
   ],
-  "source_fingerprint": "a50a7814c02bad2ebc9c72b5fe2c11a66213c45acf007edbc8806aa724e93fee",
+  "source_fingerprint": "0f0730ccd02d994c657358e0b35aa89d285604954af1b5015575e7a83275c5ec",
   "source_scope": {
     "exclusions": [
       {
@@ -93,6 +93,10 @@
       },
       {
         "path": "apps/cli/node_modules",
+        "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
+      },
+      {
+        "path": "packages/providers/node_modules",
         "reason": "Per-package third-party/bin directory pnpm or tooling may materialize; reproducible from the fingerprinted lockfile (workspace convention in AGENTS.md)."
       }
     ],

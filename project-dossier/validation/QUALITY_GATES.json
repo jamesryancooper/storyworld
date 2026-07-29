@@ -108,7 +108,7 @@
       "expires_on": null,
       "id": "GATE-0005",
       "limitations": [
-        "Gate definition ratified 2026-07-28 (PLAN-0001); evaluation occurs when its phase completes. Approval at evaluation: project owner."
+        "Passed 2026-07-28: owner accepted the F3 kernel via DEC-0011. Behavioral evidence EVD-0011; acceptance observation EVD-0012."
       ],
       "owner_role": "project_owner",
       "pass_criteria": [
@@ -118,13 +118,16 @@
         "The CLI and API complete a portable project round trip.",
         "Evidence expected at evaluation: F3 workflow evidence; VS0 round-trip record."
       ],
-      "required_evidence": [],
+      "required_evidence": [
+        "EVD-0011",
+        "EVD-0012"
+      ],
       "requirement_refs": [
         "REQ-0002",
         "REQ-0004",
         "REQ-0006"
       ],
-      "status": "not_assessed",
+      "status": "passed",
       "title": "F3 exit - headless narrative kernel"
     },
     {

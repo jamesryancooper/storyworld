@@ -113,7 +113,7 @@
     },
     {
       "blocking": false,
-      "description": "C1 production integration depends on stable corresponding Commerce Foundry contracts and a CF implementation able to run the brief/bundle/review loop (canonical/storyworld/06 section 19.10).",
+      "description": "C1 production integration depends on stable corresponding Commerce Foundry contracts. UPDATE 2026-07-28 (direct observation): the CF repository at /Users/jamesryancooper/Projects/commerce-foundry contains substantial implementation — Temporal workflows, Playwright e2e suites, a governed fal generation/edit contract, handoff/receipt protocol, and live-verified InvokeAI/ComfyUI integrations — materially de-risking C1 and providing proven patterns Storyworld reuses (DEC-0012, SRC-0005).",
       "id": "DEP-0001",
       "impact": "high",
       "limitations": [
@@ -125,7 +125,7 @@
       "source_refs": [
         "SRC-0001"
       ],
-      "status": "open",
+      "status": "monitoring",
       "title": "Commerce Foundry contract counterpart",
       "type": "dependency"
     },
@@ -207,7 +207,7 @@
       "id": "ASM-0002",
       "impact": "medium",
       "limitations": [
-        "Refined leaning, not a decision; formalize at B1 entry with terms verification. Cross-executor determinism not assumed; provenance records executor identity."
+        "Resolved 2026-07-28 into accepted DEC-0012: hosted-API generation only (no local weights); local InvokeAI (own Python 3.11/3.12 env, CPU-only) with the fal external provider adapted from Commerce Foundry's live-verified integration; ComfyUI optional via the CF node-pack pattern; separate metered fal key per tool; live-key use is a reserved crossing."
       ],
       "owner_role": "project_owner",
       "resolution_condition": "Formalized as an accepted decision at B1 entry, after verifying fal's then-current ComfyUI runtime constraints (fal-format export, supported nodes), asset retention/training terms for uploaded LoRAs/reference attachments (feeds rights evidence), and the sensitive-source local-only policy hook.",
@@ -215,7 +215,7 @@
       "source_refs": [
         "SRC-0001"
       ],
-      "status": "open",
+      "status": "resolved",
       "title": "B1 provider posture: LOCAL ComfyUI primary; fal.ai direct endpoints as hosted second provider",
       "type": "assumption"
     }
