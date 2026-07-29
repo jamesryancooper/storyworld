@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-29T04:00:45.901303+00:00",
-  "generation_id": "3e1a4363ec8a19ab6d49cd533ea645aa",
+  "generated_at": "2026-07-29T04:04:24.545192+00:00",
+  "generation_id": "ca30da13caf6b0d7e13b93f4eeda1842",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -181,6 +181,7 @@
     "apps/studio/src/test/mock-engine.ts",
     "apps/studio/tsconfig.json",
     "apps/studio/vitest.config.ts",
+    "docs/evaluation/rubrics.md",
     "docs/guidance/README.md",
     "docs/guidance/invokeai-fal-provider-guide.md",
     "eslint.config.js",
@@ -435,10 +436,13 @@
     "packages/providers/src/types.ts",
     "packages/providers/tsconfig.json",
     "packages/providers/vitest.config.ts",
+    "packages/regression/baselines/b4-baseline.json",
+    "packages/regression/fixtures/fal-flux-schnell-queue.json",
     "packages/regression/package.json",
     "packages/regression/src/corpus.ts",
     "packages/regression/src/defects.ts",
     "packages/regression/src/index.ts",
+    "packages/regression/src/regression.test.ts",
     "packages/regression/tsconfig.json",
     "packages/regression/vitest.config.ts",
     "packages/runtime-compiler/package.json",
@@ -517,7 +521,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "944695053d2915a741d2183e39d64685e17864b1f35a8b847d57b6fa1c008b19",
+  "source_fingerprint": "3a10f52395ce4329d27449ba33763a646648158b9f6b4f5cdb945cd4210af61a",
   "source_scope": {
     "exclusions": [
       {

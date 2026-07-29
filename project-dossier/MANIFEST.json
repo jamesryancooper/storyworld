@@ -864,6 +864,11 @@
     },
     {
       "layer": "project_source",
+      "path": "docs/evaluation/rubrics.md",
+      "sha256": "f897123e17d999d9b98d691e639d840576c5c7fdc00a819c4f4f0c385cf085a2"
+    },
+    {
+      "layer": "project_source",
       "path": "docs/guidance/README.md",
       "sha256": "b4c67ea25cac9d8a2a65b989eb94e0b15d5d00209020ec719f737c6a49026de3"
     },
@@ -1000,7 +1005,7 @@
     {
       "layer": "project_source",
       "path": "packages/contracts/DESIGN_NOTES.md",
-      "sha256": "06e284ba6d44aefed7eb40226228191d8db50cc84f16d708e9ada302514764b5"
+      "sha256": "4191396e746c9a73d2f467d5b09539b2187c2764aeb9dcb05568af6f2ef595eb"
     },
     {
       "layer": "project_source",
@@ -1830,7 +1835,7 @@
     {
       "layer": "project_source",
       "path": "packages/evaluation/src/deterministic.ts",
-      "sha256": "d27f4de7574fc570eaab15ab71f27182228136cfceccebab01dab6a4a2726b0c"
+      "sha256": "75f018e6797f557688a3203bf2c35f131ea92e67824b8dc0e09bbf19b8d9b158"
     },
     {
       "layer": "project_source",
@@ -2134,6 +2139,16 @@
     },
     {
       "layer": "project_source",
+      "path": "packages/regression/baselines/b4-baseline.json",
+      "sha256": "116a19786bdacc2774a9e3f44b206e14d2b22228ba4483a32edda3f817eaaae0"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/regression/fixtures/fal-flux-schnell-queue.json",
+      "sha256": "7730967e244cde1a616cf1d6f1320328c5aaa26f90c8dde047de9233404d27a6"
+    },
+    {
+      "layer": "project_source",
       "path": "packages/regression/package.json",
       "sha256": "c41546a57bb47ed8f3218d9cc21cb690283a8cb08fb7cee04457755ab959c533"
     },
@@ -2145,12 +2160,17 @@
     {
       "layer": "project_source",
       "path": "packages/regression/src/defects.ts",
-      "sha256": "ed46d14857c114b8a2eba3883f977b1138f8d0029622180bea09b87f0247213b"
+      "sha256": "9f3003c64d57b4c0d1b592c33820a56b58d4b83a07b08cfdf19fc883cf17ffdc"
     },
     {
       "layer": "project_source",
       "path": "packages/regression/src/index.ts",
       "sha256": "68615987357c828ea262498ff1c776831234fb2cf29cf8fab70f9ee43c56cfa7"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/regression/src/regression.test.ts",
+      "sha256": "0e4f2e55a126cf74b90d8db6c745b40c11c890ab145f594ae41ccc3dd04a2358"
     },
     {
       "layer": "project_source",
@@ -2275,7 +2295,7 @@
     {
       "layer": "project_source",
       "path": "pnpm-lock.yaml",
-      "sha256": "82ef78718295d22c8d70a4f58fdd2670ce9a60dc083524285ef7e129cd75eddd"
+      "sha256": "c555da88838cdb2c3a29caafcd581af230c6b2bbc4196ad640f0e3a606ab3902"
     },
     {
       "layer": "project_source",
@@ -2533,12 +2553,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-29T04:00:45.901303+00:00",
-  "generation_id": "3e1a4363ec8a19ab6d49cd533ea645aa",
+  "generated_on": "2026-07-29T04:04:24.545192+00:00",
+  "generation_id": "ca30da13caf6b0d7e13b93f4eeda1842",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "944695053d2915a741d2183e39d64685e17864b1f35a8b847d57b6fa1c008b19",
+  "source_fingerprint": "3a10f52395ce4329d27449ba33763a646648158b9f6b4f5cdb945cd4210af61a",
   "source_scope": {
     "exclusions": [
       {

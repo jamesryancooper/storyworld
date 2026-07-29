@@ -1,0 +1,37 @@
+{
+  "recorded_on": "2026-07-29",
+  "note": "Recorded fal queue transcript (shape per queue.fal.run); BASE_URL is substituted by the replay server. No live call is ever made in regression.",
+  "steps": [
+    {
+      "path": "/fal-ai/flux/schnell",
+      "status": 200,
+      "body": {
+        "request_id": "rec-0001",
+        "status_url": "BASE_URL/status/rec-0001",
+        "response_url": "BASE_URL/result/rec-0001"
+      }
+    },
+    {
+      "path": "/status/rec-0001",
+      "status": 200,
+      "body": {
+        "status": "COMPLETED"
+      }
+    },
+    {
+      "path": "/result/rec-0001",
+      "status": 200,
+      "body": {
+        "images": [
+          {
+            "url": "BASE_URL/image.png",
+            "width": 512,
+            "height": 512
+          }
+        ],
+        "seed": 7
+      }
+    }
+  ],
+  "imageBase64": "iVBORw0KGgpiNC1yZWNvcmRlZC1mYWwtZml4dHVyZS1ieXRlcw=="
+}

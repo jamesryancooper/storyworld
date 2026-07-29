@@ -22,8 +22,14 @@ export function checkStructural(
   structureSha256: string,
 ): FindingDraft[] {
   const findings: FindingDraft[] = [];
+  // The contract leaves entity_ref an opaque non-empty string; both the
+  // kernel's `entity:<uuid>` form and the fixtures' bare-uuid form must
+  // resolve (caught by the B4 golden corpus).
   const entityIds = new Set(
-    ((release["entities"] ?? []) as Record<string, unknown>[]).map((e) => `entity:${String(e["entity_id"])}`),
+    ((release["entities"] ?? []) as Record<string, unknown>[]).flatMap((e) => {
+      const id = String(e["entity_id"]);
+      return [id, `entity:${id}`];
+    }),
   );
   const releaseRef = `canon-release:${String(release["canon_release_id"])}`;
   for (const event of (release["timeline_events"] ?? []) as TimelineEvent[]) {

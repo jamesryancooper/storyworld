@@ -1,0 +1,16 @@
+{
+  "recorded_on": "2026-07-29",
+  "revision_basis": "B4 tranche 1",
+  "golden_families": [
+    "stillhouse",
+    "editorial",
+    "bekindrewind",
+    "commerce"
+  ],
+  "golden_findings_expected": 0,
+  "defect_cases": 4,
+  "structured_families": 3,
+  "injected_runs": 12,
+  "required_catch_rate": 1.0,
+  "provider_replay": "deterministic (identical staged hash across replays)"
+}

@@ -54,3 +54,11 @@ decision process.
   the JSON authoring keeps DEC-0005's zero-dependency validator covering
   them and honors the strict-JSON canonical rule. Generate YAML derivatives
   only if external tooling requires them.
+
+## entity_ref convention (observed 2026-07-29, B4 golden corpus)
+
+`state_transitions[].entity_ref` is an opaque non-empty string in
+canon-release.v1. The kernel emits `entity:<uuid>`; the owner fixture
+packet uses bare `<uuid>`. Both are contract-legal, so consumers
+(evaluation layers, compilers) must resolve both. A future v2 could pin
+one form; until then, normalizing at read time is the rule.

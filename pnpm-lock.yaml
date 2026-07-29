@@ -295,6 +295,22 @@ importers:
         specifier: ^8.11.0
         version: 8.20.0
 
+  packages/regression:
+    dependencies:
+      '@storyworld/domain':
+        specifier: workspace:*
+        version: link:../domain
+      '@storyworld/evaluation':
+        specifier: workspace:*
+        version: link:../evaluation
+      '@storyworld/providers':
+        specifier: workspace:*
+        version: link:../providers
+    devDependencies:
+      '@types/pg':
+        specifier: ^8.11.0
+        version: 8.20.0
+
   packages/runtime-compiler:
     dependencies:
       '@storyworld/domain':
