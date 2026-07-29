@@ -4,9 +4,7 @@
   "updated_at": "2026-07-29",
   "authority": "project_maintained_compact_operational_index_not_permission",
   "adoption_status": "adopted",
-  "active_tasks": [
-    "TASK-0010"
-  ],
+  "active_tasks": [],
   "accepted_decisions": [
     "DEC-0001",
     "DEC-0002",
@@ -24,10 +22,11 @@
   "fresh_evidence": [
     "EVD-0013",
     "EVD-0014",
-    "EVD-0015"
+    "EVD-0015",
+    "EVD-0016"
   ],
   "blocked_by": [],
-  "next_action": "Execute B4 (PLAN-0014, TASK-0010): golden-corpus execution, defect injection, provider fixtures, rubric definitions, baselines. Then assemble the V1 dual-use alpha package and STOP for the consolidated owner review (DEC-0013/0014/0015 all staged provisional).",
+  "next_action": "HARD STOP (DEC-0012): owner decides DEC-0017 \u2014 the V1 consolidated review of the four provisionally passed B gates (DEC-0013..0016), plus the deferred Studio usability walkthrough and the reserved-crossing key decisions. No further phase work without the owner.",
   "external_effects_authority_refs": [],
   "limitations": [
     "behavioral_proofs_only_no_readiness_claim",

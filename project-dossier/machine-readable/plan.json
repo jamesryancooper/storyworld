@@ -416,7 +416,9 @@
       "evidence_expected": [
         "Ship-check-gated tranches with CI evidence; staged gate decision per DEC-0012."
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "EVD-0016"
+      ],
       "finding_refs": [],
       "gate_refs": [],
       "id": "PLAN-0014",
@@ -424,7 +426,7 @@
       "objective": "Golden-corpus execution over the fixture registry, defect injection, provider-adapter fixtures, human evaluation rubrics (definitions now, human runs at V1), and cost/latency/quality baselines.",
       "owner_role": "project_owner",
       "requirement_refs": [],
-      "status": "in_progress",
+      "status": "completed",
       "title": "B4 \u2014 evaluation and regression harness"
     }
   ],

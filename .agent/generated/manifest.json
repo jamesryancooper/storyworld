@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-29T04:04:24.545192+00:00",
-  "generation_id": "ca30da13caf6b0d7e13b93f4eeda1842",
+  "generated_at": "2026-07-29T04:13:44.629267+00:00",
+  "generation_id": "ee7ab40f057528603e0aeab7bcb725cf",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -33,6 +33,8 @@
     ".agent/decisions/DEC-0013-b1-gate-staged.md",
     ".agent/decisions/DEC-0014-b2-gate-staged.md",
     ".agent/decisions/DEC-0015-b3-gate-staged.md",
+    ".agent/decisions/DEC-0016-b4-gate-staged.md",
+    ".agent/decisions/DEC-0017-v1-consolidated-review.md",
     ".agent/decisions/README.md",
     ".agent/evaluations/README.md",
     ".agent/evaluations/registry.json",
@@ -53,6 +55,7 @@
     ".agent/evidence/EVD-0013-b1-pipeline-behavioral-proofs.md",
     ".agent/evidence/EVD-0014-b2-studio-behavioral-proofs.md",
     ".agent/evidence/EVD-0015-b3-integration-substrate-proofs.md",
+    ".agent/evidence/EVD-0016-b4-regression-harness-proofs.md",
     ".agent/evidence/README.md",
     ".agent/extensions/README.md",
     ".agent/extensions/registry.json",
@@ -521,7 +524,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "3a10f52395ce4329d27449ba33763a646648158b9f6b4f5cdb945cd4210af61a",
+  "source_fingerprint": "ed65c32c8146b14914e65290d70f64109e2e388131ac0a2b4d62bb94147fbc6c",
   "source_scope": {
     "exclusions": [
       {

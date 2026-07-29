@@ -124,6 +124,16 @@
     },
     {
       "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0016-b4-gate-staged.md",
+      "sha256": "caa67202ab62135fb85b60bfd6a104abc140facafd440889403e6fac665b8b3f"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0017-v1-consolidated-review.md",
+      "sha256": "179e8b845e1000b363217bbddcfd4fafa5f3466056a2d81979585c13b0a66716"
+    },
+    {
+      "layer": "agent_harness",
       "path": ".agent/decisions/README.md",
       "sha256": "321f2910e7e6256e00dad950baf69484dc8b777249d62e5f8f0aa84ac018e1c2"
     },
@@ -145,7 +155,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "11763a62779d66cfe0fb400865a0d535d31d6e9fc17694d6afde2344812654ff"
+      "sha256": "4a169fa0111e48f19a02e8e4d5f2df426fa8e09a9cdc21abd86f9606ab313f5f"
     },
     {
       "layer": "agent_harness",
@@ -221,6 +231,11 @@
       "layer": "agent_harness",
       "path": ".agent/evidence/EVD-0015-b3-integration-substrate-proofs.md",
       "sha256": "73ac64a17dd369b3fc21c7938ed7db13be043dd0e3d68898347792504910522e"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0016-b4-regression-harness-proofs.md",
+      "sha256": "32e1903a5c398834758ec6446af4e9535e4a7e9cb56a04fb1ad12f89cec85984"
     },
     {
       "layer": "agent_harness",
@@ -365,12 +380,12 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/RESUME.md",
-      "sha256": "898adc636cdecd142273a3b0a80895355458f4ac55b7bd4e31f4ff71854e0f7c"
+      "sha256": "79b7dd952e3af1e64d5ba1da9ef3d465d78f9ea240594212b53955100b946f42"
     },
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "82871fcc73d707fd6bad0fc1b2d68af3d3c43e03d1bca6aadf6a75771c9df26e"
+      "sha256": "e24872f1a3de50d10e45afb6c6139e71db1dd8749ef39ee7b601cbd8d810447d"
     },
     {
       "layer": "agent_harness",
@@ -425,7 +440,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0010-b4-evaluation-harness.md",
-      "sha256": "0de54dce8cda8ab71b906eea57e2bfad351d70f523bdbee54705a903794bf34c"
+      "sha256": "8b097af68cec9aa4134dcf71c3e89c9b1e031a7575d66dc2978d05beea823f8f"
     },
     {
       "layer": "agent_harness",
@@ -2445,7 +2460,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/handoff/START_HERE.md",
-      "sha256": "2e15ed33505fdcfcca1275296dac214b486923c08a73651483ed3e649f0d1326"
+      "sha256": "edb1a9dfcb3e253024c6af21a97377256206d2a86703d265a1b1c70ac5c8c582"
     },
     {
       "layer": "project_dossier",
@@ -2480,7 +2495,7 @@
     {
       "layer": "project_dossier",
       "path": "project-dossier/machine-readable/plan.json",
-      "sha256": "6153ceae308e0ff89112d844bb9c60c699301fd26800a5c8fceaa6fb2b89f460"
+      "sha256": "6d82dc73a74b6f42c337b382e75d5ae35f597d3c45b76e6d767cbba6a27c23b2"
     },
     {
       "layer": "project_dossier",
@@ -2553,12 +2568,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-29T04:04:24.545192+00:00",
-  "generation_id": "ca30da13caf6b0d7e13b93f4eeda1842",
+  "generated_on": "2026-07-29T04:13:44.629267+00:00",
+  "generation_id": "ee7ab40f057528603e0aeab7bcb725cf",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "3a10f52395ce4329d27449ba33763a646648158b9f6b4f5cdb945cd4210af61a",
+  "source_fingerprint": "ed65c32c8146b14914e65290d70f64109e2e388131ac0a2b4d62bb94147fbc6c",
   "source_scope": {
     "exclusions": [
       {
