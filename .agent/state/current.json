@@ -4,7 +4,9 @@
   "updated_at": "2026-07-30",
   "authority": "project_maintained_compact_operational_index_not_permission",
   "adoption_status": "adopted",
-  "active_tasks": [],
+  "active_tasks": [
+    "TASK-0019"
+  ],
   "accepted_decisions": [
     "DEC-0001",
     "DEC-0002",

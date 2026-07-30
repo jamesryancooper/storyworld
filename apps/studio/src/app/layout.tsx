@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { AppNav } from "@/components/app-nav";
+import { SearchBox } from "@/components/ui/search-box";
 import { UnknownOutcomeBanner } from "@/components/ui/unknown-outcome-banner";
 import "./globals.css";
 
@@ -22,9 +23,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
         <div className="flex min-h-screen flex-col md:flex-row">
           <AppNav />
           <div className="flex min-w-0 flex-1 flex-col">
-            <header className="flex h-14 items-center justify-between border-b border-border px-6">
-              <p className="text-sm text-muted-foreground">Storyworld Engine workspace</p>
-              <Badge variant="outline">ryan-cooper · property_owner · development identity — not verified</Badge>
+            <header className="flex h-14 items-center gap-4 border-b border-border px-6">
+              <div className="min-w-0 flex-1">
+                <SearchBox />
+              </div>
+              <Badge variant="outline" className="shrink-0">ryan-cooper · property_owner · development identity — not verified</Badge>
             </header>
             <main id="main" className="flex-1 px-6 py-6">
               <UnknownOutcomeBanner />

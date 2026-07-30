@@ -10,6 +10,7 @@ import {
   getAuthoringMode,
   getProposalContext,
   listStructureProposals,
+  search,
   setAuthoringMode,
   submitStructureProposal,
   NotFoundError,
@@ -413,6 +414,11 @@ async function readRoute(
     const productionId = url.searchParams.get("productionId");
     if (!productionId) throw Object.assign(new Error("productionId query parameter required"), { statusCode: 400 });
     return { body: { findings: await listContinuityFindings(ctx, { productionId }) } };
+  }
+  if (path === "/v1/search") {
+    const query = url.searchParams.get("q") ?? "";
+    const propertyId = url.searchParams.get("propertyId") ?? undefined;
+    return { body: { results: await search(ctx, { query, ...(propertyId ? { propertyId } : {}) }) } };
   }
   if (path === "/v1/canon-change-impact") {
     const propertyId = url.searchParams.get("propertyId");

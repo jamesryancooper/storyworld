@@ -217,6 +217,8 @@ export interface EngineClient {
   listCanonProposals(propertyId: string): Promise<ProposalView[]>;
   getProposalContext(proposalId: string): Promise<ProposalContext | null>;
   canonChangeImpact(propertyId: string, targetRef: string): Promise<{ productionId: string }[]>;
+  /** Read-only, navigation-only cross-domain search (DEC-0026). */
+  search(query: string, propertyId?: string): Promise<SearchResult[]>;
   proposeCanon(
     input: {
       propertyId: string;
@@ -327,6 +329,27 @@ export interface ReleaseSummary {
   contentSha256: string;
   createdAt: string;
   supersedesReleaseId: string | null;
+}
+
+/** A single read-only cross-domain search hit (DEC-0026); deepLink is a ready contextual URL. */
+export interface SearchResult {
+  type:
+    | "property"
+    | "entity"
+    | "timeline_event"
+    | "unit"
+    | "finding"
+    | "proposal"
+    | "production"
+    | "release";
+  id: string;
+  title: string;
+  subtitle: string;
+  propertyId: string;
+  productionId: string | null;
+  state: string;
+  visibility: string | null;
+  deepLink: string;
 }
 
 export interface FindingView {
@@ -540,6 +563,14 @@ export function createEngineClient(
         `/v1/canon-change-impact?propertyId=${encodeURIComponent(propertyId)}&targetRef=${encodeURIComponent(targetRef)}`,
       );
       return out.impact;
+    },
+    async search(query, propertyId) {
+      const term = query.trim();
+      if (term.length < 2) return [];
+      const params = new URLSearchParams({ q: term });
+      if (propertyId) params.set("propertyId", propertyId);
+      const out = await get<{ results: SearchResult[] }>(`/v1/search?${params.toString()}`);
+      return out.results;
     },
     async decideProposal(input, opts) {
       return post<{ decisionId: string; revisionId: string | null; receiptId: string }>(

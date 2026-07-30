@@ -398,6 +398,14 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
     async canonChangeImpact(_propertyId, targetRef) {
       return targetRef === "e-1" ? [{ productionId: "prod-1" }] : [];
     },
+    async search(query, _propertyId) {
+      if (query.trim().length < 2) return [];
+      return [
+        { type: "property", id: "p-1", title: "Stillhouse", subtitle: "fictional", propertyId: "p-1", productionId: null, state: "property", visibility: null, deepLink: "/world-bible?property=p-1" },
+        { type: "entity", id: "e-1", title: "Mara Venn", subtitle: "character", propertyId: "p-1", productionId: null, state: "working canon", visibility: "team_private", deepLink: "/world-bible?property=p-1" },
+        { type: "finding", id: "f-1", title: "Scene enters with no established entity state", subtitle: "in Season One", propertyId: "p-1", productionId: "prod-1", state: "open", visibility: null, deepLink: "/continuity?property=p-1&production=prod-1" },
+      ];
+    },
     async decideProposal(input, opts) {
       commandKeys.push({ method: "decideProposal", key: opts?.idempotencyKey });
       decisions.push(input);
