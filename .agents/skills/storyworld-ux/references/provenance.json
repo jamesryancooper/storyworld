@@ -1,0 +1,119 @@
+{
+  "schema_version": "harness.skill-provenance.v1",
+  "id": "storyworld-ux",
+  "version": "1.5.0",
+  "adoption_status": "adopted",
+  "adoption_decision_ref": "DEC-0018",
+  "permission_grant": false,
+  "entrypoint": ".agents/skills/storyworld-ux/SKILL.md",
+  "purpose": "Run evidence-based Storyworld Studio UX audits and provide separately authorized implementation guidance without confusing model suggestions, human decisions, canon, releases, or publication authority.",
+  "scope": "current_task_and_storyworld_studio_user_facing_behavior",
+  "authority": {
+    "source": "current_task_and_applicable_repository_instructions",
+    "inherits_from": "current_task",
+    "may_expand": false
+  },
+  "side_effects": "repository_local_as_authorized_by_current_task",
+  "inputs": {
+    "required": [
+      "current_task_or_operator_request",
+      "applicable_repository_authority",
+      "current_studio_artifacts_or_runtime_evidence"
+    ],
+    "optional": [
+      "accepted_decision_and_task_refs",
+      "canonical_product_context",
+      "rendered_browser_evidence",
+      "supplied_participant_records"
+    ]
+  },
+  "outputs": {
+    "format": "evidence_labeled_findings_or_authorized_implementation_guidance",
+    "required_fields": [
+      "scope",
+      "evidence",
+      "impact",
+      "recommendation_or_change",
+      "validation",
+      "limitations"
+    ],
+    "evidence_required": true
+  },
+  "prohibited": [
+    "expanding_current_task_authority",
+    "treating_audit_or_critique_as_edit_authorization",
+    "inventing_participant_evidence_or_product_state",
+    "granting_models_approval_or_publication_authority",
+    "using_credentials_or_live_integrations_without_explicit_current_authorization",
+    "adding_external_dependencies_or_global_installs",
+    "deploying_or_publishing_without_explicit_current_authorization"
+  ],
+  "validation": "skill_creator_quick_validation_plus_harness_capability_provenance_and_repository_checks",
+  "owner": "ryan-cooper (project owner)",
+  "included_material": [
+    "storyworld_specific_creator_journey_and_mental_model",
+    "conditional_protected_first_use_evaluation",
+    "canon_change_consequence_and_creative_provenance_audit",
+    "mockup_comparison_and_design_intent_review",
+    "mockup_implied_feature_gap_classification_and_proposals",
+    "complex_navigation_graph_canvas_and_multi_author_workflow_auditing",
+    "evidence_labeled_critique_and_prioritization",
+    "accessibility_reasoning_and_manual_checks",
+    "browser_visual_responsive_theme_keyboard_and_state_qa",
+    "usability_research_planning_without_invented_evidence",
+    "separately_authorized_implementation_guidance"
+  ],
+  "provenance": {
+    "source": "project_local_operator_requested_adaptation",
+    "source_version": "2026-07-29-revision-5",
+    "source_fingerprint": null,
+    "generated_on": "2026-07-29",
+    "license_review": "reviewed",
+    "security_review": "reviewed",
+    "included_files": [
+      ".agents/skills/storyworld-ux/SKILL.md",
+      ".agents/skills/storyworld-ux/agents/openai.yaml",
+      ".agents/skills/storyworld-ux/references/accessibility.md",
+      ".agents/skills/storyworld-ux/references/canon-consequences.md",
+      ".agents/skills/storyworld-ux/references/complex-workspaces.md",
+      ".agents/skills/storyworld-ux/references/critique.md",
+      ".agents/skills/storyworld-ux/references/first-use.md",
+      ".agents/skills/storyworld-ux/references/mockup-feature-gaps.md",
+      ".agents/skills/storyworld-ux/references/mockup-review.md",
+      ".agents/skills/storyworld-ux/references/product-context.md",
+      ".agents/skills/storyworld-ux/references/provenance.json",
+      ".agents/skills/storyworld-ux/references/research-planning.md",
+      ".agents/skills/storyworld-ux/references/visual-qa.md"
+    ],
+    "local_changes": [
+      "Adapted only transferable audit workflow concepts from the local Commerce Foundry UX skill architecture.",
+      "Replaced merchant and commerce framing with Storyworld creator, canon, continuity, review, release, and publishing authority semantics.",
+      "Collapsed transferred audit concepts into a progressively loaded core with bounded Storyworld references.",
+      "Aligned design guidance with current vendored Studio primitives, Tailwind v4 tokens, accepted V1 alpha evidence, and repository authority.",
+      "Added an operator-approved conditional protected first-use pass that defers intended-path context, records expectation-versus-result evidence, and preserves raw notes during later expert verification.",
+      "Added an operator-approved canon-and-consequences protocol covering lifecycle-state legibility, rationale and creative provenance, affected work, contradiction visibility, and exact pre-approval effects.",
+      "Added an operator-approved routed mockup-comparison mode that bounds design intent against current implementation and product authority, separates visual, behavioral, and independent concerns, and preserves unknown states.",
+      "Added an operator-approved mockup feature-gap mode that classifies implied capabilities and produces evidence-bounded, non-authorizing proposals for genuinely new Storyworld product capabilities.",
+      "Added an operator-approved, conditionally loaded complex-workspace protocol covering layered navigation, graph/canvas access and orientation, multi-author conflicts and attribution, and dense-interface comprehension without hiding authority."
+    ],
+    "exclusions": [
+      "commerce_merchant_product_catalog_marketplace_and_spending_concepts",
+      "copied_upstream_code_scripts_or_substantial_prose",
+      "external_runtime_instructions_dependencies_assets_or_integrations",
+      "credentials_live_provider_calls_deployment_and_publication",
+      "claims_of_accessibility_conformance_usability_or_production_readiness"
+    ],
+    "trust_class": "project_local_reviewed_capability",
+    "update_strategy": "explicit_project_local_revision_with_current_source_inspection_provenance_update_and_validation"
+  },
+  "deprecated_at": null,
+  "removal_version": null,
+  "successor": null,
+  "limitations": [
+    "The protected unprimed first-use protocol has not been exercised; REV-0001 correctly declined it because the evaluator was already primed.",
+    "The canon-consequences, mockup-comparison, mockup-feature-gap, accessibility, complex-workspace, and visual-QA protocols were exercised in the primed expert audit REV-0001, not as participant evidence.",
+    "The complex-workspace protocol has not been exercised against an implemented rendered graph/canvas or live multi-author Studio workflow.",
+    "Current alpha behavior and design sources must be reinspected on every use.",
+    "Browser, assistive-technology, and participant coverage depends on separately available and authorized evidence."
+  ]
+}

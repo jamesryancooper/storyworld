@@ -134,6 +134,11 @@
     },
     {
       "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0018-adopt-storyworld-ux-capability.md",
+      "sha256": "555cc1e13bd1c97d48f55f12a3613b391b93f2ab22e2e778fb1e0b81f5b9fd15"
+    },
+    {
+      "layer": "agent_harness",
       "path": ".agent/decisions/README.md",
       "sha256": "321f2910e7e6256e00dad950baf69484dc8b777249d62e5f8f0aa84ac018e1c2"
     },
@@ -155,7 +160,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "0b6b36324fffb158f5e3da9b9601a57f181de236f353279b6a38a3cc9785160c"
+      "sha256": "ed58c7815e9aeda036285f5c521a667de871026791a856536461fcc7dd12c69a"
     },
     {
       "layer": "agent_harness",
@@ -261,6 +266,16 @@
       "layer": "agent_harness",
       "path": ".agent/evidence/EVD-0021-storyworld-studio-ux-audit-record.md",
       "sha256": "77a1eb4b94a299ad63cff73e0279823f41b18bdfc7547ce3f4bb4a3f6b8adb45"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0022-ux-program-rebaseline.md",
+      "sha256": "ca90991bb117b2fb0314d8f12c141f472af96b8a31c7a09e417ae71148fa163f"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0023-storyworld-ux-capability-adoption.md",
+      "sha256": "6bf9258be547babf897defd7b08bfc57b0e6c132705872c5c0cc6b2d8ae87984"
     },
     {
       "layer": "agent_harness",
@@ -415,7 +430,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "6d36d6ced14c326a7e8cdd86bb4feb615f1c793bacb0efee38eaab5a9eca745d"
+      "sha256": "1a0c6f6da6ed41c29f9acab2c927d73e59e6acf3fb836c35be3bb080b0da1b7d"
     },
     {
       "layer": "agent_harness",
@@ -491,6 +506,11 @@
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0014-persist-storyworld-studio-ux-audit.md",
       "sha256": "02fb5f2e05f4d4625968684d7a8257eb849bc97d5562387bb918f1f8e3e23111"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0015-storyworld-studio-ux-improvement-program.md",
+      "sha256": "a2d0aa59628d44dd732451f72ecf73eb6df19907499f33c93cdfab0aa0cedfcf"
     },
     {
       "layer": "agent_harness",
@@ -596,6 +616,71 @@
       "layer": "agent_harness",
       "path": ".agents/skills/change-review/references/provenance.json",
       "sha256": "b8de6cb3b6d465d6f77c882c1944501b2324969740d17a8eca3e513f808f192e"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agents/skills/storyworld-ux/SKILL.md",
+      "sha256": "e5af9effe6a6f126e952d10231b2ee0ac82cd89ea7052e3e1f5d169341b38b68"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agents/skills/storyworld-ux/agents/openai.yaml",
+      "sha256": "366a75b812877947c647ecb27dd7339991398af9d5a14d9a08a22b44156a351b"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agents/skills/storyworld-ux/references/accessibility.md",
+      "sha256": "cf186adea4ab41c3f258b73f34bf5d6f3ef46f13a8f4551e694638690d920ebc"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agents/skills/storyworld-ux/references/canon-consequences.md",
+      "sha256": "64879a4f01420608c4f33c4f56f252053a0771c8eba39e2f5a27fd051e75b858"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agents/skills/storyworld-ux/references/complex-workspaces.md",
+      "sha256": "aa56693ea940d5e277c6e993977ff344fa6d8b88cdf6d5ff93b549f81386a62c"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agents/skills/storyworld-ux/references/critique.md",
+      "sha256": "1213ad5975a2f62682b53b84a60c74b67e6adca4a7daac78302208f8e9b2f472"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agents/skills/storyworld-ux/references/first-use.md",
+      "sha256": "f98675849f1ca52582aa2c56aa343895a52893129e35358696b38bc87c6f2725"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agents/skills/storyworld-ux/references/mockup-feature-gaps.md",
+      "sha256": "ea17bb5e05a552bb6db5632f201febd77183613200eb7973ef62c9156dc9de8d"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agents/skills/storyworld-ux/references/mockup-review.md",
+      "sha256": "08ed4e7b265e71c5afc4bd92fb3fa64bc1a2885b41b30117b0135adbdcefd8fa"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agents/skills/storyworld-ux/references/product-context.md",
+      "sha256": "e23655dc01b402031a137ad0066cafbd5dfe1084d509dbf72b7479017cd6ee67"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agents/skills/storyworld-ux/references/provenance.json",
+      "sha256": "8dcc6d8317c50ee337463e2d3f077866b22c2bcab1b22ebda8ae20df96b9dc9e"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agents/skills/storyworld-ux/references/research-planning.md",
+      "sha256": "313075d6f2414b25fdb2b10f1b09053fec0086cea6d6ab67e8c8f277b9c4df5a"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agents/skills/storyworld-ux/references/visual-qa.md",
+      "sha256": "9c7bed128983b4b57372be79c40352de5192a30efcaee4d03f2b8977173ebf7a"
     },
     {
       "layer": "agent_harness",
@@ -2698,12 +2783,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-30T00:46:51.294168+00:00",
-  "generation_id": "f4db1414b220d20f14308f41ca665a63",
+  "generated_on": "2026-07-30T01:44:08.339639+00:00",
+  "generation_id": "0d4b4220f4e5f1280114010ed7a8c8e0",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "a7f9fa014f074142ab32903cc92194fa7284492d0de962f5ec2c79654387f3c9",
+  "source_fingerprint": "67f00cc8a68dcb6b63c7c978653b2fa722dd34d21a09f1c3e16e43d36bb38297",
   "source_scope": {
     "exclusions": [
       {

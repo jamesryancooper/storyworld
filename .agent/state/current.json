@@ -4,7 +4,7 @@
   "updated_at": "2026-07-29",
   "authority": "project_maintained_compact_operational_index_not_permission",
   "adoption_status": "adopted",
-  "active_tasks": [],
+  "active_tasks": ["TASK-0015"],
   "accepted_decisions": [
     "DEC-0001",
     "DEC-0002",
@@ -22,14 +22,18 @@
     "DEC-0014",
     "DEC-0015",
     "DEC-0016",
-    "DEC-0017"
+    "DEC-0017",
+    "DEC-0018"
   ],
   "fresh_evidence": [
     "EVD-0019",
-    "EVD-0020"
+    "EVD-0020",
+    "EVD-0021",
+    "EVD-0022",
+    "EVD-0023"
   ],
   "blocked_by": [],
-  "next_action": "V1 alpha is operational and newcomer/explanatory documentation is unified (TASK-0012/TASK-0013; EVD-0019/EVD-0020). No phase work is open. Next work is owner-directed: alpha use, a bounded O1 backlog task, or an explicit registered follow-on validation/corpus task.",
+  "next_action": "TASK-0015 (Studio UX improvement program) is open: rebaseline complete (EVD-0022 — every REV-0001 finding reverified still present at f45c2e3), and storyworld-ux v1.5.0 is adopted by DEC-0018/EVD-0023. Next: draft the nine bounded Phase 0 proposals for owner disposition. No implementation phase opens before the Phase 0 exit gate and separate authorization.",
   "external_effects_authority_refs": [],
   "limitations": [
     "behavioral_proofs_only_no_readiness_claim",

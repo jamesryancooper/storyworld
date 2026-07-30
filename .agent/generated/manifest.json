@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-30T00:46:51.294168+00:00",
-  "generation_id": "f4db1414b220d20f14308f41ca665a63",
+  "generated_at": "2026-07-30T01:44:08.339639+00:00",
+  "generation_id": "0d4b4220f4e5f1280114010ed7a8c8e0",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -35,6 +35,7 @@
     ".agent/decisions/DEC-0015-b3-gate-staged.md",
     ".agent/decisions/DEC-0016-b4-gate-staged.md",
     ".agent/decisions/DEC-0017-v1-consolidated-review.md",
+    ".agent/decisions/DEC-0018-adopt-storyworld-ux-capability.md",
     ".agent/decisions/README.md",
     ".agent/evaluations/README.md",
     ".agent/evaluations/registry.json",
@@ -61,6 +62,8 @@
     ".agent/evidence/EVD-0019-v1-documentation-synchronization.md",
     ".agent/evidence/EVD-0020-unified-newcomer-documentation.md",
     ".agent/evidence/EVD-0021-storyworld-studio-ux-audit-record.md",
+    ".agent/evidence/EVD-0022-ux-program-rebaseline.md",
+    ".agent/evidence/EVD-0023-storyworld-ux-capability-adoption.md",
     ".agent/evidence/README.md",
     ".agent/extensions/README.md",
     ".agent/extensions/registry.json",
@@ -107,6 +110,7 @@
     ".agent/tasks/TASK-0012-v1-documentation-synchronization.md",
     ".agent/tasks/TASK-0013-unify-newcomer-documentation.md",
     ".agent/tasks/TASK-0014-persist-storyworld-studio-ux-audit.md",
+    ".agent/tasks/TASK-0015-storyworld-studio-ux-improvement-program.md",
     ".agent/templates/artifact.json",
     ".agent/templates/checkpoint.md",
     ".agent/templates/decision.md",
@@ -128,6 +132,19 @@
     ".agents/agents/storyworld-steward.json",
     ".agents/skills/change-review/SKILL.md",
     ".agents/skills/change-review/references/provenance.json",
+    ".agents/skills/storyworld-ux/SKILL.md",
+    ".agents/skills/storyworld-ux/agents/openai.yaml",
+    ".agents/skills/storyworld-ux/references/accessibility.md",
+    ".agents/skills/storyworld-ux/references/canon-consequences.md",
+    ".agents/skills/storyworld-ux/references/complex-workspaces.md",
+    ".agents/skills/storyworld-ux/references/critique.md",
+    ".agents/skills/storyworld-ux/references/first-use.md",
+    ".agents/skills/storyworld-ux/references/mockup-feature-gaps.md",
+    ".agents/skills/storyworld-ux/references/mockup-review.md",
+    ".agents/skills/storyworld-ux/references/product-context.md",
+    ".agents/skills/storyworld-ux/references/provenance.json",
+    ".agents/skills/storyworld-ux/references/research-planning.md",
+    ".agents/skills/storyworld-ux/references/visual-qa.md",
     ".agents/workflows/safe-change.json",
     ".github/workflows/validate.yml",
     ".gitignore",
@@ -550,7 +567,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "a7f9fa014f074142ab32903cc92194fa7284492d0de962f5ec2c79654387f3c9",
+  "source_fingerprint": "67f00cc8a68dcb6b63c7c978653b2fa722dd34d21a09f1c3e16e43d36bb38297",
   "source_scope": {
     "exclusions": [
       {

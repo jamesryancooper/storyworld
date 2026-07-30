@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyworld UX"
+  short_description: "Audit Storyworld Studio and complex workspaces"
+  default_prompt: "Use $storyworld-ux to audit this Storyworld Studio journey or complex creative workspace for clarity, accessibility, authority, state integrity, and visual quality."
