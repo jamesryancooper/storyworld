@@ -2,8 +2,8 @@
 {
   "schema_version": "harness.task.v1",
   "id": "TASK-0018",
-  "status": "in_progress",
-  "previous_status": "ready",
+  "status": "completed",
+  "previous_status": "review",
   "title": "Phase 2: navigation, loading/state, URL-owned context, detail panels, and accessibility (SWUX-008..015, SWUX-017 recorded facts)",
   "authority_basis": "external:operator improvement-program request 2026-07-30 to run the sequence after the DEC-0020 follow-on; governed by accepted DEC-0022 (URL-owned context), DEC-0023 (receipts), DEC-0025 (recorded-facts collaboration), and the Phase 2 scope of the TASK-0015 program map",
   "owner": "claude-agent (improvement program lead)",
@@ -28,12 +28,12 @@
     "git diff --check",
     "focused rendered check of narrow navigation, loading states, deep-link restore, and a detail panel against loopback services"
   ],
-  "implementation_result": null,
-  "review_evidence": ["REV-0001"],
+  "implementation_result": "Implemented SWUX-008..015 and the recorded-facts SWUX-017 across four committed groups (navigation/a11y, loading discipline, URL-owned context per DEC-0022, and detail panels) plus the smallest supporting read-only Engine reads. Full workspace green (studio 91, engine-api 18); rendered check confirmed the active-route marker, URL context, DEC-0022 reconciliation, and the continuity detail disclosure; focused self-review found no new authority/duplicate/lost-work path (EVD-0028).",
+  "review_evidence": ["REV-0001", "EVD-0028"],
   "blocked_by": [],
   "reopened_by": null,
-  "acceptance_criteria_met": false,
-  "closure_evidence": [],
+  "acceptance_criteria_met": true,
+  "closure_evidence": ["EVD-0028"],
   "external_effects": "repository_local",
   "limitations": [
     "Created in progress; implemented in groups (A navigation/a11y, B loading, C URL context, D detail panels) with incremental commits and a phase-level validation, rendered check, and focused audit before closure.",
@@ -67,9 +67,8 @@ narrow navigation, loading, deep-link restore, and a detail panel.
 
 ## Evidence and closure
 
-- Evidence: to be recorded.
-- Review: pending — focused audit at phase end.
-- External effects: repository-local only.
-- Residual limitations: recorded at closure.
-- Next action: implement Group A+B, then C, then D; validate, rendered
-  check, focused audit, close.
+- Evidence: EVD-0028 (implementation, validation, rendered check, focused review).
+- Review: focused self-review proportionate to additive UX/state/read work reusing the Phase 1 safety primitives.
+- External effects: repository-local; loopback only; reserved crossings stayed closed.
+- Residual limitations: narrow-viewport visual and Back/Forward not browser-driven (tooling); EVD-0026 rendered-matrix gaps carry forward; no WCAG claim.
+- Next action: Phase 2 complete. Search (DEC-0026) becomes eligible at this gate and is next; graph (DEC-0024) remains gated behind Phase 3 and an owner-level graph-semantics decision.

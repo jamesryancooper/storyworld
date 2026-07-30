@@ -4,9 +4,7 @@
   "updated_at": "2026-07-30",
   "authority": "project_maintained_compact_operational_index_not_permission",
   "adoption_status": "adopted",
-  "active_tasks": [
-    "TASK-0018"
-  ],
+  "active_tasks": [],
   "accepted_decisions": [
     "DEC-0001",
     "DEC-0002",
@@ -45,10 +43,11 @@
     "EVD-0024",
     "EVD-0025",
     "EVD-0026",
-    "EVD-0027"
+    "EVD-0027",
+    "EVD-0028"
   ],
   "blocked_by": [],
-  "next_action": "DEC-0020 follow-on (TASK-0017) COMPLETE: queued Arc authoring mode + governed per-property toggle implemented additively over the default direct mode (EVD-0027) — receipted flip, structure-proposal submit/decide with moved-base fail-closed, mode-mismatch guards, Studio mode-aware Arc Board + Review Room queue; workspace green (engine-api 17, studio 70 incl. live integration), focused rendered check passed. Program sequence continues: Phase 2 (SWUX-008..015: narrow navigation, loading states, URL-owned context, continuity/proposal detail panels, accessibility primitives), then search (DEC-0026) after the Phase 2 gate and graph (DEC-0024) after Phase 3. Reserved crossings remain closed.",
+  "next_action": "Phase 2 (TASK-0018) COMPLETE: navigation/a11y, loading discipline, URL-owned context (DEC-0022), and detail panels shipped in four committed groups (SWUX-008..015, SWUX-017 recorded facts); workspace green (studio 91, engine-api 18); rendered check confirmed active-route/URL-context/reconciliation/continuity-detail (EVD-0028). Next in the sequence: SEARCH (DEC-0026) is eligible at the Phase 2 gate and is next. GRAPH (DEC-0024) remains gated behind Phase 3 (SWUX-012/016/018) AND an owner-level graph-semantics successor decision that the accepted decision says must not be invented — it will be surfaced for owner disposition, not built unilaterally. Reserved crossings remain closed.",
   "external_effects_authority_refs": [],
   "limitations": [
     "behavioral_proofs_only_no_readiness_claim",
