@@ -2,17 +2,17 @@
 {
   "schema_version": "harness.decision.v1",
   "id": "DEC-0024",
-  "status": "proposed",
-  "previous_status": null,
+  "status": "accepted",
+  "previous_status": "proposed",
   "title": "Phase 0 D6: defer the graph/canvas during this program; adopt structured views; planned post-program graph follow-on",
   "created_at": "2026-07-29",
-  "authority_source": "external:operator request 2026-07-29 — TASK-0015 Phase 0 requires bounded proposals for decisions implementation cannot safely infer; amended 2026-07-30 on the owner's instruction to record the post-program implementation intent; acceptance is reserved to the project owner",
-  "owner": "ryan-cooper (project owner) — acceptance pending",
+  "authority_source": "external:operator request 2026-07-29 — TASK-0015 Phase 0 requires bounded proposals for decisions implementation cannot safely infer; amended 2026-07-30 on the owner's instruction to record the post-program implementation intent; accepted by the project owner (Ryan Cooper) in-session on 2026-07-30: “I accept all nine as written.”",
+  "owner": "ryan-cooper (project owner)",
   "scope": "Whether and when Studio builds a graph/canvas, which structured alternatives carry the mockups' story-structure intent during this program, and the recorded owner intent to implement the graph after the program completes. Governs SWUX-012 and the Phase 3 shape of the Arc workspace (FG-08/09/10/12/14/15).",
   "supersedes": null,
   "successor": null,
   "limitations": [
-    "Proposal only; the structured views land under Phase 3 tasks after acceptance and after Phase 1/2 gates.",
+    "Accepted 2026-07-30: the structured views land under Phase 3 tasks after Phase 1/2 gates.",
     "Recording the post-program intent does not authorize the follow-on: the graph still requires its semantics successor decision and its own bounded, owner-authorized implementation task at that time.",
     "Deferring the canvas within this program is not rejecting the mockups' story-structure intent — episode grouping, story-time legibility, and selection/inspector synchronization are carried by the structured views."
   ]
@@ -94,3 +94,10 @@ open-ended, evidence-gated deferral.
 - Reversal or successor path: the semantics successor decision governs the
   canvas; the owner may cancel or re-defer the follow-on at that decision
   without affecting the structured views.
+
+## Acceptance
+
+Accepted by the project owner (Ryan Cooper) on 2026-07-30 in the operator
+session — “I accept all nine as written” — covering DEC-0019 through DEC-0027
+as amended (DEC-0020/0024/0026 amended 2026-07-30 on owner direction).
+Recorded by claude-agent on the owner's instruction.

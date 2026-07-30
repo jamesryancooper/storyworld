@@ -2,17 +2,17 @@
 {
   "schema_version": "harness.decision.v1",
   "id": "DEC-0020",
-  "status": "proposed",
-  "previous_status": null,
+  "status": "accepted",
+  "previous_status": "proposed",
   "title": "Phase 0 D2: proposal acceptance and dual-mode Arc Board authoring (direct or queued, phased build)",
   "created_at": "2026-07-29",
-  "authority_source": "external:operator request 2026-07-29 — TASK-0015 Phase 0 requires bounded proposals for decisions implementation cannot safely infer; amended 2026-07-30 on the owner's instruction to the dual-mode shape; acceptance is reserved to the project owner",
-  "owner": "ryan-cooper (project owner) — acceptance pending",
+  "authority_source": "external:operator request 2026-07-29 — TASK-0015 Phase 0 requires bounded proposals for decisions implementation cannot safely infer; amended 2026-07-30 on the owner's instruction to the dual-mode shape; accepted by the project owner (Ryan Cooper) in-session on 2026-07-30: “I accept all nine as written.”",
+  "owner": "ryan-cooper (project owner)",
   "scope": "The exact transition performed by canon proposal acceptance; Arc Board authoring as an owner-selectable per-property mode (direct accepted revision or queued proposal) with governed toggle semantics; and the supersession/validation rules every structure change must obey in both modes. Unblocks SWUX-002 and SWUX-007.",
   "supersedes": null,
   "successor": null,
   "limitations": [
-    "Proposal only; direct mode lands under Phase 1 tasks after acceptance, and queued mode plus the toggle land as their own bounded follow-on task after the Phase 1 exit gate.",
+    "Accepted 2026-07-30: direct mode lands under the Phase 1 task; queued mode plus the toggle land as their own bounded follow-on task after the Phase 1 exit gate.",
     "Until the follow-on task ships, the authoring mode is fixed to direct and no toggle UI exists.",
     "Multi-author draft staging, per-role forced modes, and assignment remain out of scope until a collaboration model exists (DEC-0025 successor)."
   ]
@@ -129,3 +129,10 @@ queued mode is a supported choice rather than a rejected alternative.
 - Reversal or successor path: successor decision; the toggle can be removed
   by fixing the mode to direct without data loss, provided queued proposals
   are first drained or explicitly voided.
+
+## Acceptance
+
+Accepted by the project owner (Ryan Cooper) on 2026-07-30 in the operator
+session — “I accept all nine as written” — covering DEC-0019 through DEC-0027
+as amended (DEC-0020/0024/0026 amended 2026-07-30 on owner direction).
+Recorded by claude-agent on the owner's instruction.

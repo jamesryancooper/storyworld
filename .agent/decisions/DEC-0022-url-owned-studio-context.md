@@ -2,17 +2,17 @@
 {
   "schema_version": "harness.decision.v1",
   "id": "DEC-0022",
-  "status": "proposed",
-  "previous_status": null,
+  "status": "accepted",
+  "previous_status": "proposed",
   "title": "Phase 0 D4: shared Studio context is URL-owned and explicitly reconciled",
   "created_at": "2026-07-29",
-  "authority_source": "external:operator request 2026-07-29 — TASK-0015 Phase 0 requires bounded proposals for decisions implementation cannot safely infer; acceptance is reserved to the project owner",
-  "owner": "ryan-cooper (project owner) — acceptance pending",
+  "authority_source": "external:operator request 2026-07-29 — TASK-0015 Phase 0 requires bounded proposals for decisions implementation cannot safely infer; accepted by the project owner (Ryan Cooper) in-session on 2026-07-30: “I accept all nine as written.”",
+  "owner": "ryan-cooper (project owner)",
   "scope": "Ownership and representation of property, production, and selected-subject context across Studio routes; persistence and reconciliation rules for stale, deleted, or unauthorized context. Unblocks SWUX-013 and the navigation half of Phase 2.",
   "supersedes": null,
   "successor": null,
   "limitations": [
-    "Proposal only; implementation is Phase 2 scope after acceptance.",
+    "Accepted 2026-07-30: implementation is Phase 2 scope.",
     "Workspace/organization switching (mockup 'Main Workspace'; FG-23) stays deferred — the alpha has one implicit workspace."
   ]
 }
@@ -70,3 +70,10 @@ a persistent project selector but do not specify ownership or recovery.
 - Reversal or successor path: successor decision; URL ownership can be
   narrowed or extended without destroying stored state because none is
   persisted client-side.
+
+## Acceptance
+
+Accepted by the project owner (Ryan Cooper) on 2026-07-30 in the operator
+session — “I accept all nine as written” — covering DEC-0019 through DEC-0027
+as amended (DEC-0020/0024/0026 amended 2026-07-30 on owner direction).
+Recorded by claude-agent on the owner's instruction.

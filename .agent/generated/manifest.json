@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-30T14:08:02.024576+00:00",
-  "generation_id": "d68779f52659ec177dbd6bb6820fa002",
+  "generated_at": "2026-07-30T14:32:07.793878+00:00",
+  "generation_id": "c99b5b65434bd5bb7ad250e96a0f2206",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -73,6 +73,7 @@
     ".agent/evidence/EVD-0021-storyworld-studio-ux-audit-record.md",
     ".agent/evidence/EVD-0022-ux-program-rebaseline.md",
     ".agent/evidence/EVD-0023-storyworld-ux-capability-adoption.md",
+    ".agent/evidence/EVD-0024-phase0-acceptance.md",
     ".agent/evidence/README.md",
     ".agent/extensions/README.md",
     ".agent/extensions/registry.json",
@@ -120,6 +121,7 @@
     ".agent/tasks/TASK-0013-unify-newcomer-documentation.md",
     ".agent/tasks/TASK-0014-persist-storyworld-studio-ux-audit.md",
     ".agent/tasks/TASK-0015-storyworld-studio-ux-improvement-program.md",
+    ".agent/tasks/TASK-0016-phase1-safety-critical-repairs.md",
     ".agent/templates/artifact.json",
     ".agent/templates/checkpoint.md",
     ".agent/templates/decision.md",
@@ -576,7 +578,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "c6ac26461717d7f4fb2833e9bdbc2363bb8d14e12c41d3bbad67c32046a09957",
+  "source_fingerprint": "9b3872e476bbecc48cc78016efbae6f922ff5d899715ecd8f9eb5d609052eb06",
   "source_scope": {
     "exclusions": [
       {

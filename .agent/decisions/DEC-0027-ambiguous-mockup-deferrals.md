@@ -2,17 +2,17 @@
 {
   "schema_version": "harness.decision.v1",
   "id": "DEC-0027",
-  "status": "proposed",
-  "previous_status": null,
+  "status": "accepted",
+  "previous_status": "proposed",
   "title": "Phase 0 D9: ambiguous mockup implications are explicitly deferred, not defects and not scope",
   "created_at": "2026-07-29",
-  "authority_source": "external:operator request 2026-07-29 — TASK-0015 Phase 0 requires bounded proposals for decisions implementation cannot safely infer; acceptance is reserved to the project owner",
-  "owner": "ryan-cooper (project owner) — acceptance pending",
+  "authority_source": "external:operator request 2026-07-29 — TASK-0015 Phase 0 requires bounded proposals for decisions implementation cannot safely infer; accepted by the project owner (Ryan Cooper) in-session on 2026-07-30: “I accept all nine as written.”",
+  "owner": "ryan-cooper (project owner)",
   "scope": "Explicit deferral of every mockup concept REV-0001 classified as too ambiguous to infer, so later phases neither implement them from pixels nor report them as alpha defects.",
   "supersedes": null,
   "successor": null,
   "limitations": [
-    "Proposal only; each deferred concept re-enters scope solely through its own successor decision.",
+    "Accepted 2026-07-30: each deferred concept re-enters scope solely through its own successor decision.",
     "Deferral is a scope statement, not a judgment that the concepts are undesirable."
   ]
 }
@@ -67,3 +67,10 @@ not into implementation.
   rejected, deferred, or still ambiguous — with these nine starting as
   deferred.
 - Reversal or successor path: per-concept successor decisions.
+
+## Acceptance
+
+Accepted by the project owner (Ryan Cooper) on 2026-07-30 in the operator
+session — “I accept all nine as written” — covering DEC-0019 through DEC-0027
+as amended (DEC-0020/0024/0026 amended 2026-07-30 on owner direction).
+Recorded by claude-agent on the owner's instruction.

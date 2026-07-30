@@ -1,10 +1,10 @@
 {
   "schema_version": "harness.current-state.v1",
   "project_slug": "storyworld-platform",
-  "updated_at": "2026-07-29",
+  "updated_at": "2026-07-30",
   "authority": "project_maintained_compact_operational_index_not_permission",
   "adoption_status": "adopted",
-  "active_tasks": ["TASK-0015"],
+  "active_tasks": ["TASK-0016"],
   "accepted_decisions": [
     "DEC-0001",
     "DEC-0002",
@@ -23,17 +23,27 @@
     "DEC-0015",
     "DEC-0016",
     "DEC-0017",
-    "DEC-0018"
+    "DEC-0018",
+    "DEC-0019",
+    "DEC-0020",
+    "DEC-0021",
+    "DEC-0022",
+    "DEC-0023",
+    "DEC-0024",
+    "DEC-0025",
+    "DEC-0026",
+    "DEC-0027"
   ],
   "fresh_evidence": [
     "EVD-0019",
     "EVD-0020",
     "EVD-0021",
     "EVD-0022",
-    "EVD-0023"
+    "EVD-0023",
+    "EVD-0024"
   ],
   "blocked_by": [],
-  "next_action": "TASK-0015 (Studio UX improvement program) is open: rebaseline complete (EVD-0022), storyworld-ux adopted (DEC-0018/EVD-0023), and the nine Phase 0 proposals DEC-0019..0027 are drafted awaiting owner disposition (accept, amend, defer, or reject each). No implementation phase opens before the Phase 0 exit gate and separate authorization.",
+  "next_action": "Phase 0 is accepted in full (DEC-0019..0027; EVD-0024) and TASK-0015 is complete. TASK-0016 (Phase 1: safety-critical Studio/Engine repairs, SWUX-001..007) is ready under the accepted decisions. Recorded follow-ons: queued Arc mode + toggle after the Phase 1 gate (DEC-0020), cross-domain search after the Phase 2 gate (DEC-0026), graph after the Phase 3 gate (DEC-0024). Reserved crossings remain closed.",
   "external_effects_authority_refs": [],
   "limitations": [
     "behavioral_proofs_only_no_readiness_claim",

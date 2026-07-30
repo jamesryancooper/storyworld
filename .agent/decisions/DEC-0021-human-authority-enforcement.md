@@ -2,17 +2,17 @@
 {
   "schema_version": "harness.decision.v1",
   "id": "DEC-0021",
-  "status": "proposed",
-  "previous_status": null,
+  "status": "accepted",
+  "previous_status": "proposed",
   "title": "Phase 0 D3: human authority enforcement for acceptance-class commands",
   "created_at": "2026-07-29",
-  "authority_source": "external:operator request 2026-07-29 — TASK-0015 Phase 0 requires bounded proposals for decisions implementation cannot safely infer; acceptance is reserved to the project owner",
-  "owner": "ryan-cooper (project owner) — acceptance pending",
+  "authority_source": "external:operator request 2026-07-29 — TASK-0015 Phase 0 requires bounded proposals for decisions implementation cannot safely infer; accepted by the project owner (Ryan Cooper) in-session on 2026-07-30: “I accept all nine as written.”",
+  "owner": "ryan-cooper (project owner)",
   "scope": "Which roles may execute acceptance-class commands, what the Engine must verify beyond actor kind, and the exact boundary of the development identity. Unblocks SWUX-006 and the authority lines of SWUX-002/003/005.",
   "supersedes": null,
   "successor": null,
   "limitations": [
-    "Proposal only; enforcement lands under a Phase 1 task after acceptance.",
+    "Accepted 2026-07-30: enforcement lands under the Phase 1 task.",
     "Production identity, delegation, expiry, and multi-role matrices remain governed by the existing identity reserved crossing; deferral here means absent and fail-closed, not lenient."
   ]
 }
@@ -78,3 +78,10 @@ delegated guest — never a model, tool, or connector.
   change — plus a dev-mode-on path proving the walkthrough still works.
 - Reversal or successor path: successor decision; enforcement is additive
   and can be relaxed only by explicit successor, never by default.
+
+## Acceptance
+
+Accepted by the project owner (Ryan Cooper) on 2026-07-30 in the operator
+session — “I accept all nine as written” — covering DEC-0019 through DEC-0027
+as amended (DEC-0020/0024/0026 amended 2026-07-30 on owner direction).
+Recorded by claude-agent on the owner's instruction.

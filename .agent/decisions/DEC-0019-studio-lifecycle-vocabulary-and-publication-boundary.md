@@ -2,17 +2,17 @@
 {
   "schema_version": "harness.decision.v1",
   "id": "DEC-0019",
-  "status": "proposed",
-  "previous_status": null,
+  "status": "accepted",
+  "previous_status": "proposed",
   "title": "Phase 0 D1: lifecycle and authority vocabulary; the release/publication boundary",
   "created_at": "2026-07-29",
-  "authority_source": "external:operator request 2026-07-29 — TASK-0015 Phase 0 requires bounded proposals for decisions implementation cannot safely infer; acceptance is reserved to the project owner",
-  "owner": "ryan-cooper (project owner) — acceptance pending",
+  "authority_source": "external:operator request 2026-07-29 — TASK-0015 Phase 0 requires bounded proposals for decisions implementation cannot safely infer; accepted by the project owner (Ryan Cooper) in-session on 2026-07-30: “I accept all nine as written.”",
+  "owner": "ryan-cooper (project owner)",
   "scope": "Durable Studio and Engine vocabulary for content lifecycle states, ownership of each transition, the meaning of any lifecycle display, and the exclusive reservation of the word 'published'. Unblocks SWUX-004 and the wording of every Phase 1 consequence review.",
   "supersedes": null,
   "successor": null,
   "limitations": [
-    "Proposal only; nothing here changes code, contracts, or receipts until accepted and implemented under a Phase 1 task.",
+    "Accepted 2026-07-30: code, contracts, and receipts change only under the implementing Phase 1 task.",
     "External publication, creative release approval, and release candidates remain undefined stages that stay closed and absent from UI regardless of this decision's outcome."
   ]
 }
@@ -94,3 +94,10 @@ its own approval and receipt."
   stored action name plus the clarifying label.
 - Reversal or successor path: successor decision; the rename is additive
   (append-only receipts), so reverting affects only future writes.
+
+## Acceptance
+
+Accepted by the project owner (Ryan Cooper) on 2026-07-30 in the operator
+session — “I accept all nine as written” — covering DEC-0019 through DEC-0027
+as amended (DEC-0020/0024/0026 amended 2026-07-30 on owner direction).
+Recorded by claude-agent on the owner's instruction.

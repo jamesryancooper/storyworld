@@ -140,47 +140,47 @@
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0019-studio-lifecycle-vocabulary-and-publication-boundary.md",
-      "sha256": "e5818988259d52b76d7e3621545db313b0a6deeb506cc5fb76651610bdb085ce"
+      "sha256": "f2f0db50476fd1ec4a3e8d01bacc2065bd0024e843ee2d23102e11c4ab309476"
     },
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0020-proposal-acceptance-and-arc-board-semantics.md",
-      "sha256": "6bb700f32cb90bc3796792ec0ee4116fc7b8fd1efed42de9aa362f39bf13c46f"
+      "sha256": "80903567ec84b7eca306d9f88a88cdf105131dfdc5e8c1ca8efa01400c367bba"
     },
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0021-human-authority-enforcement.md",
-      "sha256": "dfddb7d61c40691e10c9ee7af403c803b81cc8046a6415b99da6c0531dbc93e2"
+      "sha256": "98a2a7ecdfd06868a8e7c28c66528750f7de11649d7c1b47794a0ff5e64cab66"
     },
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0022-url-owned-studio-context.md",
-      "sha256": "8c54bffce0d8c0d2fb081633d560d0f85bc9ea9a74888377459f815388f53424"
+      "sha256": "330be8ff5b2732d06306f0159b4d8bde753aa42b293430a9673d599436123b87"
     },
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0023-runtime-decision-receipts.md",
-      "sha256": "a4f4515649936a7a3f6b3f1bd6476376e9b1f18e37e0d73118e3a98f93320e5e"
+      "sha256": "4030c36dcc38368a6ea216874099204aa11b9388bd4807eaf7eacccf0b83fa46"
     },
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0024-defer-graph-adopt-structured-views.md",
-      "sha256": "1f09c9969178d55a0b9c1310434f6c7ed322d1c4fb1b073c999f22102f1583f9"
+      "sha256": "ceb983b431ebcb699dd026ee91b5f75845c2d2d60330d3fd4f07782dde818046"
     },
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0025-alpha-collaboration-model.md",
-      "sha256": "1a447c574d5ffcd215541176b0e397c01e88d962f105f25365450452b6bf31db"
+      "sha256": "2fdcbea93fa9b901dd6a661677b77411f7dbf5d157f3006eb2e5e42a61f115b2"
     },
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0026-category-4-dispositions.md",
-      "sha256": "99fb9368c4b66307a0e9e447d2c0319c4d664009a2927ff1f2ba5844f4480b89"
+      "sha256": "78ea50493a89d73a7e17f23afa6c4e1ee1ee0c81e26b86db95954f518dd8bec6"
     },
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0027-ambiguous-mockup-deferrals.md",
-      "sha256": "6d8d6216bf395879aaf1369b2ba736d8cae05202da520d8d1b135ee60a569949"
+      "sha256": "699420d84027eff94bcd6f3e0983cc2e72e65d5593933bac9a3dae372169b201"
     },
     {
       "layer": "agent_harness",
@@ -205,7 +205,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "3753c957fefa2f834ff354c7fa02ca92e3be43251464b4a0aaa2d03aac8d3507"
+      "sha256": "846a4598e61c1cf878a41c7b7b7f5057927ada4fae650a5d7aba591c00344fc8"
     },
     {
       "layer": "agent_harness",
@@ -321,6 +321,11 @@
       "layer": "agent_harness",
       "path": ".agent/evidence/EVD-0023-storyworld-ux-capability-adoption.md",
       "sha256": "6bf9258be547babf897defd7b08bfc57b0e6c132705872c5c0cc6b2d8ae87984"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0024-phase0-acceptance.md",
+      "sha256": "98cdece7373d0f669e6120b83ca77ede0cf3fc0007ce2673d643c7c85705e3a1"
     },
     {
       "layer": "agent_harness",
@@ -475,7 +480,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "b9cc13b5863970f22afde7f2bf7fa2d6b7160d3b616f1e02114f39945e7e84c6"
+      "sha256": "74f236636c6c799f3397ec6c843781b58302cd9bb55cb3f4f51a2a09c3ed39f9"
     },
     {
       "layer": "agent_harness",
@@ -555,7 +560,12 @@
     {
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0015-storyworld-studio-ux-improvement-program.md",
-      "sha256": "7e7cdaf0d8c6baf29e4a45a9ba1bd10dcfa6d9295ea087d839dd9c20bb17ae5b"
+      "sha256": "938e33aa5b604579195c30f061ee74445eff4e34362665a748ce53b09013db37"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0016-phase1-safety-critical-repairs.md",
+      "sha256": "02aea3eff9a7e7f38b134011071511d6d04402bc4128f8c2f398a53b3878048e"
     },
     {
       "layer": "agent_harness",
@@ -2828,12 +2838,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-30T14:08:02.024576+00:00",
-  "generation_id": "d68779f52659ec177dbd6bb6820fa002",
+  "generated_on": "2026-07-30T14:32:07.793878+00:00",
+  "generation_id": "c99b5b65434bd5bb7ad250e96a0f2206",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "c6ac26461717d7f4fb2833e9bdbc2363bb8d14e12c41d3bbad67c32046a09957",
+  "source_fingerprint": "9b3872e476bbecc48cc78016efbae6f922ff5d899715ecd8f9eb5d609052eb06",
   "source_scope": {
     "exclusions": [
       {

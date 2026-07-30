@@ -2,17 +2,17 @@
 {
   "schema_version": "harness.decision.v1",
   "id": "DEC-0023",
-  "status": "proposed",
-  "previous_status": null,
+  "status": "accepted",
+  "previous_status": "proposed",
   "title": "Phase 0 D5: runtime decision receipts align to the approval-receipt contract and become reachable",
   "created_at": "2026-07-29",
-  "authority_source": "external:operator request 2026-07-29 — TASK-0015 Phase 0 requires bounded proposals for decisions implementation cannot safely infer; acceptance is reserved to the project owner",
-  "owner": "ryan-cooper (project owner) — acceptance pending",
+  "authority_source": "external:operator request 2026-07-29 — TASK-0015 Phase 0 requires bounded proposals for decisions implementation cannot safely infer; accepted by the project owner (Ryan Cooper) in-session on 2026-07-30: “I accept all nine as written.”",
+  "owner": "ryan-cooper (project owner)",
   "scope": "The runtime shape of decision receipts for acceptance-class commands, their relationship to the accepted storyworld.approval-receipt.v1 contract, and their read path into Studio. Unblocks the receipt lines of SWUX-001/002/003/005 and Phase 2 provenance panels (SWUX-010/011/017).",
   "supersedes": null,
   "successor": null,
   "limitations": [
-    "Proposal only; implementation is Phase 1/2 scope after acceptance.",
+    "Accepted 2026-07-30: implementation is Phase 1/2 scope.",
     "Cross-host receipt exchange and retention policy remain undecided and out of scope."
   ]
 }
@@ -78,3 +78,10 @@ never returned, and no receipt read endpoint exists (SWUX-011, SWUX-017).
   filtering, and the stale-subject label.
 - Reversal or successor path: successor decision; the document is additive
   inside `detail`, so reverting affects only future writes.
+
+## Acceptance
+
+Accepted by the project owner (Ryan Cooper) on 2026-07-30 in the operator
+session — “I accept all nine as written” — covering DEC-0019 through DEC-0027
+as amended (DEC-0020/0024/0026 amended 2026-07-30 on owner direction).
+Recorded by claude-agent on the owner's instruction.

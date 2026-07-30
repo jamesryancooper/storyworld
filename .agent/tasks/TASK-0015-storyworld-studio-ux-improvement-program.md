@@ -2,13 +2,13 @@
 {
   "schema_version": "harness.task.v1",
   "id": "TASK-0015",
-  "status": "in_progress",
-  "previous_status": "ready",
+  "status": "completed",
+  "previous_status": "review",
   "title": "Storyworld Studio UX improvement program: rebaseline and Phase 0 decision proposals",
   "authority_basis": "external:operator request 2026-07-29 — execute the phased Storyworld Studio governed improvement program against REV-0001 and the two supplied mockups: program-initialization rebaseline, capability-prerequisite resolution, and Phase 0 bounded decision proposals. Later phases require accepted Phase 0 decisions and their own bounded task records; this task creates no implementation or product-acceptance authority.",
   "owner": "claude-agent (improvement program lead)",
   "created_at": "2026-07-29",
-  "updated_at": "2026-07-29",
+  "updated_at": "2026-07-30",
   "dependencies": ["DEC-0017", "TASK-0014"],
   "scope": "In scope: rebaseline REV-0001 findings SWUX-001..018 against the current revision with per-finding status and citations; record the finding-to-phase program map; resolve the storyworld-ux capability prerequisite through explicit owner authorization; draft bounded Phase 0 decision proposals (proposed status only) for the nine program decision areas; run declared refresh/check/test validation. Out of scope: any Studio, Engine, kernel, contract, or test implementation change; accepting any decision; remediating any finding; credentials, providers, releases, publication, deployment, integrations, or any external effect.",
   "acceptance_criteria": [
@@ -24,12 +24,12 @@
     "python3 -B -m unittest discover -s .agent/tests -p \"test_*.py\"",
     "git diff --check"
   ],
-  "implementation_result": null,
-  "review_evidence": ["REV-0001", "EVD-0022", "EVD-0023"],
+  "implementation_result": "Rebaselined all eighteen REV-0001 findings as still present with precision corrections (EVD-0022); capability prerequisite resolved by the owner's adoption of storyworld-ux (DEC-0018/EVD-0023); nine Phase 0 decision proposals drafted, amended on owner direction (dual-mode Arc authoring; planned graph and search follow-ons), and accepted in full by the project owner on 2026-07-30 (EVD-0024). No Studio implementation, finding remediation, or external effect occurred.",
+  "review_evidence": ["REV-0001", "EVD-0022", "EVD-0023", "EVD-0024"],
   "blocked_by": [],
   "reopened_by": null,
-  "acceptance_criteria_met": false,
-  "closure_evidence": [],
+  "acceptance_criteria_met": true,
+  "closure_evidence": ["EVD-0024"],
   "external_effects": "repository_local",
   "limitations": [
     "The rebaseline is source-static: rendered-only observations in REV-0001 (empty-state flash, 320 px overflow measurements) are carried as point-in-time evidence, not re-executed.",
@@ -77,12 +77,11 @@ Out of scope:
 | D8 | Category 4 proposals PROP-FG-09 and PROP-FG-10 disposition |
 | D9 | Ambiguous mockup implications: defer or decide |
 
-Proposal records (drafted 2026-07-29, all `proposed`, owner disposition
-pending): D1 → DEC-0019, D2 → DEC-0020, D3 → DEC-0021, D4 → DEC-0022,
-D5 → DEC-0023, D6 → DEC-0024, D7 → DEC-0025, D8 → DEC-0026, D9 → DEC-0027.
-Phase 0 exit gate: every area accepted, explicitly deferred, or rejected
-before dependent implementation; a deferred area leaves affected behavior
-absent or fail-closed.
+Proposal records: D1 → DEC-0019, D2 → DEC-0020, D3 → DEC-0021,
+D4 → DEC-0022, D5 → DEC-0023, D6 → DEC-0024, D7 → DEC-0025, D8 → DEC-0026,
+D9 → DEC-0027 — drafted 2026-07-29, DEC-0020/0024/0026 amended on owner
+direction, and all nine accepted by the project owner on 2026-07-30
+(EVD-0024). The Phase 0 exit gate is closed.
 
 ## Capability prerequisite resolution
 
@@ -140,11 +139,11 @@ remains executable-and-unsafe across a phase boundary.
 
 ## Evidence and closure
 
-- Evidence: EVD-0022 (rebaseline); EVD-0023 (capability adoption); REV-0001
-  (baseline, unmodified).
-- Review: pending — DEC-0019..0027 are drafted and await owner disposition.
+- Evidence: EVD-0022 (rebaseline); EVD-0023 (capability adoption); EVD-0024
+  (Phase 0 acceptance); REV-0001 (baseline, unmodified).
+- Review: Phase 0 accepted in full — DEC-0019..0027 are accepted decisions.
 - External effects: none.
 - Residual limitations: see frontmatter.
-- Next action: owner dispositions DEC-0019..0027 (accept, amend, defer, or
-  reject each); Phase 1 opens only after the Phase 0 exit gate and separate
-  implementation authorization.
+- Next action: TASK-0016 (Phase 1 safety-critical repairs) is ready under
+  the accepted decisions; the queued-mode, search, and graph follow-ons run
+  per DEC-0020/0026/0024.

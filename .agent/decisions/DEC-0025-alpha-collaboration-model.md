@@ -2,17 +2,17 @@
 {
   "schema_version": "harness.decision.v1",
   "id": "DEC-0025",
-  "status": "proposed",
-  "previous_status": null,
+  "status": "accepted",
+  "previous_status": "proposed",
   "title": "Phase 0 D7: alpha collaboration model — recorded facts only; no presence, locks, or assignments",
   "created_at": "2026-07-29",
-  "authority_source": "external:operator request 2026-07-29 — TASK-0015 Phase 0 requires bounded proposals for decisions implementation cannot safely infer; acceptance is reserved to the project owner",
-  "owner": "ryan-cooper (project owner) — acceptance pending",
+  "authority_source": "external:operator request 2026-07-29 — TASK-0015 Phase 0 requires bounded proposals for decisions implementation cannot safely infer; accepted by the project owner (Ryan Cooper) in-session on 2026-07-30: “I accept all nine as written.”",
+  "owner": "ryan-cooper (project owner)",
   "scope": "The collaboration model the alpha actually has, which collaboration facts Studio may display, and what 'locked' may ever mean. Governs SWUX-017 and mockup feature gap FG-30.",
   "supersedes": null,
   "successor": null,
   "limitations": [
-    "Proposal only; attribution displays land under Phase 2/3 tasks after acceptance.",
+    "Accepted 2026-07-30: attribution displays land under Phase 2/3 tasks.",
     "A future multi-author model (checkout, branching, live co-editing, assignments) requires its own successor decision; nothing here designs it."
   ]
 }
@@ -64,3 +64,10 @@ and approval authority to remain distinct.
   origins, with tests asserting no presence-like element exists.
 - Reversal or successor path: a successor decision defining a real
   collaboration model supersedes the display restrictions it changes.
+
+## Acceptance
+
+Accepted by the project owner (Ryan Cooper) on 2026-07-30 in the operator
+session — “I accept all nine as written” — covering DEC-0019 through DEC-0027
+as amended (DEC-0020/0024/0026 amended 2026-07-30 on owner direction).
+Recorded by claude-agent on the owner's instruction.
