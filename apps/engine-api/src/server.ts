@@ -8,6 +8,7 @@ import {
   compileScenePacket,
   decideStructureProposal,
   getAuthoringMode,
+  getProposalContext,
   listStructureProposals,
   setAuthoringMode,
   submitStructureProposal,
@@ -429,6 +430,12 @@ async function readRoute(
     const propertyId = url.searchParams.get("propertyId");
     if (!propertyId) throw Object.assign(new Error("propertyId query parameter required"), { statusCode: 400 });
     return { body: { proposals: await listStructureProposals(ctx, { propertyId }) } };
+  }
+  const proposalContextMatch = path.match(/^\/v1\/canon-proposals\/([^/]+)\/context$/);
+  if (proposalContextMatch) {
+    const context = await getProposalContext(ctx, { proposalId: String(proposalContextMatch[1]) });
+    if (!context) throw Object.assign(new Error(`proposal ${proposalContextMatch[1]} not found`), { statusCode: 404 });
+    return { body: { context } };
   }
   const receiptMatch = path.match(/^\/v1\/receipts\/([^/]+)$/);
   if (receiptMatch) {

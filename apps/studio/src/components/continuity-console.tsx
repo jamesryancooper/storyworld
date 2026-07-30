@@ -11,6 +11,8 @@ import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Textarea } from "@/components/ui/textarea";
 import { CommandRecovery } from "@/components/ui/command-recovery";
+import { Loading } from "@/components/ui/loading";
+import { StatusMessage } from "@/components/ui/status-message";
 import { ProductionPicker } from "@/components/production-picker";
 import { describeCommandFailure, useEngineCommand } from "@/lib/command-state";
 import { clearUnknownOutcome, recordUnknownOutcome } from "@/lib/unknown-outcome-log";
@@ -37,6 +39,8 @@ export function ContinuityConsole({ client }: { client?: EngineClient }): React.
   const [units, setUnits] = React.useState<Record<string, unknown>[]>([]);
   const [unitId, setUnitId] = React.useState("");
   const [findings, setFindings] = React.useState<FindingView[]>([]);
+  const [findingsLoaded, setFindingsLoaded] = React.useState(false);
+  const [unavailable, setUnavailable] = React.useState(false);
   const [notice, setNotice] = React.useState<string | null>(null);
   const [reviewingId, setReviewingId] = React.useState<string | null>(null);
   const [disposition, setDisposition] = React.useState<Disposition>("resolved");
@@ -46,6 +50,8 @@ export function ContinuityConsole({ client }: { client?: EngineClient }): React.
   const evaluate = useEngineCommand<{ findings: unknown[] }>();
   const dispose = useEngineCommand<{ findingRevisionId: string; receiptId: string }>();
 
+  // refresh stays throwing for the command state machine's refresh_failed
+  // signal (SF3); the mount effect wraps it for the loading states (SWUX-009).
   const refresh = React.useCallback(async () => {
     if (!production) {
       setFindings([]);
@@ -55,12 +61,22 @@ export function ContinuityConsole({ client }: { client?: EngineClient }): React.
   }, [engine, production]);
 
   React.useEffect(() => {
-    void refresh();
+    void refresh().then(
+      () => {
+        setUnavailable(false);
+        setFindingsLoaded(true);
+      },
+      () => {
+        setUnavailable(true);
+        setFindingsLoaded(true);
+      },
+    );
   }, [refresh]);
 
   React.useEffect(() => {
     setUnits([]);
     setUnitId("");
+    setFindingsLoaded(false);
     if (!production) return;
     void (async () => {
       const structure = await engine.getNarrativeStructure(production.productionId);
@@ -207,8 +223,8 @@ export function ContinuityConsole({ client }: { client?: EngineClient }): React.
             <Button onClick={() => void onEvaluate()} disabled={evaluate.status === "submitting" || !unitId}>
               {evaluate.status === "submitting" ? "Evaluating…" : "Evaluate continuity"}
             </Button>
-            {evaluateFailure ? <p className="w-full text-sm text-destructive">{evaluateFailure}</p> : null}
-            {notice ? <p className="w-full text-sm text-muted-foreground">{notice}</p> : null}
+            {evaluateFailure ? <StatusMessage variant="error" className="w-full">{evaluateFailure}</StatusMessage> : null}
+            {notice ? <StatusMessage variant="notice" className="w-full">{notice}</StatusMessage> : null}
           </CardContent>
         </Card>
       ) : null}
@@ -224,7 +240,11 @@ export function ContinuityConsole({ client }: { client?: EngineClient }): React.
             </CardDescription>
           </CardHeader>
           <CardContent>
-            {findings.length === 0 ? (
+            {!findingsLoaded ? (
+              <Loading rows={2} />
+            ) : unavailable ? (
+              <StatusMessage variant="error">The engine is unavailable — reload to retry.</StatusMessage>
+            ) : findings.length === 0 ? (
               <p className="text-sm text-muted-foreground">No findings recorded.</p>
             ) : (
               <Table>
@@ -362,7 +382,7 @@ export function ContinuityConsole({ client }: { client?: EngineClient }): React.
                     ) : null}
                   </div>
                 </ConsequenceReview>
-                {disposeFailure ? <p className="text-sm text-destructive">{disposeFailure}</p> : null}
+                {disposeFailure ? <StatusMessage variant="error">{disposeFailure}</StatusMessage> : null}
                 <CommandRecovery
                   status={dispose.status}
                   onRetry={() => void dispose.retry().then(finalizeDisposition)}

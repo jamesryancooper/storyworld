@@ -121,6 +121,7 @@ export async function listCanonProposals(
   branchId: string;
   proposalType: string;
   payload: Record<string, unknown>;
+  sourceRef: string | null;
   proposedBy: string;
   proposerKind: string;
   createdAt: string;
@@ -129,8 +130,9 @@ export async function listCanonProposals(
   return withTenant(ctx.pool, ctx.organizationId, async (c) => {
     const rows = await c.query(
       `SELECT p.proposal_id AS "proposalId", p.branch_id AS "branchId",
-              p.proposal_type AS "proposalType", p.payload, p.proposed_by AS "proposedBy",
-              p.proposer_kind AS "proposerKind", p.created_at AS "createdAt", d.decision
+              p.proposal_type AS "proposalType", p.payload, p.source_ref AS "sourceRef",
+              p.proposed_by AS "proposedBy", p.proposer_kind AS "proposerKind",
+              p.created_at AS "createdAt", d.decision
          FROM storyworld.canon_proposals p
          LEFT JOIN storyworld.proposal_decisions d ON d.proposal_id = p.proposal_id
         WHERE p.property_id = $1
@@ -139,6 +141,81 @@ export async function listCanonProposals(
       [input.propertyId],
     );
     return rows.rows.map((r) => ({ ...r, createdAt: new Date(r.createdAt as string).toISOString() }));
+  });
+}
+
+const PROPOSAL_STABLE_ID_KEY: Record<string, string> = {
+  entity: "entity_id",
+  relationship: "relationship_id",
+  fact: "fact_id",
+  timeline_event: "event_id",
+};
+
+/**
+ * Deep provenance and before/after context for one canon proposal
+ * (SWUX-011). Returns the proposal, its source record name when a
+ * source_ref is set, the current accepted canon value for the same subject
+ * (the "before" for a diff; null when the proposal introduces a new
+ * subject), and the recorded decision receipt when decided. Read-only.
+ */
+export async function getProposalContext(
+  ctx: KernelContext,
+  input: { proposalId: string },
+): Promise<{
+  proposalId: string;
+  branchId: string;
+  proposalType: string;
+  payload: Record<string, unknown>;
+  proposedBy: string;
+  proposerKind: string;
+  sourceRef: string | null;
+  sourceName: string | null;
+  subjectStableId: string | null;
+  currentValue: Record<string, unknown> | null;
+  decision: string | null;
+  decisionReceiptId: string | null;
+} | null> {
+  return withTenant(ctx.pool, ctx.organizationId, async (c) => {
+    const proposal = (await c.query(
+      `SELECT p.proposal_id AS "proposalId", p.branch_id AS "branchId",
+              p.proposal_type AS "proposalType", p.payload, p.source_ref AS "sourceRef",
+              p.proposed_by AS "proposedBy", p.proposer_kind AS "proposerKind",
+              s.name AS "sourceName", d.decision, d.receipt_id AS "decisionReceiptId"
+         FROM storyworld.canon_proposals p
+         LEFT JOIN storyworld.source_records s ON s.source_id = p.source_ref
+         LEFT JOIN storyworld.proposal_decisions d ON d.proposal_id = p.proposal_id
+        WHERE p.proposal_id = $1`,
+      [input.proposalId],
+    )).rows[0];
+    if (!proposal) return null;
+    const payload = proposal.payload as Record<string, unknown>;
+    const key = PROPOSAL_STABLE_ID_KEY[String(proposal.proposalType)];
+    const subjectStableId = key && typeof payload[key] === "string" ? String(payload[key]) : null;
+    let currentValue: Record<string, unknown> | null = null;
+    if (subjectStableId) {
+      const current = (await c.query(
+        `SELECT r.payload FROM storyworld.canon_revisions r
+          WHERE r.branch_id = $1 AND r.concern = $2 AND r.stable_id = $3
+            AND NOT EXISTS (SELECT 1 FROM storyworld.canon_revisions s
+                             WHERE s.supersedes_revision_id = r.revision_id)`,
+        [proposal.branchId, proposal.proposalType, subjectStableId],
+      )).rows[0];
+      currentValue = current ? (current.payload as Record<string, unknown>) : null;
+    }
+    return {
+      proposalId: String(proposal.proposalId),
+      branchId: String(proposal.branchId),
+      proposalType: String(proposal.proposalType),
+      payload,
+      proposedBy: String(proposal.proposedBy),
+      proposerKind: String(proposal.proposerKind),
+      sourceRef: proposal.sourceRef ? String(proposal.sourceRef) : null,
+      sourceName: proposal.sourceName ? String(proposal.sourceName) : null,
+      subjectStableId,
+      currentValue,
+      decision: proposal.decision ? String(proposal.decision) : null,
+      decisionReceiptId: proposal.decisionReceiptId ? String(proposal.decisionReceiptId) : null,
+    };
   });
 }
 

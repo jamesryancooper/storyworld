@@ -11,6 +11,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Loading } from "@/components/ui/loading";
+import { StatusMessage } from "@/components/ui/status-message";
 import { describeCommandFailure, useEngineCommand } from "@/lib/command-state";
 import { clearUnknownOutcome, recordUnknownOutcome } from "@/lib/unknown-outcome-log";
 import {
@@ -28,6 +30,8 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
   const [propertyId, setPropertyId] = React.useState("");
   const [proposals, setProposals] = React.useState<ProposalView[]>([]);
   const [structureProposals, setStructureProposals] = React.useState<StructureProposalView[]>([]);
+  const [loaded, setLoaded] = React.useState(false);
+  const [unavailable, setUnavailable] = React.useState(false);
   const [notice, setNotice] = React.useState<string | null>(null);
   const [reviewingId, setReviewingId] = React.useState<string | null>(null);
   const [structureReviewingId, setStructureReviewingId] = React.useState<string | null>(null);
@@ -48,6 +52,8 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
     })();
   }, [engine]);
 
+  // refresh stays throwing for the command state machine's refresh_failed
+  // signal (SF3); the mount effect wraps it for the loading states (SWUX-009).
   const refresh = React.useCallback(async () => {
     if (!propertyId) return;
     const [canon, structures] = await Promise.all([
@@ -59,7 +65,16 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
   }, [engine, propertyId]);
 
   React.useEffect(() => {
-    void refresh();
+    void refresh().then(
+      () => {
+        setUnavailable(false);
+        setLoaded(true);
+      },
+      () => {
+        setUnavailable(true);
+        setLoaded(true);
+      },
+    );
   }, [refresh]);
 
   const decideCtx = React.useRef<
@@ -314,7 +329,7 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
                 </>
               )}
             </div>
-            {fileFailure ? <p className="text-sm text-destructive">{fileFailure}</p> : null}
+            {fileFailure ? <StatusMessage variant="error">{fileFailure}</StatusMessage> : null}
             <div>
               <Button type="submit" disabled={file.status === "submitting" || !property || !proposeReady}>
                 {file.status === "submitting" ? "Filing…" : "File proposal"}
@@ -333,8 +348,12 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
           </CardDescription>
         </CardHeader>
         <CardContent>
-          {notice ? <p className="mb-3 text-sm text-muted-foreground">{notice}</p> : null}
-          {pending.length === 0 ? (
+          {notice ? <StatusMessage variant="notice" className="mb-3">{notice}</StatusMessage> : null}
+          {!loaded ? (
+            <Loading rows={2} />
+          ) : unavailable ? (
+            <StatusMessage variant="error">The engine is unavailable — reload to retry.</StatusMessage>
+          ) : pending.length === 0 ? (
             <p className="text-sm text-muted-foreground">Nothing awaiting review.</p>
           ) : (
             <Table>
@@ -419,7 +438,7 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
                   {JSON.stringify(reviewing.payload, null, 2)}
                 </pre>
               </ConsequenceReview>
-              {decideFailure ? <p className="text-sm text-destructive">{decideFailure}</p> : null}
+              {decideFailure ? <StatusMessage variant="error">{decideFailure}</StatusMessage> : null}
               <CommandRecovery
                 status={decide.status}
                 onRetry={() => void decide.retry().then(finalizeDecide)}
@@ -445,7 +464,11 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
           </CardDescription>
         </CardHeader>
         <CardContent>
-          {pendingStructure.length === 0 ? (
+          {!loaded ? (
+            <Loading rows={1} />
+          ) : unavailable ? (
+            <StatusMessage variant="error">The engine is unavailable — reload to retry.</StatusMessage>
+          ) : pendingStructure.length === 0 ? (
             <p className="text-sm text-muted-foreground">No structure proposals awaiting review.</p>
           ) : (
             <Table>
@@ -526,7 +549,7 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
                 }}
                 busy={decideStructure.status === "submitting"}
               />
-              {structureFailure ? <p className="text-sm text-destructive">{structureFailure}</p> : null}
+              {structureFailure ? <StatusMessage variant="error">{structureFailure}</StatusMessage> : null}
               <CommandRecovery
                 status={decideStructure.status}
                 onRetry={() => void decideStructure.retry().then(finalizeStructure)}

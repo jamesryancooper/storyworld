@@ -9,6 +9,8 @@ import { InfoHint } from "@/components/ui/info-hint";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Loading } from "@/components/ui/loading";
+import { StatusMessage } from "@/components/ui/status-message";
 import { ProductionPicker } from "@/components/production-picker";
 import { describeCommandFailure, useEngineCommand } from "@/lib/command-state";
 import {
@@ -34,10 +36,17 @@ export function GenerationWorkbench({ client }: { client?: EngineClient }): Reac
   const [providers, setProviders] = React.useState<ProviderCatalogView[]>([]);
   const [modelId, setModelId] = React.useState("");
   const [notice, setNotice] = React.useState<string | null>(null);
+  const [candidatesLoaded, setCandidatesLoaded] = React.useState(false);
   const generate = useEngineCommand<{ generationRunId: string; candidateAssetVersionIds: string[] }>();
 
   React.useEffect(() => {
-    void (async () => setCandidates(await engine.listGenerationCandidates()))();
+    void (async () => {
+      try {
+        setCandidates(await engine.listGenerationCandidates());
+      } finally {
+        setCandidatesLoaded(true);
+      }
+    })();
     void (async () => setProviders(await engine.listGenerationProviders()))();
   }, [engine]);
 
@@ -258,8 +267,8 @@ export function GenerationWorkbench({ client }: { client?: EngineClient }): Reac
                   </Select>
                 </div>
               ) : null}
-              {generateFailure ? <p className="text-sm text-destructive">{generateFailure}</p> : null}
-              {notice ? <p className="text-sm text-muted-foreground">{notice}</p> : null}
+              {generateFailure ? <StatusMessage variant="error">{generateFailure}</StatusMessage> : null}
+              {notice ? <StatusMessage variant="notice">{notice}</StatusMessage> : null}
               <Button
                 type="submit"
                 disabled={generate.status === "submitting" || !production || !unitId || !prompt.trim()}
@@ -280,7 +289,9 @@ export function GenerationWorkbench({ client }: { client?: EngineClient }): Reac
           </CardDescription>
         </CardHeader>
         <CardContent>
-          {candidates.length === 0 ? (
+          {!candidatesLoaded ? (
+            <Loading rows={2} />
+          ) : candidates.length === 0 ? (
             <p className="text-sm text-muted-foreground">Nothing staged yet.</p>
           ) : (
             <Table>

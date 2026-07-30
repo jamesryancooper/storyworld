@@ -11,6 +11,8 @@ import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { CommandRecovery } from "@/components/ui/command-recovery";
+import { Loading } from "@/components/ui/loading";
+import { StatusMessage } from "@/components/ui/status-message";
 import { ProductionPicker } from "@/components/production-picker";
 import { describeCommandFailure, useEngineCommand } from "@/lib/command-state";
 import { clearUnknownOutcome, recordUnknownOutcome } from "@/lib/unknown-outcome-log";
@@ -47,6 +49,8 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
   const engine = React.useMemo(() => client ?? createEngineClient(), [client]);
   const [production, setProduction] = React.useState<ProductionSummary | null>(null);
   const [structure, setStructure] = React.useState<NarrativeStructureView | null>(null);
+  const [structureLoaded, setStructureLoaded] = React.useState(false);
+  const [unavailable, setUnavailable] = React.useState(false);
   const [mode, setMode] = React.useState<AuthoringMode | null>(null);
   const [unitType, setUnitType] = React.useState("episode");
   const [storyTime, setStoryTime] = React.useState("");
@@ -59,6 +63,9 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
 
   const propertyId = production?.propertyId ?? null;
 
+  // refresh stays throwing so the command state machine can detect a
+  // post-mutation refresh failure (SF3); the mount effect below wraps it to
+  // drive the loading/unavailable states (SWUX-009).
   const refresh = React.useCallback(async () => {
     if (!production) {
       setStructure(null);
@@ -76,7 +83,16 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
   }, [engine, propertyId]);
 
   React.useEffect(() => {
-    void refresh();
+    void refresh().then(
+      () => {
+        setUnavailable(false);
+        setStructureLoaded(true);
+      },
+      () => {
+        setUnavailable(true);
+        setStructureLoaded(true);
+      },
+    );
   }, [refresh]);
 
   React.useEffect(() => {
@@ -88,6 +104,7 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
   React.useEffect(() => {
     setReview(null);
     setModeReview(false);
+    setStructureLoaded(false);
     save.reset();
     modeCmd.reset();
   }, [production?.productionId, save.reset, modeCmd.reset]);
@@ -220,7 +237,11 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
               </CardDescription>
             </CardHeader>
             <CardContent>
-              {units.length === 0 ? (
+              {!structureLoaded ? (
+                <Loading rows={2} />
+              ) : unavailable ? (
+                <StatusMessage variant="error">The engine is unavailable — reload to retry.</StatusMessage>
+              ) : units.length === 0 ? (
                 <p className="text-sm text-muted-foreground">No units yet.</p>
               ) : (
                 <Table>
@@ -302,7 +323,7 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
                       }}
                       busy={modeCmd.status === "submitting"}
                     />
-                    {modeFailure ? <p className="text-sm text-destructive">{modeFailure}</p> : null}
+                    {modeFailure ? <StatusMessage variant="error">{modeFailure}</StatusMessage> : null}
                     <CommandRecovery
                       status={modeCmd.status}
                       onRetry={() => void modeCmd.retry().then((outcome) => {
@@ -365,7 +386,7 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
                       placeholder="1989-06-01"
                     />
                   </div>
-                  {notice ? <p className="text-sm text-muted-foreground">{notice}</p> : null}
+                  {notice ? <StatusMessage variant="notice">{notice}</StatusMessage> : null}
                   {!review ? (
                     <Button type="submit" disabled={!storyTime || !mode}>
                       {mode === "queued" ? "Submit for review" : "Add unit"}
@@ -407,7 +428,7 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
                       }}
                       busy={save.status === "submitting"}
                     />
-                    {failure ? <p className="text-sm text-destructive">{failure}</p> : null}
+                    {failure ? <StatusMessage variant="error">{failure}</StatusMessage> : null}
                     {save.status === "conflict" ? (
                       <div>
                         <Button

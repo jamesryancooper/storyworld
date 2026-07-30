@@ -7,6 +7,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ConsequenceReview } from "@/components/ui/consequence-review";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Loading } from "@/components/ui/loading";
+import { StatusMessage } from "@/components/ui/status-message";
 import { describeCommandFailure, useEngineCommand } from "@/lib/command-state";
 import { clearUnknownOutcome, recordUnknownOutcome } from "@/lib/unknown-outcome-log";
 import { actorLine, createEngineClient, type CredentialStatusView, type EngineClient } from "@/lib/engine";
@@ -24,11 +26,15 @@ export function Settings({ client }: { client?: EngineClient }): React.JSX.Eleme
   const engine = React.useMemo(() => client ?? createEngineClient(), [client]);
   const [storeEnabled, setStoreEnabled] = React.useState<boolean | null>(null);
   const [slots, setSlots] = React.useState<CredentialStatusView[]>([]);
+  const [loaded, setLoaded] = React.useState(false);
+  const [unavailable, setUnavailable] = React.useState(false);
   const [drafts, setDrafts] = React.useState<Record<string, string>>({});
   const [notice, setNotice] = React.useState<string | null>(null);
   const [reviewing, setReviewing] = React.useState<CredentialAction | null>(null);
   const command = useEngineCommand<{ credentialRevisionId: string; receiptId: string }>();
 
+  // refresh stays throwing for the command state machine's refresh_failed
+  // signal (SF3); the mount effect wraps it for the loading states (SWUX-009).
   const refresh = React.useCallback(async () => {
     const out = await engine.listCredentials();
     setStoreEnabled(out.storeEnabled);
@@ -36,7 +42,16 @@ export function Settings({ client }: { client?: EngineClient }): React.JSX.Eleme
   }, [engine]);
 
   React.useEffect(() => {
-    void refresh();
+    void refresh().then(
+      () => {
+        setUnavailable(false);
+        setLoaded(true);
+      },
+      () => {
+        setUnavailable(true);
+        setLoaded(true);
+      },
+    );
   }, [refresh]);
 
   const receiptRef = React.useRef<string | null>(null);
@@ -119,7 +134,12 @@ export function Settings({ client }: { client?: EngineClient }): React.JSX.Eleme
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-6">
-          {notice ? <p className="text-sm text-muted-foreground">{notice}</p> : null}
+          {notice ? <StatusMessage variant="notice">{notice}</StatusMessage> : null}
+          {!loaded ? (
+            <Loading rows={2} />
+          ) : unavailable ? (
+            <StatusMessage variant="error">The engine is unavailable — reload to retry.</StatusMessage>
+          ) : null}
           {slots.map((slot) => (
             <div key={slot.name} className="flex flex-col gap-3 rounded-lg border border-border p-4">
               <div className="flex items-center justify-between">
@@ -211,7 +231,7 @@ export function Settings({ client }: { client?: EngineClient }): React.JSX.Eleme
                     }}
                     busy={command.status === "submitting"}
                   />
-                  {failure ? <p className="text-sm text-destructive">{failure}</p> : null}
+                  {failure ? <StatusMessage variant="error">{failure}</StatusMessage> : null}
                   {command.status === "unknown" || command.status === "unavailable" ? (
                     <div className="flex flex-wrap gap-2">
                       <Button

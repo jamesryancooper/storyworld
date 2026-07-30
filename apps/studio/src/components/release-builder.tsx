@@ -11,6 +11,8 @@ import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { CommandRecovery } from "@/components/ui/command-recovery";
+import { Loading } from "@/components/ui/loading";
+import { StatusMessage } from "@/components/ui/status-message";
 import { describeCommandFailure, useEngineCommand } from "@/lib/command-state";
 import { clearUnknownOutcome, recordUnknownOutcome } from "@/lib/unknown-outcome-log";
 import {
@@ -61,6 +63,8 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
   const [productionName, setProductionName] = React.useState("");
   const [pinReleaseId, setPinReleaseId] = React.useState("");
   const [notice, setNotice] = React.useState<string | null>(null);
+  const [loaded, setLoaded] = React.useState(false);
+  const [unavailable, setUnavailable] = React.useState(false);
   const [snapshotReview, setSnapshotReview] = React.useState<SnapshotReview | null>(null);
   const [productionReview, setProductionReview] = React.useState<ProductionReview | null>(null);
   const snapshot = useEngineCommand<{ canonReleaseId: string; receiptId: string }>();
@@ -76,6 +80,8 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
     })();
   }, [engine]);
 
+  // refresh stays throwing for the command state machine's refresh_failed
+  // signal (SF3); the mount effect wraps it for the loading states (SWUX-009).
   const refresh = React.useCallback(async () => {
     if (!propertyId) return;
     const list = await engine.listCanonReleases(propertyId);
@@ -85,7 +91,16 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
   }, [engine, propertyId]);
 
   React.useEffect(() => {
-    void refresh();
+    void refresh().then(
+      () => {
+        setUnavailable(false);
+        setLoaded(true);
+      },
+      () => {
+        setUnavailable(true);
+        setLoaded(true);
+      },
+    );
   }, [refresh]);
 
   const property = properties.find((p) => p.propertyId === propertyId) ?? null;
@@ -260,7 +275,11 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
             </CardDescription>
           </CardHeader>
           <CardContent>
-            {releases.length === 0 ? (
+            {!loaded ? (
+              <Loading rows={2} />
+            ) : unavailable ? (
+              <StatusMessage variant="error">The engine is unavailable — reload to retry.</StatusMessage>
+            ) : releases.length === 0 ? (
               <p className="text-sm text-muted-foreground">No releases yet — snapshot the first.</p>
             ) : (
               <Table>
@@ -296,7 +315,11 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
             </CardDescription>
           </CardHeader>
           <CardContent>
-            {productions.length === 0 ? (
+            {!loaded ? (
+              <Loading rows={2} />
+            ) : unavailable ? (
+              <StatusMessage variant="error">The engine is unavailable — reload to retry.</StatusMessage>
+            ) : productions.length === 0 ? (
               <p className="text-sm text-muted-foreground">
                 No productions yet — pin one to a release on the right.
               </p>
@@ -352,7 +375,7 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
                   </span>
                   <Input id="rb-version" value={releaseVersion} onChange={(event) => setReleaseVersion(event.target.value)} placeholder="1.1.0" />
                 </div>
-                {notice ? <p className="text-sm text-muted-foreground">{notice}</p> : null}
+                {notice ? <StatusMessage variant="notice">{notice}</StatusMessage> : null}
                 {!snapshotReview ? (
                   <Button type="submit" disabled={!releaseName || !releaseVersion || productionReview !== null}>
                     Snapshot
@@ -385,7 +408,7 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
                     }}
                     busy={snapshot.status === "submitting"}
                   />
-                  {snapshotFailure ? <p className="text-sm text-destructive">{snapshotFailure}</p> : null}
+                  {snapshotFailure ? <StatusMessage variant="error">{snapshotFailure}</StatusMessage> : null}
                   <CommandRecovery
                     status={snapshot.status}
                     onRetry={() => void snapshot.retry().then((outcome) => finalizeSnapshot(outcome, snapshotReview))}
@@ -466,7 +489,7 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
                     }}
                     busy={produce.status === "submitting"}
                   />
-                  {produceFailure ? <p className="text-sm text-destructive">{produceFailure}</p> : null}
+                  {produceFailure ? <StatusMessage variant="error">{produceFailure}</StatusMessage> : null}
                   <CommandRecovery
                     status={produce.status}
                     onRetry={() => void produce.retry().then((outcome) => finalizeProduction(outcome, productionReview))}

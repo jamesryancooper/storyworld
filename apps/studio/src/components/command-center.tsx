@@ -9,6 +9,8 @@ import { InfoHint } from "@/components/ui/info-hint";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Loading } from "@/components/ui/loading";
+import { StatusMessage } from "@/components/ui/status-message";
 import { describeCommandFailure, useEngineCommand } from "@/lib/command-state";
 import { createEngineClient, type EngineClient, type PropertySummary } from "@/lib/engine";
 
@@ -95,7 +97,11 @@ export function CommandCenter({ client }: { client?: EngineClient }): React.JSX.
             </CardDescription>
           </CardHeader>
           <CardContent>
-            {properties.length === 0 ? (
+            {reachable === null ? (
+              <Loading />
+            ) : reachable === false ? (
+              <StatusMessage variant="error">The engine is unavailable — reload to retry.</StatusMessage>
+            ) : properties.length === 0 ? (
               <p className="text-sm text-muted-foreground">
                 No properties yet — create the first one.
               </p>
@@ -142,6 +148,8 @@ export function CommandCenter({ client }: { client?: EngineClient }): React.JSX.
                   value={name}
                   onChange={(event) => setName(event.target.value)}
                   placeholder="Stillhouse"
+                  aria-invalid={createFailure ? true : undefined}
+                  aria-describedby={createFailure ? "property-name-error" : undefined}
                 />
               </div>
               <div className="flex flex-col gap-1.5">
@@ -164,8 +172,12 @@ export function CommandCenter({ client }: { client?: EngineClient }): React.JSX.
                   ))}
                 </Select>
               </div>
-              {createFailure ? <p className="text-sm text-destructive">{createFailure}</p> : null}
-              {notice ? <p className="text-sm text-muted-foreground">{notice}</p> : null}
+              {createFailure ? (
+                <StatusMessage variant="error" id="property-name-error">
+                  {createFailure}
+                </StatusMessage>
+              ) : null}
+              {notice ? <StatusMessage variant="notice">{notice}</StatusMessage> : null}
               <Button type="submit" disabled={create.status === "submitting" || !name.trim()}>
                 {create.status === "submitting" ? "Creating…" : "Create property"}
               </Button>

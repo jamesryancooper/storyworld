@@ -6,6 +6,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Loading } from "@/components/ui/loading";
+import { StatusMessage } from "@/components/ui/status-message";
 import {
   createEngineClient,
   type CanonReleaseView,
@@ -19,6 +21,8 @@ export function WorldBible({ client }: { client?: EngineClient }): React.JSX.Ele
   const [selected, setSelected] = React.useState<string>("");
   const [release, setRelease] = React.useState<CanonReleaseView | null>(null);
   const [loaded, setLoaded] = React.useState(false);
+  const [releaseLoaded, setReleaseLoaded] = React.useState(false);
+  const [unavailable, setUnavailable] = React.useState(false);
 
   React.useEffect(() => {
     void (async () => {
@@ -26,6 +30,8 @@ export function WorldBible({ client }: { client?: EngineClient }): React.JSX.Ele
         const list = await engine.listProperties();
         setProperties(list);
         if (list.length > 0) setSelected(list[0]!.propertyId);
+      } catch {
+        setUnavailable(true);
       } finally {
         setLoaded(true);
       }
@@ -34,8 +40,15 @@ export function WorldBible({ client }: { client?: EngineClient }): React.JSX.Ele
 
   React.useEffect(() => {
     if (!selected) return;
+    setReleaseLoaded(false);
     void (async () => {
-      setRelease(await engine.latestCanonRelease(selected));
+      try {
+        setRelease(await engine.latestCanonRelease(selected));
+      } catch {
+        setUnavailable(true);
+      } finally {
+        setReleaseLoaded(true);
+      }
     })();
   }, [engine, selected]);
 
@@ -71,8 +84,14 @@ export function WorldBible({ client }: { client?: EngineClient }): React.JSX.Ele
         </div>
       </div>
 
-      {loaded && properties.length === 0 ? (
+      {unavailable ? (
+        <StatusMessage variant="error">The engine is unavailable — reload to retry.</StatusMessage>
+      ) : !loaded ? (
+        <Loading />
+      ) : properties.length === 0 ? (
         <p className="text-sm text-muted-foreground">No properties yet.</p>
+      ) : !releaseLoaded ? (
+        <Loading />
       ) : release === null ? (
         <p className="text-sm text-muted-foreground">
           No canon release on this property yet — canon appears here once a
