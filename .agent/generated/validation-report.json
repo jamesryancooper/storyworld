@@ -37,12 +37,12 @@
   "external_effects": "repository_local_derived_metadata_refresh_only",
   "failures": [],
   "freshness_rule": "Invalid when any non-excluded repository source byte or path changes.",
-  "generated_at": "2026-07-30T23:03:45.048319+00:00",
-  "generation_id": "cf6e5b89ce2621bd3307417512a56434",
+  "generated_at": "2026-07-30T23:31:06.441001+00:00",
+  "generation_id": "3af09bceeeb00376d3a0c2150dc94c9e",
   "git_scope": {
     "available": true,
     "ignored": 19,
-    "tracked_modified": 6,
+    "tracked_modified": 22,
     "untracked": 2
   },
   "limitations": [
@@ -60,7 +60,7 @@
     "binary, non-UTF-8, encoded, and files larger than 4 MiB require a dedicated secret scanner",
     "project-specific build, test, security, legal, and operational checks"
   ],
-  "source_fingerprint": "03fef19615223122a8eff4d91b39a9d1657bfe04df37d69a396f970bab2898f0",
+  "source_fingerprint": "586e5af55d029246c3c5a326bd54c47172dece90a2a9ba94d353d39c30f794a3",
   "source_scope": {
     "exclusions": [
       {

@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -8,38 +9,54 @@ import { Input } from "@/components/ui/input";
 import { InfoHint } from "@/components/ui/info-hint";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Loading } from "@/components/ui/loading";
 import { StatusMessage } from "@/components/ui/status-message";
 import { describeCommandFailure, useEngineCommand } from "@/lib/command-state";
-import { createEngineClient, type EngineClient, type PropertySummary } from "@/lib/engine";
+import { createEngineClient, type AttentionRow, type EngineClient } from "@/lib/engine";
+
+/**
+ * A single attention fact. count/label are always shown; a href is added
+ * only when the count is non-zero, so a zero never becomes a misleading
+ * link. Facts are defined Engine state — no readiness score, no "drift".
+ */
+function AttentionFact({ count, label, href }: { count: number; label: string; href?: string }): React.JSX.Element {
+  const text = `${count} ${label}`;
+  if (count > 0 && href) {
+    return (
+      <Link href={href} className="rounded-md underline decoration-dotted underline-offset-2 hover:text-foreground">
+        {text}
+      </Link>
+    );
+  }
+  return <span className="text-muted-foreground">{text}</span>;
+}
 
 const PROPERTY_TYPES = ["fictional", "editorial", "brand", "interactive", "hybrid"];
 
 export function CommandCenter({ client }: { client?: EngineClient }): React.JSX.Element {
   const engine = React.useMemo(() => client ?? createEngineClient(), [client]);
   const [reachable, setReachable] = React.useState<boolean | null>(null);
-  const [properties, setProperties] = React.useState<PropertySummary[]>([]);
+  const [attention, setAttention] = React.useState<AttentionRow[]>([]);
   const [name, setName] = React.useState("");
   const [propertyType, setPropertyType] = React.useState("fictional");
   const [notice, setNotice] = React.useState<string | null>(null);
   const create = useEngineCommand<{ propertyId: string }>();
 
-  // The command uses loadProperties (it throws, so a post-create refresh
+  // The command uses loadPortfolio (it throws, so a post-create refresh
   // failure is a real refresh_failed outcome, SF3). The mount health check
   // wraps it to also drive the reachable badge without throwing.
-  const loadProperties = React.useCallback(async () => {
-    setProperties(await engine.listProperties());
+  const loadPortfolio = React.useCallback(async () => {
+    setAttention(await engine.listAttention());
     setReachable(true);
   }, [engine]);
 
   const checkHealth = React.useCallback(async () => {
     try {
-      await loadProperties();
+      await loadPortfolio();
     } catch {
       setReachable(false);
     }
-  }, [loadProperties]);
+  }, [loadPortfolio]);
 
   React.useEffect(() => {
     void checkHealth();
@@ -59,7 +76,7 @@ export function CommandCenter({ client }: { client?: EngineClient }): React.JSX.
           },
           { idempotencyKey },
         ),
-      refresh: loadProperties,
+      refresh: loadPortfolio,
     });
     if (outcome === "confirmed" || outcome === "refresh_failed") {
       // The property is recorded in both cases; clearing the name prevents
@@ -78,7 +95,7 @@ export function CommandCenter({ client }: { client?: EngineClient }): React.JSX.
   return (
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-lg font-semibold">Command Center</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">Command Center</h1>
         {reachable === null ? (
           <Badge variant="muted">checking engine…</Badge>
         ) : reachable ? (
@@ -91,9 +108,10 @@ export function CommandCenter({ client }: { client?: EngineClient }): React.JSX.
       <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
         <Card>
           <CardHeader>
-            <CardTitle>Properties</CardTitle>
+            <CardTitle>Portfolio &amp; attention</CardTitle>
             <CardDescription>
-              Every property carries an official canon branch from birth.
+              What each property needs next, from current Engine facts — open
+              a property or jump straight to what awaits a decision.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -101,33 +119,45 @@ export function CommandCenter({ client }: { client?: EngineClient }): React.JSX.
               <Loading />
             ) : reachable === false ? (
               <StatusMessage variant="error">The engine is unavailable — reload to retry.</StatusMessage>
-            ) : properties.length === 0 ? (
+            ) : attention.length === 0 ? (
               <p className="text-sm text-muted-foreground">
                 No properties yet — create the first one.
               </p>
             ) : (
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Name</TableHead>
-                    <TableHead>Type</TableHead>
-                    <TableHead>Created</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {properties.map((property) => (
-                    <TableRow key={property.propertyId}>
-                      <TableCell className="font-medium">{property.name}</TableCell>
-                      <TableCell>
-                        <Badge variant="muted">{property.propertyType}</Badge>
-                      </TableCell>
-                      <TableCell className="text-muted-foreground">
-                        {property.createdAt.slice(0, 10)}
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+              <ul className="flex flex-col gap-3">
+                {attention.map((row) => {
+                  const hints: string[] = [];
+                  if (row.pendingProposals > 0) hints.push(`review ${row.pendingProposals} pending proposal(s)`);
+                  if (row.pendingStructureProposals > 0) hints.push(`decide ${row.pendingStructureProposals} structure proposal(s)`);
+                  if (row.openFindings > 0) hints.push(`disposition ${row.openFindings} open finding(s)`);
+                  return (
+                    <li key={row.propertyId} className="min-w-0 rounded-lg border border-border p-4">
+                      <div className="flex flex-wrap items-baseline justify-between gap-2">
+                        <Link
+                          href={`/world-bible?property=${encodeURIComponent(row.propertyId)}`}
+                          className="text-base font-semibold underline decoration-dotted underline-offset-2 hover:text-foreground"
+                        >
+                          {row.name}
+                        </Link>
+                        <Badge variant="muted">
+                          {row.latestReleaseVersion ? `latest canon v${row.latestReleaseVersion}` : "no release yet"}
+                        </Badge>
+                      </div>
+                      <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm">
+                        <AttentionFact count={row.pendingProposals} label="proposals awaiting review" href={`/review?property=${encodeURIComponent(row.propertyId)}`} />
+                        <AttentionFact count={row.pendingStructureProposals} label="structure proposals awaiting review" href={`/review?property=${encodeURIComponent(row.propertyId)}`} />
+                        <AttentionFact count={row.openFindings} label="open continuity findings" href={`/continuity?property=${encodeURIComponent(row.propertyId)}`} />
+                        <AttentionFact count={row.productionCount} label="production(s)" />
+                      </div>
+                      {hints.length > 0 ? (
+                        <p className="mt-2 text-sm text-muted-foreground">Next: {hints.join("; ")}.</p>
+                      ) : (
+                        <p className="mt-2 text-sm text-muted-foreground">Nothing awaits a decision.</p>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
             )}
           </CardContent>
         </Card>

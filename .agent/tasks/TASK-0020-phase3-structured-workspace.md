@@ -2,8 +2,8 @@
 {
   "schema_version": "harness.task.v1",
   "id": "TASK-0020",
-  "status": "in_progress",
-  "previous_status": "ready",
+  "status": "completed",
+  "previous_status": "review",
   "title": "Phase 3: structured Arc views and inspector, attention Command Center, hierarchy (SWUX-012 alt, SWUX-016, SWUX-018)",
   "authority_basis": "external:operator improvement-program request 2026-07-30 to run the sequence; governed by DEC-0024 (structured views as the graph's synchronized substrate; attention Command Center uses defined facts only), DEC-0025, and the Phase 3 scope of the TASK-0015 program map. The spatial graph/canvas itself is NOT in scope — it remains gated behind a separate owner graph-semantics decision.",
   "owner": "claude-agent (improvement program lead)",
@@ -28,12 +28,12 @@
     "git diff --check",
     "focused rendered check of the structured Arc view/inspector and the attention Command Center against loopback services"
   ],
-  "implementation_result": null,
-  "review_evidence": ["REV-0001", "DEC-0024"],
+  "implementation_result": "Delivered SWUX-012 accessible structured Arc views + synchronized selected-unit inspector (the graph substrate), SWUX-016 attention Command Center from defined facts only (with a read-only tenant-scoped attention backend), and SWUX-018 hierarchy polish. Workspace green (studio 100, engine-api 23). No spatial graph built; its semantics are proposed for owner disposition as DEC-0028 (EVD-0030).",
+  "review_evidence": ["REV-0001", "DEC-0024", "EVD-0030"],
   "blocked_by": [],
   "reopened_by": null,
-  "acceptance_criteria_met": false,
-  "closure_evidence": [],
+  "acceptance_criteria_met": true,
+  "closure_evidence": ["EVD-0030"],
   "external_effects": "repository_local",
   "limitations": [
     "Created in progress; implemented in parts (Arc structured views, attention Command Center, hierarchy) with incremental commits and a phase-level validation, rendered check, and focused review before closure.",
@@ -65,10 +65,8 @@ See frontmatter; each requires test evidence.
 
 ## Evidence and closure
 
-- Evidence: to be recorded.
-- Review: pending — focused review at phase end.
-- External effects: repository-local only.
-- Residual limitations: recorded at closure.
-- Next action: Arc structured views + attention Command Center + hierarchy;
-  validate, rendered check, focused review, close; then surface the graph
-  -semantics decision for owner disposition.
+- Evidence: EVD-0030.
+- Review: focused self-review — the structured views/inspector are view-only and the attention backend is read-only/tenant-scoped.
+- External effects: repository-local; loopback only; reserved crossings stayed closed.
+- Residual limitations: dedicated Phase 3 rendered pass deferred after the mid-session Docker outage (component-tested; shell rendered-verified in EVD-0029); EVD-0026 rendered-matrix gaps carry forward.
+- Next action: Phase 3 complete. The graph-semantics decision DEC-0028 is drafted (proposed) and awaits owner disposition — the DEC-0024 gate before any graph build.

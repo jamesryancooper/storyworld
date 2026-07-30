@@ -277,7 +277,7 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
   return (
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-lg font-semibold">Review Room</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">Review Room</h1>
         <Badge variant={pending.length > 0 ? "default" : "outline"}>{pending.length} awaiting decision</Badge>
       </div>
 

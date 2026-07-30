@@ -114,7 +114,7 @@ export function Settings({ client }: { client?: EngineClient }): React.JSX.Eleme
   return (
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-lg font-semibold">Settings</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">Settings</h1>
         {storeEnabled === null ? null : storeEnabled ? (
           <Badge variant="outline">encrypted store ready</Badge>
         ) : (

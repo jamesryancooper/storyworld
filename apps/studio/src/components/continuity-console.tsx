@@ -188,7 +188,7 @@ export function ContinuityConsole({ client }: { client?: EngineClient }): React.
   return (
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-lg font-semibold">Continuity Console</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">Continuity Console</h1>
         {production ? (
           <Badge variant={open.some((f) => f.severity === "blocker") ? "default" : "outline"}>
             {open.length} open finding(s)

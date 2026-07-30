@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
               </div>
               <Badge variant="outline" className="shrink-0">ryan-cooper · property_owner · development identity — not verified</Badge>
             </header>
-            <main id="main" className="flex-1 px-6 py-6">
+            <main id="main" className="mx-auto w-full max-w-[1600px] flex-1 px-6 py-6">
               <UnknownOutcomeBanner />
               {children}
             </main>

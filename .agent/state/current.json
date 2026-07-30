@@ -4,9 +4,7 @@
   "updated_at": "2026-07-30",
   "authority": "project_maintained_compact_operational_index_not_permission",
   "adoption_status": "adopted",
-  "active_tasks": [
-    "TASK-0020"
-  ],
+  "active_tasks": [],
   "accepted_decisions": [
     "DEC-0001",
     "DEC-0002",
@@ -47,10 +45,11 @@
     "EVD-0026",
     "EVD-0027",
     "EVD-0028",
-    "EVD-0029"
+    "EVD-0029",
+    "EVD-0030"
   ],
   "blocked_by": [],
-  "next_action": "Search (TASK-0019, DEC-0026) COMPLETE: read-only tenant-scoped cross-domain search failing closed on restricted+spoiler, typed DEC-0022 deep-link results, accessible navigation-only combobox; workspace green (engine-api 22, studio 96); rendered check confirmed keyboard deep-link navigation and the SWUX-008 narrow menu. REMAINING sequence item: GRAPH (DEC-0024) — gated behind Phase 3 (SWUX-012/016/018) AND an owner-level graph-semantics successor decision that DEC-0024 says must not be invented. Awaiting owner input: whether to (a) build Phase 3's non-graph structured views/attention/hierarchy first, and/or (b) have the graph-semantics decision drafted for disposition. Reserved crossings closed.",
+  "next_action": "Phase 3 (TASK-0020) COMPLETE: structured Arc views + synchronized inspector (SWUX-012, the graph substrate), attention Command Center from defined facts (SWUX-016), hierarchy polish (SWUX-018); workspace green (studio 100, engine-api 23). The improvement program's phased UX work (Phase 0-3 + DEC-0020 queued mode + DEC-0026 search) is complete. The one remaining sequence item, the spatial GRAPH (DEC-0024), is at its owner gate: DEC-0028 (graph/canvas semantics) is DRAFTED and PROPOSED and awaits owner disposition (accept/amend/defer/reject); per DEC-0024 a graph is built only after this semantics decision is accepted AND a separate graph-implementation task is owner-authorized. Reserved crossings remain closed.",
   "external_effects_authority_refs": [],
   "limitations": [
     "behavioral_proofs_only_no_readiness_claim",

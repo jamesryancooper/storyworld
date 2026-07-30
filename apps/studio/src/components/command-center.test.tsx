@@ -9,10 +9,38 @@ import { CommandCenter } from "./command-center";
 afterEach(cleanup);
 
 describe("Command Center", () => {
-  it("lists properties from the engine and reports connectivity", async () => {
+  it("shows the attention portfolio from engine facts and reports connectivity", async () => {
     render(<CommandCenter client={mockEngine()} />);
     await waitFor(() => expect(screen.getByText("Stillhouse")).toBeDefined());
     expect(screen.getByText("engine connected")).toBeDefined();
+    // Defined attention facts (SWUX-016).
+    expect(screen.getByText("2 proposals awaiting review")).toBeDefined();
+    expect(screen.getByText("1 open continuity findings")).toBeDefined();
+    expect(screen.getByText("latest canon v1.2.0")).toBeDefined();
+    expect(screen.getByText(/Next: review 2 pending proposal/)).toBeDefined();
+  });
+
+  it("makes the property name and non-zero facts contextual deep links", async () => {
+    render(<CommandCenter client={mockEngine()} />);
+    await waitFor(() => expect(screen.getByText("Stillhouse")).toBeDefined());
+    expect((screen.getByRole("link", { name: "Stillhouse" }) as HTMLAnchorElement).getAttribute("href")).toBe(
+      "/world-bible?property=p-1",
+    );
+    expect(
+      (screen.getByRole("link", { name: "2 proposals awaiting review" }) as HTMLAnchorElement).getAttribute("href"),
+    ).toBe("/review?property=p-1");
+    expect(
+      (screen.getByRole("link", { name: "1 open continuity findings" }) as HTMLAnchorElement).getAttribute("href"),
+    ).toBe("/continuity?property=p-1");
+    // A zero-count fact is not a misleading link.
+    expect(screen.getByText("0 structure proposals awaiting review").closest("a")).toBeNull();
+  });
+
+  it("invents no readiness score and never says 'drift'", async () => {
+    const { container } = render(<CommandCenter client={mockEngine()} />);
+    await waitFor(() => expect(screen.getByText("Stillhouse")).toBeDefined());
+    expect(container.textContent?.toLowerCase()).not.toContain("drift");
+    expect(container.textContent?.toLowerCase()).not.toContain("readiness score");
   });
 
   it("creates a property through the governed command path", async () => {
@@ -35,10 +63,10 @@ describe("Command Center", () => {
     let calls = 0;
     const base = mockEngine();
     const engine = mockEngine({
-      async listProperties() {
+      async listAttention() {
         calls += 1;
         if (calls > 1) throw new Error("refetch boom");
-        return base.listProperties();
+        return base.listAttention();
       },
     });
     const user = userEvent.setup();
@@ -47,15 +75,13 @@ describe("Command Center", () => {
     await user.type(screen.getByLabelText("Property name"), "Vellumvale");
     await user.click(screen.getByRole("button", { name: "Create property" }));
     await waitFor(() => expect(engine.created).toHaveLength(1));
-    // The property is recorded; the failed refetch is shown, and the name
-    // is cleared so an accidental duplicate is not one Enter away.
     await waitFor(() => expect(screen.getByText(/the list failed to refresh/)).toBeDefined());
     expect((screen.getByLabelText("Property name") as HTMLInputElement).value).toBe("");
   });
 
   it("reports the engine as unreachable without crashing", async () => {
     const engine = mockEngine({
-      async listProperties() {
+      async listAttention() {
         throw new Error("connection refused");
       },
     });

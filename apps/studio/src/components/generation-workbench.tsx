@@ -125,7 +125,7 @@ export function GenerationWorkbench({ client }: { client?: EngineClient }): Reac
   return (
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-lg font-semibold">Generation Workbench</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">Generation Workbench</h1>
         {production ? <Badge variant="outline">pinned canon v{production.releaseVersion}</Badge> : null}
       </div>
 

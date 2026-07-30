@@ -32,7 +32,7 @@ describe("loading / empty / unavailable discipline (SWUX-009)", () => {
     const propsPromise = new Promise<never[]>((r) => {
       resolveProps = r;
     });
-    const pending = mockEngine({ listProperties: () => propsPromise });
+    const pending = mockEngine({ listAttention: () => propsPromise });
     render(<CommandCenter client={pending} />);
     await waitFor(() => expect(screen.getByText("Loading…")).toBeDefined());
     expect(screen.queryByText(/No properties yet/)).toBeNull();
@@ -42,7 +42,7 @@ describe("loading / empty / unavailable discipline (SWUX-009)", () => {
 
   it("Command Center shows an unavailable error — not an empty state — when the fetch rejects", async () => {
     const failing = mockEngine({
-      async listProperties() {
+      async listAttention() {
         throw new Error("down");
       },
     });

@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-30T23:03:45.048319+00:00",
-  "generation_id": "cf6e5b89ce2621bd3307417512a56434",
+  "generated_at": "2026-07-30T23:31:06.441001+00:00",
+  "generation_id": "3af09bceeeb00376d3a0c2150dc94c9e",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -45,6 +45,7 @@
     ".agent/decisions/DEC-0025-alpha-collaboration-model.md",
     ".agent/decisions/DEC-0026-category-4-dispositions.md",
     ".agent/decisions/DEC-0027-ambiguous-mockup-deferrals.md",
+    ".agent/decisions/DEC-0028-graph-canvas-semantics.md",
     ".agent/decisions/README.md",
     ".agent/evaluations/README.md",
     ".agent/evaluations/registry.json",
@@ -79,6 +80,7 @@
     ".agent/evidence/EVD-0027-queued-authoring-implementation.md",
     ".agent/evidence/EVD-0028-phase2-implementation.md",
     ".agent/evidence/EVD-0029-search-implementation.md",
+    ".agent/evidence/EVD-0030-phase3-implementation.md",
     ".agent/evidence/README.md",
     ".agent/extensions/README.md",
     ".agent/extensions/registry.json",
@@ -622,7 +624,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "03fef19615223122a8eff4d91b39a9d1657bfe04df37d69a396f970bab2898f0",
+  "source_fingerprint": "586e5af55d029246c3c5a326bd54c47172dece90a2a9ba94d353d39c30f794a3",
   "source_scope": {
     "exclusions": [
       {

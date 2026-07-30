@@ -134,6 +134,17 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
     async listProperties() {
       return properties;
     },
+    async listAttention() {
+      return properties.map((p) => ({
+        propertyId: p.propertyId,
+        name: p.name,
+        pendingProposals: 2,
+        openFindings: 1,
+        pendingStructureProposals: 0,
+        productionCount: 1,
+        latestReleaseVersion: "1.2.0",
+      }));
+    },
     async createProperty(input, opts) {
       commandKeys.push({ method: "createProperty", key: opts?.idempotencyKey });
       created.push(input);

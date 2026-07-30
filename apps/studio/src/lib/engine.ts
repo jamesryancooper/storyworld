@@ -52,6 +52,17 @@ export interface PropertySummary {
   createdAt: string;
 }
 
+/** Bounded per-property attention facts (SWUX-016); defined Engine state only. */
+export interface AttentionRow {
+  propertyId: string;
+  name: string;
+  pendingProposals: number;
+  openFindings: number;
+  pendingStructureProposals: number;
+  productionCount: number;
+  latestReleaseVersion: string | null;
+}
+
 export interface ProductionSummary {
   productionId: string;
   propertyId: string;
@@ -219,6 +230,8 @@ export interface EngineClient {
   canonChangeImpact(propertyId: string, targetRef: string): Promise<{ productionId: string }[]>;
   /** Read-only, navigation-only cross-domain search (DEC-0026). */
   search(query: string, propertyId?: string): Promise<SearchResult[]>;
+  /** Bounded per-property attention summary from defined facts (SWUX-016). */
+  listAttention(): Promise<AttentionRow[]>;
   proposeCanon(
     input: {
       propertyId: string;
@@ -454,6 +467,10 @@ export function createEngineClient(
     async listProperties() {
       const out = await get<{ properties: PropertySummary[] }>("/v1/properties");
       return out.properties;
+    },
+    async listAttention() {
+      const out = await get<{ attention: AttentionRow[] }>("/v1/attention");
+      return out.attention;
     },
     async createProperty(input, opts) {
       return post<{ propertyId: string }>("/v1/properties", input, opts);

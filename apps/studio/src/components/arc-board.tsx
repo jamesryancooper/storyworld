@@ -315,7 +315,7 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
   return (
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-lg font-semibold">Arc Board</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">Arc Board</h1>
         {production ? <Badge variant="outline">pinned canon v{production.releaseVersion}</Badge> : null}
       </div>
 
