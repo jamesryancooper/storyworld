@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-30T19:37:13.846465+00:00",
-  "generation_id": "b938228bbdd03bbecff8e0b7a54ddfd3",
+  "generated_at": "2026-07-30T21:21:32.922714+00:00",
+  "generation_id": "2360f2cfbd7516bf0eb575391e8248be",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -76,6 +76,7 @@
     ".agent/evidence/EVD-0024-phase0-acceptance.md",
     ".agent/evidence/EVD-0025-phase1-implementation.md",
     ".agent/evidence/EVD-0026-phase1-rendered-verification.md",
+    ".agent/evidence/EVD-0027-queued-authoring-implementation.md",
     ".agent/evidence/README.md",
     ".agent/extensions/README.md",
     ".agent/extensions/registry.json",
@@ -125,6 +126,7 @@
     ".agent/tasks/TASK-0014-persist-storyworld-studio-ux-audit.md",
     ".agent/tasks/TASK-0015-storyworld-studio-ux-improvement-program.md",
     ".agent/tasks/TASK-0016-phase1-safety-critical-repairs.md",
+    ".agent/tasks/TASK-0017-queued-arc-authoring-mode.md",
     ".agent/templates/artifact.json",
     ".agent/templates/checkpoint.md",
     ".agent/templates/decision.md",
@@ -178,6 +180,7 @@
     "apps/engine-api/src/gate-0005.test.ts",
     "apps/engine-api/src/index.ts",
     "apps/engine-api/src/phase1-authority.test.ts",
+    "apps/engine-api/src/queued-authoring.test.ts",
     "apps/engine-api/src/serve.ts",
     "apps/engine-api/src/server.ts",
     "apps/engine-api/src/sso.test.ts",
@@ -486,6 +489,7 @@
     "packages/persistence/migrations/0010_structure_supersession.sql",
     "packages/persistence/migrations/0011_durable_idempotency.sql",
     "packages/persistence/migrations/0012_idempotency_reservation_and_fork_guards.sql",
+    "packages/persistence/migrations/0013_queued_structure_authoring.sql",
     "packages/persistence/package.json",
     "packages/persistence/src/client.ts",
     "packages/persistence/src/index.ts",
@@ -596,7 +600,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "5ddbdd4e18593bdd25cb7a3b96604846df8f5d2525aac13208bee5dd0d3a6099",
+  "source_fingerprint": "348ca30d1d7f2ca6c68ff20293016bb18ad43618a298018377f31f6184aab2e5",
   "source_scope": {
     "exclusions": [
       {

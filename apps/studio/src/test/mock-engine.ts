@@ -1,8 +1,10 @@
 import {
   EngineError,
+  type AuthoringMode,
   type CanonReleaseView,
   type CredentialStatusView,
   type EngineClient,
+  type NarrativeUnitDraft,
   type ProviderCatalogView,
   type FindingView,
   type GenerationCandidateView,
@@ -12,6 +14,7 @@ import {
   type ProposalView,
   type ReceiptView,
   type ScenePacketView,
+  type StructureProposalView,
 } from "@/lib/engine";
 
 /**
@@ -34,6 +37,7 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
   storedKeys: Record<string, unknown>[];
   revokedKeys: Record<string, unknown>[];
   filed: Record<string, unknown>[];
+  structureProposalDecisions: Record<string, unknown>[];
   commandKeys: { method: string; key: string | undefined }[];
 } {
   const properties: PropertySummary[] = [
@@ -105,10 +109,14 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
   const revokedKeys: Record<string, unknown>[] = [];
   const filed: Record<string, unknown>[] = [];
   const commandKeys: { method: string; key: string | undefined }[] = [];
+  let authoringMode: AuthoringMode = "direct";
+  const structureProposals: (StructureProposalView & { unit: NarrativeUnitDraft })[] = [];
+  const structureProposalDecisions: Record<string, unknown>[] = [];
   return {
     storedKeys,
     revokedKeys,
     filed,
+    structureProposalDecisions,
     created,
     saved,
     added,
@@ -130,16 +138,18 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
       created.push(input);
       return { propertyId: `p-${created.length + 1}` };
     },
-    async listProductions(): Promise<ProductionSummary[]> {
+    async listProductions(propertyId): Promise<ProductionSummary[]> {
       return [
         {
           productionId: "prod-1",
+          propertyId: "p-1",
           name: "Season One",
           pinnedCanonReleaseId: "r-1",
           releaseVersion: "1.0.0",
         },
         ...productions.map((input, index) => ({
           productionId: `prod-${index + 2}`,
+          propertyId,
           name: String(input["name"]),
           pinnedCanonReleaseId: String(input["pinnedCanonReleaseId"]),
           releaseVersion: "1.0.0",
@@ -167,6 +177,13 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
     },
     async addNarrativeUnit(input, opts) {
       commandKeys.push({ method: "addNarrativeUnit", key: opts?.idempotencyKey });
+      if (authoringMode === "queued") {
+        throw new EngineError(
+          409,
+          "stale-conflict",
+          "this property is in queued authoring mode; submit the unit for review instead of saving it directly",
+        );
+      }
       if (input.supersedesRevisionId !== structureRevisionId) {
         throw new EngineError(
           409,
@@ -191,6 +208,80 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
         contentSha256: "d".repeat(64),
         receiptId: `rcpt-arc-${added.length}`,
         unitId,
+      };
+    },
+    async getAuthoringMode() {
+      return { mode: authoringMode };
+    },
+    async setAuthoringMode(input, opts) {
+      commandKeys.push({ method: "setAuthoringMode", key: opts?.idempotencyKey });
+      const from = authoringMode;
+      authoringMode = input.mode;
+      return { mode: input.mode, from, receiptId: `rcpt-mode-${input.mode}` };
+    },
+    async submitStructureProposal(input, opts) {
+      commandKeys.push({ method: "submitStructureProposal", key: opts?.idempotencyKey });
+      if (authoringMode === "direct") {
+        throw new EngineError(
+          409,
+          "stale-conflict",
+          "this property is in direct authoring mode; save the unit directly instead of submitting it for review",
+        );
+      }
+      const proposalId = `sp-${structureProposals.length + 1}`;
+      const summary = `add ${input.unit.unitType} at story time ${input.unit.storyTime}`;
+      structureProposals.push({
+        proposalId,
+        productionId: input.productionId,
+        productionName: "Season One",
+        summary,
+        contentSha256: "d".repeat(64),
+        baseRevisionId: input.supersedesRevisionId ?? structureRevisionId,
+        submittedBy: "ryan-cooper",
+        submitterKind: "human",
+        createdAt: "2026-07-30T00:00:00.000Z",
+        decision: null,
+        appliedRevisionId: null,
+        unit: input.unit,
+      });
+      return { proposalId, contentSha256: "d".repeat(64), summary };
+    },
+    async listStructureProposals(): Promise<StructureProposalView[]> {
+      return structureProposals.map(({ unit: _unit, ...view }) => view);
+    },
+    async decideStructureProposal(input, opts) {
+      commandKeys.push({ method: "decideStructureProposal", key: opts?.idempotencyKey });
+      const proposal = structureProposals.find((p) => p.proposalId === input.proposalId);
+      if (!proposal) throw new EngineError(404, "not-found", `structure proposal ${input.proposalId} not found`);
+      if (proposal.decision !== null) {
+        throw new EngineError(409, "duplicate", "this structure proposal is already decided");
+      }
+      structureProposalDecisions.push(input);
+      if (input.decision === "accepted") {
+        if (proposal.baseRevisionId !== structureRevisionId) {
+          throw new EngineError(
+            409,
+            "stale-conflict",
+            "the accepted structure changed since this proposal was submitted (its base has moved); the proposal is preserved — resubmit against the current structure",
+          );
+        }
+        (structureDocument.narrative_units as Record<string, unknown>[]).push({
+          unit_id: `u-sp-${structureProposals.length}`,
+          unit_type: proposal.unit.unitType,
+          display_number: proposal.unit.displayNumber ?? null,
+          presentation_order: proposal.unit.presentationOrder,
+          story_time: proposal.unit.storyTime,
+          publication_time: null,
+          parent_unit_ref: null,
+        });
+        structureRevisionId = `sr-sp-${structureProposals.length}`;
+        proposal.appliedRevisionId = structureRevisionId;
+      }
+      proposal.decision = input.decision;
+      return {
+        decisionId: `sd-${structureProposalDecisions.length}`,
+        appliedRevisionId: proposal.appliedRevisionId,
+        receiptId: `rcpt-sp-${structureProposalDecisions.length}`,
       };
     },
     async getScenePacket(): Promise<ScenePacketView> {

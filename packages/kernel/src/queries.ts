@@ -23,10 +23,10 @@ export async function listProperties(
 export async function listProductions(
   ctx: KernelContext,
   input: { propertyId: string },
-): Promise<{ productionId: string; name: string; pinnedCanonReleaseId: string; releaseVersion: string }[]> {
+): Promise<{ productionId: string; propertyId: string; name: string; pinnedCanonReleaseId: string; releaseVersion: string }[]> {
   return withTenant(ctx.pool, ctx.organizationId, async (c) => {
     const rows = await c.query(
-      `SELECT p.production_id AS "productionId", p.name,
+      `SELECT p.production_id AS "productionId", p.property_id AS "propertyId", p.name,
               p.pinned_canon_release_id AS "pinnedCanonReleaseId", r.release_version AS "releaseVersion"
          FROM storyworld.productions p
          JOIN storyworld.canon_releases r ON r.canon_release_id = p.pinned_canon_release_id
@@ -162,6 +162,42 @@ export async function listCanonReleases(
          FROM storyworld.canon_releases r
         WHERE r.property_id = $1
         ORDER BY r.created_at DESC`,
+      [input.propertyId],
+    );
+    return rows.rows.map((r) => ({ ...r, createdAt: new Date(r.createdAt as string).toISOString() }));
+  });
+}
+
+/** Structure proposals for a property's productions (DEC-0020 queued mode). */
+export async function listStructureProposals(
+  ctx: KernelContext,
+  input: { propertyId: string },
+): Promise<{
+  proposalId: string;
+  productionId: string;
+  productionName: string;
+  summary: string;
+  contentSha256: string;
+  baseRevisionId: string | null;
+  submittedBy: string;
+  submitterKind: string;
+  createdAt: string;
+  decision: string | null;
+  appliedRevisionId: string | null;
+}[]> {
+  return withTenant(ctx.pool, ctx.organizationId, async (c) => {
+    const rows = await c.query(
+      `SELECT sp.proposal_id AS "proposalId", sp.production_id AS "productionId",
+              pr.name AS "productionName", sp.summary, sp.content_sha256 AS "contentSha256",
+              sp.base_revision_id AS "baseRevisionId", sp.submitted_by AS "submittedBy",
+              sp.submitter_kind AS "submitterKind", sp.created_at AS "createdAt",
+              d.decision, d.applied_revision_id AS "appliedRevisionId"
+         FROM storyworld.structure_proposals sp
+         JOIN storyworld.productions pr ON pr.production_id = sp.production_id
+         LEFT JOIN storyworld.structure_proposal_decisions d ON d.proposal_id = sp.proposal_id
+        WHERE pr.property_id = $1
+        ORDER BY sp.created_at DESC
+        LIMIT 100`,
       [input.propertyId],
     );
     return rows.rows.map((r) => ({ ...r, createdAt: new Date(r.createdAt as string).toISOString() }));

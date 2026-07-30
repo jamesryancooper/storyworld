@@ -6,6 +6,11 @@ import {
   addNarrativeUnit,
   canonChangeImpact,
   compileScenePacket,
+  decideStructureProposal,
+  getAuthoringMode,
+  listStructureProposals,
+  setAuthoringMode,
+  submitStructureProposal,
   NotFoundError,
   createProduction,
   createWorkspaceAndProperty,
@@ -278,6 +283,12 @@ async function route(
       return { status: 201, body: { ...(await saveNarrativeStructure(ctx, actor, body as never)) } };
     case "/v1/narrative-unit-additions":
       return { status: 201, body: { ...(await addNarrativeUnit(ctx, actor, body as never)) } };
+    case "/v1/authoring-modes":
+      return { status: 201, body: { ...(await setAuthoringMode(ctx, actor, body as never)) } };
+    case "/v1/structure-proposals":
+      return { status: 201, body: { ...(await submitStructureProposal(ctx, actor, body as never)) } };
+    case "/v1/structure-proposal-decisions":
+      return { status: 201, body: { ...(await decideStructureProposal(ctx, actor, body as never)) } };
     case "/v1/assets": {
       const bytes = Buffer.from(String(body["contentBase64"]), "base64");
       const out = await importAsset(ctx, actor, { bytes: new Uint8Array(bytes), mediaType: String(body["mediaType"]) });
@@ -409,6 +420,15 @@ async function readRoute(
       throw Object.assign(new Error("propertyId and targetRef query parameters required"), { statusCode: 400 });
     }
     return { body: { impact: await canonChangeImpact(ctx, { propertyId, targetRef }) } };
+  }
+  const modeMatch = path.match(/^\/v1\/properties\/([^/]+)\/authoring-mode$/);
+  if (modeMatch) {
+    return { body: await getAuthoringMode(ctx, { propertyId: String(modeMatch[1]) }) };
+  }
+  if (path === "/v1/structure-proposals") {
+    const propertyId = url.searchParams.get("propertyId");
+    if (!propertyId) throw Object.assign(new Error("propertyId query parameter required"), { statusCode: 400 });
+    return { body: { proposals: await listStructureProposals(ctx, { propertyId }) } };
   }
   const receiptMatch = path.match(/^\/v1\/receipts\/([^/]+)$/);
   if (receiptMatch) {

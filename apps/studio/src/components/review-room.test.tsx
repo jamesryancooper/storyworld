@@ -1,5 +1,5 @@
 import * as React from "react";
-import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import { cleanup, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, it } from "vitest";
 import { expectAccessible } from "@/test/axe";
@@ -31,6 +31,55 @@ const TWO_PENDING: ProposalView[] = [
     decision: null,
   },
 ];
+
+describe("Review Room — structure proposals (DEC-0020)", () => {
+  it("lists a queued structure proposal and accepts it through the consequence review", async () => {
+    const engine = mockEngine();
+    await engine.setAuthoringMode({ propertyId: "p-1", mode: "queued" });
+    await engine.submitStructureProposal({
+      productionId: "prod-1",
+      unit: { unitType: "episode", presentationOrder: 3, storyTime: "1989-09-01" },
+      supersedesRevisionId: "sr-1",
+    });
+    const user = userEvent.setup();
+    render(<ReviewRoom client={engine} />);
+    await waitFor(() => expect(screen.getByText(/add episode at story time 1989-09-01/)).toBeDefined());
+    // One activation opens the review (scope to the structure proposal row —
+    // the canon queue also has a Review… button); nothing decided yet.
+    const row = screen.getByText(/add episode at story time 1989-09-01/).closest("tr") as HTMLElement;
+    await user.click(within(row).getByRole("button", { name: "Review…" }));
+    expect(engine.structureProposalDecisions).toHaveLength(0);
+    await waitFor(() => expect(screen.getByText(/a moved base is rejected and the proposal preserved/)).toBeDefined());
+    // A second explicit activation records the decision.
+    await user.click(screen.getByRole("button", { name: "Accept" }));
+    await waitFor(() => expect(engine.structureProposalDecisions).toHaveLength(1));
+    expect(engine.structureProposalDecisions[0]).toEqual({ proposalId: "sp-1", decision: "accepted" });
+    await waitFor(() => expect(screen.getByText(/Structure proposal accepted — receipt/)).toBeDefined());
+  });
+
+  it("shows the moved-base conflict and preserves the proposal in the queue", async () => {
+    const engine = mockEngine({
+      async decideStructureProposal() {
+        throw new EngineError(409, "stale-conflict", "the accepted structure changed since this proposal was submitted (its base has moved); the proposal is preserved — resubmit against the current structure");
+      },
+    });
+    await engine.setAuthoringMode({ propertyId: "p-1", mode: "queued" });
+    await engine.submitStructureProposal({
+      productionId: "prod-1",
+      unit: { unitType: "episode", presentationOrder: 3, storyTime: "1989-09-02" },
+      supersedesRevisionId: "sr-1",
+    });
+    const user = userEvent.setup();
+    render(<ReviewRoom client={engine} />);
+    await waitFor(() => expect(screen.getByText(/1989-09-02/)).toBeDefined());
+    const row = screen.getByText(/add episode at story time 1989-09-02/).closest("tr") as HTMLElement;
+    await user.click(within(row).getByRole("button", { name: "Review…" }));
+    await user.click(screen.getByRole("button", { name: "Accept" }));
+    await waitFor(() => expect(screen.getByText(/base has moved/)).toBeDefined());
+    // The proposal is still listed (preserved server-side).
+    expect(screen.getAllByText(/1989-09-02/).length).toBeGreaterThanOrEqual(1);
+  });
+});
 
 describe("Review Room", () => {
   it("separates the pending queue from decided proposals", async () => {

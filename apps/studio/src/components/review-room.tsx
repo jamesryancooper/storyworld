@@ -19,6 +19,7 @@ import {
   type EngineClient,
   type ProposalView,
   type PropertySummary,
+  type StructureProposalView,
 } from "@/lib/engine";
 
 export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Element {
@@ -26,8 +27,11 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
   const [properties, setProperties] = React.useState<PropertySummary[]>([]);
   const [propertyId, setPropertyId] = React.useState("");
   const [proposals, setProposals] = React.useState<ProposalView[]>([]);
+  const [structureProposals, setStructureProposals] = React.useState<StructureProposalView[]>([]);
   const [notice, setNotice] = React.useState<string | null>(null);
   const [reviewingId, setReviewingId] = React.useState<string | null>(null);
+  const [structureReviewingId, setStructureReviewingId] = React.useState<string | null>(null);
+  const decideStructure = useEngineCommand<{ decisionId: string; appliedRevisionId: string | null; receiptId: string }>();
   const [proposalType, setProposalType] = React.useState<"entity" | "timeline_event">("entity");
   const [entityType, setEntityType] = React.useState("character");
   const [entityName, setEntityName] = React.useState("");
@@ -46,7 +50,12 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
 
   const refresh = React.useCallback(async () => {
     if (!propertyId) return;
-    setProposals(await engine.listCanonProposals(propertyId));
+    const [canon, structures] = await Promise.all([
+      engine.listCanonProposals(propertyId),
+      engine.listStructureProposals(propertyId),
+    ]);
+    setProposals(canon);
+    setStructureProposals(structures);
   }, [engine, propertyId]);
 
   React.useEffect(() => {
@@ -99,11 +108,51 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
     finalizeDecide(outcome);
   }
 
+  const structureCtx = React.useRef<{ opId: string; decision: string; receipt: string | null } | null>(null);
+
+  function finalizeStructure(outcome: string): void {
+    const ctx = structureCtx.current;
+    if (!ctx) return;
+    if (outcome === "confirmed" || outcome === "refresh_failed") {
+      clearUnknownOutcome(ctx.opId);
+      setStructureReviewingId(null);
+      setNotice(
+        outcome === "confirmed"
+          ? `Structure proposal ${ctx.decision}${ctx.receipt ? ` — receipt ${ctx.receipt}` : ""}.`
+          : `Structure proposal ${ctx.decision}${ctx.receipt ? ` (receipt ${ctx.receipt})` : ""} — but refreshing the queue failed; reload to see current state.`,
+      );
+      decideStructure.reset();
+    } else if (outcome === "unknown" || outcome === "unavailable") {
+      recordUnknownOutcome({ id: ctx.opId, actionLabel: `${ctx.decision} structure decision`, subjectLabel: "structure proposal" });
+    }
+  }
+
+  async function onDecideStructure(proposal: StructureProposalView, decision: "accepted" | "rejected"): Promise<void> {
+    setNotice(null);
+    const opId = `decide-structure:${proposal.proposalId}:${decision}`;
+    structureCtx.current = { opId, decision, receipt: null };
+    const outcome = await decideStructure.run(
+      {
+        execute: async (idempotencyKey) => {
+          const out = await engine.decideStructureProposal({ proposalId: proposal.proposalId, decision }, { idempotencyKey });
+          if (structureCtx.current) structureCtx.current.receipt = out.receiptId;
+          return out;
+        },
+        refresh,
+      },
+      opId,
+    );
+    finalizeStructure(outcome);
+  }
+
   const pending = proposals.filter((p) => p.decision === null);
   const decided = proposals.filter((p) => p.decision !== null);
+  const pendingStructure = structureProposals.filter((p) => p.decision === null);
   const property = properties.find((p) => p.propertyId === propertyId) ?? null;
   const reviewing = pending.find((p) => p.proposalId === reviewingId) ?? null;
+  const structureReviewing = pendingStructure.find((p) => p.proposalId === structureReviewingId) ?? null;
   const decideFailure = describeCommandFailure(decide.status, decide.error);
+  const structureFailure = describeCommandFailure(decideStructure.status, decideStructure.error);
 
   async function onPropose(event: React.FormEvent): Promise<void> {
     event.preventDefault();
@@ -383,6 +432,110 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
           ) : null}
           {decided.length > 0 ? (
             <p className="mt-4 text-sm text-muted-foreground">{decided.length} previously decided proposal(s).</p>
+          ) : null}
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Structure proposals</CardTitle>
+          <CardDescription>
+            Queued Arc edits (DEC-0020) wait here — accepting one applies it as
+            an accepted structure revision only if its base is still current.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          {pendingStructure.length === 0 ? (
+            <p className="text-sm text-muted-foreground">No structure proposals awaiting review.</p>
+          ) : (
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Production</TableHead>
+                  <TableHead>Change</TableHead>
+                  <TableHead>Submitter</TableHead>
+                  <TableHead>
+                    <span className="sr-only">Actions</span>
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {pendingStructure.map((proposal) => (
+                  <TableRow key={proposal.proposalId}>
+                    <TableCell>{proposal.productionName}</TableCell>
+                    <TableCell className="max-w-md">{proposal.summary}</TableCell>
+                    <TableCell className="whitespace-nowrap text-muted-foreground">
+                      {proposal.submitterKind}:{proposal.submittedBy}
+                    </TableCell>
+                    <TableCell className="whitespace-nowrap">
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        aria-expanded={structureReviewingId === proposal.proposalId}
+                        onClick={() => {
+                          setNotice(null);
+                          setStructureReviewingId((prior) => (prior === proposal.proposalId ? null : proposal.proposalId));
+                        }}
+                      >
+                        Review…
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          )}
+          {structureReviewing ? (
+            <div className="mt-4 flex flex-col gap-2">
+              <ConsequenceReview
+                id="rr-structure-review"
+                title={`Review structure proposal — ${structureReviewing.summary}`}
+                rows={[
+                  { label: "Production", value: structureReviewing.productionName },
+                  { label: "Change", value: structureReviewing.summary },
+                  { label: "Submitted by", value: `${structureReviewing.submitterKind}:${structureReviewing.submittedBy}` },
+                  { label: "Base revision", value: structureReviewing.baseRevisionId ?? "none (first revision)" },
+                  { label: "Content hash", value: structureReviewing.contentSha256.slice(0, 12) },
+                  { label: "Deciding actor", value: actorLine() },
+                  {
+                    label: "Effect",
+                    value:
+                      "Accept applies it as an accepted structure revision only if its base is still current; a moved base is rejected and the proposal preserved.",
+                  },
+                ]}
+                actions={
+                  <>
+                    <Button
+                      onClick={() => void onDecideStructure(structureReviewing, "accepted")}
+                      disabled={decideStructure.status === "submitting"}
+                    >
+                      Accept
+                    </Button>
+                    <Button
+                      variant="outline"
+                      onClick={() => void onDecideStructure(structureReviewing, "rejected")}
+                      disabled={decideStructure.status === "submitting"}
+                    >
+                      Reject
+                    </Button>
+                  </>
+                }
+                onCancel={() => {
+                  setStructureReviewingId(null);
+                  decideStructure.reset();
+                }}
+                busy={decideStructure.status === "submitting"}
+              />
+              {structureFailure ? <p className="text-sm text-destructive">{structureFailure}</p> : null}
+              <CommandRecovery
+                status={decideStructure.status}
+                onRetry={() => void decideStructure.retry().then(finalizeStructure)}
+                onCheckStatus={() => {
+                  void refresh();
+                  setNotice("Queue refetched — check whether the decision already applied before retrying.");
+                }}
+              />
+            </div>
           ) : null}
         </CardContent>
       </Card>

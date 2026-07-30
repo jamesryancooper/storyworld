@@ -58,7 +58,7 @@ describe("Arc Board", () => {
     await user.click(screen.getByRole("button", { name: "Save as accepted revision" }));
     // The conflict names the server's current head and offers reconciliation…
     await waitFor(() => expect(screen.getByText(/current structure revision is sr-9/)).toBeDefined());
-    expect(screen.getByRole("button", { name: "Reload structure" })).toBeDefined();
+    expect(screen.getByRole("button", { name: /Reload mode/ })).toBeDefined();
     // …and the creator's typed input survives.
     expect((screen.getByLabelText("Story time") as HTMLInputElement).value).toBe("1989-06-04");
   });
@@ -119,6 +119,60 @@ describe("Arc Board", () => {
     await user.click(screen.getByRole("button", { name: "Save as accepted revision" }));
     await waitFor(() => expect(screen.getByText(/refused this as invalid/)).toBeDefined());
     expect((screen.getByLabelText("Story time") as HTMLInputElement).value).toBe("1989-06-09");
+  });
+
+  it("switches the save control and copy when the property is flipped to queued mode (DEC-0020)", async () => {
+    const engine = mockEngine();
+    const user = userEvent.setup();
+    render(<ArcBoard client={engine} />);
+    // Wait for the mode to load (the toggle only renders once mode is known).
+    await waitFor(() => expect(screen.getByRole("button", { name: "Switch to queued" })).toBeDefined());
+    // Direct by default.
+    expect(screen.getByText(/Direct authoring mode/)).toBeDefined();
+    // Flip to queued through the governed toggle (two activations).
+    await user.click(screen.getByRole("button", { name: "Switch to queued" }));
+    expect(engine.commandKeys.filter((k) => k.method === "setAuthoringMode")).toHaveLength(0);
+    await user.click(screen.getByRole("button", { name: "Change authoring mode" }));
+    await waitFor(() => expect(screen.getByText(/now queued/)).toBeDefined());
+    // The save control and copy now reflect queued mode.
+    await waitFor(() => expect(screen.getByRole("button", { name: "Submit for review" })).toBeDefined());
+    expect(screen.getByText(/Queued authoring mode/)).toBeDefined();
+  });
+
+  it("in queued mode a save submits a proposal, not a direct append (DEC-0020)", async () => {
+    const engine = mockEngine();
+    await engine.setAuthoringMode({ propertyId: "p-1", mode: "queued" });
+    const user = userEvent.setup();
+    render(<ArcBoard client={engine} />);
+    await waitFor(() => expect(screen.getByRole("button", { name: "Submit for review" })).toBeDefined());
+    await user.type(screen.getByLabelText("Story time"), "1989-07-15");
+    await user.click(screen.getByRole("button", { name: "Submit for review" }));
+    // One activation opens the review; nothing submitted yet.
+    expect(engine.commandKeys.filter((k) => k.method === "submitStructureProposal")).toHaveLength(0);
+    await user.click(screen.getByRole("button", { name: "Submit for review" }));
+    await waitFor(() =>
+      expect(engine.commandKeys.filter((k) => k.method === "submitStructureProposal")).toHaveLength(1),
+    );
+    // It did NOT go through the direct append path.
+    expect(engine.added).toHaveLength(0);
+    await waitFor(() => expect(screen.getByText(/waits in the Review Room/)).toBeDefined());
+  });
+
+  it("a direct save refused for a queued property surfaces the conflict and preserves input", async () => {
+    const engine = mockEngine({
+      async addNarrativeUnit() {
+        throw new EngineError(409, "stale-conflict", "this property is in queued authoring mode; submit the unit for review instead of saving it directly");
+      },
+    });
+    const user = userEvent.setup();
+    render(<ArcBoard client={engine} />);
+    await waitFor(() => expect(screen.getByRole("button", { name: "Add unit" })).toBeDefined());
+    await user.type(screen.getByLabelText("Story time"), "1989-08-01");
+    await user.click(screen.getByRole("button", { name: "Add unit" }));
+    await user.click(screen.getByRole("button", { name: "Save as accepted revision" }));
+    await waitFor(() => expect(screen.getByText(/queued authoring mode/)).toBeDefined());
+    expect(screen.getByRole("button", { name: /Reload mode/ })).toBeDefined();
+    expect((screen.getByLabelText("Story time") as HTMLInputElement).value).toBe("1989-08-01");
   });
 
   it("explains jargon fields inline (walkthrough finding #4)", async () => {

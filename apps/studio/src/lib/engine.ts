@@ -54,6 +54,7 @@ export interface PropertySummary {
 
 export interface ProductionSummary {
   productionId: string;
+  propertyId: string;
   name: string;
   pinnedCanonReleaseId: string;
   releaseVersion: string;
@@ -93,6 +94,22 @@ export interface NarrativeUnitDraft {
   parentUnitRef?: string | null;
   povEntityRef?: string | null;
   temporalMarker?: "linear" | "flashback" | "flash_forward" | "replay_alternate_perspective";
+}
+
+export type AuthoringMode = "direct" | "queued";
+
+export interface StructureProposalView {
+  proposalId: string;
+  productionId: string;
+  productionName: string;
+  summary: string;
+  contentSha256: string;
+  baseRevisionId: string | null;
+  submittedBy: string;
+  submitterKind: string;
+  createdAt: string;
+  decision: string | null;
+  appliedRevisionId: string | null;
 }
 
 export interface ScenePacketView {
@@ -167,6 +184,20 @@ export interface EngineClient {
     input: { productionId: string; unit: NarrativeUnitDraft; supersedesRevisionId?: string },
     opts?: EngineCallOptions,
   ): Promise<{ structureRevisionId: string; contentSha256: string; receiptId: string; unitId: string }>;
+  getAuthoringMode(propertyId: string): Promise<{ mode: AuthoringMode }>;
+  setAuthoringMode(
+    input: { propertyId: string; mode: AuthoringMode },
+    opts?: EngineCallOptions,
+  ): Promise<{ mode: AuthoringMode; from: AuthoringMode; receiptId: string }>;
+  submitStructureProposal(
+    input: { productionId: string; unit: NarrativeUnitDraft; supersedesRevisionId?: string },
+    opts?: EngineCallOptions,
+  ): Promise<{ proposalId: string; contentSha256: string; summary: string }>;
+  listStructureProposals(propertyId: string): Promise<StructureProposalView[]>;
+  decideStructureProposal(
+    input: { proposalId: string; decision: "accepted" | "rejected" },
+    opts?: EngineCallOptions,
+  ): Promise<{ decisionId: string; appliedRevisionId: string | null; receiptId: string }>;
   getScenePacket(productionId: string, unitId: string): Promise<ScenePacketView>;
   runGeneration(
     input: {
@@ -413,6 +444,38 @@ export function createEngineClient(
     async addNarrativeUnit(input, opts) {
       return post<{ structureRevisionId: string; contentSha256: string; receiptId: string; unitId: string }>(
         "/v1/narrative-unit-additions",
+        input,
+        opts,
+      );
+    },
+    async getAuthoringMode(propertyId) {
+      return get<{ mode: AuthoringMode }>(
+        `/v1/properties/${encodeURIComponent(propertyId)}/authoring-mode`,
+      );
+    },
+    async setAuthoringMode(input, opts) {
+      return post<{ mode: AuthoringMode; from: AuthoringMode; receiptId: string }>(
+        "/v1/authoring-modes",
+        input,
+        opts,
+      );
+    },
+    async submitStructureProposal(input, opts) {
+      return post<{ proposalId: string; contentSha256: string; summary: string }>(
+        "/v1/structure-proposals",
+        input,
+        opts,
+      );
+    },
+    async listStructureProposals(propertyId) {
+      const out = await get<{ proposals: StructureProposalView[] }>(
+        `/v1/structure-proposals?propertyId=${encodeURIComponent(propertyId)}`,
+      );
+      return out.proposals;
+    },
+    async decideStructureProposal(input, opts) {
+      return post<{ decisionId: string; appliedRevisionId: string | null; receiptId: string }>(
+        "/v1/structure-proposal-decisions",
         input,
         opts,
       );

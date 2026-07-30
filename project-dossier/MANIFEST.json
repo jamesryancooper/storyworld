@@ -205,7 +205,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "dc4df0fadcc6e5b0e0e3044d0b85608c7b0f4e1ede9fd9e0945a874bc06f0be1"
+      "sha256": "d4c3149d0f4fe7a8d3b0027429e24ec8e8e783060532560d2c61b5d432fce2f1"
     },
     {
       "layer": "agent_harness",
@@ -336,6 +336,11 @@
       "layer": "agent_harness",
       "path": ".agent/evidence/EVD-0026-phase1-rendered-verification.md",
       "sha256": "12451bc0e282ab72d161cf7270200447b6da80655f7bd90013042aae775b68ca"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0027-queued-authoring-implementation.md",
+      "sha256": "501ce222b4e123963790860f261dd60483d121dec2f210b7453508d764002081"
     },
     {
       "layer": "agent_harness",
@@ -495,7 +500,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "b5a336ba4680820b8fb543349d8b2302b111e740f0a233108da1acf7650bcbc3"
+      "sha256": "40cb7c3212a544f41dd0e3347ea66c43ceba8e5b35fb0e407453556e5695c216"
     },
     {
       "layer": "agent_harness",
@@ -581,6 +586,11 @@
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0016-phase1-safety-critical-repairs.md",
       "sha256": "17ba0c33607f6710338cdf4209c322ef3bc456b3f1b08d353d35fc108a63e1a2"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0017-queued-arc-authoring-mode.md",
+      "sha256": "ef54ef22c31ac718fc4594fd6db3e951cb5de9a3b160198cf9ef9b37207e7c1e"
     },
     {
       "layer": "agent_harness",
@@ -849,13 +859,18 @@
     },
     {
       "layer": "project_source",
+      "path": "apps/engine-api/src/queued-authoring.test.ts",
+      "sha256": "84ef44e2684767a42a2c4e41bad20c9f6d358703dcec3f2c1d07754fcafc1f1d"
+    },
+    {
+      "layer": "project_source",
       "path": "apps/engine-api/src/serve.ts",
       "sha256": "34b9d27410beda4b5a75154909c40d8c41878fe86451dbe9185b4bea0438a766"
     },
     {
       "layer": "project_source",
       "path": "apps/engine-api/src/server.ts",
-      "sha256": "339a02351de5e7a48fdef408221731e865aef5786a8338cf95dd8c05f82dd3fc"
+      "sha256": "aa8fc3a979a8ca02efb97828f4b117b53e62d45be71c8a967bd01bcf304e5531"
     },
     {
       "layer": "project_source",
@@ -955,12 +970,12 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/arc-board.test.tsx",
-      "sha256": "2888ee72d086856fa56cdaac63aacd313abc8f5f783fdb570badb8567a8978d8"
+      "sha256": "ca7b0bd8884275462654034ff6858b479a525abdf6fac97e223a5bff209b99d0"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/arc-board.tsx",
-      "sha256": "b71dac1057dabf7ee163dc6d0bd376807f438fc3f2629d4900d8d31fe3d4729e"
+      "sha256": "57aa9270efba6e83c460acad39126ca6582287f32ae776d2423b9455a2fe9f3f"
     },
     {
       "layer": "project_source",
@@ -1010,12 +1025,12 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/review-room.test.tsx",
-      "sha256": "783f23fdd20b4af9029a88d1c8f48da37a3024733526e4c08300c8b269c025ff"
+      "sha256": "5439a0855a0d322c31327ae0351591ee15255db953809b33bde5f3dd733bef90"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/review-room.tsx",
-      "sha256": "df56573f272c3d9d0e6abf9caf35ad9a4613161d871452069d8801d912db7715"
+      "sha256": "d3440ba20a3b92cd1be77a8c35bd0011ea23f41bbbb62f43347d9e810a510d63"
     },
     {
       "layer": "project_source",
@@ -1115,7 +1130,7 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/lib/engine.ts",
-      "sha256": "cb58752413f8b38312333281f5f0ae3a5c9cd56629d4b9662891eee6e281fc60"
+      "sha256": "0e16a1a15ac4a2d918d7ca54fac37bf4fdb561f0476f3f954230e1bf08ea1bc9"
     },
     {
       "layer": "project_source",
@@ -1140,7 +1155,7 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/test/mock-engine.ts",
-      "sha256": "626d1774c91a7991e04a47a814e9c758f94be1f926f07e47118e3b50bbf85cee"
+      "sha256": "7d94c44eabd8a6bacc65669331f75e8eab177dae8265157fae99b096c8ca73ae"
     },
     {
       "layer": "project_source",
@@ -2295,7 +2310,7 @@
     {
       "layer": "project_source",
       "path": "packages/kernel/src/queries.ts",
-      "sha256": "f1a9f85fa2d599b0fbe42a152361ddb1ecb5a9371ce523790e69d1eb2f5fca6e"
+      "sha256": "35f3aad579d75dcc3ff01975e0b670fec885582d0aa97e51c29a7f5b92b39246"
     },
     {
       "layer": "project_source",
@@ -2305,7 +2320,7 @@
     {
       "layer": "project_source",
       "path": "packages/kernel/src/releases.ts",
-      "sha256": "1f718e6a7f9c49cb5aa4a3a48f535bb106a127d8bb07b09e6332add0186ff234"
+      "sha256": "aa233b4a05bbc463327f03f8b769e5748d0bb951100555958b41d1bcbd456ae0"
     },
     {
       "layer": "project_source",
@@ -2386,6 +2401,11 @@
       "layer": "project_source",
       "path": "packages/persistence/migrations/0012_idempotency_reservation_and_fork_guards.sql",
       "sha256": "074fddba2b4db259afab16ca856346c516c98b223d13844e32277c116a42cd70"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/persistence/migrations/0013_queued_structure_authoring.sql",
+      "sha256": "16479ccebf531711d38725054dc62b1f0957b7c7bdd6b4ab8ed8c19cd86846cb"
     },
     {
       "layer": "project_source",
@@ -2928,12 +2948,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-30T19:37:13.846465+00:00",
-  "generation_id": "b938228bbdd03bbecff8e0b7a54ddfd3",
+  "generated_on": "2026-07-30T21:21:32.922714+00:00",
+  "generation_id": "2360f2cfbd7516bf0eb575391e8248be",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "5ddbdd4e18593bdd25cb7a3b96604846df8f5d2525aac13208bee5dd0d3a6099",
+  "source_fingerprint": "348ca30d1d7f2ca6c68ff20293016bb18ad43618a298018377f31f6184aab2e5",
   "source_scope": {
     "exclusions": [
       {
