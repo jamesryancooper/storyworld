@@ -215,6 +215,8 @@ export interface EngineClient {
   ): Promise<{ generationRunId: string; candidateAssetVersionIds: string[] }>;
   listGenerationCandidates(): Promise<GenerationCandidateView[]>;
   listCanonProposals(propertyId: string): Promise<ProposalView[]>;
+  getProposalContext(proposalId: string): Promise<ProposalContext | null>;
+  canonChangeImpact(propertyId: string, targetRef: string): Promise<{ productionId: string }[]>;
   proposeCanon(
     input: {
       propertyId: string;
@@ -295,10 +297,27 @@ export interface ProposalView {
   branchId: string;
   proposalType: string;
   payload: Record<string, unknown>;
+  sourceRef: string | null;
   proposedBy: string;
   proposerKind: string;
   createdAt: string;
   decision: string | null;
+}
+
+/** Deep provenance + before/after context for one proposal (SWUX-011). */
+export interface ProposalContext {
+  proposalId: string;
+  branchId: string;
+  proposalType: string;
+  payload: Record<string, unknown>;
+  proposedBy: string;
+  proposerKind: string;
+  sourceRef: string | null;
+  sourceName: string | null;
+  subjectStableId: string | null;
+  currentValue: Record<string, unknown> | null;
+  decision: string | null;
+  decisionReceiptId: string | null;
 }
 
 export interface ReleaseSummary {
@@ -504,6 +523,23 @@ export function createEngineClient(
         `/v1/canon-proposals?propertyId=${encodeURIComponent(propertyId)}`,
       );
       return out.proposals;
+    },
+    async getProposalContext(proposalId) {
+      try {
+        const out = await get<{ context: ProposalContext }>(
+          `/v1/canon-proposals/${encodeURIComponent(proposalId)}/context`,
+        );
+        return out.context;
+      } catch (cause) {
+        if (cause instanceof EngineError && cause.status === 404) return null;
+        throw cause;
+      }
+    },
+    async canonChangeImpact(propertyId, targetRef) {
+      const out = await get<{ impact: { productionId: string }[] }>(
+        `/v1/canon-change-impact?propertyId=${encodeURIComponent(propertyId)}&targetRef=${encodeURIComponent(targetRef)}`,
+      );
+      return out.impact;
     },
     async decideProposal(input, opts) {
       return post<{ decisionId: string; revisionId: string | null; receiptId: string }>(

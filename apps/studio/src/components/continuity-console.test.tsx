@@ -1,7 +1,7 @@
 import * as React from "react";
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
-import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import { cleanup, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, it } from "vitest";
 import { expectAccessible } from "@/test/axe";
@@ -159,5 +159,78 @@ describe("Continuity Console", () => {
     await user.click(screen.getByRole("button", { name: "Review…" }));
     await user.selectOptions(screen.getByLabelText("Disposition"), "intentional_exception");
     await expectAccessible(container);
+  });
+});
+
+describe("Continuity Console — finding detail disclosure (SWUX-010)", () => {
+  it("expands a finding's recorded facts (id, found_at, confidence, evidence, subjects)", async () => {
+    const user = userEvent.setup();
+    render(<ContinuityConsole client={mockEngine()} />);
+    await waitFor(() => expect(screen.getByText(/Contradictory state/)).toBeDefined());
+    const row = screen.getByText(/Contradictory state/).closest("tr") as HTMLElement;
+    await user.click(within(row).getByRole("button", { name: "Details" }));
+    // The disclosure surfaces the distinguishing recorded facts.
+    expect(screen.getByText("f-1")).toBeDefined();
+    expect(screen.getByText("fr-1")).toBeDefined();
+    expect(screen.getByText(/timeline:1989-06-03/)).toBeDefined();
+    // The subject hash prefix is unique to the detail panel (the description
+    // also mentions entity:e-1).
+    expect(screen.getByText(/entity:e-1 \(ffffffffffff\)/)).toBeDefined();
+    expect(screen.getByText("92%")).toBeDefined();
+  });
+
+  it("shows a waived finding's reason, scope, and decision receipt", async () => {
+    const engine = mockEngine({
+      async listContinuityFindings() {
+        return [
+          {
+            findingId: "f-waived",
+            findingRevisionId: "fr-waived",
+            checkLayer: "narrative",
+            severity: "advisory",
+            disposition: "waived",
+            document: {
+              description: "Scene enters with no established state.",
+              found_at: "1989-06-05T00:00:00Z",
+              waiver: { reason: "intentional era gap", scope: "this production only", expiry: null },
+              disposition_receipt_ref: "receipt:rcpt-abc",
+            },
+            createdAt: "2026-07-28T00:00:00.000Z",
+          },
+        ];
+      },
+    });
+    const user = userEvent.setup();
+    render(<ContinuityConsole client={engine} />);
+    await waitFor(() => expect(screen.getByText(/no established state/)).toBeDefined());
+    await user.click(screen.getByRole("button", { name: "Details" }));
+    expect(screen.getByText("intentional era gap")).toBeDefined();
+    expect(screen.getByText("this production only")).toBeDefined();
+    expect(screen.getByText("receipt:rcpt-abc")).toBeDefined();
+  });
+
+  it("makes two identically-described findings distinguishable by their detail", async () => {
+    const twin = (id: string, disposition: string) => ({
+      findingId: id,
+      findingRevisionId: `rev-${id}`,
+      checkLayer: "narrative",
+      severity: "advisory",
+      disposition,
+      document: { description: "Scene enters with no established state.", found_at: `1989-06-0${id.slice(-1)}` },
+      createdAt: "2026-07-28T00:00:00.000Z",
+    });
+    const engine = mockEngine({
+      async listContinuityFindings() {
+        return [twin("f-1", "open"), twin("f-2", "resolved")];
+      },
+    });
+    const user = userEvent.setup();
+    render(<ContinuityConsole client={engine} />);
+    await waitFor(() => expect(screen.getAllByText(/no established state/).length).toBe(2));
+    const rows = screen.getAllByText(/no established state/).map((n) => n.closest("tr") as HTMLElement);
+    await user.click(within(rows[0]!).getByRole("button", { name: "Details" }));
+    expect(screen.getByText("f-1")).toBeDefined();
+    await user.click(within(rows[1]!).getByRole("button", { name: "Details" }));
+    expect(screen.getByText("f-2")).toBeDefined();
   });
 });

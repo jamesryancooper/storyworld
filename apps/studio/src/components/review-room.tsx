@@ -20,10 +20,35 @@ import {
   actorLine,
   createEngineClient,
   type EngineClient,
+  type ProposalContext,
   type ProposalView,
   type PropertySummary,
   type StructureProposalView,
 } from "@/lib/engine";
+
+/** Legible origin category from the recorded proposer kind (SWUX-011). */
+function originLabel(kind: string): string {
+  if (kind === "model") return "AI-suggested";
+  if (kind === "human") return "human-authored";
+  if (kind === "import") return "imported";
+  if (kind === "derived") return "derived";
+  return kind;
+}
+
+interface ProposalProvenance {
+  loading: boolean;
+  failed: boolean;
+  context: ProposalContext | null;
+  impact: { productionId: string }[] | null;
+}
+
+/** Human-readable affected-work summary, distinguishing none from not-evaluated. */
+function impactLabel(p: ProposalProvenance): string {
+  if (p.loading) return "checking…";
+  if (p.impact === null) return "not evaluated";
+  if (p.impact.length === 0) return "Checked — no pinned production covers this subject";
+  return `Affects ${p.impact.length} pinned production(s)`;
+}
 
 export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Element {
   const engine = React.useMemo(() => client ?? createEngineClient(), [client]);
@@ -35,6 +60,12 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
   const [unavailable, setUnavailable] = React.useState(false);
   const [notice, setNotice] = React.useState<string | null>(null);
   const [reviewingId, setReviewingId] = React.useState<string | null>(null);
+  const [provenance, setProvenance] = React.useState<ProposalProvenance>({
+    loading: false,
+    failed: false,
+    context: null,
+    impact: null,
+  });
   const [structureReviewingId, setStructureReviewingId] = React.useState<string | null>(null);
   const decideStructure = useEngineCommand<{ decisionId: string; appliedRevisionId: string | null; receiptId: string }>();
   const [proposalType, setProposalType] = React.useState<"entity" | "timeline_event">("entity");
@@ -152,6 +183,37 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
     );
     finalizeStructure(outcome);
   }
+
+  // Fetch provenance + impact when a canon proposal review opens (SWUX-011).
+  // The decision itself is governed server-side, so a failed context fetch
+  // must NOT block Accept/Reject — it renders as "provenance unavailable".
+  React.useEffect(() => {
+    if (!reviewingId) {
+      setProvenance({ loading: false, failed: false, context: null, impact: null });
+      return;
+    }
+    let cancelled = false;
+    setProvenance({ loading: true, failed: false, context: null, impact: null });
+    void (async () => {
+      try {
+        const context = await engine.getProposalContext(reviewingId);
+        let impact: { productionId: string }[] | null = null;
+        if (context?.subjectStableId && propertyId) {
+          try {
+            impact = await engine.canonChangeImpact(propertyId, context.subjectStableId);
+          } catch {
+            impact = null;
+          }
+        }
+        if (!cancelled) setProvenance({ loading: false, failed: context === null, context, impact });
+      } catch {
+        if (!cancelled) setProvenance({ loading: false, failed: true, context: null, impact: null });
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [engine, reviewingId, propertyId]);
 
   const pending = proposals.filter((p) => p.decision === null);
   const decided = proposals.filter((p) => p.decision !== null);
@@ -380,8 +442,18 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
                 title={`Review proposal — ${describe(reviewing)}`}
                 rows={[
                   { label: "Type", value: reviewing.proposalType },
-                  { label: "Origin", value: `${reviewing.proposerKind}:${reviewing.proposedBy}` },
+                  {
+                    label: "Origin",
+                    value: `${originLabel(reviewing.proposerKind)} (${reviewing.proposerKind}:${reviewing.proposedBy})`,
+                  },
+                  {
+                    label: "Source",
+                    value: provenance.loading
+                      ? "checking…"
+                      : provenance.context?.sourceName ?? "none recorded",
+                  },
                   { label: "Target branch", value: reviewing.branchId },
+                  { label: "Impact", value: impactLabel(provenance) },
                   { label: "Deciding actor", value: actorLine() },
                   {
                     label: "Transition",
@@ -412,9 +484,43 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
                 }}
                 busy={decide.status === "submitting"}
               >
-                <pre className="max-h-56 overflow-auto rounded-lg border border-border bg-background p-3 text-xs">
-                  {JSON.stringify(reviewing.payload, null, 2)}
-                </pre>
+                {provenance.loading ? (
+                  <Loading rows={1} />
+                ) : provenance.failed || provenance.context === null ? (
+                  <div className="flex flex-col gap-2">
+                    <StatusMessage variant="notice">
+                      Provenance unavailable — the decision is still governed and receipted
+                      server-side. The proposed value is shown below.
+                    </StatusMessage>
+                    <div>
+                      <p className="mb-1 text-xs font-medium text-muted-foreground">Proposed (after)</p>
+                      <pre className="max-h-56 overflow-auto rounded-lg border border-border bg-background p-3 text-xs">
+                        {JSON.stringify(reviewing.payload, null, 2)}
+                      </pre>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <div>
+                      <p className="mb-1 text-xs font-medium text-muted-foreground">Current value (before)</p>
+                      {provenance.context.currentValue ? (
+                        <pre className="max-h-56 overflow-auto rounded-lg border border-border bg-background p-3 text-xs">
+                          {JSON.stringify(provenance.context.currentValue, null, 2)}
+                        </pre>
+                      ) : (
+                        <p className="rounded-lg border border-border bg-background p-3 text-xs text-muted-foreground">
+                          New subject — no current value.
+                        </p>
+                      )}
+                    </div>
+                    <div>
+                      <p className="mb-1 text-xs font-medium text-muted-foreground">Proposed (after)</p>
+                      <pre className="max-h-56 overflow-auto rounded-lg border border-border bg-background p-3 text-xs">
+                        {JSON.stringify(provenance.context.payload, null, 2)}
+                      </pre>
+                    </div>
+                  </div>
+                )}
               </ConsequenceReview>
               {decideFailure ? <StatusMessage variant="error">{decideFailure}</StatusMessage> : null}
               <CommandRecovery

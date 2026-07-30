@@ -15,6 +15,7 @@ const TWO_PENDING: ProposalView[] = [
     branchId: "b-1",
     proposalType: "entity",
     payload: { entity_id: "e-A", entity_type: "character", name: "Proposal A" },
+    sourceRef: null,
     proposedBy: "extraction-model",
     proposerKind: "model",
     createdAt: "2026-07-28T00:00:00.000Z",
@@ -25,6 +26,7 @@ const TWO_PENDING: ProposalView[] = [
     branchId: "b-1",
     proposalType: "entity",
     payload: { entity_id: "e-B", entity_type: "character", name: "Proposal B" },
+    sourceRef: null,
     proposedBy: "extraction-model",
     proposerKind: "model",
     createdAt: "2026-07-28T00:00:00.000Z",
@@ -233,5 +235,65 @@ describe("Review Room", () => {
     await waitFor(() => expect(screen.getByText(/The Archivist/)).toBeDefined());
     await user.click(screen.getByRole("button", { name: "Review…" }));
     await expectAccessible(container);
+  });
+});
+
+describe("Review Room — proposal provenance and impact (SWUX-011)", () => {
+  const supersedingPending: ProposalView[] = [
+    {
+      proposalId: "cp-2",
+      branchId: "b-1",
+      proposalType: "entity",
+      payload: { entity_id: "e-1", entity_type: "character", name: "Mara Venn (the Archivist)" },
+      sourceRef: "src-1",
+      proposedBy: "extraction-model",
+      proposerKind: "model",
+      createdAt: "2026-07-28T06:00:00.000Z",
+      decision: null,
+    },
+  ];
+
+  it("shows origin, source, before/after diff, and affected-production impact", async () => {
+    const engine = mockEngine({ async listCanonProposals() { return supersedingPending; } });
+    const user = userEvent.setup();
+    render(<ReviewRoom client={engine} />);
+    await waitFor(() => expect(screen.getByText(/Mara Venn \(the Archivist\)/)).toBeDefined());
+    await user.click(screen.getByRole("button", { name: "Review…" }));
+    // Origin is a legible category, not just the raw kind.
+    await waitFor(() => expect(screen.getByText(/AI-suggested/)).toBeDefined());
+    expect(screen.getByText(/season-two-bible\.md/)).toBeDefined();
+    // Before (current accepted value) and after (proposed) are both shown.
+    expect(screen.getByText(/Current value \(before\)/)).toBeDefined();
+    expect(screen.getByText(/Proposed \(after\)/)).toBeDefined();
+    expect(screen.getAllByText(/"name": "Mara"/).length).toBeGreaterThanOrEqual(1);
+    // Impact names the affected pinned production.
+    expect(screen.getByText(/Affects 1 pinned production/)).toBeDefined();
+  });
+
+  it("labels a new subject with no current value and no covering production", async () => {
+    // cp-1 (default mock) introduces entity e-9 with no current value; impact is empty.
+    const engine = mockEngine();
+    const user = userEvent.setup();
+    render(<ReviewRoom client={engine} />);
+    await waitFor(() => expect(screen.getByText(/The Archivist/)).toBeDefined());
+    await user.click(screen.getByRole("button", { name: "Review…" }));
+    await waitFor(() => expect(screen.getByText(/New subject — no current value/)).toBeDefined());
+    expect(screen.getByText(/no pinned production covers this subject/)).toBeDefined();
+  });
+
+  it("keeps Accept/Reject usable when the provenance fetch fails", async () => {
+    const engine = mockEngine({
+      async getProposalContext() {
+        throw new EngineError(503, "unavailable", "provenance store down");
+      },
+    });
+    const user = userEvent.setup();
+    render(<ReviewRoom client={engine} />);
+    await waitFor(() => expect(screen.getByText(/The Archivist/)).toBeDefined());
+    await user.click(screen.getByRole("button", { name: "Review…" }));
+    await waitFor(() => expect(screen.getByText(/Provenance unavailable/)).toBeDefined());
+    // The decision itself is still governed server-side, so the actions remain.
+    expect((screen.getByRole("button", { name: "Accept" }) as HTMLButtonElement).disabled).toBe(false);
+    expect((screen.getByRole("button", { name: "Reject" }) as HTMLButtonElement).disabled).toBe(false);
   });
 });

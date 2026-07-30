@@ -43,6 +43,7 @@ export function ContinuityConsole({ client }: { client?: EngineClient }): React.
   const [unavailable, setUnavailable] = React.useState(false);
   const [notice, setNotice] = React.useState<string | null>(null);
   const [reviewingId, setReviewingId] = React.useState<string | null>(null);
+  const [detailId, setDetailId] = React.useState<string | null>(null);
   const [disposition, setDisposition] = React.useState<Disposition>("resolved");
   const [rationale, setRationale] = React.useState("");
   const [scope, setScope] = React.useState("");
@@ -182,6 +183,8 @@ export function ContinuityConsole({ client }: { client?: EngineClient }): React.
       : "not stated";
   }
 
+  const detailing = findings.find((f) => f.findingId === detailId) ?? null;
+
   return (
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
@@ -207,7 +210,7 @@ export function ContinuityConsole({ client }: { client?: EngineClient }): React.
           </CardHeader>
           <CardContent className="flex flex-wrap items-end gap-4">
             {units.length > 0 ? (
-              <div className="flex w-72 flex-col gap-1.5">
+              <div className="flex w-full flex-col gap-1.5 sm:w-72">
                 <Label htmlFor="cc-unit">Narrative unit</Label>
                 <Select id="cc-unit" value={unitId} onChange={(event) => setUnitId(event.target.value)}>
                   {units.map((unit) => (
@@ -271,22 +274,73 @@ export function ContinuityConsole({ client }: { client?: EngineClient }): React.
                         <Badge variant="muted">{finding.disposition}</Badge>
                       </TableCell>
                       <TableCell className="whitespace-nowrap">
-                        {finding.disposition === "open" ? (
+                        <span className="flex flex-wrap gap-2">
                           <Button
                             size="sm"
-                            variant="outline"
-                            aria-expanded={reviewingId === finding.findingId}
-                            onClick={() => openReview(finding)}
+                            variant="ghost"
+                            aria-expanded={detailId === finding.findingId}
+                            onClick={() => {
+                              setNotice(null);
+                              setDetailId((prior) => (prior === finding.findingId ? null : finding.findingId));
+                            }}
                           >
-                            Review…
+                            Details
                           </Button>
-                        ) : null}
+                          {finding.disposition === "open" ? (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              aria-expanded={reviewingId === finding.findingId}
+                              onClick={() => openReview(finding)}
+                            >
+                              Review…
+                            </Button>
+                          ) : null}
+                        </span>
                       </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
               </Table>
             )}
+            {detailing ? (
+              <dl className="mt-4 grid gap-x-6 gap-y-2 rounded-lg border border-border p-4 text-sm sm:grid-cols-[minmax(0,10rem)_minmax(0,1fr)]">
+                {(
+                  [
+                    ["Finding", detailing.findingId],
+                    ["Revision", detailing.findingRevisionId],
+                    ["Found at", String(detailing.document.found_at ?? detailing.createdAt)],
+                    ["Severity · layer", `${detailing.severity} · ${detailing.checkLayer}`],
+                    ["Confidence", confidenceLabel(detailing)],
+                    ["Evidence", (detailing.document.evidence_refs ?? []).join(", ") || "not recorded"],
+                    [
+                      "Subjects",
+                      (detailing.document.subject_refs ?? []).join(", ") +
+                        ((detailing.document.subject_sha256 ?? []).length > 0
+                          ? ` (${(detailing.document.subject_sha256 ?? []).map((h) => h.slice(0, 12)).join(", ")})`
+                          : "") || "not recorded",
+                    ],
+                    ["Suggested remediation", String(detailing.document.suggested_remediation ?? "none proposed")],
+                    ["Disposition", detailing.disposition],
+                    ...(detailing.document.waiver
+                      ? ([
+                          ["Waiver rationale", String(detailing.document.waiver["reason"] ?? "—")],
+                          ["Waiver scope", String(detailing.document.waiver["scope"] ?? "—")],
+                          ["Waiver expiry", String(detailing.document.waiver["expiry"] ?? "no expiry")],
+                        ] as [string, string][])
+                      : []),
+                    ...(typeof detailing.document["disposition_receipt_ref"] === "string"
+                      ? ([["Decision receipt", String(detailing.document["disposition_receipt_ref"])]] as [string, string][])
+                      : []),
+                  ] as [string, string][]
+                ).map(([label, value]) => (
+                  <React.Fragment key={label}>
+                    <dt className="min-w-0 text-muted-foreground">{label}</dt>
+                    <dd className="min-w-0 break-words">{value}</dd>
+                  </React.Fragment>
+                ))}
+              </dl>
+            ) : null}
             {reviewing ? (
               <div className="mt-4 flex flex-col gap-2">
                 <ConsequenceReview
@@ -331,7 +385,7 @@ export function ContinuityConsole({ client }: { client?: EngineClient }): React.
                   confirmDisabled={waiverIncomplete}
                 >
                   <div className="flex flex-col gap-4">
-                    <div className="flex w-64 flex-col gap-1.5">
+                    <div className="flex w-full flex-col gap-1.5 sm:w-64">
                       <Label htmlFor="cc-disposition">Disposition</Label>
                       <Select
                         id="cc-disposition"

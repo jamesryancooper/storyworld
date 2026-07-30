@@ -330,6 +330,7 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
           branchId: String(input["branchId"]),
           proposalType: String(input["proposalType"]),
           payload: input["payload"] as Record<string, unknown>,
+          sourceRef: null,
           proposedBy: "ryan-cooper",
           proposerKind: "human",
           createdAt: "2026-07-29T12:00:00.000Z",
@@ -340,6 +341,7 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
           branchId: "b-1",
           proposalType: "entity",
           payload: { entity_id: "e-9", entity_type: "character", name: "The Archivist" },
+          sourceRef: null,
           proposedBy: "extraction-model",
           proposerKind: "model",
           createdAt: "2026-07-28T00:00:00.000Z",
@@ -350,12 +352,51 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
           branchId: "b-1",
           proposalType: "entity",
           payload: { entity_id: "e-1", entity_type: "character", name: "Mara" },
+          sourceRef: null,
           proposedBy: "ryan-cooper",
           proposerKind: "human",
           createdAt: "2026-07-27T00:00:00.000Z",
           decision: "accepted",
         },
       ];
+    },
+    async getProposalContext(proposalId) {
+      if (proposalId === "cp-2") {
+        return {
+          proposalId,
+          branchId: "b-1",
+          proposalType: "entity",
+          payload: { entity_id: "e-1", entity_type: "character", name: "Mara Venn (the Archivist)" },
+          proposedBy: "extraction-model",
+          proposerKind: "model",
+          sourceRef: "src-1",
+          sourceName: "season-two-bible.md",
+          subjectStableId: "e-1",
+          currentValue: { entity_id: "e-1", entity_type: "character", name: "Mara" },
+          decision: null,
+          decisionReceiptId: null,
+        };
+      }
+      if (proposalId === "cp-1") {
+        return {
+          proposalId,
+          branchId: "b-1",
+          proposalType: "entity",
+          payload: { entity_id: "e-9", entity_type: "character", name: "The Archivist" },
+          proposedBy: "extraction-model",
+          proposerKind: "model",
+          sourceRef: null,
+          sourceName: null,
+          subjectStableId: "e-9",
+          currentValue: null,
+          decision: null,
+          decisionReceiptId: null,
+        };
+      }
+      return null;
+    },
+    async canonChangeImpact(_propertyId, targetRef) {
+      return targetRef === "e-1" ? [{ productionId: "prod-1" }] : [];
     },
     async decideProposal(input, opts) {
       commandKeys.push({ method: "decideProposal", key: opts?.idempotencyKey });
