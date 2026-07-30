@@ -205,7 +205,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "be197c59c7544517e452b5e3480f0c441a392b47728487fc9060d82342bd8d29"
+      "sha256": "7a6d6bd93905b549497924f0ae962664a41a346cfd35f450fe5ae9c7582561e8"
     },
     {
       "layer": "agent_harness",
@@ -400,7 +400,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/reviews/REV-0002-phase1-post-change-audit.md",
-      "sha256": "64df8d70e64e59117b1d610b1f47c4d6a42d30a696f73ee6deadcc3fb0c19989"
+      "sha256": "efd05c6e3c62664cafea5f40075a1eeaf68ca23b7ddab3d5214a2230b54e584a"
     },
     {
       "layer": "agent_harness",
@@ -490,7 +490,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "53278328439ee86bf3d8ec598ec7be82a510e036da9c312d9a184be7835de876"
+      "sha256": "496864f6859c851e2ffbaae980d6d9106040c0ad0d01540d5a2d42c4fd15c181"
     },
     {
       "layer": "agent_harness",
@@ -575,7 +575,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0016-phase1-safety-critical-repairs.md",
-      "sha256": "1e905147b610778d0d938676642a53da3abbc943ffab69a55b82dcb5f09813a4"
+      "sha256": "824692527bc00821bb9c766c6afa5ff0c37ac60cc98317ed6ccc03c159a463ba"
     },
     {
       "layer": "agent_harness",
@@ -2923,12 +2923,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-30T16:47:49.280837+00:00",
-  "generation_id": "429918a8acbad9db32037e9a27704e4e",
+  "generated_on": "2026-07-30T18:53:44.181657+00:00",
+  "generation_id": "25ffed04598840889ab79ce51cb45b6b",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "c85753bfc0df216729ca05c1959bbf7a96aec054fde7c13e3108d1e8a9cb876e",
+  "source_fingerprint": "23dcd51e5a82fab6607ad2747e2d594a103323457f2964251c0647bc1b8eccf1",
   "source_scope": {
     "exclusions": [
       {

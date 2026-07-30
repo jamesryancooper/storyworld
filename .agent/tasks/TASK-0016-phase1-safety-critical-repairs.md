@@ -41,7 +41,7 @@
   "closure_evidence": [],
   "external_effects": "not_assessed",
   "limitations": [
-    "Implementation, engineering validation (EVD-0025), and the focused post-change audit with its remediation (REV-0002) are complete; the audit's five gate classes pass at source/test level. Open before closure: the rendered real-browser/assistive-technology checks, and the REV-0002 S6 owner decision on a consequence review for live-provider generation spend.",
+    "Implementation, engineering validation (EVD-0025), and the focused post-change audit with its remediation (REV-0002) are complete; the audit's five gate classes pass at source/test level. Open before closure: the rendered real-browser/assistive-technology checks. REV-0002 S6 was dispositioned by the owner on 2026-07-30: no generation confirmation step for the alpha; the cost preview and per-recipe ceiling stand.",
     "Browser and assistive-technology coverage is bounded to locally executable tooling; untested configurations are recorded and no WCAG conformance claim results.",
     "This task hardens the local development alpha within the DEC-0017 boundary; it creates no production identity, transport security, or readiness claim.",
     "Queued Arc authoring mode and the per-property toggle are explicitly the bounded follow-on task after this task's exit gate (DEC-0020)."
@@ -131,7 +131,7 @@ review record rather than editing REV-0001.
   instances only.
 - Residual limitations: rendered browser/AT matrix not yet executed; S2
   reload recovery is disclosure-only; E6/E7 identity-crossing deferrals.
-- Next action: execute the rendered checks of changed surfaces; owner
-  decides REV-0002 S6 (consequence review for live-provider generation);
-  then close against the acceptance criteria. The queued-mode + toggle
+- Next action: execute the rendered checks of changed surfaces, then close
+  against the acceptance criteria. REV-0002 S6 is dispositioned (owner,
+  2026-07-30: no confirmation step for now). The queued-mode + toggle
   follow-on task opens after this task's exit gate (DEC-0020).

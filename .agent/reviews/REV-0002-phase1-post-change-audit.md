@@ -62,7 +62,7 @@ in-session remediation.
 | S3 | lost-work (silent stale) | residual-risk | Evaluate and create-property swallowed refresh_failed: committed work invisible, button re-armed with a fresh key | **remediated** | Both flows show "recorded — refresh failed" and stay disarmed; component tests |
 | S4 | accidental-action | residual-risk | Mid-review selector switch retargeted confirm to a different production/property than displayed (arc, release) | **remediated** | Reviewed subject frozen at open; selector disabled during review; review closes on selection change; subject names shown in every review; test |
 | S5 | ambiguous-duplicate-mutation (latent) | residual-risk | Retained key could leak across logically different operations | **remediated** | Operation-identity-scoped keys in useEngineCommand (fresh key on opId change, retention within an op); key-capture tests |
-| S6 | accidental-action (boundary) | residual-risk | Live-provider (fal) generation fires on a single Enter with real spend, gated only by an active key | **open — owner decision** | Not acceptance-class under DEC-0021, so outside the Phase 1 gate; recommendation: add a consequence review to live-provider generation runs. Needs an owner call (smallest scope addition) |
+| S6 | accidental-action (boundary) | residual-risk | Live-provider (fal) generation fires on a single Enter with real spend, gated only by an active key | **dispositioned — accepted as-is by the owner (2026-07-30)** | Not acceptance-class under DEC-0021, so outside the Phase 1 gate. The owner declined the recommended consequence review for now ("Let's not require the confirmation step for now."): the cost preview, per-recipe ceiling, and credential-crossing controls stand as the alpha safeguards. Re-raisable at the live-generation reserved crossing |
 
 Server-side coverage added during the audit beyond the fixes: empty-waiver
 refusal test (reviewer-authored rationale enforced at the kernel), and the
@@ -92,8 +92,9 @@ Verdicts at source/test level on the final tree, per gate class:
   alpha boundary and recorded.
 - **Accidental acceptance-class action — pass.** Two activations required on
   every acceptance flow (pointer and keyboard, tested); reviewed subjects
-  frozen and named. Open recommendation S6 concerns a non-acceptance spend
-  path and needs an owner decision.
+  frozen and named. Recommendation S6 (a non-acceptance spend path) was
+  dispositioned by the owner on 2026-07-30: no confirmation step for now;
+  the cost preview and per-recipe ceiling stand.
 - **Ambiguous duplicate mutation — pass.** Exactly-once execution per key at
   the database; fail-closed pending keys; same-key recovery in every flow;
   op-scoped keys; disclosure banner across reload. Accepted residual: S2
@@ -111,12 +112,12 @@ the open gate item before closure, and S6 awaits an owner call.
 
 ## Conclusion and limitations
 
-- Actionable remainder: S6 owner decision; E5 legacy-throw cleanup and the
-  legacy action-name display label (Phase 2); HTTP-boundary tests for
-  credentials/dispositions/editor and non-owner-over-bearer on the
-  remaining routes (kernel-shared enforcement mitigates; follow-up);
-  rendered matrix.
+- Actionable remainder: E5 legacy-throw cleanup and the legacy action-name
+  display label (Phase 2); HTTP-boundary tests for credentials/dispositions/
+  editor and non-owner-over-bearer on the remaining routes (kernel-shared
+  enforcement mitigates; follow-up); rendered matrix.
 - Residual risks: S2 disclosure-only reload recovery; E6/E7 identity-
-  crossing deferrals — all recorded above with their bounds.
+  crossing deferrals; S6 single-step live-generation spend, accepted by
+  owner disposition 2026-07-30 — all recorded above with their bounds.
 - Review limitations: see frontmatter.
 - Approval authority: none created by this review.
