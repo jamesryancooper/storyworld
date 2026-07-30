@@ -10,12 +10,16 @@ import { ArcBoard } from "./arc-board";
 afterEach(cleanup);
 
 describe("Arc Board", () => {
-  it("shows units in presentation order with independent story time", async () => {
+  it("groups units by parent with an explicit Unparented group and independent coordinates (SWUX-012)", async () => {
     render(<ArcBoard client={mockEngine()} />);
-    await waitFor(() => expect(screen.getAllByText(/1989-06/)).toHaveLength(2));
-    const rows = screen.getAllByRole("row").slice(1);
-    expect(rows[0]?.textContent).toContain("1989-06-02");
-    expect(rows[1]?.textContent).toContain("1989-06-01");
+    await waitFor(() => expect(screen.getByText("episode 1")).toBeDefined());
+    // Presentation order and story time are explicit, independently-labeled
+    // coordinates — not conveyed by row position or color.
+    expect(screen.getByText("Pres. order")).toBeDefined();
+    expect(screen.getByText(/presentation order and story time are independent/i)).toBeDefined();
+    // u-1 is a parent episode; the scene u-3 nests under it; u-2 is Unparented.
+    expect(screen.getByText("scene 1a")).toBeDefined();
+    expect(screen.getByText("Unparented")).toBeDefined();
     expect(screen.getByText(/1 narrative thread/)).toBeDefined();
   });
 
@@ -23,7 +27,7 @@ describe("Arc Board", () => {
     const engine = mockEngine();
     const user = userEvent.setup();
     render(<ArcBoard client={engine} />);
-    await waitFor(() => expect(screen.getAllByText(/1989-06/)).toHaveLength(2));
+    await waitFor(() => expect(screen.getByText("episode 1")).toBeDefined());
     await user.type(screen.getByLabelText("Story time"), "1989-06-03");
     await user.click(screen.getByRole("button", { name: "Add unit" }));
     // One activation opens the review; nothing is recorded yet.
@@ -34,7 +38,7 @@ describe("Arc Board", () => {
     await waitFor(() => expect(engine.added).toHaveLength(1));
     expect(engine.added[0]).toEqual({
       productionId: "prod-1",
-      unit: { unitType: "episode", presentationOrder: 3, storyTime: "1989-06-03" },
+      unit: { unitType: "episode", presentationOrder: 4, storyTime: "1989-06-03" },
       supersedesRevisionId: "sr-1",
     });
     await waitFor(() => expect(screen.getByText(/receipt rcpt-arc-1/)).toBeDefined());
@@ -52,7 +56,7 @@ describe("Arc Board", () => {
     });
     const user = userEvent.setup();
     render(<ArcBoard client={engine} />);
-    await waitFor(() => expect(screen.getAllByText(/1989-06/)).toHaveLength(2));
+    await waitFor(() => expect(screen.getByText("episode 1")).toBeDefined());
     await user.type(screen.getByLabelText("Story time"), "1989-06-04");
     await user.click(screen.getByRole("button", { name: "Add unit" }));
     await user.click(screen.getByRole("button", { name: "Save as accepted revision" }));
@@ -67,7 +71,7 @@ describe("Arc Board", () => {
     const engine = mockEngine();
     const user = userEvent.setup();
     render(<ArcBoard client={engine} />);
-    await waitFor(() => expect(screen.getAllByText(/1989-06/)).toHaveLength(2));
+    await waitFor(() => expect(screen.getByText("episode 1")).toBeDefined());
     const storyTime = screen.getByLabelText("Story time");
     storyTime.focus();
     await user.type(storyTime, "1989-06-03");
@@ -113,7 +117,7 @@ describe("Arc Board", () => {
     });
     const user = userEvent.setup();
     render(<ArcBoard client={engine} />);
-    await waitFor(() => expect(screen.getAllByText(/1989-06/)).toHaveLength(2));
+    await waitFor(() => expect(screen.getByText("episode 1")).toBeDefined());
     await user.type(screen.getByLabelText("Story time"), "1989-06-09");
     await user.click(screen.getByRole("button", { name: "Add unit" }));
     await user.click(screen.getByRole("button", { name: "Save as accepted revision" }));
@@ -186,10 +190,38 @@ describe("Arc Board", () => {
     expect(described).toBeDefined();
   });
 
-  it("has no accessibility violations, including the open review region", async () => {
+  it("selecting a unit shows its inspector and structural context, and is view-only (SWUX-012)", async () => {
+    const engine = mockEngine();
+    const user = userEvent.setup();
+    render(<ArcBoard client={engine} />);
+    await waitFor(() => expect(screen.getByText("scene 1a")).toBeDefined());
+    // The scene u-3 is a keyboard-operable, view-only selection target.
+    await user.click(screen.getByRole("button", { name: /scene 1a/ }));
+    // The inspector shows the selected unit's authoritative fields…
+    await waitFor(() => expect(screen.getByText("Temporal marker")).toBeDefined());
+    expect(screen.getByText("flashback")).toBeDefined();
+    expect(screen.getByText("entity:mara")).toBeDefined();
+    expect(screen.getByText(/Parent unit/)).toBeDefined();
+    // …and selecting a unit records nothing on the Engine (view-only).
+    expect(engine.added).toHaveLength(0);
+    expect(engine.commandKeys).toHaveLength(0);
+    expect(engine.decisions).toHaveLength(0);
+  });
+
+  it("renders choices and branches as accessible structured lists (SWUX-012)", async () => {
+    render(<ArcBoard client={mockEngine()} />);
+    await waitFor(() => expect(screen.getByText("episode 1")).toBeDefined());
+    expect(screen.getByText("Open the archive door?")).toBeDefined();
+    // Both branch labels appear in the structured branch list.
+    expect(screen.getAllByText("opened").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("waited").length).toBeGreaterThan(0);
+  });
+
+  it("has no accessibility violations, including the open review region and a selected unit", async () => {
     const user = userEvent.setup();
     const { container } = render(<ArcBoard client={mockEngine()} />);
-    await waitFor(() => expect(screen.getAllByText(/1989-06/)).toHaveLength(2));
+    await waitFor(() => expect(screen.getByText("episode 1")).toBeDefined());
+    await user.click(screen.getByRole("button", { name: /scene 1a/ }));
     await user.type(screen.getByLabelText("Story time"), "1989-06-03");
     await user.click(screen.getByRole("button", { name: "Add unit" }));
     await expectAccessible(container);

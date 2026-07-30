@@ -510,7 +510,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "99035df892d61aedd68c07f5ababe7a48bb6741d5ee334f3ead901d6a4901d6c"
+      "sha256": "4a024f92c3bc1507e97cc0c1dd8d9ca886cdee611a4ee2385b0bb758ba3a0f2a"
     },
     {
       "layer": "agent_harness",
@@ -611,6 +611,11 @@
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0019-cross-domain-search.md",
       "sha256": "f8d9148c2f7c55d49ac777c860d766414d84f5da138df327a1b619368ae4cc1e"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0020-phase3-structured-workspace.md",
+      "sha256": "6c91a7dbb4b85078c86d7b06239823d921defb42770e508deb6fc3e9d628f889"
     },
     {
       "layer": "agent_harness",
@@ -864,6 +869,11 @@
     },
     {
       "layer": "project_source",
+      "path": "apps/engine-api/src/attention.test.ts",
+      "sha256": "c42af76851766a61e08a8106c6b4238c24c804e784d696a50064f44f6fc07e0a"
+    },
+    {
+      "layer": "project_source",
       "path": "apps/engine-api/src/gate-0005.test.ts",
       "sha256": "e423506bf187877ed18a6b89827142e799a7d341eb30028e9b4d17134e0cfe11"
     },
@@ -900,7 +910,7 @@
     {
       "layer": "project_source",
       "path": "apps/engine-api/src/server.ts",
-      "sha256": "6e6e1d3a85163ea24a1ab4077d45b7c05f4f70d5758ef3e4e6bbb4b3f465a1eb"
+      "sha256": "542cc5b605e9f0ae488ce0ed43f4951483935952ca6bd5d5a94f9dd2d841453b"
     },
     {
       "layer": "project_source",
@@ -1010,12 +1020,12 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/arc-board.test.tsx",
-      "sha256": "ca7b0bd8884275462654034ff6858b479a525abdf6fac97e223a5bff209b99d0"
+      "sha256": "810bffdf27498289ed9e52c0551eb8cbd8a9e06e2c59f7b36c288521407bcd74"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/arc-board.tsx",
-      "sha256": "091ca87dcc0e43e8aa48cba6d9d76262652128513a0f6bac61c6d980a34de891"
+      "sha256": "fdea36396a8379326c516517fa1abe40160b964ca346c848dae47c0501a37e20"
     },
     {
       "layer": "project_source",
@@ -1240,7 +1250,7 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/test/mock-engine.ts",
-      "sha256": "292667f59e95ce3380a4c74e2a293670501adcda5050d96bfbaa2e5b8689119f"
+      "sha256": "05cd895ad4d4b620cdd7e0b9732cda27ed48fc7cf4280f82f022aa749d5e9626"
     },
     {
       "layer": "project_source",
@@ -2405,7 +2415,7 @@
     {
       "layer": "project_source",
       "path": "packages/kernel/src/queries.ts",
-      "sha256": "99a4513d03997508327f647d7d42ac0adc9a3659250608645b5ba5ee994916ee"
+      "sha256": "e67995e5b3c844bdc0d5bf82dd2ca18929f42fc0ed1a08683e3d863b5feb906a"
     },
     {
       "layer": "project_source",
@@ -3048,12 +3058,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-30T22:50:45.986660+00:00",
-  "generation_id": "9197f6d4f4104db958fd1f09066bfe5c",
+  "generated_on": "2026-07-30T23:03:45.048319+00:00",
+  "generation_id": "cf6e5b89ce2621bd3307417512a56434",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "90d030fd87f76c7944b54ea8ea859c9a44a2f189bb780aeb3a47a34a4f724459",
+  "source_fingerprint": "03fef19615223122a8eff4d91b39a9d1657bfe04df37d69a396f970bab2898f0",
   "source_scope": {
     "exclusions": [
       {

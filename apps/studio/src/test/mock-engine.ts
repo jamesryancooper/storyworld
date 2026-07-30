@@ -73,6 +73,7 @@ export function mockEngine(overrides: Partial<EngineClient> = {}): EngineClient 
     narrative_units: [
       { unit_id: "u-1", unit_type: "episode", display_number: "1", presentation_order: 1, story_time: "1989-06-02", publication_time: null, parent_unit_ref: null },
       { unit_id: "u-2", unit_type: "episode", display_number: "2", presentation_order: 2, story_time: "1989-06-01", publication_time: null, parent_unit_ref: null },
+      { unit_id: "u-3", unit_type: "scene", display_number: "1a", presentation_order: 3, story_time: "1989-06-02", publication_time: null, parent_unit_ref: "u-1", pov_entity_ref: "entity:mara", temporal_marker: "flashback" },
     ],
     choices: [
       {

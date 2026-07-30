@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-30T22:50:45.986660+00:00",
-  "generation_id": "9197f6d4f4104db958fd1f09066bfe5c",
+  "generated_at": "2026-07-30T23:03:45.048319+00:00",
+  "generation_id": "cf6e5b89ce2621bd3307417512a56434",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -131,6 +131,7 @@
     ".agent/tasks/TASK-0017-queued-arc-authoring-mode.md",
     ".agent/tasks/TASK-0018-phase2-navigation-state-detail-accessibility.md",
     ".agent/tasks/TASK-0019-cross-domain-search.md",
+    ".agent/tasks/TASK-0020-phase3-structured-workspace.md",
     ".agent/templates/artifact.json",
     ".agent/templates/checkpoint.md",
     ".agent/templates/decision.md",
@@ -181,6 +182,7 @@
     "apps/cli/tsconfig.json",
     "apps/cli/vitest.config.ts",
     "apps/engine-api/package.json",
+    "apps/engine-api/src/attention.test.ts",
     "apps/engine-api/src/gate-0005.test.ts",
     "apps/engine-api/src/index.ts",
     "apps/engine-api/src/phase1-authority.test.ts",
@@ -620,7 +622,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "90d030fd87f76c7944b54ea8ea859c9a44a2f189bb780aeb3a47a34a4f724459",
+  "source_fingerprint": "03fef19615223122a8eff4d91b39a9d1657bfe04df37d69a396f970bab2898f0",
   "source_scope": {
     "exclusions": [
       {

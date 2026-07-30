@@ -9,7 +9,6 @@ import { Input } from "@/components/ui/input";
 import { InfoHint } from "@/components/ui/info-hint";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { CommandRecovery } from "@/components/ui/command-recovery";
 import { Loading } from "@/components/ui/loading";
 import { StatusMessage } from "@/components/ui/status-message";
@@ -57,6 +56,7 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
   const [review, setReview] = React.useState<ArcReview | null>(null);
   const [modeReview, setModeReview] = React.useState(false);
   const [notice, setNotice] = React.useState<string | null>(null);
+  const [selectedUnitId, setSelectedUnitId] = React.useState<string | null>(null);
   const save = useEngineCommand<{ receiptId?: string; proposalId?: string; structureRevisionId?: string }>();
   const modeCmd = useEngineCommand<{ mode: AuthoringMode; from: AuthoringMode; receiptId: string }>();
   const resultRef = React.useRef<string | null>(null);
@@ -105,6 +105,7 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
     setReview(null);
     setModeReview(false);
     setStructureLoaded(false);
+    setSelectedUnitId(null);
     save.reset();
     modeCmd.reset();
   }, [production?.productionId, save.reset, modeCmd.reset]);
@@ -117,7 +118,105 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
     [structure],
   );
   const threads = (structure?.document.threads ?? []) as Record<string, unknown>[];
+  const choices = (structure?.document.choices ?? []) as Record<string, unknown>[];
+  const branches = (structure?.document.branches ?? []) as Record<string, unknown>[];
   const nextOrder = units.length + 1;
+
+  // Episode-grouped structured view (SWUX-012; DEC-0024). Units are grouped
+  // by parent_unit_ref: any unit referenced as a parent heads a group with
+  // its children nested; every remaining unit (null or dangling parent) is
+  // shown in an explicit "Unparented" group so none is dropped. This is the
+  // graph's synchronized structured substrate — never an inferred canvas.
+  const unitsById = React.useMemo(
+    () => new Map(units.map((u) => [String(u["unit_id"]), u])),
+    [units],
+  );
+  const parentIds = React.useMemo(
+    () =>
+      new Set(
+        units
+          .map((u) => u["parent_unit_ref"])
+          .filter((p): p is string => typeof p === "string" && unitsById.has(p)),
+      ),
+    [units, unitsById],
+  );
+  const byOrder = (a: Record<string, unknown>, b: Record<string, unknown>) =>
+    Number(a["presentation_order"] ?? 0) - Number(b["presentation_order"] ?? 0);
+  const parentGroups = React.useMemo(
+    () =>
+      units
+        .filter((u) => parentIds.has(String(u["unit_id"])))
+        .sort(byOrder)
+        .map((parent) => ({
+          parent,
+          children: units
+            .filter((u) => u["parent_unit_ref"] === parent["unit_id"])
+            .sort(byOrder),
+        })),
+    [units, parentIds],
+  );
+  const unparented = React.useMemo(
+    () =>
+      units
+        .filter((u) => {
+          if (parentIds.has(String(u["unit_id"]))) return false;
+          const parent = u["parent_unit_ref"];
+          return parent == null || !unitsById.has(String(parent));
+        })
+        .sort(byOrder),
+    [units, parentIds, unitsById],
+  );
+
+  const selectedUnit = selectedUnitId ? unitsById.get(selectedUnitId) ?? null : null;
+  const relatedChoices = choices.filter(
+    (choice) =>
+      choice["at_unit_ref"] === selectedUnitId ||
+      ((choice["options"] as Record<string, unknown>[] | undefined) ?? []).some(
+        (option) => option["leads_to_unit_ref"] === selectedUnitId,
+      ),
+  );
+  const relatedBranches = branches.filter((branch) => {
+    const opts = choices
+      .flatMap((choice) => (choice["options"] as Record<string, unknown>[] | undefined) ?? [])
+      .filter((option) => option["leads_to_unit_ref"] === selectedUnitId)
+      .map((option) => option["branch_label"]);
+    return opts.includes(branch["branch_label"]);
+  });
+
+  function unitLabel(unit: Record<string, unknown>): string {
+    const display = unit["display_number"] ? ` ${String(unit["display_number"])}` : "";
+    return `${String(unit["unit_type"])}${display}`;
+  }
+
+  function refLabel(ref: unknown): string {
+    const unit = unitsById.get(String(ref));
+    return unit ? `${unitLabel(unit)} · story ${String(unit["story_time"] ?? "?")}` : String(ref);
+  }
+
+  // A unit is a view-only, keyboard-operable selection target: selecting it
+  // only opens the inspector (no Engine effect, SWUX-012). aria-pressed
+  // reflects selection so the table and inspector stay synchronized.
+  function renderUnit(unit: Record<string, unknown>, isHeading: boolean): React.JSX.Element {
+    const id = String(unit["unit_id"]);
+    const selected = selectedUnitId === id;
+    return (
+      <button
+        key={id}
+        type="button"
+        aria-pressed={selected}
+        onClick={() => setSelectedUnitId(selected ? null : id)}
+        className={`grid grid-cols-[auto_1fr_auto] items-center gap-x-3 rounded-lg px-2 py-1.5 text-left text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+          selected ? "bg-muted ring-1 ring-ring" : "hover:bg-muted"
+        }`}
+      >
+        <span className="tabular-nums text-muted-foreground">{String(unit["presentation_order"] ?? "—")}</span>
+        <span className="min-w-0 truncate">
+          <Badge variant={isHeading ? "default" : "muted"}>{unitLabel(unit)}</Badge>
+        </span>
+        <span className="whitespace-nowrap text-muted-foreground">{String(unit["story_time"] ?? "—")}</span>
+      </button>
+    );
+  }
 
   function onOpenReview(event: React.FormEvent): void {
     event.preventDefault();
@@ -227,6 +326,7 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
           Select a production — its narrative structure is revisioned, never edited in place.
         </p>
       ) : (
+        <>
         <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
           <Card>
             <CardHeader>
@@ -244,26 +344,35 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
               ) : units.length === 0 ? (
                 <p className="text-sm text-muted-foreground">No units yet.</p>
               ) : (
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Order</TableHead>
-                      <TableHead>Type</TableHead>
-                      <TableHead>Story time</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {units.map((unit) => (
-                      <TableRow key={String(unit["unit_id"])}>
-                        <TableCell>{String(unit["presentation_order"])}</TableCell>
-                        <TableCell>
-                          <Badge variant="muted">{String(unit["unit_type"])}</Badge>
-                        </TableCell>
-                        <TableCell className="whitespace-nowrap">{String(unit["story_time"] ?? "—")}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+                <div aria-label="Narrative units grouped by parent" className="flex flex-col gap-4">
+                  {/* Story time and presentation order are independent, explicitly
+                      labeled coordinates — never conveyed by row position or color. */}
+                  <div className="grid grid-cols-[auto_1fr_auto] gap-x-3 px-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    <span>Pres. order</span>
+                    <span>Type</span>
+                    <span>Story time</span>
+                  </div>
+                  {parentGroups.map(({ parent, children }) => (
+                    <div key={String(parent["unit_id"])} className="flex flex-col gap-1">
+                      {renderUnit(parent, true)}
+                      <div className="ml-3 flex flex-col gap-1 border-l border-border pl-3">
+                        {children.length === 0 ? (
+                          <p className="px-2 py-1 text-xs text-muted-foreground">No child units.</p>
+                        ) : (
+                          children.map((child) => renderUnit(child, false))
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                  {unparented.length > 0 ? (
+                    <div className="flex flex-col gap-1">
+                      <p className="px-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                        Unparented
+                      </p>
+                      {unparented.map((unit) => renderUnit(unit, false))}
+                    </div>
+                  ) : null}
+                </div>
               )}
               {threads.length > 0 ? (
                 <p className="mt-4 text-sm text-muted-foreground">
@@ -459,6 +568,132 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
             </Card>
           </div>
         </div>
+
+        {structureLoaded && !unavailable && units.length > 0 ? (
+          <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
+            <Card>
+              <CardHeader>
+                <CardTitle>Unit inspector</CardTitle>
+                <CardDescription>
+                  A read-only view of the selected unit and its structural
+                  context — selecting a unit changes nothing.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                {selectedUnit ? (
+                  <div className="flex flex-col gap-4">
+                    <dl className="grid grid-cols-[minmax(0,auto)_1fr] gap-x-4 gap-y-1 text-sm">
+                      <dt className="text-muted-foreground">Unit id</dt>
+                      <dd className="break-all font-mono text-xs">{String(selectedUnit["unit_id"])}</dd>
+                      <dt className="text-muted-foreground">Type</dt>
+                      <dd>{String(selectedUnit["unit_type"])}</dd>
+                      <dt className="text-muted-foreground">Display number</dt>
+                      <dd>{selectedUnit["display_number"] != null ? String(selectedUnit["display_number"]) : "—"}</dd>
+                      <dt className="text-muted-foreground">Presentation order</dt>
+                      <dd>{String(selectedUnit["presentation_order"] ?? "—")}</dd>
+                      <dt className="text-muted-foreground">Story time</dt>
+                      <dd>{String(selectedUnit["story_time"] ?? "—")}</dd>
+                      <dt className="text-muted-foreground">Publication time</dt>
+                      <dd>{selectedUnit["publication_time"] != null ? String(selectedUnit["publication_time"]) : "—"}</dd>
+                      <dt className="text-muted-foreground">Parent unit</dt>
+                      <dd>{selectedUnit["parent_unit_ref"] != null ? refLabel(selectedUnit["parent_unit_ref"]) : "none (top level)"}</dd>
+                      <dt className="text-muted-foreground">POV entity</dt>
+                      <dd>{selectedUnit["pov_entity_ref"] != null ? String(selectedUnit["pov_entity_ref"]) : "—"}</dd>
+                      <dt className="text-muted-foreground">Temporal marker</dt>
+                      <dd>{selectedUnit["temporal_marker"] != null ? String(selectedUnit["temporal_marker"]) : "linear"}</dd>
+                      <dt className="text-muted-foreground">Revision of</dt>
+                      <dd>{selectedUnit["revision_of_ref"] != null ? String(selectedUnit["revision_of_ref"]) : "—"}</dd>
+                    </dl>
+                    {relatedChoices.length > 0 ? (
+                      <div className="text-sm">
+                        <p className="font-medium">Choices at this unit</p>
+                        <ul className="mt-1 flex flex-col gap-1">
+                          {relatedChoices.map((choice) => (
+                            <li key={String(choice["choice_id"])} className="text-xs text-muted-foreground">
+                              {String(choice["prompt"])}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : null}
+                    {relatedBranches.length > 0 ? (
+                      <div className="text-sm">
+                        <p className="font-medium">Branches leading here</p>
+                        <ul className="mt-1 flex flex-wrap gap-1">
+                          {relatedBranches.map((branch) => (
+                            <li key={String(branch["branch_label"])}>
+                              <Badge variant="muted">{String(branch["branch_label"])}</Badge>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : null}
+                  </div>
+                ) : (
+                  <p className="text-sm text-muted-foreground">
+                    Select a unit to inspect its fields and structural context.
+                  </p>
+                )}
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Choices &amp; branches</CardTitle>
+                <CardDescription>
+                  The structure&apos;s branching, rendered as accessible lists —
+                  never an inferred canvas.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                {choices.length === 0 && branches.length === 0 ? (
+                  <p className="text-sm text-muted-foreground">No choices or branches in this structure.</p>
+                ) : (
+                  <div className="flex flex-col gap-4 text-sm">
+                    {choices.length > 0 ? (
+                      <div>
+                        <p className="font-medium">Choices</p>
+                        <ul className="mt-1 flex flex-col gap-2">
+                          {choices.map((choice) => (
+                            <li key={String(choice["choice_id"])} className="rounded-lg border border-border p-2">
+                              <p>{String(choice["prompt"])}</p>
+                              <p className="text-xs text-muted-foreground">at {refLabel(choice["at_unit_ref"])}</p>
+                              <ul className="mt-1 flex flex-col gap-0.5">
+                                {((choice["options"] as Record<string, unknown>[] | undefined) ?? []).map((option) => (
+                                  <li key={String(option["option_id"])} className="flex flex-wrap items-center gap-1 text-xs">
+                                    <Badge variant="muted">{String(option["branch_label"])}</Badge>
+                                    <span className="min-w-0">{String(option["label"])}</span>
+                                    <span className="text-muted-foreground">→ {refLabel(option["leads_to_unit_ref"])}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : null}
+                    {branches.length > 0 ? (
+                      <div>
+                        <p className="font-medium">Branches</p>
+                        <ul className="mt-1 flex flex-col gap-1">
+                          {branches.map((branch, index) => (
+                            <li key={`${String(branch["branch_label"])}-${index}`} className="flex flex-wrap items-center gap-1 text-xs">
+                              <Badge variant="muted">{String(branch["branch_label"])}</Badge>
+                              <span className="text-muted-foreground">
+                                reconverges at {branch["reconverges_at_unit_ref"] != null ? refLabel(branch["reconverges_at_unit_ref"]) : "—"}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : null}
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          </div>
+        ) : null}
+        </>
       )}
     </div>
   );

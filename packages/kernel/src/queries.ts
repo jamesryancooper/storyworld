@@ -245,6 +245,52 @@ export async function listCanonReleases(
   });
 }
 
+/**
+ * Bounded per-property attention summary from defined, current facts only
+ * (SWUX-016; DEC-0024 point 1). Counts are authoritative Engine state —
+ * pending canon and structure proposals, open continuity findings, pinned
+ * productions, and the latest canon release. No readiness score is invented
+ * and no production is called "drifted"; a production simply pins an exact
+ * release. Tenant-scoped, read-only.
+ */
+export async function listAttention(
+  ctx: KernelContext,
+): Promise<{
+  propertyId: string;
+  name: string;
+  pendingProposals: number;
+  openFindings: number;
+  pendingStructureProposals: number;
+  productionCount: number;
+  latestReleaseVersion: string | null;
+}[]> {
+  return withTenant(ctx.pool, ctx.organizationId, async (c) => {
+    const rows = await c.query(
+      `SELECT p.property_id AS "propertyId", p.name,
+              (SELECT count(*) FROM storyworld.canon_proposals cp
+                 LEFT JOIN storyworld.proposal_decisions d ON d.proposal_id = cp.proposal_id
+                WHERE cp.property_id = p.property_id AND d.decision IS NULL)::int AS "pendingProposals",
+              (SELECT count(*) FROM storyworld.continuity_findings f
+                 JOIN storyworld.productions pr ON pr.production_id = f.production_id
+                WHERE pr.property_id = p.property_id AND f.disposition = 'open'
+                  AND NOT EXISTS (SELECT 1 FROM storyworld.continuity_findings s
+                                   WHERE s.supersedes_revision_id = f.finding_revision_id))::int AS "openFindings",
+              (SELECT count(*) FROM storyworld.structure_proposals sp
+                 JOIN storyworld.productions pr ON pr.production_id = sp.production_id
+                 LEFT JOIN storyworld.structure_proposal_decisions sd ON sd.proposal_id = sp.proposal_id
+                WHERE pr.property_id = p.property_id AND sd.decision IS NULL)::int AS "pendingStructureProposals",
+              (SELECT count(*) FROM storyworld.productions pr WHERE pr.property_id = p.property_id)::int AS "productionCount",
+              (SELECT r.release_version FROM storyworld.canon_releases r
+                WHERE r.property_id = p.property_id
+                  AND NOT EXISTS (SELECT 1 FROM storyworld.canon_releases s WHERE s.supersedes_release_id = r.canon_release_id)
+                ORDER BY r.created_at DESC LIMIT 1) AS "latestReleaseVersion"
+         FROM storyworld.properties p
+        ORDER BY p.created_at DESC`,
+    );
+    return rows.rows.map((r) => ({ ...r, latestReleaseVersion: r.latestReleaseVersion ? String(r.latestReleaseVersion) : null }));
+  });
+}
+
 /** Structure proposals for a property's productions (DEC-0020 queued mode). */
 export async function listStructureProposals(
   ctx: KernelContext,
