@@ -32,18 +32,18 @@
   ],
   "environment": {
     "platform": "darwin",
-    "python": "3.13.9"
+    "python": "3.14.0"
   },
   "external_effects": "repository_local_derived_metadata_refresh_only",
   "failures": [],
   "freshness_rule": "Invalid when any non-excluded repository source byte or path changes.",
-  "generated_at": "2026-07-30T01:44:08.339639+00:00",
-  "generation_id": "0d4b4220f4e5f1280114010ed7a8c8e0",
+  "generated_at": "2026-07-30T02:57:44.685786+00:00",
+  "generation_id": "9276acbe68f7e53b15dd695f691119ab",
   "git_scope": {
     "available": true,
     "ignored": 19,
-    "tracked_modified": 8,
-    "untracked": 5
+    "tracked_modified": 3,
+    "untracked": 9
   },
   "limitations": [
     "Structural pass does not prove implementation or project readiness.",
@@ -60,7 +60,7 @@
     "binary, non-UTF-8, encoded, and files larger than 4 MiB require a dedicated secret scanner",
     "project-specific build, test, security, legal, and operational checks"
   ],
-  "source_fingerprint": "67f00cc8a68dcb6b63c7c978653b2fa722dd34d21a09f1c3e16e43d36bb38297",
+  "source_fingerprint": "de3a3d440b5fa88c2158ec915262c823d683cc45e9ec48af429b7c71c899dfee",
   "source_scope": {
     "exclusions": [
       {

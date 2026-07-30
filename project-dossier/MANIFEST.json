@@ -139,6 +139,51 @@
     },
     {
       "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0019-studio-lifecycle-vocabulary-and-publication-boundary.md",
+      "sha256": "e5818988259d52b76d7e3621545db313b0a6deeb506cc5fb76651610bdb085ce"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0020-proposal-acceptance-and-arc-board-semantics.md",
+      "sha256": "a8e0520b1ce461f763e77bf4295f82b9913b9a28c21c0f9e171301a7c10b94c7"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0021-human-authority-enforcement.md",
+      "sha256": "dfddb7d61c40691e10c9ee7af403c803b81cc8046a6415b99da6c0531dbc93e2"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0022-url-owned-studio-context.md",
+      "sha256": "8c54bffce0d8c0d2fb081633d560d0f85bc9ea9a74888377459f815388f53424"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0023-runtime-decision-receipts.md",
+      "sha256": "a4f4515649936a7a3f6b3f1bd6476376e9b1f18e37e0d73118e3a98f93320e5e"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0024-defer-graph-adopt-structured-views.md",
+      "sha256": "ba0f4a460c99bd05a42f2fa2747728aafce945d7b7f6f798cb5b64bc4afae480"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0025-alpha-collaboration-model.md",
+      "sha256": "1a447c574d5ffcd215541176b0e397c01e88d962f105f25365450452b6bf31db"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0026-category-4-dispositions.md",
+      "sha256": "36643a75f4a338378e9bf7c5dbec095e6d1d980c8b0d0230c6f15cd0f13e0bf8"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/decisions/DEC-0027-ambiguous-mockup-deferrals.md",
+      "sha256": "6d8d6216bf395879aaf1369b2ba736d8cae05202da520d8d1b135ee60a569949"
+    },
+    {
+      "layer": "agent_harness",
       "path": ".agent/decisions/README.md",
       "sha256": "321f2910e7e6256e00dad950baf69484dc8b777249d62e5f8f0aa84ac018e1c2"
     },
@@ -160,7 +205,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "ed58c7815e9aeda036285f5c521a667de871026791a856536461fcc7dd12c69a"
+      "sha256": "d488d89700a3b3df2e96432834aade992a5821b02909ae25e2dfcd9ec6f64076"
     },
     {
       "layer": "agent_harness",
@@ -430,7 +475,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "1a0c6f6da6ed41c29f9acab2c927d73e59e6acf3fb836c35be3bb080b0da1b7d"
+      "sha256": "b9cc13b5863970f22afde7f2bf7fa2d6b7160d3b616f1e02114f39945e7e84c6"
     },
     {
       "layer": "agent_harness",
@@ -510,7 +555,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0015-storyworld-studio-ux-improvement-program.md",
-      "sha256": "a2d0aa59628d44dd732451f72ecf73eb6df19907499f33c93cdfab0aa0cedfcf"
+      "sha256": "7e7cdaf0d8c6baf29e4a45a9ba1bd10dcfa6d9295ea087d839dd9c20bb17ae5b"
     },
     {
       "layer": "agent_harness",
@@ -2783,12 +2828,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-30T01:44:08.339639+00:00",
-  "generation_id": "0d4b4220f4e5f1280114010ed7a8c8e0",
+  "generated_on": "2026-07-30T02:57:44.685786+00:00",
+  "generation_id": "9276acbe68f7e53b15dd695f691119ab",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "67f00cc8a68dcb6b63c7c978653b2fa722dd34d21a09f1c3e16e43d36bb38297",
+  "source_fingerprint": "de3a3d440b5fa88c2158ec915262c823d683cc45e9ec48af429b7c71c899dfee",
   "source_scope": {
     "exclusions": [
       {

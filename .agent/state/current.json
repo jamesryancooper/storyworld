@@ -33,7 +33,7 @@
     "EVD-0023"
   ],
   "blocked_by": [],
-  "next_action": "TASK-0015 (Studio UX improvement program) is open: rebaseline complete (EVD-0022 — every REV-0001 finding reverified still present at f45c2e3), and storyworld-ux v1.5.0 is adopted by DEC-0018/EVD-0023. Next: draft the nine bounded Phase 0 proposals for owner disposition. No implementation phase opens before the Phase 0 exit gate and separate authorization.",
+  "next_action": "TASK-0015 (Studio UX improvement program) is open: rebaseline complete (EVD-0022), storyworld-ux adopted (DEC-0018/EVD-0023), and the nine Phase 0 proposals DEC-0019..0027 are drafted awaiting owner disposition (accept, amend, defer, or reject each). No implementation phase opens before the Phase 0 exit gate and separate authorization.",
   "external_effects_authority_refs": [],
   "limitations": [
     "behavioral_proofs_only_no_readiness_claim",

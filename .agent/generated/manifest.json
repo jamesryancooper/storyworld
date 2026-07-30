@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-30T01:44:08.339639+00:00",
-  "generation_id": "0d4b4220f4e5f1280114010ed7a8c8e0",
+  "generated_at": "2026-07-30T02:57:44.685786+00:00",
+  "generation_id": "9276acbe68f7e53b15dd695f691119ab",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -36,6 +36,15 @@
     ".agent/decisions/DEC-0016-b4-gate-staged.md",
     ".agent/decisions/DEC-0017-v1-consolidated-review.md",
     ".agent/decisions/DEC-0018-adopt-storyworld-ux-capability.md",
+    ".agent/decisions/DEC-0019-studio-lifecycle-vocabulary-and-publication-boundary.md",
+    ".agent/decisions/DEC-0020-proposal-acceptance-and-arc-board-semantics.md",
+    ".agent/decisions/DEC-0021-human-authority-enforcement.md",
+    ".agent/decisions/DEC-0022-url-owned-studio-context.md",
+    ".agent/decisions/DEC-0023-runtime-decision-receipts.md",
+    ".agent/decisions/DEC-0024-defer-graph-adopt-structured-views.md",
+    ".agent/decisions/DEC-0025-alpha-collaboration-model.md",
+    ".agent/decisions/DEC-0026-category-4-dispositions.md",
+    ".agent/decisions/DEC-0027-ambiguous-mockup-deferrals.md",
     ".agent/decisions/README.md",
     ".agent/evaluations/README.md",
     ".agent/evaluations/registry.json",
@@ -567,7 +576,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "67f00cc8a68dcb6b63c7c978653b2fa722dd34d21a09f1c3e16e43d36bb38297",
+  "source_fingerprint": "de3a3d440b5fa88c2158ec915262c823d683cc45e9ec48af429b7c71c899dfee",
   "source_scope": {
     "exclusions": [
       {

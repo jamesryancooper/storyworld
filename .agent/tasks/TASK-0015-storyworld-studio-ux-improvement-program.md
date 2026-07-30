@@ -77,6 +77,13 @@ Out of scope:
 | D8 | Category 4 proposals PROP-FG-09 and PROP-FG-10 disposition |
 | D9 | Ambiguous mockup implications: defer or decide |
 
+Proposal records (drafted 2026-07-29, all `proposed`, owner disposition
+pending): D1 → DEC-0019, D2 → DEC-0020, D3 → DEC-0021, D4 → DEC-0022,
+D5 → DEC-0023, D6 → DEC-0024, D7 → DEC-0025, D8 → DEC-0026, D9 → DEC-0027.
+Phase 0 exit gate: every area accepted, explicitly deferred, or rejected
+before dependent implementation; a deferred area leaves affected behavior
+absent or fail-closed.
+
 ## Capability prerequisite resolution
 
 The project owner explicitly instructed on 2026-07-29 that the
@@ -133,10 +140,11 @@ remains executable-and-unsafe across a phase boundary.
 
 ## Evidence and closure
 
-- Evidence: EVD-0022 (rebaseline); REV-0001 (baseline, unmodified).
-- Review: pending — Phase 0 proposals await owner disposition.
+- Evidence: EVD-0022 (rebaseline); EVD-0023 (capability adoption); REV-0001
+  (baseline, unmodified).
+- Review: pending — DEC-0019..0027 are drafted and await owner disposition.
 - External effects: none.
 - Residual limitations: see frontmatter.
-- Next action: draft the nine bounded Phase 0 proposals for owner disposition;
-  Phase 1 opens only after the Phase 0 exit gate and separate implementation
-  authorization.
+- Next action: owner dispositions DEC-0019..0027 (accept, amend, defer, or
+  reject each); Phase 1 opens only after the Phase 0 exit gate and separate
+  implementation authorization.
