@@ -18,6 +18,7 @@ import {
   ingestSource,
   proposeCanon,
   saveNarrativeStructure,
+  sealNarrativeStructureDocument,
   snapshotCanonRelease,
   type KernelContext,
 } from "./index.js";
@@ -124,7 +125,7 @@ describe("F3 kernel: source-to-canon with authority enforcement", () => {
       releaseName: "kernel-test-canon",
       releaseVersion: "1.0.0",
     });
-    const productionId = await createProduction(ctx, ryan, {
+    const { productionId } = await createProduction(ctx, ryan, {
       propertyId,
       pinnedCanonReleaseId: release.canonReleaseId,
       name: "The Second Chair (kernel test)",
@@ -134,18 +135,23 @@ describe("F3 kernel: source-to-canon with authority enforcement", () => {
     const ep3 = uuidv7();
     await saveNarrativeStructure(ctx, ryan, {
       productionId,
-      document: {
+      document: sealNarrativeStructureDocument({
         schema_version: "storyworld.narrative-structure.v1",
         structure_id: uuidv7(),
+        property_id: propertyId,
+        canon_release_ref: release.canonReleaseId,
+        production_ref: productionId,
         narrative_units: [
-          { unit_id: ep1, unit_type: "episode", presentation_order: 1, story_time: "1989-06-01" },
-          { unit_id: ep2, unit_type: "episode", presentation_order: 2, story_time: "1989-06-02" },
-          { unit_id: ep3, unit_type: "episode", presentation_order: 3, story_time: "1989-06-03" },
+          { unit_id: ep1, unit_type: "episode", display_number: "1", presentation_order: 1, story_time: "1989-06-01", publication_time: null, parent_unit_ref: null },
+          { unit_id: ep2, unit_type: "episode", display_number: "2", presentation_order: 2, story_time: "1989-06-02", publication_time: null, parent_unit_ref: null },
+          { unit_id: ep3, unit_type: "episode", display_number: "3", presentation_order: 3, story_time: "1989-06-03", publication_time: null, parent_unit_ref: null },
         ],
+        choices: [],
+        branches: [],
         threads: [
-          { thread_id: uuidv7(), thread_type: "reveal", introduced_in_unit_ref: ep1, resolved_in_unit_ref: null },
+          { thread_id: uuidv7(), thread_type: "reveal", introduced_in_unit_ref: ep1, resolved_in_unit_ref: null, earliest_permitted_unit_ref: null, depends_on_thread_refs: [] },
         ],
-      },
+      }),
     });
 
     // Scene state packet for episode 2: state derives from STORY TIME.

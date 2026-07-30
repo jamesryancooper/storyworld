@@ -1,4 +1,6 @@
 export * from "./actors.js";
+export * from "./receipts.js";
+export * from "./narrative-structure.js";
 export * from "./commands.js";
 export * from "./releases.js";
 export * from "./state-packet.js";

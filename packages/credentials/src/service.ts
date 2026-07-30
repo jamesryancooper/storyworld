@@ -1,6 +1,6 @@
 import { uuidv7 } from "@storyworld/domain";
 import { withTenant } from "@storyworld/persistence";
-import { requireHuman, type Actor, type KernelContext } from "@storyworld/kernel";
+import { requireOwner, type Actor, type KernelContext } from "@storyworld/kernel";
 import {
   loadMasterKey,
   openWithKey,
@@ -73,8 +73,8 @@ export async function setCredential(
   ctx: KernelContext,
   actor: Actor,
   input: { name: string; value: string; expiresAt?: string | null },
-): Promise<{ credentialRevisionId: string; hint: string }> {
-  requireHuman(actor, "credential entry");
+): Promise<{ credentialRevisionId: string; hint: string; receiptId: string }> {
+  requireOwner(actor, "credential entry");
   const slot = requireSlot(input.name);
   if (!input.value || input.value.trim().length < 8) {
     throw new Error("credential value looks empty or truncated; refusing to store it");
@@ -91,6 +91,7 @@ export async function setCredential(
   const hint = credentialHint(input.value);
   const prior = await currentRevision(ctx, input.name);
   const credentialRevisionId = uuidv7();
+  const receiptId = uuidv7();
   await withTenant(ctx.pool, ctx.organizationId, async (c) => {
     await c.query(
       "INSERT INTO storyworld.provider_credentials (credential_revision_id, organization_id, name, provider, scopes, status, ciphertext, wrapped_dek, hint, expires_at, supersedes_revision_id) VALUES ($1,$2,$3,$4,$5,'active',$6,$7,$8,$9,$10)",
@@ -100,26 +101,28 @@ export async function setCredential(
     );
     await c.query(
       "INSERT INTO storyworld.audit_receipts (receipt_id, organization_id, actor, action, subject_ref, subject_sha256, correlation_id, detail) VALUES ($1,$2,$3,$4,$5,NULL,$6,$7)",
-      [uuidv7(), ctx.organizationId, `${actor.kind}:${actor.id}`,
+      [receiptId, ctx.organizationId, `${actor.kind}:${actor.id}`,
        prior ? "credential.replaced" : "credential.entered",
        `provider-credential:${slot.name}`, uuidv7(),
        JSON.stringify({ provider: slot.provider, scopes: slot.scopes, hint,
+                        decided_by: actor.id, decided_by_role: actor.role,
                         reserved_crossing: "hosted generation becomes reachable while this credential is active" })],
     );
   });
-  return { credentialRevisionId, hint };
+  return { credentialRevisionId, hint, receiptId };
 }
 
 export async function revokeCredential(
   ctx: KernelContext,
   actor: Actor,
   input: { name: string },
-): Promise<{ credentialRevisionId: string }> {
-  requireHuman(actor, "credential revocation");
+): Promise<{ credentialRevisionId: string; receiptId: string }> {
+  requireOwner(actor, "credential revocation");
   const slot = requireSlot(input.name);
   const prior = await currentRevision(ctx, input.name);
   if (!prior) throw new Error(`no stored credential for slot ${slot.name}`);
   const credentialRevisionId = uuidv7();
+  const receiptId = uuidv7();
   await withTenant(ctx.pool, ctx.organizationId, async (c) => {
     await c.query(
       "INSERT INTO storyworld.provider_credentials (credential_revision_id, organization_id, name, provider, scopes, status, ciphertext, wrapped_dek, hint, expires_at, supersedes_revision_id) VALUES ($1,$2,$3,$4,$5,'revoked',$6,$7,$8,$9,$10)",
@@ -129,12 +132,13 @@ export async function revokeCredential(
     );
     await c.query(
       "INSERT INTO storyworld.audit_receipts (receipt_id, organization_id, actor, action, subject_ref, subject_sha256, correlation_id, detail) VALUES ($1,$2,$3,'credential.revoked',$4,NULL,$5,$6)",
-      [uuidv7(), ctx.organizationId, `${actor.kind}:${actor.id}`,
+      [receiptId, ctx.organizationId, `${actor.kind}:${actor.id}`,
        `provider-credential:${slot.name}`, uuidv7(),
-       JSON.stringify({ provider: slot.provider, hint: prior.hint })],
+       JSON.stringify({ provider: slot.provider, hint: prior.hint,
+                        decided_by: actor.id, decided_by_role: actor.role })],
     );
   });
-  return { credentialRevisionId };
+  return { credentialRevisionId, receiptId };
 }
 
 /**

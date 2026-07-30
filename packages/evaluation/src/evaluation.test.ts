@@ -14,6 +14,7 @@ import {
   importAsset,
   proposeCanon,
   saveNarrativeStructure,
+  sealNarrativeStructureDocument,
   snapshotCanonRelease,
   type KernelContext,
 } from "@storyworld/kernel";
@@ -82,19 +83,24 @@ describe("B1 continuity evaluation", () => {
     const release = await snapshotCanonRelease(ctx, ryan, {
       propertyId, branchId: officialBranchId, releaseName: "eval-canon", releaseVersion: `1.0.${Date.now()}`,
     });
-    productionId = await createProduction(ctx, ryan, {
+    productionId = (await createProduction(ctx, ryan, {
       propertyId, pinnedCanonReleaseId: release.canonReleaseId, name: "eval-production",
-    });
+    })).productionId;
     unitId = uuidv7();
     // Unit precedes every timeline event (empty entering state -> narrative advisory);
     // thread resolves in a unit that does not exist (structural).
     await saveNarrativeStructure(ctx, ryan, {
       productionId,
-      document: {
+      document: sealNarrativeStructureDocument({
         schema_version: "storyworld.narrative-structure.v1", structure_id: uuidv7(),
-        narrative_units: [{ unit_id: unitId, unit_type: "episode", presentation_order: 1, story_time: "1989-01-01" }],
-        threads: [{ thread_id: uuidv7(), thread_type: "mystery", resolved_in_unit_ref: uuidv7() }],
-      },
+        property_id: propertyId,
+        canon_release_ref: release.canonReleaseId,
+        production_ref: productionId,
+        narrative_units: [{ unit_id: unitId, unit_type: "episode", display_number: "1", presentation_order: 1, story_time: "1989-01-01", publication_time: null, parent_unit_ref: null }],
+        choices: [],
+        branches: [],
+        threads: [{ thread_id: uuidv7(), thread_type: "mystery", introduced_in_unit_ref: unitId, resolved_in_unit_ref: uuidv7(), earliest_permitted_unit_ref: null, depends_on_thread_refs: [] }],
+      }),
     });
   });
 

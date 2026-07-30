@@ -1,6 +1,13 @@
 import { canonicalJson, contentSha256, uuidv7 } from "@storyworld/domain";
 import { withTenant } from "@storyworld/persistence";
-import { compileScenePacket, requireHuman, type Actor, type KernelContext } from "@storyworld/kernel";
+import {
+  approvalReceiptDetail,
+  compileScenePacket,
+  requireOwner,
+  ValidationError,
+  type Actor,
+  type KernelContext,
+} from "@storyworld/kernel";
 import { checkStructural, checkTechnicalMedia, checkTemporalState } from "./deterministic.js";
 import { findingDocument, type FindingDraft } from "./findings.js";
 import { createMockNarrativeEvaluator, type ModelAssistedEvaluator } from "./model-assisted.js";
@@ -116,9 +123,18 @@ export async function disposeFinding(
     waiver?: { reason: string; scope: string; expiry: string | null };
   },
 ): Promise<{ findingRevisionId: string; receiptId: string }> {
-  requireHuman(actor, "continuity disposition");
-  if ((input.disposition === "waived" || input.disposition === "intentional_exception") && !input.waiver) {
-    throw new Error(`${input.disposition} requires a waiver (reason, scope, expiry)`);
+  requireOwner(actor, "continuity disposition");
+  if (input.disposition === "waived" || input.disposition === "intentional_exception") {
+    // The waiver rationale is the reviewer's own statement (DEC-0021;
+    // SWUX-003): a missing or empty reason/scope is refused, never filled in.
+    if (!input.waiver) {
+      throw new ValidationError(`${input.disposition} requires a waiver (reason, scope, expiry)`);
+    }
+    if (!input.waiver.reason?.trim() || !input.waiver.scope?.trim()) {
+      throw new ValidationError(
+        `${input.disposition} requires a reviewer-authored waiver reason and scope; empty values are refused`,
+      );
+    }
   }
   const findingRevisionId = uuidv7();
   const receiptId = uuidv7();
@@ -143,7 +159,20 @@ export async function disposeFinding(
       "INSERT INTO storyworld.audit_receipts (receipt_id, organization_id, actor, action, subject_ref, subject_sha256, correlation_id, detail) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)",
       [receiptId, ctx.organizationId, `${actor.kind}:${actor.id}`, "continuity.finding.disposed",
        `continuity-finding:${input.findingId}`, sha256, uuidv7(),
-       JSON.stringify({ disposition: input.disposition })],
+       JSON.stringify(approvalReceiptDetail({
+         receiptId,
+         layer: "continuity_disposition",
+         decision:
+           input.disposition === "resolved" ? "approved"
+           : input.disposition === "canon_change_proposed" ? "escalated"
+           : "waived",
+         subjectRefs: [`continuity-finding:${input.findingId}`],
+         subjectSha256: [sha256],
+         policyRefs: ["DEC-0021", "DEC-0023"],
+         actor,
+         ...(input.waiver ? { waiver: input.waiver } : {}),
+         context: { disposition: input.disposition },
+       }))],
     );
     await c.query(
       "INSERT INTO storyworld.continuity_findings (finding_revision_id, organization_id, finding_id, production_id, check_layer, severity, disposition, document, content_sha256, supersedes_revision_id) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)",

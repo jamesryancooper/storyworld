@@ -57,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
           <div className="flex min-w-0 flex-1 flex-col">
             <header className="flex h-14 items-center justify-between border-b border-border px-6">
               <p className="text-sm text-muted-foreground">Storyworld Engine workspace</p>
-              <Badge variant="outline">ryan-cooper · property_owner</Badge>
+              <Badge variant="outline">ryan-cooper · property_owner · development identity — not verified</Badge>
             </header>
             <main className="flex-1 px-6 py-6">{children}</main>
           </div>

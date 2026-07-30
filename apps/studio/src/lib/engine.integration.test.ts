@@ -29,6 +29,7 @@ describe("Studio engine client against a live engine-api", () => {
   const org = uuidv7();
 
   beforeAll(async () => {
+    process.env["STORYWORLD_DEV_IDENTITY"] = "1";
     admin = createPool(url);
     await migrate(admin, migrationsDir);
     await admin.query("INSERT INTO storyworld.organizations (organization_id, name) VALUES ($1,$2)", [org, "b2-studio-org"]);
@@ -43,6 +44,7 @@ describe("Studio engine client against a live engine-api", () => {
   });
 
   afterAll(async () => {
+    delete process.env["STORYWORLD_DEV_IDENTITY"];
     server?.close();
     await ctx?.pool.end();
     await admin?.end();
@@ -101,19 +103,26 @@ describe("Studio engine client against a live engine-api", () => {
       propertyId, pinnedCanonReleaseId: canonReleaseId, name: "b2t2-production",
     })) as { productionId: string };
 
-    // Arc Board path: structure revision through the client.
-    const unitId = uuidv7();
-    await client.saveNarrativeStructure({
+    // Arc Board path: the typed unit append; the kernel builds and validates
+    // the complete contract document server-side (DEC-0020).
+    const addition = await client.addNarrativeUnit({
       productionId,
-      document: {
-        schema_version: "storyworld.narrative-structure.v1",
-        structure_id: uuidv7(),
-        narrative_units: [{ unit_id: unitId, unit_type: "episode", presentation_order: 1, story_time: "1989-06-01" }],
-        threads: [],
-      },
+      unit: { unitType: "episode", presentationOrder: 1, storyTime: "1989-06-01" },
     });
+    expect(addition.unitId).toBeTruthy();
+    expect(addition.receiptId).toBeTruthy();
+    const unitId = addition.unitId;
     const structure = await client.getNarrativeStructure(productionId);
     expect(structure?.document.narrative_units).toHaveLength(1);
+    expect(structure?.document.property_id).toBe(propertyId);
+    expect(structure?.document.choices).toEqual([]);
+
+    // The decision receipt is reachable read-only with its approval document.
+    const receipt = await client.getReceipt(addition.receiptId);
+    expect(receipt?.action).toBe("structure.accepted");
+    expect(receipt?.detail.approval_receipt?.approval_layer).toBe("creative_plan_approval");
+    expect(receipt?.detail.approval_receipt?.decided_by_role).toBe("property_owner");
+    expect(await client.getReceipt(uuidv7())).toBeNull();
 
     // Workbench path: packet then a governed mock generation.
     const packet = await client.getScenePacket(productionId, unitId);

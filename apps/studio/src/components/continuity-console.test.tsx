@@ -1,4 +1,6 @@
 import * as React from "react";
+import { readdirSync, readFileSync, statSync } from "node:fs";
+import { join } from "node:path";
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, it } from "vitest";
@@ -28,19 +30,78 @@ describe("Continuity Console", () => {
     await waitFor(() => expect(screen.getByText(/recorded 1 finding/)).toBeDefined());
   });
 
-  it("disposes an open finding through the governed path", async () => {
+  it("resolving goes through the finding review — never a single click", async () => {
     const engine = mockEngine();
     const user = userEvent.setup();
     render(<ContinuityConsole client={engine} />);
-    await waitFor(() => expect(screen.getByRole("button", { name: "Resolve" })).toBeDefined());
-    await user.click(screen.getByRole("button", { name: "Resolve" }));
+    await waitFor(() => expect(screen.getByRole("button", { name: "Review…" })).toBeDefined());
+    await user.click(screen.getByRole("button", { name: "Review…" }));
+    // The review shows the finding's contract evidence…
+    expect(screen.getByText("f-1")).toBeDefined();
+    expect(screen.getByText("92%")).toBeDefined();
+    expect(screen.getByText(/timeline:1989-06-03/)).toBeDefined();
+    expect(screen.getByText(/Align the state transition/)).toBeDefined();
+    // …and nothing is recorded by that single activation.
+    expect(engine.dispositions).toHaveLength(0);
+    await user.click(screen.getByRole("button", { name: "Record disposition" }));
     await waitFor(() => expect(engine.dispositions).toHaveLength(1));
-    expect(engine.dispositions[0]).toMatchObject({ findingId: "f-1", disposition: "resolved" });
+    expect(engine.dispositions[0]).toEqual({ findingId: "f-1", disposition: "resolved" });
+    await waitFor(() => expect(screen.getByText(/receipt rcpt-fin-1/)).toBeDefined());
   });
 
-  it("has no accessibility violations", async () => {
+  it("a waiver requires the reviewer's own rationale and scope, sent verbatim (SWUX-003)", async () => {
+    const engine = mockEngine();
+    const user = userEvent.setup();
+    render(<ContinuityConsole client={engine} />);
+    await waitFor(() => expect(screen.getByRole("button", { name: "Review…" })).toBeDefined());
+    await user.click(screen.getByRole("button", { name: "Review…" }));
+    await user.selectOptions(screen.getByLabelText("Disposition"), "intentional_exception");
+    // Without a typed rationale and scope, the confirm stays disabled.
+    const confirm = screen.getByRole("button", { name: "Record disposition" }) as HTMLButtonElement;
+    expect(confirm.disabled).toBe(true);
+    await user.type(
+      screen.getByLabelText("Waiver rationale — your own words"),
+      "The flashback intentionally contradicts the archive record.",
+    );
+    expect(confirm.disabled).toBe(true);
+    await user.type(screen.getByLabelText("Waiver scope"), "this production only");
+    await waitFor(() => expect(confirm.disabled).toBe(false));
+    await user.click(confirm);
+    await waitFor(() => expect(engine.dispositions).toHaveLength(1));
+    expect(engine.dispositions[0]).toEqual({
+      findingId: "f-1",
+      disposition: "intentional_exception",
+      waiver: {
+        reason: "The flashback intentionally contradicts the archive record.",
+        scope: "this production only",
+        expiry: null,
+      },
+    });
+  });
+
+  it("never fabricates the owner's waiver rationale anywhere in the source (SWUX-003)", () => {
+    const srcRoot = join(process.cwd(), "src");
+    const files: string[] = [];
+    const walk = (dir: string): void => {
+      for (const entry of readdirSync(dir)) {
+        const full = join(dir, entry);
+        if (statSync(full).isDirectory()) walk(full);
+        else if (/\.(ts|tsx)$/.test(entry)) files.push(full);
+      }
+    };
+    walk(srcRoot);
+    const fabricated = "Accepted as intentional" + " by the owner";
+    for (const file of files.filter((f) => !f.endsWith("continuity-console.test.tsx"))) {
+      expect(readFileSync(file, "utf8"), file).not.toContain(fabricated);
+    }
+  });
+
+  it("has no accessibility violations, including the open review region", async () => {
+    const user = userEvent.setup();
     const { container } = render(<ContinuityConsole client={mockEngine()} />);
     await waitFor(() => expect(screen.getByText(/Contradictory state/)).toBeDefined());
+    await user.click(screen.getByRole("button", { name: "Review…" }));
+    await user.selectOptions(screen.getByLabelText("Disposition"), "intentional_exception");
     await expectAccessible(container);
   });
 });

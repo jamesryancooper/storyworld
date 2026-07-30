@@ -8,7 +8,7 @@ import { createPool, migrate } from "@storyworld/persistence";
 import { createFsStore } from "@storyworld/storage";
 import { verifyPackage } from "@storyworld/portability";
 import { runCli } from "@storyworld/cli";
-import type { KernelContext } from "@storyworld/kernel";
+import { sealNarrativeStructureDocument, type KernelContext } from "@storyworld/kernel";
 import type { Pool } from "pg";
 import type { Server } from "node:http";
 import { dirname } from "node:path";
@@ -53,6 +53,7 @@ async function post(path: string, body: unknown, headers: Record<string, string>
 }
 
 beforeAll(async () => {
+  process.env["STORYWORLD_DEV_IDENTITY"] = "1";
   admin = createPool(url);
   await migrate(admin, migrationsDir);
   await admin.query("INSERT INTO storyworld.organizations (organization_id, name) VALUES ($1,$2)", [org, "gate-0005-org"]);
@@ -68,6 +69,7 @@ beforeAll(async () => {
 });
 
 afterAll(async () => {
+  delete process.env["STORYWORLD_DEV_IDENTITY"];
   server?.close();
   await ctx?.pool.end();
   await admin?.end();
@@ -134,19 +136,26 @@ describe("GATE-0005: three-episode authoring through public contracts", () => {
     }, HUMAN);
     const productionId = String(production.body["productionId"]);
     const ep1 = uuidv7(); const ep2 = uuidv7(); const ep3 = uuidv7();
-    await post("/v1/narrative-units", {
+    const structure = await post("/v1/narrative-units", {
       productionId,
-      document: {
+      document: sealNarrativeStructureDocument({
         schema_version: "storyworld.narrative-structure.v1",
         structure_id: uuidv7(),
+        property_id: propertyId,
+        canon_release_ref: String(release.body["canonReleaseId"]),
+        production_ref: productionId,
         narrative_units: [
-          { unit_id: ep1, unit_type: "episode", presentation_order: 1, story_time: "1989-06-01" },
-          { unit_id: ep2, unit_type: "episode", presentation_order: 2, story_time: "1989-06-02" },
-          { unit_id: ep3, unit_type: "episode", presentation_order: 3, story_time: "1989-06-03" },
+          { unit_id: ep1, unit_type: "episode", display_number: "1", presentation_order: 1, story_time: "1989-06-01", publication_time: null, parent_unit_ref: null },
+          { unit_id: ep2, unit_type: "episode", display_number: "2", presentation_order: 2, story_time: "1989-06-02", publication_time: null, parent_unit_ref: null },
+          { unit_id: ep3, unit_type: "episode", display_number: "3", presentation_order: 3, story_time: "1989-06-03", publication_time: null, parent_unit_ref: null },
         ],
-        threads: [{ thread_id: uuidv7(), thread_type: "reveal", introduced_in_unit_ref: ep1, resolved_in_unit_ref: null }],
-      },
+        choices: [],
+        branches: [],
+        threads: [{ thread_id: uuidv7(), thread_type: "reveal", introduced_in_unit_ref: ep1, resolved_in_unit_ref: null, earliest_permitted_unit_ref: null, depends_on_thread_refs: [] }],
+      }),
     }, HUMAN);
+    expect(structure.status).toBe(201);
+    expect(structure.body["receiptId"]).toBeTruthy();
 
     // -- Asset import + exact-version acceptance.
     const assetBytes = `master panel ${uuidv7()}`;
@@ -159,7 +168,7 @@ describe("GATE-0005: three-episode authoring through public contracts", () => {
     expect(accepted.status).toBe(201);
 
     // -- Scene state packet via GET: story-time state, not release order.
-    const packetRes = await fetch(`${base}/v1/scenes/${ep2}/state-packet?productionId=${productionId}`);
+    const packetRes = await fetch(`${base}/v1/scenes/${ep2}/state-packet?productionId=${productionId}`, { headers: HUMAN });
     expect(packetRes.status).toBe(200);
     const packet = (await packetRes.json()) as Record<string, unknown>;
     const states = packet["entity_states"] as { entity_ref: string; state: Record<string, unknown> }[];

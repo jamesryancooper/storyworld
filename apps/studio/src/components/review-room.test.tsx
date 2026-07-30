@@ -17,11 +17,28 @@ describe("Review Room", () => {
     expect(screen.queryByText(/character: Mara/)).toBeNull();
   });
 
-  it("accepting an entity proposal carries its stable id", async () => {
+  it("a single activation opens the review — it never decides (SWUX-002)", async () => {
     const engine = mockEngine();
     const user = userEvent.setup();
     render(<ReviewRoom client={engine} />);
-    await waitFor(() => expect(screen.getByRole("button", { name: "Accept" })).toBeDefined());
+    await waitFor(() => expect(screen.getByRole("button", { name: "Review…" })).toBeDefined());
+    await user.click(screen.getByRole("button", { name: "Review…" }));
+    // The review region is open with the full consequence context…
+    expect(screen.getByRole("region")).toBeDefined();
+    expect(screen.getByText(/Accept records one working-canon revision/)).toBeDefined();
+    expect(screen.getByText(/development identity — not verified/)).toBeDefined();
+    expect(screen.getByText(/"entity_id": "e-9"/)).toBeDefined();
+    // …and nothing has been decided by that single activation.
+    expect(engine.decisions).toHaveLength(0);
+  });
+
+  it("accepting an entity proposal takes two activations and carries its stable id", async () => {
+    const engine = mockEngine();
+    const user = userEvent.setup();
+    render(<ReviewRoom client={engine} />);
+    await waitFor(() => expect(screen.getByRole("button", { name: "Review…" })).toBeDefined());
+    await user.click(screen.getByRole("button", { name: "Review…" }));
+    expect(engine.decisions).toHaveLength(0);
     await user.click(screen.getByRole("button", { name: "Accept" }));
     await waitFor(() => expect(engine.decisions).toHaveLength(1));
     expect(engine.decisions[0]).toEqual({
@@ -29,6 +46,23 @@ describe("Review Room", () => {
       decision: "accepted",
       stableId: "e-9",
     });
+    await waitFor(() => expect(screen.getByText(/Decision "accepted" recorded — receipt rcpt-dec-1/)).toBeDefined());
+  });
+
+  it("keyboard-only decisions also require two explicit activations", async () => {
+    const engine = mockEngine();
+    const user = userEvent.setup();
+    render(<ReviewRoom client={engine} />);
+    await waitFor(() => expect(screen.getByRole("button", { name: "Review…" })).toBeDefined());
+    const review = screen.getByRole("button", { name: "Review…" });
+    review.focus();
+    await user.keyboard("{Enter}");
+    expect(engine.decisions).toHaveLength(0);
+    const reject = await screen.findByRole("button", { name: "Reject" });
+    reject.focus();
+    await user.keyboard("{Enter}");
+    await waitFor(() => expect(engine.decisions).toHaveLength(1));
+    expect(engine.decisions[0]).toMatchObject({ proposalId: "cp-1", decision: "rejected" });
   });
 
   it("files a human proposal through the same governed doorway (finding #5)", async () => {
@@ -70,9 +104,11 @@ describe("Review Room", () => {
     expect(payload["summary"]).toBe("The cellar door is found unlocked");
   });
 
-  it("has no accessibility violations", async () => {
+  it("has no accessibility violations, including the open review region", async () => {
+    const user = userEvent.setup();
     const { container } = render(<ReviewRoom client={mockEngine()} />);
     await waitFor(() => expect(screen.getByText(/The Archivist/)).toBeDefined());
+    await user.click(screen.getByRole("button", { name: "Review…" }));
     await expectAccessible(container);
   });
 });

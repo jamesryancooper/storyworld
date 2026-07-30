@@ -9,6 +9,7 @@ import { InfoHint } from "@/components/ui/info-hint";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { describeCommandFailure, useEngineCommand } from "@/lib/command-state";
 import { createEngineClient, type EngineClient, type PropertySummary } from "@/lib/engine";
 
 const PROPERTY_TYPES = ["fictional", "editorial", "brand", "interactive", "hybrid"];
@@ -19,8 +20,7 @@ export function CommandCenter({ client }: { client?: EngineClient }): React.JSX.
   const [properties, setProperties] = React.useState<PropertySummary[]>([]);
   const [name, setName] = React.useState("");
   const [propertyType, setPropertyType] = React.useState("fictional");
-  const [busy, setBusy] = React.useState(false);
-  const [error, setError] = React.useState<string | null>(null);
+  const create = useEngineCommand<{ propertyId: string }>();
 
   const refresh = React.useCallback(async () => {
     try {
@@ -38,22 +38,26 @@ export function CommandCenter({ client }: { client?: EngineClient }): React.JSX.
   async function onCreate(event: React.FormEvent): Promise<void> {
     event.preventDefault();
     if (!name.trim()) return;
-    setBusy(true);
-    setError(null);
-    try {
-      await engine.createProperty({
-        workspaceName: `${name.trim()} workspace`,
-        propertyName: name.trim(),
-        propertyType,
-      });
+    const outcome = await create.run({
+      execute: (idempotencyKey) =>
+        engine.createProperty(
+          {
+            workspaceName: `${name.trim()} workspace`,
+            propertyName: name.trim(),
+            propertyType,
+          },
+          { idempotencyKey },
+        ),
+      refresh,
+    });
+    if (outcome === "confirmed") {
+      // The typed name is cleared only after the property is recorded.
       setName("");
-      await refresh();
-    } catch (cause) {
-      setError(String(cause));
-    } finally {
-      setBusy(false);
+      create.reset();
     }
   }
+
+  const createFailure = describeCommandFailure(create.status, create.error);
 
   return (
     <div className="flex flex-col gap-6">
@@ -146,9 +150,9 @@ export function CommandCenter({ client }: { client?: EngineClient }): React.JSX.
                   ))}
                 </Select>
               </div>
-              {error ? <p className="text-sm text-destructive">{error}</p> : null}
-              <Button type="submit" disabled={busy || !name.trim()}>
-                {busy ? "Creating…" : "Create property"}
+              {createFailure ? <p className="text-sm text-destructive">{createFailure}</p> : null}
+              <Button type="submit" disabled={create.status === "submitting" || !name.trim()}>
+                {create.status === "submitting" ? "Creating…" : "Create property"}
               </Button>
             </form>
           </CardContent>

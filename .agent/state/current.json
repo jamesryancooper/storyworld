@@ -43,7 +43,7 @@
     "EVD-0024"
   ],
   "blocked_by": [],
-  "next_action": "Phase 0 is accepted in full (DEC-0019..0027; EVD-0024) and TASK-0015 is complete. TASK-0016 (Phase 1: safety-critical Studio/Engine repairs, SWUX-001..007) is ready under the accepted decisions. Recorded follow-ons: queued Arc mode + toggle after the Phase 1 gate (DEC-0020), cross-domain search after the Phase 2 gate (DEC-0026), graph after the Phase 3 gate (DEC-0024). Reserved crossings remain closed.",
+  "next_action": "TASK-0016 (Phase 1 safety-critical repairs) implementation is complete and workspace-green (EVD-0025): role-bound acceptance authorization with fail-closed dev identity, contract-validated structure writes with typed append and linear supersession, canon.release.created rename, contract-conformant reachable receipts, durable idempotency replay, and the Studio safe-command/consequence-review/waiver surfaces. Open before closure: focused post-change storyworld-ux audit (REV-0002) and rendered browser/AT checks. Follow-ons unchanged: queued Arc mode + toggle after the Phase 1 gate (DEC-0020), search after Phase 2 (DEC-0026), graph after Phase 3 (DEC-0024).",
   "external_effects_authority_refs": [],
   "limitations": [
     "behavioral_proofs_only_no_readiness_claim",

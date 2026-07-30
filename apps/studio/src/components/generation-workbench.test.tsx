@@ -4,6 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, it } from "vitest";
 import { expectAccessible } from "@/test/axe";
 import { mockEngine } from "@/test/mock-engine";
+import { EngineError } from "@/lib/engine";
 import { GenerationWorkbench } from "./generation-workbench";
 
 afterEach(cleanup);
@@ -38,7 +39,7 @@ describe("Generation Workbench", () => {
   it("surfaces a reserved-crossing refusal instead of failing silently", async () => {
     const engine = mockEngine({
       async runGeneration() {
-        throw new Error("engine POST /v1/generation-runs failed: 403 (reserved crossing)");
+        throw new EngineError(403, "reserved-crossing", "hosted generation requires an active credential (reserved crossing)");
       },
     });
     const user = userEvent.setup();

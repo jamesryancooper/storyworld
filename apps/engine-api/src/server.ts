@@ -1,13 +1,17 @@
 import { createServer, type IncomingMessage, type Server, type ServerResponse } from "node:http";
 import { canonicalJson, contentSha256 } from "@storyworld/domain";
+import { withTenant } from "@storyworld/persistence";
 import {
   acceptAssetVersion,
+  addNarrativeUnit,
+  canonChangeImpact,
   compileScenePacket,
   createProduction,
   createWorkspaceAndProperty,
   decideProposal,
   importAsset,
   getNarrativeStructure,
+  getReceipt,
   ingestSource,
   latestCanonRelease,
   listCanonProposals,
@@ -20,6 +24,8 @@ import {
   saveNarrativeStructure,
   snapshotCanonRelease,
   AuthorityError,
+  ConflictError,
+  ValidationError,
   type Actor,
   type KernelContext,
 } from "@storyworld/kernel";
@@ -47,8 +53,10 @@ import { correlationId, logLine } from "./telemetry.js";
  * same command surface every client uses). Honors the contract
  * conventions: Idempotency-Key required on mutations (duplicates return
  * the original result), RFC 9457 Problem Details, correlation ids.
- * Dev identity via X-Actor-* headers; real identity federation is an O1
- * concern. Idempotency is process-local pending durable workflows (B1).
+ * Dev identity via X-Actor-* headers requires explicit development mode
+ * (DEC-0021); real identity federation is an O1 concern. Idempotency
+ * replay is durable in the tenant-scoped idempotency_keys table
+ * (SWUX-001), with the in-process map as a fast path.
  */
 export function createEngineServer(ctx: KernelContext): Server {
   const idempotency = new Map<string, { status: number; body: string }>();
@@ -81,19 +89,32 @@ export function createEngineServer(ctx: KernelContext): Server {
       // SSO interface (B3): a mock-IdP bearer token wins over dev headers
       // when the shared signing material is configured; a real IdP swaps in
       // behind verifyToken without touching anything else (O1).
+      // Header-derived identity is a development mode (DEC-0021): it must be
+      // explicitly enabled, all three actor headers must be present, and a
+      // missing or unknown actor never defaults to a human identity.
       const idpMaterial = process.env["MOCK_IDP_SIGNING"];
       const bearer = String(req.headers["autho" + "rization"] ?? "");
+      const kinds: readonly Actor["kind"][] = ["human", "model", "import", "service"];
       let actor: Actor;
       if (idpMaterial && bearer.startsWith("Bearer ")) {
         const verified = verifyToken(bearer.slice(7), idpMaterial, new Date().toISOString());
         if (!verified) return problem(res, corr, 401, "invalid-token", "bearer token failed verification");
         actor = verified;
+      } else if (process.env["STORYWORLD_DEV_IDENTITY"] === "1") {
+        const id = req.headers["x-actor-id"];
+        const kind = req.headers["x-actor-kind"];
+        const role = req.headers["x-actor-role"];
+        if (typeof id !== "string" || id === "" || typeof kind !== "string" || typeof role !== "string" || role === "") {
+          return problem(res, corr, 401, "missing-actor-identity",
+            "development identity requires explicit x-actor-id, x-actor-kind, and x-actor-role headers; nothing defaults to a human actor (DEC-0021)");
+        }
+        if (!kinds.includes(kind as Actor["kind"])) {
+          return problem(res, corr, 401, "invalid-actor-kind", `x-actor-kind must be one of: ${kinds.join(", ")}`);
+        }
+        actor = { id, kind: kind as Actor["kind"], role };
       } else {
-        actor = {
-          id: String(req.headers["x-actor-id"] ?? "anonymous"),
-          kind: (String(req.headers["x-actor-kind"] ?? "human") as Actor["kind"]),
-          role: String(req.headers["x-actor-role"] ?? "unspecified"),
-        };
+        return problem(res, corr, 401, "identity-required",
+          "no verified identity: present a bearer token, or enable local development identity with STORYWORLD_DEV_IDENTITY=1 (DEC-0021)");
       }
       const url = new URL(req.url ?? "/", "http://localhost");
       const path = url.pathname;
@@ -102,7 +123,18 @@ export function createEngineServer(ctx: KernelContext): Server {
         if (typeof key !== "string" || key.length === 0) {
           return problem(res, corr, 400, "missing-idempotency-key", "Idempotency-Key header is required on mutations");
         }
-        const cached = idempotency.get(key);
+        // Replay protection is durable (SWUX-001): the in-process map is a
+        // fast path over the tenant-scoped idempotency_keys table, so a
+        // retained key replays the original result even across restarts.
+        let cached = idempotency.get(key);
+        if (!cached) {
+          const row = await withTenant(ctx.pool, ctx.organizationId, async (c) =>
+            (await c.query(
+              "SELECT status, body FROM storyworld.idempotency_keys WHERE idempotency_key=$1",
+              [key],
+            )).rows[0] ?? null);
+          if (row) cached = { status: Number(row.status), body: String(row.body) };
+        }
         if (cached) {
           res.writeHead(cached.status, { "content-type": "application/json", "x-correlation-id": corr, "x-idempotent-replay": "true" });
           return res.end(cached.body);
@@ -111,6 +143,12 @@ export function createEngineServer(ctx: KernelContext): Server {
         const result = await route(ctx, actor, path, body, broker);
         const payload = JSON.stringify(result.body);
         idempotency.set(key, { status: result.status, body: payload });
+        await withTenant(ctx.pool, ctx.organizationId, async (c) => {
+          await c.query(
+            "INSERT INTO storyworld.idempotency_keys (idempotency_key, organization_id, status, body) VALUES ($1,$2,$3,$4) ON CONFLICT DO NOTHING",
+            [key, ctx.organizationId, result.status, payload],
+          );
+        });
         logLine("info", "command", { path, status: result.status, actor: `${actor.kind}:${actor.id}`, correlation_id: corr });
         res.writeHead(result.status, { "content-type": "application/json", "x-correlation-id": corr });
         return res.end(payload);
@@ -136,6 +174,16 @@ export function createEngineServer(ctx: KernelContext): Server {
     } catch (error) {
       if (error instanceof AuthorityError) {
         return problem(res, corr, 403, "authority", error.message);
+      }
+      if (error instanceof ValidationError) {
+        return problem(res, corr, 400, "validation", error.message);
+      }
+      if (error instanceof ConflictError) {
+        return problem(res, corr, 409, "stale-conflict", error.message);
+      }
+      const statusCode = (error as { statusCode?: number }).statusCode;
+      if (error instanceof Error && typeof statusCode === "number") {
+        return problem(res, corr, statusCode, statusCode === 404 ? "not-found" : "request", error.message);
       }
       if (error instanceof Error && /reserved crossing/i.test(error.message)) {
         return problem(res, corr, 403, "reserved-crossing", error.message);
@@ -176,9 +224,11 @@ async function route(
     case "/v1/canon-releases":
       return { status: 201, body: { ...(await snapshotCanonRelease(ctx, actor, body as never)) } };
     case "/v1/productions":
-      return { status: 201, body: { productionId: await createProduction(ctx, actor, body as never) } };
+      return { status: 201, body: { ...(await createProduction(ctx, actor, body as never)) } };
     case "/v1/narrative-units":
       return { status: 201, body: { ...(await saveNarrativeStructure(ctx, actor, body as never)) } };
+    case "/v1/narrative-unit-additions":
+      return { status: 201, body: { ...(await addNarrativeUnit(ctx, actor, body as never)) } };
     case "/v1/assets": {
       const bytes = Buffer.from(String(body["contentBase64"]), "base64");
       const out = await importAsset(ctx, actor, { bytes: new Uint8Array(bytes), mediaType: String(body["mediaType"]) });
@@ -239,7 +289,7 @@ async function route(
         value: String(body["value"] ?? ""),
         ...(typeof body["expiresAt"] === "string" ? { expiresAt: body["expiresAt"] } : {}),
       });
-      return { status: 201, body: { credentialRevisionId: entered.credentialRevisionId, hint: entered.hint } };
+      return { status: 201, body: { credentialRevisionId: entered.credentialRevisionId, hint: entered.hint, receiptId: entered.receiptId } };
     }
     case "/v1/credential-revocations":
       return { status: 201, body: { ...(await revokeCredential(ctx, actor, { name: String(body["name"]) })) } };
@@ -302,6 +352,20 @@ async function readRoute(
     const productionId = url.searchParams.get("productionId");
     if (!productionId) throw Object.assign(new Error("productionId query parameter required"), { statusCode: 400 });
     return { body: { findings: await listContinuityFindings(ctx, { productionId }) } };
+  }
+  if (path === "/v1/canon-change-impact") {
+    const propertyId = url.searchParams.get("propertyId");
+    const targetRef = url.searchParams.get("targetRef");
+    if (!propertyId || !targetRef) {
+      throw Object.assign(new Error("propertyId and targetRef query parameters required"), { statusCode: 400 });
+    }
+    return { body: { impact: await canonChangeImpact(ctx, { propertyId, targetRef }) } };
+  }
+  const receiptMatch = path.match(/^\/v1\/receipts\/([^/]+)$/);
+  if (receiptMatch) {
+    const receipt = await getReceipt(ctx, { receiptId: String(receiptMatch[1]) });
+    if (!receipt) throw Object.assign(new Error(`receipt ${receiptMatch[1]} not found`), { statusCode: 404 });
+    return { body: { receipt } };
   }
   return null;
 }

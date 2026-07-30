@@ -1,6 +1,7 @@
 import { uuidv7 } from "@storyworld/domain";
 import { withTenant } from "@storyworld/persistence";
-import { requireHuman, type Actor } from "./actors.js";
+import { requireOwner, type Actor } from "./actors.js";
+import { approvalReceiptDetail } from "./receipts.js";
 import type { KernelContext } from "./commands.js";
 
 /**
@@ -57,7 +58,7 @@ export async function acceptAssetVersion(
   actor: Actor,
   input: { assetVersionId: string },
 ): Promise<{ acceptedVersionId: string; receiptId: string }> {
-  requireHuman(actor, "asset acceptance");
+  requireOwner(actor, "asset acceptance");
   const acceptedVersionId = uuidv7();
   const receiptId = uuidv7();
   await withTenant(ctx.pool, ctx.organizationId, async (c) => {
@@ -71,8 +72,18 @@ export async function acceptAssetVersion(
       [candidate.asset_id],
     );
     await c.query(
-      "INSERT INTO storyworld.audit_receipts (receipt_id, organization_id, actor, action, subject_ref, subject_sha256, correlation_id) VALUES ($1,$2,$3,$4,$5,$6,$7)",
-      [receiptId, ctx.organizationId, `${actor.kind}:${actor.id}`, "asset.accepted", `asset-version:${acceptedVersionId}`, candidate.content_sha256, uuidv7()],
+      "INSERT INTO storyworld.audit_receipts (receipt_id, organization_id, actor, action, subject_ref, subject_sha256, correlation_id, detail) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)",
+      [receiptId, ctx.organizationId, `${actor.kind}:${actor.id}`, "asset.accepted", `asset-version:${acceptedVersionId}`, candidate.content_sha256, uuidv7(),
+       JSON.stringify(approvalReceiptDetail({
+         receiptId,
+         layer: "asset_creative_approval",
+         decision: "approved",
+         subjectRefs: [`asset-version:${acceptedVersionId}`],
+         subjectSha256: [String(candidate.content_sha256)],
+         policyRefs: ["DEC-0021", "DEC-0023"],
+         actor,
+         context: { accepted_from_version_id: input.assetVersionId },
+       }))],
     );
     await c.query(
       "INSERT INTO storyworld.asset_versions (asset_version_id, organization_id, asset_id, version, content_sha256, state, accepted_receipt_id) VALUES ($1,$2,$3,$4,$5,'accepted_master',$6)",

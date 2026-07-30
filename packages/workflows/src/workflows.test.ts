@@ -14,6 +14,7 @@ import {
   decideProposal,
   proposeCanon,
   saveNarrativeStructure,
+  sealNarrativeStructureDocument,
   snapshotCanonRelease,
   type KernelContext,
 } from "@storyworld/kernel";
@@ -71,17 +72,22 @@ describe.skipIf(!reachable)("B1 Temporal generation workflow", () => {
     const release = await snapshotCanonRelease(ctx, ryan, {
       propertyId, branchId: officialBranchId, releaseName: "wf-canon", releaseVersion: `1.0.${Date.now()}`,
     });
-    const productionId = await createProduction(ctx, ryan, {
+    const { productionId } = await createProduction(ctx, ryan, {
       propertyId, pinnedCanonReleaseId: release.canonReleaseId, name: "wf-production",
     });
     const unitId = uuidv7();
     await saveNarrativeStructure(ctx, ryan, {
       productionId,
-      document: {
+      document: sealNarrativeStructureDocument({
         schema_version: "storyworld.narrative-structure.v1", structure_id: uuidv7(),
-        narrative_units: [{ unit_id: unitId, unit_type: "episode", presentation_order: 1, story_time: "1989-06-01" }],
+        property_id: propertyId,
+        canon_release_ref: release.canonReleaseId,
+        production_ref: productionId,
+        narrative_units: [{ unit_id: unitId, unit_type: "episode", display_number: "1", presentation_order: 1, story_time: "1989-06-01", publication_time: null, parent_unit_ref: null }],
+        choices: [],
+        branches: [],
         threads: [],
-      },
+      }),
     });
     recipe = await compileGenerationRecipe(ctx, {
       productionId, unitId,

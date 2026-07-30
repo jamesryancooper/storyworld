@@ -2,8 +2,8 @@
 {
   "schema_version": "harness.task.v1",
   "id": "TASK-0016",
-  "status": "ready",
-  "previous_status": "proposed",
+  "status": "in_progress",
+  "previous_status": "ready",
   "title": "Phase 1: repair safety-critical Studio and Engine behavior (SWUX-001..007)",
   "authority_basis": "external:operator improvement-program request 2026-07-29 and the owner's Phase 0 acceptance of 2026-07-30 (DEC-0019..0027; EVD-0024). This task implements only the accepted Phase 1 scope under those decisions; reserved crossings stay closed and no readiness claim results.",
   "owner": "claude-agent (improvement program lead)",
@@ -34,14 +34,14 @@
     "focused rendered checks of every changed surface against loopback services with synthetic data: mutation states (success, validation failure, permission denial, stale/conflict, unavailable, unknown, refresh-failed), keyboard paths for consequence reviews, and both themes"
   ],
   "implementation_result": null,
-  "review_evidence": ["REV-0001", "EVD-0022"],
+  "review_evidence": ["REV-0001", "EVD-0022", "EVD-0025"],
   "blocked_by": [],
   "reopened_by": null,
   "acceptance_criteria_met": false,
   "closure_evidence": [],
   "external_effects": "not_assessed",
   "limitations": [
-    "Created ready; implementation has not started. Task start begins with the pre-implementation storyworld-ux reverification of the exact surfaces to be touched.",
+    "Implementation and engineering validation are complete (EVD-0025). Open gate items before closure: the focused post-change storyworld-ux audit (successor review record) and the rendered real-browser/assistive-technology checks of the changed surfaces.",
     "Browser and assistive-technology coverage is bounded to locally executable tooling; untested configurations are recorded and no WCAG conformance claim results.",
     "This task hardens the local development alpha within the DEC-0017 boundary; it creates no production identity, transport security, or readiness claim.",
     "Queued Arc authoring mode and the per-property toggle are explicitly the bounded follow-on task after this task's exit gate (DEC-0020)."
@@ -122,11 +122,17 @@ review record rather than editing REV-0001.
 
 ## Evidence and closure
 
-- Evidence: to be recorded (implementation, validation, and post-change
-  audit records).
-- Review: pending.
-- External effects: none expected; disclosed at closure.
-- Residual limitations: recorded at closure.
-- Next action: begin with the pre-implementation storyworld-ux
-  reverification of the touched surfaces, then implement in the work order
-  above.
+- Evidence: EVD-0025 (implementation and full-workspace engineering
+  validation; all suites green including the live-engine integration
+  file).
+- Review: pending — the focused post-change storyworld-ux audit of the
+  implemented scope is the next step and produces a successor review
+  record, not an edit to REV-0001.
+- External effects: none; loopback compose postgres and in-process engine
+  instances only.
+- Residual limitations: rendered browser/AT matrix not yet executed; see
+  EVD-0025.
+- Next action: run the focused post-change audit (REV-0002), execute the
+  rendered checks of changed surfaces, then close against the acceptance
+  criteria. The queued-mode + toggle follow-on task opens after this
+  task's exit gate (DEC-0020).

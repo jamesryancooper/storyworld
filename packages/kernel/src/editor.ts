@@ -1,6 +1,6 @@
 import { canonicalJson, contentSha256, uuidv7 } from "@storyworld/domain";
 import { withTenant } from "@storyworld/persistence";
-import { requireHuman, type Actor } from "./actors.js";
+import { requireOwner, type Actor } from "./actors.js";
 import type { KernelContext } from "./commands.js";
 
 /**
@@ -54,7 +54,7 @@ export async function editorReimport(
     mediaType: string;
   },
 ): Promise<{ assetVersionId: string; sha256: string; version: number }> {
-  requireHuman(actor, "editor re-import");
+  requireOwner(actor, "editor re-import");
   const stored = await ctx.blobs.put(input.bytes, input.mediaType);
   const assetVersionId = uuidv7();
   const version = await withTenant(ctx.pool, ctx.organizationId, async (c) => {

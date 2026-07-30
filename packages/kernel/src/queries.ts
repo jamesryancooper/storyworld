@@ -69,10 +69,11 @@ export async function latestCanonRelease(
 export async function getNarrativeStructure(
   ctx: KernelContext,
   input: { productionId: string },
-): Promise<{ structureRevisionId: string; document: Record<string, unknown> } | null> {
+): Promise<{ structureRevisionId: string; contentSha256: string; document: Record<string, unknown> } | null> {
   return withTenant(ctx.pool, ctx.organizationId, async (c) => {
     const row = (await c.query(
-      `SELECT s.structure_revision_id AS "structureRevisionId", s.document
+      `SELECT s.structure_revision_id AS "structureRevisionId",
+              s.content_sha256 AS "contentSha256", s.document
          FROM storyworld.narrative_structures s
         WHERE s.production_id=$1
           AND NOT EXISTS (SELECT 1 FROM storyworld.narrative_structures t
@@ -164,6 +165,38 @@ export async function listCanonReleases(
       [input.propertyId],
     );
     return rows.rows.map((r) => ({ ...r, createdAt: new Date(r.createdAt as string).toISOString() }));
+  });
+}
+
+/**
+ * One durable decision receipt, tenant-scoped (DEC-0023). Read-only: the
+ * receipt row is immutable evidence and its detail may embed a
+ * storyworld.approval-receipt.v1 document for acceptance-class decisions.
+ */
+export async function getReceipt(
+  ctx: KernelContext,
+  input: { receiptId: string },
+): Promise<{
+  receiptId: string;
+  actor: string;
+  action: string;
+  subjectRef: string;
+  subjectSha256: string | null;
+  correlationId: string;
+  recordedAt: string;
+  detail: Record<string, unknown>;
+} | null> {
+  return withTenant(ctx.pool, ctx.organizationId, async (c) => {
+    const row = (await c.query(
+      `SELECT r.receipt_id AS "receiptId", r.actor, r.action, r.subject_ref AS "subjectRef",
+              r.subject_sha256 AS "subjectSha256", r.correlation_id AS "correlationId",
+              r.recorded_at AS "recordedAt", r.detail
+         FROM storyworld.audit_receipts r
+        WHERE r.receipt_id = $1`,
+      [input.receiptId],
+    )).rows[0];
+    if (!row) return null;
+    return { ...row, recordedAt: new Date(row.recordedAt as string).toISOString() };
   });
 }
 

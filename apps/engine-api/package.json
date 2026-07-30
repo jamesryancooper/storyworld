@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "lint": "eslint src",
-    "dev": "tsx src/serve.ts"
+    "dev": "STORYWORLD_DEV_IDENTITY=1 tsx src/serve.ts"
   },
   "dependencies": {
     "@storyworld/domain": "workspace:*",

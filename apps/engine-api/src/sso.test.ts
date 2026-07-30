@@ -30,6 +30,7 @@ describe("B3 SSO interface: mock-IdP bearer tokens at the engine boundary", () =
 
   beforeAll(async () => {
     process.env["MOCK_IDP_SIGNING"] = SIGNING;
+    process.env["STORYWORLD_DEV_IDENTITY"] = "1";
     admin = createPool(url);
     await migrate(admin, migrationsDir);
     await admin.query("INSERT INTO storyworld.organizations (organization_id, name) VALUES ($1,$2)", [org, "b3-sso-org"]);
@@ -44,6 +45,7 @@ describe("B3 SSO interface: mock-IdP bearer tokens at the engine boundary", () =
 
   afterAll(async () => {
     delete process.env["MOCK_IDP_SIGNING"];
+    delete process.env["STORYWORLD_DEV_IDENTITY"];
     server?.close();
     await ctx?.pool.end();
     await admin?.end();

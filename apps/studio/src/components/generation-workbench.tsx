@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { ProductionPicker } from "@/components/production-picker";
+import { describeCommandFailure, useEngineCommand } from "@/lib/command-state";
 import {
   createEngineClient,
   type EngineClient,
@@ -32,8 +33,8 @@ export function GenerationWorkbench({ client }: { client?: EngineClient }): Reac
   const [adapterId, setAdapterId] = React.useState<"mock" | "fal">("mock");
   const [providers, setProviders] = React.useState<ProviderCatalogView[]>([]);
   const [modelId, setModelId] = React.useState("");
-  const [busy, setBusy] = React.useState(false);
   const [notice, setNotice] = React.useState<string | null>(null);
+  const generate = useEngineCommand<{ generationRunId: string; candidateAssetVersionIds: string[] }>();
 
   React.useEffect(() => {
     void (async () => setCandidates(await engine.listGenerationCandidates()))();
@@ -71,31 +72,46 @@ export function GenerationWorkbench({ client }: { client?: EngineClient }): Reac
   async function onGenerate(event: React.FormEvent): Promise<void> {
     event.preventDefault();
     if (!production || !unitId || !prompt.trim()) return;
-    setBusy(true);
     setNotice(null);
-    try {
-      const run = await engine.runGeneration({
-        productionId: production.productionId,
-        unitId,
-        prompt: prompt.trim(),
-        scenePurpose: "studio workbench",
-        emotionalObjective: "as directed",
-        lockedAttributes: locked
-          .split(",")
-          .map((value) => value.trim())
-          .filter(Boolean),
-        seed: Number(seed) || 1,
-        adapterId,
-        ...(modelId ? { endpoint: modelId } : {}),
-      });
-      setNotice(`Staged ${run.candidateAssetVersionIds.length} candidate(s) — run ${run.generationRunId.slice(0, 8)}`);
-      setCandidates(await engine.listGenerationCandidates());
-    } catch (cause) {
-      setNotice(String(cause));
-    } finally {
-      setBusy(false);
+    let staged: { generationRunId: string; candidateAssetVersionIds: string[] } | null = null;
+    const outcome = await generate.run({
+      execute: async (idempotencyKey) => {
+        const run = await engine.runGeneration(
+          {
+            productionId: production.productionId,
+            unitId,
+            prompt: prompt.trim(),
+            scenePurpose: "studio workbench",
+            emotionalObjective: "as directed",
+            lockedAttributes: locked
+              .split(",")
+              .map((value) => value.trim())
+              .filter(Boolean),
+            seed: Number(seed) || 1,
+            adapterId,
+            ...(modelId ? { endpoint: modelId } : {}),
+          },
+          { idempotencyKey },
+        );
+        staged = run;
+        return run;
+      },
+      refresh: async () => {
+        setCandidates(await engine.listGenerationCandidates());
+      },
+    });
+    if (staged && (outcome === "confirmed" || outcome === "refresh_failed")) {
+      const run = staged as { generationRunId: string; candidateAssetVersionIds: string[] };
+      const refreshWarning =
+        outcome === "refresh_failed" ? " (refreshing the list failed; reload to see them)" : "";
+      setNotice(
+        `Staged ${run.candidateAssetVersionIds.length} candidate(s) — run ${run.generationRunId.slice(0, 8)}${refreshWarning}`,
+      );
+      generate.reset();
     }
   }
+
+  const generateFailure = describeCommandFailure(generate.status, generate.error);
 
   return (
     <div className="flex flex-col gap-6">
@@ -242,9 +258,13 @@ export function GenerationWorkbench({ client }: { client?: EngineClient }): Reac
                   </Select>
                 </div>
               ) : null}
+              {generateFailure ? <p className="text-sm text-destructive">{generateFailure}</p> : null}
               {notice ? <p className="text-sm text-muted-foreground">{notice}</p> : null}
-              <Button type="submit" disabled={busy || !production || !unitId || !prompt.trim()}>
-                {busy ? "Generating…" : "Generate candidates"}
+              <Button
+                type="submit"
+                disabled={generate.status === "submitting" || !production || !unitId || !prompt.trim()}
+              >
+                {generate.status === "submitting" ? "Generating…" : "Generate candidates"}
               </Button>
             </form>
           </CardContent>

@@ -2,7 +2,8 @@ import { canonicalJson, contentSha256, uuidv7 } from "@storyworld/domain";
 import { withTenant } from "@storyworld/persistence";
 import type { BlobStore } from "@storyworld/storage";
 import type { Pool, PoolClient } from "pg";
-import { requireHuman, type Actor } from "./actors.js";
+import { requireHuman, requireOwner, type Actor } from "./actors.js";
+import { approvalReceiptDetail } from "./receipts.js";
 
 export interface KernelContext {
   pool: Pool;
@@ -18,11 +19,13 @@ async function receipt(
   subjectRef: string,
   subjectSha256: string | null,
   correlationId: string,
+  detail?: Record<string, unknown>,
 ): Promise<string> {
   const receiptId = uuidv7();
   await client.query(
-    "INSERT INTO storyworld.audit_receipts (receipt_id, organization_id, actor, action, subject_ref, subject_sha256, correlation_id) VALUES ($1,$2,$3,$4,$5,$6,$7)",
-    [receiptId, organizationId, `${actor.kind}:${actor.id}`, action, subjectRef, subjectSha256, correlationId],
+    "INSERT INTO storyworld.audit_receipts (receipt_id, organization_id, actor, action, subject_ref, subject_sha256, correlation_id, detail) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)",
+    [receiptId, organizationId, `${actor.kind}:${actor.id}`, action, subjectRef, subjectSha256, correlationId,
+     JSON.stringify(detail ?? {})],
   );
   return receiptId;
 }
@@ -109,9 +112,10 @@ export async function decideProposal(
     supersedesRevisionId?: string;
     visibility?: "public" | "spoiler" | "team_private" | "restricted";
   },
-): Promise<{ decisionId: string; revisionId: string | null }> {
-  requireHuman(actor, "canon decision");
+): Promise<{ decisionId: string; revisionId: string | null; receiptId: string }> {
+  requireOwner(actor, "canon decision");
   const decisionId = uuidv7();
+  const receiptId = uuidv7();
   let revisionId: string | null = null;
   await withTenant(ctx.pool, ctx.organizationId, async (c) => {
     const proposal = await c.query(
@@ -121,9 +125,20 @@ export async function decideProposal(
     const row = proposal.rows[0];
     if (!row) throw new Error(`proposal ${input.proposalId} not found`);
     const payloadHash = contentSha256(canonicalJson(row.payload));
-    const receiptId = await receipt(
-      c, ctx.organizationId, actor, `canon.proposal.${input.decision}`,
-      `proposal:${input.proposalId}`, payloadHash, uuidv7(),
+    await c.query(
+      "INSERT INTO storyworld.audit_receipts (receipt_id, organization_id, actor, action, subject_ref, subject_sha256, correlation_id, detail) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)",
+      [receiptId, ctx.organizationId, `${actor.kind}:${actor.id}`, `canon.proposal.${input.decision}`,
+       `proposal:${input.proposalId}`, payloadHash, uuidv7(),
+       JSON.stringify(approvalReceiptDetail({
+         receiptId,
+         layer: "canon_approval",
+         decision: input.decision === "accepted" ? "approved" : input.decision === "rejected" ? "rejected" : "revision_requested",
+         subjectRefs: [`proposal:${input.proposalId}`],
+         subjectSha256: [payloadHash],
+         policyRefs: ["DEC-0020", "DEC-0021", "DEC-0023"],
+         actor,
+         context: { proposal_type: String(row.proposal_type) },
+       }))],
     );
     await c.query(
       "INSERT INTO storyworld.proposal_decisions (decision_id, organization_id, proposal_id, decision, decided_by, receipt_id) VALUES ($1,$2,$3,$4,$5,$6)",
@@ -139,7 +154,7 @@ export async function decideProposal(
       );
     }
   });
-  return { decisionId, revisionId };
+  return { decisionId, revisionId, receiptId };
 }
 
 /** Current working canon of a branch: revisions with no successor. */

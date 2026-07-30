@@ -4,13 +4,16 @@ import * as React from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { ConsequenceReview } from "@/components/ui/consequence-review";
 import { Input } from "@/components/ui/input";
 import { InfoHint } from "@/components/ui/info-hint";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { ProductionPicker } from "@/components/production-picker";
+import { describeCommandFailure, useEngineCommand } from "@/lib/command-state";
 import {
+  actorLine,
   createEngineClient,
   type EngineClient,
   type NarrativeStructureView,
@@ -25,8 +28,9 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
   const [structure, setStructure] = React.useState<NarrativeStructureView | null>(null);
   const [unitType, setUnitType] = React.useState("episode");
   const [storyTime, setStoryTime] = React.useState("");
-  const [busy, setBusy] = React.useState(false);
-  const [error, setError] = React.useState<string | null>(null);
+  const [reviewing, setReviewing] = React.useState(false);
+  const [notice, setNotice] = React.useState<string | null>(null);
+  const save = useEngineCommand<{ structureRevisionId: string; receiptId: string; unitId: string }>();
 
   const refresh = React.useCallback(async () => {
     if (!production) {
@@ -48,41 +52,47 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
     [structure],
   );
   const threads = (structure?.document.threads ?? []) as Record<string, unknown>[];
+  const nextOrder = units.length + 1;
 
-  async function onAddUnit(event: React.FormEvent): Promise<void> {
+  function onOpenReview(event: React.FormEvent): void {
     event.preventDefault();
     if (!production || !storyTime) return;
-    setBusy(true);
-    setError(null);
-    try {
-      const nextOrder = units.length + 1;
-      const document = {
-        schema_version: "storyworld.narrative-structure.v1",
-        structure_id: structure?.document.structure_id ?? crypto.randomUUID(),
-        narrative_units: [
-          ...units,
+    setNotice(null);
+    setReviewing(true);
+  }
+
+  async function onConfirm(): Promise<void> {
+    if (!production) return;
+    let receipt: string | null = null;
+    const outcome = await save.run({
+      execute: async (idempotencyKey) => {
+        const out = await engine.addNarrativeUnit(
           {
-            unit_id: crypto.randomUUID(),
-            unit_type: unitType,
-            presentation_order: nextOrder,
-            story_time: storyTime,
+            productionId: production.productionId,
+            unit: { unitType, presentationOrder: nextOrder, storyTime },
+            ...(structure ? { supersedesRevisionId: structure.structureRevisionId } : {}),
           },
-        ],
-        threads,
-      };
-      await engine.saveNarrativeStructure({
-        productionId: production.productionId,
-        document,
-        ...(structure ? { supersedesRevisionId: structure.structureRevisionId } : {}),
-      });
+          { idempotencyKey },
+        );
+        receipt = out.receiptId;
+        return out;
+      },
+      refresh,
+    });
+    if (outcome === "confirmed" || outcome === "refresh_failed") {
+      // The typed input is cleared only once the command is recorded.
       setStoryTime("");
-      await refresh();
-    } catch (cause) {
-      setError(String(cause));
-    } finally {
-      setBusy(false);
+      setReviewing(false);
+      setNotice(
+        outcome === "confirmed"
+          ? `Accepted plan revision recorded${receipt ? ` — receipt ${receipt}` : ""}.`
+          : `Accepted plan revision recorded${receipt ? ` (receipt ${receipt})` : ""} — but refreshing the board failed; reload to see current state.`,
+      );
+      save.reset();
     }
   }
+
+  const failure = describeCommandFailure(save.status, save.error);
 
   return (
     <div className="flex flex-col gap-6">
@@ -143,10 +153,13 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
           <Card>
             <CardHeader>
               <CardTitle>Add unit</CardTitle>
-              <CardDescription>Supersedes the current structure revision.</CardDescription>
+              <CardDescription>
+                Direct authoring mode (DEC-0020): saving records an accepted
+                plan revision after review, superseding the current one.
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={onAddUnit} className="flex flex-col gap-4">
+              <form onSubmit={onOpenReview} className="flex flex-col gap-4">
                 <div className="flex flex-col gap-1.5">
                   <span className="flex items-center gap-1.5">
                     <Label htmlFor="unit-type">Unit type</Label>
@@ -182,11 +195,61 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
                     placeholder="1989-06-01"
                   />
                 </div>
-                {error ? <p className="text-sm text-destructive">{error}</p> : null}
-                <Button type="submit" disabled={busy || !storyTime}>
-                  {busy ? "Saving…" : "Add unit"}
-                </Button>
+                {notice ? <p className="text-sm text-muted-foreground">{notice}</p> : null}
+                {!reviewing ? (
+                  <Button type="submit" disabled={!storyTime}>
+                    Add unit
+                  </Button>
+                ) : null}
               </form>
+              {reviewing ? (
+                <div className="mt-4 flex flex-col gap-2">
+                  <ConsequenceReview
+                    id="arc-review"
+                    title="Review — accept this plan revision"
+                    rows={[
+                      { label: "Unit", value: `${unitType} · story time ${storyTime} · presentation order ${nextOrder}` },
+                      {
+                        label: "Supersedes",
+                        value: structure
+                          ? `revision ${structure.structureRevisionId}`
+                          : "none — this is the first structure revision",
+                      },
+                      {
+                        label: "Current hash",
+                        value: structure ? structure.contentSha256.slice(0, 12) : "—",
+                      },
+                      { label: "Recorded by", value: actorLine() },
+                      {
+                        label: "Effect",
+                        value:
+                          "Records an accepted plan revision (structure.accepted). Everything else in the structure — choices, branches, threads, bindings — is preserved exactly.",
+                      },
+                    ]}
+                    confirmLabel="Save as accepted revision"
+                    onConfirm={() => void onConfirm()}
+                    onCancel={() => {
+                      setReviewing(false);
+                      save.reset();
+                    }}
+                    busy={save.status === "submitting"}
+                  />
+                  {failure ? <p className="text-sm text-destructive">{failure}</p> : null}
+                  {save.status === "conflict" ? (
+                    <div>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => {
+                          void refresh().then(() => save.reset());
+                        }}
+                      >
+                        Reload structure
+                      </Button>
+                    </div>
+                  ) : null}
+                </div>
+              ) : null}
             </CardContent>
           </Card>
         </div>

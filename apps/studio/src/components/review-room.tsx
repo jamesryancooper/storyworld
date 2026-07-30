@@ -4,12 +4,15 @@ import * as React from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { ConsequenceReview } from "@/components/ui/consequence-review";
 import { InfoHint } from "@/components/ui/info-hint";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { describeCommandFailure, useEngineCommand } from "@/lib/command-state";
 import {
+  actorLine,
   createEngineClient,
   type EngineClient,
   type ProposalView,
@@ -22,12 +25,14 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
   const [propertyId, setPropertyId] = React.useState("");
   const [proposals, setProposals] = React.useState<ProposalView[]>([]);
   const [notice, setNotice] = React.useState<string | null>(null);
+  const [reviewingId, setReviewingId] = React.useState<string | null>(null);
   const [proposalType, setProposalType] = React.useState<"entity" | "timeline_event">("entity");
   const [entityType, setEntityType] = React.useState("character");
   const [entityName, setEntityName] = React.useState("");
   const [eventTime, setEventTime] = React.useState("");
   const [eventSummary, setEventSummary] = React.useState("");
-  const [filing, setFiling] = React.useState(false);
+  const decide = useEngineCommand<{ decisionId: string; revisionId: string | null; receiptId: string }>();
+  const file = useEngineCommand<{ proposalId: string }>();
 
   React.useEffect(() => {
     void (async () => {
@@ -48,62 +53,82 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
 
   async function onDecide(proposal: ProposalView, decision: "accepted" | "rejected"): Promise<void> {
     setNotice(null);
-    try {
-      const stableId =
-        proposal.proposalType === "entity" && typeof proposal.payload["entity_id"] === "string"
-          ? { stableId: proposal.payload["entity_id"] }
-          : {};
-      await engine.decideProposal({ proposalId: proposal.proposalId, decision, ...stableId });
-      await refresh();
-    } catch (cause) {
-      setNotice(String(cause));
+    const stableId =
+      proposal.proposalType === "entity" && typeof proposal.payload["entity_id"] === "string"
+        ? { stableId: proposal.payload["entity_id"] }
+        : {};
+    let receipt: string | null = null;
+    const outcome = await decide.run({
+      execute: async (idempotencyKey) => {
+        const out = await engine.decideProposal(
+          { proposalId: proposal.proposalId, decision, ...stableId },
+          { idempotencyKey },
+        );
+        receipt = out.receiptId;
+        return out;
+      },
+      refresh,
+    });
+    if (outcome === "confirmed" || outcome === "refresh_failed") {
+      setReviewingId(null);
+      setNotice(
+        outcome === "confirmed"
+          ? `Decision "${decision}" recorded${receipt ? ` — receipt ${receipt}` : ""}.`
+          : `Decision "${decision}" recorded${receipt ? ` (receipt ${receipt})` : ""} — but refreshing the queue failed; reload to see current state.`,
+      );
+      decide.reset();
     }
   }
 
   const pending = proposals.filter((p) => p.decision === null);
   const decided = proposals.filter((p) => p.decision !== null);
   const property = properties.find((p) => p.propertyId === propertyId) ?? null;
+  const reviewing = pending.find((p) => p.proposalId === reviewingId) ?? null;
+  const decideFailure = describeCommandFailure(decide.status, decide.error);
 
   async function onPropose(event: React.FormEvent): Promise<void> {
     event.preventDefault();
     if (!property) return;
-    setFiling(true);
     setNotice(null);
-    try {
-      const payload =
-        proposalType === "entity"
-          ? {
-              entity_id: crypto.randomUUID(),
-              entity_type: entityType,
-              name: entityName.trim(),
-              visibility: "team_private",
-            }
-          : {
-              event_id: crypto.randomUUID(),
-              story_time: eventTime.trim(),
-              summary: eventSummary.trim(),
-              state_transitions: [],
-            };
-      await engine.proposeCanon({
-        propertyId: property.propertyId,
-        branchId: property.officialBranchId,
-        proposalType,
-        payload,
-      });
+    const payload =
+      proposalType === "entity"
+        ? {
+            entity_id: crypto.randomUUID(),
+            entity_type: entityType,
+            name: entityName.trim(),
+            visibility: "team_private",
+          }
+        : {
+            event_id: crypto.randomUUID(),
+            story_time: eventTime.trim(),
+            summary: eventSummary.trim(),
+            state_transitions: [],
+          };
+    const outcome = await file.run({
+      execute: (idempotencyKey) =>
+        engine.proposeCanon(
+          {
+            propertyId: property.propertyId,
+            branchId: property.officialBranchId,
+            proposalType,
+            payload,
+          },
+          { idempotencyKey },
+        ),
+      refresh,
+    });
+    if (outcome === "confirmed") {
       setEntityName("");
       setEventTime("");
       setEventSummary("");
       setNotice("Proposal filed — it waits in the queue below until you decide it.");
-      await refresh();
-    } catch (cause) {
-      setNotice(String(cause));
-    } finally {
-      setFiling(false);
+      file.reset();
     }
   }
 
   const proposeReady =
     proposalType === "entity" ? entityName.trim().length > 0 : eventTime.trim().length > 0 && eventSummary.trim().length > 0;
+  const fileFailure = describeCommandFailure(file.status, file.error);
 
   function describe(proposal: ProposalView): string {
     const payload = proposal.payload;
@@ -221,9 +246,10 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
                 </>
               )}
             </div>
+            {fileFailure ? <p className="text-sm text-destructive">{fileFailure}</p> : null}
             <div>
-              <Button type="submit" disabled={filing || !property || !proposeReady}>
-                {filing ? "Filing…" : "File proposal"}
+              <Button type="submit" disabled={file.status === "submitting" || !property || !proposeReady}>
+                {file.status === "submitting" ? "Filing…" : "File proposal"}
               </Button>
             </div>
           </form>
@@ -235,11 +261,11 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
           <CardTitle>Proposal queue</CardTitle>
           <CardDescription>
             Proposals never silently change accepted canon — every decision
-            here is receipted and append-only.
+            here is reviewed first, then receipted and append-only.
           </CardDescription>
         </CardHeader>
         <CardContent>
-          {notice ? <p className="mb-3 text-sm text-destructive">{notice}</p> : null}
+          {notice ? <p className="mb-3 text-sm text-muted-foreground">{notice}</p> : null}
           {pending.length === 0 ? (
             <p className="text-sm text-muted-foreground">Nothing awaiting review.</p>
           ) : (
@@ -265,20 +291,69 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
                       {proposal.proposerKind}:{proposal.proposedBy}
                     </TableCell>
                     <TableCell className="whitespace-nowrap">
-                      <span className="flex gap-2">
-                        <Button size="sm" onClick={() => void onDecide(proposal, "accepted")}>
-                          Accept
-                        </Button>
-                        <Button size="sm" variant="outline" onClick={() => void onDecide(proposal, "rejected")}>
-                          Reject
-                        </Button>
-                      </span>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        aria-expanded={reviewingId === proposal.proposalId}
+                        onClick={() => {
+                          setNotice(null);
+                          setReviewingId((prior) => (prior === proposal.proposalId ? null : proposal.proposalId));
+                        }}
+                      >
+                        Review…
+                      </Button>
                     </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
           )}
+          {reviewing ? (
+            <div className="mt-4 flex flex-col gap-2">
+              <ConsequenceReview
+                id="rr-review"
+                title={`Review proposal — ${describe(reviewing)}`}
+                rows={[
+                  { label: "Type", value: reviewing.proposalType },
+                  { label: "Origin", value: `${reviewing.proposerKind}:${reviewing.proposedBy}` },
+                  { label: "Target branch", value: reviewing.branchId },
+                  { label: "Deciding actor", value: actorLine() },
+                  {
+                    label: "Transition",
+                    value: "Accept records one working-canon revision; reject records the decision with no canon change.",
+                  },
+                  { label: "Receipt", value: "A durable canon_approval receipt is recorded either way." },
+                ]}
+                actions={
+                  <>
+                    <Button
+                      onClick={() => void onDecide(reviewing, "accepted")}
+                      disabled={decide.status === "submitting"}
+                    >
+                      Accept
+                    </Button>
+                    <Button
+                      variant="outline"
+                      onClick={() => void onDecide(reviewing, "rejected")}
+                      disabled={decide.status === "submitting"}
+                    >
+                      Reject
+                    </Button>
+                  </>
+                }
+                onCancel={() => {
+                  setReviewingId(null);
+                  decide.reset();
+                }}
+                busy={decide.status === "submitting"}
+              >
+                <pre className="max-h-56 overflow-auto rounded-lg border border-border bg-background p-3 text-xs">
+                  {JSON.stringify(reviewing.payload, null, 2)}
+                </pre>
+              </ConsequenceReview>
+              {decideFailure ? <p className="text-sm text-destructive">{decideFailure}</p> : null}
+            </div>
+          ) : null}
           {decided.length > 0 ? (
             <p className="mt-4 text-sm text-muted-foreground">{decided.length} previously decided proposal(s).</p>
           ) : null}

@@ -205,7 +205,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "846a4598e61c1cf878a41c7b7b7f5057927ada4fae650a5d7aba591c00344fc8"
+      "sha256": "c38c3c55332fbdd14d18c84952568947022dc8ccd36f90b316b10a338332049b"
     },
     {
       "layer": "agent_harness",
@@ -326,6 +326,11 @@
       "layer": "agent_harness",
       "path": ".agent/evidence/EVD-0024-phase0-acceptance.md",
       "sha256": "98cdece7373d0f669e6120b83ca77ede0cf3fc0007ce2673d643c7c85705e3a1"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0025-phase1-implementation.md",
+      "sha256": "3b8bd1dc06f2021b7fc9f16197cdeef35f4583634ee24867fbf1a2f45c1d214b"
     },
     {
       "layer": "agent_harness",
@@ -480,7 +485,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "74f236636c6c799f3397ec6c843781b58302cd9bb55cb3f4f51a2a09c3ed39f9"
+      "sha256": "8499e12506955065a9dae18b93cf6419b63a608bc8d432b6f51755ee8dd4b3a0"
     },
     {
       "layer": "agent_harness",
@@ -565,7 +570,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0016-phase1-safety-critical-repairs.md",
-      "sha256": "02aea3eff9a7e7f38b134011071511d6d04402bc4128f8c2f398a53b3878048e"
+      "sha256": "8c1270c234aad82a2895a5d13226129b7532902717aed6b640a36148b11a8445"
     },
     {
       "layer": "agent_harness",
@@ -815,17 +820,22 @@
     {
       "layer": "project_source",
       "path": "apps/engine-api/package.json",
-      "sha256": "df7b55a9c9c682d12a1083fb6d0d691460e5f1905b5fe893eff769d9c9336058"
+      "sha256": "ac7d6ec1bde208e3c9c3d23259bd7b69c8092d985c156a94e373b8bca7051117"
     },
     {
       "layer": "project_source",
       "path": "apps/engine-api/src/gate-0005.test.ts",
-      "sha256": "1b3d3299745fcea96b50df6e32a439dd03954d77204ffe8642f19de64c8941a3"
+      "sha256": "e423506bf187877ed18a6b89827142e799a7d341eb30028e9b4d17134e0cfe11"
     },
     {
       "layer": "project_source",
       "path": "apps/engine-api/src/index.ts",
       "sha256": "cf5a1e052a0cb633a20afbadb8f34a57ff18e8fa4373c13941641ede06fb1f96"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/engine-api/src/phase1-authority.test.ts",
+      "sha256": "e07eaa9260653cc7d6c6f1b1835122f01cbd678396a5a99fde50fcaff83a011a"
     },
     {
       "layer": "project_source",
@@ -835,12 +845,12 @@
     {
       "layer": "project_source",
       "path": "apps/engine-api/src/server.ts",
-      "sha256": "09206fa57629f680103937255220b80922a33ca4cf2a50d39e88fac53c2abdd3"
+      "sha256": "d1af44f62841f7c51541d0e91ee7e1e9dc4e1eb209ec7c6d3e73363a97a4c5a9"
     },
     {
       "layer": "project_source",
       "path": "apps/engine-api/src/sso.test.ts",
-      "sha256": "313721b6fae17e27c1013ae5454a3e4e23d63e14cbb67b92a2bb7a52e465704b"
+      "sha256": "3feda7cf410f4b9d771884467ccb7d26e3e0bc4ab71daba27e497df39c4d7119"
     },
     {
       "layer": "project_source",
@@ -905,7 +915,7 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/app/layout.tsx",
-      "sha256": "9bb58116fa92e3107c172e3814d079165dde9d2a1f70d94fcb0562e73dc7e2de"
+      "sha256": "09f594eabe1f08de6e50f24572e68dc609333d65f5d9cea14e078fe679f365d2"
     },
     {
       "layer": "project_source",
@@ -935,12 +945,12 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/arc-board.test.tsx",
-      "sha256": "21fe29f8b7133dd20d37079639defc8481ad68dedd4bfb60fcbc27261c499d3c"
+      "sha256": "7a81d81e6b994c947f8cac00d432fd91200a23f66c044b8633ee6abf01e918ee"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/arc-board.tsx",
-      "sha256": "d42b3da4905ef54fda0a47fbc0a8b1fbf579ac1602caddc58a5374b05b6adc07"
+      "sha256": "0789a0e6b941c8699586a693ac24c195f92ee8e87b8c2dfe495d80213e738783"
     },
     {
       "layer": "project_source",
@@ -950,27 +960,27 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/command-center.tsx",
-      "sha256": "47d42f4722c43d535f03f869d844d0847d232c52c0d2ffd1cb248c27f01bde3d"
+      "sha256": "d05ee43d0d6b8332846f310442e3a3d538eff898bf927e8461d106caa14cfa2a"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/continuity-console.test.tsx",
-      "sha256": "27a510bfac62044ee4556c39d84909b2053b3984919c4dcd90c0e2e4ffc7f3e2"
+      "sha256": "17a72e3985768710874ac2034babdba4e962dd53f2addeb93e0d40c41c4fbe61"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/continuity-console.tsx",
-      "sha256": "789fc58b0be8632e5f949f1302958e7072dc8eae620dcfffddef1704020d4953"
+      "sha256": "15cd080d457982d27f1ac2ba7287d0d560a31673669a1db2388322631017ef2e"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/generation-workbench.test.tsx",
-      "sha256": "4eea091faccbbb357ca6673b691ea2f8c4c70e4a35d76be88e5a29fe349b71f6"
+      "sha256": "b6b7800b9af52a106ff2723bcaf4c6a340a244bea497822305b843af7bb1471c"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/generation-workbench.tsx",
-      "sha256": "dd48358ecbf03797d2169343c23f3486a144894e4063844b122b825ee43a0ed7"
+      "sha256": "cc0f3787059cf84c03b0306bad78a1d4ad129a8a604918cd938f741048e0f77e"
     },
     {
       "layer": "project_source",
@@ -980,32 +990,32 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/release-builder.test.tsx",
-      "sha256": "af88c81a8f19ab27a3d7102f774097e5d5bbaa4f1c51942b4bf2d3e3e1e22fb4"
+      "sha256": "d849fddeb6cd1586d2210a0cb792748518aead86c4596e06baba33c2d3293a80"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/release-builder.tsx",
-      "sha256": "7c7f02215bb3d74f5ea464a99dbe14641e678a8a19998ec2722e638ca791d29c"
+      "sha256": "f96bbab5b92197273187556224ffa75d3e0de4691d458eb10c557bb645f6028d"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/review-room.test.tsx",
-      "sha256": "c6605c8d254602f0bdb2c93624641a2ebb4d292acb57306554fa9ec42b3324ce"
+      "sha256": "0b88d5bbb9aabcd93c3523f0014d9f45cf0a0b014a014e239ecf1901dea88771"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/review-room.tsx",
-      "sha256": "d770ae07706e815373e0033806cf0d5960fbd5c6644dfdb0d90d7b94f415dcd1"
+      "sha256": "376744464ff16fea27c15c18904fc33509f5032c03e39ff0e8b33567185ab01a"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/settings.test.tsx",
-      "sha256": "518c06c09767374396cde6f3df3585d062ca3784fef2bffdc9c74c7657f31a12"
+      "sha256": "86fcaa08f08e3912fda8a3138c6b3ba9d313788dc408d8cd6a1b8bde86200023"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/components/settings.tsx",
-      "sha256": "679afcfb15e48ea1fd7e8e277a67b90592430bf46c39943851e32f70f86db0c8"
+      "sha256": "2e7b6dd07eab4a66877fe59bddb11c8c6dd4e66a7436bafcacad5b0b3e2b56e8"
     },
     {
       "layer": "project_source",
@@ -1021,6 +1031,11 @@
       "layer": "project_source",
       "path": "apps/studio/src/components/ui/card.tsx",
       "sha256": "06dfe6d8d370b7dc6952ef1bb1f642746969a37930bcd799bbba389189dcdfcf"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/ui/consequence-review.tsx",
+      "sha256": "ff2a66e51f5285caa98f9bbba067ae0c3870b8dd4461706f31d8f921ab91aa08"
     },
     {
       "layer": "project_source",
@@ -1049,6 +1064,11 @@
     },
     {
       "layer": "project_source",
+      "path": "apps/studio/src/components/ui/textarea.tsx",
+      "sha256": "18f25c5060e216d87199567bbcbbeca7184da3a53d5ee9e64bbff940b22fc7f8"
+    },
+    {
+      "layer": "project_source",
       "path": "apps/studio/src/components/world-bible.test.tsx",
       "sha256": "6792e02a05851bea0ccf425a7d24b5755e550bec1e80979c217010f651339333"
     },
@@ -1059,13 +1079,23 @@
     },
     {
       "layer": "project_source",
+      "path": "apps/studio/src/lib/command-state.test.tsx",
+      "sha256": "333d18bfb87f70b7437c9247d20cfb55dd6d3a837f35aa32068349169ea72313"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/lib/command-state.ts",
+      "sha256": "b50fb1a5f289362f359db8c75f4eea3166d7c9c5cfce24a9a2c00fda1113d05e"
+    },
+    {
+      "layer": "project_source",
       "path": "apps/studio/src/lib/engine.integration.test.ts",
-      "sha256": "0c3e1d7dda65e2b5bded7ed2349ff59322378db41ac567d18cf8af4704ce6484"
+      "sha256": "541748053a31976d82319a9bc2dd3b1ac7bc55135d6ddd086c3674d191bb69cc"
     },
     {
       "layer": "project_source",
       "path": "apps/studio/src/lib/engine.ts",
-      "sha256": "53a96e2e4b93b019a56bbdaf819b55f14326998a494472937dfc328236ef75f0"
+      "sha256": "cb58752413f8b38312333281f5f0ae3a5c9cd56629d4b9662891eee6e281fc60"
     },
     {
       "layer": "project_source",
@@ -1080,7 +1110,7 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/test/mock-engine.ts",
-      "sha256": "9ac761776d268f545927cc42c3bfa47cac99140b6f471ab1022a3b9c7d7bab4b"
+      "sha256": "626d1774c91a7991e04a47a814e9c758f94be1f926f07e47118e3b50bbf85cee"
     },
     {
       "layer": "project_source",
@@ -2050,7 +2080,7 @@
     {
       "layer": "project_source",
       "path": "packages/credentials/src/service.ts",
-      "sha256": "2fdb27f3e299585cd7470c0aa6074366d85e390e4e715e0ddb9f324c6fd108c9"
+      "sha256": "7c3b439f4fc4a561edf6c214b0e72ca6b58aa4113732d87af0571e5bcd40dd3a"
     },
     {
       "layer": "project_source",
@@ -2115,12 +2145,12 @@
     {
       "layer": "project_source",
       "path": "packages/evaluation/src/evaluate.ts",
-      "sha256": "db178e8d2ee37c739c68c1f5a0a7bf9cbec89108e7787dc57a3ed38136f1ee03"
+      "sha256": "89cb04cee8ef69d47e290d96f54c6a76b9749fe0e5e73b22203d89e0c87ef30e"
     },
     {
       "layer": "project_source",
       "path": "packages/evaluation/src/evaluation.test.ts",
-      "sha256": "46276537f7a1e65df4792c72f3400b4df825e32b06f280f954a16b88bdf00e97"
+      "sha256": "f93fb23bf7c3781c0814aa541119dd4458f640d44a7051d46f064d42787caed9"
     },
     {
       "layer": "project_source",
@@ -2185,17 +2215,17 @@
     {
       "layer": "project_source",
       "path": "packages/kernel/src/actors.ts",
-      "sha256": "72c4255a80d0ce7e1b83524b27723484b1386f44e2219a6a546730d5a081594e"
+      "sha256": "e530f346f4f8fd442ee3a69419c7dca197c38c96f915a4e19955a74cb943b375"
     },
     {
       "layer": "project_source",
       "path": "packages/kernel/src/assets.ts",
-      "sha256": "5b408f9c5761e505dcb72acd9205fdb68d078ec50ebada6fbc0e8ad34bdf3662"
+      "sha256": "0a13dc21a16138daf65fe064cb1589802d0e7fae1c42fc462d5c1388a7a235bd"
     },
     {
       "layer": "project_source",
       "path": "packages/kernel/src/commands.ts",
-      "sha256": "d41dcee7248f66b4d89d154aa0d6850ad80659521796c901642ad46b6bf6e470"
+      "sha256": "2b44cdf9a003cf5497aaa1539ed32ed43b73bc6036ceb64667040935eb850189"
     },
     {
       "layer": "project_source",
@@ -2205,7 +2235,7 @@
     {
       "layer": "project_source",
       "path": "packages/kernel/src/editor.ts",
-      "sha256": "df81aa42547ddac0fc78fe2dfb26113fe14f0329925273ae74989f1e016f7c11"
+      "sha256": "a08f28beeaa913acff29c687487ed7957aa2e5460ec1d7ad1e27e7a5343b04d6"
     },
     {
       "layer": "project_source",
@@ -2215,22 +2245,37 @@
     {
       "layer": "project_source",
       "path": "packages/kernel/src/index.ts",
-      "sha256": "5292a16fbba5922cca29450093a8e5616bc0049ca1ed67eca0f00975547bf407"
+      "sha256": "f9ffe1efd191250ba19b672cce0c68434277ebd1db56be5e1570ffd4d7f08c1a"
     },
     {
       "layer": "project_source",
       "path": "packages/kernel/src/kernel.test.ts",
-      "sha256": "3560dee02fc4e1d60d1480571d503aff9e4f4ad5d216b48a577468db26ead0b4"
+      "sha256": "e3c3b5365fb532cfa1b8d51d0e7b76b4860836b53489fd4a0324b1f6d155073b"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/kernel/src/narrative-structure.ts",
+      "sha256": "3f117513fa0c0c1fbf5f7f7ce633120ecc2f544be306701ccd0435c5fe372ecb"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/kernel/src/phase1-safety.test.ts",
+      "sha256": "098b2351687b3a0ed8662462c9ede31bea2860814954a90d112bd0d345f8b565"
     },
     {
       "layer": "project_source",
       "path": "packages/kernel/src/queries.ts",
-      "sha256": "d60a319a6a9e47f3ec94be3f0da211101af77027c169c570d3850d131e64aca3"
+      "sha256": "f1a9f85fa2d599b0fbe42a152361ddb1ecb5a9371ce523790e69d1eb2f5fca6e"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/kernel/src/receipts.ts",
+      "sha256": "b3087609115f0918bc19ec886c76d0c0c8bce94b8024371ea4c159bea268ea58"
     },
     {
       "layer": "project_source",
       "path": "packages/kernel/src/releases.ts",
-      "sha256": "eb755cf7e435adbf33076b448d420d9d43d12451e455f8292ee72edb6a968f5f"
+      "sha256": "da354b9e402860e544cb8cfeec323b8f8c8731c1afb1be42e4a506b674ca74ec"
     },
     {
       "layer": "project_source",
@@ -2296,6 +2341,16 @@
       "layer": "project_source",
       "path": "packages/persistence/migrations/0009_provider_credentials.sql",
       "sha256": "c9c1021de72b76fec021a67f04e301c0759e9a7ed9450b0fc8d5937804f4caf8"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/persistence/migrations/0010_structure_supersession.sql",
+      "sha256": "cfae2b9c61be41f16bbefde8d6f0f6cada8b3a7ae9a1503895f25f75699e63a0"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/persistence/migrations/0011_durable_idempotency.sql",
+      "sha256": "f3b6857af75c23343a6acda0d35ffb40a6b8706dac9d6c121960d01f09b801f1"
     },
     {
       "layer": "project_source",
@@ -2400,7 +2455,7 @@
     {
       "layer": "project_source",
       "path": "packages/providers/src/providers.test.ts",
-      "sha256": "a007e82bc1d3d08f53d67bc3825483508ff1093330c6537e039a2a72263b7e03"
+      "sha256": "70d528571d792ac846630afd3dfcebe5aa3a9d2688cc6c464cd3e6783c050b6b"
     },
     {
       "layer": "project_source",
@@ -2475,7 +2530,7 @@
     {
       "layer": "project_source",
       "path": "packages/runtime-compiler/src/compiler.test.ts",
-      "sha256": "096b3b3cbc64264572ad12d9112bb10ee289abe9e44634940ccd4e32b724129a"
+      "sha256": "d0b0561a396190e0b911b774e25a906154d2d5717609382e9427143fdc141a74"
     },
     {
       "layer": "project_source",
@@ -2560,7 +2615,7 @@
     {
       "layer": "project_source",
       "path": "packages/workflows/src/workflows.test.ts",
-      "sha256": "fea0cc527699dbeb6c120a06e72e295b47b4daf097f5b0cccf0e3ea0d8f82c4b"
+      "sha256": "17eba71ee26e7db824e01a34c28eb457c2e11c88b6b6b131d4990cfa1191a5db"
     },
     {
       "layer": "project_source",
@@ -2838,12 +2893,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-30T14:32:07.793878+00:00",
-  "generation_id": "c99b5b65434bd5bb7ad250e96a0f2206",
+  "generated_on": "2026-07-30T15:44:35.456087+00:00",
+  "generation_id": "f06b7388c03e0d0162161e36d348ee81",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "9b3872e476bbecc48cc78016efbae6f922ff5d899715ecd8f9eb5d609052eb06",
+  "source_fingerprint": "f2daad2045ec01a26d03c14568adf8d159c9961ecee7ec3956019a159b395147",
   "source_scope": {
     "exclusions": [
       {

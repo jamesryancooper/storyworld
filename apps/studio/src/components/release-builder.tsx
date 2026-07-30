@@ -4,12 +4,15 @@ import * as React from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { ConsequenceReview } from "@/components/ui/consequence-review";
 import { Input } from "@/components/ui/input";
 import { InfoHint } from "@/components/ui/info-hint";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { describeCommandFailure, useEngineCommand } from "@/lib/command-state";
 import {
+  actorLine,
   createEngineClient,
   type EngineClient,
   type ProductionSummary,
@@ -27,8 +30,11 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
   const [releaseVersion, setReleaseVersion] = React.useState("");
   const [productionName, setProductionName] = React.useState("");
   const [pinReleaseId, setPinReleaseId] = React.useState("");
-  const [busy, setBusy] = React.useState(false);
   const [notice, setNotice] = React.useState<string | null>(null);
+  const [reviewingSnapshot, setReviewingSnapshot] = React.useState(false);
+  const [reviewingProduction, setReviewingProduction] = React.useState(false);
+  const snapshot = useEngineCommand<{ canonReleaseId: string; receiptId: string }>();
+  const produce = useEngineCommand<{ productionId: string; receiptId: string }>();
 
   React.useEffect(() => {
     void (async () => {
@@ -51,51 +57,75 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
   }, [refresh]);
 
   const property = properties.find((p) => p.propertyId === propertyId) ?? null;
+  const newest = releases[0] ?? null;
+  const pinRelease = releases.find((r) => r.canonReleaseId === pinReleaseId) ?? null;
 
-  async function onSnapshot(event: React.FormEvent): Promise<void> {
-    event.preventDefault();
-    if (!property || !releaseName || !releaseVersion) return;
-    setBusy(true);
-    setNotice(null);
-    try {
-      const newest = releases[0];
-      await engine.snapshotCanonRelease({
-        propertyId: property.propertyId,
-        branchId: property.officialBranchId,
-        releaseName,
-        releaseVersion,
-        ...(newest ? { supersedesReleaseId: newest.canonReleaseId } : {}),
-      });
+  async function onConfirmSnapshot(): Promise<void> {
+    if (!property) return;
+    let receipt: string | null = null;
+    const outcome = await snapshot.run({
+      execute: async (idempotencyKey) => {
+        const out = await engine.snapshotCanonRelease(
+          {
+            propertyId: property.propertyId,
+            branchId: property.officialBranchId,
+            releaseName,
+            releaseVersion,
+            ...(newest ? { supersedesReleaseId: newest.canonReleaseId } : {}),
+          },
+          { idempotencyKey },
+        );
+        receipt = out.receiptId;
+        return out;
+      },
+      refresh,
+    });
+    if (outcome === "confirmed" || outcome === "refresh_failed") {
       setReleaseName("");
       setReleaseVersion("");
-      await refresh();
-    } catch (cause) {
-      setNotice(String(cause));
-    } finally {
-      setBusy(false);
+      setReviewingSnapshot(false);
+      setNotice(
+        outcome === "confirmed"
+          ? `Canon release created${receipt ? ` — receipt ${receipt}` : ""}. Nothing was published externally.`
+          : `Canon release created${receipt ? ` (receipt ${receipt})` : ""} — but refreshing the lists failed; reload to see current state.`,
+      );
+      snapshot.reset();
     }
   }
 
-  async function onCreateProduction(event: React.FormEvent): Promise<void> {
-    event.preventDefault();
-    if (!property || !productionName || !pinReleaseId) return;
-    setBusy(true);
-    setNotice(null);
-    try {
-      await engine.createProduction({
-        propertyId: property.propertyId,
-        pinnedCanonReleaseId: pinReleaseId,
-        name: productionName,
-      });
-      setNotice(`Production "${productionName}" pinned to the selected release.`);
+  async function onConfirmProduction(): Promise<void> {
+    if (!property) return;
+    let receipt: string | null = null;
+    const outcome = await produce.run({
+      execute: async (idempotencyKey) => {
+        const out = await engine.createProduction(
+          {
+            propertyId: property.propertyId,
+            pinnedCanonReleaseId: pinReleaseId,
+            name: productionName,
+          },
+          { idempotencyKey },
+        );
+        receipt = out.receiptId;
+        return out;
+      },
+      refresh,
+    });
+    if (outcome === "confirmed" || outcome === "refresh_failed") {
+      const namedProduction = productionName;
       setProductionName("");
-      await refresh();
-    } catch (cause) {
-      setNotice(String(cause));
-    } finally {
-      setBusy(false);
+      setReviewingProduction(false);
+      setNotice(
+        outcome === "confirmed"
+          ? `Production "${namedProduction}" pinned to the selected release${receipt ? ` — receipt ${receipt}` : ""}.`
+          : `Production "${namedProduction}" pinned${receipt ? ` (receipt ${receipt})` : ""} — but refreshing the lists failed; reload to see current state.`,
+      );
+      produce.reset();
     }
   }
+
+  const snapshotFailure = describeCommandFailure(snapshot.status, snapshot.error);
+  const produceFailure = describeCommandFailure(produce.status, produce.error);
 
   return (
     <div className="flex flex-col gap-6">
@@ -129,7 +159,8 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
             <CardTitle>Canon releases</CardTitle>
             <CardDescription>
               Immutable, hash-bound snapshots; productions pin an exact
-              release and never drift.
+              release and never drift. A canon release is not an external
+              publication.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -204,7 +235,15 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
               <CardDescription>Freezes the current working canon of the official branch.</CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={onSnapshot} className="flex flex-col gap-4">
+              <form
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  if (!property || !releaseName || !releaseVersion) return;
+                  setNotice(null);
+                  setReviewingSnapshot(true);
+                }}
+                className="flex flex-col gap-4"
+              >
                 <div className="flex flex-col gap-1.5">
                   <Label htmlFor="rb-name">Release name</Label>
                   <Input id="rb-name" value={releaseName} onChange={(event) => setReleaseName(event.target.value)} placeholder="stillhouse-canon" />
@@ -219,10 +258,50 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
                   </span>
                   <Input id="rb-version" value={releaseVersion} onChange={(event) => setReleaseVersion(event.target.value)} placeholder="1.1.0" />
                 </div>
-                <Button type="submit" disabled={busy || !releaseName || !releaseVersion}>
-                  {busy ? "Snapshotting…" : "Snapshot"}
-                </Button>
+                {notice ? <p className="text-sm text-muted-foreground">{notice}</p> : null}
+                {!reviewingSnapshot ? (
+                  <Button type="submit" disabled={!releaseName || !releaseVersion}>
+                    Snapshot
+                  </Button>
+                ) : null}
               </form>
+              {reviewingSnapshot ? (
+                <div className="mt-4 flex flex-col gap-2">
+                  <ConsequenceReview
+                    id="rb-snapshot-review"
+                    title="Review — create a canon release"
+                    rows={[
+                      { label: "Release", value: `${releaseName} v${releaseVersion}` },
+                      { label: "Branch", value: "official" },
+                      {
+                        label: "Supersedes",
+                        value: newest ? `${newest.releaseName} v${newest.releaseVersion}` : "none — first release",
+                      },
+                      {
+                        label: "Pinned productions",
+                        value:
+                          productions.length > 0
+                            ? productions.map((p) => `${p.name} — stays pinned to v${p.releaseVersion}`).join("; ")
+                            : "none yet",
+                      },
+                      { label: "Recorded by", value: actorLine() },
+                      {
+                        label: "Effect",
+                        value:
+                          "Creates an immutable, hash-bound canon release (canon.release.created). This does not publish anything externally.",
+                      },
+                    ]}
+                    confirmLabel="Snapshot canon release"
+                    onConfirm={() => void onConfirmSnapshot()}
+                    onCancel={() => {
+                      setReviewingSnapshot(false);
+                      snapshot.reset();
+                    }}
+                    busy={snapshot.status === "submitting"}
+                  />
+                  {snapshotFailure ? <p className="text-sm text-destructive">{snapshotFailure}</p> : null}
+                </div>
+              ) : null}
             </CardContent>
           </Card>
 
@@ -232,7 +311,15 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
               <CardDescription>Pins an exact release.</CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={onCreateProduction} className="flex flex-col gap-4">
+              <form
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  if (!property || !productionName || !pinReleaseId) return;
+                  setNotice(null);
+                  setReviewingProduction(true);
+                }}
+                className="flex flex-col gap-4"
+              >
                 <div className="flex flex-col gap-1.5">
                   <Label htmlFor="rb-production">Production name</Label>
                   <Input id="rb-production" value={productionName} onChange={(event) => setProductionName(event.target.value)} placeholder="Season One" />
@@ -253,11 +340,45 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
                     ))}
                   </Select>
                 </div>
-                {notice ? <p className="text-sm text-muted-foreground">{notice}</p> : null}
-                <Button type="submit" disabled={busy || !productionName || !pinReleaseId}>
-                  {busy ? "Creating…" : "Create production"}
-                </Button>
+                {!reviewingProduction ? (
+                  <Button type="submit" disabled={!productionName || !pinReleaseId}>
+                    Create production
+                  </Button>
+                ) : null}
               </form>
+              {reviewingProduction ? (
+                <div className="mt-4 flex flex-col gap-2">
+                  <ConsequenceReview
+                    id="rb-production-review"
+                    title="Review — pin a new production"
+                    rows={[
+                      { label: "Production", value: productionName },
+                      {
+                        label: "Pinned release",
+                        value: pinRelease ? `${pinRelease.releaseName} v${pinRelease.releaseVersion}` : pinReleaseId,
+                      },
+                      {
+                        label: "Release hash",
+                        value: pinRelease ? pinRelease.contentSha256.slice(0, 12) : "—",
+                      },
+                      { label: "Recorded by", value: actorLine() },
+                      {
+                        label: "Effect",
+                        value:
+                          "Pins the production to exactly this release. Later canon changes never reach it silently; repinning is a separate explicit decision.",
+                      },
+                    ]}
+                    confirmLabel="Create production"
+                    onConfirm={() => void onConfirmProduction()}
+                    onCancel={() => {
+                      setReviewingProduction(false);
+                      produce.reset();
+                    }}
+                    busy={produce.status === "submitting"}
+                  />
+                  {produceFailure ? <p className="text-sm text-destructive">{produceFailure}</p> : null}
+                </div>
+              ) : null}
             </CardContent>
           </Card>
         </div>

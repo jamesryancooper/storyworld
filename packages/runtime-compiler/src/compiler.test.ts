@@ -60,9 +60,9 @@ describe("B3 runtime compiler", () => {
     const release = await snapshotCanonRelease(ctx, ryan, {
       propertyId, branchId: officialBranchId, releaseName: "rt-canon", releaseVersion: `1.0.${Date.now()}`,
     });
-    productionId = await createProduction(ctx, ryan, {
+    productionId = (await createProduction(ctx, ryan, {
       propertyId, pinnedCanonReleaseId: release.canonReleaseId, name: "rt-production",
-    });
+    })).productionId;
   });
 
   afterAll(async () => {
