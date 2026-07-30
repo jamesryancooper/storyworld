@@ -4,6 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, it } from "vitest";
 import { expectAccessible } from "@/test/axe";
 import { mockEngine } from "@/test/mock-engine";
+import { setSearchParams } from "@/test/next-navigation";
 import { ReleaseBuilder } from "./release-builder";
 
 afterEach(cleanup);
@@ -101,6 +102,9 @@ describe("Release Builder", () => {
         ];
       },
     });
+    // With multiple properties the URL carries the choice (DEC-0022) — no
+    // silent auto-select of the first.
+    setSearchParams("property=p-1");
     const user = userEvent.setup();
     render(<ReleaseBuilder client={engine} />);
     await waitFor(() => expect(screen.getByText("stillhouse-canon")).toBeDefined());

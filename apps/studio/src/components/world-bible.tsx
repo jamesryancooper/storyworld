@@ -3,43 +3,29 @@
 import * as React from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Loading } from "@/components/ui/loading";
 import { StatusMessage } from "@/components/ui/status-message";
+import { PropertyPicker } from "@/components/property-picker";
 import {
   createEngineClient,
   type CanonReleaseView,
   type EngineClient,
-  type PropertySummary,
 } from "@/lib/engine";
 
 export function WorldBible({ client }: { client?: EngineClient }): React.JSX.Element {
   const engine = React.useMemo(() => client ?? createEngineClient(), [client]);
-  const [properties, setProperties] = React.useState<PropertySummary[]>([]);
-  const [selected, setSelected] = React.useState<string>("");
+  const [selected, setSelected] = React.useState<string | null>(null);
   const [release, setRelease] = React.useState<CanonReleaseView | null>(null);
-  const [loaded, setLoaded] = React.useState(false);
   const [releaseLoaded, setReleaseLoaded] = React.useState(false);
   const [unavailable, setUnavailable] = React.useState(false);
 
   React.useEffect(() => {
-    void (async () => {
-      try {
-        const list = await engine.listProperties();
-        setProperties(list);
-        if (list.length > 0) setSelected(list[0]!.propertyId);
-      } catch {
-        setUnavailable(true);
-      } finally {
-        setLoaded(true);
-      }
-    })();
-  }, [engine]);
-
-  React.useEffect(() => {
-    if (!selected) return;
+    if (!selected) {
+      setRelease(null);
+      setReleaseLoaded(false);
+      return;
+    }
     setReleaseLoaded(false);
     void (async () => {
       try {
@@ -67,30 +53,16 @@ export function WorldBible({ client }: { client?: EngineClient }): React.JSX.Ele
       </div>
 
       <div className="max-w-sm">
-        <div className="flex flex-col gap-1.5">
-          <Label htmlFor="wb-property">Property</Label>
-          <Select
-            id="wb-property"
-            value={selected}
-            onChange={(event) => setSelected(event.target.value)}
-            disabled={properties.length === 0}
-          >
-            {properties.map((property) => (
-              <option key={property.propertyId} value={property.propertyId}>
-                {property.name}
-              </option>
-            ))}
-          </Select>
-        </div>
+        <PropertyPicker
+          engine={engine}
+          onProperty={(property) => setSelected(property?.propertyId ?? null)}
+          labelId="wb-property"
+        />
       </div>
 
       {unavailable ? (
         <StatusMessage variant="error">The engine is unavailable — reload to retry.</StatusMessage>
-      ) : !loaded ? (
-        <Loading />
-      ) : properties.length === 0 ? (
-        <p className="text-sm text-muted-foreground">No properties yet.</p>
-      ) : !releaseLoaded ? (
+      ) : !selected ? null : !releaseLoaded ? (
         <Loading />
       ) : release === null ? (
         <p className="text-sm text-muted-foreground">

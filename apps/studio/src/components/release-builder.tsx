@@ -13,6 +13,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { CommandRecovery } from "@/components/ui/command-recovery";
 import { Loading } from "@/components/ui/loading";
 import { StatusMessage } from "@/components/ui/status-message";
+import { PropertyPicker } from "@/components/property-picker";
 import { describeCommandFailure, useEngineCommand } from "@/lib/command-state";
 import { clearUnknownOutcome, recordUnknownOutcome } from "@/lib/unknown-outcome-log";
 import {
@@ -54,8 +55,8 @@ interface ProductionReview {
 
 export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX.Element {
   const engine = React.useMemo(() => client ?? createEngineClient(), [client]);
-  const [properties, setProperties] = React.useState<PropertySummary[]>([]);
-  const [propertyId, setPropertyId] = React.useState("");
+  const [property, setProperty] = React.useState<PropertySummary | null>(null);
+  const propertyId = property?.propertyId ?? "";
   const [releases, setReleases] = React.useState<ReleaseSummary[]>([]);
   const [productions, setProductions] = React.useState<ProductionSummary[]>([]);
   const [releaseName, setReleaseName] = React.useState("");
@@ -72,13 +73,6 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
   const snapshotReceipt = React.useRef<string | null>(null);
   const productionReceipt = React.useRef<string | null>(null);
 
-  React.useEffect(() => {
-    void (async () => {
-      const list = await engine.listProperties();
-      setProperties(list);
-      if (list.length > 0) setPropertyId(list[0]!.propertyId);
-    })();
-  }, [engine]);
 
   // refresh stays throwing for the command state machine's refresh_failed
   // signal (SF3); the mount effect wraps it for the loading states (SWUX-009).
@@ -103,7 +97,6 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
     );
   }, [refresh]);
 
-  const property = properties.find((p) => p.propertyId === propertyId) ?? null;
   const newest = releases[0] ?? null;
   const pinRelease = releases.find((r) => r.canonReleaseId === pinReleaseId) ?? null;
   const reviewOpen = snapshotReview !== null || productionReview !== null;
@@ -246,21 +239,7 @@ export function ReleaseBuilder({ client }: { client?: EngineClient }): React.JSX
       </div>
 
       <div className="max-w-sm">
-        <div className="flex flex-col gap-1.5">
-          <Label htmlFor="rb-property">Property</Label>
-          <Select
-            id="rb-property"
-            value={propertyId}
-            onChange={(event) => setPropertyId(event.target.value)}
-            disabled={properties.length === 0 || reviewOpen}
-          >
-            {properties.map((item) => (
-              <option key={item.propertyId} value={item.propertyId}>
-                {item.name}
-              </option>
-            ))}
-          </Select>
-        </div>
+        <PropertyPicker engine={engine} onProperty={setProperty} labelId="rb-property" disabled={reviewOpen} />
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">

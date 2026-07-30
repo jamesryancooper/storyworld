@@ -13,6 +13,7 @@ import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Loading } from "@/components/ui/loading";
 import { StatusMessage } from "@/components/ui/status-message";
+import { PropertyPicker } from "@/components/property-picker";
 import { describeCommandFailure, useEngineCommand } from "@/lib/command-state";
 import { clearUnknownOutcome, recordUnknownOutcome } from "@/lib/unknown-outcome-log";
 import {
@@ -26,8 +27,8 @@ import {
 
 export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Element {
   const engine = React.useMemo(() => client ?? createEngineClient(), [client]);
-  const [properties, setProperties] = React.useState<PropertySummary[]>([]);
-  const [propertyId, setPropertyId] = React.useState("");
+  const [property, setProperty] = React.useState<PropertySummary | null>(null);
+  const propertyId = property?.propertyId ?? "";
   const [proposals, setProposals] = React.useState<ProposalView[]>([]);
   const [structureProposals, setStructureProposals] = React.useState<StructureProposalView[]>([]);
   const [loaded, setLoaded] = React.useState(false);
@@ -43,14 +44,6 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
   const [eventSummary, setEventSummary] = React.useState("");
   const decide = useEngineCommand<{ decisionId: string; revisionId: string | null; receiptId: string }>();
   const file = useEngineCommand<{ proposalId: string }>();
-
-  React.useEffect(() => {
-    void (async () => {
-      const list = await engine.listProperties();
-      setProperties(list);
-      if (list.length > 0) setPropertyId(list[0]!.propertyId);
-    })();
-  }, [engine]);
 
   // refresh stays throwing for the command state machine's refresh_failed
   // signal (SF3); the mount effect wraps it for the loading states (SWUX-009).
@@ -163,7 +156,6 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
   const pending = proposals.filter((p) => p.decision === null);
   const decided = proposals.filter((p) => p.decision !== null);
   const pendingStructure = structureProposals.filter((p) => p.decision === null);
-  const property = properties.find((p) => p.propertyId === propertyId) ?? null;
   const reviewing = pending.find((p) => p.proposalId === reviewingId) ?? null;
   const structureReviewing = pendingStructure.find((p) => p.proposalId === structureReviewingId) ?? null;
   const decideFailure = describeCommandFailure(decide.status, decide.error);
@@ -228,21 +220,7 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
       </div>
 
       <div className="max-w-sm">
-        <div className="flex flex-col gap-1.5">
-          <Label htmlFor="rr-property">Property</Label>
-          <Select
-            id="rr-property"
-            value={propertyId}
-            onChange={(event) => setPropertyId(event.target.value)}
-            disabled={properties.length === 0}
-          >
-            {properties.map((property) => (
-              <option key={property.propertyId} value={property.propertyId}>
-                {property.name}
-              </option>
-            ))}
-          </Select>
-        </div>
+        <PropertyPicker engine={engine} onProperty={setProperty} labelId="rr-property" />
       </div>
 
       <Card>

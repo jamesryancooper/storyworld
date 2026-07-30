@@ -8,6 +8,7 @@ export default defineConfig({
     environment: "jsdom",
     testTimeout: 120_000,
     hookTimeout: 120_000,
+    setupFiles: ["./src/test/setup.ts"],
   },
   resolve: {
     alias: { "@": new URL("./src", import.meta.url).pathname },
