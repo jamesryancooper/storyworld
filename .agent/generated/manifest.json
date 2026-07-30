@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-30T18:53:44.181657+00:00",
-  "generation_id": "25ffed04598840889ab79ce51cb45b6b",
+  "generated_at": "2026-07-30T19:37:13.846465+00:00",
+  "generation_id": "b938228bbdd03bbecff8e0b7a54ddfd3",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -75,6 +75,7 @@
     ".agent/evidence/EVD-0023-storyworld-ux-capability-adoption.md",
     ".agent/evidence/EVD-0024-phase0-acceptance.md",
     ".agent/evidence/EVD-0025-phase1-implementation.md",
+    ".agent/evidence/EVD-0026-phase1-rendered-verification.md",
     ".agent/evidence/README.md",
     ".agent/extensions/README.md",
     ".agent/extensions/registry.json",
@@ -595,7 +596,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "23dcd51e5a82fab6607ad2747e2d594a103323457f2964251c0647bc1b8eccf1",
+  "source_fingerprint": "5ddbdd4e18593bdd25cb7a3b96604846df8f5d2525aac13208bee5dd0d3a6099",
   "source_scope": {
     "exclusions": [
       {

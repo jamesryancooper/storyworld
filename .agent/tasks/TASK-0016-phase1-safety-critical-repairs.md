@@ -2,8 +2,8 @@
 {
   "schema_version": "harness.task.v1",
   "id": "TASK-0016",
-  "status": "in_progress",
-  "previous_status": "ready",
+  "status": "completed",
+  "previous_status": "review",
   "title": "Phase 1: repair safety-critical Studio and Engine behavior (SWUX-001..007)",
   "authority_basis": "external:operator improvement-program request 2026-07-29 and the owner's Phase 0 acceptance of 2026-07-30 (DEC-0019..0027; EVD-0024). This task implements only the accepted Phase 1 scope under those decisions; reserved crossings stay closed and no readiness claim results.",
   "owner": "claude-agent (improvement program lead)",
@@ -33,15 +33,17 @@
     "git diff --check",
     "focused rendered checks of every changed surface against loopback services with synthetic data: mutation states (success, validation failure, permission denial, stale/conflict, unavailable, unknown, refresh-failed), keyboard paths for consequence reviews, and both themes"
   ],
-  "implementation_result": null,
-  "review_evidence": ["REV-0001", "EVD-0022", "EVD-0025", "REV-0002"],
+  "implementation_result": "Remediated SWUX-001..007 across kernel, engine-api, evaluation, credentials, persistence, and Studio (EVD-0025); a two-agent adversarial post-change audit found 14 findings, 13 remediated in-session with new negative tests (REV-0002); the rendered browser pass verified the acceptance surfaces and caught and fixed one load-time defect (EVD-0026). All five exit-gate classes pass; workspace green (kernel 15, engine-api 14, studio 65, all others). Reserved crossings stayed closed; one governed test mutation was written to the local synthetic fixture.",
+  "review_evidence": ["REV-0001", "EVD-0022", "EVD-0025", "REV-0002", "EVD-0026"],
   "blocked_by": [],
   "reopened_by": null,
-  "acceptance_criteria_met": false,
-  "closure_evidence": [],
-  "external_effects": "not_assessed",
+  "acceptance_criteria_met": true,
+  "closure_evidence": ["EVD-0025", "REV-0002", "EVD-0026"],
+  "external_effects": "repository_local",
   "limitations": [
-    "Implementation, engineering validation (EVD-0025), and the focused post-change audit with its remediation (REV-0002) are complete; the audit's five gate classes pass at source/test level. Open before closure: the rendered real-browser/assistive-technology checks. REV-0002 S6 was dispositioned by the owner on 2026-07-30: no generation confirmation step for the alpha; the cost preview and per-recipe ceiling stand.",
+    "Implementation (EVD-0025), the focused post-change audit and remediation (REV-0002, all five gate classes pass), and the rendered browser pass (EVD-0026) are complete. REV-0002 S6 was dispositioned by the owner on 2026-07-30: no generation confirmation step for the alpha; the cost preview and per-recipe ceiling stand.",
+    "Rendered-matrix tooling gaps recorded in EVD-0026 and not covered: dark theme (no prefers-color-scheme emulation), true ~320 px reflow (OS clamped to 606 px), screen reader, 200% page zoom, forced colors, reduced motion, and live failure-state rendering (covered by the component suite). No WCAG conformance is claimed.",
+    "The pre-existing narrow-navigation (SWUX-008) and ~320 px overflow (SWUX-014) gaps are unchanged and remain Phase 2 scope, not Phase 1 regressions.",
     "Browser and assistive-technology coverage is bounded to locally executable tooling; untested configurations are recorded and no WCAG conformance claim results.",
     "This task hardens the local development alpha within the DEC-0017 boundary; it creates no production identity, transport security, or readiness claim.",
     "Queued Arc authoring mode and the per-property toggle are explicitly the bounded follow-on task after this task's exit gate (DEC-0020)."
@@ -124,14 +126,15 @@ review record rather than editing REV-0001.
 
 - Evidence: EVD-0025 (implementation and engineering validation); REV-0002
   (focused post-change audit: 14 adversarial findings, 13 remediated
-  in-session with new negative tests, per-class gate assessment pass at
-  source/test level).
+  in-session, per-class gate assessment pass); EVD-0026 (rendered browser
+  pass: acceptance surfaces verified, one load-time defect found and fixed).
 - Review: REV-0002 recorded as a successor review; REV-0001 unmodified.
-- External effects: none; loopback compose postgres and in-process engine
-  instances only.
-- Residual limitations: rendered browser/AT matrix not yet executed; S2
-  reload recovery is disclosure-only; E6/E7 identity-crossing deferrals.
-- Next action: execute the rendered checks of changed surfaces, then close
-  against the acceptance criteria. REV-0002 S6 is dispositioned (owner,
-  2026-07-30: no confirmation step for now). The queued-mode + toggle
-  follow-on task opens after this task's exit gate (DEC-0020).
+- External effects: repository-local; loopback compose postgres and
+  in-process engine only; one governed test mutation to the local synthetic
+  fixture; reserved crossings stayed closed.
+- Residual limitations: rendered-matrix tooling gaps (dark theme, 320 px,
+  AT, zoom — EVD-0026); S2 reload recovery is disclosure-only; E6/E7
+  identity-crossing deferrals; E5 legacy-throw cleanup (Phase 2).
+- Next action: TASK-0016 complete. The queued-Arc-mode + toggle follow-on
+  task (DEC-0020) may open next; Phase 2 (SWUX-008..015, incl. the deferred
+  narrow-navigation and overflow gaps) follows the program sequence.

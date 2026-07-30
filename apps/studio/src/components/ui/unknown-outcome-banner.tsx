@@ -16,10 +16,14 @@ import {
  * (the server has no sessionStorage).
  */
 export function UnknownOutcomeBanner(): React.JSX.Element | null {
+  // Both snapshots return the module's stable `cache` reference (the server
+  // value is always the initial empty array), so React never sees a changing
+  // snapshot and its infinite-loop guard stays quiet. Hydration parity is
+  // handled separately by the mount gate below.
   const entries = React.useSyncExternalStore(
     subscribeUnknownOutcomes,
     listUnknownOutcomes,
-    () => [],
+    listUnknownOutcomes,
   );
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => setMounted(true), []);

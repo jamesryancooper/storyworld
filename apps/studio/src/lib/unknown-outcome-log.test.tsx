@@ -25,6 +25,21 @@ describe("unknown-outcome log (SF2/SWUX-001)", () => {
     expect(listUnknownOutcomes()).toHaveLength(0);
   });
 
+  it("returns a referentially stable snapshot until the store changes (useSyncExternalStore safety)", () => {
+    // getSnapshot / getServerSnapshot must return the SAME reference across
+    // calls when nothing changed, or React's useSyncExternalStore throws
+    // "getServerSnapshot should be cached to avoid an infinite loop" (a
+    // render-time error jsdom's store shim does not surface, so assert the
+    // underlying invariant directly).
+    const a = listUnknownOutcomes();
+    const b = listUnknownOutcomes();
+    expect(a).toBe(b);
+    recordUnknownOutcome({ id: "op-stable", actionLabel: "accepted decision", subjectLabel: "X" });
+    const c = listUnknownOutcomes();
+    expect(c).not.toBe(a);
+    expect(listUnknownOutcomes()).toBe(c);
+  });
+
   it("the banner renders recorded outcomes and Dismiss removes them", async () => {
     recordUnknownOutcome({ id: "op-2", actionLabel: "canon release", subjectLabel: "Stillhouse" });
     const user = userEvent.setup();

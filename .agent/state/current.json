@@ -4,7 +4,7 @@
   "updated_at": "2026-07-30",
   "authority": "project_maintained_compact_operational_index_not_permission",
   "adoption_status": "adopted",
-  "active_tasks": ["TASK-0016"],
+  "active_tasks": [],
   "accepted_decisions": [
     "DEC-0001",
     "DEC-0002",
@@ -40,10 +40,12 @@
     "EVD-0021",
     "EVD-0022",
     "EVD-0023",
-    "EVD-0024"
+    "EVD-0024",
+    "EVD-0025",
+    "EVD-0026"
   ],
   "blocked_by": [],
-  "next_action": "TASK-0016 Phase 1: implementation (EVD-0025) plus the focused post-change audit and its remediation (REV-0002) are complete — 14 adversarial findings, 13 fixed in-session (atomic actor-scoped idempotency reservation, root-fork DB guards, typed 409/404 conflicts, identity_source in receipts, recovery controls in every acceptance flow, unknown-outcome banner, frozen review subjects, op-scoped keys); all five gate classes pass at source/test level; workspace fully green. Open before closure: rendered browser/AT checks only — REV-0002 S6 was dispositioned by the owner 2026-07-30 (no generation confirmation step in the alpha; cost preview and per-recipe ceiling stand). Follow-ons unchanged (DEC-0020/0026/0024).",
+  "next_action": "Phase 1 (TASK-0016) is COMPLETE: SWUX-001..007 remediated (EVD-0025), adversarial post-change audit with 13/14 findings fixed (REV-0002, all five gate classes pass), rendered browser pass done (EVD-0026 — verified the acceptance surfaces and caught+fixed one load-time banner defect), owner dispositioned S6. Workspace green (kernel 15, engine-api 14, studio 65). Recorded rendered-matrix gaps: dark theme, true 320px, AT, zoom (tooling limits, no WCAG claim). Next owner-directed work: the queued-Arc-mode + toggle follow-on (DEC-0020), or Phase 2 (SWUX-008..015, incl. deferred narrow-nav/overflow), then search (DEC-0026) and graph (DEC-0024) after their gates. Reserved crossings remain closed.",
   "external_effects_authority_refs": [],
   "limitations": [
     "behavioral_proofs_only_no_readiness_claim",
