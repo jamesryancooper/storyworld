@@ -10,8 +10,10 @@ import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Textarea } from "@/components/ui/textarea";
+import { CommandRecovery } from "@/components/ui/command-recovery";
 import { ProductionPicker } from "@/components/production-picker";
 import { describeCommandFailure, useEngineCommand } from "@/lib/command-state";
+import { clearUnknownOutcome, recordUnknownOutcome } from "@/lib/unknown-outcome-log";
 import {
   actorLine,
   createEngineClient,
@@ -83,8 +85,12 @@ export function ContinuityConsole({ client }: { client?: EngineClient }): React.
       },
       refresh,
     });
-    if (outcome === "confirmed") {
-      setNotice(`Evaluation recorded ${count} finding(s).`);
+    if (outcome === "confirmed" || outcome === "refresh_failed") {
+      setNotice(
+        outcome === "confirmed"
+          ? `Evaluation recorded ${count} finding(s).`
+          : `Evaluation recorded ${count} finding(s) — but refreshing the list failed; reload to see them.`,
+      );
       evaluate.reset();
     }
   }
@@ -102,34 +108,51 @@ export function ContinuityConsole({ client }: { client?: EngineClient }): React.
   const needsWaiver = disposition === "intentional_exception" || disposition === "waived";
   const waiverIncomplete = needsWaiver && (rationale.trim().length === 0 || scope.trim().length === 0);
 
-  async function onConfirmDisposition(finding: FindingView): Promise<void> {
-    let receipt: string | null = null;
-    const outcome = await dispose.run({
-      execute: async (idempotencyKey) => {
-        const out = await engine.disposeFinding(
-          {
-            findingId: finding.findingId,
-            disposition,
-            ...(needsWaiver
-              ? { waiver: { reason: rationale.trim(), scope: scope.trim(), expiry: expiry ? expiry : null } }
-              : {}),
-          },
-          { idempotencyKey },
-        );
-        receipt = out.receiptId;
-        return out;
-      },
-      refresh,
-    });
+  const disposeCtx = React.useRef<
+    { opId: string; disposition: string; subjectLabel: string; receipt: string | null } | null
+  >(null);
+
+  function finalizeDisposition(outcome: string): void {
+    const ctx = disposeCtx.current;
+    if (!ctx) return;
     if (outcome === "confirmed" || outcome === "refresh_failed") {
+      clearUnknownOutcome(ctx.opId);
       setReviewingId(null);
       setNotice(
         outcome === "confirmed"
-          ? `Disposition "${disposition}" recorded${receipt ? ` — receipt ${receipt}` : ""}.`
-          : `Disposition "${disposition}" recorded${receipt ? ` (receipt ${receipt})` : ""} — but refreshing the list failed; reload to see current state.`,
+          ? `Disposition "${ctx.disposition}" recorded${ctx.receipt ? ` — receipt ${ctx.receipt}` : ""}.`
+          : `Disposition "${ctx.disposition}" recorded${ctx.receipt ? ` (receipt ${ctx.receipt})` : ""} — but refreshing the list failed; reload to see current state.`,
       );
       dispose.reset();
+    } else if (outcome === "unknown" || outcome === "unavailable") {
+      recordUnknownOutcome({ id: ctx.opId, actionLabel: `${ctx.disposition} disposition`, subjectLabel: ctx.subjectLabel });
     }
+  }
+
+  async function onConfirmDisposition(finding: FindingView): Promise<void> {
+    const opId = `dispose:${finding.findingId}:${disposition}`;
+    disposeCtx.current = { opId, disposition, subjectLabel: `finding ${finding.findingId}`, receipt: null };
+    const outcome = await dispose.run(
+      {
+        execute: async (idempotencyKey) => {
+          const out = await engine.disposeFinding(
+            {
+              findingId: finding.findingId,
+              disposition,
+              ...(needsWaiver
+                ? { waiver: { reason: rationale.trim(), scope: scope.trim(), expiry: expiry ? expiry : null } }
+                : {}),
+            },
+            { idempotencyKey },
+          );
+          if (disposeCtx.current) disposeCtx.current.receipt = out.receiptId;
+          return out;
+        },
+        refresh,
+      },
+      opId,
+    );
+    finalizeDisposition(outcome);
   }
 
   const open = findings.filter((f) => f.disposition === "open");
@@ -340,6 +363,14 @@ export function ContinuityConsole({ client }: { client?: EngineClient }): React.
                   </div>
                 </ConsequenceReview>
                 {disposeFailure ? <p className="text-sm text-destructive">{disposeFailure}</p> : null}
+                <CommandRecovery
+                  status={dispose.status}
+                  onRetry={() => void dispose.retry().then(finalizeDisposition)}
+                  onCheckStatus={() => {
+                    void refresh();
+                    setNotice("Findings refetched — check whether this disposition already applied before retrying.");
+                  }}
+                />
               </div>
             ) : null}
           </CardContent>

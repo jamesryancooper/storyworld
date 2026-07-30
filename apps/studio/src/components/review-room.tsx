@@ -4,6 +4,7 @@ import * as React from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { CommandRecovery } from "@/components/ui/command-recovery";
 import { ConsequenceReview } from "@/components/ui/consequence-review";
 import { InfoHint } from "@/components/ui/info-hint";
 import { Input } from "@/components/ui/input";
@@ -11,6 +12,7 @@ import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { describeCommandFailure, useEngineCommand } from "@/lib/command-state";
+import { clearUnknownOutcome, recordUnknownOutcome } from "@/lib/unknown-outcome-log";
 import {
   actorLine,
   createEngineClient,
@@ -51,33 +53,50 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
     void refresh();
   }, [refresh]);
 
+  const decideCtx = React.useRef<
+    { opId: string; decision: string; subjectLabel: string; receipt: string | null } | null
+  >(null);
+
+  function finalizeDecide(outcome: string): void {
+    const ctx = decideCtx.current;
+    if (!ctx) return;
+    if (outcome === "confirmed" || outcome === "refresh_failed") {
+      clearUnknownOutcome(ctx.opId);
+      setReviewingId(null);
+      setNotice(
+        outcome === "confirmed"
+          ? `Decision "${ctx.decision}" recorded${ctx.receipt ? ` — receipt ${ctx.receipt}` : ""}.`
+          : `Decision "${ctx.decision}" recorded${ctx.receipt ? ` (receipt ${ctx.receipt})` : ""} — but refreshing the queue failed; reload to see current state.`,
+      );
+      decide.reset();
+    } else if (outcome === "unknown" || outcome === "unavailable") {
+      recordUnknownOutcome({ id: ctx.opId, actionLabel: `${ctx.decision} decision`, subjectLabel: ctx.subjectLabel });
+    }
+  }
+
   async function onDecide(proposal: ProposalView, decision: "accepted" | "rejected"): Promise<void> {
     setNotice(null);
     const stableId =
       proposal.proposalType === "entity" && typeof proposal.payload["entity_id"] === "string"
         ? { stableId: proposal.payload["entity_id"] }
         : {};
-    let receipt: string | null = null;
-    const outcome = await decide.run({
-      execute: async (idempotencyKey) => {
-        const out = await engine.decideProposal(
-          { proposalId: proposal.proposalId, decision, ...stableId },
-          { idempotencyKey },
-        );
-        receipt = out.receiptId;
-        return out;
+    const opId = `decide:${proposal.proposalId}:${decision}`;
+    decideCtx.current = { opId, decision, subjectLabel: `proposal "${describe(proposal)}"`, receipt: null };
+    const outcome = await decide.run(
+      {
+        execute: async (idempotencyKey) => {
+          const out = await engine.decideProposal(
+            { proposalId: proposal.proposalId, decision, ...stableId },
+            { idempotencyKey },
+          );
+          if (decideCtx.current) decideCtx.current.receipt = out.receiptId;
+          return out;
+        },
+        refresh,
       },
-      refresh,
-    });
-    if (outcome === "confirmed" || outcome === "refresh_failed") {
-      setReviewingId(null);
-      setNotice(
-        outcome === "confirmed"
-          ? `Decision "${decision}" recorded${receipt ? ` — receipt ${receipt}` : ""}.`
-          : `Decision "${decision}" recorded${receipt ? ` (receipt ${receipt})` : ""} — but refreshing the queue failed; reload to see current state.`,
-      );
-      decide.reset();
-    }
+      opId,
+    );
+    finalizeDecide(outcome);
   }
 
   const pending = proposals.filter((p) => p.decision === null);
@@ -352,6 +371,14 @@ export function ReviewRoom({ client }: { client?: EngineClient }): React.JSX.Ele
                 </pre>
               </ConsequenceReview>
               {decideFailure ? <p className="text-sm text-destructive">{decideFailure}</p> : null}
+              <CommandRecovery
+                status={decide.status}
+                onRetry={() => void decide.retry().then(finalizeDecide)}
+                onCheckStatus={() => {
+                  void refresh();
+                  setNotice("Queue refetched — check whether the decision already applied before retrying.");
+                }}
+              />
             </div>
           ) : null}
           {decided.length > 0 ? (

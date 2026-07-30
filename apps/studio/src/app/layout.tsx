@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { UnknownOutcomeBanner } from "@/components/ui/unknown-outcome-banner";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -59,7 +60,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
               <p className="text-sm text-muted-foreground">Storyworld Engine workspace</p>
               <Badge variant="outline">ryan-cooper · property_owner · development identity — not verified</Badge>
             </header>
-            <main className="flex-1 px-6 py-6">{children}</main>
+            <main className="flex-1 px-6 py-6">
+              <UnknownOutcomeBanner />
+              {children}
+            </main>
           </div>
         </div>
       </body>

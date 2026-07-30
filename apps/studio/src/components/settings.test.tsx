@@ -91,6 +91,42 @@ describe("Settings (provider credentials)", () => {
     expect(keys[1]).toBe(keys[0]);
   });
 
+  it("keyboard-only save takes two explicit activations (SF1)", async () => {
+    const engine = mockEngine();
+    const user = userEvent.setup();
+    render(<Settings client={engine} />);
+    await waitFor(() => expect(screen.getByLabelText("Enter key")).toBeDefined());
+    await user.type(screen.getByLabelText("Enter key"), KEY);
+    const save = screen.getByRole("button", { name: "Save encrypted" });
+    save.focus();
+    await user.keyboard("{Enter}");
+    // The review opened; nothing stored by that single activation.
+    expect(engine.storedKeys).toHaveLength(0);
+    const confirm = await screen.findByRole("button", { name: "Save encrypted — open crossing" });
+    confirm.focus();
+    await user.keyboard("{Enter}");
+    await waitFor(() => expect(engine.storedKeys).toHaveLength(1));
+  });
+
+  it("keyboard-only revoke takes two explicit activations (SF1)", async () => {
+    const engine = mockEngine();
+    const user = userEvent.setup();
+    render(<Settings client={engine} />);
+    await waitFor(() => expect(screen.getByLabelText("Enter key")).toBeDefined());
+    await user.type(screen.getByLabelText("Enter key"), KEY);
+    await user.click(screen.getByRole("button", { name: "Save encrypted" }));
+    await user.click(screen.getByRole("button", { name: "Save encrypted — open crossing" }));
+    await waitFor(() => expect(screen.getByRole("button", { name: "Revoke" })).toBeDefined());
+    const revoke = screen.getByRole("button", { name: "Revoke" });
+    revoke.focus();
+    await user.keyboard("{Enter}");
+    expect(engine.revokedKeys).toHaveLength(0);
+    const confirm = await screen.findByRole("button", { name: "Revoke — deny immediately" });
+    confirm.focus();
+    await user.keyboard("{Enter}");
+    await waitFor(() => expect(engine.revokedKeys).toHaveLength(1));
+  });
+
   it("has no accessibility violations, including the open review region", async () => {
     const user = userEvent.setup();
     const { container } = render(<Settings client={mockEngine()} />);

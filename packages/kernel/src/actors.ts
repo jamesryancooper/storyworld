@@ -8,6 +8,13 @@ export interface Actor {
   id: string;
   kind: "human" | "model" | "import" | "service";
   role: string;
+  /**
+   * How this identity was established for the request (DEC-0021; REV-0002).
+   * "mock_idp" is a verified bearer token; "dev_header" is an unverified,
+   * self-asserted development header. Recorded in receipts so a decision's
+   * provenance never overstates the identity that was actually verified.
+   */
+  identitySource?: "dev_header" | "mock_idp";
 }
 
 export function requireHuman(actor: Actor, action: string): void {
@@ -40,3 +47,6 @@ export class ValidationError extends Error {}
 
 /** Stale supersession or conflicting concurrent state (HTTP 409). */
 export class ConflictError extends Error {}
+
+/** A named subject does not exist (HTTP 404). */
+export class NotFoundError extends Error {}

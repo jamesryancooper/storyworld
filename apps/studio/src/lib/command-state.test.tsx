@@ -99,6 +99,79 @@ describe("useEngineCommand (SWUX-001 safe-command state machine)", () => {
     }
   });
 
+  it("mints a fresh key when the operation identity changes, retains it for the same op (SF5)", async () => {
+    const keys: string[] = [];
+    let firstOpCalls = 0;
+    const user = userEvent.setup();
+    function TwoOps(): React.JSX.Element {
+      const command = useEngineCommand<string>();
+      return (
+        <div>
+          <output aria-label="status">{command.status}</output>
+          <button
+            onClick={() =>
+              void command.run(
+                {
+                  execute: async (key) => {
+                    keys.push(key);
+                    firstOpCalls += 1;
+                    if (firstOpCalls === 1) throw new EngineError(400, "validation", "bad");
+                    return "a";
+                  },
+                },
+                "op-A",
+              )
+            }
+          >
+            runA
+          </button>
+          <button
+            onClick={() =>
+              void command.run(
+                {
+                  execute: async (key) => {
+                    keys.push(key);
+                    return "b";
+                  },
+                },
+                "op-B",
+              )
+            }
+          >
+            runB
+          </button>
+        </div>
+      );
+    }
+    render(<TwoOps />);
+    // op-A fails validation: its key is retained for a same-op retry…
+    await user.click(screen.getByRole("button", { name: "runA" }));
+    await waitFor(() => expect(screen.getByLabelText("status").textContent).toBe("validation_failed"));
+    await user.click(screen.getByRole("button", { name: "runA" }));
+    await waitFor(() => expect(keys).toHaveLength(2));
+    expect(keys[1]).toBe(keys[0]);
+    // …but switching to a different operation mints a fresh key (no leak).
+    await user.click(screen.getByRole("button", { name: "runB" }));
+    await waitFor(() => expect(keys).toHaveLength(3));
+    expect(keys[2]).not.toBe(keys[0]);
+  });
+
+  it("treats an unclassifiable failure as unknown so duplicates stay blocked", async () => {
+    const user = userEvent.setup();
+    render(
+      <Harness
+        execute={async () => {
+          throw new Error("socket hang up");
+        }}
+      />,
+    );
+    await user.click(screen.getByRole("button", { name: "run" }));
+    await waitFor(() => expect(screen.getByLabelText("status").textContent).toBe("unknown"));
+    await user.click(screen.getByRole("button", { name: "run" }));
+    // Still one attempt: an unknown outcome blocks re-run until retry/reconcile.
+    expect(screen.getByLabelText("status").textContent).toBe("unknown");
+  });
+
   it("blocks duplicate submissions while one is in flight", async () => {
     let calls = 0;
     let release: (() => void) | null = null;

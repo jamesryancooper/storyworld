@@ -34,14 +34,14 @@
     "focused rendered checks of every changed surface against loopback services with synthetic data: mutation states (success, validation failure, permission denial, stale/conflict, unavailable, unknown, refresh-failed), keyboard paths for consequence reviews, and both themes"
   ],
   "implementation_result": null,
-  "review_evidence": ["REV-0001", "EVD-0022", "EVD-0025"],
+  "review_evidence": ["REV-0001", "EVD-0022", "EVD-0025", "REV-0002"],
   "blocked_by": [],
   "reopened_by": null,
   "acceptance_criteria_met": false,
   "closure_evidence": [],
   "external_effects": "not_assessed",
   "limitations": [
-    "Implementation and engineering validation are complete (EVD-0025). Open gate items before closure: the focused post-change storyworld-ux audit (successor review record) and the rendered real-browser/assistive-technology checks of the changed surfaces.",
+    "Implementation, engineering validation (EVD-0025), and the focused post-change audit with its remediation (REV-0002) are complete; the audit's five gate classes pass at source/test level. Open before closure: the rendered real-browser/assistive-technology checks, and the REV-0002 S6 owner decision on a consequence review for live-provider generation spend.",
     "Browser and assistive-technology coverage is bounded to locally executable tooling; untested configurations are recorded and no WCAG conformance claim results.",
     "This task hardens the local development alpha within the DEC-0017 boundary; it creates no production identity, transport security, or readiness claim.",
     "Queued Arc authoring mode and the per-property toggle are explicitly the bounded follow-on task after this task's exit gate (DEC-0020)."
@@ -122,17 +122,16 @@ review record rather than editing REV-0001.
 
 ## Evidence and closure
 
-- Evidence: EVD-0025 (implementation and full-workspace engineering
-  validation; all suites green including the live-engine integration
-  file).
-- Review: pending — the focused post-change storyworld-ux audit of the
-  implemented scope is the next step and produces a successor review
-  record, not an edit to REV-0001.
+- Evidence: EVD-0025 (implementation and engineering validation); REV-0002
+  (focused post-change audit: 14 adversarial findings, 13 remediated
+  in-session with new negative tests, per-class gate assessment pass at
+  source/test level).
+- Review: REV-0002 recorded as a successor review; REV-0001 unmodified.
 - External effects: none; loopback compose postgres and in-process engine
   instances only.
-- Residual limitations: rendered browser/AT matrix not yet executed; see
-  EVD-0025.
-- Next action: run the focused post-change audit (REV-0002), execute the
-  rendered checks of changed surfaces, then close against the acceptance
-  criteria. The queued-mode + toggle follow-on task opens after this
-  task's exit gate (DEC-0020).
+- Residual limitations: rendered browser/AT matrix not yet executed; S2
+  reload recovery is disclosure-only; E6/E7 identity-crossing deferrals.
+- Next action: execute the rendered checks of changed surfaces; owner
+  decides REV-0002 S6 (consequence review for live-provider generation);
+  then close against the acceptance criteria. The queued-mode + toggle
+  follow-on task opens after this task's exit gate (DEC-0020).

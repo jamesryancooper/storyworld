@@ -4,9 +4,33 @@ import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, it } from "vitest";
 import { expectAccessible } from "@/test/axe";
 import { mockEngine } from "@/test/mock-engine";
+import { EngineError, EngineUnknownOutcomeError, type ProposalView } from "@/lib/engine";
 import { ReviewRoom } from "./review-room";
 
 afterEach(cleanup);
+
+const TWO_PENDING: ProposalView[] = [
+  {
+    proposalId: "cp-A",
+    branchId: "b-1",
+    proposalType: "entity",
+    payload: { entity_id: "e-A", entity_type: "character", name: "Proposal A" },
+    proposedBy: "extraction-model",
+    proposerKind: "model",
+    createdAt: "2026-07-28T00:00:00.000Z",
+    decision: null,
+  },
+  {
+    proposalId: "cp-B",
+    branchId: "b-1",
+    proposalType: "entity",
+    payload: { entity_id: "e-B", entity_type: "character", name: "Proposal B" },
+    proposedBy: "extraction-model",
+    proposerKind: "model",
+    createdAt: "2026-07-28T00:00:00.000Z",
+    decision: null,
+  },
+];
 
 describe("Review Room", () => {
   it("separates the pending queue from decided proposals", async () => {
@@ -102,6 +126,56 @@ describe("Review Room", () => {
     expect(engine.filed[0]!["proposalType"]).toBe("timeline_event");
     expect(payload["story_time"]).toBe("1989-06-03");
     expect(payload["summary"]).toBe("The cellar door is found unlocked");
+  });
+
+  it("an unknown outcome offers a same-key retry and a status reconcile (SF1)", async () => {
+    let fail = true;
+    const keys: (string | undefined)[] = [];
+    const base = mockEngine();
+    const flaky = mockEngine({
+      async decideProposal(input, opts) {
+        keys.push(opts?.idempotencyKey);
+        if (fail) throw new EngineUnknownOutcomeError("/v1/review-decisions");
+        return base.decideProposal(input, opts);
+      },
+    });
+    const user = userEvent.setup();
+    render(<ReviewRoom client={flaky} />);
+    await waitFor(() => expect(screen.getByRole("button", { name: "Review…" })).toBeDefined());
+    await user.click(screen.getByRole("button", { name: "Review…" }));
+    await user.click(screen.getByRole("button", { name: "Accept" }));
+    await waitFor(() => expect(screen.getByText(/outcome is unknown/)).toBeDefined());
+    expect(screen.getByRole("button", { name: "Check current status" })).toBeDefined();
+    fail = false;
+    await user.click(screen.getByRole("button", { name: "Retry (same idempotency key)" }));
+    await waitFor(() => expect(screen.getByText(/Decision "accepted" recorded/)).toBeDefined());
+    expect(keys).toHaveLength(2);
+    expect(keys[1]).toBe(keys[0]);
+  });
+
+  it("a failed decision on one proposal does not leak its key to another (SF5)", async () => {
+    const keys: (string | undefined)[] = [];
+    const engine = mockEngine({
+      async listCanonProposals() {
+        return TWO_PENDING;
+      },
+      async decideProposal(_input, opts) {
+        keys.push(opts?.idempotencyKey);
+        throw new EngineError(400, "validation", "bad decision");
+      },
+    });
+    const user = userEvent.setup();
+    render(<ReviewRoom client={engine} />);
+    await waitFor(() => expect(screen.getByText(/Proposal A/)).toBeDefined());
+    const reviews = screen.getAllByRole("button", { name: "Review…" });
+    await user.click(reviews[0]!);
+    await user.click(screen.getByRole("button", { name: "Accept" }));
+    await waitFor(() => expect(screen.getByText(/refused this as invalid/)).toBeDefined());
+    const reviewsAgain = screen.getAllByRole("button", { name: "Review…" });
+    await user.click(reviewsAgain[1]!);
+    await user.click(screen.getByRole("button", { name: "Accept" }));
+    await waitFor(() => expect(keys).toHaveLength(2));
+    expect(keys[1]).not.toBe(keys[0]);
   });
 
   it("has no accessibility violations, including the open review region", async () => {

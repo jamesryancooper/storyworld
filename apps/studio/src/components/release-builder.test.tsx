@@ -61,6 +61,61 @@ describe("Release Builder", () => {
     await waitFor(() => expect(screen.getByText("Season Two")).toBeDefined());
   });
 
+  it("keyboard Enter in the snapshot form opens the review but never snapshots (SF1)", async () => {
+    const engine = mockEngine();
+    const user = userEvent.setup();
+    render(<ReleaseBuilder client={engine} />);
+    await waitFor(() => expect(screen.getByText("stillhouse-canon")).toBeDefined());
+    await user.type(screen.getByLabelText("Release name"), "stillhouse-canon");
+    const version = screen.getByLabelText("Version");
+    version.focus();
+    await user.type(version, "1.1.0");
+    await user.keyboard("{Enter}");
+    expect(engine.snapshots).toHaveLength(0);
+    expect(screen.getByRole("region")).toBeDefined();
+    await user.click(screen.getByRole("button", { name: "Snapshot canon release" }));
+    await waitFor(() => expect(engine.snapshots).toHaveLength(1));
+  });
+
+  it("keyboard Enter in the production form opens the review but never pins (SF1)", async () => {
+    const engine = mockEngine();
+    const user = userEvent.setup();
+    render(<ReleaseBuilder client={engine} />);
+    await waitFor(() => expect(screen.getByText("stillhouse-canon")).toBeDefined());
+    const name = screen.getByLabelText("Production name");
+    name.focus();
+    await user.type(name, "Season Two");
+    await user.keyboard("{Enter}");
+    expect(engine.productions).toHaveLength(0);
+    expect(screen.getByRole("region")).toBeDefined();
+    await user.click(screen.getByRole("button", { name: "Create production" }));
+    await waitFor(() => expect(engine.productions).toHaveLength(1));
+  });
+
+  it("freezes the reviewed property and disables the selector while a review is open (SF4)", async () => {
+    const engine = mockEngine({
+      async listProperties() {
+        return [
+          { propertyId: "p-1", name: "Stillhouse", propertyType: "fictional", officialBranchId: "b-1", createdAt: "2026-07-28T00:00:00.000Z" },
+          { propertyId: "p-2", name: "Vellumvale", propertyType: "brand", officialBranchId: "b-2", createdAt: "2026-07-28T00:00:00.000Z" },
+        ];
+      },
+    });
+    const user = userEvent.setup();
+    render(<ReleaseBuilder client={engine} />);
+    await waitFor(() => expect(screen.getByText("stillhouse-canon")).toBeDefined());
+    await user.type(screen.getByLabelText("Release name"), "stillhouse-canon");
+    await user.type(screen.getByLabelText("Version"), "1.1.0");
+    await user.click(screen.getByRole("button", { name: "Snapshot" }));
+    // The review names the exact property, and the selector can no longer
+    // be switched out from under the pending decision.
+    expect(within(screen.getByRole("region")).getByText("Stillhouse")).toBeDefined();
+    expect((screen.getByLabelText("Property") as HTMLSelectElement).disabled).toBe(true);
+    await user.click(screen.getByRole("button", { name: "Snapshot canon release" }));
+    await waitFor(() => expect(engine.snapshots).toHaveLength(1));
+    expect(engine.snapshots[0]).toMatchObject({ propertyId: "p-1" });
+  });
+
   it("has no accessibility violations, including the open review region", async () => {
     const user = userEvent.setup();
     const { container } = render(<ReleaseBuilder client={mockEngine()} />);

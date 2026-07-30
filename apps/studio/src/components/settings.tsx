@@ -8,6 +8,7 @@ import { ConsequenceReview } from "@/components/ui/consequence-review";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { describeCommandFailure, useEngineCommand } from "@/lib/command-state";
+import { clearUnknownOutcome, recordUnknownOutcome } from "@/lib/unknown-outcome-log";
 import { actorLine, createEngineClient, type CredentialStatusView, type EngineClient } from "@/lib/engine";
 
 const STATUS_VARIANT: Record<CredentialStatusView["status"], "default" | "outline" | "muted"> = {
@@ -42,7 +43,17 @@ export function Settings({ client }: { client?: EngineClient }): React.JSX.Eleme
 
   const finish = React.useCallback(
     (slot: CredentialStatusView, action: "save" | "revoke", outcome: string) => {
+      const opId = `cred:${slot.name}:${action}`;
+      if (outcome === "unknown" || outcome === "unavailable") {
+        recordUnknownOutcome({
+          id: opId,
+          actionLabel: action === "save" ? "credential save" : "credential revoke",
+          subjectLabel: `${slot.provider} slot`,
+        });
+        return;
+      }
       if (outcome !== "confirmed" && outcome !== "refresh_failed") return;
+      clearUnknownOutcome(opId);
       const receipt = receiptRef.current;
       if (action === "save") {
         // The key leaves the page only after the store confirmed it.
@@ -63,20 +74,23 @@ export function Settings({ client }: { client?: EngineClient }): React.JSX.Eleme
 
   async function onConfirm(slot: CredentialStatusView, action: "save" | "revoke"): Promise<void> {
     receiptRef.current = null;
-    const outcome = await command.run({
-      execute: async (idempotencyKey) => {
-        if (action === "save") {
-          const value = (drafts[slot.name] ?? "").trim();
-          const out = await engine.setCredential({ name: slot.name, value }, { idempotencyKey });
+    const outcome = await command.run(
+      {
+        execute: async (idempotencyKey) => {
+          if (action === "save") {
+            const value = (drafts[slot.name] ?? "").trim();
+            const out = await engine.setCredential({ name: slot.name, value }, { idempotencyKey });
+            receiptRef.current = out.receiptId;
+            return out;
+          }
+          const out = await engine.revokeCredential({ name: slot.name }, { idempotencyKey });
           receiptRef.current = out.receiptId;
           return out;
-        }
-        const out = await engine.revokeCredential({ name: slot.name }, { idempotencyKey });
-        receiptRef.current = out.receiptId;
-        return out;
+        },
+        refresh,
       },
-      refresh,
-    });
+      `cred:${slot.name}:${action}`,
+    );
     finish(slot, action, outcome);
   }
 

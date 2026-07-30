@@ -63,6 +63,64 @@ describe("Arc Board", () => {
     expect((screen.getByLabelText("Story time") as HTMLInputElement).value).toBe("1989-06-04");
   });
 
+  it("keyboard Enter in the form opens the review but never appends (SF1)", async () => {
+    const engine = mockEngine();
+    const user = userEvent.setup();
+    render(<ArcBoard client={engine} />);
+    await waitFor(() => expect(screen.getAllByText(/1989-06/)).toHaveLength(2));
+    const storyTime = screen.getByLabelText("Story time");
+    storyTime.focus();
+    await user.type(storyTime, "1989-06-03");
+    await user.keyboard("{Enter}");
+    // Enter submits the form → opens the review; nothing is appended yet.
+    expect(engine.added).toHaveLength(0);
+    expect(screen.getByRole("region")).toBeDefined();
+    // A second, explicit activation is required to record.
+    await user.click(screen.getByRole("button", { name: "Save as accepted revision" }));
+    await waitFor(() => expect(engine.added).toHaveLength(1));
+  });
+
+  it("a refresh failure after a recorded append is surfaced, not swallowed (SF3)", async () => {
+    let calls = 0;
+    const engine = mockEngine({
+      async getNarrativeStructure() {
+        calls += 1;
+        if (calls > 1) throw new Error("refetch boom");
+        return {
+          structureRevisionId: "sr-1",
+          contentSha256: "d".repeat(64),
+          document: { narrative_units: [], choices: [], branches: [], threads: [] },
+        };
+      },
+    });
+    const user = userEvent.setup();
+    render(<ArcBoard client={engine} />);
+    await waitFor(() => expect(screen.getByLabelText("Story time")).toBeDefined());
+    await user.type(screen.getByLabelText("Story time"), "1989-06-03");
+    await user.click(screen.getByRole("button", { name: "Add unit" }));
+    await user.click(screen.getByRole("button", { name: "Save as accepted revision" }));
+    await waitFor(() => expect(engine.added).toHaveLength(1));
+    // The append committed; the warning is visible with its receipt.
+    await waitFor(() => expect(screen.getByText(/refreshing the board failed/)).toBeDefined());
+    expect(screen.getByText(/receipt rcpt-arc-1/)).toBeDefined();
+  });
+
+  it("preserves the typed story time when the engine rejects the document (SF5 lost-work)", async () => {
+    const engine = mockEngine({
+      async addNarrativeUnit() {
+        throw new EngineError(400, "validation", "document failed contract validation");
+      },
+    });
+    const user = userEvent.setup();
+    render(<ArcBoard client={engine} />);
+    await waitFor(() => expect(screen.getAllByText(/1989-06/)).toHaveLength(2));
+    await user.type(screen.getByLabelText("Story time"), "1989-06-09");
+    await user.click(screen.getByRole("button", { name: "Add unit" }));
+    await user.click(screen.getByRole("button", { name: "Save as accepted revision" }));
+    await waitFor(() => expect(screen.getByText(/refused this as invalid/)).toBeDefined());
+    expect((screen.getByLabelText("Story time") as HTMLInputElement).value).toBe("1989-06-09");
+  });
+
   it("explains jargon fields inline (walkthrough finding #4)", async () => {
     render(<ArcBoard client={mockEngine()} />);
     await waitFor(() => expect(screen.getAllByText(/1989-06/).length).toBeGreaterThan(0));

@@ -20,24 +20,33 @@ export function CommandCenter({ client }: { client?: EngineClient }): React.JSX.
   const [properties, setProperties] = React.useState<PropertySummary[]>([]);
   const [name, setName] = React.useState("");
   const [propertyType, setPropertyType] = React.useState("fictional");
+  const [notice, setNotice] = React.useState<string | null>(null);
   const create = useEngineCommand<{ propertyId: string }>();
 
-  const refresh = React.useCallback(async () => {
+  // The command uses loadProperties (it throws, so a post-create refresh
+  // failure is a real refresh_failed outcome, SF3). The mount health check
+  // wraps it to also drive the reachable badge without throwing.
+  const loadProperties = React.useCallback(async () => {
+    setProperties(await engine.listProperties());
+    setReachable(true);
+  }, [engine]);
+
+  const checkHealth = React.useCallback(async () => {
     try {
-      setProperties(await engine.listProperties());
-      setReachable(true);
+      await loadProperties();
     } catch {
       setReachable(false);
     }
-  }, [engine]);
+  }, [loadProperties]);
 
   React.useEffect(() => {
-    void refresh();
-  }, [refresh]);
+    void checkHealth();
+  }, [checkHealth]);
 
   async function onCreate(event: React.FormEvent): Promise<void> {
     event.preventDefault();
     if (!name.trim()) return;
+    setNotice(null);
     const outcome = await create.run({
       execute: (idempotencyKey) =>
         engine.createProperty(
@@ -48,11 +57,16 @@ export function CommandCenter({ client }: { client?: EngineClient }): React.JSX.
           },
           { idempotencyKey },
         ),
-      refresh,
+      refresh: loadProperties,
     });
-    if (outcome === "confirmed") {
-      // The typed name is cleared only after the property is recorded.
+    if (outcome === "confirmed" || outcome === "refresh_failed") {
+      // The property is recorded in both cases; clearing the name prevents
+      // an accidental duplicate create. A refresh failure is surfaced, not
+      // swallowed (SF3) — the list simply did not refetch.
       setName("");
+      if (outcome === "refresh_failed") {
+        setNotice("Property created — but the list failed to refresh; reload to see it.");
+      }
       create.reset();
     }
   }
@@ -151,6 +165,7 @@ export function CommandCenter({ client }: { client?: EngineClient }): React.JSX.
                 </Select>
               </div>
               {createFailure ? <p className="text-sm text-destructive">{createFailure}</p> : null}
+              {notice ? <p className="text-sm text-muted-foreground">{notice}</p> : null}
               <Button type="submit" disabled={create.status === "submitting" || !name.trim()}>
                 {create.status === "submitting" ? "Creating…" : "Create property"}
               </Button>

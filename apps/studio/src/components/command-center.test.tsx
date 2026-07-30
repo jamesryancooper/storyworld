@@ -31,6 +31,28 @@ describe("Command Center", () => {
     });
   });
 
+  it("surfaces a refresh failure after a created property, not swallowing it (SF3)", async () => {
+    let calls = 0;
+    const base = mockEngine();
+    const engine = mockEngine({
+      async listProperties() {
+        calls += 1;
+        if (calls > 1) throw new Error("refetch boom");
+        return base.listProperties();
+      },
+    });
+    const user = userEvent.setup();
+    render(<CommandCenter client={engine} />);
+    await waitFor(() => expect(screen.getByText("Stillhouse")).toBeDefined());
+    await user.type(screen.getByLabelText("Property name"), "Vellumvale");
+    await user.click(screen.getByRole("button", { name: "Create property" }));
+    await waitFor(() => expect(engine.created).toHaveLength(1));
+    // The property is recorded; the failed refetch is shown, and the name
+    // is cleared so an accidental duplicate is not one Enter away.
+    await waitFor(() => expect(screen.getByText(/the list failed to refresh/)).toBeDefined());
+    expect((screen.getByLabelText("Property name") as HTMLInputElement).value).toBe("");
+  });
+
   it("reports the engine as unreachable without crashing", async () => {
     const engine = mockEngine({
       async listProperties() {

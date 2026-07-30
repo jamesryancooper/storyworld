@@ -54,6 +54,7 @@ export function approvalReceiptDetail(input: {
       decided_by_role: input.actor.role,
       decided_at: new Date().toISOString().replace(/\.\d{3}Z$/, "Z"),
       authority_host: "storyworld",
+      identity_source: input.actor.identitySource ?? "unspecified",
       invalidated_by: null,
       expiry: null,
     },

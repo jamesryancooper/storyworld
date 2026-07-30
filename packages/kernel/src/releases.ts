@@ -157,7 +157,11 @@ async function insertStructureRevision(
 ): Promise<{ structureRevisionId: string; contentSha256: string; receiptId: string }> {
   const structureRevisionId = uuidv7();
   const receiptId = uuidv7();
-  const hash = contentSha256(canonicalJson(document));
+  // Use the document's own embedded content hash (computed over the document
+  // without its content_sha256 field) so the stored column, the receipt
+  // subject hash, and the embedded hash all agree (REV-0002 F8), matching the
+  // canon-release convention. Callers always pass a sealed/validated document.
+  const hash = String(document["content_sha256"]);
   await c.query(
     "INSERT INTO storyworld.audit_receipts (receipt_id, organization_id, actor, action, subject_ref, subject_sha256, correlation_id, detail) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)",
     [receiptId, ctx.organizationId, `${actor.kind}:${actor.id}`, "structure.accepted", `structure:${structureRevisionId}`, hash, uuidv7(),

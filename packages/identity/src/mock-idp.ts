@@ -38,6 +38,13 @@ export function verifyToken(token: string, signingSecret: string, nowIso: string
   try {
     const claims = JSON.parse(Buffer.from(payload, "base64url").toString("utf8")) as TokenActor & { exp: string };
     if (claims.exp <= nowIso) return null;
+    // Structurally validate claims (REV-0002 F7): a signed token with an
+    // out-of-enum kind or empty id/role is rejected rather than trusted, so
+    // the verified path enforces the same shape the dev-header path does.
+    const kinds: readonly TokenActor["kind"][] = ["human", "model", "service"];
+    if (typeof claims.id !== "string" || claims.id === "") return null;
+    if (typeof claims.role !== "string" || claims.role === "") return null;
+    if (!kinds.includes(claims.kind)) return null;
     return { id: claims.id, kind: claims.kind, role: claims.role };
   } catch {
     return null;

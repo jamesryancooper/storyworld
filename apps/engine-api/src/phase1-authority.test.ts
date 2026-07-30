@@ -127,6 +127,78 @@ describe("acceptance-class commands are role-bound past kind (DEC-0021)", () => 
     const decided = await post("/v1/review-decisions", { proposalId: proposal.body["proposalId"], decision: "accepted" }, OWNER);
     expect(decided.status).toBe(201);
     expect(decided.body["receiptId"]).toBeTruthy();
+
+    // Deciding the already-decided proposal is a typed conflict, not a 500
+    // that masks a duplicate (REV-0002 F5).
+    const again = await post("/v1/review-decisions", { proposalId: proposal.body["proposalId"], decision: "accepted" }, OWNER);
+    expect(again.status).toBe(409);
+    expect(String(again.body["type"])).not.toContain("internal");
+  });
+});
+
+describe("idempotency reservation is atomic and actor-scoped (REV-0002 F2/F4)", () => {
+  it("executes a concurrent same-key command exactly once", async () => {
+    const key = uuidv7();
+    const payload = { workspaceName: "once-ws", propertyName: "Once Property", propertyType: "fictional" };
+    const send = () => fetch(`${base}/v1/properties`, {
+      method: "POST",
+      headers: { "content-type": "application/json", "idempotency-key": key, ...OWNER },
+      body: JSON.stringify(payload),
+    }).then(async (r) => ({ status: r.status, replay: r.headers.get("x-idempotent-replay"), body: await r.json() as Record<string, unknown> }));
+    const [a, b] = await Promise.all([send(), send()]);
+    // One executes (201); the other either replays the same result or is told
+    // the command is in progress (409) — never a second execution.
+    const created = [a, b].filter((r) => r.status === 201 && r.replay !== "true");
+    expect(created).toHaveLength(1);
+    const propertyId = created[0]!.body["propertyId"];
+    const other = [a, b].find((r) => r !== created[0])!;
+    if (other.status === 201) {
+      expect(other.replay).toBe("true");
+      expect(other.body["propertyId"]).toBe(propertyId);
+    } else {
+      expect(other.status).toBe(409);
+    }
+  });
+
+  it("refuses a completed key replayed by a different actor", async () => {
+    const key = uuidv7();
+    const first = await fetch(`${base}/v1/properties`, {
+      method: "POST",
+      headers: { "content-type": "application/json", "idempotency-key": key, ...OWNER },
+      body: JSON.stringify({ workspaceName: "scoped-ws", propertyName: "Scoped Property", propertyType: "fictional" }),
+    });
+    expect(first.status).toBe(201);
+    const bySomeoneElse = await fetch(`${base}/v1/properties`, {
+      method: "POST",
+      headers: { "content-type": "application/json", "idempotency-key": key, ...EDITOR },
+      body: JSON.stringify({ workspaceName: "scoped-ws", propertyName: "Scoped Property", propertyType: "fictional" }),
+    });
+    expect(bySomeoneElse.status).toBe(403);
+  });
+
+  it("releases the reservation after a client-error so a corrected same-key retry proceeds", async () => {
+    const key = uuidv7();
+    // A validation failure (unknown actor kind is 401; use a contract-invalid
+    // structure for a definite 400) must not poison the key.
+    const property = await post("/v1/properties", {
+      workspaceName: "retry-ws", propertyName: "Retry Property", propertyType: "fictional",
+    }, OWNER);
+    const release = await post("/v1/canon-releases", {
+      propertyId: property.body["propertyId"], branchId: property.body["officialBranchId"],
+      releaseName: "retry-canon", releaseVersion: "1.0.0",
+    }, OWNER);
+    const production = await post("/v1/productions", {
+      propertyId: property.body["propertyId"], pinnedCanonReleaseId: release.body["canonReleaseId"], name: "Retry Production",
+    }, OWNER);
+    const badThenGood = (unit: Record<string, unknown>) => fetch(`${base}/v1/narrative-unit-additions`, {
+      method: "POST",
+      headers: { "content-type": "application/json", "idempotency-key": key, ...OWNER },
+      body: JSON.stringify({ productionId: production.body["productionId"], unit }),
+    });
+    const bad = await badThenGood({ unitType: "", presentationOrder: 1, storyTime: "1989-06-01" });
+    expect(bad.status).toBe(400);
+    const good = await badThenGood({ unitType: "episode", presentationOrder: 1, storyTime: "1989-06-01" });
+    expect(good.status).toBe(201);
   });
 });
 
@@ -188,6 +260,31 @@ describe("structure writes: validation, typed append, explicit supersession (DEC
     expect(document["canon_release_ref"]).toBe(release.body["canonReleaseId"]);
     expect((document["narrative_units"] as unknown[]).length).toBe(2);
     expect(document["choices"]).toEqual([]);
+  });
+
+  it("refuses a second concurrent initial structure root as a conflict, not a silent fork (REV-0002 F1)", async () => {
+    const property = await post("/v1/properties", {
+      workspaceName: "fork-ws", propertyName: "Fork Property", propertyType: "fictional",
+    }, OWNER);
+    const release = await post("/v1/canon-releases", {
+      propertyId: property.body["propertyId"], branchId: property.body["officialBranchId"],
+      releaseName: "fork-canon", releaseVersion: "1.0.0",
+    }, OWNER);
+    const production = await post("/v1/productions", {
+      propertyId: property.body["propertyId"], pinnedCanonReleaseId: release.body["canonReleaseId"], name: "Fork Production",
+    }, OWNER);
+    const productionId = String(production.body["productionId"]);
+    // Two distinct-key initial appends (no supersedes) race for the single root.
+    const [a, b] = await Promise.all([
+      post("/v1/narrative-unit-additions", { productionId, unit: { unitType: "episode", presentationOrder: 1, storyTime: "1989-06-01" } }, OWNER),
+      post("/v1/narrative-unit-additions", { productionId, unit: { unitType: "episode", presentationOrder: 2, storyTime: "1989-06-02" } }, OWNER),
+    ]);
+    const statuses = [a.status, b.status].sort();
+    expect(statuses).toEqual([201, 409]);
+    // Exactly one current head survives.
+    const structure = await fetch(`${base}/v1/productions/${productionId}/narrative-structure`, { headers: OWNER });
+    const doc = ((await structure.json()) as { structure: { document: Record<string, unknown> } }).structure.document;
+    expect((doc["narrative_units"] as unknown[]).length).toBe(1);
   });
 });
 

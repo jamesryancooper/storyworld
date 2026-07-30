@@ -156,6 +156,12 @@ describe("B1 continuity evaluation", () => {
       .rejects.toThrow(/human/i);
     await expect(disposeFinding(ctx, ryan, { findingId: target.findingId, disposition: "waived" }))
       .rejects.toThrow(/waiver/);
+    // Empty or whitespace rationale/scope is refused — a waiver is the
+    // reviewer's own statement, never a filled-in default (SWUX-003).
+    await expect(disposeFinding(ctx, ryan, {
+      findingId: target.findingId, disposition: "intentional_exception",
+      waiver: { reason: "  ", scope: "", expiry: null },
+    })).rejects.toThrow(/reviewer-authored/);
     const disposed = await disposeFinding(ctx, ryan, {
       findingId: target.findingId, disposition: "waived",
       waiver: { reason: "intentional era inconsistency", scope: "this production", expiry: null },

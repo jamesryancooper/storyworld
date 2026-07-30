@@ -32,8 +32,14 @@ export interface EngineCommandState<R> {
   status: CommandStatus;
   error: string | null;
   result: R | null;
-  /** Starts (or revises) the current operation. Blocked while submitting or unknown. */
-  run(op: CommandOperation<R>): Promise<CommandStatus>;
+  /**
+   * Starts (or revises) an operation. Blocked while submitting, and — for
+   * the SAME operation — while the outcome is unknown. Pass a stable opId
+   * that identifies the logical operation (subject + variant): when it
+   * changes, a fresh idempotency key is minted so a retained key can never
+   * leak from one subject's command into another's (SF5).
+   */
+  run(op: CommandOperation<R>, opId?: string): Promise<CommandStatus>;
   /** Re-executes with the SAME idempotency key; legal from unknown/unavailable. */
   retry(): Promise<CommandStatus>;
   reset(): void;
@@ -64,6 +70,7 @@ export function useEngineCommand<R>(): EngineCommandState<R> {
   const statusRef = React.useRef<CommandStatus>("idle");
   const keyRef = React.useRef<string | null>(null);
   const opRef = React.useRef<CommandOperation<R> | null>(null);
+  const opIdRef = React.useRef<string | null>(null);
   const busyRef = React.useRef(false);
 
   const update = React.useCallback((next: CommandStatus) => {
@@ -108,11 +115,20 @@ export function useEngineCommand<R>(): EngineCommandState<R> {
   }, [update]);
 
   const run = React.useCallback(
-    async (op: CommandOperation<R>): Promise<CommandStatus> => {
-      if (busyRef.current || statusRef.current === "unknown") {
-        // Duplicate blocking: an in-flight or unresolved-unknown operation
-        // must be reconciled or retried, never doubled.
-        return statusRef.current;
+    async (op: CommandOperation<R>, opId?: string): Promise<CommandStatus> => {
+      // Never overlap an in-flight submission.
+      if (busyRef.current) return statusRef.current;
+      const sameOp = opId === undefined || opId === opIdRef.current;
+      // Duplicate blocking: the SAME operation may not re-run while its
+      // outcome is unknown — it must be retried (same key) or reconciled.
+      // A genuinely different operation is allowed to proceed with a fresh
+      // key even if a prior op is still unknown (that one is recorded
+      // separately for the creator to verify).
+      if (sameOp && statusRef.current === "unknown") return statusRef.current;
+      if (!sameOp) {
+        // A new logical operation must never inherit the prior op's key.
+        keyRef.current = null;
+        opIdRef.current = opId ?? null;
       }
       opRef.current = op;
       keyRef.current = keyRef.current ?? crypto.randomUUID();
@@ -134,6 +150,7 @@ export function useEngineCommand<R>(): EngineCommandState<R> {
     if (busyRef.current) return;
     keyRef.current = null;
     opRef.current = null;
+    opIdRef.current = null;
     setError(null);
     setResult(null);
     update("idle");

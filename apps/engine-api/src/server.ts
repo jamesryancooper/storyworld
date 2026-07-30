@@ -6,6 +6,7 @@ import {
   addNarrativeUnit,
   canonChangeImpact,
   compileScenePacket,
+  NotFoundError,
   createProduction,
   createWorkspaceAndProperty,
   decideProposal,
@@ -59,7 +60,7 @@ import { correlationId, logLine } from "./telemetry.js";
  * (SWUX-001), with the in-process map as a fast path.
  */
 export function createEngineServer(ctx: KernelContext): Server {
-  const idempotency = new Map<string, { status: number; body: string }>();
+  const idempotency = new Map<string, { status: number; body: string; actor: string }>();
   const broker = createCredentialBroker(ctx);
 
   return createServer(async (req, res) => {
@@ -99,7 +100,7 @@ export function createEngineServer(ctx: KernelContext): Server {
       if (idpMaterial && bearer.startsWith("Bearer ")) {
         const verified = verifyToken(bearer.slice(7), idpMaterial, new Date().toISOString());
         if (!verified) return problem(res, corr, 401, "invalid-token", "bearer token failed verification");
-        actor = verified;
+        actor = { ...verified, identitySource: "mock_idp" };
       } else if (process.env["STORYWORLD_DEV_IDENTITY"] === "1") {
         const id = req.headers["x-actor-id"];
         const kind = req.headers["x-actor-kind"];
@@ -111,11 +112,12 @@ export function createEngineServer(ctx: KernelContext): Server {
         if (!kinds.includes(kind as Actor["kind"])) {
           return problem(res, corr, 401, "invalid-actor-kind", `x-actor-kind must be one of: ${kinds.join(", ")}`);
         }
-        actor = { id, kind: kind as Actor["kind"], role };
+        actor = { id, kind: kind as Actor["kind"], role, identitySource: "dev_header" };
       } else {
         return problem(res, corr, 401, "identity-required",
           "no verified identity: present a bearer token, or enable local development identity with STORYWORLD_DEV_IDENTITY=1 (DEC-0021)");
       }
+      const actorString = `${actor.kind}:${actor.id}`;
       const url = new URL(req.url ?? "/", "http://localhost");
       const path = url.pathname;
       if (req.method === "POST") {
@@ -123,33 +125,70 @@ export function createEngineServer(ctx: KernelContext): Server {
         if (typeof key !== "string" || key.length === 0) {
           return problem(res, corr, 400, "missing-idempotency-key", "Idempotency-Key header is required on mutations");
         }
-        // Replay protection is durable (SWUX-001): the in-process map is a
-        // fast path over the tenant-scoped idempotency_keys table, so a
-        // retained key replays the original result even across restarts.
-        let cached = idempotency.get(key);
-        if (!cached) {
+        // Durable, atomic-enough idempotency (SWUX-001; REV-0002 F2/F4). The
+        // key row is a two-phase reservation and the primary-key conflict is
+        // the mutex: exactly one request executes a given key. A completed
+        // reservation replays to its original actor; a still-pending or
+        // crash-orphaned reservation fails closed to 409 (reconcile) rather
+        // than re-executing. The in-process map is only a fast path for
+        // completed results.
+        const replay = (entry: { status: number; body: string; actor: string }) => {
+          if (entry.actor !== actorString) {
+            return problem(res, corr, 403, "replay-actor-mismatch",
+              "this idempotency key belongs to a different actor's command");
+          }
+          res.writeHead(entry.status, { "content-type": "application/json", "x-correlation-id": corr, "x-idempotent-replay": "true" });
+          return res.end(entry.body);
+        };
+        const mapped = idempotency.get(key);
+        if (mapped) return replay(mapped);
+
+        const claimed = await withTenant(ctx.pool, ctx.organizationId, async (c) =>
+          (await c.query(
+            "INSERT INTO storyworld.idempotency_keys (idempotency_key, organization_id, actor) VALUES ($1,$2,$3) ON CONFLICT DO NOTHING RETURNING idempotency_key",
+            [key, ctx.organizationId, actorString],
+          )).rowCount === 1);
+        if (!claimed) {
           const row = await withTenant(ctx.pool, ctx.organizationId, async (c) =>
             (await c.query(
-              "SELECT status, body FROM storyworld.idempotency_keys WHERE idempotency_key=$1",
+              "SELECT status, body, actor FROM storyworld.idempotency_keys WHERE idempotency_key=$1",
               [key],
             )).rows[0] ?? null);
-          if (row) cached = { status: Number(row.status), body: String(row.body) };
+          if (!row || row.status === null) {
+            return problem(res, corr, 409, "in-progress",
+              "a command with this idempotency key is in progress or its prior outcome was not recorded; check current state before retrying");
+          }
+          const entry = { status: Number(row.status), body: String(row.body), actor: String(row.actor) };
+          idempotency.set(key, entry);
+          return replay(entry);
         }
-        if (cached) {
-          res.writeHead(cached.status, { "content-type": "application/json", "x-correlation-id": corr, "x-idempotent-replay": "true" });
-          return res.end(cached.body);
-        }
+
+        // We hold the reservation. Execute exactly once.
         const body = await readJson(req);
-        const result = await route(ctx, actor, path, body, broker);
+        let result: { status: number; body: Record<string, unknown> };
+        try {
+          result = await route(ctx, actor, path, body, broker);
+        } catch (error) {
+          // A definite client-side rejection did not commit any effect, so
+          // release the reservation and let a corrected same-key retry
+          // proceed. Any uncertain failure (5xx/unclassified) leaves the
+          // reservation pending so a retry fails closed to 409.
+          if (isDefiniteClientError(error)) {
+            await withTenant(ctx.pool, ctx.organizationId, async (c) => {
+              await c.query("DELETE FROM storyworld.idempotency_keys WHERE idempotency_key=$1", [key]);
+            });
+          }
+          throw error;
+        }
         const payload = JSON.stringify(result.body);
-        idempotency.set(key, { status: result.status, body: payload });
         await withTenant(ctx.pool, ctx.organizationId, async (c) => {
           await c.query(
-            "INSERT INTO storyworld.idempotency_keys (idempotency_key, organization_id, status, body) VALUES ($1,$2,$3,$4) ON CONFLICT DO NOTHING",
-            [key, ctx.organizationId, result.status, payload],
+            "UPDATE storyworld.idempotency_keys SET status=$2, body=$3 WHERE idempotency_key=$1",
+            [key, result.status, payload],
           );
         });
-        logLine("info", "command", { path, status: result.status, actor: `${actor.kind}:${actor.id}`, correlation_id: corr });
+        idempotency.set(key, { status: result.status, body: payload, actor: actorString });
+        logLine("info", "command", { path, status: result.status, actor: actorString, correlation_id: corr });
         res.writeHead(result.status, { "content-type": "application/json", "x-correlation-id": corr });
         return res.end(payload);
       }
@@ -180,6 +219,16 @@ export function createEngineServer(ctx: KernelContext): Server {
       }
       if (error instanceof ConflictError) {
         return problem(res, corr, 409, "stale-conflict", error.message);
+      }
+      if (error instanceof NotFoundError) {
+        return problem(res, corr, 404, "not-found", error.message);
+      }
+      // A unique-violation reaching here is a concurrent duplicate/fork that
+      // a domain guard rejected (REV-0002): report it as a conflict, never a
+      // 500 that reads like a transient failure and invites a retry storm.
+      if ((error as { code?: string }).code === "23505") {
+        return problem(res, corr, 409, "duplicate",
+          "this command conflicts with an existing record (a concurrent duplicate or superseded base); reload current state before retrying");
       }
       const statusCode = (error as { statusCode?: number }).statusCode;
       if (error instanceof Error && typeof statusCode === "number") {
@@ -368,6 +417,28 @@ async function readRoute(
     return { body: { receipt } };
   }
   return null;
+}
+
+/**
+ * True when a thrown error means the command definitively did not commit any
+ * effect, so its idempotency reservation is safe to release for a corrected
+ * same-key retry. Anything uncertain (5xx / unclassified) returns false and
+ * the reservation stays pending, failing closed on retry.
+ */
+function isDefiniteClientError(error: unknown): boolean {
+  if (
+    error instanceof AuthorityError ||
+    error instanceof ValidationError ||
+    error instanceof ConflictError ||
+    error instanceof NotFoundError
+  ) {
+    return true;
+  }
+  if ((error as { code?: string }).code === "23505") return true;
+  const statusCode = (error as { statusCode?: number }).statusCode;
+  if (typeof statusCode === "number" && statusCode >= 400 && statusCode < 500) return true;
+  if (error instanceof Error && /reserved crossing|exceeds recipe ceiling/i.test(error.message)) return true;
+  return false;
 }
 
 function problem(res: ServerResponse, corr: string, status: number, type: string, detail: string): void {

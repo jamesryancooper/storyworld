@@ -11,12 +11,14 @@ import {
   AuthorityError,
   ConflictError,
   ValidationError,
+  acceptAssetVersion,
   addNarrativeUnit,
   createProduction,
   createWorkspaceAndProperty,
   decideProposal,
   getNarrativeStructure,
   getReceipt,
+  importAsset,
   proposeCanon,
   saveNarrativeStructure,
   sealNarrativeStructureDocument,
@@ -305,5 +307,38 @@ describe("durable decision receipts (DEC-0019/0023)", () => {
 
   it("returns null receipt for an unknown id", async () => {
     expect(await getReceipt(ctx, { receiptId: uuidv7() })).toBeNull();
+  });
+
+  it("records the identity source so a dev-header decision is not indistinguishable from verified (REV-0002 F6)", async () => {
+    const proposal = await proposeCanon(ctx, model, {
+      propertyId, branchId: officialBranchId, proposalType: "entity",
+      payload: { entity_id: uuidv7(), entity_type: "character", name: "Orin", visibility: "team_private" },
+    });
+    const decided = await decideProposal(ctx, { ...ryan, identitySource: "dev_header" }, { proposalId: proposal, decision: "accepted" });
+    const doc = (await getReceipt(ctx, { receiptId: decided.receiptId }))?.detail["approval_receipt"] as Record<string, unknown>;
+    expect(doc["identity_source"]).toBe("dev_header");
+  });
+
+  it("keeps the structure column hash equal to the document's embedded hash (REV-0002 F8)", async () => {
+    const proto = (await createProduction(ctx, ryan, {
+      propertyId, pinnedCanonReleaseId: releaseId, name: "Hash Consistency Production",
+    })).productionId;
+    const appended = await addNarrativeUnit(ctx, ryan, {
+      productionId: proto, unit: { unitType: "episode", presentationOrder: 1, storyTime: "1989-06-01" },
+    });
+    const head = await getNarrativeStructure(ctx, { productionId: proto });
+    expect(head?.contentSha256).toBe(appended.contentSha256);
+    expect(head?.document["content_sha256"]).toBe(appended.contentSha256);
+  });
+});
+
+describe("asset acceptance is idempotent at the domain level (REV-0002 F3)", () => {
+  it("refuses a second acceptance of the same candidate instead of forking accepted masters", async () => {
+    const imported = await importAsset(ctx, ryan, {
+      bytes: new TextEncoder().encode(`master-${uuidv7()}`), mediaType: "image/png",
+    });
+    const first = await acceptAssetVersion(ctx, ryan, { assetVersionId: imported.assetVersionId });
+    expect(first.acceptedVersionId).toBeTruthy();
+    await expect(acceptAssetVersion(ctx, ryan, { assetVersionId: imported.assetVersionId })).rejects.toThrow();
   });
 });

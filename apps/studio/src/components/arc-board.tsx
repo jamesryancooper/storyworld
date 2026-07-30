@@ -10,8 +10,10 @@ import { InfoHint } from "@/components/ui/info-hint";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { CommandRecovery } from "@/components/ui/command-recovery";
 import { ProductionPicker } from "@/components/production-picker";
 import { describeCommandFailure, useEngineCommand } from "@/lib/command-state";
+import { clearUnknownOutcome, recordUnknownOutcome } from "@/lib/unknown-outcome-log";
 import {
   actorLine,
   createEngineClient,
@@ -22,15 +24,32 @@ import {
 
 const UNIT_TYPES = ["episode", "scene", "chapter", "post", "panel"];
 
+/**
+ * The exact subject a consequence review was opened against (SF4). Frozen
+ * at open so changing the production selector or editing the form after
+ * opening can never retarget the confirmed command.
+ */
+interface ArcReview {
+  opId: string;
+  productionId: string;
+  productionName: string;
+  supersedesRevisionId?: string;
+  currentHash: string | null;
+  unitType: string;
+  storyTime: string;
+  presentationOrder: number;
+}
+
 export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Element {
   const engine = React.useMemo(() => client ?? createEngineClient(), [client]);
   const [production, setProduction] = React.useState<ProductionSummary | null>(null);
   const [structure, setStructure] = React.useState<NarrativeStructureView | null>(null);
   const [unitType, setUnitType] = React.useState("episode");
   const [storyTime, setStoryTime] = React.useState("");
-  const [reviewing, setReviewing] = React.useState(false);
+  const [review, setReview] = React.useState<ArcReview | null>(null);
   const [notice, setNotice] = React.useState<string | null>(null);
   const save = useEngineCommand<{ structureRevisionId: string; receiptId: string; unitId: string }>();
+  const receiptRef = React.useRef<string | null>(null);
 
   const refresh = React.useCallback(async () => {
     if (!production) {
@@ -43,6 +62,13 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
   React.useEffect(() => {
     void refresh();
   }, [refresh]);
+
+  // Changing the production closes any open review (SF4): a frozen review
+  // must never be confirmed against a different production than it named.
+  React.useEffect(() => {
+    setReview(null);
+    save.reset();
+  }, [production?.productionId, save.reset]);
 
   const units = React.useMemo(
     () =>
@@ -58,38 +84,58 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
     event.preventDefault();
     if (!production || !storyTime) return;
     setNotice(null);
-    setReviewing(true);
+    setReview({
+      opId: `arc:${production.productionId}:${structure?.structureRevisionId ?? "root"}`,
+      productionId: production.productionId,
+      productionName: production.name,
+      ...(structure ? { supersedesRevisionId: structure.structureRevisionId } : {}),
+      currentHash: structure ? structure.contentSha256 : null,
+      unitType,
+      storyTime,
+      presentationOrder: nextOrder,
+    });
+  }
+
+  function finalizeAdd(outcome: string, r: ArcReview): void {
+    if (outcome === "confirmed" || outcome === "refresh_failed") {
+      clearUnknownOutcome(r.opId);
+      // The typed input is cleared only once the command is recorded.
+      setStoryTime("");
+      setReview(null);
+      setNotice(
+        outcome === "confirmed"
+          ? `Accepted plan revision recorded${receiptRef.current ? ` — receipt ${receiptRef.current}` : ""}.`
+          : `Accepted plan revision recorded${receiptRef.current ? ` (receipt ${receiptRef.current})` : ""} — but refreshing the board failed; reload to see current state.`,
+      );
+      save.reset();
+    } else if (outcome === "unknown" || outcome === "unavailable") {
+      recordUnknownOutcome({ id: r.opId, actionLabel: "plan revision", subjectLabel: `${r.productionName} structure` });
+    }
   }
 
   async function onConfirm(): Promise<void> {
-    if (!production) return;
-    let receipt: string | null = null;
-    const outcome = await save.run({
-      execute: async (idempotencyKey) => {
-        const out = await engine.addNarrativeUnit(
-          {
-            productionId: production.productionId,
-            unit: { unitType, presentationOrder: nextOrder, storyTime },
-            ...(structure ? { supersedesRevisionId: structure.structureRevisionId } : {}),
-          },
-          { idempotencyKey },
-        );
-        receipt = out.receiptId;
-        return out;
+    const r = review;
+    if (!r) return;
+    receiptRef.current = null;
+    const outcome = await save.run(
+      {
+        execute: async (idempotencyKey) => {
+          const out = await engine.addNarrativeUnit(
+            {
+              productionId: r.productionId,
+              unit: { unitType: r.unitType, presentationOrder: r.presentationOrder, storyTime: r.storyTime },
+              ...(r.supersedesRevisionId ? { supersedesRevisionId: r.supersedesRevisionId } : {}),
+            },
+            { idempotencyKey },
+          );
+          receiptRef.current = out.receiptId;
+          return out;
+        },
+        refresh,
       },
-      refresh,
-    });
-    if (outcome === "confirmed" || outcome === "refresh_failed") {
-      // The typed input is cleared only once the command is recorded.
-      setStoryTime("");
-      setReviewing(false);
-      setNotice(
-        outcome === "confirmed"
-          ? `Accepted plan revision recorded${receipt ? ` — receipt ${receipt}` : ""}.`
-          : `Accepted plan revision recorded${receipt ? ` (receipt ${receipt})` : ""} — but refreshing the board failed; reload to see current state.`,
-      );
-      save.reset();
-    }
+      r.opId,
+    );
+    finalizeAdd(outcome, r);
   }
 
   const failure = describeCommandFailure(save.status, save.error);
@@ -196,28 +242,29 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
                   />
                 </div>
                 {notice ? <p className="text-sm text-muted-foreground">{notice}</p> : null}
-                {!reviewing ? (
+                {!review ? (
                   <Button type="submit" disabled={!storyTime}>
                     Add unit
                   </Button>
                 ) : null}
               </form>
-              {reviewing ? (
+              {review ? (
                 <div className="mt-4 flex flex-col gap-2">
                   <ConsequenceReview
                     id="arc-review"
                     title="Review — accept this plan revision"
                     rows={[
-                      { label: "Unit", value: `${unitType} · story time ${storyTime} · presentation order ${nextOrder}` },
+                      { label: "Production", value: review.productionName },
+                      { label: "Unit", value: `${review.unitType} · story time ${review.storyTime} · presentation order ${review.presentationOrder}` },
                       {
                         label: "Supersedes",
-                        value: structure
-                          ? `revision ${structure.structureRevisionId}`
+                        value: review.supersedesRevisionId
+                          ? `revision ${review.supersedesRevisionId}`
                           : "none — this is the first structure revision",
                       },
                       {
                         label: "Current hash",
-                        value: structure ? structure.contentSha256.slice(0, 12) : "—",
+                        value: review.currentHash ? review.currentHash.slice(0, 12) : "—",
                       },
                       { label: "Recorded by", value: actorLine() },
                       {
@@ -229,7 +276,7 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
                     confirmLabel="Save as accepted revision"
                     onConfirm={() => void onConfirm()}
                     onCancel={() => {
-                      setReviewing(false);
+                      setReview(null);
                       save.reset();
                     }}
                     busy={save.status === "submitting"}
@@ -241,13 +288,24 @@ export function ArcBoard({ client }: { client?: EngineClient }): React.JSX.Eleme
                         variant="outline"
                         size="sm"
                         onClick={() => {
-                          void refresh().then(() => save.reset());
+                          void refresh().then(() => {
+                            setReview(null);
+                            save.reset();
+                          });
                         }}
                       >
                         Reload structure
                       </Button>
                     </div>
                   ) : null}
+                  <CommandRecovery
+                    status={save.status}
+                    onRetry={() => void save.retry().then((outcome) => finalizeAdd(outcome, review))}
+                    onCheckStatus={() => {
+                      void refresh();
+                      setNotice("Board refetched — compare the current structure before retrying.");
+                    }}
+                  />
                 </div>
               ) : null}
             </CardContent>

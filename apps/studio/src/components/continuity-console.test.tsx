@@ -6,6 +6,7 @@ import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, it } from "vitest";
 import { expectAccessible } from "@/test/axe";
 import { mockEngine } from "@/test/mock-engine";
+import { EngineError } from "@/lib/engine";
 import { ContinuityConsole } from "./continuity-console";
 
 afterEach(cleanup);
@@ -77,6 +78,61 @@ describe("Continuity Console", () => {
         expiry: null,
       },
     });
+  });
+
+  it("keyboard-only disposition needs two explicit activations (SF1)", async () => {
+    const engine = mockEngine();
+    const user = userEvent.setup();
+    render(<ContinuityConsole client={engine} />);
+    await waitFor(() => expect(screen.getByRole("button", { name: "Review…" })).toBeDefined());
+    const review = screen.getByRole("button", { name: "Review…" });
+    review.focus();
+    await user.keyboard("{Enter}");
+    expect(engine.dispositions).toHaveLength(0);
+    const record = await screen.findByRole("button", { name: "Record disposition" });
+    record.focus();
+    await user.keyboard("{Enter}");
+    await waitFor(() => expect(engine.dispositions).toHaveLength(1));
+  });
+
+  it("an evaluation whose refresh fails is surfaced, not swallowed (SF3)", async () => {
+    let calls = 0;
+    const base = mockEngine();
+    const engine = mockEngine({
+      async listContinuityFindings(productionId) {
+        calls += 1;
+        if (calls > 1) throw new Error("refetch boom");
+        return base.listContinuityFindings(productionId);
+      },
+    });
+    const user = userEvent.setup();
+    render(<ContinuityConsole client={engine} />);
+    await waitFor(() => expect(screen.getByRole("button", { name: "Evaluate continuity" })).toBeDefined());
+    await user.click(screen.getByRole("button", { name: "Evaluate continuity" }));
+    await waitFor(() => expect(engine.evaluations).toHaveLength(1));
+    await waitFor(() => expect(screen.getByText(/refreshing the list failed/)).toBeDefined());
+  });
+
+  it("preserves typed waiver rationale and scope when the engine denies (SF5 lost-work)", async () => {
+    const engine = mockEngine({
+      async disposeFinding() {
+        throw new EngineError(403, "authority", "not the owner");
+      },
+    });
+    const user = userEvent.setup();
+    render(<ContinuityConsole client={engine} />);
+    await waitFor(() => expect(screen.getByRole("button", { name: "Review…" })).toBeDefined());
+    await user.click(screen.getByRole("button", { name: "Review…" }));
+    await user.selectOptions(screen.getByLabelText("Disposition"), "waived");
+    await user.type(screen.getByLabelText("Waiver rationale — your own words"), "Deliberate ambiguity for the mystery.");
+    await user.type(screen.getByLabelText("Waiver scope"), "this production only");
+    await user.click(screen.getByRole("button", { name: "Record disposition" }));
+    await waitFor(() => expect(screen.getByText(/Not authorized/)).toBeDefined());
+    // The reviewer's own words survive the rejection.
+    expect((screen.getByLabelText("Waiver rationale — your own words") as HTMLTextAreaElement).value).toBe(
+      "Deliberate ambiguity for the mystery.",
+    );
+    expect((screen.getByLabelText("Waiver scope") as HTMLInputElement).value).toBe("this production only");
   });
 
   it("never fabricates the owner's waiver rationale anywhere in the source (SWUX-003)", () => {

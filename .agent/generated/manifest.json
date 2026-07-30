@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-30T15:44:35.456087+00:00",
-  "generation_id": "f06b7388c03e0d0162161e36d348ee81",
+  "generated_at": "2026-07-30T16:47:49.280837+00:00",
+  "generation_id": "429918a8acbad9db32037e9a27704e4e",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -88,6 +88,7 @@
     ".agent/project.json",
     ".agent/reviews/README.md",
     ".agent/reviews/REV-0001-storyworld-studio-mockup-ux-audit.md",
+    ".agent/reviews/REV-0002-phase1-post-change-audit.md",
     ".agent/schema.json",
     ".agent/schemas/artifact-catalog.schema.json",
     ".agent/schemas/dossier-artifact-registry.schema.json",
@@ -215,6 +216,7 @@
     "apps/studio/src/components/ui/badge.tsx",
     "apps/studio/src/components/ui/button.tsx",
     "apps/studio/src/components/ui/card.tsx",
+    "apps/studio/src/components/ui/command-recovery.tsx",
     "apps/studio/src/components/ui/consequence-review.tsx",
     "apps/studio/src/components/ui/info-hint.tsx",
     "apps/studio/src/components/ui/input.tsx",
@@ -222,12 +224,15 @@
     "apps/studio/src/components/ui/select.tsx",
     "apps/studio/src/components/ui/table.tsx",
     "apps/studio/src/components/ui/textarea.tsx",
+    "apps/studio/src/components/ui/unknown-outcome-banner.tsx",
     "apps/studio/src/components/world-bible.test.tsx",
     "apps/studio/src/components/world-bible.tsx",
     "apps/studio/src/lib/command-state.test.tsx",
     "apps/studio/src/lib/command-state.ts",
     "apps/studio/src/lib/engine.integration.test.ts",
     "apps/studio/src/lib/engine.ts",
+    "apps/studio/src/lib/unknown-outcome-log.test.tsx",
+    "apps/studio/src/lib/unknown-outcome-log.ts",
     "apps/studio/src/lib/utils.ts",
     "apps/studio/src/test/axe.ts",
     "apps/studio/src/test/mock-engine.ts",
@@ -479,6 +484,7 @@
     "packages/persistence/migrations/0009_provider_credentials.sql",
     "packages/persistence/migrations/0010_structure_supersession.sql",
     "packages/persistence/migrations/0011_durable_idempotency.sql",
+    "packages/persistence/migrations/0012_idempotency_reservation_and_fork_guards.sql",
     "packages/persistence/package.json",
     "packages/persistence/src/client.ts",
     "packages/persistence/src/index.ts",
@@ -589,7 +595,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "f2daad2045ec01a26d03c14568adf8d159c9961ecee7ec3956019a159b395147",
+  "source_fingerprint": "c85753bfc0df216729ca05c1959bbf7a96aec054fde7c13e3108d1e8a9cb876e",
   "source_scope": {
     "exclusions": [
       {

@@ -1,6 +1,6 @@
 import { uuidv7 } from "@storyworld/domain";
 import { withTenant } from "@storyworld/persistence";
-import { requireOwner, type Actor, type KernelContext } from "@storyworld/kernel";
+import { requireOwner, NotFoundError, type Actor, type KernelContext } from "@storyworld/kernel";
 import {
   loadMasterKey,
   openWithKey,
@@ -120,7 +120,7 @@ export async function revokeCredential(
   requireOwner(actor, "credential revocation");
   const slot = requireSlot(input.name);
   const prior = await currentRevision(ctx, input.name);
-  if (!prior) throw new Error(`no stored credential for slot ${slot.name}`);
+  if (!prior) throw new NotFoundError(`no stored credential for slot ${slot.name}`);
   const credentialRevisionId = uuidv7();
   const receiptId = uuidv7();
   await withTenant(ctx.pool, ctx.organizationId, async (c) => {
