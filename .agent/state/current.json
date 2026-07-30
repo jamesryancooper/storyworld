@@ -4,9 +4,7 @@
   "updated_at": "2026-07-30",
   "authority": "project_maintained_compact_operational_index_not_permission",
   "adoption_status": "adopted",
-  "active_tasks": [
-    "TASK-0019"
-  ],
+  "active_tasks": [],
   "accepted_decisions": [
     "DEC-0001",
     "DEC-0002",
@@ -46,10 +44,11 @@
     "EVD-0025",
     "EVD-0026",
     "EVD-0027",
-    "EVD-0028"
+    "EVD-0028",
+    "EVD-0029"
   ],
   "blocked_by": [],
-  "next_action": "Phase 2 (TASK-0018) COMPLETE: navigation/a11y, loading discipline, URL-owned context (DEC-0022), and detail panels shipped in four committed groups (SWUX-008..015, SWUX-017 recorded facts); workspace green (studio 91, engine-api 18); rendered check confirmed active-route/URL-context/reconciliation/continuity-detail (EVD-0028). Next in the sequence: SEARCH (DEC-0026) is eligible at the Phase 2 gate and is next. GRAPH (DEC-0024) remains gated behind Phase 3 (SWUX-012/016/018) AND an owner-level graph-semantics successor decision that the accepted decision says must not be invented — it will be surfaced for owner disposition, not built unilaterally. Reserved crossings remain closed.",
+  "next_action": "Search (TASK-0019, DEC-0026) COMPLETE: read-only tenant-scoped cross-domain search failing closed on restricted+spoiler, typed DEC-0022 deep-link results, accessible navigation-only combobox; workspace green (engine-api 22, studio 96); rendered check confirmed keyboard deep-link navigation and the SWUX-008 narrow menu. REMAINING sequence item: GRAPH (DEC-0024) — gated behind Phase 3 (SWUX-012/016/018) AND an owner-level graph-semantics successor decision that DEC-0024 says must not be invented. Awaiting owner input: whether to (a) build Phase 3's non-graph structured views/attention/hierarchy first, and/or (b) have the graph-semantics decision drafted for disposition. Reserved crossings closed.",
   "external_effects_authority_refs": [],
   "limitations": [
     "behavioral_proofs_only_no_readiness_claim",

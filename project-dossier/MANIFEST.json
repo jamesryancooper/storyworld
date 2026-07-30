@@ -205,7 +205,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "8483f797233287f7b867f9e1c88b217b19929cfb9813ff3aaf79ca75061dd86f"
+      "sha256": "8aebef84619fa74b449e69cf87e824d2632f686a8e5ba3cf70970d74ff2afe5a"
     },
     {
       "layer": "agent_harness",
@@ -346,6 +346,11 @@
       "layer": "agent_harness",
       "path": ".agent/evidence/EVD-0028-phase2-implementation.md",
       "sha256": "62fd623d8a520c72bf8c61175fbe37649773b87dffa4635fca420bfba4ed73ca"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0029-search-implementation.md",
+      "sha256": "f143699f67abd4e94ebac7e7719e9c39a36fa14b69ed33a425fe41715fae11f6"
     },
     {
       "layer": "agent_harness",
@@ -505,7 +510,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "ece8c10f020ad7e7323ccbd36116a145c7ac55880561d45fbdbcf9128a58a1fb"
+      "sha256": "99035df892d61aedd68c07f5ababe7a48bb6741d5ee334f3ead901d6a4901d6c"
     },
     {
       "layer": "agent_harness",
@@ -601,6 +606,11 @@
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0018-phase2-navigation-state-detail-accessibility.md",
       "sha256": "4bec5507830ca33d4eca2d24c4c0a912106ddcdb18ecd4e624329c1c4ca61bd6"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0019-cross-domain-search.md",
+      "sha256": "f8d9148c2f7c55d49ac777c860d766414d84f5da138df327a1b619368ae4cc1e"
     },
     {
       "layer": "agent_harness",
@@ -879,13 +889,18 @@
     },
     {
       "layer": "project_source",
+      "path": "apps/engine-api/src/search.test.ts",
+      "sha256": "fa5aecefbc64c6a66aef3a24309f492e8843cee9d68cb6d266daf3374e8b8c3d"
+    },
+    {
+      "layer": "project_source",
       "path": "apps/engine-api/src/serve.ts",
       "sha256": "34b9d27410beda4b5a75154909c40d8c41878fe86451dbe9185b4bea0438a766"
     },
     {
       "layer": "project_source",
       "path": "apps/engine-api/src/server.ts",
-      "sha256": "7decf0336a195ad3b1157d06fef7b5d72082709a8266d80005227657d15d9be1"
+      "sha256": "6e6e1d3a85163ea24a1ab4077d45b7c05f4f70d5758ef3e4e6bbb4b3f465a1eb"
     },
     {
       "layer": "project_source",
@@ -955,7 +970,7 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/app/layout.tsx",
-      "sha256": "57d7b0c9d5f095ca4ac591e94d73aa7c987e6432559a2267b137edcbe4f3206f"
+      "sha256": "1b0b78fe4b8d78242545a8eb3171cf0febac1ca7003a5d7cf68c8e732da4dea4"
     },
     {
       "layer": "project_source",
@@ -1129,6 +1144,16 @@
     },
     {
       "layer": "project_source",
+      "path": "apps/studio/src/components/ui/search-box.test.tsx",
+      "sha256": "2c7dbde03450abf39b1b95f92836a6a8b661a8ac1c9510f3492362524bd64d33"
+    },
+    {
+      "layer": "project_source",
+      "path": "apps/studio/src/components/ui/search-box.tsx",
+      "sha256": "b894c46afab8eb2e344db0a92d6e90997cc9c3124710e2199d82fdb30b0bd5cd"
+    },
+    {
+      "layer": "project_source",
       "path": "apps/studio/src/components/ui/select.tsx",
       "sha256": "7c2f0c98ba105599f926eb225341b75087f99c3ca611894f9d6d522872b56852"
     },
@@ -1185,7 +1210,7 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/lib/engine.ts",
-      "sha256": "aeeccbcdb3e44e752bc04ca6978d8be885623abccf54a38b3d2de7765384d87c"
+      "sha256": "d22bfba4397478b778181b76f0cfee7673d70d0b6951d6e5be843b63c6665b9b"
     },
     {
       "layer": "project_source",
@@ -1215,7 +1240,7 @@
     {
       "layer": "project_source",
       "path": "apps/studio/src/test/mock-engine.ts",
-      "sha256": "7c0f790f50c2c48840ace1c89c594b61f09fec524e2547f0b13a32640dcd23a3"
+      "sha256": "292667f59e95ce3380a4c74e2a293670501adcda5050d96bfbaa2e5b8689119f"
     },
     {
       "layer": "project_source",
@@ -2360,7 +2385,7 @@
     {
       "layer": "project_source",
       "path": "packages/kernel/src/index.ts",
-      "sha256": "f9ffe1efd191250ba19b672cce0c68434277ebd1db56be5e1570ffd4d7f08c1a"
+      "sha256": "889ae43ba643c215595f1e45b45d0078ad19b0ab1f07ba9a8b6ad615817a294c"
     },
     {
       "layer": "project_source",
@@ -2391,6 +2416,11 @@
       "layer": "project_source",
       "path": "packages/kernel/src/releases.ts",
       "sha256": "aa233b4a05bbc463327f03f8b769e5748d0bb951100555958b41d1bcbd456ae0"
+    },
+    {
+      "layer": "project_source",
+      "path": "packages/kernel/src/search.ts",
+      "sha256": "55530cfb9d4b0aac0becf964b6445966a95eadfc7c7238300270e571994429d9"
     },
     {
       "layer": "project_source",
@@ -3018,12 +3048,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-30T22:18:18.504065+00:00",
-  "generation_id": "981dd845b20f841d6af92f78176da3eb",
+  "generated_on": "2026-07-30T22:50:45.986660+00:00",
+  "generation_id": "9197f6d4f4104db958fd1f09066bfe5c",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "7eb3e04c20e65c150ae7c1c09b1e6b3bab6fb8a1e456733ffe539ee5252d9872",
+  "source_fingerprint": "90d030fd87f76c7944b54ea8ea859c9a44a2f189bb780aeb3a47a34a4f724459",
   "source_scope": {
     "exclusions": [
       {
