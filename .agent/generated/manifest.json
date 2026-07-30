@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-29T21:15:17.440540+00:00",
-  "generation_id": "1526d33989f6e51a2aae870df2244f83",
+  "generated_at": "2026-07-30T00:46:51.294168+00:00",
+  "generation_id": "f4db1414b220d20f14308f41ca665a63",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -60,6 +60,7 @@
     ".agent/evidence/EVD-0018-v1-owner-walkthrough-and-acceptance.md",
     ".agent/evidence/EVD-0019-v1-documentation-synchronization.md",
     ".agent/evidence/EVD-0020-unified-newcomer-documentation.md",
+    ".agent/evidence/EVD-0021-storyworld-studio-ux-audit-record.md",
     ".agent/evidence/README.md",
     ".agent/extensions/README.md",
     ".agent/extensions/registry.json",
@@ -72,6 +73,7 @@
     ".agent/policy.json",
     ".agent/project.json",
     ".agent/reviews/README.md",
+    ".agent/reviews/REV-0001-storyworld-studio-mockup-ux-audit.md",
     ".agent/schema.json",
     ".agent/schemas/artifact-catalog.schema.json",
     ".agent/schemas/dossier-artifact-registry.schema.json",
@@ -104,6 +106,7 @@
     ".agent/tasks/TASK-0011-credential-store.md",
     ".agent/tasks/TASK-0012-v1-documentation-synchronization.md",
     ".agent/tasks/TASK-0013-unify-newcomer-documentation.md",
+    ".agent/tasks/TASK-0014-persist-storyworld-studio-ux-audit.md",
     ".agent/templates/artifact.json",
     ".agent/templates/checkpoint.md",
     ".agent/templates/decision.md",
@@ -547,7 +550,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "8316cd65e5e632bb5eff8757f8eca4cb2c8d4352d8a4a2212bea715fb501e52a",
+  "source_fingerprint": "a7f9fa014f074142ab32903cc92194fa7284492d0de962f5ec2c79654387f3c9",
   "source_scope": {
     "exclusions": [
       {

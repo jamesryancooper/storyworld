@@ -259,6 +259,11 @@
     },
     {
       "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0021-storyworld-studio-ux-audit-record.md",
+      "sha256": "77a1eb4b94a299ad63cff73e0279823f41b18bdfc7547ce3f4bb4a3f6b8adb45"
+    },
+    {
+      "layer": "agent_harness",
       "path": ".agent/evidence/README.md",
       "sha256": "68138e16a1146373c40e760402e3da10f90969c38f2bd6371cf72bbeaa25439a"
     },
@@ -316,6 +321,11 @@
       "layer": "agent_harness",
       "path": ".agent/reviews/README.md",
       "sha256": "d573877fd67d4b4dc1ce7ace1909ae7a69aabc0b5339f9ea9cb77e808425ba8a"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/reviews/REV-0001-storyworld-studio-mockup-ux-audit.md",
+      "sha256": "90893849d65b9dd045ed6beecd0b664bb413edddac3161d526b387bc29c44364"
     },
     {
       "layer": "agent_harness",
@@ -476,6 +486,11 @@
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0013-unify-newcomer-documentation.md",
       "sha256": "e8d461f42a777dfce2f19919088a79409f41f34bc0d2478e07878353d4aab2b0"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0014-persist-storyworld-studio-ux-audit.md",
+      "sha256": "02fb5f2e05f4d4625968684d7a8257eb849bc97d5562387bb918f1f8e3e23111"
     },
     {
       "layer": "agent_harness",
@@ -2683,12 +2698,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-29T21:15:17.440540+00:00",
-  "generation_id": "1526d33989f6e51a2aae870df2244f83",
+  "generated_on": "2026-07-30T00:46:51.294168+00:00",
+  "generation_id": "f4db1414b220d20f14308f41ca665a63",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "8316cd65e5e632bb5eff8757f8eca4cb2c8d4352d8a4a2212bea715fb501e52a",
+  "source_fingerprint": "a7f9fa014f074142ab32903cc92194fa7284492d0de962f5ec2c79654387f3c9",
   "source_scope": {
     "exclusions": [
       {
