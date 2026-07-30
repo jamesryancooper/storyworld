@@ -145,7 +145,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0020-proposal-acceptance-and-arc-board-semantics.md",
-      "sha256": "a8e0520b1ce461f763e77bf4295f82b9913b9a28c21c0f9e171301a7c10b94c7"
+      "sha256": "6bb700f32cb90bc3796792ec0ee4116fc7b8fd1efed42de9aa362f39bf13c46f"
     },
     {
       "layer": "agent_harness",
@@ -165,7 +165,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0024-defer-graph-adopt-structured-views.md",
-      "sha256": "ba0f4a460c99bd05a42f2fa2747728aafce945d7b7f6f798cb5b64bc4afae480"
+      "sha256": "1f09c9969178d55a0b9c1310434f6c7ed322d1c4fb1b073c999f22102f1583f9"
     },
     {
       "layer": "agent_harness",
@@ -175,7 +175,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/decisions/DEC-0026-category-4-dispositions.md",
-      "sha256": "36643a75f4a338378e9bf7c5dbec095e6d1d980c8b0d0230c6f15cd0f13e0bf8"
+      "sha256": "99fb9368c4b66307a0e9e447d2c0319c4d664009a2927ff1f2ba5844f4480b89"
     },
     {
       "layer": "agent_harness",
@@ -205,7 +205,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/events/events.jsonl",
-      "sha256": "d488d89700a3b3df2e96432834aade992a5821b02909ae25e2dfcd9ec6f64076"
+      "sha256": "3753c957fefa2f834ff354c7fa02ca92e3be43251464b4a0aaa2d03aac8d3507"
     },
     {
       "layer": "agent_harness",
@@ -2828,12 +2828,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-30T02:57:44.685786+00:00",
-  "generation_id": "9276acbe68f7e53b15dd695f691119ab",
+  "generated_on": "2026-07-30T14:08:02.024576+00:00",
+  "generation_id": "d68779f52659ec177dbd6bb6820fa002",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "de3a3d440b5fa88c2158ec915262c823d683cc45e9ec48af429b7c71c899dfee",
+  "source_fingerprint": "c6ac26461717d7f4fb2833e9bdbc2363bb8d14e12c41d3bbad67c32046a09957",
   "source_scope": {
     "exclusions": [
       {
