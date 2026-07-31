@@ -30,7 +30,10 @@ The **Owner Decision Questionnaire** (`owner-input/storyworld-owner-decision-que
 | `plans/production-template-backlog.md` | Plan | draft | `project-dossier/plans/` + `plan.json` items + ch02 §7 over time | DEC-0038 |
 | `assessments/storyworld-studio-interface-architecture.md` | Assessment | stable | Registered supporting artifact; conclusions already partly canonicalized (Phases 0–3, DEC-0020–0027) | DEC-0039 registers it |
 | `assessments/technical-enablement/` (6 files + checksums) | Assessment | stable | Registered supporting artifacts | DEC-0039 registers them |
+| `assessments/reference-library.md` | Assessment | draft | Registered supporting artifact; its reading map feeds decision dispositions | DEC-0039 registers it |
 | `evidence/conversations/` (3 files) | Evidence | stable | `project-dossier/provenance/` source records or archived with the package | DEC-0039 |
+| `evidence/book-research/` (3 files) | Evidence | stable | Provenance records or archived with the package; file 3 is amendment input to DEC-0033 | DEC-0039 |
+| `books/` (58 titles) | Local reference library | local-only, git-ignored | Never enters the dossier or the repository; indexed by `assessments/reference-library.md`; S1R class | — |
 | `draft-decisions/` (11 drafts, DEC-0029…DEC-0039) | Draft decisions | draft | `.agent/decisions/` upon owner disposition | each individually |
 | `canonical-impact-map.md` | Integration plan | draft | Executed during disposition; then archived with the package | DEC-0039 |
 | `process/updating-project-dossier.md` | Process guidance | stable | Archived with the package (its principles are already reflected in this structure) | — |
@@ -44,13 +47,15 @@ The **Owner Decision Questionnaire** (`owner-input/storyworld-owner-decision-que
 | DEC-0030 | Adopt the narrative taxonomy and building blocks | — |
 | DEC-0031 | Art-style definitions feature | — |
 | DEC-0032 | Export adaptors (destinations, grammars, length ladders, print/physical) | — |
-| DEC-0033 | Production design and look system | DEC-0031 |
+| DEC-0033 | Production design and look system | DEC-0031; owner review of the Look-system critique (`evidence/book-research/3-visual-sonic-shelf-and-look-system-critique.md`) |
 | DEC-0034 | Five additional narrative patterns + composition backlog | — |
 | DEC-0035 | Children's-audience compliance layer | Counsel validation condition |
 | DEC-0036 | IP, authorship, and AI-transparency strategy | Counsel for entity/trademark items |
 | DEC-0037 | Source-material sensitivity ladder and ingestion plan | DEC-0035, DEC-0036 for the sensitive/child-adjacent classes |
 | DEC-0038 | Production template backlog | DEC-0029 |
 | DEC-0039 | Intake ratification and canonical integration (master) | All of the above dispositioned |
+
+Pre-decision reading: `assessments/reference-library.md` maps the reference library to the decision program — recommended reading before DEC-0030/0034, the StoryDocument/adaptor decisions, DEC-0035–0037, and DEC-0033.
 
 ## Related governed artifacts (referenced, not duplicated here)
 

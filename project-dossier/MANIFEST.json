@@ -815,7 +815,7 @@
     {
       "layer": "project_source",
       "path": ".gitignore",
-      "sha256": "d571356a2d68ed8da5454d54f7283d7e482420b62aebbc79abddadb3352cd655"
+      "sha256": "afa30bcd55738eb437d7f279fb1cad957416e5f6c5c1fd909145652ee8928daf"
     },
     {
       "layer": "project_source",
@@ -2824,6 +2824,11 @@
     },
     {
       "layer": "project_source",
+      "path": "project-dossier-intake/assessments/reference-library.md",
+      "sha256": "5eb6637ea75af87140503b3a46593720b286343ca4aca815257b1d866a5a4153"
+    },
+    {
+      "layer": "project_source",
       "path": "project-dossier-intake/assessments/storyworld-studio-interface-architecture.md",
       "sha256": "31f17a2fed5f940a40cb55b106e0beba98d9bb83fe8dc70e053b8c2fcc102b56"
     },
@@ -2864,6 +2869,296 @@
     },
     {
       "layer": "project_source",
+      "path": "project-dossier-intake/books/a-theory-of-adaptation-linda-hutcheon.pdf",
+      "sha256": "beb6d73e5b6c5963fe6059e1437aa9c0636bf5119e92e8e6609eec2f77847c2e"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/an-architectural-approach-to-level-design-christopher-totten.pdf",
+      "sha256": "57f8d4aec09859a0104b00075c223276222ae7d8159b7a975e73a4032b5e08f3"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/an-introduction-to-information-retrieval-christopher-manning.pdf",
+      "sha256": "1780769f34df29a463c3b317f8e4992ec05b94ec7f9aa5509257e3423bd73ac4"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/audio-vision-michel-chion.pdf",
+      "sha256": "b2e76714cd208e6712aecf727a6edfb5bcc6b3ee0437bf1d324ba02ad8b9afa4"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/building-imaginary-worlds-mark-j-p-wolf.pdf",
+      "sha256": "d752c54a9d00b7d59707a459fa981bcb4182609191dd04e86e3dc1b01bbf6d25"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/cinematography-theory-and-practice-blain-brown.pdf",
+      "sha256": "bb1da3010e384925156a23d11b8bb4fedd9397147981e8d820859a1b5eaa1f7b"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/clearance-and-copyright-michael-donaldson.epub",
+      "sha256": "747e53f68cd7a337f8f03e86e78854634a96b7e77c4ac0dd7cce91aea9f3aa6a"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/color-correction-handbook-alexis-van-hurkman.pdf",
+      "sha256": "b60f218def640b3b7860ce5f5bc59d67ea80d146956bb4510910902f621f50ff"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/convergence-culture-henry-jenkins.pdf",
+      "sha256": "672ddf15812dd745be6db632526eaf76f95f127b2506b1ed81dff28825899b2f"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/decolonizing-methodologies-linda-tuhiwai-smith.pdf",
+      "sha256": "923fe9accb0834bea5fd07b8debaecc67e4ad6a90cd9a17434fb62dd02bda953"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/designing-connected-content-carrie-hane.pdf",
+      "sha256": "c516cd436a1c3387026348a4b874e53c8c64b3c5685ab6b2879336a728bf0ce0"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/designing-interfaces-jenifer-tidwell.pdf",
+      "sha256": "bb23c6334528c768b60c87549f2f73a6823d91d5330a27405972943f6b6bdd1a"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/dialogue-editing-for-motion-pictures-john-purcell.pdf",
+      "sha256": "2de612ed9f89156ec60d7b35b6d1b938d246efbfcfd47c52f6d51e3a88b3b4d8"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/directing-film-techniques-and-aesthetics-michael-rabiger.pdf",
+      "sha256": "7f9fb819c804553c3b633330ab496117b65782bc3cd6c542272eda8f6347b49d"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/dream-worlds-hans-bacher.pdf",
+      "sha256": "9abac4a403b59b2efddc08224bbda3c6fe9ca8fda429a7def7e79c3ee7e8435c"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/engineering-a-safer-world-nancy-leveson.pdf",
+      "sha256": "c4584d4cd52e0c643ee7c7260a9d6e9838b805cb02976d0fbb68175aa618c1e6"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/expressive-processing-noah-wardrip-fruin.pdf",
+      "sha256": "17f39f61eddb9068efa7beaaa18c502d3fa9060691f4aaa3bcd13694e43be1fd"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/film-art-david-bordwell.pdf",
+      "sha256": "52e47de5103d246de419283f5d75da8fd3ed7341219ffc55fa9766b6380d2a27"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/film-directing-shot-by-shot-steven-katz.pdf",
+      "sha256": "bea58957a540834ff0087e547e30903e1aa5271956956602e44e8d5e73df3917"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/film-music-the-basics-kenneth-lampl.pdf",
+      "sha256": "893376e7b2123e2dad71ca305695a2c2baadda781097772e5cb92503d361b781"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/graphic-design-the-new-basics-ellen-lupton.pdf",
+      "sha256": "957e00de5779300ba13443f7cbe038f93b5ccab40b71932bb8ba202e975fa8cb"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/hamlet-on-the-holodeck-janet-murray.pdf",
+      "sha256": "73b1d08cceb06392e1c45fbe60b7d8dbff325d0319039a26a612b3d1767451e6"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/how-picturebooks-work-maria-nikolajeva.pdf",
+      "sha256": "9f7734bf9505c81cb90624eece5aec810e8f69c010d531e93e3d9c71f93b77f4"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/human-centered-ai-ben-shneiderman.pdf",
+      "sha256": "82fa9fc8c3d66e033d5c71a3787d841e0839d89818943201f8cd3434541a4baa"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/in-the-blink-of-an-eye-walter-murch.pdf",
+      "sha256": "810d0e86bd7ed31cbd37651fff4804b98e49efb3cdd5087ad36cb01d48ce532a"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/inclusive-design-for-a-digital-world-regine-gilbert.pdf",
+      "sha256": "0fbf2c7a27054f9ec5e558179d255d4a01e6ac69b737355bd92cf7bac80f8d26"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/into-the-woods-john-yorke.pdf",
+      "sha256": "06cf90142222019887b4d2d655dd8e190346c26510d739ce2b00aa016837073f"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/introducing-translation-studies-jeremy-munday.pdf",
+      "sha256": "0141c8251cdb924ba56c61dd1943e755f6232c8a0e32327e6fff2743c355e5c4"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/inventing-the-medium-janet-murray.pdf",
+      "sha256": "341f9bf61371b4755e8b87dfc03aa8283a95a7af0178b8eef62164be6185fc67"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/motion-picture-and-video-lighting-blain-brown.pdf",
+      "sha256": "d03c60ea2dbe738ebe8c66d201f3825e1cf65d503baa0fea70dea7b52f2ff91a"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/on-the-track-fred-karlin.pdf",
+      "sha256": "a5fbfb7abd6c9e7bfb21307cb1de28f2ea3ceb84891c479084b13f4f62b95623"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/procedural-storytelling-in-game-design-tanya-short.pdf",
+      "sha256": "3b5a43067f4cbc72968d6e3ae05a66867ae9ce3fe498d4e94ed5e2897fd82f26"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/producing-animation-catherine-winder.pdf",
+      "sha256": "8947038d81163a49d3f2f77d7e9bfe533f2e7ed4da45d6a1d3462ab2b852abdc"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/production-design-for-screen-jane-barnwell.pdf",
+      "sha256": "42101715fad5010ef071d9ca0b62d4bedb1e06663209069dcbed276c62208160"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/semantic-web-for-the-working-ontologist-dean-allemang.pdf",
+      "sha256": "bb100cf845e6ff5071351cff89e03a381230e2cc5cd84d26ead34544b8c3439c"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/sound-design-david-sonnenschein.pdf",
+      "sha256": "a1a6bfcc675e61a4a1308cc4760eaf7977b753d9cefa1480e2a77e5fd18ee682"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/the-bscs-5e-instructional-model-rodger-bybee.pdf",
+      "sha256": "3335e8ae69cbf6da4e193eb7bfeacfd15d19c209ac711ea8aa0294d876e539d5"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/the-cambridge-introduction-to-narrative-h-porter-abbott.pdf",
+      "sha256": "e206e8a346a78d8ebaf7fefddf5ce11b161b78bcb6c64f6437768648837e554c"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/the-chicago-guide-to-fact-checking-brooke-borel.pdf",
+      "sha256": "c4f92aad4e249577461e2ff6eafcfc52f9ef495892f7ae019b50d78eaf632644"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/the-craft-of-research-wayne-booth.pdf",
+      "sha256": "a8ab058c9f08d5184119fa7d70e28a3a9c08301d1a34014f3eece38bf0a5f9f9"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/the-discipline-of-organizing-robert-glushko.pdf",
+      "sha256": "8880e40b8f586a5b84897bbc6043cb122f3bdf4d3b514bbac47e357465ef6022"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/the-ethics-of-storytelling-hanna-meretoja.pdf",
+      "sha256": "f5e5bea57591dc75c84becb5ff6300c6867e643b096d9a7d7f799c30fd496f51"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/the-filmmakers-guide-to-digital-imaging-blain-brown.pdf",
+      "sha256": "2d7f50dd3454e42f5ae7ea6f153f2fc16d38700bea93d8d80775ccbef18e05a5"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/the-game-narrative-toolbox-tobias-heussner.pdf",
+      "sha256": "524be589126ca4f3a0c3e180dfdf3147702820561e42ef2d1b26f6f8136382ab"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/the-nature-of-photographs-stephen-shore.pdf",
+      "sha256": "77fd50ed5afa212d6f4bdc706704fad90cdc18cfba42d01d150c426095bef24c"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/the-routledge-international-handbook-of-children-adolescents-and-media-dafna-lemish.pdf",
+      "sha256": "c8e0732d007501100b498fe7129f814956c079056585aa53d54ab8995d83f3fe"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/the-theory-and-craft-of-digital-preservation-trevor-owens.pdf",
+      "sha256": "049630eacc035937748b302d8dc8b57a64865fc00f40d6814d68ac9d4ba7fdb3"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/the-visual-story-bruce-block.pdf",
+      "sha256": "bada3d1adcec8865a13042f421a8ab55de0a13b7394637cf0dd2f2c598943e6a"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/thinking-with-type-ellen-lupton.pdf",
+      "sha256": "3ced578317a24cedc01d4b42d8322289c18a532b27e460915f34bb9537487d90"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/threat-modeling-adam-shostack.pdf",
+      "sha256": "ad065be353573830d8a825269d0ba7e2e113c83d6b85563605b05a6ae0fb9ef7"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/threat-modeling-best-practices-derek-fisher.pdf",
+      "sha256": "bef3f9946bfa4c91d2b7ab53d768b895ae06fe3eb09bcff4103983031fb2e3c1"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/time-and-relational-theory-c-j-date.pdf",
+      "sha256": "fc23ba95bd9f119e7e9978916ccd9b73951f90d68e0d48fb48c416ccc6c0aeb4"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/trustworthy-online-controlled-experiments-ron-kohavi.pdf",
+      "sha256": "14b7e283bdcd8b3274d89992c6ed720f000a21a9e8b97c0832643a8cfa5d7838"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/understanding-comics-scott-mccloud.pdf",
+      "sha256": "bc39e5372bf9ecebfbbe485ed81f208a0302e7cdf486d4b03b5a945fe3392cb3"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/using-understanding-by-design-in-the-culturally-and-linguistically-diverse-classroom-amy-heineke.pdf",
+      "sha256": "0b3070fa49adf761b607034d85508ebe0e7e9227c396bb5690c35f0b2a0f6986"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/visible-signs-david-crow.pdf",
+      "sha256": "af75c31b2af9846c80de33a1e3e99a9e83fdf7c62d204371d6c39bffc526cb1d"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/visual-character-development-in-film-and-television-michael-hanly.pdf",
+      "sha256": "af0559316f497f6640ec44699635774e3acb7d04b4a233c111c2729d2edbc917"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/books/visualization-analysis-and-design-tamara-munzner.pdf",
+      "sha256": "523ccdf2e6735b8f6ff118ca215b2316659cb46b2309ecbec8025dfd71241a4e"
+    },
+    {
+      "layer": "project_source",
       "path": "project-dossier-intake/canonical-impact-map.md",
       "sha256": "cd7b8250af454b2e0bf7e8aa89f52348a5b6a1ec254d6629bf5a6cd8ad99880e"
     },
@@ -2890,7 +3185,7 @@
     {
       "layer": "project_source",
       "path": "project-dossier-intake/draft-decisions/dec-0033-production-design-look-system.md",
-      "sha256": "cecc77864011f4324de04169974c8c8ec347d5c9edbbdf1132bb64d1b61ddf2d"
+      "sha256": "968065f385ff317fc45530ab55e789cce4dbe5e6d783d2d8280db75a658d90cc"
     },
     {
       "layer": "project_source",
@@ -2921,6 +3216,21 @@
       "layer": "project_source",
       "path": "project-dossier-intake/draft-decisions/dec-0039-intake-ratification-and-integration.md",
       "sha256": "78c73a3c82b5c0aaf8fb79a6e5381984a90a4bf07ef5bb3f677c32a348290b5c"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/evidence/book-research/1-creative-core-shelf.md",
+      "sha256": "fa9fa7c35024277b509c20d4e55b5967aff48e96d972b4296095c0f8c72bf67b"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/evidence/book-research/2-semantic-governance-shelf.md",
+      "sha256": "ba081946011084acb71661e62664833cd089e983392b6845f914b6903d990d8b"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/evidence/book-research/3-visual-sonic-shelf-and-look-system-critique.md",
+      "sha256": "6ed484e9f9d95100236155bdaaae2b9d2a230492cae45edaf1f7ea69b91b5605"
     },
     {
       "layer": "project_source",
@@ -2995,7 +3305,7 @@
     {
       "layer": "project_source",
       "path": "project-dossier-intake/readme.md",
-      "sha256": "9eab370344b1fcc946ff1ef7dd0126ce20b910d9e5cd1713ac30511c95ccba77"
+      "sha256": "4a9d63ff400ad2f1c544cb3fc3f02a755d79e1e04d740ca391a32dd485a8b733"
     },
     {
       "layer": "project_dossier",
@@ -3248,12 +3558,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-31T19:24:30.643112+00:00",
-  "generation_id": "b4671fe55776f6d49376cc224aaa5da2",
+  "generated_on": "2026-07-31T23:04:59.815008+00:00",
+  "generation_id": "da190668d978cf304fdbd9060c28ec34",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "fd3c28c00697ac7e4a8d31b5e790f287beff314b987ee2ff7811d896b23cc86a",
+  "source_fingerprint": "44007402eee7e163cec6330ed02c0f7305dc8758fcf73df072176aa8cbac6509",
   "source_scope": {
     "exclusions": [
       {
