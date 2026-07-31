@@ -276,7 +276,7 @@ Derived units: teaser, trailer, clip, excerpt, recap ("previously on"), compilat
 
 ## 6. Realization styles
 
-Style is orthogonal to family, length, and medium: any story can be realized anywhere on these spectrums. Named, reusable styles are governed by the art-style definitions feature (`additional-features.md`).
+Style is orthogonal to family, length, and medium: any story can be realized anywhere on these spectrums. Named, reusable styles are governed by the art-style definitions feature (`../platform-capabilities/additional-features.md`).
 
 * **Moving image spectrum**: live-action → live-action with VFX augmentation → mixed live-action and animation → puppetry, toy, and miniature staging → stop-motion → 2D animation (toon, painterly, anime-inflected) → 3D/CG animation → motion graphics and kinetic typography → photoreal generative → stylized generative → archival/found-footage → screen-capture and gameplay.
 * **Static and print styles**: photography; illustration in defined styles; painterly; flat/vector; comic inking; collage; typographic.
@@ -366,7 +366,7 @@ The same substance recomposed across realizations is how one property becomes a 
 | Taxonomy dimension | Storyworld concept |
 |---|---|
 | Narrative families, engines, structures, knowledge frames | Templates, vocabularies, and validators (never free-text genre labels) |
-| Realization styles | Art-style definitions and the production design and look system (`additional-features.md`, `production-design.md`) |
+| Realization styles | Art-style definitions and the production design and look system (`../platform-capabilities/additional-features.md`, `../platform-capabilities/production-design.md`) |
 | Media, channels, format and length classes | Export adaptors and rendition specifications; presentation-unit grammars (slides, panels, pages, threads) as adaptor/template configuration |
 | Release and seriality models | Arcs, publication windows, release records, and re-release editions |
 | Derivation vs. adaptation vs. transmedia | Renditions; adaptation branches; complementary-canon pattern (proposed) |

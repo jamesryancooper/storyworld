@@ -53,7 +53,7 @@ The wisdom corpus and any lesson material distilled from third-party videos or t
 
 Sequenced by readiness and by how much governance each needs in place first:
 
-1. **Ryan and Nicol** — most complete package; near-term deliverable; pilots the full workflow plus the authorship dossier (see `ip-authorship-and-transparency.md`).
+1. **Ryan and Nicol** — most complete package; near-term deliverable; pilots the full workflow plus the authorship dossier (see `../governance/ip-authorship-and-transparency.md`).
 2. **Saint Michael artwork series** — small, clean, S1-only; exercises style-library ingestion.
 3. **SciSpark** — large but low-sensitivity; exercises curriculum templates and S1R checks.
 4. **Dumpster Fire Friends and Ambience** — S1 packages feeding already-designed plans.

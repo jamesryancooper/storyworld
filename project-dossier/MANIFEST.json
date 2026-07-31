@@ -804,6 +804,11 @@
     },
     {
       "layer": "project_source",
+      "path": ".claude/settings.local.json",
+      "sha256": "bc6f9dbd83840070ae48650b771f89f3eb6931893a5d77135a6011bd8f998360"
+    },
+    {
+      "layer": "project_source",
       "path": ".github/workflows/validate.yml",
       "sha256": "bcb97aad4928302645a020eb5037a5e6327ffb47c445d96a7340b9928a0f577b"
     },
@@ -2819,113 +2824,178 @@
     },
     {
       "layer": "project_source",
-      "path": "project-dossier-intake/Storyworld_Owner_Decision_Questionnaire.md",
-      "sha256": "d12719b3a97988a1a11ffebcf9c56e870c1de48cbfdb7fec169e6b467cfcff67"
-    },
-    {
-      "layer": "project_source",
-      "path": "project-dossier-intake/Storyworld_Studio_Interface_Architecture.md",
+      "path": "project-dossier-intake/assessments/storyworld-studio-interface-architecture.md",
       "sha256": "31f17a2fed5f940a40cb55b106e0beba98d9bb83fe8dc70e053b8c2fcc102b56"
     },
     {
       "layer": "project_source",
-      "path": "project-dossier-intake/additional-features.md",
-      "sha256": "f3d56ffca0e4b631736c09b40268507864e610e537042b7c687f8599c3f17729"
+      "path": "project-dossier-intake/assessments/technical-enablement/checksums.sha256",
+      "sha256": "83065e0d4afe5c9978a021162d58f451e52ac90f7cab0b358cc9cdaa1e96b5e1"
     },
     {
       "layer": "project_source",
-      "path": "project-dossier-intake/childrens-audience-compliance.md",
-      "sha256": "caf4e08c65c4e74f6e7781005e0cff36350b71bd0f82ac18bde6aa3d68ba8ae1"
+      "path": "project-dossier-intake/assessments/technical-enablement/readme.md",
+      "sha256": "3099abc5fbe4e58df46c0b7e9a5052345e95b61bc2d38fe0e8982ab6687976cc"
     },
     {
       "layer": "project_source",
-      "path": "project-dossier-intake/conversations/graph-architecture-for-storyworld.md",
-      "sha256": "7079527fa7aa5048ee3885f2fc79d7f157f952f535d02ce63383af06ac385c74"
-    },
-    {
-      "layer": "project_source",
-      "path": "project-dossier-intake/conversations/storyworld-studio-interface-architecture-assessment.md",
-      "sha256": "cc7f95c8b645231a5395089481a546fc6f59e5ae84d211b962722e3542c32558"
-    },
-    {
-      "layer": "project_source",
-      "path": "project-dossier-intake/conversations/technical-enablement-assessment-completed.md",
-      "sha256": "2d4faddfc397cf2bf143bf6b1657226241bd7179d275a7ae5ebc03fc4607f2ce"
-    },
-    {
-      "layer": "project_source",
-      "path": "project-dossier-intake/ip-authorship-and-transparency.md",
-      "sha256": "bc6c87dcf9fe1c677f9c3aa0629fdb0348786f343ad4d44a0a23b3a2ae313728"
-    },
-    {
-      "layer": "project_source",
-      "path": "project-dossier-intake/narrative-building-blocks.md",
-      "sha256": "440d46bd939ae8f4fde778f7014a2232de01dcc905c9a808f4eb9e27e3e0b724"
-    },
-    {
-      "layer": "project_source",
-      "path": "project-dossier-intake/narrative-story-projects.md",
-      "sha256": "29aaba28626f6bfe9f9764792968c4fd8e187514147a090ea82e33b70a2bd06a"
-    },
-    {
-      "layer": "project_source",
-      "path": "project-dossier-intake/narrative-taxonomy.md",
-      "sha256": "72a31a28088325ab2eaeb282c61f88d7f9c8874ad6b74634b73bbd8efd21607f"
-    },
-    {
-      "layer": "project_source",
-      "path": "project-dossier-intake/production-design.md",
-      "sha256": "d4bd47843046312ef6e1c3e04d7c2065420caed75b96325e7c61c7b75720220e"
-    },
-    {
-      "layer": "project_source",
-      "path": "project-dossier-intake/production-template-backlog.md",
-      "sha256": "6a60df66bc1e07d01814d6f497c33e0f97419b1a3ab928753fa89fde6fac3645"
-    },
-    {
-      "layer": "project_source",
-      "path": "project-dossier-intake/source-material-ingestion-plan.md",
-      "sha256": "253d0055c3b1c35558188ee1c6510e6f53b998b4b8f781c0e0ab73ff7032a910"
-    },
-    {
-      "layer": "project_source",
-      "path": "project-dossier-intake/technical-enablement/CHECKSUMS.sha256",
-      "sha256": "d5bfdf647b757e993c911718463af5da09692c9a8cc4203caf680c2acec5d2e1"
-    },
-    {
-      "layer": "project_source",
-      "path": "project-dossier-intake/technical-enablement/README.md",
-      "sha256": "92373d462c1c18b7f549fbbe1cd89c5c9c2a6ff70e8ef61c10c6705fdd35389c"
-    },
-    {
-      "layer": "project_source",
-      "path": "project-dossier-intake/technical-enablement/Storyworld_Current_Technical_Inventory.md",
+      "path": "project-dossier-intake/assessments/technical-enablement/storyworld-current-technical-inventory.md",
       "sha256": "7c825f3f2560055d500c17d751d47aa45041b37cbc68da324cafb34200ef278d"
     },
     {
       "layer": "project_source",
-      "path": "project-dossier-intake/technical-enablement/Storyworld_Dependency_Recommendation_Register.json",
+      "path": "project-dossier-intake/assessments/technical-enablement/storyworld-dependency-recommendation-register.json",
       "sha256": "d01b05ca4a81f3bfcd87056a1839f1d72024ec9875835f6f92614337eb00ede0"
     },
     {
       "layer": "project_source",
-      "path": "project-dossier-intake/technical-enablement/Storyworld_Recommended_Enabling_Stack.md",
+      "path": "project-dossier-intake/assessments/technical-enablement/storyworld-recommended-enabling-stack.md",
       "sha256": "a5138d0d1bf9fb4362156745835b20c16fff8345bf152cfe4467aeac469120ba"
     },
     {
       "layer": "project_source",
-      "path": "project-dossier-intake/technical-enablement/Storyworld_Technical_Enablement_Dossier.md",
+      "path": "project-dossier-intake/assessments/technical-enablement/storyworld-technical-enablement-dossier.md",
       "sha256": "4f044ee243b83e27b0d835a10035cd6cadd2e2f1af63b5196f1d68e16f362015"
     },
     {
       "layer": "project_source",
-      "path": "project-dossier-intake/technical-enablement/Storyworld_Technical_POC_Plan.md",
+      "path": "project-dossier-intake/assessments/technical-enablement/storyworld-technical-poc-plan.md",
       "sha256": "b4e5d91f5f4be3b84a246346d4fefe7d3c7e69ee96a8852364fe1625e71c3c77"
     },
     {
       "layer": "project_source",
-      "path": "project-dossier-intake/updating-project-dossier.md",
+      "path": "project-dossier-intake/canonical-impact-map.md",
+      "sha256": "cd7b8250af454b2e0bf7e8aa89f52348a5b6a1ec254d6629bf5a6cd8ad99880e"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/draft-decisions/dec-0029-narrative-project-portfolio.md",
+      "sha256": "c37060cf49d4fe052c98ebc8470c155609843271c8f182be55487739c0727f81"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/draft-decisions/dec-0030-narrative-taxonomy-and-building-blocks.md",
+      "sha256": "66ff9cb7038561503dc89d424bd9c6893690afccc520e3b0c217827d84a3a507"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/draft-decisions/dec-0031-art-style-definitions.md",
+      "sha256": "5920d3330222c8cd32187bb2998111a6996cf56542bae4e75ea78615d5f4998f"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/draft-decisions/dec-0032-export-adaptors.md",
+      "sha256": "621607b52b268b485d74ebb07823a8ec50b2ea8a20db8f01b21fc15bdfd4312f"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/draft-decisions/dec-0033-production-design-look-system.md",
+      "sha256": "cecc77864011f4324de04169974c8c8ec347d5c9edbbdf1132bb64d1b61ddf2d"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/draft-decisions/dec-0034-additional-narrative-patterns.md",
+      "sha256": "0706011c8a117707b8bc30d0ca7b9337a86782439a945969e42c8fdff5db0a3a"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/draft-decisions/dec-0035-childrens-audience-compliance.md",
+      "sha256": "d73a30a55fc71d8a09ab2f2689445cf2859b4927f55755d1e8736c9eaccf5ee6"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/draft-decisions/dec-0036-ip-authorship-transparency.md",
+      "sha256": "6a7ac15647b031fce11abbfe93b92242e3a41351e6c668439ebe2296d7b6d22e"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/draft-decisions/dec-0037-source-ingestion-and-sensitivity.md",
+      "sha256": "68735a747e4e998af684f1967aa25bde1aec54ebc833b3f8da5c6b310cb1d879"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/draft-decisions/dec-0038-production-template-backlog.md",
+      "sha256": "725e46b27e5d4f659d1010279c93214e7465e8622cc1abe40540e7217664ee8b"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/draft-decisions/dec-0039-intake-ratification-and-integration.md",
+      "sha256": "78c73a3c82b5c0aaf8fb79a6e5381984a90a4bf07ef5bb3f677c32a348290b5c"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/evidence/conversations/graph-architecture-for-storyworld.md",
+      "sha256": "7079527fa7aa5048ee3885f2fc79d7f157f952f535d02ce63383af06ac385c74"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/evidence/conversations/storyworld-studio-interface-architecture-assessment.md",
+      "sha256": "cc7f95c8b645231a5395089481a546fc6f59e5ae84d211b962722e3542c32558"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/evidence/conversations/technical-enablement-assessment-completed.md",
+      "sha256": "2d4faddfc397cf2bf143bf6b1657226241bd7179d275a7ae5ebc03fc4607f2ce"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/governance/childrens-audience-compliance.md",
+      "sha256": "caf4e08c65c4e74f6e7781005e0cff36350b71bd0f82ac18bde6aa3d68ba8ae1"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/governance/ip-authorship-and-transparency.md",
+      "sha256": "bc6c87dcf9fe1c677f9c3aa0629fdb0348786f343ad4d44a0a23b3a2ae313728"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/owner-input/storyworld-owner-decision-questionnaire.md",
+      "sha256": "d12719b3a97988a1a11ffebcf9c56e870c1de48cbfdb7fec169e6b467cfcff67"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/plans/production-template-backlog.md",
+      "sha256": "6a60df66bc1e07d01814d6f497c33e0f97419b1a3ab928753fa89fde6fac3645"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/plans/source-material-ingestion-plan.md",
+      "sha256": "ad23b7e793836b6ce9e7ad6c0594a7bc62a87c5f0b3eb8294df0fc442204aa7e"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/platform-capabilities/additional-features.md",
+      "sha256": "808828042b903662b44255070e0906be8af150e25ab18aebcb787c08bb304d8f"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/platform-capabilities/production-design.md",
+      "sha256": "d4bd47843046312ef6e1c3e04d7c2065420caed75b96325e7c61c7b75720220e"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/process/updating-project-dossier.md",
       "sha256": "83467b68bff7a71065242346445e1899cb390d758bad5cf51d9f1e50d9272abc"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/product-definition/narrative-building-blocks.md",
+      "sha256": "440d46bd939ae8f4fde778f7014a2232de01dcc905c9a808f4eb9e27e3e0b724"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/product-definition/narrative-story-projects.md",
+      "sha256": "230c9ee47834a1525cd58d464fb11a3594079342ccb5f664b1c43178e98a420f"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/product-definition/narrative-taxonomy.md",
+      "sha256": "3499885bb502c44fb7e2f5308513fb264fe284a654e3f87cee4d0b5901d77d53"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/readme.md",
+      "sha256": "9eab370344b1fcc946ff1ef7dd0126ce20b910d9e5cd1713ac30511c95ccba77"
     },
     {
       "layer": "project_dossier",
@@ -3178,12 +3248,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-31T18:58:27.132965+00:00",
-  "generation_id": "7e648778ba6ec8b65d6001e74053c503",
+  "generated_on": "2026-07-31T19:24:30.643112+00:00",
+  "generation_id": "b4671fe55776f6d49376cc224aaa5da2",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "b90b44d848c818961387c31452a1a26eda50cc80c1e9a02cf2019c853260e755",
+  "source_fingerprint": "fd3c28c00697ac7e4a8d31b5e790f287beff314b987ee2ff7811d896b23cc86a",
   "source_scope": {
     "exclusions": [
       {

@@ -1,6 +1,6 @@
 # Additional Storyworld features
 
-Platform features identified while cataloging the narrative and story projects (see `narrative-story-projects.md`). These are owner-endorsed feature directions, not yet governed by decision records; per the dossier process, each should flow through a proposed decision before becoming canonical architecture.
+Platform features identified while cataloging the narrative and story projects (see `../product-definition/narrative-story-projects.md`). These are owner-endorsed feature directions, not yet governed by decision records; per the dossier process, each should flow through a proposed decision before becoming canonical architecture.
 
 ## Art-style definitions
 
@@ -72,7 +72,7 @@ Destination-specific composition rules belong in adaptor configuration, not in p
 * Caption/post length limits (e.g., captions under 300 characters with the first 125 characters front-loaded with the crucial message and call-to-action; hashtags and mentions pushed to the end).
 * Loop-safety requirements for ambience video (no motion or narrative elements that break seamless looping).
 * Presentation-unit grammars per destination — carousel slide grammar (slide counts and ordering conventions), comic panel and page grammar (page-turn reveals as pacing and spoiler boundaries), thread segmentation, picture-book spreads.
-* Target length-class ladders per destination (micro ≤60s vertical, short-form, mid-form, broadcast-length, feature), so one accepted master can be derived into each length class a channel expects (see the format and length classes in `narrative-taxonomy.md`).
+* Target length-class ladders per destination (micro ≤60s vertical, short-form, mid-form, broadcast-length, feature), so one accepted master can be derived into each length class a channel expects (see the format and length classes in `../product-definition/narrative-taxonomy.md`).
 
 ### Expected behavior
 

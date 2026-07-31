@@ -2,7 +2,7 @@
 
 This document is the inventory of narrative and story projects to be created and managed in Storyworld. Projects are organized by type. Each entry records the project's type, status, concept, structure, content, audience, delivery format, visual identity, content pipeline, and how it would be built and managed in Storyworld. Fields marked **To be defined** are open owner decisions, not omissions. Names marked **(working title)** are placeholders awaiting owner naming.
 
-Every platform pattern — the fourteen post-F1 pattern fixtures and the eight schema probes — has a designated showcase project; entries that carry a pattern include a **Pattern showcase** field, and the full mapping appears in the "Pattern showcase coverage" section near the end. Patterns this catalog surfaced that the platform does not yet cover are recorded separately under "Proposed additional patterns" and remain proposals until they pass decision records. Platform features referenced by these projects (art-style definitions, export adaptors) are specified separately in `additional-features.md`.
+Every platform pattern — the fourteen post-F1 pattern fixtures and the eight schema probes — has a designated showcase project; entries that carry a pattern include a **Pattern showcase** field, and the full mapping appears in the "Pattern showcase coverage" section near the end. Patterns this catalog surfaced that the platform does not yet cover are recorded separately under "Proposed additional patterns" and remain proposals until they pass decision records. Platform features referenced by these projects (art-style definitions, export adaptors) are specified separately in `../platform-capabilities/additional-features.md`.
 
 ## Serialized fiction worlds
 
@@ -200,7 +200,7 @@ Every platform pattern — the fourteen post-F1 pattern fixtures and the eight s
 * **Structure**: Advice cards as the atomic unit (bold short line over full-bleed imagery, with a deeper narrative layer behind it); cards grouped into thematic collections.
 * **Content**: Short advice statements; deeper narrative/explanatory layers; symbolic imagery per card.
 * **Audience**: Directionless teens and young adults (15–24) with low self-worth who resist direct guidance; modeled on a defined audience avatar, with comparable-audience analysis completed.
-* **Delivery format**: Swipe-based interactive web experience (swipe left for depth, swipe up for next, snap-in-place; identical on phone, trackpad, and mouse) plus social carousels and short posts with front-loaded captions — see export adaptors in `additional-features.md`.
+* **Delivery format**: Swipe-based interactive web experience (swipe left for depth, swipe up for next, snap-in-place; identical on phone, trackpad, and mouse) plus social carousels and short posts with front-loaded captions — see export adaptors in `../platform-capabilities/additional-features.md`.
 * **Visual identity**: "Illustrative Tech-Urban Nature Realism" — edgy realism blending urban grit (graffiti textures, cityscapes) with tech-enhanced nature; themed around opposing forces and the journey from hopelessness to ascension.
 * **Content pipeline**: Distilled wisdom corpus reshaped into a young-adult register (short posts and card copy) → symbolic image generation per card in the property style → assembly into swipe/carousel sequences.
 * **Pattern showcase**: Governed variant and experiment — two approved opening treatments over one fixed body, a declared hypothesis, a bounded experiment window, and a human decision on adoption; the winning variant never silently becomes canon.
@@ -247,7 +247,7 @@ Every platform pattern — the fourteen post-F1 pattern fixtures and the eight s
 * **Content**: Finished artworks; the structured scene specification; theological grounding notes for the iconography.
 * **Audience**: Faith-oriented art audiences; devotional and art-print contexts; to be confirmed.
 * **Delivery format**: Art prints/posters and social art posts; to be confirmed.
-* **Visual identity**: Dual-register by design — classical treatments (whites, silvers, golds; celestial light; commanding serenity) and NeonSlash treatments (neon-saturated cel-shaded vector, hard-edged shadows, jagged motifs, glam-punk energy). Style definitions specified in `additional-features.md`.
+* **Visual identity**: Dual-register by design — classical treatments (whites, silvers, golds; celestial light; commanding serenity) and NeonSlash treatments (neon-saturated cel-shaded vector, hard-edged shadows, jagged motifs, glam-punk energy). Style definitions specified in `../platform-capabilities/additional-features.md`.
 * **Content pipeline**: Canonical scene JSON → style treatment selection → AI image generation → curation; new treatments reuse the same scene spec.
 * **In Storyworld**: Art property anchored on a single canonical scene document; each treatment is a style-variant render linked to that scene; exercises the art-style definition feature directly.
 
