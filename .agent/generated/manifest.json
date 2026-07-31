@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-30T23:31:06.441001+00:00",
-  "generation_id": "3af09bceeeb00376d3a0c2150dc94c9e",
+  "generated_at": "2026-07-31T18:58:27.132965+00:00",
+  "generation_id": "7e648778ba6ec8b65d6001e74053c503",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -572,6 +572,28 @@
     "packages/workflows/vitest.config.ts",
     "pnpm-lock.yaml",
     "pnpm-workspace.yaml",
+    "project-dossier-intake/Storyworld_Owner_Decision_Questionnaire.md",
+    "project-dossier-intake/Storyworld_Studio_Interface_Architecture.md",
+    "project-dossier-intake/additional-features.md",
+    "project-dossier-intake/childrens-audience-compliance.md",
+    "project-dossier-intake/conversations/graph-architecture-for-storyworld.md",
+    "project-dossier-intake/conversations/storyworld-studio-interface-architecture-assessment.md",
+    "project-dossier-intake/conversations/technical-enablement-assessment-completed.md",
+    "project-dossier-intake/ip-authorship-and-transparency.md",
+    "project-dossier-intake/narrative-building-blocks.md",
+    "project-dossier-intake/narrative-story-projects.md",
+    "project-dossier-intake/narrative-taxonomy.md",
+    "project-dossier-intake/production-design.md",
+    "project-dossier-intake/production-template-backlog.md",
+    "project-dossier-intake/source-material-ingestion-plan.md",
+    "project-dossier-intake/technical-enablement/CHECKSUMS.sha256",
+    "project-dossier-intake/technical-enablement/README.md",
+    "project-dossier-intake/technical-enablement/Storyworld_Current_Technical_Inventory.md",
+    "project-dossier-intake/technical-enablement/Storyworld_Dependency_Recommendation_Register.json",
+    "project-dossier-intake/technical-enablement/Storyworld_Recommended_Enabling_Stack.md",
+    "project-dossier-intake/technical-enablement/Storyworld_Technical_Enablement_Dossier.md",
+    "project-dossier-intake/technical-enablement/Storyworld_Technical_POC_Plan.md",
+    "project-dossier-intake/updating-project-dossier.md",
     "project-dossier/AUTHORITY.md",
     "project-dossier/CANONICAL_SOURCE_MAP.md",
     "project-dossier/README.md",
@@ -624,7 +646,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "586e5af55d029246c3c5a326bd54c47172dece90a2a9ba94d353d39c30f794a3",
+  "source_fingerprint": "b90b44d848c818961387c31452a1a26eda50cc80c1e9a02cf2019c853260e755",
   "source_scope": {
     "exclusions": [
       {

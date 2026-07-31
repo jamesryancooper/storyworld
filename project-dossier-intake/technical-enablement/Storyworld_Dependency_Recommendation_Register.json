@@ -1,0 +1,1519 @@
+{
+  "schema_version": "storyworld.technical-enablement.dependency-register.v1",
+  "status": "proposal_only_owner_acceptance_required",
+  "reviewed_repository": "jamesryancooper/storyworld",
+  "reviewed_commit": "86f431aedc5145916a475f48abe22dc6f5a65cb7",
+  "reviewed_on": "2026-07-30",
+  "counts_by_disposition": {
+    "Adopt now": 14,
+    "Prototype": 15,
+    "Defer": 8,
+    "Build project-owned capability": 1,
+    "Reject": 1
+  },
+  "dependencies": [
+    {
+      "id": "DEP-001",
+      "name": "Current Node/TypeScript/Next/React platform",
+      "category": "foundation",
+      "capability": "Existing Studio and Engine execution platform",
+      "version_reviewed": "Node 22; TypeScript 5.9.3; Next 15.5.22; React/ReactDOM 19.2.8; pnpm 10.20.0",
+      "license": "Mixed OSS licenses per package; project repository license not found",
+      "official_sources": [
+        "https://github.com/jamesryancooper/storyworld"
+      ],
+      "maintenance_status": "Implemented and CI-enforced",
+      "compatibility": "Current source of truth; do not replace without measured need",
+      "accessibility_posture": "Current Studio has component-level axe checks and structured fallbacks for implemented surfaces",
+      "placement": "Browser, Node server, CI",
+      "impact": "Baseline",
+      "advantages": [
+        "Already implemented",
+        "Public Engine contract boundary",
+        "ESM and Node 22 compatible"
+      ],
+      "limitations": [
+        "@types/node 26 is ahead of Node 22 runtime",
+        "No generated client",
+        "No advanced editor/canvas/grid/media primitives"
+      ],
+      "governance_risks": [
+        "No root LICENSE file was found",
+        "Version ranges resolve newer lockfile versions than manifests visually imply"
+      ],
+      "security_privacy": [
+        "Production identity, TLS, and production transport remain deferred"
+      ],
+      "integration_complexity": "None",
+      "replacement_strategy": "Not applicable",
+      "disposition": "Adopt now",
+      "phase": "Current alpha hardening",
+      "poc_success_criteria": [
+        "Align @types/node to Node 22 or document the deliberate mismatch",
+        "Keep all production imports behind public contracts"
+      ]
+    },
+    {
+      "id": "DEP-002",
+      "name": "@tanstack/react-query",
+      "category": "frontend-server-state",
+      "capability": "Server-state caching, cancellation, pagination, invalidation, and retry control",
+      "version_reviewed": "5.101.4",
+      "license": "MIT",
+      "official_sources": [
+        "https://www.npmjs.com/package/@tanstack/react-query"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "Compatible with React 19/TypeScript 5.9; wrap rather than expose directly across Studio",
+      "accessibility_posture": "No rendered UI; neutral",
+      "placement": "Browser",
+      "impact": "Moderate bundle; replaces duplicated fetch/loading logic",
+      "advantages": [
+        "Mature server-state model",
+        "Cancellation and pagination",
+        "Mutation hooks can retain idempotency keys"
+      ],
+      "limitations": [
+        "Default optimistic-update patterns are unsafe for acceptance-class commands",
+        "Does not solve authoritative domain state"
+      ],
+      "governance_risks": [
+        "Could encourage client-side shadow state if used without a project adapter"
+      ],
+      "security_privacy": [
+        "Cache keys and persisted caches must not expose restricted material"
+      ],
+      "integration_complexity": "Medium",
+      "replacement_strategy": "Project-owned QueryPolicy and EngineClient adapters isolate the library",
+      "disposition": "Adopt now",
+      "phase": "MVP hardening",
+      "poc_success_criteria": [
+        "Unknown-outcome recovery remains intact",
+        "No acceptance mutation is automatically retried with a new idempotency key",
+        "Visibility changes evict restricted cached data"
+      ]
+    },
+    {
+      "id": "DEP-003",
+      "name": "@tanstack/react-table",
+      "category": "tables-matrices",
+      "capability": "Headless table and matrix behavior",
+      "version_reviewed": "8.21.3",
+      "license": "MIT",
+      "official_sources": [
+        "https://www.npmjs.com/package/@tanstack/react-table"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "React 19 compatible; renderer remains project-owned",
+      "accessibility_posture": "Headless; Storyworld must implement grid/table semantics and keyboard behavior",
+      "placement": "Browser",
+      "impact": "Small-to-moderate",
+      "advantages": [
+        "Column, sorting, filtering, selection abstractions",
+        "No visual-framework lock-in"
+      ],
+      "limitations": [
+        "Not an accessible data grid by itself",
+        "Cell editing and virtualization require composition"
+      ],
+      "governance_risks": [
+        "Bulk operations must still route through governed commands"
+      ],
+      "security_privacy": [
+        "Column persistence must be permission-aware"
+      ],
+      "integration_complexity": "Medium",
+      "replacement_strategy": "Wrap in project-owned DataTable and Matrix primitives",
+      "disposition": "Adopt now",
+      "phase": "MVP completion",
+      "poc_success_criteria": [
+        "500x50 rights/localization matrix is keyboard usable",
+        "No color-only status",
+        "Bulk consequence preview is enforced"
+      ]
+    },
+    {
+      "id": "DEP-004",
+      "name": "@tanstack/react-virtual",
+      "category": "virtualization",
+      "capability": "Large lists, tables, grids, and lane virtualization",
+      "version_reviewed": "3.14.8",
+      "license": "MIT",
+      "official_sources": [
+        "https://www.npmjs.com/package/@tanstack/react-virtual"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "React 19 compatible",
+      "accessibility_posture": "Virtualization can disrupt screen-reader context; requires tested fallback and correct aria row metadata",
+      "placement": "Browser",
+      "impact": "Small",
+      "advantages": [
+        "Headless",
+        "Supports lists and two-dimensional layouts"
+      ],
+      "limitations": [
+        "Focus retention and find-in-page require design",
+        "Not a graph renderer"
+      ],
+      "governance_risks": [
+        "Hidden offscreen items must remain included in impact and consequence calculations"
+      ],
+      "security_privacy": [
+        "No special risk"
+      ],
+      "integration_complexity": "Medium",
+      "replacement_strategy": "Project-owned virtualization adapter",
+      "disposition": "Adopt now",
+      "phase": "MVP completion",
+      "poc_success_criteria": [
+        "100k metadata rows remain responsive",
+        "Keyboard focus is retained while scrolling",
+        "Accessible non-virtual export/list remains available"
+      ]
+    },
+    {
+      "id": "DEP-005",
+      "name": "react-resizable-panels",
+      "category": "workspace-layout",
+      "capability": "Resizable navigation, primary canvas, inspector, and bottom rails",
+      "version_reviewed": "4.12.2",
+      "license": "MIT",
+      "official_sources": [
+        "https://www.npmjs.com/package/react-resizable-panels"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "React 19 compatible",
+      "accessibility_posture": "Provides keyboard-operable separators; Storyworld must test touch, zoom, and narrow layouts",
+      "placement": "Browser",
+      "impact": "Small",
+      "advantages": [
+        "Bounded difficult infrastructure",
+        "Fits the proposed shell"
+      ],
+      "limitations": [
+        "Saved layouts and permission changes are Storyworld responsibilities"
+      ],
+      "governance_risks": [
+        "None if layout state remains non-authoritative"
+      ],
+      "security_privacy": [
+        "Saved layouts must not preserve inaccessible object references"
+      ],
+      "integration_complexity": "Low",
+      "replacement_strategy": "Wrap as StudioSplitLayout",
+      "disposition": "Adopt now",
+      "phase": "MVP hardening",
+      "poc_success_criteria": [
+        "Keyboard resizing works at 200% zoom",
+        "Narrow layouts collapse deterministically",
+        "Layout is never treated as canon"
+      ]
+    },
+    {
+      "id": "DEP-006",
+      "name": "Radix UI primitives, selectively adopted",
+      "category": "accessible-primitives",
+      "capability": "Dialogs, alert dialogs, popovers, menus, tooltips, selects, and tabs",
+      "version_reviewed": "@radix-ui/react-dialog 1.1.23; evaluate each primitive independently",
+      "license": "MIT",
+      "official_sources": [
+        "https://www.npmjs.com/package/@radix-ui/react-dialog"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "React 19 compatible; consistent with current vendored shadcn-style approach",
+      "accessibility_posture": "Strong low-level semantics, but application composition still requires testing",
+      "placement": "Browser",
+      "impact": "Per-component",
+      "advantages": [
+        "Avoids rebuilding difficult focus and dismissal behavior",
+        "Can remain wrapped and selectively vendored"
+      ],
+      "limitations": [
+        "Not sufficient for graphs, matrices, editors, or review consequences"
+      ],
+      "governance_risks": [
+        "Do not allow a primitive to define domain actions"
+      ],
+      "security_privacy": [
+        "No material risk"
+      ],
+      "integration_complexity": "Low-to-medium",
+      "replacement_strategy": "Wrap or vendor project-owned components",
+      "disposition": "Adopt now",
+      "phase": "MVP hardening",
+      "poc_success_criteria": [
+        "Focus restoration, Escape behavior, nested dialogs, forced-colors, and mobile drawers pass browser tests"
+      ]
+    },
+    {
+      "id": "DEP-007",
+      "name": "@playwright/test",
+      "category": "browser-testing",
+      "capability": "Cross-browser E2E, trusted input, mobile emulation, screenshots, traces, multi-user flows",
+      "version_reviewed": "1.62.0",
+      "license": "Apache-2.0",
+      "official_sources": [
+        "https://www.npmjs.com/package/@playwright/test"
+      ],
+      "maintenance_status": "Highly active",
+      "compatibility": "Node 22 compatible; complements Vitest/jsdom rather than replacing it",
+      "accessibility_posture": "Enables real-browser keyboard, zoom, forced-colors, reduced-motion, and responsive testing; screen-reader testing still needs separate human/AT work",
+      "placement": "CI and developer tooling",
+      "impact": "Large browser binaries in CI only",
+      "advantages": [
+        "Closes known rendered-only test gaps",
+        "Supports Chromium, Firefox, WebKit and trusted events"
+      ],
+      "limitations": [
+        "Does not prove WCAG conformance or participant usability"
+      ],
+      "governance_risks": [
+        "Fixture mutations must be isolated and deterministic"
+      ],
+      "security_privacy": [
+        "Traces/screenshots can contain restricted fixture data; retention policy required"
+      ],
+      "integration_complexity": "Medium",
+      "replacement_strategy": "Tests use stable role/label locators and project fixtures",
+      "disposition": "Adopt now",
+      "phase": "Current alpha hardening",
+      "poc_success_criteria": [
+        "Run critical authoring/review flows in three engines",
+        "Test 320px, 200% zoom, forced colors, keyboard-only, unknown outcome, and cross-origin transport"
+      ]
+    },
+    {
+      "id": "DEP-008",
+      "name": "openapi-typescript",
+      "category": "contract-client",
+      "capability": "Generate TypeScript types from OpenAPI 3.1",
+      "version_reviewed": "7.13.0",
+      "license": "MIT",
+      "official_sources": [
+        "https://www.npmjs.com/package/openapi-typescript"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "Node 20+ and TypeScript compatible; current OpenAPI must be made specific enough first",
+      "accessibility_posture": "Not applicable",
+      "placement": "Build tooling",
+      "impact": "No runtime impact",
+      "advantages": [
+        "Reduces hand-written DTO drift",
+        "Preserves OpenAPI as contract authority"
+      ],
+      "limitations": [
+        "Garbage-in/garbage-out if response schemas remain generic"
+      ],
+      "governance_risks": [
+        "Generated output must not become an alternate contract source"
+      ],
+      "security_privacy": [
+        "No direct risk"
+      ],
+      "integration_complexity": "Medium",
+      "replacement_strategy": "Generation config and checked deterministic output",
+      "disposition": "Adopt now",
+      "phase": "MVP hardening",
+      "poc_success_criteria": [
+        "Generated types cover all current Studio methods",
+        "CI fails on drift",
+        "No Studio production import from kernel/persistence/storage packages"
+      ]
+    },
+    {
+      "id": "DEP-009",
+      "name": "openapi-fetch",
+      "category": "contract-client",
+      "capability": "Small typed fetch client using generated OpenAPI types",
+      "version_reviewed": "0.17.0",
+      "license": "MIT",
+      "official_sources": [
+        "https://www.npmjs.com/package/openapi-fetch"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "Compatible with browser/Node fetch and Next 15",
+      "accessibility_posture": "Not applicable",
+      "placement": "Browser/BFF",
+      "impact": "Small runtime",
+      "advantages": [
+        "Replaces hand-written method/response types while retaining fetch"
+      ],
+      "limitations": [
+        "Idempotency and unknown-outcome semantics require project middleware"
+      ],
+      "governance_risks": [
+        "Must never automatically retry acceptance-class commands with new keys"
+      ],
+      "security_privacy": [
+        "Identity and tokens belong in transport adapter, not generated client"
+      ],
+      "integration_complexity": "Medium",
+      "replacement_strategy": "Project-owned StoryworldClient wrapper",
+      "disposition": "Adopt now",
+      "phase": "MVP hardening",
+      "poc_success_criteria": [
+        "Parity with existing safe-command behavior",
+        "RFC 9457 errors remain typed",
+        "SSE and file transfers remain separable"
+      ]
+    },
+    {
+      "id": "DEP-010",
+      "name": "Ajv",
+      "category": "runtime-validation",
+      "capability": "JSON Schema 2020-12 validation in Node/browser and standalone generation",
+      "version_reviewed": "8.20.0",
+      "license": "MIT",
+      "official_sources": [
+        "https://www.npmjs.com/package/ajv"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "Node 22 compatible",
+      "accessibility_posture": "Not applicable",
+      "placement": "Server, workers, optional browser preflight",
+      "impact": "Moderate; standalone validators can reduce runtime dependency",
+      "advantages": [
+        "Standards-based",
+        "Useful for package/import/client-side preflight"
+      ],
+      "limitations": [
+        "Does not encode narrative or authority semantics"
+      ],
+      "governance_risks": [
+        "Python validator should remain an independent CI layer",
+        "Do not let compiled schema errors become final human-facing findings without normalization"
+      ],
+      "security_privacy": [
+        "Schema compilation and user schemas require limits"
+      ],
+      "integration_complexity": "Medium",
+      "replacement_strategy": "ValidationAdapter and normalized findings",
+      "disposition": "Adopt now",
+      "phase": "MVP hardening",
+      "poc_success_criteria": [
+        "Compiled validators match Python fixture outcomes",
+        "Error normalization is deterministic",
+        "Untrusted recursive schemas are bounded"
+      ]
+    },
+    {
+      "id": "DEP-011",
+      "name": "sharp",
+      "category": "image-processing",
+      "capability": "Thumbnail/proxy generation, format normalization, metadata and color handling",
+      "version_reviewed": "0.35.3",
+      "license": "Apache-2.0",
+      "official_sources": [
+        "https://www.npmjs.com/package/sharp"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "Node >=20.9; compatible with Node 22",
+      "accessibility_posture": "Indirectly supports accessible previews; UI remains project-owned",
+      "placement": "Dedicated media-processing worker, never browser",
+      "impact": "Native binary and worker memory footprint",
+      "advantages": [
+        "High-performance difficult infrastructure",
+        "Supports thumbnails and common formats"
+      ],
+      "limitations": [
+        "Not a rights/provenance system",
+        "Untrusted media still needs quarantine and decompression limits"
+      ],
+      "governance_risks": [
+        "Derivatives must retain lineage and not overwrite masters"
+      ],
+      "security_privacy": [
+        "Strip EXIF/GPS where policy requires; sandbox parsers; enforce pixel/size limits"
+      ],
+      "integration_complexity": "Medium",
+      "replacement_strategy": "MediaProcessor interface",
+      "disposition": "Adopt now",
+      "phase": "MVP completion",
+      "poc_success_criteria": [
+        "Deterministic thumbnails/proxies",
+        "ICC/orientation tests",
+        "Bomb/oversized inputs refused",
+        "Lineage recorded"
+      ]
+    },
+    {
+      "id": "DEP-012",
+      "name": "PostgreSQL full-text search",
+      "category": "search",
+      "capability": "Lexical search, ranking, highlighting, language configurations",
+      "version_reviewed": "PostgreSQL 16 built-in",
+      "license": "PostgreSQL License",
+      "official_sources": [
+        "https://www.postgresql.org/docs/16/textsearch.html",
+        "https://www.postgresql.org/docs/16/textsearch-indexes.html"
+      ],
+      "maintenance_status": "Part of current database",
+      "compatibility": "No new service; aligns with PostgreSQL authority/projection strategy",
+      "accessibility_posture": "Search UI remains project-owned",
+      "placement": "Database projection",
+      "impact": "Indexes and background maintenance",
+      "advantages": [
+        "No new operational system",
+        "Ranking and highlighting",
+        "Tenant/RLS compatible"
+      ],
+      "limitations": [
+        "Cross-field weighting and domain explanation require project logic"
+      ],
+      "governance_risks": [
+        "Search indexes are rebuildable projections, never authority"
+      ],
+      "security_privacy": [
+        "Visibility must be part of indexed projection and fail closed"
+      ],
+      "integration_complexity": "Medium",
+      "replacement_strategy": "SearchProvider interface",
+      "disposition": "Adopt now",
+      "phase": "MVP hardening",
+      "poc_success_criteria": [
+        "Current eight domains indexed",
+        "Restricted/spoiler leak tests",
+        "Current/superseded explanation",
+        "P95 under target at 1M rows"
+      ]
+    },
+    {
+      "id": "DEP-013",
+      "name": "PostgreSQL pg_trgm",
+      "category": "search",
+      "capability": "Typo tolerance, similarity, indexed ILIKE/regex",
+      "version_reviewed": "PostgreSQL 16 extension",
+      "license": "PostgreSQL License",
+      "official_sources": [
+        "https://www.postgresql.org/docs/16/pgtrgm.html"
+      ],
+      "maintenance_status": "Part of PostgreSQL contrib",
+      "compatibility": "Works with current PostgreSQL 16",
+      "accessibility_posture": "Not applicable",
+      "placement": "Database projection",
+      "impact": "Additional indexes",
+      "advantages": [
+        "Improves current ILIKE search without new service"
+      ],
+      "limitations": [
+        "Not semantic retrieval"
+      ],
+      "governance_risks": [
+        "Search ranking is advisory"
+      ],
+      "security_privacy": [
+        "Visibility/RLS tests required"
+      ],
+      "integration_complexity": "Low-to-medium",
+      "replacement_strategy": "SearchProvider interface",
+      "disposition": "Adopt now",
+      "phase": "MVP hardening",
+      "poc_success_criteria": [
+        "Typo query benchmark",
+        "No visibility leakage",
+        "Explain why each result matched"
+      ]
+    },
+    {
+      "id": "DEP-014",
+      "name": "openid-client",
+      "category": "identity",
+      "capability": "Standards-based OAuth 2/OpenID Connect relying-party client",
+      "version_reviewed": "6.8.4",
+      "license": "MIT",
+      "official_sources": [
+        "https://www.npmjs.com/package/openid-client"
+      ],
+      "maintenance_status": "Active and conformance-certified",
+      "compatibility": "Node 20+ baseline; compatible with Node 22 ESM",
+      "accessibility_posture": "Authentication UX still project/identity-provider dependent",
+      "placement": "Server-side Studio BFF/auth gateway, not browser token store",
+      "impact": "Small-to-moderate",
+      "advantages": [
+        "Avoids hand-rolling OIDC",
+        "Supports modern code flow/PKCE and token features"
+      ],
+      "limitations": [
+        "Does not define Storyworld authorization or approval authority"
+      ],
+      "governance_risks": [
+        "Identity assertion must be mapped to Storyworld roles by Engine policy"
+      ],
+      "security_privacy": [
+        "Use httpOnly secure sessions, CSRF protections, token rotation, issuer allowlists"
+      ],
+      "integration_complexity": "High",
+      "replacement_strategy": "IdentityProvider adapter and standard claims mapping",
+      "disposition": "Prototype",
+      "phase": "Production identity crossing",
+      "poc_success_criteria": [
+        "One OIDC provider",
+        "Server-side sessions",
+        "Role mapping fail-closed",
+        "Service principal flow",
+        "No bearer token in browser storage"
+      ]
+    },
+    {
+      "id": "DEP-015",
+      "name": "Fastify",
+      "category": "http-transport",
+      "capability": "Structured Node API transport, JSON Schema validation, multipart, streaming, SSE/plugin ecosystem",
+      "version_reviewed": "5.10.0",
+      "license": "MIT",
+      "official_sources": [
+        "https://www.npmjs.com/package/fastify"
+      ],
+      "maintenance_status": "Active/OpenJS",
+      "compatibility": "Node 22 and ESM compatible",
+      "accessibility_posture": "Server only",
+      "placement": "Engine API transport",
+      "impact": "15 dependencies plus plugins",
+      "advantages": [
+        "Mature schema-based Node transport",
+        "Better upload/stream/middleware ergonomics than hand-written router"
+      ],
+      "limitations": [
+        "Migration cost",
+        "Must not make route schemas authoritative over accepted contract pack"
+      ],
+      "governance_risks": [
+        "Framework hooks must not bypass application service or authority checks"
+      ],
+      "security_privacy": [
+        "Audit multipart limits, logging redaction, plugins"
+      ],
+      "integration_complexity": "High",
+      "replacement_strategy": "Transport adapter around unchanged kernel/application commands",
+      "disposition": "Prototype",
+      "phase": "MVP completion when uploads/SSE arrive",
+      "poc_success_criteria": [
+        "Parity for current routes/idempotency/problems",
+        "Streaming upload and SSE",
+        "OpenAPI conformance",
+        "No kernel bypass"
+      ]
+    },
+    {
+      "id": "DEP-016",
+      "name": "Hono",
+      "category": "http-transport",
+      "capability": "Web-standard lightweight router/middleware across Node and edge runtimes",
+      "version_reviewed": "4.12.32",
+      "license": "MIT",
+      "official_sources": [
+        "https://www.npmjs.com/package/hono"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "Node 22/ESM compatible",
+      "accessibility_posture": "Server only",
+      "placement": "Possible Studio BFF or lightweight transport",
+      "impact": "Very small, zero core dependencies",
+      "advantages": [
+        "Web Fetch API alignment",
+        "Small and portable"
+      ],
+      "limitations": [
+        "Less directly aligned than Fastify with JSON Schema-based Node server needs",
+        "Ecosystem choices require review"
+      ],
+      "governance_risks": [
+        "Same transport-boundary risks as any framework"
+      ],
+      "security_privacy": [
+        "Session, body limits, logging, CORS remain project decisions"
+      ],
+      "integration_complexity": "Medium",
+      "replacement_strategy": "Transport adapter",
+      "disposition": "Defer",
+      "phase": "Transport ADR alternative",
+      "poc_success_criteria": [
+        "Use only if the BFF/edge portability case materially exceeds Fastify benefits"
+      ]
+    },
+    {
+      "id": "DEP-017",
+      "name": "@xyflow/react",
+      "category": "graph-rendering",
+      "capability": "Interactive node/edge canvas for Narrative Flow and moderate graph profiles",
+      "version_reviewed": "12.11.2",
+      "license": "MIT",
+      "official_sources": [
+        "https://www.npmjs.com/package/@xyflow/react"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "React 19 support must be verified in the prototype; browser-only dynamic import likely",
+      "accessibility_posture": "Provides keyboard and ARIA features, but Storyworld must maintain a complete structured fallback and defined traversal order",
+      "placement": "Browser renderer behind GraphRenderer adapter",
+      "impact": "Moderate bundle and canvas complexity",
+      "advantages": [
+        "Custom nodes/edges, pan/zoom/minimap, selection",
+        "Strong fit for image-led Narrative Flow"
+      ],
+      "limitations": [
+        "Does not define graph semantics, deterministic layout, or authority"
+      ],
+      "governance_risks": [
+        "Spatial gestures must not trigger acceptance-class commands",
+        "View layout must remain non-canonical unless profile says otherwise"
+      ],
+      "security_privacy": [
+        "Node labels/thumbnails obey visibility scopes"
+      ],
+      "integration_complexity": "High",
+      "replacement_strategy": "Project-owned GraphViewProfile and normalized projection model",
+      "disposition": "Prototype",
+      "phase": "Post-DEC-0028 graph task",
+      "poc_success_criteria": [
+        "Stillhouse and branch fixtures",
+        "500-node moderate graph",
+        "keyboard/list parity",
+        "forced-colors fallback",
+        "no authoritative gesture"
+      ]
+    },
+    {
+      "id": "DEP-018",
+      "name": "@dagrejs/dagre",
+      "category": "graph-layout",
+      "capability": "Deterministic directed graph layout for moderate DAG-like flow graphs",
+      "version_reviewed": "3.0.0",
+      "license": "MIT",
+      "official_sources": [
+        "https://www.npmjs.com/package/@dagrejs/dagre"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "Framework neutral; worker use possible via wrapper",
+      "accessibility_posture": "Layout only",
+      "placement": "Browser worker or server deterministic layout",
+      "impact": "Small",
+      "advantages": [
+        "Simple MIT baseline",
+        "Good initial fit for presentation-order/branch DAGs"
+      ],
+      "limitations": [
+        "Less capable for compound graphs, ports, and complex constraints"
+      ],
+      "governance_risks": [
+        "Layout is view data"
+      ],
+      "security_privacy": [
+        "No special risk"
+      ],
+      "integration_complexity": "Low-to-medium",
+      "replacement_strategy": "GraphLayout adapter",
+      "disposition": "Prototype",
+      "phase": "Narrative Flow POC",
+      "poc_success_criteria": [
+        "Stable normalized coordinates",
+        "Layout under one second at target size",
+        "Branch/episode grouping is legible"
+      ]
+    },
+    {
+      "id": "DEP-019",
+      "name": "elkjs",
+      "category": "graph-layout",
+      "capability": "Advanced layered/compound/port-aware graph layout",
+      "version_reviewed": "0.12.0",
+      "license": "EPL-2.0 OR GPL-3.0-or-later",
+      "official_sources": [
+        "https://www.npmjs.com/package/elkjs"
+      ],
+      "maintenance_status": "Active Eclipse project",
+      "compatibility": "JavaScript and worker support; legal review required",
+      "accessibility_posture": "Layout only",
+      "placement": "Web worker or server",
+      "impact": "Larger than Dagre",
+      "advantages": [
+        "More capable layout for compound and constrained graphs"
+      ],
+      "limitations": [
+        "License choice and bundle/worker complexity",
+        "May be unnecessary for initial flows"
+      ],
+      "governance_risks": [
+        "None beyond view semantics"
+      ],
+      "security_privacy": [
+        "No external service"
+      ],
+      "integration_complexity": "Medium-to-high",
+      "replacement_strategy": "GraphLayout adapter",
+      "disposition": "Prototype",
+      "phase": "Graph layout comparison",
+      "poc_success_criteria": [
+        "Legal disposition accepted",
+        "Materially better layout than Dagre on shared-universe/mission fixture",
+        "Worker cancellation and deterministic snapshot"
+      ]
+    },
+    {
+      "id": "DEP-020",
+      "name": "Cytoscape.js",
+      "category": "dense-graph",
+      "capability": "Graph model, rendering, algorithms, and dense network interaction",
+      "version_reviewed": "3.34.0",
+      "license": "MIT",
+      "official_sources": [
+        "https://www.npmjs.com/package/cytoscape"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "Framework neutral; React wrapper optional and replaceable",
+      "accessibility_posture": "Canvas-centric; structured alternative mandatory",
+      "placement": "Browser",
+      "impact": "Moderate-to-large",
+      "advantages": [
+        "Algorithms and mature graph capabilities"
+      ],
+      "limitations": [
+        "Less creator-native card experience than XYFlow",
+        "Accessibility burden"
+      ],
+      "governance_risks": [
+        "Do not let library graph model become domain model"
+      ],
+      "security_privacy": [
+        "Visibility filtering before projection"
+      ],
+      "integration_complexity": "High",
+      "replacement_strategy": "Common graph projection and renderer adapter",
+      "disposition": "Defer",
+      "phase": "Only after scale tests",
+      "poc_success_criteria": [
+        "Adopt only if dense analytical graphs exceed XYFlow/Dagre capability and structured fallback remains complete"
+      ]
+    },
+    {
+      "id": "DEP-021",
+      "name": "Sigma.js + Graphology",
+      "category": "dense-webgl-graph",
+      "capability": "WebGL rendering for very large analytical graphs",
+      "version_reviewed": "Sigma 3.0.3; Graphology 0.26.0",
+      "license": "MIT",
+      "official_sources": [
+        "https://www.npmjs.com/package/sigma",
+        "https://www.npmjs.com/package/graphology"
+      ],
+      "maintenance_status": "Active; next major activity should be monitored",
+      "compatibility": "Browser/WebGL; renderer adapter required",
+      "accessibility_posture": "Poor as primary UI; structured fallback essential",
+      "placement": "Browser analytical view",
+      "impact": "Large and GPU-dependent",
+      "advantages": [
+        "High node-count rendering"
+      ],
+      "limitations": [
+        "Not suited to authoring cards, exact text, or semantic editing"
+      ],
+      "governance_risks": [
+        "Analytical projection only"
+      ],
+      "security_privacy": [
+        "No external service; avoid GPU fingerprinting assumptions"
+      ],
+      "integration_complexity": "High",
+      "replacement_strategy": "Common graph projection",
+      "disposition": "Defer",
+      "phase": "Mature scale only",
+      "poc_success_criteria": [
+        "Measured graph scale requires WebGL",
+        "Equivalent structured queries remain usable"
+      ]
+    },
+    {
+      "id": "DEP-022",
+      "name": "ProseMirror",
+      "category": "rich-text-editor",
+      "capability": "Schema-constrained rich-text, transactions, plugins, decorations, history, collaboration adapters",
+      "version_reviewed": "prosemirror-model 1.25.11; prosemirror-state 1.4.4",
+      "license": "MIT",
+      "official_sources": [
+        "https://www.npmjs.com/package/prosemirror-model",
+        "https://www.npmjs.com/package/prosemirror-state"
+      ],
+      "maintenance_status": "Mature and active",
+      "compatibility": "Framework-neutral; React integration project-owned",
+      "accessibility_posture": "Contenteditable foundation; application must test keyboard, IME, screen readers, high zoom and mobile",
+      "placement": "Browser editor adapter",
+      "impact": "Moderate modular dependency set",
+      "advantages": [
+        "Strong schema and transaction model",
+        "Good fit for entity mentions and structured blocks",
+        "Mature transform/diff foundations"
+      ],
+      "limitations": [
+        "Steep implementation complexity",
+        "Private document shape must not become permanent StoryDocument contract"
+      ],
+      "governance_risks": [
+        "Editor transactions are drafts, not canon acceptance"
+      ],
+      "security_privacy": [
+        "Paste sanitization and restricted-source handling required"
+      ],
+      "integration_complexity": "High",
+      "replacement_strategy": "Project-owned StoryDocument AST and editor adapter",
+      "disposition": "Prototype",
+      "phase": "MVP Scene Editor",
+      "poc_success_criteria": [
+        "50k-word document",
+        "Entity links survive round-trip",
+        "IME/RTL/paste tests",
+        "Serialization independent of ProseMirror JSON"
+      ]
+    },
+    {
+      "id": "DEP-023",
+      "name": "Lexical",
+      "category": "rich-text-editor",
+      "capability": "Extensible accessible editor foundation with React integration",
+      "version_reviewed": "0.48.0",
+      "license": "MIT",
+      "official_sources": [
+        "https://www.npmjs.com/package/lexical"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "React-oriented and compatible with current stack subject to prototype",
+      "accessibility_posture": "Strong stated accessibility focus; still requires application validation",
+      "placement": "Browser editor adapter",
+      "impact": "Moderate",
+      "advantages": [
+        "React-native development model",
+        "Minimal core",
+        "Good plugin architecture"
+      ],
+      "limitations": [
+        "Less natural than ProseMirror for schema-first cross-format transforms unless built carefully"
+      ],
+      "governance_risks": [
+        "Same canonical-representation boundary as any editor"
+      ],
+      "security_privacy": [
+        "Paste/serialization and local recovery controls required"
+      ],
+      "integration_complexity": "High",
+      "replacement_strategy": "StoryDocument AST and adapter",
+      "disposition": "Prototype",
+      "phase": "Editor comparison",
+      "poc_success_criteria": [
+        "Same fixture and accessibility tests as ProseMirror",
+        "Compare semantic block constraints and export fidelity"
+      ]
+    },
+    {
+      "id": "DEP-024",
+      "name": "Tiptap Core",
+      "category": "rich-text-editor-toolkit",
+      "capability": "Headless ProseMirror-based toolkit and faster UI integration",
+      "version_reviewed": "3.27.1",
+      "license": "MIT core; commercial/cloud features are separate",
+      "official_sources": [
+        "https://www.npmjs.com/package/@tiptap/core"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "React 19 must be verified; ProseMirror-based",
+      "accessibility_posture": "Depends on extensions and application composition",
+      "placement": "Browser adapter",
+      "impact": "Moderate-to-large depending extensions",
+      "advantages": [
+        "Faster implementation over raw ProseMirror"
+      ],
+      "limitations": [
+        "Potential extension/cloud lock-in",
+        "Core abstractions may obscure exact transform behavior"
+      ],
+      "governance_risks": [
+        "Do not rely on hosted collaboration for restricted content without separate decision"
+      ],
+      "security_privacy": [
+        "Self-host only by default"
+      ],
+      "integration_complexity": "Medium-to-high",
+      "replacement_strategy": "Use only through StoryDocument/editor adapter",
+      "disposition": "Prototype",
+      "phase": "Editor comparison",
+      "poc_success_criteria": [
+        "Proves lower delivery cost without weakening serialization, accessibility, or replaceability"
+      ]
+    },
+    {
+      "id": "DEP-025",
+      "name": "CodeMirror 6",
+      "category": "source-code-text-editor",
+      "capability": "Markdown, JSON, transcript, subtitle, and rule-source editing",
+      "version_reviewed": "codemirror 6.0.2; @codemirror/state 6.7.1",
+      "license": "MIT",
+      "official_sources": [
+        "https://www.npmjs.com/package/codemirror"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "Framework-neutral",
+      "accessibility_posture": "Good keyboard foundation; semantic review required for each mode",
+      "placement": "Browser",
+      "impact": "Modular",
+      "advantages": [
+        "Excellent for source/text formats and structured syntax"
+      ],
+      "limitations": [
+        "Not the primary rich scene editor",
+        "Does not model narrative blocks by itself"
+      ],
+      "governance_risks": [
+        "Text source is a draft representation"
+      ],
+      "security_privacy": [
+        "Restrict copy/export based on source visibility"
+      ],
+      "integration_complexity": "Medium",
+      "replacement_strategy": "SourceEditor adapter",
+      "disposition": "Defer",
+      "phase": "MVP/intermediate supporting editors",
+      "poc_success_criteria": [
+        "Use for Markdown/JSON/WebVTT/rule views only where it materially improves editing"
+      ]
+    },
+    {
+      "id": "DEP-026",
+      "name": "@dnd-kit/core and sortable",
+      "category": "drag-drop",
+      "capability": "Accessible direct manipulation for cards, lanes, boards, collections, and tracks",
+      "version_reviewed": "Stable 6.x core; exact current version must be reverified at prototype kickoff",
+      "license": "MIT",
+      "official_sources": [
+        "https://docs.dndkit.com/presets/sortable",
+        "https://docs.dndkit.com/api-documentation/sensors/keyboard"
+      ],
+      "maintenance_status": "Active ecosystem; package version history should be rechecked",
+      "compatibility": "React 19 requires explicit prototype",
+      "accessibility_posture": "Keyboard sensor and announcements available; domain command alternative still mandatory",
+      "placement": "Browser interaction adapter",
+      "impact": "Moderate",
+      "advantages": [
+        "Flexible and headless",
+        "Supports custom sensors"
+      ],
+      "limitations": [
+        "Complex grids and nested lanes need careful design",
+        "Drag is not a domain command"
+      ],
+      "governance_risks": [
+        "Drop must open/execute typed validated command with stable IDs; no implicit acceptance"
+      ],
+      "security_privacy": [
+        "No special risk"
+      ],
+      "integration_complexity": "High",
+      "replacement_strategy": "Project-owned ReorderCommand and keyboard command palette",
+      "disposition": "Prototype",
+      "phase": "Storyboard/Arc board",
+      "poc_success_criteria": [
+        "Pointer and keyboard parity",
+        "Screen-reader announcements",
+        "Reorder supersedes rather than mutates accepted history",
+        "Virtualized list support"
+      ]
+    },
+    {
+      "id": "DEP-027",
+      "name": "W3C Web Annotation model-inspired project schema",
+      "category": "annotation-standard",
+      "capability": "Common body/target/selectors for text, image, audio, video, graph, timeline, and structured fields",
+      "version_reviewed": "W3C Recommendation",
+      "license": "W3C document terms; project implementation owned by Storyworld",
+      "official_sources": [
+        "https://www.w3.org/TR/annotation-model/",
+        "https://www.w3.org/TR/media-frags/"
+      ],
+      "maintenance_status": "Stable standards",
+      "compatibility": "Technology-neutral",
+      "accessibility_posture": "Enables consistent accessible annotation navigation but does not provide UI",
+      "placement": "Project-owned domain/package contract",
+      "impact": "No third-party runtime required",
+      "advantages": [
+        "Avoids vendor-specific annotation storage",
+        "Extensible selectors and states"
+      ],
+      "limitations": [
+        "Needs Storyworld exact-version, branch, rights, and invalidation extensions"
+      ],
+      "governance_risks": [
+        "Annotations are comments/revision requests, not approvals"
+      ],
+      "security_privacy": [
+        "Target access inherits source/asset visibility"
+      ],
+      "integration_complexity": "High domain design",
+      "replacement_strategy": "Standards-inspired stable contract",
+      "disposition": "Build project-owned capability",
+      "phase": "MVP completion",
+      "poc_success_criteria": [
+        "One model targets field, text range, image polygon, time interval, graph node and timeline event",
+        "Version invalidation is deterministic"
+      ]
+    },
+    {
+      "id": "DEP-028",
+      "name": "@annotorious/react",
+      "category": "image-annotation",
+      "capability": "Image rectangle/polygon annotation UI",
+      "version_reviewed": "3.8.8",
+      "license": "BSD-3-Clause",
+      "official_sources": [
+        "https://www.npmjs.com/package/@annotorious/react"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "React integration; verify React 19",
+      "accessibility_posture": "Canvas/SVG annotation accessibility needs explicit testing and structured annotation list fallback",
+      "placement": "Browser adapter",
+      "impact": "Moderate",
+      "advantages": [
+        "Bounded difficult interaction infrastructure"
+      ],
+      "limitations": [
+        "Must not own annotation persistence or exact-version semantics"
+      ],
+      "governance_risks": [
+        "Selection/annotation is non-authoritative"
+      ],
+      "security_privacy": [
+        "No external service; ensure hidden image regions are not leaked"
+      ],
+      "integration_complexity": "Medium",
+      "replacement_strategy": "AnnotationRenderer adapter over project model",
+      "disposition": "Prototype",
+      "phase": "Review Room media annotations",
+      "poc_success_criteria": [
+        "Exact-version target",
+        "Keyboard/list alternative",
+        "Polygon and box",
+        "Annotation migration/invalidation after crop"
+      ]
+    },
+    {
+      "id": "DEP-029",
+      "name": "OpenSeadragon",
+      "category": "deep-image-viewer",
+      "capability": "Large tiled images, high-resolution maps and floor plans",
+      "version_reviewed": "6.0.2",
+      "license": "BSD-3-Clause",
+      "official_sources": [
+        "https://www.npmjs.com/package/openseadragon"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "Framework neutral",
+      "accessibility_posture": "Viewer controls and structured alternatives require project work",
+      "placement": "Browser",
+      "impact": "Moderate",
+      "advantages": [
+        "Mature deep-zoom infrastructure",
+        "Pairs with high-resolution annotation"
+      ],
+      "limitations": [
+        "Overkill for ordinary images",
+        "Not a geographic map or abstract graph"
+      ],
+      "governance_risks": [
+        "View coordinates are not canon unless explicitly mapped"
+      ],
+      "security_privacy": [
+        "Tile endpoints require authorization and signed access"
+      ],
+      "integration_complexity": "Medium",
+      "replacement_strategy": "DeepImageViewer adapter",
+      "disposition": "Prototype",
+      "phase": "Floor plans/high-res review",
+      "poc_success_criteria": [
+        "Large floor plan, restricted tile access, annotation overlay, structured location fallback"
+      ]
+    },
+    {
+      "id": "DEP-030",
+      "name": "Konva + react-konva",
+      "category": "2d-canvas",
+      "capability": "Project-owned image-map/floor-plan overlays and direct 2D manipulation",
+      "version_reviewed": "Konva 10.3.0; react-konva 19.2.5",
+      "license": "MIT",
+      "official_sources": [
+        "https://www.npmjs.com/package/konva",
+        "https://www.npmjs.com/package/react-konva"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "react-konva aligns with React 19",
+      "accessibility_posture": "Canvas content is not inherently accessible; structured DOM mirror mandatory",
+      "placement": "Browser renderer",
+      "impact": "Moderate",
+      "advantages": [
+        "Flexible floor-plan/image overlay and handles"
+      ],
+      "limitations": [
+        "Not suitable as a universal graph or primary text surface"
+      ],
+      "governance_risks": [
+        "Coordinates/gestures must map to explicit typed commands"
+      ],
+      "security_privacy": [
+        "No external service"
+      ],
+      "integration_complexity": "High",
+      "replacement_strategy": "SpatialCanvas adapter",
+      "disposition": "Prototype",
+      "phase": "Spatial authoring POC",
+      "poc_success_criteria": [
+        "Keyboard command equivalent",
+        "DOM list mirror",
+        "Coordinate and non-coordinate modes remain distinct"
+      ]
+    },
+    {
+      "id": "DEP-031",
+      "name": "WaveSurfer.js",
+      "category": "audio-waveform",
+      "capability": "Waveform rendering, playback, regions, and timeline plugins",
+      "version_reviewed": "7.12.7",
+      "license": "BSD-3-Clause",
+      "official_sources": [
+        "https://github.com/katspaugh/wavesurfer.js/releases"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "Browser; React wrapper can be project-owned",
+      "accessibility_posture": "Waveform is supplemental; accessible media controls, transcript, cue list, and keyboard operations are required",
+      "placement": "Browser renderer",
+      "impact": "Moderate; long files require predecoded peaks",
+      "advantages": [
+        "Mature waveform visualization and regions"
+      ],
+      "limitations": [
+        "Not a full DAW or mastering tool",
+        "Large files should not be decoded entirely in browser"
+      ],
+      "governance_risks": [
+        "Time selections create annotations/revision requests, not direct asset mutation"
+      ],
+      "security_privacy": [
+        "Authorized proxy URLs and range support"
+      ],
+      "integration_complexity": "High",
+      "replacement_strategy": "WaveformRenderer adapter over project cue/annotation model",
+      "disposition": "Prototype",
+      "phase": "Audio-first intermediate",
+      "poc_success_criteria": [
+        "60-minute proxy with precomputed peaks",
+        "First waveform under target",
+        "Keyboard/accessible cue list",
+        "Exact interval annotations"
+      ]
+    },
+    {
+      "id": "DEP-032",
+      "name": "Media Chrome",
+      "category": "media-controls",
+      "capability": "Composable standards-based audio/video controls",
+      "version_reviewed": "4.19.2",
+      "license": "MIT",
+      "official_sources": [
+        "https://www.npmjs.com/package/media-chrome"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "Web components/React wrappers; verify Next client boundary",
+      "accessibility_posture": "Strong baseline, still test labels, keyboard and high zoom",
+      "placement": "Browser",
+      "impact": "Moderate",
+      "advantages": [
+        "Avoids rebuilding difficult media controls"
+      ],
+      "limitations": [
+        "Does not provide authoring tracks, annotations, or authority"
+      ],
+      "governance_risks": [
+        "None"
+      ],
+      "security_privacy": [
+        "Authorized source URLs required"
+      ],
+      "integration_complexity": "Medium",
+      "replacement_strategy": "Project media player shell",
+      "disposition": "Prototype",
+      "phase": "Audio/video review",
+      "poc_success_criteria": [
+        "Keyboard and screen-reader review",
+        "Caption/audio-description track controls",
+        "No CDN runtime dependency"
+      ]
+    },
+    {
+      "id": "DEP-033",
+      "name": "FFmpeg",
+      "category": "media-processing",
+      "capability": "Proxy, thumbnail, waveform, transcode, subtitle, and media inspection pipeline",
+      "version_reviewed": "8.1.2",
+      "license": "LGPL-2.1+ baseline; GPL applies if GPL components/configuration are enabled",
+      "official_sources": [
+        "https://ffmpeg.org/download.html",
+        "https://ffmpeg.org/legal.html"
+      ],
+      "maintenance_status": "Highly active",
+      "compatibility": "External pinned executable/container; do not rely on browser WASM for primary pipeline",
+      "accessibility_posture": "Enables captions, audio description, thumbnails and proxies",
+      "placement": "Sandboxed media-processing worker",
+      "impact": "Large external binary and CPU/storage use",
+      "advantages": [
+        "Industry-standard difficult media infrastructure"
+      ],
+      "limitations": [
+        "Licensing/build configuration and codec patent considerations",
+        "Not a mastering authority"
+      ],
+      "governance_risks": [
+        "Outputs remain candidates/renditions with lineage"
+      ],
+      "security_privacy": [
+        "Sandbox untrusted media, strict resource/egress limits, verify signed source build"
+      ],
+      "integration_complexity": "High",
+      "replacement_strategy": "MediaProcessor adapter invoking a pinned known build",
+      "disposition": "Prototype",
+      "phase": "MVP media worker then intermediate audio/video",
+      "poc_success_criteria": [
+        "Pinned verified build",
+        "License manifest",
+        "Deterministic proxy commands",
+        "Resource limits",
+        "No GPL/nonfree component accidentally enabled"
+      ]
+    },
+    {
+      "id": "DEP-034",
+      "name": "MapLibre GL JS",
+      "category": "geographic-maps",
+      "capability": "Geographic vector maps when actual coordinates and map projections exist",
+      "version_reviewed": "6.0.0",
+      "license": "BSD-3-Clause",
+      "official_sources": [
+        "https://www.npmjs.com/package/maplibre-gl"
+      ],
+      "maintenance_status": "Active; new major requires stability review",
+      "compatibility": "WebGL browser client; dynamic import",
+      "accessibility_posture": "Map canvas requires structured location/route alternative",
+      "placement": "Browser geographic-map profile only",
+      "impact": "Large and GPU-dependent",
+      "advantages": [
+        "Open, self-hostable geographic mapping"
+      ],
+      "limitations": [
+        "Wrong tool for fictional image maps, floor plans, or coordinate-free graphs"
+      ],
+      "governance_risks": [
+        "Base-map provider terms and coordinates must not imply canon without accepted records"
+      ],
+      "security_privacy": [
+        "Self-host styles/tiles for private projects; avoid third-party telemetry"
+      ],
+      "integration_complexity": "High",
+      "replacement_strategy": "GeographicMapRenderer adapter",
+      "disposition": "Defer",
+      "phase": "Only when real geography is required",
+      "poc_success_criteria": [
+        "Self-hosted tiles/style",
+        "No external tracking",
+        "Structured route/list alternative"
+      ]
+    },
+    {
+      "id": "DEP-035",
+      "name": "Yjs with self-hosted provider such as Hocuspocus",
+      "category": "real-time-collaboration",
+      "capability": "CRDT document collaboration, presence, offline updates",
+      "version_reviewed": "Use stable Yjs v13 for production evaluation; Yjs v14 is still release-candidate; Hocuspocus 4.1.0",
+      "license": "MIT",
+      "official_sources": [
+        "https://github.com/yjs/yjs",
+        "https://github.com/yjs/y-websocket",
+        "https://github.com/ueberdosis/hocuspocus"
+      ],
+      "maintenance_status": "Active",
+      "compatibility": "Bindings exist for ProseMirror/Lexical ecosystems; authority integration is substantial",
+      "accessibility_posture": "Collaboration overlays can harm readability; presence is supplemental",
+      "placement": "Browser collaboration state plus self-hosted sync service",
+      "impact": "High architecture and operational complexity",
+      "advantages": [
+        "Well-established CRDT foundation",
+        "Network-agnostic and offline capable"
+      ],
+      "limitations": [
+        "CRDT convergence is not semantic merge, canon acceptance, or review authority",
+        "Adds retention/security complexity"
+      ],
+      "governance_risks": [
+        "CRDT document must remain draft-only until governed proposal/acceptance",
+        "Presence must use recorded facts only"
+      ],
+      "security_privacy": [
+        "Room auth, encryption, persistence, deletion, guest boundaries, restricted source exclusion"
+      ],
+      "integration_complexity": "Very high",
+      "replacement_strategy": "CollaborationAdapter bound only to StoryDocument drafts",
+      "disposition": "Defer",
+      "phase": "Mature after measured concurrent-editing demand",
+      "poc_success_criteria": [
+        "Two-user Scene Editor only",
+        "Draft isolation",
+        "No direct canon mutation",
+        "Disconnect/reconnect/offline recovery",
+        "Permission revocation"
+      ]
+    },
+    {
+      "id": "DEP-036",
+      "name": "pgvector",
+      "category": "semantic-retrieval",
+      "capability": "Embeddings, exact/approximate nearest-neighbor search, hybrid retrieval inside PostgreSQL",
+      "version_reviewed": "0.8.2 minimum",
+      "license": "PostgreSQL License",
+      "official_sources": [
+        "https://github.com/pgvector/pgvector"
+      ],
+      "maintenance_status": "Active; version 0.8.2 includes important security fix over <=0.8.1",
+      "compatibility": "PostgreSQL 13+; compatible with PostgreSQL 16",
+      "accessibility_posture": "Search UI must explain semantic matches",
+      "placement": "Database projection",
+      "impact": "Index/storage/model operational cost",
+      "advantages": [
+        "Avoids separate vector database",
+        "Hybrid with lexical search"
+      ],
+      "limitations": [
+        "No need demonstrated yet",
+        "Embedding privacy/model drift/reindexing"
+      ],
+      "governance_risks": [
+        "Embeddings are rebuildable, non-authoritative projections"
+      ],
+      "security_privacy": [
+        "Restricted data provider policy, model retention, vector leakage, tenant filtering"
+      ],
+      "integration_complexity": "High",
+      "replacement_strategy": "RetrievalProvider interface",
+      "disposition": "Defer",
+      "phase": "Mature only after lexical search benchmarks fail",
+      "poc_success_criteria": [
+        "Documented lexical failure cases",
+        "Use >=0.8.2",
+        "Hybrid ranking improves reviewed relevance",
+        "Visibility isolation proven"
+      ]
+    },
+    {
+      "id": "DEP-037",
+      "name": "Common Expression Language (CEL)",
+      "category": "policy-rules",
+      "capability": "Small, typed, non-Turing-complete expressions for configurable deterministic predicates",
+      "version_reviewed": "Specification release 0.25.2",
+      "license": "Apache-2.0",
+      "official_sources": [
+        "https://github.com/google/cel-spec"
+      ],
+      "maintenance_status": "Active; repository namespace transition noted for 2026",
+      "compatibility": "No canonical JavaScript implementation selected; integration requires service or implementation review",
+      "accessibility_posture": "Rule-authoring UI and explanations are project-owned",
+      "placement": "Potential policy compilation/evaluation service",
+      "impact": "Medium-to-high",
+      "advantages": [
+        "Bounded, mutation-free expression language",
+        "Potentially appropriate for template conditions and target rules"
+      ],
+      "limitations": [
+        "Not a narrative semantics engine",
+        "JS implementation maturity must be evaluated"
+      ],
+      "governance_risks": [
+        "Rules can propose findings, not authorize canon or waivers"
+      ],
+      "security_privacy": [
+        "Execution budgets and input minimization"
+      ],
+      "integration_complexity": "High",
+      "replacement_strategy": "PolicyExpression adapter",
+      "disposition": "Defer",
+      "phase": "Intermediate configurable policy packs",
+      "poc_success_criteria": [
+        "Two real policy families exceed project validator ergonomics",
+        "Typed explanations and deterministic fixture outcomes"
+      ]
+    },
+    {
+      "id": "DEP-038",
+      "name": "Open Policy Agent",
+      "category": "policy-engine",
+      "capability": "General policy-as-code for infrastructure/access/configuration decisions",
+      "version_reviewed": "1.17.0",
+      "license": "Apache-2.0",
+      "official_sources": [
+        "https://www.openpolicyagent.org/docs/policy-language"
+      ],
+      "maintenance_status": "Active CNCF graduated project",
+      "compatibility": "External process/WASM/REST options; significant operational surface",
+      "accessibility_posture": "Rule authoring/explanation UI remains project-owned",
+      "placement": "Potential infrastructure or authorization policy service, not narrative kernel",
+      "impact": "High",
+      "advantages": [
+        "Mature general-purpose policy engine"
+      ],
+      "limitations": [
+        "Too broad for current narrative rules and adds a second policy runtime"
+      ],
+      "governance_risks": [
+        "Must not become authority for canon, rights evidence, or approval consequences"
+      ],
+      "security_privacy": [
+        "Policy/data bundle security, decision logging redaction"
+      ],
+      "integration_complexity": "High",
+      "replacement_strategy": "External policy adapter",
+      "disposition": "Reject",
+      "phase": "Not planned for narrative domain; reconsider only for enterprise infrastructure policy",
+      "poc_success_criteria": [
+        "No prototype until a concrete cross-product infrastructure policy need exists"
+      ]
+    },
+    {
+      "id": "DEP-039",
+      "name": "WebVTT and Media Fragments standards",
+      "category": "media-standards",
+      "capability": "Subtitles/captions/descriptions/chapters and temporal/spatial media targeting",
+      "version_reviewed": "WebVTT Candidate Recommendation Draft 2026; Media Fragments 1.0 Recommendation",
+      "license": "W3C document terms; project parsers/serializers owned or bounded OSS",
+      "official_sources": [
+        "https://www.w3.org/TR/webvtt1/",
+        "https://www.w3.org/TR/media-frags/"
+      ],
+      "maintenance_status": "Standards-based",
+      "compatibility": "Browser and media tooling broadly support WebVTT; exact export conformance requires tests",
+      "accessibility_posture": "Core accessibility enabler",
+      "placement": "Domain/media package formats",
+      "impact": "Low",
+      "advantages": [
+        "Portable standards",
+        "Avoids vendor-specific subtitle/target models"
+      ],
+      "limitations": [
+        "Storyworld needs exact-version and multi-track metadata extensions"
+      ],
+      "governance_risks": [
+        "Tracks/renditions remain versioned artifacts"
+      ],
+      "security_privacy": [
+        "Sanitize cue text and URLs"
+      ],
+      "integration_complexity": "Medium",
+      "replacement_strategy": "Project-owned serializers and conformance fixtures",
+      "disposition": "Adopt now",
+      "phase": "MVP media/annotation contracts",
+      "poc_success_criteria": [
+        "Round-trip WebVTT fixture",
+        "Timecode annotation interoperability",
+        "Caption and audio-description validation"
+      ]
+    }
+  ]
+}
