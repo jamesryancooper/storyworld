@@ -8,3 +8,6 @@ coverage/
 .env.local
 .env
 .next/
+
+# Local reference library (large copyrighted PDFs; never commit)
+project-dossier-intake/books/
