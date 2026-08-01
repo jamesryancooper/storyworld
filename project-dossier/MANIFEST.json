@@ -364,6 +364,11 @@
     },
     {
       "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0031-owner-integration-questionnaire-reconciliation.md",
+      "sha256": "9eb3d8b7eeb2b47159aa17e397c332c53f33ef7e78d5e2610ea80b2a9f216f9a"
+    },
+    {
+      "layer": "agent_harness",
       "path": ".agent/evidence/README.md",
       "sha256": "68138e16a1146373c40e760402e3da10f90969c38f2bd6371cf72bbeaa25439a"
     },
@@ -626,6 +631,11 @@
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0020-phase3-structured-workspace.md",
       "sha256": "1c7a91b1f92cba8b9f17cd4fdf69b0fe9f96c40b1b3e36b6ea2ee18ede1ac85f"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0021-owner-integration-questionnaire-reconciliation.md",
+      "sha256": "f4ea6f7f5994087e53bf1f6e087ee1fc30b1413182b632f4f3220d42473a9958"
     },
     {
       "layer": "agent_harness",
@@ -3259,6 +3269,16 @@
     },
     {
       "layer": "project_source",
+      "path": "project-dossier-intake/owner-input/storyworld-integrations-questionnaire-old.md",
+      "sha256": "7ce3ea8f4264a1714c4b6ff33ab697f55a9b904558d61a387e6459d37289c375"
+    },
+    {
+      "layer": "project_source",
+      "path": "project-dossier-intake/owner-input/storyworld-integrations-questionnaire.md",
+      "sha256": "ec41ea72c94bf188dc4c30c53b759afdaf75af6b153239e9b2404331eee3ceef"
+    },
+    {
+      "layer": "project_source",
       "path": "project-dossier-intake/owner-input/storyworld-owner-decision-questionnaire.md",
       "sha256": "d12719b3a97988a1a11ffebcf9c56e870c1de48cbfdb7fec169e6b467cfcff67"
     },
@@ -3558,12 +3578,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-07-31T23:04:59.815008+00:00",
-  "generation_id": "da190668d978cf304fdbd9060c28ec34",
+  "generated_on": "2026-08-01T18:57:59.600781+00:00",
+  "generation_id": "cd27e3b78c1856ba467e556c7a41b718",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "44007402eee7e163cec6330ed02c0f7305dc8758fcf73df072176aa8cbac6509",
+  "source_fingerprint": "439bd78f1a072e8d01df6c0226d60b55fd688ff8f82da06f2df8064521eb7ece",
   "source_scope": {
     "exclusions": [
       {

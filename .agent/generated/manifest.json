@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-07-31T23:04:59.815008+00:00",
-  "generation_id": "da190668d978cf304fdbd9060c28ec34",
+  "generated_at": "2026-08-01T18:57:59.600781+00:00",
+  "generation_id": "cd27e3b78c1856ba467e556c7a41b718",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -81,6 +81,7 @@
     ".agent/evidence/EVD-0028-phase2-implementation.md",
     ".agent/evidence/EVD-0029-search-implementation.md",
     ".agent/evidence/EVD-0030-phase3-implementation.md",
+    ".agent/evidence/EVD-0031-owner-integration-questionnaire-reconciliation.md",
     ".agent/evidence/README.md",
     ".agent/extensions/README.md",
     ".agent/extensions/registry.json",
@@ -134,6 +135,7 @@
     ".agent/tasks/TASK-0018-phase2-navigation-state-detail-accessibility.md",
     ".agent/tasks/TASK-0019-cross-domain-search.md",
     ".agent/tasks/TASK-0020-phase3-structured-workspace.md",
+    ".agent/tasks/TASK-0021-owner-integration-questionnaire-reconciliation.md",
     ".agent/templates/artifact.json",
     ".agent/templates/checkpoint.md",
     ".agent/templates/decision.md",
@@ -660,6 +662,8 @@
     "project-dossier-intake/evidence/conversations/technical-enablement-assessment-completed.md",
     "project-dossier-intake/governance/childrens-audience-compliance.md",
     "project-dossier-intake/governance/ip-authorship-and-transparency.md",
+    "project-dossier-intake/owner-input/storyworld-integrations-questionnaire-old.md",
+    "project-dossier-intake/owner-input/storyworld-integrations-questionnaire.md",
     "project-dossier-intake/owner-input/storyworld-owner-decision-questionnaire.md",
     "project-dossier-intake/plans/production-template-backlog.md",
     "project-dossier-intake/plans/source-material-ingestion-plan.md",
@@ -722,7 +726,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "44007402eee7e163cec6330ed02c0f7305dc8758fcf73df072176aa8cbac6509",
+  "source_fingerprint": "439bd78f1a072e8d01df6c0226d60b55fd688ff8f82da06f2df8064521eb7ece",
   "source_scope": {
     "exclusions": [
       {
