@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyworld Commerce Foundry Bridge"
+  short_description: "Preserve Storyworld creative authority and Commerce Foundry product,..."
+  default_prompt: "Use $storyworld-commerce-foundry-bridge for this Storyworld task. Follow current repository governance, preserve Engine and human authority, use exact versions, and produce the required evidence without activating external crossings."

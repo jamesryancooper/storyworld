@@ -1,0 +1,241 @@
+{
+  "schema_version": "harness.workflow.v1",
+  "id": "storyworld-disposable-poc",
+  "version": "1.0.0",
+  "adoption_status": "generated_unadopted_baseline",
+  "adoption_decision_ref": null,
+  "permission_grant": false,
+  "purpose": "Execute one bounded Storyworld proof of concept and end in an evidence-backed adopt, adapt, defer, reject, or repeat recommendation plus teardown.",
+  "scope": "authorized_disposable_poc_only",
+  "authority": {
+    "source": "current_task_and_applicable_instructions",
+    "inherits_from": "current_task",
+    "may_expand": false
+  },
+  "side_effects": "repository_local_as_authorized_by_current_task",
+  "inputs": {
+    "required": [
+      "poc_id",
+      "research_question",
+      "fixture",
+      "success_criteria",
+      "failure_cases",
+      "cost_ceiling",
+      "teardown_plan"
+    ],
+    "optional": [
+      "candidate_dependencies",
+      "provider_test_authorization",
+      "human_review_protocol"
+    ]
+  },
+  "outputs": {
+    "format": "task_and_evidence_records",
+    "required_fields": [
+      "poc_report",
+      "evidence",
+      "dependency_inventory",
+      "security_and_accessibility_results",
+      "decision_recommendation",
+      "teardown_receipt"
+    ],
+    "evidence_required": true
+  },
+  "prohibited": [
+    "expanding_current_task_authority",
+    "performing_unapproved_external_effects",
+    "closing_without_required_evidence",
+    "overwriting_unrelated_work",
+    "accepting_or_ratifying_own_decisions_or_findings",
+    "promoting_prototype_without_separate_task_and_decision"
+  ],
+  "initial_state": "intake",
+  "cancellation_state": "cancelled",
+  "states": [
+    {
+      "id": "intake",
+      "kind": "action",
+      "requires": [
+        "poc_id"
+      ],
+      "actions": [
+        "confirm_poc_authority_and_disposability"
+      ],
+      "agent_ref": "storyworld-engineering-router",
+      "gate": null,
+      "on_success": "design",
+      "on_failure": "blocked",
+      "on_actionable_findings": null
+    },
+    {
+      "id": "design",
+      "kind": "action",
+      "requires": [
+        "research_question"
+      ],
+      "actions": [
+        "define_storyworld_owned_boundary",
+        "pin_fixture_and_criteria",
+        "review_license_security_cost"
+      ],
+      "agent_ref": "storyworld-engineering-router",
+      "gate": null,
+      "on_success": "build",
+      "on_failure": "blocked",
+      "on_actionable_findings": null
+    },
+    {
+      "id": "build",
+      "kind": "action",
+      "requires": [
+        "poc_design"
+      ],
+      "actions": [
+        "build_minimum_prototype",
+        "add_valid_and_failure_cases"
+      ],
+      "agent_ref": "storyworld-engineering-router",
+      "gate": null,
+      "on_success": "execute",
+      "on_failure": "blocked",
+      "on_actionable_findings": null
+    },
+    {
+      "id": "execute",
+      "kind": "action",
+      "requires": [
+        "prototype"
+      ],
+      "actions": [
+        "run_tests",
+        "record_cost_security_accessibility_portability"
+      ],
+      "agent_ref": "storyworld-engineering-router",
+      "gate": "cost_within_ceiling",
+      "on_success": "assess",
+      "on_failure": "blocked",
+      "on_actionable_findings": null
+    },
+    {
+      "id": "assess",
+      "kind": "review",
+      "requires": [
+        "poc_results"
+      ],
+      "actions": [
+        "compare_to_success_criteria",
+        "run_replacement_test"
+      ],
+      "agent_ref": "storyworld-engineering-router",
+      "gate": null,
+      "on_success": "teardown",
+      "on_failure": "blocked",
+      "on_actionable_findings": "build"
+    },
+    {
+      "id": "teardown",
+      "kind": "action",
+      "requires": [
+        "assessment"
+      ],
+      "actions": [
+        "remove_or_isolate_prototype",
+        "retain_decision_evidence"
+      ],
+      "agent_ref": "storyworld-engineering-router",
+      "gate": null,
+      "on_success": "recommend",
+      "on_failure": "blocked",
+      "on_actionable_findings": null
+    },
+    {
+      "id": "recommend",
+      "kind": "action",
+      "requires": [
+        "teardown_receipt"
+      ],
+      "actions": [
+        "issue_adopt_adapt_defer_reject_or_repeat_recommendation"
+      ],
+      "agent_ref": "storyworld-engineering-router",
+      "gate": null,
+      "on_success": "completed",
+      "on_failure": "blocked",
+      "on_actionable_findings": null
+    },
+    {
+      "id": "completed",
+      "kind": "terminal",
+      "requires": [],
+      "actions": [],
+      "agent_ref": null,
+      "gate": null,
+      "on_success": null,
+      "on_failure": null,
+      "on_actionable_findings": null
+    },
+    {
+      "id": "blocked",
+      "kind": "terminal",
+      "requires": [],
+      "actions": [],
+      "agent_ref": null,
+      "gate": null,
+      "on_success": null,
+      "on_failure": null,
+      "on_actionable_findings": null
+    },
+    {
+      "id": "cancelled",
+      "kind": "terminal",
+      "requires": [],
+      "actions": [],
+      "agent_ref": null,
+      "gate": null,
+      "on_success": null,
+      "on_failure": null,
+      "on_actionable_findings": null
+    }
+  ],
+  "terminal_states": [
+    "completed",
+    "blocked",
+    "cancelled"
+  ],
+  "invariants": [
+    "poc_code_is_not_production_by_default",
+    "success_does_not_adopt_dependency",
+    "cost_ceiling_is_hard",
+    "rights_safe_fixtures_only",
+    "teardown_preserves_evidence"
+  ],
+  "validation": "python scripts/validate_library.py; Storyworld repository validators when installed",
+  "owner": "unassigned",
+  "provenance": {
+    "source": "storyworld_agent_skills_library",
+    "source_version": "1.0.0",
+    "source_fingerprint": "309af528a79d9a54bbc71df85168ff841ecdbc52fd307c1b2bffdd8f8c860318",
+    "generated_on": "2026-08-01",
+    "license_review": "not_assessed",
+    "security_review": "not_assessed",
+    "included_files": [
+      ".agents/workflows/storyworld-disposable-poc.json"
+    ],
+    "local_changes": [],
+    "exclusions": [
+      "project permissions",
+      "accepted decisions",
+      "readiness claims",
+      "external authority"
+    ],
+    "trust_class": "generated_unadopted_capability",
+    "update_strategy": "explicit Storyworld project review and adoption decision"
+  },
+  "deprecated_at": null,
+  "removal_version": null,
+  "successor": null,
+  "limitations": [
+    "Live provider calls require separate authorization and credentials.",
+    "Human or assistive-technology testing may remain unavailable and must be reported."
+  ]
+}

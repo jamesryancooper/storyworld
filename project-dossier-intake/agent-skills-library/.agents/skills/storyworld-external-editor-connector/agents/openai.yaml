@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyworld External Editor Connector"
+  short_description: "Let creators use Blender, InvokeAI, Kdenlive, Resolve, and later tool..."
+  default_prompt: "Use $storyworld-external-editor-connector for this Storyworld task. Follow current repository governance, preserve Engine and human authority, use exact versions, and produce the required evidence without activating external crossings."

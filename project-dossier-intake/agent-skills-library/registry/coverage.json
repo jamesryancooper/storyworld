@@ -1,0 +1,120 @@
+{
+  "schema_version": "storyworld.skill-library.coverage.v1",
+  "groups": {
+    "governance_and_repository": [
+      "storyworld-engineering",
+      "storyworld-repository-orientation",
+      "storyworld-governed-change",
+      "storyworld-decision-impact-analysis",
+      "storyworld-dossier-intake-maintenance",
+      "storyworld-conformance-and-release"
+    ],
+    "contracts_and_evidence": [
+      "storyworld-contract-authoring",
+      "storyworld-schema-evolution",
+      "storyworld-fixture-authoring",
+      "storyworld-poc-execution"
+    ],
+    "intent_driven_product": [
+      "storyworld-creative-command-implementation",
+      "storyworld-voice-command",
+      "storyworld-cross-media-command",
+      "storyworld-studio-surface"
+    ],
+    "creative_and_native_media": [
+      "storyworld-creative-direction",
+      "storyworld-native-media-workspace",
+      "storyworld-annotation-target",
+      "storyworld-evaluation-layer"
+    ],
+    "providers_and_processing": [
+      "storyworld-provider-adapter",
+      "storyworld-provider-model-evaluation",
+      "storyworld-comfyui-workflow",
+      "storyworld-deterministic-media-worker",
+      "storyworld-cost-and-usage-accounting"
+    ],
+    "assets_rights_security": [
+      "storyworld-asset-custody-and-lineage",
+      "storyworld-rights-and-consent-review",
+      "storyworld-security-review"
+    ],
+    "external_precision": [
+      "storyworld-external-editor-connector",
+      "storyworld-otio-editorial-interchange"
+    ],
+    "delivery_peers_runtime": [
+      "storyworld-publication-connector",
+      "storyworld-publication-scheduler",
+      "storyworld-commerce-foundry-bridge",
+      "storyworld-runtime-adapter"
+    ],
+    "deployment": [
+      "storyworld-customer-managed-deployment"
+    ]
+  },
+  "integration_architecture_sections": {
+    "product_definition_and_authority": [
+      "storyworld-engineering",
+      "storyworld-repository-orientation",
+      "storyworld-governed-change",
+      "storyworld-decision-impact-analysis",
+      "storyworld-dossier-intake-maintenance",
+      "storyworld-conformance-and-release",
+      "storyworld-creative-command-implementation",
+      "storyworld-voice-command",
+      "storyworld-cross-media-command",
+      "storyworld-studio-surface"
+    ],
+    "creative_command_voice_progressive_control": [
+      "storyworld-creative-command-implementation",
+      "storyworld-voice-command",
+      "storyworld-cross-media-command",
+      "storyworld-studio-surface"
+    ],
+    "creative_direction_native_image_video_precision": [
+      "storyworld-creative-direction",
+      "storyworld-native-media-workspace",
+      "storyworld-annotation-target",
+      "storyworld-evaluation-layer"
+    ],
+    "openrouter_fal_comfyui": [
+      "storyworld-provider-adapter",
+      "storyworld-provider-model-evaluation",
+      "storyworld-comfyui-workflow",
+      "storyworld-deterministic-media-worker",
+      "storyworld-cost-and-usage-accounting"
+    ],
+    "external_tools_and_otio": [
+      "storyworld-external-editor-connector",
+      "storyworld-otio-editorial-interchange"
+    ],
+    "privacy_credentials_cost_security": [
+      "storyworld-asset-custody-and-lineage",
+      "storyworld-rights-and-consent-review",
+      "storyworld-security-review",
+      "storyworld-cost-and-usage-accounting"
+    ],
+    "publishing_commerce_runtime": [
+      "storyworld-publication-connector",
+      "storyworld-publication-scheduler",
+      "storyworld-commerce-foundry-bridge",
+      "storyworld-runtime-adapter"
+    ],
+    "contracts_fixtures_pocs_roadmap": [
+      "storyworld-contract-authoring",
+      "storyworld-schema-evolution",
+      "storyworld-fixture-authoring",
+      "storyworld-poc-execution"
+    ],
+    "customer_managed_deployment": [
+      "storyworld-customer-managed-deployment"
+    ]
+  },
+  "known_non_skill_boundaries": [
+    "Skills do not replace accepted decisions or .agent governance.",
+    "Runtime creative agents are not engineering skills.",
+    "Legal counsel, participant research, penetration tests, and production operations require separately authorized human processes.",
+    "No skill makes a third-party dependency or provider canonical."
+  ]
+}

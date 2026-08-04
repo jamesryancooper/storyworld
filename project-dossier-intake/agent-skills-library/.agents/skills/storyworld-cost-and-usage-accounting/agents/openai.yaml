@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyworld Cost And Usage Accounting"
+  short_description: "Make AI spending visible and governable without letting cost optimiza..."
+  default_prompt: "Use $storyworld-cost-and-usage-accounting for this Storyworld task. Follow current repository governance, preserve Engine and human authority, use exact versions, and produce the required evidence without activating external crossings."

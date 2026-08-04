@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyworld Deterministic Media Worker"
+  short_description: "Keep routine technical media processing inside the Storyworld-control..."
+  default_prompt: "Use $storyworld-deterministic-media-worker for this Storyworld task. Follow current repository governance, preserve Engine and human authority, use exact versions, and produce the required evidence without activating external crossings."

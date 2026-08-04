@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyworld Schema Evolution"
+  short_description: "Make every contract change's compatibility, migration, generated-arti..."
+  default_prompt: "Use $storyworld-schema-evolution for this Storyworld task. Follow current repository governance, preserve Engine and human authority, use exact versions, and produce the required evidence without activating external crossings."

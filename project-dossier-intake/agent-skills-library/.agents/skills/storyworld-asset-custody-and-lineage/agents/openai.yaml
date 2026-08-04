@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyworld Asset Custody And Lineage"
+  short_description: "Ensure every governed artifact has exact bytes, identity, provenance,..."
+  default_prompt: "Use $storyworld-asset-custody-and-lineage for this Storyworld task. Follow current repository governance, preserve Engine and human authority, use exact versions, and produce the required evidence without activating external crossings."

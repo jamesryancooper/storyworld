@@ -1,0 +1,100 @@
+{
+  "schema_version": "harness.skill-provenance.v1",
+  "id": "storyworld-native-media-workspace",
+  "version": "1.0.0",
+  "adoption_status": "generated_unadopted_baseline",
+  "adoption_decision_ref": null,
+  "permission_grant": false,
+  "entrypoint": ".agents/skills/storyworld-native-media-workspace/SKILL.md",
+  "purpose": "Make Storyworld the normal creative environment without recreating conventional professional applications or exposing provider controls as the product model.",
+  "scope": "current_task_within_storyworld_repository_only",
+  "authority": {
+    "source": "current_task_and_applicable_instructions",
+    "inherits_from": "current_task",
+    "may_expand": false
+  },
+  "side_effects": "repository_local_as_authorized_by_current_task",
+  "inputs": {
+    "required": [
+      "accepted_native_media_decision",
+      "media_operation_contracts",
+      "ResolvedRealizationSpec",
+      "provider_and_worker_capabilities"
+    ],
+    "optional": [
+      "external_escape_criteria",
+      "advanced_operator_controls",
+      "annotation_profiles"
+    ]
+  },
+  "outputs": {
+    "format": "structured_skill_result",
+    "required_fields": [
+      "native_workspace",
+      "typed_operations",
+      "preview_pipeline",
+      "candidate_workflow",
+      "precision_controls",
+      "evaluation_hooks",
+      "external_escape_hatch"
+    ],
+    "evidence_required": true
+  },
+  "prohibited": [
+    "Direct asset overwrite",
+    "Unversioned masks, keyframes, or selections",
+    "Automatic creative acceptance",
+    "External application as normal required workflow"
+  ],
+  "validation": "python scripts/validate_library.py; repository-specific validators from .agent/validators.json when installed",
+  "owner": "unassigned",
+  "included_material": [
+    "Storyworld-specific engineering workflow",
+    "Authority and evidence boundaries",
+    "Skill-specific checklist and output contract",
+    "Adversarial failure cases",
+    "Traceability to proposed decisions, contracts, POCs, and repository paths",
+    "Vendor/medium-specific implementation profiles"
+  ],
+  "provenance": {
+    "source": "storyworld_integration_architecture_package_and_current_repository_conventions",
+    "source_version": "2026-08-01",
+    "source_fingerprint": "309af528a79d9a54bbc71df85168ff841ecdbc52fd307c1b2bffdd8f8c860318",
+    "generated_on": "2026-08-01",
+    "license_review": "not_assessed",
+    "security_review": "not_assessed",
+    "included_files": [
+      ".agents/skills/storyworld-native-media-workspace/SKILL.md",
+      ".agents/skills/storyworld-native-media-workspace/agents/openai.yaml",
+      ".agents/skills/storyworld-native-media-workspace/references/provenance.json",
+      ".agents/skills/storyworld-native-media-workspace/references/checklist.md",
+      ".agents/skills/storyworld-native-media-workspace/references/output-contract.md",
+      ".agents/skills/storyworld-native-media-workspace/references/failure-cases.md",
+      ".agents/skills/storyworld-native-media-workspace/references/profiles/image.md",
+      ".agents/skills/storyworld-native-media-workspace/references/profiles/video.md",
+      ".agents/skills/storyworld-native-media-workspace/references/profiles/audio.md",
+      ".agents/skills/storyworld-native-media-workspace/references/profiles/graphic.md",
+      ".agents/skills/storyworld-native-media-workspace/references/profiles/spatial.md"
+    ],
+    "local_changes": [],
+    "exclusions": [
+      "project permissions",
+      "accepted decision status",
+      "production readiness claims",
+      "live provider credentials",
+      "publication or deployment authority",
+      "third-party copyrighted books and media"
+    ],
+    "trust_class": "generated_unadopted_capability",
+    "update_strategy": "explicit Storyworld project review, semantic version bump, and adoption decision"
+  },
+  "deprecated_at": null,
+  "removal_version": null,
+  "successor": null,
+  "limitations": [
+    "This generated package has not been reviewed or adopted by the Storyworld project owner.",
+    "Repository paths, decisions, contracts, provider APIs, and validation commands must be rechecked against the installation revision.",
+    "Structural validation of this package does not establish security, legal, accessibility, production, or dependency suitability.",
+    "The skill grants no permission beyond the active task."
+  ]
+}

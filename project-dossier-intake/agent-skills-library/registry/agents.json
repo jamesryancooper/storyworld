@@ -1,0 +1,51 @@
+{
+  "schema_version": "storyworld.skill-library.agents.v1",
+  "library_version": "1.0.0",
+  "status": "generated_unadopted_library",
+  "permission_grant": false,
+  "agents": [
+    {
+      "id": "storyworld-engineering-router",
+      "version": "1.0.0",
+      "purpose": "Constrained umbrella task mode that orients to Storyworld, classifies engineering work, selects the smallest applicable specialist skill chain, and requires evidence-backed closure.",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "skill_refs": [
+        "storyworld-engineering",
+        "storyworld-repository-orientation",
+        "storyworld-governed-change",
+        "storyworld-decision-impact-analysis",
+        "storyworld-dossier-intake-maintenance",
+        "storyworld-contract-authoring",
+        "storyworld-schema-evolution",
+        "storyworld-fixture-authoring",
+        "storyworld-poc-execution",
+        "storyworld-conformance-and-release",
+        "storyworld-creative-command-implementation",
+        "storyworld-voice-command",
+        "storyworld-cross-media-command",
+        "storyworld-creative-direction",
+        "storyworld-native-media-workspace",
+        "storyworld-annotation-target",
+        "storyworld-evaluation-layer",
+        "storyworld-studio-surface",
+        "storyworld-asset-custody-and-lineage",
+        "storyworld-rights-and-consent-review",
+        "storyworld-provider-adapter",
+        "storyworld-provider-model-evaluation",
+        "storyworld-comfyui-workflow",
+        "storyworld-deterministic-media-worker",
+        "storyworld-external-editor-connector",
+        "storyworld-otio-editorial-interchange",
+        "storyworld-publication-connector",
+        "storyworld-publication-scheduler",
+        "storyworld-commerce-foundry-bridge",
+        "storyworld-runtime-adapter",
+        "storyworld-cost-and-usage-accounting",
+        "storyworld-customer-managed-deployment",
+        "storyworld-security-review"
+      ],
+      "entrypoint": ".agents/agents/storyworld-engineering-router.json"
+    }
+  ]
+}

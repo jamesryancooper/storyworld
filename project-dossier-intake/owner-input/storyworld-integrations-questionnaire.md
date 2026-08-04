@@ -15,27 +15,55 @@ The clarified direction changes that assumption:
 * InvokeAI, Kdenlive, DaVinci Resolve, and similar applications become optional precision-finishing tools for exceptional edge cases only.
 * OpenRouter supplies language and multimodal intelligence.
 * fal.ai supplies generative-media execution.
-* Storyworld does not need to host AI models locally.
-* ComfyUI is primarily an advanced workflow-design and testing environment that is self-hosted by default.
+* Under the current accepted posture, Storyworld does not host local model weights.
+* ComfyUI is primarily a self-hosted advanced workflow-design, testing, orchestration, and technical-inspection environment.
 
-The following questions should be answered before the integration architecture is finalized.
+The following questions and confirmed answers define owner direction for the integration architecture. They still require the normal impact review, successor decisions, and canonical updates before they become accepted repository direction.
 
 ## What to expect from this questionnaire
 
-This questionnaire is an owner-directed architecture exercise. Each recommendation is advisory: it explains a reasonable default and its tradeoffs, but it does not override the owner’s decisions.
+This questionnaire is an owner-directed architecture exercise. Each recommendation is advisory: it explains a reasonable default and its tradeoffs, but it does not override a confirmed answer.
 
 When the owner provides an explicit answer:
 
-* Treat the answer as authoritative over the recommendation, prior assumptions, and generic best practices.
+* Treat the answer as authoritative within this questionnaire over its recommendation, prior assumptions, and generic best practices.
 * Treat “I agree” as confirmation of the recommendation unless additional wording qualifies it.
 * Treat any qualification, disagreement, or added requirement as part of the authoritative answer.
-* Carry confirmed decisions and their implications into later sections.
+* Carry confirmed answers and their implications into later sections.
 * Preserve important nuance instead of forcing a response into A, B, or C.
-* Distinguish confirmed decisions, assumptions, unresolved questions, and suggestions.
+* Distinguish confirmed answers, assumptions, unresolved questions, and suggestions.
 * Never treat silence as agreement.
 * Ask a focused clarification question only when an unresolved issue materially affects the architecture, product direction, cost, rights, privacy, or safety.
 
-Review each question in the context of the entire questionnaire and all previous answers. Recommendations may be revised when they conflict with an explicit owner answer; owner answers must not be silently replaced by the original recommendation.
+Review each question in the context of the entire questionnaire and all previous answers. Recommendations must be revised or explicitly marked as superseded when they conflict with a confirmed answer; confirmed answers must not be silently replaced by the original recommendation.
+
+### How to read status, timing, and authority
+
+* **Recommendation** is advisory analysis.
+* **Answer** records confirmed owner direction for this questionnaire. It is an input to repository decision-making, not by itself an accepted decision record, implementation task, budget approval, credential grant, deployment approval, or publication authorization.
+* **Current alpha** describes observed or accepted present behavior only where the text says so explicitly. **Target**, **future**, and **mature** describe intended capability.
+* **First**, **second**, **early**, and **now** express implementation priority after a separately authorized task exists; they do not establish a calendar commitment or authorize work.
+* Accepted repository decisions remain controlling until a successor decision supersedes them. Where this questionnaire proposes different direction, the difference must be dispositioned explicitly rather than treated as an implicit override.
+
+### Shared terms
+
+* **Storyworld-controlled deployment boundary** means the Engine, Studio, governed database and object storage, workers, and self-hosted services operated under the same Storyworld policy and administrative control. It may span multiple machines.
+* **Local** means inside that controlled boundary, not necessarily on the user’s device. **Hosted provider** means a service outside it.
+* **External tool** means a separately installed or deployed application or execution environment, even when it runs on the same machine. It receives no canon, asset-acceptance, rights-waiver, release, or publication authority.
+* **Authorized human** means a verified human identity with the required role and resource scope. In the current alpha, accepted `DEC-0021` limits acceptance-class commands to a verified human `property_owner` bound to the target tenant and property; mature role expansion requires separate decisions.
+* **Advanced Operator Mode authorization** is a separate, explicit workspace permission to inspect or adjust technical execution. It does not grant acceptance-class or publication authority.
+* **Governed work** includes candidates, assets, operations, decisions, and evidence admitted to a production workflow. A **disposable experiment** remains outside governed production unless formally imported.
+* **Candidate** means a nonauthoritative output available for evaluation. **Production variant** means a governed branch intended for review or delivery; creating it changes production state even though it is not accepted canon or a master.
+* **Formal import** is an explicit authorized action that scans, validates, hashes, records provenance for, and admits an external or experimental output as a governed candidate.
+* **Storyworld custody** means storage governed as the Storyworld system of record; it does not imply legal ownership.
+* **Approval** is layer-specific. Creative, rights, channel-package, commerce, runtime, and external-host approvals do not imply one another.
+* **Approved provider or model** means one allowlisted by current provider policy for the exact provider-egress class, task profile, deployment, retention behavior, and rights or consent constraints.
+* **Approved budget or allowance** means a limit set by an authorized budget role for the exact workspace or production; it is not creative or publication approval.
+* **Authorized exception** means a recorded human-approved exception for one exact transfer or processing path. A production need may justify requesting one but cannot substitute for the recorded exception.
+* **Production policy** means durable authorized configuration for a named workspace or production. It may narrow or, where the provider-egress class permits, relax defaults; it cannot override law, contract, rights, consent, or a no-egress rule.
+* **Authority host** means the system that owns an external publication or runtime-acceptance transition and issues its receipt. Storyworld approval never substitutes for authority-host acceptance.
+* **Apply** changes a candidate or active edit under the consequence rules in question 5. **Accept** promotes an exact version into working canon, a master, a channel package, or another authoritative state and always requires the applicable human authority.
+* A **material change** is a change to exact content, inputs, rights or consent, policy, provider or model constraints, cost ceiling, destination, metadata, disclosures, timing, or validation state that could invalidate an approval or alter the authorized result.
 
 ---
 
@@ -45,8 +73,7 @@ Review each question in the context of the entire questionnaire and all previous
 
 ### Choices
 
-**A. Yes. Text and voice are the main controls.**
-Manual controls are secondary.
+**A. Yes. Text and voice are the main controls.** Manual controls are secondary.
 
 **B. Text, voice, and traditional controls are equally important.**
 
@@ -73,9 +100,9 @@ Storyworld should be designed around natural-language creative direction rather 
 
 ### Answer
 
-Treat this as a confirmed product direction: text and voice are Storyworld’s primary creative controls, with traditional controls available for precision and correction.
+**Confirmed answer: A.** Text and voice are Storyworld’s primary creative controls, with direct non-voice controls available for precision and correction. Those controls are secondary in prominence, not capability.
 
-**Text and voice are primary, while all manual controls are reimagined as simplified, semantic, context-aware interfaces—not conventional editing tools.**
+**Text and voice are primary, while manual controls are reimagined as simplified, semantic, context-aware interfaces rather than default replicas of dense conventional editors.**
 
 They should support precision through progressive disclosure without introducing dense, intimidating workflows. This is still **A**, not B: manual controls remain supportive, but they must feel native to Storyworld’s approachable creative model.
 
@@ -95,7 +122,7 @@ They should support precision through progressive disclosure without introducing
 
 Choose **A**.
 
-A normal user should be able to complete most productions without opening InvokeAI, Kdenlive, Resolve, or another specialist application.
+A normal user should be able to complete most productions without opening InvokeAI, Kdenlive, DaVinci Resolve, or another specialist application.
 
 ### Storyworld should normally handle
 
@@ -112,23 +139,19 @@ A normal user should be able to complete most productions without opening Invoke
 
 ### Outside tools may handle in exceptional cases
 
-Storyworld should normally provide these capabilities itself. External
-applications are fallback environments for work that Storyworld does not yet
-support reliably or for a specialist workflow that genuinely requires them.
+Storyworld should normally provide these capabilities itself. External applications are fallback environments only when Storyworld does not yet support the required result reliably or a specialist workflow genuinely requires them. Examples are:
 
-* Detailed hand-painted masks.
-* Complex compositing.
-* Professional color finishing.
-* Detailed keyframe animation.
-* Advanced sound mixing.
+* A hand-painted mask that Storyworld’s native controls cannot reproduce reliably.
+* Compositing or keyframe work that requires unsupported plugins or interchange.
+* Certified color or sound finishing that requires unsupported hardware, formats, or standards.
 * Plugin-heavy postproduction.
 * Frame-level technical work beyond Storyworld’s normal controls.
 
 ### Answer
 
-I would strengthen the answer to **A**:
+**Confirmed answer: A, with a stronger native-workflow goal.**
 
-**Storyworld should be the default environment for nearly all generation, editing, and precision work.** Generative AI should handle tasks such as masking, keyframes, compositing, color, and sound through simplified, intent-level interfaces.
+**Storyworld should be the default environment for nearly all generation, editing, and precision work within its supported production types.** This is target product architecture, not a claim that every capability belongs in the MVP or current alpha. This goal does not make Storyworld a universal replacement for every professional application. Generative AI should handle tasks such as masking, keyframes, compositing, color, and sound through simplified, intent-level interfaces.
 
 The goal is not to hide precision, but to make it accessible:
 
@@ -155,11 +178,13 @@ Outside applications become exceptional escape hatches rather than part of the n
 
 Choose **B**.
 
-Use three levels of control:
+Use five progressively disclosed control layers:
 
 1. **Text or voice direction**
 2. **Simple contextual controls**
-3. **Advanced technical controls or external finishing**
+3. **Built-in AI-mediated professional precision**
+4. **Advanced Operator Mode for authorized technical inspection and adjustment**
+5. **External finishing only for unsupported cases**
 
 Examples of simple controls:
 
@@ -186,38 +211,25 @@ Examples of simple controls:
 
 ### Answer
 
-I would choose B, with a stronger interpretation:
+**Confirmed answer: B, with the following interpretation.**
 
 Simple, contextual controls should be the default, while advanced precision should be available on request through AI-assisted, simplified interfaces.
 
 Storyworld should not expose professional controls constantly or require users to understand technical settings. Instead, users can request precise outcomes—such as an exact mask, timing change, keyframe adjustment, composite, or sound mix—and let generative AI perform the technical work behind an inspectable, reversible interface.
 
-So the model is:
+The five control layers are:
 
 1. Text or voice direction.
 2. Simple contextual refinement.
-3. Built-in AI-mediated professional precision when requested.
-4. Advanced Operator Mode for exact controls, technical inspection, and policy-approved overrides.
+3. Built-in AI-mediated professional precision, where users request exact outcomes through semantic and visual controls.
+4. Advanced Operator Mode, where authorized users inspect technical execution and, when policy permits, adjust provider-native settings without bypassing governance.
 5. External tools only for genuinely unsupported edge cases.
 
-The professional-controls advanced layer should provide the precision and
-expressive power of professional tools without reproducing their dense panels,
-technical jargon, or fragmented workflows. Users should combine
-natural-language direction, visual manipulation, semantic controls, and
-AI-assisted technical operations. Complexity should appear progressively and
-contextually, while still allowing exact values and precise adjustments when
-needed.
+The advanced professional-control layer should provide the precision and expressive power of professional tools without reproducing their dense panels, technical jargon, or fragmented workflows. Users should combine natural-language direction, visual manipulation, semantic controls, and AI-assisted technical operations. Complexity should appear progressively and contextually, while still allowing exact values and precise adjustments when needed.
 
-Professional depth should feel like approachable creative actions—“keep this
-subject sharp,” “match this lighting,” or “move the cut 12 frames earlier”—
-rather than requiring users to configure masks, keyframes, nodes, codecs, or
-provider-specific parameters manually. Every operation should be previewable,
-adjustable, explainable, reversible, and preserved as a structured creative
-decision.
+Professional depth should feel like approachable creative actions—“keep this subject sharp,” “match this lighting,” or “move the cut 12 frames earlier”—rather than requiring users to configure masks, keyframes, nodes, codecs, or provider-specific parameters manually. Every Storyworld-managed operation should be previewable, adjustable, explainable, reversible while retained, and preserved as a structured creative decision.
 
-Raw provider-native controls may be exposed to authorized advanced users
-through Advanced Operator Mode when policy allows, but they must never be the
-only way to reproduce the creative intent.
+Raw provider-native controls may be exposed to authorized advanced users through Advanced Operator Mode when policy allows, but they must never be the only way to reproduce the creative intent. Their use remains subject to the same policy, versioning, provenance, budget, and human-authority boundaries as intent-level operations.
 
 ---
 
@@ -235,7 +247,7 @@ only way to reproduce the creative intent.
 
 Choose **B**.
 
-Small preview operations may run immediately. Meaningful, costly, destructive, or approval-changing operations should show a plan first.
+Small preview operations may run immediately. Meaningful, costly, destructive, or approval-changing operations should show a plan and wait for confirmation first.
 
 A plan should explain:
 
@@ -263,17 +275,19 @@ might become:
 
 ### Answer
 
-I would choose B, with a stronger interpretation:
+**Confirmed answer: B, with the following interpretation.**
 
 Use pre-change planning for consequential work and live transparency for routine work.
 
 1. **Meaningful, costly, destructive, or approval-changing edits** should show a plan and wait for confirmation before proceeding.
 2. **Routine edits** may begin immediately, but Storyworld should show what it is doing in real time.
-3. Every operation should support **pause, cancel, reverse, and steer**.
+3. While execution is active, operations should support **pause, cancel, and steer**—adjusting intent or parameters during execution—where the provider or deterministic tool permits; completed changes must remain reversible through version history.
 4. If the operation becomes more consequential than expected, Storyworld should pause and request confirmation.
 5. Users should be able to inspect the interpretation, current progress, changes made, preserved elements, assumptions, and cost at any point.
 
 The principle is: **no unnecessary approval friction, but no invisible automation.**
+
+“Routine” in this answer means a low-consequence operation under question 5. A technically simple change to an active edit is still medium consequence and must wait for confirmation.
 
 ---
 
@@ -297,7 +311,7 @@ Storyworld may run immediately within an approved budget:
 
 ### Medium consequence
 
-Storyworld should show a proposal before applying:
+Storyworld should show a plan and wait for confirmation before applying:
 
 * Change an active edit.
 * Replace a shot.
@@ -305,26 +319,26 @@ Storyworld should show a proposal before applying:
 * Regenerate part of an image.
 * Create a new production variant.
 * Change captions.
-* Spend more than the normal budget.
+* Exceed the applicable per-job or batch allowance.
 
 ### High consequence
 
 Storyworld must require an authorized human decision:
 
-* Change accepted canon.
+* Accept a proposal into working canon or create a canon release.
 * Replace an accepted master.
-* Accept creative work.
-* Waive a rights or continuity finding.
-* Publish.
-* Delete authoritative evidence.
+* Accept an asset, final edit, or channel package into an authoritative production state.
+* Waive a rights, policy, or continuity blocker when policy permits a waiver.
+* Authorize publication of an exact channel package.
+* Permanently delete governed evidence when retention, legal-hold, and other policy permits deletion.
 
 ### Answer
 
-I would confirm:
+**Confirmed answer.**
 
 * **Low consequence:** may run immediately within the approved budget.
-* **Medium consequence:** show a proposal before applying.
-* **High consequence:** require an authorized human decision.
+* **Medium consequence:** show a plan and wait for confirmation before applying.
+* **High consequence:** require an authorized human decision and all applicable policy checks.
 
 This aligns with the broader principle of transparent, interruptible automation without unnecessary approval friction.
 
@@ -354,9 +368,9 @@ When the uncertainty could affect identity, rights, cost, canon, or a major crea
 
 ### Answer
 
-I would confirm **B**:
+**Confirmed answer: B.**
 
-Storyworld should make reasonable assumptions for minor uncertainty, state them visibly, and provide easy correction. It should ask a focused question when uncertainty could materially affect identity, rights, cost, canon, safety, or a major creative decision.
+Storyworld should make reasonable assumptions for minor uncertainty, state them visibly, and provide easy correction. It should ask a focused question when uncertainty could materially affect identity, rights, cost, canon, safety, or an acceptance-class creative decision under question 30.
 
 ---
 
@@ -383,7 +397,7 @@ The user should experience one creative conversation, while the system preserves
 
 ### Answer
 
-I would confirm:
+**Confirmed answer.**
 
 One creative conversation may direct multiple media, while Storyworld maintains separate, inspectable, reversible operations for each medium. This preserves a unified creative experience without blurring media-specific changes, costs, approvals, or provenance.
 
@@ -401,7 +415,7 @@ One creative conversation may direct multiple media, while Storyworld maintains 
 
 ### Recommendation
 
-Choose **B**.
+Choose **B**, with ephemeral audio and no ordinary retention option.
 
 Save:
 
@@ -411,9 +425,8 @@ Save:
 * Storyworld’s interpretation.
 * The resulting operations and decisions.
 
-Keep the original voice recording only when:
+Preserve the original voice recording only through a governed workflow when:
 
-* The user explicitly chooses to keep it.
 * It is needed as production evidence.
 * A team policy requires it.
 * It is being used as an authorized source asset.
@@ -430,11 +443,11 @@ Keep the original voice recording only when:
 
 ### Answer
 
-I would sensibly tighten **B**:
+**Confirmed answer: B, with a narrower retention rule.**
 
 Treat voice recordings as ephemeral input by default. Storyworld should retain the transcript, target, context, interpretation, and resulting operations—but should not offer a normal “keep recording” option.
 
-If an exceptional case requires preservation, it should occur only through a governed workflow, such as an authorized source-asset import, production-evidence policy, or retention requirement. That keeps privacy and storage risk low without making audio retention part of ordinary use.
+The transcript and command record remain governed data subject to their provider-egress, access, and retention policies. This answer governs retention, not transcription location: any hosted transcription must independently satisfy questions 11, 12, and 16. If an exceptional case requires preservation of the audio, it should occur only through a governed workflow, such as an authorized source-asset import, production-evidence policy, or retention requirement. That keeps privacy and storage risk low without making audio retention part of ordinary use.
 
 ---
 
@@ -454,19 +467,19 @@ If an exceptional case requires preservation, it should occur only through a gov
 
 Choose **B**.
 
-Build the first production version for a single creator or small internal team, but establish customer-ready boundaries for:
+Design the first mature deployment for a single creator or small internal team, but establish customer-ready boundaries for:
 
 * User identity.
 * Permissions.
 * Tenant separation.
 * Usage accounting.
-* API-key ownership.
+* Provider-account and credential control.
 * Asset visibility.
 * Rights and approvals.
 
 ### Pros
 
-* Keeps the first release manageable.
+* Keeps the first mature release manageable.
 * Avoids a costly future architecture rewrite.
 * Allows real production experience before broad release.
 
@@ -477,17 +490,13 @@ Build the first production version for a single creator or small internal team, 
 
 ### Answer
 
-I would confirm **B** with a firm product boundary:
+**Confirmed answer: B, with a firm product boundary.**
 
-Storyworld should launch as a private tool for one small family creative team.
-It may later support other solo creators and small teams, while remaining
-intentionally out of scope for large studios and enterprise production
-departments.
+Storyworld’s first mature deployment should serve one small family creative team. It may later support other solo creators and small teams, while remaining intentionally out of scope for large studios and enterprise production departments.
 
-Storyworld should still establish lightweight customer-ready foundations for
-identity, permissions, small-team workspaces, usage, assets, rights, and
-approvals. Full multi-tenant and enterprise operations can wait until they are
-needed, and large-studio support is not a target.
+Storyworld should still establish lightweight customer-ready foundations for identity, permissions, small-team workspaces, usage, assets, rights, and approvals. Full multi-tenant and enterprise operations can wait until they are needed, and large-studio support is not a target.
+
+Customer-managed deployment is one confirmed future option under question 40. This questionnaire does not yet decide whether the broader small-team offering will also include a Storyworld-hosted service.
 
 ---
 
@@ -507,17 +516,17 @@ Support **both**, in phases:
 
 1. Begin with user-supplied keys.
 2. Add Storyworld-managed usage later.
-3. Allow organizations to choose either model.
+3. Allow eligible small-team workspaces to choose either credential-supply model.
 
 ### User-supplied keys
 
-**Pros**
+#### User-supplied-key pros
 
 * Lower financial risk for Storyworld.
 * Easier early implementation.
 * Users control their provider accounts and limits.
 
-**Cons**
+#### User-supplied-key cons
 
 * More setup.
 * Harder to create a seamless beginner experience.
@@ -525,13 +534,13 @@ Support **both**, in phases:
 
 ### Storyworld-managed keys
 
-**Pros**
+#### Storyworld-managed-key pros
 
 * Simpler customer experience.
 * Centralized budgets and provider policies.
 * Storyworld can offer packaged usage.
 
-**Cons**
+#### Storyworld-managed-key cons
 
 * Storyworld assumes billing and abuse risk.
 * Requires quotas, metering, fraud controls, and payment systems.
@@ -539,12 +548,11 @@ Support **both**, in phases:
 
 ### Answer
 
-I would confirm **C**:
+**Confirmed answer: C.**
 
-Start with user-supplied provider keys, later add Storyworld-managed usage and
-billing, and eventually support both models for eligible small-team
-workspaces. Provider credentials should remain isolated, protected, and
-clearly owned by the supplying party.
+Start with user-supplied provider keys, later add Storyworld-managed usage and billing, and eventually support both models for eligible small-team workspaces. Provider credentials must remain isolated and protected; the supplying party controls the provider account and credential, while Storyworld stores the secret only in its approved credential store and exposes only non-secret source, ownership, and permitted-scope metadata.
+
+“User-supplied” confirms bring-your-own-provider credentials but does not yet decide whether the first private workspace uses one workspace-admin-supplied credential or separate per-member credentials. That credential-scope choice requires owner disposition before implementation.
 
 ---
 
@@ -554,11 +562,11 @@ clearly owned by the supplying party.
 
 ### Recommendation
 
-Use four simple classifications.
+Use four provider-egress classifications. These classifications govern whether material may cross the Storyworld-controlled deployment boundary; they do not replace access-control or records-retention classifications and never create rights, consent, or provider approval. Before implementation, each resource class must map to one of these egress classes, and the most restrictive applicable rule wins.
 
 ### Public
 
-May be sent to any approved provider.
+May be sent to a provider and model approved for the task.
 
 Examples:
 
@@ -568,7 +576,7 @@ Examples:
 
 ### Private
 
-May be sent only under approved privacy and retention rules.
+May be sent only to a provider and model approved for the task, under the applicable privacy and retention rules.
 
 Examples:
 
@@ -582,35 +590,36 @@ May be sent only to explicitly approved providers and models, or not sent at all
 
 Examples:
 
-* Licensed source material.
+* Licensed source material whose terms permit hosted processing only through constrained providers or models.
 * Customer-confidential work.
 * Sensitive likeness references.
 * Unreleased commercial products.
 
 ### Highly restricted
 
-Must not leave Storyworld unless a specific authorized exception is recorded.
+Must remain inside the Storyworld-controlled deployment boundary unless a specifically authorized exception permits the exact transfer and no law, contract, rights restriction, consent state, or no-egress rule prohibits it.
 
 Examples:
 
-* Material involving protected children.
-* Revoked consent.
+* Identifying or sensitive material involving minors.
+* Material whose use permission has been revoked; this is blocked rather than exception-eligible.
 * Confidential legal records.
 * Sensitive personal information.
 * Sources contractually prohibited from hosted processing.
+* API keys, access tokens, passwords, and other credentials.
 
-Consent, ownership, or a production exception does not by itself override the
-highly restricted classification or the requirement for an authorized
-exception.
+Consent, ownership, or a production need does not by itself override the highly restricted classification or the requirement for an authorized exception. An exception cannot restore revoked or expired permission or override law, contract, rights restrictions, or an explicit no-egress rule.
 
 ### Answer
 
-The four-tier data classification is confirmed:
+**Confirmed answer: use the four provider-egress classifications.**
 
-* **Public:** may be sent to approved providers.
-* **Private:** permitted under approved privacy and retention rules.
+* **Public:** may be sent to providers and models approved for the task.
+* **Private:** may be sent to approved providers and models under the applicable privacy and retention rules.
 * **Restricted:** limited to explicitly approved providers/models or blocked.
-* **Highly restricted:** must remain within Storyworld unless an authorized exception is recorded.
+* **Highly restricted:** must remain inside the Storyworld-controlled deployment boundary unless an exact, authorized, policy-compliant exception applies.
+
+Provider-egress classification is only one gate. A hosted transfer must also satisfy task-specific provider/model approval and every applicable rights, consent, retention, and no-egress rule. These rules apply equally when a self-hosted workflow node calls a hosted endpoint.
 
 ---
 
@@ -620,22 +629,22 @@ The four-tier data classification is confirmed:
 
 Use privacy-protective defaults:
 
-* Deny provider training or data collection where supported.
-* Prefer zero-retention routes for private material.
-* Disable fal request storage by default.
+* Use only provider routes whose training, collection, and retention behavior satisfies the material’s egress classification and production policy.
+* Prefer zero-retention routes for private or restricted material.
+* Disable fal.ai request storage by default.
 * Use short-lived media URLs.
 * Download provider outputs immediately.
 * Treat provider URLs as temporary transport.
 * Record what data was sent, where, and under which policy.
 * Never use provider storage as Storyworld’s asset library.
 
-Allow less restrictive settings only through an explicit production policy.
+Allow less restrictive settings only when the egress classification permits them and an explicit production policy authorizes them. A production policy cannot override law, contract, rights, consent, or a no-egress rule.
 
 ### Answer
 
-The privacy-protective provider-retention defaults are confirmed.
+**Confirmed answer: use privacy-protective provider-retention defaults.**
 
-Storyworld should minimize provider retention, prefer zero-retention routes, download outputs promptly, use short-lived URLs, maintain a transmission record, and never treat provider storage as its asset library. Less restrictive behavior requires an explicit production policy.
+Storyworld should minimize provider retention, prefer zero-retention routes, download outputs promptly, use short-lived URLs, maintain a transmission record, and never treat provider storage as its asset library. Less restrictive behavior requires both a permitting egress classification and an explicit production policy.
 
 ---
 
@@ -667,7 +676,7 @@ Use named task profiles such as:
 
 For each profile, Storyworld should select only from models approved for that specific purpose.
 
-Advanced users may override the choice when policy allows it.
+Advanced users may choose another approved model when policy allows it.
 
 ### Pros
 
@@ -682,42 +691,44 @@ Advanced users may override the choice when policy allows it.
 
 ### Answer
 
-I would confirm **C**:
+**Confirmed answer: C.**
 
-Storyworld should use approved task profiles with automatic model selection for normal workflows, fixed or tightly constrained routing for important tasks, and policy-controlled model overrides for advanced users. Routing decisions should remain explainable.
+Storyworld should use approved task profiles with automatic model selection for normal workflows, fixed or tightly constrained routing for important tasks, and policy-controlled model overrides through Advanced Operator Mode. Routing decisions should remain explainable.
 
 ---
 
-## 14. May OpenRouter fall back to a different model or provider?
+## 14. May an integrated AI provider fall back to a different model or route?
 
 ### Recommendation
 
-Allow fallback only within the same approved policy group.
+Allow automatic fallback only to a policy-equivalent route: the replacement provider and model must satisfy the same task profile, provider-egress class, retention rules, rights and consent restrictions, quality floor, cost ceiling, and reproducibility requirements.
 
 ### Allow fallback for
 
+Only when the task is low-risk, nonauthoritative, and uses public material:
+
 * Brainstorming.
 * Drafting.
-* Low-risk classification.
+* Low-risk classification tasks on public material.
 * Temporary previews.
 * Nonauthoritative suggestions.
 
-### Limit or disable fallback for
+### Do not allow automatic fallback for
 
 * Canon extraction.
 * Rights-related analysis.
-* Sensitive documents.
+* Private or restricted documents.
 * Continuity decisions.
 * Evaluations tied to an accepted workflow.
 * Reproducibility-critical production work.
 
-Storyworld should never silently route sensitive material to a less trusted provider.
+Storyworld should never silently route private, restricted, or highly restricted material to a less protective provider or model.
 
 ### Answer
 
-I would confirm the fallback policy:
+**Confirmed answer: use policy-equivalent fallback only.**
 
-Fallbacks may occur only within the same approved policy group for low-risk, nonauthoritative work. They should be limited or disabled for canon, rights, sensitive material, continuity, accepted workflows, and reproducibility-critical production work—never silently routing sensitive data to a less trusted provider.
+These rules apply to OpenRouter, fal.ai, and future integrated providers. Automatic fallback may occur only to a policy-equivalent route for low-risk, nonauthoritative work. It is disabled for canon extraction, rights analysis, private, restricted, or highly restricted material, continuity decisions, accepted workflows, and reproducibility-critical production work. A human may authorize a new request on a different route only when all policy and authority requirements still pass; that is a new authorization, not an automatic fallback.
 
 ---
 
@@ -732,14 +743,14 @@ Storyworld should preserve a provider abstraction so it can later support:
 * A direct model-provider API.
 * A specialized video service.
 * A specialized speech service.
-* A private enterprise endpoint.
+* A private or customer-managed endpoint.
 * A future customer-controlled provider.
 
 Provider-specific prompts, workflow graphs, model names, and parameters must remain execution details rather than Storyworld’s creative authority.
 
 ### Answer
 
-I would confirm the provider abstraction and integration strategy:
+**Confirmed answer: preserve the provider abstraction and initial integration strategy.**
 
 OpenRouter and fal.ai are the first strategic integrations, while Storyworld remains provider-agnostic so future direct, specialized, private, or customer-controlled providers can be added without making provider details part of the creative model.
 
@@ -774,15 +785,9 @@ A user’s ownership of a photograph does not automatically establish permission
 
 ### Answer
 
-I would confirm **C**:
+**Confirmed answer: C.**
 
-Real-person photographs, voices, and likenesses may be sent to hosted
-providers only when identity, consent or valid permission, permitted uses,
-provider scope, revocation, cloning allowances, disclosures, and publication
-restrictions are recorded **and** the data classification, provider policy,
-retention rules, and no-egress requirements permit the transfer. Possessing the
-media alone is not sufficient authorization, and consent never overrides a
-highly restricted classification.
+Real-person photographs, voices, and likenesses may be sent to hosted providers only when identity, current consent or another valid permission, permitted uses, provider scope, expiry and revocation rules, cloning allowances, disclosures, and publication restrictions are recorded **and** the provider-egress classification, provider policy, retention rules, and no-egress requirements permit the transfer at execution time. This includes transient transmission for transcription, generation, or transformation, not only persisted source assets. Possessing the media alone is not sufficient authorization, and consent never overrides a highly restricted classification.
 
 ---
 
@@ -804,7 +809,7 @@ This includes:
 
 Yes.
 
-Use local deterministic tools such as FFmpeg, OpenImageIO, OpenColorIO, MediaInfo, and ClamAV when generative AI is not necessary.
+Use deterministic tools such as FFmpeg, OpenImageIO, OpenColorIO, MediaInfo, and ClamAV inside the Storyworld-controlled deployment boundary when generative AI is unnecessary.
 
 ### Pros
 
@@ -815,14 +820,16 @@ Use local deterministic tools such as FFmpeg, OpenImageIO, OpenColorIO, MediaInf
 
 ### Cons
 
-* Requires local worker installation and maintenance.
-* Some devices may process large media slowly.
+* Requires installation and maintenance of workers inside the Storyworld-controlled boundary.
+* Available workers may process large media slowly.
 
 This does not require hosting AI models locally.
 
 ### Answer
 
-Routine media processing should remain local and deterministic wherever generative AI is unnecessary.
+**Confirmed answer: keep routine non-generative media processing inside the Storyworld-controlled deployment boundary.**
+
+Routine media processing should remain deterministic and inside the Storyworld-controlled deployment boundary wherever generative AI is unnecessary.
 
 This preserves privacy, reduces cost, improves reproducibility and speed, and does not require Storyworld to host AI models locally.
 
@@ -834,7 +841,7 @@ This preserves privacy, reduces cost, improves reproducibility and speed, and do
 
 Use configurable budgets.
 
-* Small jobs may run immediately within a user-approved allowance.
+* Small jobs may run immediately within an allowance set by the authorized budget role.
 * Expensive individual jobs require confirmation.
 * Batch jobs show estimated cost before starting.
 * A production can have daily, weekly, and total limits.
@@ -845,9 +852,9 @@ Every provider request should record its estimated and actual cost when availabl
 
 ### Answer
 
-I would confirm the configurable spending budgets:
+**Confirmed answer: use configurable spending budgets.**
 
-Small jobs may run within approved allowances; expensive or batch work must show cost and/or request confirmation; production-level limits and preview cost preferences are configurable; unexpected increases pause execution; and estimated versus actual provider costs are recorded.
+Small jobs may run within an approved allowance. Every batch job must show its estimated cost before starting; if an estimate is unavailable, Storyworld must say so and wait for confirmation. Any individual or batch job outside its applicable allowance must also wait for confirmation. Production-level limits and preview cost preferences are configurable; unexpected increases pause execution; and estimated versus actual provider costs are recorded.
 
 ---
 
@@ -877,27 +884,27 @@ Users may select production profiles such as:
 * Balanced.
 * Fast preview.
 * Lowest cost.
-* Privacy restricted.
+* Restricted-data.
 
 Privacy and rights rules must never be weakened merely to improve speed or price.
 
 ### Answer
 
-I would confirm the configurable optimization balance:
+**Confirmed answer: use a configurable optimization balance.**
 
-The default priority is policy/privacy, required quality, continuity/fidelity, cost, then speed. Users may choose production profiles, but privacy and rights constraints remain non-negotiable.
+The default priority is policy/privacy, required quality, continuity/fidelity, cost, then speed. Users may choose production profiles, but privacy and rights constraints remain non-negotiable. A Restricted-data profile applies strict routing and retention defaults; it does not replace the formal provider-egress classification of each input.
 
 ---
 
 # Part 4: Asset custody and version history
 
-## 20. Should Storyworld keep every generated or edited production file?
+## 20. Which generated or edited production files should Storyworld keep?
 
 ### Recommendation
 
-Storyworld should keep every governed candidate and every accepted asset in its own storage.
+Storyworld should keep every governed candidate and accepted asset in storage under Storyworld custody. It need not retain every transient provider output or disposable experiment.
 
-Provider outputs should be:
+Any provider output admitted as a governed candidate or accepted asset should be:
 
 1. Downloaded.
 2. Scanned.
@@ -910,18 +917,13 @@ Provider URLs, InvokeAI galleries, ComfyUI output folders, and editor caches are
 
 ### Answer
 
-I would confirm this storage and custody policy:
+**Confirmed answer: retain governed work, not every transient output.**
 
-Every governed candidate and accepted asset should be downloaded into
-Storyworld custody, scanned, validated, hashed, and given provenance. Provider
-URLs, galleries, output folders, and editor caches are temporary transport or
-working locations—not permanent storage.
+Every governed candidate and accepted asset should be ingested into Storyworld custody, scanned, validated, hashed, and given provenance. Provider URLs, galleries, output folders, and editor caches are temporary transport or working locations—not permanent storage.
 
-For a customer-managed installation, customer-controlled object storage counts
-as Storyworld custody when it is the configured Storyworld system of record and
-is governed by Storyworld’s versioning, provenance, access, and retention
-rules. “Owns” means governs and maintains custody here; it does not determine
-legal title.
+For a customer-managed installation, customer-controlled object storage counts as Storyworld custody when it is the configured Storyworld system of record and is governed by Storyworld’s versioning, provenance, access, and retention rules. Custody describes governance and system-of-record responsibility, not legal title.
+
+External project and workfiles preserved under question 23 must be copied into Storyworld custody; leaving them only in an application folder or cache does not preserve them.
 
 ---
 
@@ -944,7 +946,7 @@ Keep:
 * Candidates submitted for review.
 * Rejected production candidates.
 * Evidence used in decisions.
-* Outputs connected to accepted or published work.
+* Outputs connected to accepted work or externally published instances.
 * Assets required for replay or audit.
 
 Allow temporary explorations to expire under a clear retention policy.
@@ -953,7 +955,7 @@ Allow temporary explorations to expire under a clear retention policy.
 
 * Preserves meaningful evidence.
 * Avoids unlimited storage growth.
-* Keeps casual experimentation lightweight.
+* Keeps disposable experimentation lightweight.
 
 ### Cons
 
@@ -962,13 +964,9 @@ Allow temporary explorations to expire under a clear retention policy.
 
 ### Answer
 
-I would confirm **B**:
+**Confirmed answer: B.**
 
-Storyworld should retain governed candidates, rejected production work,
-decision evidence, accepted/published outputs, and replay/audit assets.
-Disposable experiments may expire under a clear retention policy after any
-required rollback window, but never if they are required evidence or part of
-accepted lineage.
+Storyworld should retain governed candidates, rejected production work, decision evidence, accepted outputs, outputs tied to externally published instances, and replay/audit assets for their applicable governed retention periods. Evidence and accepted lineage that policy requires must remain durable. Disposable experiments may expire after the rollback window configured by the applicable retention policy; expiry ends reversibility for that disposable experiment but cannot remove required evidence or accepted lineage.
 
 ---
 
@@ -981,7 +979,7 @@ Yes for governed production assets.
 The normal process should be:
 
 1. Check out an exact asset or sequence version.
-2. Include a signed manifest and permitted references.
+2. Include an integrity-protected manifest, signed where the package contract requires it, and permitted references.
 3. Open it in the outside application.
 4. Preserve the original.
 5. Return the edited work as a new candidate.
@@ -989,13 +987,13 @@ The normal process should be:
 7. Rerun affected evaluations.
 8. Accept or reject the new exact version.
 
-Casual experiments may use a lighter process, but they do not become production assets until formally imported.
+Disposable experiments may use a lighter package workflow, but they do not become governed production assets until formally imported. A lighter workflow may omit convenience packaging only; it never bypasses provider-egress classification, rights, consent, malware scanning, or no-egress controls. Private, restricted, or highly restricted material remains subject to the full applicable checkout controls.
 
 ### Answer
 
-Make this principle explicit:
+**Confirmed answer: yes, for governed production assets.**
 
-> **Storyworld owns governance; external tools retain their native formats and workflows.**
+> **Storyworld governs the production record; external tools retain their native formats and workflows.**
 
 The checkout/return process should be orchestrated and enforced entirely by Storyworld, while Storyworld conforms to the conventions, file formats, and import workflows of each external tool. External applications should not require Storyworld-specific plugins, schema changes, metadata handling, or workflow updates.
 
@@ -1003,18 +1001,14 @@ Storyworld should:
 
 1. Preserve the authoritative original.
 2. Export a self-contained package using standard formats the external tool already imports easily.
-3. Include Storyworld’s manifest and references as optional sidecar information, not as a dependency for opening or editing the files.
+3. Include Storyworld’s integrity-protected manifest—signed where the package contract requires it—and references as sidecar information that is optional for the external tool to consume, but mandatory for Storyworld to retain.
 4. Let the user work normally in the external application.
 5. Treat returned files as new, untrusted candidates.
-6. Compare, validate, evaluate, and accept or reject them inside Storyworld.
+6. Compare, validate, and evaluate them inside Storyworld, then present them for an authorized human acceptance decision.
 
-External tools should only need to open and save files using their existing workflows. Storyworld adapts to their capabilities while retaining complete control over versioning, provenance, rights, validation, and acceptance.
+External tools should only need to open and save files using their existing workflows. Storyworld adapts to their capabilities while governing versioning, provenance, rights evidence, validation, and acceptance.
 
-The manifest may be ignored by the external application, but Storyworld must
-retain its authoritative copy and use its own package or session identity to
-associate returned files with the checkout. “Optional sidecar” describes the
-external tool’s consumption of the manifest, not Storyworld’s governance
-record.
+The manifest may be ignored by the external application, but Storyworld must retain its authoritative copy and use its own package or session identity to associate returned files with the checkout. “Optional sidecar” describes the external tool’s consumption of the manifest, not Storyworld’s governance record.
 
 ---
 
@@ -1024,7 +1018,7 @@ Examples:
 
 * InvokeAI sessions.
 * Kdenlive projects.
-* Resolve projects.
+* DaVinci Resolve projects.
 * Blender files.
 * Krita files.
 
@@ -1047,40 +1041,45 @@ The workfile allows reopening the exact specialist session. The portable represe
 
 ### Answer
 
-I would confirm this recommendation:
+**Confirmed answer: preserve workfiles when they support governed reproducibility.**
 
-Storyworld should preserve important external workfiles as nonauthoritative production artifacts, alongside portable representations where possible. This enables exact session reopening while reducing vendor and application lock-in.
+Storyworld should preserve external workfiles when they are needed to resume, reproduce, review, or audit governed work, alongside portable representations where possible. Preserved workfiles must be hashed, given provenance, copied into Storyworld custody, and marked nonauthoritative; they never replace accepted masters. Other workfiles may expire under the applicable retention policy. This enables exact session reopening while reducing vendor and application lock-in.
 
 ---
 
-# Part 5: Creative applications and finishing tools
+# Part 5: Execution integrations and precision tools
 
-## 24. Which outside applications should receive first-class support first?
+## 24. Which integrations should Storyworld prioritize?
 
-### Recommended first group
+### Recommended priority groups
 
-#### Required production integrations
+#### Hosted intelligence and media services
 
 * **OpenRouter** — language and multimodal intelligence.
 * **fal.ai** — image, video, audio, and other generative-media execution.
+
+#### Deterministic media worker
+
 * **FFmpeg-based media worker** — deterministic video and audio processing.
+
+#### Editorial interchange standard
+
 * **OpenTimelineIO** — editorial interchange.
 
-#### Optional precision environments
+#### Exceptional precision environments
 
 * **Blender** — 3D asset, scene, and animation precision work.
 * **InvokeAI** — advanced image finishing.
 * **Kdenlive** — open-source video finishing.
-* **DaVinci Resolve Studio** — professional video finishing.
+* **DaVinci Resolve** — professional video finishing.
 
 #### Advanced operator environment
 
-* **ComfyUI** — workflow design, testing, and technical inspection.
+* **ComfyUI** — self-hosted workflow design, testing, orchestration, and technical inspection over policy-approved endpoints.
 
-#### Important internal integration
+#### First-party peer-system integration
 
-* **Commerce Foundry** — print-on-demand product, vendor, order, and
-  fulfillment operations.
+* **Commerce Foundry** — Narrative Campaign brief/bundle exchange, product truth, commercial approval and publication authority for Commerce Foundry-originated work, plus print-on-demand vendor, order, and fulfillment operations.
 
 ### Later integrations
 
@@ -1097,30 +1096,33 @@ Storyworld should not delay its native conversational workspaces while trying to
 
 ### Answer
 
-The initial support set should include **Blender**, while making clear that precision applications are exceptional escape hatches—not the center of the workflow.
+**Confirmed answer: include Blender in the initial support set while keeping precision applications outside the normal workflow.**
 
-The revised structure would be:
+The confirmed structure is:
 
-* **Required production integrations:** OpenRouter, fal.ai, FFmpeg-based media worker, OpenTimelineIO.
-* **Exceptional precision environments:** Blender, InvokeAI, Kdenlive, DaVinci Resolve Studio.
-* **Advanced operator environment:** ComfyUI.
-* **Later integrations:** Krita, Inkscape, darktable, Ardour, MuseScore, and
-  Scribus. Interactive runtimes are addressed as early integrations in
-  question 35.
+* **Hosted intelligence and media services:** OpenRouter and fal.ai.
+* **Deterministic media worker:** FFmpeg-based processing.
+* **Editorial interchange standard:** OpenTimelineIO.
+* **Exceptional precision environments:** Blender, InvokeAI, Kdenlive, DaVinci Resolve.
+* **Advanced operator environment:** self-hosted ComfyUI backed by policy-approved hosted endpoints.
+* **First-party peer-system integration:** Commerce Foundry for Narrative Campaign and commercial-authority exchange as well as print-on-demand product, vendor, order, and fulfillment operations.
+* **Later integrations:** Krita, Inkscape, darktable, Ardour, MuseScore, and Scribus. Interactive runtimes are addressed as early integrations in question 35.
 
-Storyworld remains the primary environment for intent-driven generation, editing, adaptation, evaluation, and finishing across narrative media. Text and voice lead the workflow; precision capabilities are progressively revealed through intuitive, simplified interfaces. External applications—including Blender—provide specialized escape hatches when needed.
+Storyworld remains the primary environment for intent-driven generation, editing, adaptation, evaluation, and in-Storyworld finishing across narrative media. Text and voice lead the workflow; precision capabilities are progressively revealed through intuitive, simplified interfaces. External applications—including Blender—provide specialized escape hatches when needed.
 
 ---
 
-## 25. Should Storyworld install these applications?
+## 25. How should Storyworld help users install and connect separate creative applications?
+
+This question covers separately installed creative applications such as Blender, InvokeAI, Kdenlive, and DaVinci Resolve. Provider APIs, deterministic workers, interchange libraries, Commerce Foundry, and runtime adapters have their own deployment or connection paths.
 
 ### Choices
 
-**A. Bundle them inside Storyworld.**
+**A. Bundle the creative applications inside Storyworld.**
 
 **B. Require users to install them manually.**
 
-**C. Keep them separate but provide guided installation, detection, setup, and launching.**
+**C. Keep them separate but provide installation guidance, detection, setup assistance, and launching.**
 
 ### Recommendation
 
@@ -1148,18 +1150,20 @@ Storyworld should:
 
 ### Answer
 
-I would confirm **C**:
+**Confirmed answer: C.**
 
-Storyworld should keep external applications separate while providing guided detection, installation, configuration, launching, and return handling. The architecture should preserve the option to bundle selected tools later if licensing, distribution, platform support, and maintenance make that worthwhile.
+Storyworld should keep external applications separate while providing installation guidance, detection, configuration, launching, and return handling. Any future assisted installer or managed distribution requires separate licensing, security, platform-support, and maintenance review; it must not be inferred from this answer. Question 41 provides the definitive non-bundling default.
 
 ---
 
 ## 26. Should advanced users see provider-native controls?
 
+This question defines layer 4 of the five-layer control model in question 3.
+
 Examples:
 
 * OpenRouter model choice.
-* Raw fal parameters.
+* Raw fal.ai parameters.
 * Seeds.
 * Samplers.
 * ComfyUI graphs.
@@ -1170,25 +1174,25 @@ Examples:
 
 Yes, through an **Advanced Operator Mode**.
 
-Normal users should see creative language and simple controls. Advanced users may inspect or override technical execution details when policy allows it.
+Normal users should see creative language and simple controls. Advanced users may inspect or adjust technical execution details when policy allows it.
 
 Technical settings should never become the only way to reproduce the creative intent.
 
 ### Answer
 
-I would confirm the **Advanced Operator Mode** recommendation:
+**Confirmed answer: provide Advanced Operator Mode.**
 
-Normal users remain in the intent-driven interface. Authorized advanced users may inspect or override provider-native settings, while Storyworld continues to preserve and reproduce the underlying creative intent independently of those technical details.
+Normal users remain in the intent-driven interface. Users with the explicit Advanced Operator Mode workspace permission may inspect or adjust provider-native settings when policy permits, while Storyworld continues to preserve and reproduce the underlying creative intent independently of those technical details. Advanced Operator Mode cannot bypass provider-egress, rights, consent, budget, approval, or human-authority controls; each adjustment must be versioned and recorded in provenance, and logs or diagnostics must be scoped and redacted so they do not expose credentials or unrelated private data.
 
 ---
 
-## 27. Should Storyworld support both direct fal endpoints and ComfyUI workflows?
+## 27. Should Storyworld support both direct fal.ai endpoints and ComfyUI workflows?
 
 ### Recommendation
 
 Yes.
 
-### Direct fal endpoints
+### Direct fal.ai endpoints
 
 Use for:
 
@@ -1199,14 +1203,14 @@ Use for:
 * Segmentation.
 * Routine transformations.
 
-**Pros**
+#### Direct fal.ai endpoint pros
 
 * Simpler.
 * Easier to maintain.
 * Easier to explain.
 * Often faster to integrate.
 
-### Self-hosted ComfyUI workflows
+### Self-hosted ComfyUI workflow orchestration
 
 Use for:
 
@@ -1217,13 +1221,13 @@ Use for:
 * Experimental capabilities.
 * Processes involving several models.
 
-**Pros**
+#### Self-hosted ComfyUI pros
 
 * More flexible.
 * Supports sophisticated pipelines.
 * Easier for technical operators to inspect.
 
-**Cons**
+#### Self-hosted ComfyUI cons
 
 * More dependencies.
 * Greater security and maintenance burden.
@@ -1231,22 +1235,21 @@ Use for:
 
 ### Answer
 
-Storyworld should support both direct fal.ai endpoints and ComfyUI workflows, but ComfyUI should be **self-hosted by default**, not assumed to run through fal.
+**Confirmed answer: support direct fal.ai endpoints and self-hosted ComfyUI workflow orchestration.**
+
+ComfyUI should be **self-hosted by default** as an orchestration environment, not assumed to run through fal.
 
 Direct fal.ai endpoints should handle common, stable operations such as image generation, image editing, video generation, upscaling, segmentation, and routine transformations.
 
-Self-hosted ComfyUI should handle complex, identity-preserving, multi-model, reusable, experimental, or sensitive workflows. Storyworld should connect to it through an adapter while keeping it hidden from normal users.
+Self-hosted ComfyUI should handle complex, identity-preserving, multi-model, reusable, experimental, or private/restricted workflows when policy permits. Storyworld should connect to it through an adapter while keeping its node graph and provider mechanics hidden from normal users.
 
-A fal-hosted ComfyUI deployment may be supported later when elastic capacity or operational convenience justifies it and data policy permits it.
+Storyworld should choose between direct fal.ai and registered ComfyUI workflows using the task profile, provider-egress class, approved workflow capabilities, quality and reproducibility needs, and cost ceiling. Advanced Operator Mode may select another approved path only when the same policy constraints pass.
 
-For sensitive material, self-hosted ComfyUI is acceptable only when it operates
-inside an approved Storyworld-controlled deployment boundary with no
-unapproved data egress. Self-hosting does not automatically make a workflow
-safe; the data classification and provider policy still apply. Storyworld does
-not need to host model weights itself, while a self-hosted ComfyUI deployment
-may use local models or approved endpoints according to policy.
+A fal-hosted ComfyUI deployment may be supported later when elastic capacity or operational convenience justifies it and data policy permits it. It is a hosted provider route, so questions 11, 12, 14, and 16 apply exactly as they do to other hosted execution; self-hosting the workflow definition does not make its endpoint local.
 
-For every ComfyUI execution, Storyworld should record the workflow and node versions, model versions, parameters, seeds, hashes, logs, and resulting provenance. Storyworld owns the creative intent and governance; ComfyUI remains an independently deployed technical execution environment.
+For private, restricted, or highly restricted material, self-hosted ComfyUI is acceptable only when it operates inside the Storyworld-controlled deployment boundary and every node and endpoint satisfies the applicable provider-egress policy. Self-hosting does not automatically make a workflow safe. Under accepted decision `DEC-0012`, the current generation posture remains hosted-API only with no local model weights: generative nodes must use policy-approved hosted endpoints, while deterministic nodes may run inside the controlled boundary. Local model weights require an explicit successor decision.
+
+ComfyUI graphs, workflow hashes, and technical logs are visible only through Advanced Operator Mode. For every ComfyUI execution, Storyworld should record the workflow and node versions, model and endpoint versions, parameters, seeds, hashes, redacted logs, and resulting provenance. Storyworld governs the creative intent and production record; ComfyUI remains an independently deployed technical execution environment with no approval authority.
 
 ---
 
@@ -1267,25 +1270,25 @@ AI may automatically:
 * Diagnose pacing or continuity.
 * Create findings.
 * Create low-cost previews.
-* Reject malformed or technically unreadable outputs.
+* Quarantine or filter malformed or technically unreadable outputs from normal presentation, while retaining any evidence required by policy.
 * Prepare export packages for review.
 * Apply previously approved low-risk automation rules.
 
 AI may not automatically:
 
-* Change accepted canon.
-* Accept creative work.
+* Accept a proposal into working canon or create a canon release.
+* Accept an asset as a master or approve a channel package.
 * Replace an accepted master.
-* Waive rights, policy, or continuity findings.
-* Approve a release.
-* Publish.
+* Waive rights, policy, or continuity blockers.
+* Approve a channel package or authorize external publication.
+* Choose or alter the content, destination, or authority scope of a publication.
 * Delete required evidence.
 
 ### Answer
 
-I would confirm this AI authority boundary:
+**Confirmed answer: preserve the AI authority boundary.**
 
-AI may analyze, draft, generate, suggest, evaluate, preview, validate, and execute approved low-risk automation. It may not alter accepted canon, approve or publish work, waive rights or policy findings, replace accepted masters, or delete required evidence.
+Question 5 governs when confirmation is required; this question governs what AI may never do regardless of confirmation. AI may analyze, draft, generate, suggest, evaluate, preview, validate, quarantine clear technical failures, prepare export packages for review, and execute previously approved automation only for operations classified as low consequence in question 5. It may not accept working canon, create canon releases, approve masters or channel packages, authorize publication, waive blockers, alter the exact scope of a human-approved publication, or delete required evidence. A non-AI scheduler may execute an exact, still-valid publication authorization as described in question 33.
 
 ---
 
@@ -1307,7 +1310,7 @@ Automatic blocking is appropriate when the result is based on a clear rule, such
 * Wrong required dimensions.
 * Missing mandatory disclosure.
 * Failed checksum.
-* Exceeded approved budget.
+* Exceeded approved budget, which pauses or blocks execution pending renewed approval under question 18.
 
 Creative or interpretive judgments should normally produce a finding for human review.
 
@@ -1320,9 +1323,9 @@ Examples:
 
 ### Answer
 
-I would confirm automatic blocking for clear technical or policy failures:
+**Confirmed answer: clear technical or policy rules may block automatically.**
 
-Interpretive or creative concerns should remain findings for human review rather than becoming automatic blockers.
+Automatic enforcement of an objective rule is not creative acceptance or rejection. Interpretive or creative concerns should remain findings for human review rather than becoming automatic blockers. A human may waive a blocker only when the governing policy permits waiver and the exact decision and evidence are recorded.
 
 ---
 
@@ -1330,63 +1333,50 @@ Interpretive or creative concerns should remain findings for human review rather
 
 ### Recommendation
 
-For authoritative shared or working canon, always require authorized human
-action for:
+Always require authorized human action for:
 
 * Accepting a canon proposal.
 * Accepting a creative asset as a master.
-* Choosing among meaningful creative alternatives.
+* Accepting or designating a meaningful creative alternative as working canon, a master, or another authoritative production state.
 * Approving a likeness or cloned voice.
 * Waiving a blocker.
 * Accepting a final edit.
-* Approving publication.
-* Publishing.
-* Permanently deleting governed evidence.
+* Authorizing publication of an exact channel package, destination, metadata, disclosures, and execution scope.
+* Permanently deleting governed evidence when retention, legal-hold, and other policy permits deletion.
 * Changing provider policy for restricted data.
 
 ### Answer
 
-I agree with the principle that these actions must always require authorized
-human approval. This includes accepting a proposal into authoritative shared
-or working canon, accepting masters, choosing meaningful creative alternatives,
-approving likeness or voice use, waiving blockers, accepting final edits,
-approving or publishing releases, permanently deleting governed evidence, and
-changing provider policy for restricted data.
+**Confirmed answer: acceptance-class and publication-authorization actions require an authorized human.**
 
-Runtime state, player-specific state, and explicitly non-authoritative branch
-state are not authoritative canon unless they are later promoted through the
-same human-controlled acceptance boundary.
+This includes accepting a proposal into working canon, creating a canon release, accepting masters, designating meaningful creative alternatives as authoritative production state, approving likeness or voice use, waiving blockers when waiver is permitted, accepting final edits, authorizing publication of an exact channel package, permanently deleting governed evidence when deletion is permitted, and changing provider policy for restricted data. After that exact authorization, a scheduler may perform the mechanical publication attempt without a second prompt under question 33; it receives no authority to alter the package or bypass an external host.
+
+Runtime state, player-specific state, and explicitly nonauthoritative branch state are not working canon unless they are later promoted through the same human-controlled acceptance boundary.
 
 ---
 
-## 31. Should every AI change be reversible?
+## 31. Should every retained AI change be reversible?
 
 ### Recommendation
 
 Yes.
 
-Every accepted operation should retain:
+Every retained AI operation that creates or mutates governed state should create a reversible transition and record:
 
 * The exact base version.
 * The operation performed.
 * The provider execution record.
 * The resulting candidate.
-* The person or policy that accepted it.
+* Its acceptance state and, if accepted, the authorized human receipt.
 * A way to return to the earlier version.
 
-“Undo” in the interface may be simple, but Storyworld should preserve immutable version history underneath it.
+“Undo” in the interface may be simple, but Storyworld should preserve append-only, tamper-evident version history underneath it for as long as the operation is retained.
 
 ### Answer
 
-I would confirm that every AI operation must create a reversible version
-transition while it exists:
+**Confirmed answer: every retained AI operation must create a reversible version transition.**
 
-Storyworld should preserve immutable version history, including the base
-version, operation, provider record, resulting candidate, acceptance authority,
-and a reliable path back to the prior version. Governed and accepted work must
-retain this history durably. Disposable experiments may later expire under the
-retention policy in question 21, but expiration must not remove governed
-evidence or accepted lineage.
+Every AI operation that creates or mutates a governed asset, production, or canon record must create a reversible version transition. Read-only analysis records provenance and findings but does not need to fork an asset version. Storyworld should preserve append-only, tamper-evident version history, including the base version, operation, provider record, resulting candidate, acceptance state and receipt if any, and a reliable path back to the prior version. Governed work must retain this history for its applicable retention period; required evidence and accepted lineage remain durable. Disposable experiments may later expire under the retention policy in question 21.
 
 ---
 
@@ -1414,9 +1404,9 @@ Evaluation should filter obvious failures, but it should not hide uncertainty or
 
 ### Answer
 
-I would confirm Storyworld should evaluate AI output before presenting it:
+**Confirmed answer: evaluate AI output before normal presentation.**
 
-Automated checks should catch technical, continuity, fidelity, rights, policy, caption, audio, and preservation failures, while clearly surfacing uncertainty and leaving subjective creative judgment to human review.
+The pre-presentation evaluation suite enforces the binary blockers in question 29. The same applicable suite reruns after external checkout/return under question 22 and again at later acceptance or export gates when inputs or policy have changed. Automated checks should block deterministic technical and policy failures and surface evidence-backed findings for continuity, identity, fidelity, rights, captions, audio, and requested preservation. Model-assisted visual evaluations are findings with visible uncertainty unless an approved policy defines an objective binary threshold. Legal conclusions and subjective creative judgment remain with qualified human review.
 
 ---
 
@@ -1428,7 +1418,7 @@ Automated checks should catch technical, continuity, fidelity, rights, policy, c
 
 **A. Publish directly from the first version.**
 
-**B. Begin with approved export packages, then add publishing connectors individually.**
+**B. Begin with governed export packages, then add publishing connectors individually.**
 
 **C. Never publish directly.**
 
@@ -1436,7 +1426,7 @@ Automated checks should catch technical, continuity, fidelity, rights, policy, c
 
 Choose **B**.
 
-Begin by creating governed, approved export packages.
+Begin by creating governed export packages whose creative, rights, and channel-package approval states are explicit.
 
 Add direct publishing one destination at a time only after Storyworld can handle:
 
@@ -1451,35 +1441,22 @@ Add direct publishing one destination at a time only after Storyworld can handle
 
 ### Answer
 
-I would confirm **B with a stronger export-first commitment and prioritized implementation**:
+**Confirmed answer: B, with a stronger export-first commitment and priority sequence.**
 
-* Approved export packages remain a permanent, first-class capability, even after direct publishing exists.
-* Plan the integration architecture now for Astro-based websites, Instagram, X,
-  and TikTok.
-* Build the Astro export package first.
-* Build Instagram support second, beginning with the approved export package and
-  adding direct publishing only when its controls are ready.
+* Governed export packages remain a permanent, first-class capability, even after direct publishing exists.
+* Plan the successor integration architecture for Astro-based websites, Instagram, X, and TikTok.
+* Prioritize the Astro export package first.
+* Prioritize Instagram support second, beginning with the governed export package and adding direct publishing only when its controls are ready.
 * Keep X and TikTok planned for subsequent export and connector work.
-* Build the scheduling component now as a destination-agnostic system for
-  approved packages and future publishing connectors.
+* Include a Storyworld-specific scheduling component in the next separately authorized implementation sequence. It should schedule governed Storyworld packages and future connector operations, not act as a generic social scheduler.
 
-The scheduler should support approvals, time zones, queued jobs, retries,
-pause/cancel, status, receipts, and correction workflows. Before a direct
-connector exists, it may schedule package preparation, export, or handoff.
-Direct publishing should still be added destination by destination, only after
-the relevant authentication, preview, metadata, rights, disclosure, failure,
-and withdrawal controls are ready.
+The scheduler should support layer-specific approvals, time zones, scheduled publication jobs, bounded retries, pause/cancel, status, receipts, and correction workflows. Publication scheduling is distinct from the provider-execution queue in question 39; each has its own inputs, policy, expiry, revalidation, and failure rules. Before a direct connector exists, the publication scheduler may schedule package preparation, export, or handoff, but not publication. Direct publishing should be added destination by destination only after the relevant authentication, authority-host capability, preview, metadata, rights, disclosure, idempotency, failure, receipt, and withdrawal controls are ready.
 
-A human may pre-approve a future publication by approving the exact package,
-destination, metadata, disclosures, time, timezone, and permitted execution
-behavior. The scheduler may publish that exact approved package later without
-another prompt if no material input, policy, destination, or validation state
-has changed. Any such change, blocker, or uncertain outcome must pause
-execution and require renewed human approval. The scheduler may retry
-transport within the approved request but may not choose new creative content
-or bypass a blocker. This describes a future connector capability; external
-publication remains a separately authorized crossing and is not activated by
-this questionnaire.
+An authorized human may pre-authorize a future publication by approving the exact channel package, destination and authority host, metadata, disclosures, time, time zone, cost or quota boundary, permitted transport retries, pause/cancel rules, and failure handling. The scheduler may attempt publication later without another prompt only if that authorization remains valid, the connector still holds the required narrowly scoped capability, and no material condition has changed. Any material change, blocker, expired capability, or uncertain outcome must pause execution and require renewed human authorization. The scheduler may perform bounded, idempotent transport retries within the approved request but may not choose new creative content, change scope, claim external-host approval, or bypass a blocker. This describes a future connector capability; external publication requires a separate owner-authorized connector activation under the applicable authority-host policy and is not activated by this questionnaire.
+
+Authority-host routing remains explicit: a standalone project may use a Storyworld channel connector only when separately authorized; Commerce Foundry-originated work retains Commerce Foundry commercial/publication authority; runtime delivery requires acceptance by the named runtime authority host.
+
+This Astro-first priority differs from the currently accepted Instagram-first adapter sequence. It requires a successor decision before it can control implementation.
 
 ---
 
@@ -1487,7 +1464,7 @@ this questionnaire.
 
 ### Recommendation
 
-Not initially.
+Do not add direct print-vendor submission to Storyworld. Use Commerce Foundry as the intended vendor and fulfillment authority while preserving standalone print-ready export.
 
 Begin with:
 
@@ -1497,37 +1474,34 @@ Begin with:
 * Bleed, trim, safe-area, and color checks.
 * Physical-proof approval.
 
-Add direct vendor submission only after the print package and proof process are reliable.
+Plan the Storyworld-to-Commerce Foundry package and receipt boundary in the next authorized integration sequence, but do not activate package submission until the print-package and proof process are reliable. Any later proposal for a direct Storyworld-to-vendor connector requires a new owner decision.
 
 ### Answer
 
-**Do not build direct print-vendor submission into Storyworld initially. Integrate Storyworld with Commerce Foundry instead.**
+**Confirmed answer: do not build direct print-vendor submission into Storyworld; integrate with Commerce Foundry instead.**
 
-Storyworld should own:
+Storyworld is responsible for:
 
-* Creative intent and approved assets.
+* Creative intent and creatively accepted assets.
 * Print-ready package generation.
 * Font, image, bleed, trim, safe-area, and color validation.
-* Proof records and human approval.
+* Proof records and creative, rights, and physical-proof approval.
 * Exact-version provenance and rights.
 
-Commerce Foundry should own:
+Commerce Foundry is authoritative for:
 
+* Narrative Campaign briefs, product truth, approved claims, offers, and commercial policy for Commerce Foundry-originated work.
+* Final commercial approval and commerce publication, or a narrowly delegated publication capability.
 * Product and print-on-demand configuration.
 * Vendor integrations.
 * Order submission and fulfillment.
 * Commerce-specific status and receipts.
 
-Storyworld should plan the Commerce Foundry integration boundary now and send
-Commerce Foundry only approved packages. Storyworld should retain the
-resulting status and receipt references. Standalone print-ready exports should
-remain available for portability and fallback, while direct vendor
-integrations inside Storyworld are unnecessary unless a later owner decision
-establishes a specific need.
+The broader Commerce Foundry peer integration exchanges immutable Narrative Campaign briefs and Storyworld asset bundles; this question governs the print/vendor path within that relationship. Storyworld should plan the Commerce Foundry integration boundary in the next authorized integration sequence, but print-package submission must remain inactive until the print-package and proof process are reliable. Storyworld may then submit immutable packages that have the required Storyworld creative, rights, and proof approvals. Commerce Foundry must still import each package as an unapproved commercial candidate and perform its own product, claim, compliance, offer, vendor, and final commercial review before it initiates vendor order submission. Storyworld approval never implies Commerce Foundry approval or vendor submission authority, and Storyworld does not hold Commerce Foundry vendor credentials. Commerce Foundry returns normalized status and receipt references for Storyworld to retain. Standalone print-ready exports should remain available for portability and fallback, while direct vendor integrations inside Storyworld are unnecessary unless a later owner decision establishes a specific need.
 
 ---
 
-## 35. Which interactive runtime should Storyworld support first?
+## 35. Which interactive runtime paths should Storyworld support initially?
 
 ### Choices
 
@@ -1538,29 +1512,22 @@ establishes a specific need.
 
 ### Recommendation
 
-The original deferral recommendation is superseded by the owner-directed
-choice to support both runtimes early. Establish a shared runtime/content
-contract and begin with narrow, reliable vertical slices for both paths.
+Support both runtime paths early through a shared runtime/content contract, beginning with a narrow, reliable vertical slice for each.
 
 * Use a browser-first path for widely distributed interactive stories.
 * Use Godot for richer game-like and immersive experiences.
-* Expand each path only after its initial compilation and review loop is
-  reliable.
+* Expand each path only after its initial compilation and review loop is reliable.
 
 ### Answer
 
-The owner-directed choice is **Both** interactive runtimes initially.
+**Confirmed answer: both runtime paths initially.**
 
 Interactive runtime support should begin early because it is central to Storyworld’s purpose. Storyworld should establish a shared runtime/content contract and develop two initial compilation paths:
 
 * **Browser-first:** widely distributed interactive stories.
 * **Godot:** richer game-like and immersive experiences.
 
-Both should share Storyworld’s canon, assets, narrative state, permissions,
-provenance, runtime decision receipts, and review model. Runtime-specific
-adapters should translate that shared source into web and Godot outputs rather
-than creating separate creative systems. Start with a narrow, reliable
-vertical slice for each and expand capabilities over time.
+Both should share exact Storyworld canon releases, assets, narrative source state, permissions, provenance, runtime decision receipts, and review model. Runtime-specific adapters should translate that shared source into web and Godot outputs rather than creating separate creative systems. “Initially” means one narrow compilation-and-review vertical slice per path, not full game-engine, rendering, player-state, networking, or multiplayer functionality.
 
 ---
 
@@ -1568,7 +1535,7 @@ vertical slice for each and expand capabilities over time.
 
 ### Recommendation
 
-Not by default for authoritative shared or working canon.
+No for working canon.
 
 Runtime events may return:
 
@@ -1579,27 +1546,15 @@ Runtime events may return:
 * Candidate story branches.
 * Simulation results.
 
-Any promotion into authoritative shared or working canon must pass through
-Storyworld review and authorized human acceptance. Runtime state, player-
-specific state, and explicitly non-authoritative branch state may remain
-runtime-managed when policy allows.
+Any promotion into working canon must pass through Storyworld review and authorized human acceptance. Runtime execution and player-specific state may remain runtime-managed when policy allows. Automatic mutation of a separately authored nonauthoritative branch layer requires the future successor decision described in the answer.
 
 ### Answer
 
-A better position is:
+**Confirmed answer: not for working canon; narrowly governed automation may apply only to separate nonauthoritative runtime or branch state.**
 
-**Not by default in the initial system, but remain open to narrowly governed future exceptions.**
+Runtime activity should initially produce observations, analytics, player decisions, proposed canon changes, branches, and simulation results. Working canon must still require Storyworld review and human acceptance.
 
-Runtime activity should initially produce observations, analytics, player
-decisions, proposed canon changes, branches, and simulation results. Shared or
-working canon must still require Storyworld review and human acceptance.
-
-Future automatic changes could be supported for a separately defined runtime
-state or non-authoritative branch layer when explicitly authorized by policy,
-provided they are scoped, versioned, reversible, auditable, rights-compliant,
-and prevented from silently changing authoritative shared or working canon.
-This preserves the possibility without granting runtime activity uncontrolled
-authority.
+Future automatic changes could be supported for a separately defined runtime state or nonauthoritative branch layer when explicitly authorized by a successor decision and policy, provided they are scoped, versioned, reversible, auditable, rights-compliant, and prevented from changing working canon. This preserves the possibility without granting runtime activity uncontrolled authority.
 
 ---
 
@@ -1617,11 +1572,11 @@ authority.
 
 ### Recommendation
 
-Design the first mature version for **one creator or a small team**, with a team-ready authority model.
+Design the first mature version for **one creator or a small team**, with a small-team authority model.
 
 Include early support for:
 
-* Ownership.
+* Property and workspace stewardship.
 * Review roles.
 * Comments.
 * Proposals.
@@ -1629,26 +1584,19 @@ Include early support for:
 * Simple assignments.
 * Permission boundaries.
 
-Defer complex workforce planning, department management, and large-studio scheduling until real use requires them.
+Do not target enterprise workforce planning, department management, or large-studio scheduling. Reconsidering that boundary requires a later owner decision.
 
 ### Answer
 
-My answer is **B**, with a firm product boundary:
+**Confirmed answer: B, with a firm product boundary.**
 
 > The first mature version is for one small family creative team. Storyworld may eventually support other solo creators and small teams, but it is not intended for large studios or enterprise production departments.
 
-Storyworld should provide lightweight support for ownership, trusted
-collaborators, review roles, comments, proposals, exact-version decisions,
-assignments, and permissions. It should not prioritize enterprise workforce
-planning, department hierarchies, or large-studio scheduling. The product
-should remain intentionally optimized for small creators. These are target
-mature-version capabilities, not claims about the current alpha; the alpha
-remains an asynchronous, owner-decided system without presence, live
-co-editing, or assignment semantics.
+Storyworld should provide lightweight support for property and workspace stewardship, trusted collaborators, review roles, comments, proposals, exact-version decisions, assignments, and permissions. It should not prioritize enterprise workforce planning, department hierarchies, or large-studio scheduling. The product should remain intentionally optimized for small creators. These are target mature-version capabilities, not claims about the current alpha; the alpha remains an asynchronous, owner-decided system without real-time presence indicators, live co-editing, or assignment semantics.
 
 ---
 
-## 38. Must Storyworld continue working when OpenRouter or fal.ai is unavailable?
+## 38. Must Storyworld continue working when a hosted provider is unavailable?
 
 ### Recommendation
 
@@ -1670,9 +1618,9 @@ Provider outages should stop affected AI execution, not the entire platform.
 
 ### Answer
 
-I would confirm that Storyworld must continue working when OpenRouter or fal.ai is unavailable:
+**Confirmed answer: Storyworld must continue working when a hosted provider is unavailable.**
 
-OpenRouter or fal.ai outages should affect only dependent AI execution. Storyworld must continue supporting writing, canon, asset review, production organization, queued requests, local deterministic processing, existing assets, and export packages.
+OpenRouter, fal.ai, or another hosted-provider outage should affect only dependent execution. Storyworld must continue supporting writing, canon, asset review, production organization, queued requests, deterministic processing inside the Storyworld-controlled boundary, existing assets, export packages, and publication-scheduler preparation. A destination publication attempt is affected only when its own connector or authority host is unavailable.
 
 ---
 
@@ -1680,7 +1628,7 @@ OpenRouter or fal.ai outages should affect only dependent AI execution. Storywor
 
 ### Recommendation
 
-Yes, when safe.
+Yes, after preserving the original request and revalidating it at execution time.
 
 A queued job should preserve:
 
@@ -1691,13 +1639,13 @@ A queued job should preserve:
 * Expiration time.
 * Whether fallback is permitted.
 
-Storyworld should ask again before running a queued job if the price, provider policy, inputs, or approved model profile has materially changed.
+Before execution, Storyworld must revalidate the queued job against current policy, rights and consent, provider-egress classification, provider/model availability, inputs, budget and price, task profile, expiry, and fallback rules. It must request renewed confirmation when a material condition changes and must never use the original approval to bypass a stricter current rule.
 
 ### Answer
 
-I would confirm that Storyworld should queue work while a provider is unavailable:
+**Confirmed answer: queue work only with execution-time revalidation.**
 
-Queued jobs must preserve their exact inputs, policy, budget, model profile, expiry, and fallback rules. Storyworld should request renewed confirmation before execution if any material condition changes.
+Queued jobs must preserve their exact inputs and a snapshot of the original policy, budget, model profile, expiry, and fallback rules for audit. At execution, Storyworld must also apply current policy and revalidate every material condition. The stricter applicable rule wins; a stale approval or policy snapshot cannot authorize execution.
 
 ---
 
@@ -1707,7 +1655,7 @@ Queued jobs must preserve their exact inputs, policy, budget, model profile, exp
 
 Yes as a mature deployment option, but not necessarily in the first release.
 
-A customer-managed installation may keep:
+A customer-managed installation may place the following under customer control:
 
 * Storyworld Engine.
 * Database.
@@ -1717,23 +1665,18 @@ A customer-managed installation may keep:
 * Local deterministic media workers.
 * External creative applications.
 
-under the customer’s control while still using OpenRouter and fal.ai for hosted inference.
+Hosted inference may still use OpenRouter and fal.ai under the applicable provider-egress and retention policies.
 
-This supports privacy, ownership, and portability without requiring local AI models.
+This supports privacy, customer control, and portability without requiring local AI models.
 
 ### Answer
 
-I would confirm that Storyworld should support customer-managed installations with two important constraints:
+**Confirmed answer: support customer-managed installations as a mature option, with two constraints.**
 
-1. **Customer-managed means a complete Storyworld deployment under the customer’s control**, including its database, object storage, governed assets, local workers, self-hosted ComfyUI, and external-tool integrations.
-2. **Hosted inference remains policy-bound.** OpenRouter and fal.ai may be used only according to Storyworld’s data classifications, retention rules, budgets, provider approvals, and fallback policies.
+1. **Customer-managed means a complete Storyworld deployment under the customer’s control**, including its database, object storage, durable workflow orchestration (Temporal under the current accepted stack), governed assets, local deterministic workers, self-hosted ComfyUI orchestration, and external-tool integrations.
+2. **Hosted inference remains policy-bound.** OpenRouter and fal.ai may be used only according to Storyworld’s provider-egress classifications, retention rules, budgets, provider approvals, and fallback policies.
 
-This fits the private-first, small-creator focus and preserves user-supplied
-provider keys initially. It should be treated as a future deployment option for
-the owner’s team and other eligible small-team Storyworld instances—not as a
-shift toward large-studio or enterprise support. Storyworld itself does not
-need to host model weights; a customer-managed ComfyUI deployment may use
-local models or approved endpoints according to policy.
+This fits the private-first, small-creator focus and preserves user-supplied provider keys initially. It should be treated as a future deployment option for the owner’s team and other eligible small-team Storyworld instances—not as a shift toward large-studio or enterprise support. Under the current accepted execution posture, customer management does not authorize local model weights; self-hosted ComfyUI must use policy-approved hosted endpoints unless a successor decision changes that boundary.
 
 ---
 
@@ -1745,7 +1688,7 @@ No, not by default.
 
 Keep them separately installed and provide:
 
-* Guided setup.
+* Installation guidance and setup assistance.
 * Supported-version checks.
 * Health checks.
 * Configuration assistance.
@@ -1756,92 +1699,66 @@ A separately licensed installer or managed distribution could be considered late
 
 ### Answer
 
-Storyworld should **not bundle ComfyUI, Blender, InvokeAI, Kdenlive, Resolve, or similar applications by default**.
+**Confirmed answer: Storyworld should not bundle ComfyUI, Blender, InvokeAI, Kdenlive, DaVinci Resolve, or similar applications by default.**
 
 These tools should remain independently installed or deployed—including self-hosted ComfyUI—while Storyworld provides:
 
-* Guided installation and setup.
+* Installation guidance and setup assistance.
 * Application detection.
 * Supported-version and health checks.
 * Configuration assistance.
-* Launching with compatible Storyworld export packages.
-* Storyworld-owned checkout, return, validation, and provenance handling.
+* Launching with compatible Storyworld checkout packages.
+* Storyworld-governed checkout, return, validation, and provenance handling.
 
-External tools should continue using their native workflows and file formats; they should not need Storyworld-specific modifications. A separately licensed installer or managed distribution may be considered later after legal, licensing, platform, and maintenance review.
+External tools should continue using their native workflows and file formats; they should not need Storyworld-specific modifications. As clarified in question 25, a separately licensed installer or managed distribution may be considered later only after legal, licensing, security, platform, and maintenance review.
 
 ---
 
-# Confirmed owner-directed decisions
+# Repository dispositions required
 
-The following decisions are confirmed owner direction for the integration
-architecture. They supersede earlier recommendations wherever they differ:
+The questionnaire is internally reconciled, but several confirmed answers intentionally differ from currently adopted repository direction. They require successor decisions and canonical updates before they can control implementation:
+
+1. Questions 2–3 expand Storyworld-native editing and precision beyond the non-goal wording in `project-dossier/canonical/storyworld/01_executive_context_and_product_direction.md`. The intended reconciliation is “default for supported Storyworld workflows, not a universal professional-editor replacement.”
+2. Questions 9, 37, and 40 narrow the broader agency/enterprise tiers in `project-dossier/canonical/storyworld/01_executive_context_and_product_direction.md` to solo creators and eligible small teams.
+3. Question 33 changes the Instagram-first adapter sequence accepted through `DEC-0015` and `DEC-0017` to Astro export first and Instagram second.
+4. Question 11 introduces four provider-egress classes alongside the public/internal/confidential/restricted/embargoed resource-access classes in `project-dossier/canonical/storyworld/05_governance_operations_and_quality.md`. Implementation requires an explicit mapping; neither taxonomy silently replaces the other.
+5. Questions 2 and 24 reposition InvokeAI from the locally hosted human editing workspace accepted in `DEC-0012` to an exceptional precision environment. Until a successor decision is accepted, the `DEC-0012` integration pattern remains controlling whenever the InvokeAI escape hatch is used.
+6. Question 10 confirms bring-your-own-provider credentials first but does not decide whether the first private workspace uses one workspace-admin credential or separate per-member credentials.
+7. Questions 9 and 40 confirm customer-managed deployment as a future option but do not decide whether Storyworld will also offer a hosted service to eligible solo creators and small teams.
+
+Current accepted decisions remain controlling until these dispositions are accepted. Question 27 has been aligned to accepted `DEC-0012`: hosted-API generation only, with no local model weights unless a successor decision is adopted.
+
+# Confirmed owner direction
+
+The following points summarize confirmed owner direction within this questionnaire. They supersede its advisory recommendations wherever they differ, but they do not themselves supersede accepted repository decisions:
 
 1. Text and voice are Storyworld’s primary creative controls.
-2. Storyworld provides most generation, editing, adaptation, evaluation, and
-   precision work through progressively revealed, simplified interfaces.
-3. Consequential changes require a pre-change plan and confirmation; routine
-   changes are visible while running and remain pausable, steerable, and
-   reversible.
-4. Storyworld is private-first for one small family creative team, with a
-   possible future offering for other solo creators and small teams—not large
-   studios or enterprise departments.
-5. User-supplied OpenRouter and fal.ai keys come first; managed usage may be
-   added later for eligible small-team workspaces.
-6. Public, private, restricted, and highly restricted data classifications
-   govern provider routing, retention, consent, and egress.
-7. Model selection and fallback remain within approved task and policy groups.
-8. Routine deterministic media processing remains local.
-9. Governed candidates and accepted assets remain under Storyworld custody,
-   including within a customer-managed Storyworld deployment.
-10. External tools use native formats and workflows; Storyworld owns checkout,
-    return, validation, provenance, and acceptance.
-11. Blender, InvokeAI, Kdenlive, DaVinci Resolve, and self-hosted ComfyUI are
-    exceptional or advanced environments, not the normal creative workflow.
-12. Storyworld does not bundle those applications by default; it provides
-    guided setup, detection, health checks, configuration, launching, and
-    package exchange.
-13. AI may generate, analyze, suggest, evaluate, and create findings, but
-    authorized humans retain authority over working/shared canon, masters,
-    waivers, meaningful creative choices, and publication.
-14. Approved export packages are permanent first-class outputs. Plan
-    Astro-based website, Instagram, X, and TikTok integrations now; build
-    Astro first and Instagram second.
-15. Build scheduling now. A human may pre-approve a future publication of an
-    exact package, destination, metadata, disclosures, and execution window.
-16. Commerce Foundry is the intended print-on-demand integration; Storyworld
-    supplies approved print packages and Commerce Foundry handles vendor and
-    fulfillment operations.
-17. Browser and Godot runtime paths begin early through a shared runtime and
-    content contract.
-18. Runtime activity may manage scoped runtime or non-authoritative branch
-    state, but promotion into authoritative shared or working canon requires
-    human acceptance.
-19. Storyworld remains usable during hosted-provider outages and may safely
-    queue work with its original policy, inputs, budget, model profile, expiry,
-    and fallback rules.
-20. Customer-managed deployments are a future option for the same small-team
-    product boundary and remain subject to all Storyworld policy controls.
+2. Storyworld is the default environment for nearly all generation, editing, adaptation, evaluation, and precision work within supported Storyworld workflows, without becoming a universal professional-editor replacement.
+3. Consequential changes require a pre-change plan and confirmation; routine execution remains visible, interruptible where technically supported, and reversible through retained version history.
+4. Storyworld is private-first for one small family creative team, with a possible future offering for other solo creators and small teams—not large studios or enterprise departments. The current alpha remains asynchronous and owner-decided, without presence, live co-editing, or assignments.
+5. User-supplied OpenRouter and fal.ai keys come first; managed usage may be added later for eligible small-team workspaces. Initial workspace-versus-member credential scope remains an explicit disposition.
+6. Public, private, restricted, and highly restricted provider-egress classifications govern hosted routing; access and retention classifications remain separate and require explicit mapping.
+7. Model selection remains within approved task profiles; automatic fallback is limited to policy-equivalent routes for low-risk, nonauthoritative work.
+8. Routine deterministic media processing remains inside the Storyworld-controlled deployment boundary.
+9. Governed candidates and accepted assets remain under Storyworld custody, including within a customer-managed Storyworld deployment.
+10. External tools use native formats and workflows; Storyworld governs checkout, return, validation, provenance, and acceptance.
+11. Blender belongs in the initial support set; Blender, InvokeAI, Kdenlive, DaVinci Resolve, and self-hosted ComfyUI orchestration remain exceptional or advanced environments rather than the normal creative workflow.
+12. Storyworld does not bundle those applications by default; it provides installation guidance, setup assistance, detection, health checks, configuration, launching, and package exchange.
+13. AI may generate, analyze, suggest, evaluate, and create findings, but authorized humans retain authority over working canon, canon releases, masters, permitted waivers, authoritative creative selections, and publication authorization.
+14. Governed export packages are permanent first-class outputs. The proposed successor sequence plans Astro export first, Instagram export second with a direct connector only after its controls are ready, then X and TikTok export/connector work.
+15. Prioritize Storyworld-specific scheduling in the next authorized sequence. A human may pre-authorize a future publication of an exact channel package, authority host, destination, metadata, disclosures, execution window, and bounded retry behavior; any material change requires renewed authorization.
+16. Commerce Foundry remains the first-party peer authority for Narrative Campaign and commercial exchange and is the intended print-on-demand integration. Print submission remains inactive until the package and proof process are reliable; Storyworld then supplies creatively and rights-approved packages as unapproved commercial candidates, Commerce Foundry retains commercial, vendor, publication, and fulfillment authority, and standalone print-ready export remains available.
+17. Browser and Godot runtime paths begin with a shared runtime/content contract, runtime-specific adapters, and one narrow compilation-and-review vertical slice per path.
+18. Runtime activity initially records observations, analytics, player decisions, branches, simulations, and canon proposals. Automatic mutation of separate nonauthoritative runtime or branch state requires a future successor decision and policy; promotion into working canon always requires human acceptance.
+19. Storyworld remains usable during hosted-provider outages and may queue work with an audit snapshot of its original conditions, but execution must revalidate current policy and every material condition; the stricter rule wins.
+20. Customer-managed deployments—including durable workflow orchestration, self-hosted ComfyUI orchestration, and external tools—are a future option for the same small-team product boundary and remain subject to all Storyworld policy controls.
 
 # Confirmed owner-directed configuration
 
-Storyworld is an intent-driven creative production environment for small
-creators. Text and voice lead the workflow, while professional depth is
-available through intuitive built-in controls and Advanced Operator Mode.
-External applications and self-hosted ComfyUI remain separately deployed
-precision and operator environments.
+Storyworld is an intent-driven creative production environment for small creators. Text and voice lead the workflow, while professional depth is available through intuitive built-in controls and Advanced Operator Mode. External applications and self-hosted ComfyUI orchestration remain separately deployed precision and operator environments.
 
-Storyworld retains governance and custody of the creative record: exact
-versions, candidates, accepted assets, operations, provider records,
-provenance, receipts, evaluations, and reversible history. Customer-managed
-storage remains Storyworld custody when it is governed as the Storyworld
-system of record.
+Storyworld retains governance and custody of the creative record: exact versions, candidates, accepted assets, operations, provider records, provenance, receipts, evaluations, and reversible history. Customer-managed storage remains Storyworld custody when it is governed as the Storyworld system of record.
 
-Hosted providers are policy-bound execution services, not Storyworld’s asset
-library or creative authority. Local deterministic processing, privacy
-controls, approved provider routing, human acceptance boundaries, export
-packages, runtime receipts, and Commerce Foundry handoff remain explicit parts
-of the architecture.
+Hosted providers are policy-bound execution services, not Storyworld’s asset library or creative authority. Deterministic processing inside the Storyworld-controlled boundary, privacy controls, approved provider routing, human acceptance boundaries, export packages, runtime receipts, and Commerce Foundry handoff remain explicit parts of the architecture.
 
-The questionnaire describes intended architecture and owner direction. It
-does not by itself authorize implementation, live provider calls, external
-publication, deployment, or Commerce Foundry activation.
+The questionnaire describes intended architecture and owner direction. It does not by itself accept the repository dispositions listed above or authorize implementation, budgets, credentials, live provider calls, external publication, deployment, or Commerce Foundry activation.

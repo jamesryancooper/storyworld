@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyworld Fixture Authoring"
+  short_description: "Turn architectural claims into reproducible evidence without using un..."
+  default_prompt: "Use $storyworld-fixture-authoring for this Storyworld task. Follow current repository governance, preserve Engine and human authority, use exact versions, and produce the required evidence without activating external crossings."

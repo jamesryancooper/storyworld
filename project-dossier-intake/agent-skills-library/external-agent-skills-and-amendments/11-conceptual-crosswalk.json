@@ -1,0 +1,117 @@
+{
+  "schema_version": "storyworld.external-skill-crosswalk.v1",
+  "items": [
+    {
+      "external_concept": "Compound components and explicit variants",
+      "storyworld_equivalent": "Studio composable primitives",
+      "disposition": "adapt",
+      "reason": "Reduces incompatible prop combinations while Storyworld retains state and command authority.",
+      "required_boundary": "Engine remains source of authoritative state."
+    },
+    {
+      "external_concept": "Waterfall elimination",
+      "storyworld_equivalent": "Studio request planning and query policy",
+      "disposition": "adapt",
+      "reason": "Improves latency when measured.",
+      "required_boundary": "No speculative acceptance mutation or hidden client cache authority."
+    },
+    {
+      "external_concept": "Design Read",
+      "storyworld_equivalent": "Creator/task/visual-intent framing",
+      "disposition": "extract",
+      "reason": "Useful before visual implementation.",
+      "required_boundary": "Aesthetic inference remains a heuristic and cannot override accessibility or property design."
+    },
+    {
+      "external_concept": "Contract first and Hyrum\u2019s Law",
+      "storyworld_equivalent": "Storyworld contract pack",
+      "disposition": "adapt",
+      "reason": "Matches durable public and internal boundaries.",
+      "required_boundary": "Accepted contracts and successor decisions remain authoritative."
+    },
+    {
+      "external_concept": "Progressive disclosure for skills",
+      "storyworld_equivalent": "SKILL.md router plus references/profiles",
+      "disposition": "adopt",
+      "reason": "Reduces context cost and conflict.",
+      "required_boundary": "Provenance/adoption remains in Storyworld capability records."
+    },
+    {
+      "external_concept": "Should-trigger and should-not-trigger evals",
+      "storyworld_equivalent": "Skill routing fixtures",
+      "disposition": "adopt",
+      "reason": "Directly tests overactivation and missed activation.",
+      "required_boundary": "Tests do not adopt the skill."
+    },
+    {
+      "external_concept": "Root-cause-first debugging",
+      "storyworld_equivalent": "Storyworld systematic debugging",
+      "disposition": "adapt",
+      "reason": "Prevents speculative cross-component fixes.",
+      "required_boundary": "Diagnostics respect egress, tenant, credential, and authority boundaries."
+    },
+    {
+      "external_concept": "Fresh verification before completion",
+      "storyworld_equivalent": "Conformance evidence receipt",
+      "disposition": "adapt",
+      "reason": "Prevents unsupported readiness claims.",
+      "required_boundary": "Skipped checks and limitations remain explicit."
+    },
+    {
+      "external_concept": "RLS and query-plan best practices",
+      "storyworld_equivalent": "Postgres/storage engineering",
+      "disposition": "adapt",
+      "reason": "Needed for tenant safety and scale.",
+      "required_boundary": "No Supabase product authority or RLS bypass."
+    },
+    {
+      "external_concept": "Property-based roundtrip/idempotence",
+      "storyworld_equivalent": "Contract and adapter fixtures",
+      "disposition": "adapt",
+      "reason": "Finds edge cases in schemas and packages.",
+      "required_boundary": "Use original Storyworld wording and licensing review."
+    },
+    {
+      "external_concept": "Skill static scanner",
+      "storyworld_equivalent": "Skill supply-chain review profile",
+      "disposition": "experiment",
+      "reason": "Potentially catches hidden execution and poisoning.",
+      "required_boundary": "Scanner code is itself untrusted until reviewed."
+    },
+    {
+      "external_concept": "Spec consistency analysis",
+      "storyworld_equivalent": "Decision/POC cross-artifact check",
+      "disposition": "study",
+      "reason": "Could expose missing requirements and fixtures.",
+      "required_boundary": "No `.specify` governance plane."
+    },
+    {
+      "external_concept": "CLI browser snapshots and traces",
+      "storyworld_equivalent": "Studio browser evidence profile",
+      "disposition": "experiment",
+      "reason": "May be token-efficient and reproducible.",
+      "required_boundary": "Localhost, isolated sessions, redacted artifacts."
+    },
+    {
+      "external_concept": "Custom-agent handoffs",
+      "storyworld_equivalent": "Storyworld router/workflow transitions",
+      "disposition": "extract",
+      "reason": "Improves explicit coordination.",
+      "required_boundary": "Parent authority/tool ceiling; manual gates at consequential transitions."
+    },
+    {
+      "external_concept": "Vendor verified skill cards",
+      "storyworld_equivalent": "Storyworld source/provenance/eval records",
+      "disposition": "study",
+      "reason": "Useful trust-pipeline precedent.",
+      "required_boundary": "Vendor verification is not Storyworld adoption."
+    },
+    {
+      "external_concept": "Programmatic React video",
+      "storyworld_equivalent": "Optional runtime/render profile",
+      "disposition": "experiment",
+      "reason": "May support deterministic social/video outputs.",
+      "required_boundary": "Remotion code and props remain execution artifacts."
+    }
+  ]
+}

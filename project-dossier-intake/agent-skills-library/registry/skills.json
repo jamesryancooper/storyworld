@@ -1,0 +1,1612 @@
+{
+  "schema_version": "storyworld.skill-library.registry.v1",
+  "library_version": "1.0.0",
+  "generated_on": "2026-08-01",
+  "assessed_storyworld_commit": "fc9b75b8ae3f28b4b9e13f5c0e31e9f2d24ad565",
+  "status": "generated_unadopted_library",
+  "permission_grant": false,
+  "count": 33,
+  "skills": [
+    {
+      "id": "storyworld-engineering",
+      "version": "1.0.0",
+      "display_name": "Storyworld Engineering",
+      "description": "Route Storyworld engineering work to the smallest applicable governed skill set. Use for repository build, architecture, contract, integration, Studio, evaluation, security, POC, and conformance tasks.",
+      "purpose": "Serve as the umbrella router for Storyworld engineering without becoming a competing governance or implementation authority.",
+      "category": "routing",
+      "tier": "foundation",
+      "priority": "P0",
+      "adoption_wave": "A-governance-foundation",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-engineering/SKILL.md",
+      "dependencies": [
+        "storyworld-repository-orientation",
+        "storyworld-governed-change",
+        "storyworld-conformance-and-release"
+      ],
+      "decisions": [
+        "DEC-0040 through DEC-0053 (proposed integration-architecture successors)"
+      ],
+      "contracts": [],
+      "pocs": [],
+      "repository_paths": [
+        "AGENTS.md",
+        ".agent/",
+        ".agents/",
+        "project-dossier/",
+        "project-dossier-intake/",
+        "packages/",
+        "apps/studio/"
+      ],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-engineering/SKILL.md",
+        ".agents/skills/storyworld-engineering/agents/openai.yaml",
+        ".agents/skills/storyworld-engineering/references/checklist.md",
+        ".agents/skills/storyworld-engineering/references/failure-cases.md",
+        ".agents/skills/storyworld-engineering/references/output-contract.md",
+        ".agents/skills/storyworld-engineering/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-repository-orientation",
+      "version": "1.0.0",
+      "display_name": "Storyworld Repository Orientation",
+      "description": "Establish the exact Storyworld repository, governance, dossier, decision, task, package, test, and implementation context before significant work.",
+      "purpose": "Produce a compact, evidence-backed context package so later skills do not rely on stale prose or inferred repository state.",
+      "category": "governance",
+      "tier": "foundation",
+      "priority": "P0",
+      "adoption_wave": "A-governance-foundation",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "read_only",
+      "entrypoint": ".agents/skills/storyworld-repository-orientation/SKILL.md",
+      "dependencies": [],
+      "decisions": [],
+      "contracts": [],
+      "pocs": [],
+      "repository_paths": [
+        "AGENTS.md",
+        ".agent/START_HERE.md",
+        ".agent/policy.json",
+        ".agent/context.json",
+        ".agent/state/current.json",
+        ".agent/decisions/",
+        ".agent/tasks/",
+        "project-dossier/",
+        "project-dossier-intake/"
+      ],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-repository-orientation/SKILL.md",
+        ".agents/skills/storyworld-repository-orientation/agents/openai.yaml",
+        ".agents/skills/storyworld-repository-orientation/references/checklist.md",
+        ".agents/skills/storyworld-repository-orientation/references/failure-cases.md",
+        ".agents/skills/storyworld-repository-orientation/references/output-contract.md",
+        ".agents/skills/storyworld-repository-orientation/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-governed-change",
+      "version": "1.0.0",
+      "display_name": "Storyworld Governed Change",
+      "description": "Deliver one authorized Storyworld repository change with task scope, decision traceability, tests, evidence, and safe closure.",
+      "purpose": "Standardize the lifecycle of significant repository-local changes while preserving unrelated work and Storyworld's governance boundaries.",
+      "category": "governance",
+      "tier": "foundation",
+      "priority": "P0",
+      "adoption_wave": "A-governance-foundation",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-governed-change/SKILL.md",
+      "dependencies": [
+        "storyworld-repository-orientation",
+        "storyworld-decision-impact-analysis",
+        "storyworld-conformance-and-release"
+      ],
+      "decisions": [],
+      "contracts": [],
+      "pocs": [],
+      "repository_paths": [
+        ".agent/tasks/",
+        ".agent/evidence/",
+        ".agent/validators.json",
+        ".agent/scripts/refresh.py",
+        ".agent/scripts/validate.py"
+      ],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-governed-change/SKILL.md",
+        ".agents/skills/storyworld-governed-change/agents/openai.yaml",
+        ".agents/skills/storyworld-governed-change/references/checklist.md",
+        ".agents/skills/storyworld-governed-change/references/failure-cases.md",
+        ".agents/skills/storyworld-governed-change/references/output-contract.md",
+        ".agents/skills/storyworld-governed-change/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-decision-impact-analysis",
+      "version": "1.0.0",
+      "display_name": "Storyworld Decision Impact Analysis",
+      "description": "Analyze whether a Storyworld change clarifies, amends, supersedes, or requires a successor to accepted or staged decisions, then map all affected artifacts.",
+      "purpose": "Prevent architecture and authority changes from entering through implementation, schema, or UI changes without explicit decision disposition.",
+      "category": "governance",
+      "tier": "foundation",
+      "priority": "P0",
+      "adoption_wave": "A-governance-foundation",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "read_only",
+      "entrypoint": ".agents/skills/storyworld-decision-impact-analysis/SKILL.md",
+      "dependencies": [],
+      "decisions": [
+        "ADR-0015",
+        "DEC-0012",
+        "DEC-0015",
+        "DEC-0017",
+        "DEC-0021",
+        "DEC-0028",
+        "DEC-0031",
+        "DEC-0032",
+        "DEC-0033"
+      ],
+      "contracts": [],
+      "pocs": [],
+      "repository_paths": [
+        ".agent/decisions/",
+        "packages/contracts/adr/",
+        "packages/contracts/charter/authority-matrix.json",
+        "project-dossier-intake/draft-decisions/"
+      ],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-decision-impact-analysis/SKILL.md",
+        ".agents/skills/storyworld-decision-impact-analysis/agents/openai.yaml",
+        ".agents/skills/storyworld-decision-impact-analysis/references/checklist.md",
+        ".agents/skills/storyworld-decision-impact-analysis/references/failure-cases.md",
+        ".agents/skills/storyworld-decision-impact-analysis/references/output-contract.md",
+        ".agents/skills/storyworld-decision-impact-analysis/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-dossier-intake-maintenance",
+      "version": "1.0.0",
+      "display_name": "Storyworld Dossier Intake Maintenance",
+      "description": "Maintain Storyworld's staged project-dossier-intake artifacts, manifest, impact map, evidence, assessments, and draft decisions without changing governed authority.",
+      "purpose": "Turn research and owner direction into a traceable staged package ready for project-owner disposition.",
+      "category": "dossier",
+      "tier": "foundation",
+      "priority": "P0",
+      "adoption_wave": "A-governance-foundation",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-dossier-intake-maintenance/SKILL.md",
+      "dependencies": [
+        "storyworld-repository-orientation",
+        "storyworld-decision-impact-analysis",
+        "storyworld-conformance-and-release"
+      ],
+      "decisions": [],
+      "contracts": [],
+      "pocs": [],
+      "repository_paths": [
+        "project-dossier-intake/readme.md",
+        "project-dossier-intake/canonical-impact-map.md",
+        "project-dossier-intake/draft-decisions/",
+        "project-dossier/machine-readable/artifact-registry.json"
+      ],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-dossier-intake-maintenance/SKILL.md",
+        ".agents/skills/storyworld-dossier-intake-maintenance/agents/openai.yaml",
+        ".agents/skills/storyworld-dossier-intake-maintenance/references/checklist.md",
+        ".agents/skills/storyworld-dossier-intake-maintenance/references/failure-cases.md",
+        ".agents/skills/storyworld-dossier-intake-maintenance/references/output-contract.md",
+        ".agents/skills/storyworld-dossier-intake-maintenance/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-contract-authoring",
+      "version": "1.0.0",
+      "display_name": "Storyworld Contract Authoring",
+      "description": "Design and author Storyworld-owned contracts with explicit authority, lifecycle, versioning, security, fixtures, and tests.",
+      "purpose": "Create durable provider-, editor-, renderer-, and runtime-neutral contracts rather than allowing implementation formats to become Storyworld semantics.",
+      "category": "contracts",
+      "tier": "foundation",
+      "priority": "P0",
+      "adoption_wave": "A-governance-foundation",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-contract-authoring/SKILL.md",
+      "dependencies": [
+        "storyworld-decision-impact-analysis",
+        "storyworld-fixture-authoring"
+      ],
+      "decisions": [
+        "DEC-0041 through DEC-0053"
+      ],
+      "contracts": [
+        "CON-001 through CON-053"
+      ],
+      "pocs": [],
+      "repository_paths": [
+        "packages/contracts/",
+        "packages/contracts/schemas/",
+        "packages/contracts/fixtures/",
+        "packages/contracts/tests/"
+      ],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-contract-authoring/SKILL.md",
+        ".agents/skills/storyworld-contract-authoring/agents/openai.yaml",
+        ".agents/skills/storyworld-contract-authoring/references/checklist.md",
+        ".agents/skills/storyworld-contract-authoring/references/failure-cases.md",
+        ".agents/skills/storyworld-contract-authoring/references/output-contract.md",
+        ".agents/skills/storyworld-contract-authoring/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-schema-evolution",
+      "version": "1.0.0",
+      "display_name": "Storyworld Schema Evolution",
+      "description": "Evolve Storyworld JSON Schema, OpenAPI, AsyncAPI, lifecycle, and package contracts without silent compatibility or migration breakage.",
+      "purpose": "Make every contract change's compatibility, migration, generated-artifact, and consumer impact explicit.",
+      "category": "contracts",
+      "tier": "foundation",
+      "priority": "P0",
+      "adoption_wave": "A-governance-foundation",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-schema-evolution/SKILL.md",
+      "dependencies": [
+        "storyworld-contract-authoring",
+        "storyworld-fixture-authoring"
+      ],
+      "decisions": [],
+      "contracts": [],
+      "pocs": [],
+      "repository_paths": [
+        "packages/contracts/",
+        "apps/studio/src/lib/engine.ts",
+        "packages/integration/",
+        "packages/portability/"
+      ],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-schema-evolution/SKILL.md",
+        ".agents/skills/storyworld-schema-evolution/agents/openai.yaml",
+        ".agents/skills/storyworld-schema-evolution/references/checklist.md",
+        ".agents/skills/storyworld-schema-evolution/references/failure-cases.md",
+        ".agents/skills/storyworld-schema-evolution/references/output-contract.md",
+        ".agents/skills/storyworld-schema-evolution/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-fixture-authoring",
+      "version": "1.0.0",
+      "display_name": "Storyworld Fixture Authoring",
+      "description": "Create rights-safe Storyworld golden, adversarial, mutation, replacement, and cross-media fixtures with explicit invariants and expected findings.",
+      "purpose": "Turn architectural claims into reproducible evidence without using unlicensed or sensitive media.",
+      "category": "evaluation",
+      "tier": "foundation",
+      "priority": "P0",
+      "adoption_wave": "A-governance-foundation",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-fixture-authoring/SKILL.md",
+      "dependencies": [],
+      "decisions": [],
+      "contracts": [
+        "All CON-* contracts with fixture requirements"
+      ],
+      "pocs": [
+        "POC-01 through POC-13"
+      ],
+      "repository_paths": [
+        "packages/contracts/fixtures/",
+        "packages/regression/",
+        "packages/evaluation/",
+        "project-dossier-intake/assessments/"
+      ],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-fixture-authoring/SKILL.md",
+        ".agents/skills/storyworld-fixture-authoring/agents/openai.yaml",
+        ".agents/skills/storyworld-fixture-authoring/references/checklist.md",
+        ".agents/skills/storyworld-fixture-authoring/references/failure-cases.md",
+        ".agents/skills/storyworld-fixture-authoring/references/output-contract.md",
+        ".agents/skills/storyworld-fixture-authoring/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-poc-execution",
+      "version": "1.0.0",
+      "display_name": "Storyworld POC Execution",
+      "description": "Execute a disposable Storyworld proof of concept that answers one risky architectural question and ends in an explicit adoption decision.",
+      "purpose": "Reduce uncertainty without allowing prototype code, private formats, or successful demos to become production architecture automatically.",
+      "category": "poc",
+      "tier": "foundation",
+      "priority": "P0",
+      "adoption_wave": "A-governance-foundation",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-poc-execution/SKILL.md",
+      "dependencies": [
+        "storyworld-fixture-authoring",
+        "storyworld-security-review",
+        "storyworld-conformance-and-release"
+      ],
+      "decisions": [],
+      "contracts": [],
+      "pocs": [
+        "POC-01 through POC-13"
+      ],
+      "repository_paths": [
+        "project-dossier-intake/assessments/",
+        "project-dossier-intake/plans/",
+        ".agent/evidence/"
+      ],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-poc-execution/SKILL.md",
+        ".agents/skills/storyworld-poc-execution/agents/openai.yaml",
+        ".agents/skills/storyworld-poc-execution/references/checklist.md",
+        ".agents/skills/storyworld-poc-execution/references/failure-cases.md",
+        ".agents/skills/storyworld-poc-execution/references/output-contract.md",
+        ".agents/skills/storyworld-poc-execution/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-conformance-and-release",
+      "version": "1.0.0",
+      "display_name": "Storyworld Conformance And Release",
+      "description": "Validate Storyworld work against governing decisions, contracts, repository validators, tests, accessibility, security, and closure evidence.",
+      "purpose": "Provide an independent completion gate that distinguishes implementation, conformance, and production readiness.",
+      "category": "validation",
+      "tier": "foundation",
+      "priority": "P0",
+      "adoption_wave": "A-governance-foundation",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-conformance-and-release/SKILL.md",
+      "dependencies": [
+        "storyworld-repository-orientation"
+      ],
+      "decisions": [],
+      "contracts": [],
+      "pocs": [],
+      "repository_paths": [
+        ".agent/validators.json",
+        ".agent/scripts/validate.py",
+        ".agent/tests/",
+        "packages/contracts/tests/",
+        "apps/studio/"
+      ],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-conformance-and-release/SKILL.md",
+        ".agents/skills/storyworld-conformance-and-release/agents/openai.yaml",
+        ".agents/skills/storyworld-conformance-and-release/references/checklist.md",
+        ".agents/skills/storyworld-conformance-and-release/references/failure-cases.md",
+        ".agents/skills/storyworld-conformance-and-release/references/output-contract.md",
+        ".agents/skills/storyworld-conformance-and-release/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-creative-command-implementation",
+      "version": "1.0.0",
+      "display_name": "Storyworld Creative Command Implementation",
+      "description": "Implement Storyworld's text/voice intent pipeline from contextual command through interpretation, plan, typed operations, proposal, partial decision, and immutable revision.",
+      "purpose": "Make natural-language direction safe, inspectable, reversible, cross-media-capable, and subordinate to Engine authority.",
+      "category": "intent-driven",
+      "tier": "foundation",
+      "priority": "P0",
+      "adoption_wave": "B-product-foundation",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-creative-command-implementation/SKILL.md",
+      "dependencies": [
+        "storyworld-contract-authoring",
+        "storyworld-fixture-authoring",
+        "storyworld-studio-surface"
+      ],
+      "decisions": [
+        "DEC-0041"
+      ],
+      "contracts": [
+        "CON-001",
+        "CON-002",
+        "CON-003",
+        "CreativeInterpretation",
+        "CreativePlan",
+        "CreativeOperation",
+        "EditProposal",
+        "CreativeDecision",
+        "CreativeRevision"
+      ],
+      "pocs": [
+        "POC-01",
+        "POC-09"
+      ],
+      "repository_paths": [
+        "packages/contracts/",
+        "packages/domain/",
+        "packages/kernel/",
+        "apps/studio/"
+      ],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-creative-command-implementation/SKILL.md",
+        ".agents/skills/storyworld-creative-command-implementation/agents/openai.yaml",
+        ".agents/skills/storyworld-creative-command-implementation/references/checklist.md",
+        ".agents/skills/storyworld-creative-command-implementation/references/failure-cases.md",
+        ".agents/skills/storyworld-creative-command-implementation/references/output-contract.md",
+        ".agents/skills/storyworld-creative-command-implementation/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-voice-command",
+      "version": "1.0.0",
+      "display_name": "Storyworld Voice Command",
+      "description": "Build first-class voice command capture, transcription, contextual binding, ephemeral-audio handling, correction, and parity with text commands.",
+      "purpose": "Allow creators to direct Storyworld while watching or selecting media without making audio recordings or transcripts implicit authority.",
+      "category": "intent-driven",
+      "tier": "second-wave",
+      "priority": "P1",
+      "adoption_wave": "C-specialist-and-later",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-voice-command/SKILL.md",
+      "dependencies": [
+        "storyworld-creative-command-implementation",
+        "storyworld-provider-adapter",
+        "storyworld-security-review"
+      ],
+      "decisions": [
+        "DEC-0040",
+        "DEC-0041",
+        "DEC-0044"
+      ],
+      "contracts": [
+        "CreativeCommand",
+        "CreativeContext",
+        "ProviderEgressDecision"
+      ],
+      "pocs": [
+        "POC-01"
+      ],
+      "repository_paths": [
+        "apps/studio/",
+        "packages/contracts/",
+        "packages/providers/"
+      ],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-voice-command/SKILL.md",
+        ".agents/skills/storyworld-voice-command/agents/openai.yaml",
+        ".agents/skills/storyworld-voice-command/references/checklist.md",
+        ".agents/skills/storyworld-voice-command/references/failure-cases.md",
+        ".agents/skills/storyworld-voice-command/references/output-contract.md",
+        ".agents/skills/storyworld-voice-command/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-cross-media-command",
+      "version": "1.0.0",
+      "display_name": "Storyworld Cross Media Command",
+      "description": "Compile one creator instruction into coordinated, separately governed image, video, audio, music, graphic, spatial, or runtime operations.",
+      "purpose": "Provide one conversational creative experience without collapsing media-specific semantics, costs, evaluations, or approvals.",
+      "category": "intent-driven",
+      "tier": "second-wave",
+      "priority": "P1",
+      "adoption_wave": "C-specialist-and-later",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-cross-media-command/SKILL.md",
+      "dependencies": [
+        "storyworld-creative-command-implementation",
+        "storyworld-creative-direction",
+        "storyworld-native-media-workspace"
+      ],
+      "decisions": [
+        "DEC-0041",
+        "DEC-0042",
+        "DEC-0046"
+      ],
+      "contracts": [
+        "CreativePlan",
+        "ImageOperation",
+        "VideoEditOperation",
+        "AudioEditOperation",
+        "MusicOperation",
+        "GraphicLayoutOperation",
+        "SpatialEditOperation",
+        "RuntimeContentOperation"
+      ],
+      "pocs": [
+        "POC-09"
+      ],
+      "repository_paths": [],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-cross-media-command/SKILL.md",
+        ".agents/skills/storyworld-cross-media-command/agents/openai.yaml",
+        ".agents/skills/storyworld-cross-media-command/references/checklist.md",
+        ".agents/skills/storyworld-cross-media-command/references/failure-cases.md",
+        ".agents/skills/storyworld-cross-media-command/references/output-contract.md",
+        ".agents/skills/storyworld-cross-media-command/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-creative-direction",
+      "version": "1.0.0",
+      "display_name": "Storyworld Creative Direction",
+      "description": "Define and implement compositional Creative Direction systems, scope bindings, inheritance, override, counterpoint, and ResolvedRealizationSpec compilation.",
+      "purpose": "Replace a monolithic Look object with separately versioned professional creative systems while retaining a simple resolved view for creators.",
+      "category": "creative-semantics",
+      "tier": "foundation",
+      "priority": "P0",
+      "adoption_wave": "B-product-foundation",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-creative-direction/SKILL.md",
+      "dependencies": [
+        "storyworld-contract-authoring",
+        "storyworld-fixture-authoring"
+      ],
+      "decisions": [
+        "DEC-0042"
+      ],
+      "contracts": [
+        "CreativeSpecification",
+        "CreativeBinding",
+        "ResolvedRealizationSpec"
+      ],
+      "pocs": [
+        "POC-04",
+        "POC-05",
+        "POC-09"
+      ],
+      "repository_paths": [
+        "project-dossier-intake/platform-capabilities/production-design.md",
+        "project-dossier-intake/draft-decisions/dec-0031-art-style-definitions.md",
+        "project-dossier-intake/draft-decisions/dec-0033-production-design-look-system.md",
+        "packages/contracts/"
+      ],
+      "profiles": [
+        "representation-style.md",
+        "production-design.md",
+        "directorial-intent.md",
+        "cinematography-lighting-color.md",
+        "editorial-sound-music-graphics.md"
+      ],
+      "files": [
+        ".agents/skills/storyworld-creative-direction/SKILL.md",
+        ".agents/skills/storyworld-creative-direction/agents/openai.yaml",
+        ".agents/skills/storyworld-creative-direction/references/checklist.md",
+        ".agents/skills/storyworld-creative-direction/references/failure-cases.md",
+        ".agents/skills/storyworld-creative-direction/references/output-contract.md",
+        ".agents/skills/storyworld-creative-direction/references/profiles/cinematography-lighting-color.md",
+        ".agents/skills/storyworld-creative-direction/references/profiles/directorial-intent.md",
+        ".agents/skills/storyworld-creative-direction/references/profiles/editorial-sound-music-graphics.md",
+        ".agents/skills/storyworld-creative-direction/references/profiles/production-design.md",
+        ".agents/skills/storyworld-creative-direction/references/profiles/representation-style.md",
+        ".agents/skills/storyworld-creative-direction/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-native-media-workspace",
+      "version": "1.0.0",
+      "display_name": "Storyworld Native Media Workspace",
+      "description": "Build Storyworld-native intent-driven image, video, audio, graphic, and spatial workspaces with semantic precision and optional external finishing.",
+      "purpose": "Make Storyworld the normal creative environment without recreating conventional professional applications or exposing provider controls as the product model.",
+      "category": "native-creative",
+      "tier": "foundation",
+      "priority": "P0",
+      "adoption_wave": "B-product-foundation",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-native-media-workspace/SKILL.md",
+      "dependencies": [
+        "storyworld-creative-command-implementation",
+        "storyworld-creative-direction",
+        "storyworld-annotation-target",
+        "storyworld-provider-adapter",
+        "storyworld-deterministic-media-worker",
+        "storyworld-studio-surface"
+      ],
+      "decisions": [
+        "DEC-0040",
+        "DEC-0041",
+        "DEC-0046"
+      ],
+      "contracts": [
+        "ImageOperation",
+        "VideoEditOperation",
+        "AudioEditOperation",
+        "MusicOperation",
+        "GraphicLayoutOperation",
+        "SpatialEditOperation",
+        "PreviewArtifact"
+      ],
+      "pocs": [
+        "POC-04",
+        "POC-05",
+        "POC-06"
+      ],
+      "repository_paths": [
+        "apps/studio/",
+        "packages/domain/",
+        "packages/kernel/",
+        "packages/providers/",
+        "packages/evaluation/"
+      ],
+      "profiles": [
+        "image.md",
+        "video.md",
+        "audio.md",
+        "graphic.md",
+        "spatial.md"
+      ],
+      "files": [
+        ".agents/skills/storyworld-native-media-workspace/SKILL.md",
+        ".agents/skills/storyworld-native-media-workspace/agents/openai.yaml",
+        ".agents/skills/storyworld-native-media-workspace/references/checklist.md",
+        ".agents/skills/storyworld-native-media-workspace/references/failure-cases.md",
+        ".agents/skills/storyworld-native-media-workspace/references/output-contract.md",
+        ".agents/skills/storyworld-native-media-workspace/references/profiles/audio.md",
+        ".agents/skills/storyworld-native-media-workspace/references/profiles/graphic.md",
+        ".agents/skills/storyworld-native-media-workspace/references/profiles/image.md",
+        ".agents/skills/storyworld-native-media-workspace/references/profiles/spatial.md",
+        ".agents/skills/storyworld-native-media-workspace/references/profiles/video.md",
+        ".agents/skills/storyworld-native-media-workspace/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-annotation-target",
+      "version": "1.0.0",
+      "display_name": "Storyworld Annotation Target",
+      "description": "Define and implement exact-version cross-media annotation targets and accessible renderers without making annotations approvals.",
+      "purpose": "Provide one durable addressing model for image regions, document ranges, media time, shots, cuts, graph elements, and spatial regions.",
+      "category": "native-creative",
+      "tier": "second-wave",
+      "priority": "P1",
+      "adoption_wave": "C-specialist-and-later",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-annotation-target/SKILL.md",
+      "dependencies": [
+        "storyworld-contract-authoring",
+        "storyworld-fixture-authoring",
+        "storyworld-studio-surface"
+      ],
+      "decisions": [
+        "DEC-0047"
+      ],
+      "contracts": [
+        "AnnotationTarget"
+      ],
+      "pocs": [
+        "POC-01",
+        "POC-04",
+        "POC-05",
+        "POC-08"
+      ],
+      "repository_paths": [],
+      "profiles": [
+        "image.md",
+        "video.md",
+        "audio.md",
+        "document-graph-spatial.md"
+      ],
+      "files": [
+        ".agents/skills/storyworld-annotation-target/SKILL.md",
+        ".agents/skills/storyworld-annotation-target/agents/openai.yaml",
+        ".agents/skills/storyworld-annotation-target/references/checklist.md",
+        ".agents/skills/storyworld-annotation-target/references/failure-cases.md",
+        ".agents/skills/storyworld-annotation-target/references/output-contract.md",
+        ".agents/skills/storyworld-annotation-target/references/profiles/audio.md",
+        ".agents/skills/storyworld-annotation-target/references/profiles/document-graph-spatial.md",
+        ".agents/skills/storyworld-annotation-target/references/profiles/image.md",
+        ".agents/skills/storyworld-annotation-target/references/profiles/video.md",
+        ".agents/skills/storyworld-annotation-target/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-evaluation-layer",
+      "version": "1.0.0",
+      "display_name": "Storyworld Evaluation Layer",
+      "description": "Design and implement evidence-backed deterministic, measurable, model-assisted, and human-review Storyworld evaluation layers.",
+      "purpose": "Detect technical, continuity, rights, policy, and creative concerns without creating a deceptive universal quality score or autonomous acceptance.",
+      "category": "evaluation",
+      "tier": "foundation",
+      "priority": "P0",
+      "adoption_wave": "B-product-foundation",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-evaluation-layer/SKILL.md",
+      "dependencies": [
+        "storyworld-fixture-authoring",
+        "storyworld-provider-model-evaluation",
+        "storyworld-studio-surface"
+      ],
+      "decisions": [
+        "DEC-0049"
+      ],
+      "contracts": [
+        "EvaluationPlan",
+        "EvaluationFinding",
+        "ApprovalInvalidation"
+      ],
+      "pocs": [
+        "POC-04",
+        "POC-05",
+        "POC-06",
+        "POC-08",
+        "POC-09",
+        "POC-12"
+      ],
+      "repository_paths": [
+        "packages/evaluation/",
+        "packages/regression/",
+        "apps/studio/src/components/continuity-console*",
+        "apps/studio/src/components/review-room*"
+      ],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-evaluation-layer/SKILL.md",
+        ".agents/skills/storyworld-evaluation-layer/agents/openai.yaml",
+        ".agents/skills/storyworld-evaluation-layer/references/checklist.md",
+        ".agents/skills/storyworld-evaluation-layer/references/failure-cases.md",
+        ".agents/skills/storyworld-evaluation-layer/references/output-contract.md",
+        ".agents/skills/storyworld-evaluation-layer/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-studio-surface",
+      "version": "1.0.0",
+      "display_name": "Storyworld Studio Surface",
+      "description": "Implement Storyworld Studio surfaces as accessible projections over Engine authority with text/voice primacy, exact-version decisions, consequences, and recovery.",
+      "purpose": "Create approachable intent-driven workspaces without allowing client state, canvases, comments, or optimistic UI to become authoritative.",
+      "category": "studio",
+      "tier": "foundation",
+      "priority": "P0",
+      "adoption_wave": "B-product-foundation",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-studio-surface/SKILL.md",
+      "dependencies": [
+        "storyworld-repository-orientation"
+      ],
+      "decisions": [
+        "DEC-0040",
+        "DEC-0041",
+        "DEC-0046",
+        "DEC-0047"
+      ],
+      "contracts": [
+        "CreativeCommand",
+        "EditProposal",
+        "PreviewArtifact",
+        "CreativeDecision",
+        "AnnotationTarget"
+      ],
+      "pocs": [],
+      "repository_paths": [
+        "apps/studio/",
+        "apps/studio/src/components/ui/",
+        "apps/studio/src/lib/engine.ts"
+      ],
+      "profiles": [
+        "conversational-workspace.md",
+        "canvas-and-timeline.md",
+        "operator-and-external-tools.md",
+        "publishing-runtime-commerce.md"
+      ],
+      "files": [
+        ".agents/skills/storyworld-studio-surface/SKILL.md",
+        ".agents/skills/storyworld-studio-surface/agents/openai.yaml",
+        ".agents/skills/storyworld-studio-surface/references/checklist.md",
+        ".agents/skills/storyworld-studio-surface/references/failure-cases.md",
+        ".agents/skills/storyworld-studio-surface/references/output-contract.md",
+        ".agents/skills/storyworld-studio-surface/references/profiles/canvas-and-timeline.md",
+        ".agents/skills/storyworld-studio-surface/references/profiles/conversational-workspace.md",
+        ".agents/skills/storyworld-studio-surface/references/profiles/operator-and-external-tools.md",
+        ".agents/skills/storyworld-studio-surface/references/profiles/publishing-runtime-commerce.md",
+        ".agents/skills/storyworld-studio-surface/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-asset-custody-and-lineage",
+      "version": "1.0.0",
+      "display_name": "Storyworld Asset Custody And Lineage",
+      "description": "Implement Storyworld asset custody, version lineage, transformation records, quarantine, candidates, masters, renditions, publications, workfiles, and retention.",
+      "purpose": "Ensure every governed artifact has exact bytes, identity, provenance, lifecycle, retention, and authority independent of provider URLs or external application storage.",
+      "category": "assets",
+      "tier": "foundation",
+      "priority": "P0",
+      "adoption_wave": "B-product-foundation",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-asset-custody-and-lineage/SKILL.md",
+      "dependencies": [
+        "storyworld-deterministic-media-worker",
+        "storyworld-rights-and-consent-review",
+        "storyworld-evaluation-layer"
+      ],
+      "decisions": [
+        "DEC-0048"
+      ],
+      "contracts": [
+        "AssetVersion",
+        "TransformationRecord",
+        "ExternalEditorReturn",
+        "ChannelPackage",
+        "RuntimeContentPackage"
+      ],
+      "pocs": [
+        "POC-03",
+        "POC-04",
+        "POC-05",
+        "POC-08"
+      ],
+      "repository_paths": [
+        "packages/storage/",
+        "packages/domain/",
+        "packages/persistence/",
+        "packages/portability/"
+      ],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-asset-custody-and-lineage/SKILL.md",
+        ".agents/skills/storyworld-asset-custody-and-lineage/agents/openai.yaml",
+        ".agents/skills/storyworld-asset-custody-and-lineage/references/checklist.md",
+        ".agents/skills/storyworld-asset-custody-and-lineage/references/failure-cases.md",
+        ".agents/skills/storyworld-asset-custody-and-lineage/references/output-contract.md",
+        ".agents/skills/storyworld-asset-custody-and-lineage/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-rights-and-consent-review",
+      "version": "1.0.0",
+      "display_name": "Storyworld Rights And Consent Review",
+      "description": "Implement and review Storyworld rights, consent, real-person media, usage constraints, expiry, revocation, attribution, disclosure, and provider-egress gates.",
+      "purpose": "Keep legal and ethical evidence separate from creative approval while preventing unauthorized provider transfers, generation, publication, and reuse.",
+      "category": "rights",
+      "tier": "second-wave",
+      "priority": "P1",
+      "adoption_wave": "C-specialist-and-later",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-rights-and-consent-review/SKILL.md",
+      "dependencies": [
+        "storyworld-contract-authoring",
+        "storyworld-evaluation-layer",
+        "storyworld-security-review"
+      ],
+      "decisions": [
+        "DEC-0036",
+        "DEC-0037",
+        "DEC-0044",
+        "DEC-0049"
+      ],
+      "contracts": [
+        "ProviderEgressDecision",
+        "EvaluationFinding",
+        "ApprovalInvalidation",
+        "PublicationAuthorization"
+      ],
+      "pocs": [],
+      "repository_paths": [
+        "packages/contracts/",
+        "packages/policy/",
+        "packages/domain/",
+        "project-dossier-intake/governance/"
+      ],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-rights-and-consent-review/SKILL.md",
+        ".agents/skills/storyworld-rights-and-consent-review/agents/openai.yaml",
+        ".agents/skills/storyworld-rights-and-consent-review/references/checklist.md",
+        ".agents/skills/storyworld-rights-and-consent-review/references/failure-cases.md",
+        ".agents/skills/storyworld-rights-and-consent-review/references/output-contract.md",
+        ".agents/skills/storyworld-rights-and-consent-review/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-provider-adapter",
+      "version": "1.0.0",
+      "display_name": "Storyworld Provider Adapter",
+      "description": "Build and maintain Storyworld hosted-provider adapters behind capability profiles, provider-neutral recipes, policy gates, durable workflows, custody, and exact execution receipts.",
+      "purpose": "Use OpenRouter, fal.ai, and future providers without letting their APIs, prompts, models, URLs, or fallback behavior become Storyworld authority.",
+      "category": "providers",
+      "tier": "foundation",
+      "priority": "P0",
+      "adoption_wave": "B-product-foundation",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-provider-adapter/SKILL.md",
+      "dependencies": [
+        "storyworld-contract-authoring",
+        "storyworld-rights-and-consent-review",
+        "storyworld-asset-custody-and-lineage",
+        "storyworld-security-review"
+      ],
+      "decisions": [
+        "ADR-0015",
+        "DEC-0043",
+        "DEC-0044"
+      ],
+      "contracts": [
+        "GenerationRecipe",
+        "ProviderExecutionPlan",
+        "ProviderExecutionResult",
+        "ProviderCapabilityProfile",
+        "ProviderPolicy",
+        "ModelCapabilityApproval",
+        "CredentialBinding",
+        "CostPolicy"
+      ],
+      "pocs": [
+        "POC-02",
+        "POC-03",
+        "POC-13"
+      ],
+      "repository_paths": [
+        "packages/providers/",
+        "packages/workflows/",
+        "packages/credentials/",
+        "packages/evaluation/",
+        "apps/studio/src/components/generation-workbench.tsx"
+      ],
+      "profiles": [
+        "openrouter.md",
+        "fal.md",
+        "provider-boundary.md"
+      ],
+      "files": [
+        ".agents/skills/storyworld-provider-adapter/SKILL.md",
+        ".agents/skills/storyworld-provider-adapter/agents/openai.yaml",
+        ".agents/skills/storyworld-provider-adapter/references/checklist.md",
+        ".agents/skills/storyworld-provider-adapter/references/failure-cases.md",
+        ".agents/skills/storyworld-provider-adapter/references/output-contract.md",
+        ".agents/skills/storyworld-provider-adapter/references/profiles/fal.md",
+        ".agents/skills/storyworld-provider-adapter/references/profiles/openrouter.md",
+        ".agents/skills/storyworld-provider-adapter/references/profiles/provider-boundary.md",
+        ".agents/skills/storyworld-provider-adapter/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-provider-model-evaluation",
+      "version": "1.0.0",
+      "display_name": "Storyworld Provider Model Evaluation",
+      "description": "Evaluate and promote provider models, endpoints, and routes for named Storyworld capabilities, egress classes, retention modes, costs, and quality floors.",
+      "purpose": "Replace universal model rankings with capability-specific evidence and controlled discovered-to-prohibited lifecycles.",
+      "category": "providers",
+      "tier": "second-wave",
+      "priority": "P1",
+      "adoption_wave": "C-specialist-and-later",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-provider-model-evaluation/SKILL.md",
+      "dependencies": [
+        "storyworld-fixture-authoring",
+        "storyworld-security-review"
+      ],
+      "decisions": [
+        "DEC-0044",
+        "DEC-0049"
+      ],
+      "contracts": [
+        "ModelCapabilityApproval",
+        "ProviderCapabilityProfile",
+        "ProviderPolicy"
+      ],
+      "pocs": [
+        "POC-02",
+        "POC-04",
+        "POC-05"
+      ],
+      "repository_paths": [
+        "packages/providers/",
+        "packages/evaluation/",
+        "project-dossier/research/",
+        "project-dossier-intake/assessments/"
+      ],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-provider-model-evaluation/SKILL.md",
+        ".agents/skills/storyworld-provider-model-evaluation/agents/openai.yaml",
+        ".agents/skills/storyworld-provider-model-evaluation/references/checklist.md",
+        ".agents/skills/storyworld-provider-model-evaluation/references/failure-cases.md",
+        ".agents/skills/storyworld-provider-model-evaluation/references/output-contract.md",
+        ".agents/skills/storyworld-provider-model-evaluation/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-comfyui-workflow",
+      "version": "1.0.0",
+      "display_name": "Storyworld Comfyui Workflow",
+      "description": "Register, test, secure, promote, and execute self-hosted ComfyUI workflows as replaceable provider-execution artifacts under Storyworld policy.",
+      "purpose": "Use ComfyUI for complex orchestration and operator inspection without making its graph, nodes, database, or workflow JSON canonical creative authority.",
+      "category": "providers",
+      "tier": "foundation",
+      "priority": "P1",
+      "adoption_wave": "C-specialist-and-later",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-comfyui-workflow/SKILL.md",
+      "dependencies": [
+        "storyworld-provider-adapter",
+        "storyworld-security-review",
+        "storyworld-fixture-authoring"
+      ],
+      "decisions": [
+        "DEC-0012",
+        "DEC-0045"
+      ],
+      "contracts": [
+        "WorkflowDefinition",
+        "WorkflowPromotion",
+        "ProviderExecutionPlan",
+        "ProviderExecutionResult"
+      ],
+      "pocs": [
+        "POC-07"
+      ],
+      "repository_paths": [
+        "integrations/",
+        "packages/providers/",
+        "packages/workflows/",
+        "apps/studio/"
+      ],
+      "profiles": [
+        "workflow-registration.md",
+        "node-and-egress-security.md",
+        "hosted-endpoint-posture.md"
+      ],
+      "files": [
+        ".agents/skills/storyworld-comfyui-workflow/SKILL.md",
+        ".agents/skills/storyworld-comfyui-workflow/agents/openai.yaml",
+        ".agents/skills/storyworld-comfyui-workflow/references/checklist.md",
+        ".agents/skills/storyworld-comfyui-workflow/references/failure-cases.md",
+        ".agents/skills/storyworld-comfyui-workflow/references/output-contract.md",
+        ".agents/skills/storyworld-comfyui-workflow/references/profiles/hosted-endpoint-posture.md",
+        ".agents/skills/storyworld-comfyui-workflow/references/profiles/node-and-egress-security.md",
+        ".agents/skills/storyworld-comfyui-workflow/references/profiles/workflow-registration.md",
+        ".agents/skills/storyworld-comfyui-workflow/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-deterministic-media-worker",
+      "version": "1.0.0",
+      "display_name": "Storyworld Deterministic Media Worker",
+      "description": "Implement sandboxed deterministic media ingestion, inspection, proxying, transformation, color, scanning, and validation workers.",
+      "purpose": "Keep routine technical media processing inside the Storyworld-controlled boundary with reproducible receipts and no creative or acceptance authority.",
+      "category": "media-infrastructure",
+      "tier": "foundation",
+      "priority": "P0",
+      "adoption_wave": "B-product-foundation",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-deterministic-media-worker/SKILL.md",
+      "dependencies": [
+        "storyworld-security-review",
+        "storyworld-fixture-authoring"
+      ],
+      "decisions": [
+        "DEC-0048"
+      ],
+      "contracts": [
+        "TransformationRecord",
+        "AssetVersion",
+        "InterchangeProfile"
+      ],
+      "pocs": [
+        "POC-03",
+        "POC-05",
+        "POC-13"
+      ],
+      "repository_paths": [
+        "packages/storage/",
+        "packages/workflows/",
+        "infra/",
+        "packages/evaluation/"
+      ],
+      "profiles": [
+        "ffmpeg.md",
+        "openimageio.md",
+        "opencolorio.md",
+        "mediainfo-clamav.md",
+        "libvips-sharp.md"
+      ],
+      "files": [
+        ".agents/skills/storyworld-deterministic-media-worker/SKILL.md",
+        ".agents/skills/storyworld-deterministic-media-worker/agents/openai.yaml",
+        ".agents/skills/storyworld-deterministic-media-worker/references/checklist.md",
+        ".agents/skills/storyworld-deterministic-media-worker/references/failure-cases.md",
+        ".agents/skills/storyworld-deterministic-media-worker/references/output-contract.md",
+        ".agents/skills/storyworld-deterministic-media-worker/references/profiles/ffmpeg.md",
+        ".agents/skills/storyworld-deterministic-media-worker/references/profiles/libvips-sharp.md",
+        ".agents/skills/storyworld-deterministic-media-worker/references/profiles/mediainfo-clamav.md",
+        ".agents/skills/storyworld-deterministic-media-worker/references/profiles/opencolorio.md",
+        ".agents/skills/storyworld-deterministic-media-worker/references/profiles/openimageio.md",
+        ".agents/skills/storyworld-deterministic-media-worker/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-external-editor-connector",
+      "version": "1.0.0",
+      "display_name": "Storyworld External Editor Connector",
+      "description": "Implement a common exact-version checkout, native-tool work, untrusted return, portable interchange, semantic diff, and candidate-admission boundary for precision applications.",
+      "purpose": "Let creators use Blender, InvokeAI, Kdenlive, Resolve, and later tools without requiring Storyworld plugins or surrendering asset, approval, rights, or canon authority.",
+      "category": "external-tools",
+      "tier": "foundation",
+      "priority": "P1",
+      "adoption_wave": "C-specialist-and-later",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-external-editor-connector/SKILL.md",
+      "dependencies": [
+        "storyworld-asset-custody-and-lineage",
+        "storyworld-rights-and-consent-review",
+        "storyworld-security-review",
+        "storyworld-evaluation-layer"
+      ],
+      "decisions": [
+        "DEC-0047"
+      ],
+      "contracts": [
+        "ExternalEditorCheckout",
+        "ExternalEditorReturn",
+        "InterchangeProfile",
+        "ConversionLossReport",
+        "TransformationRecord"
+      ],
+      "pocs": [
+        "POC-08"
+      ],
+      "repository_paths": [
+        "packages/integration/",
+        "packages/portability/",
+        "integrations/",
+        "apps/studio/"
+      ],
+      "profiles": [
+        "blender.md",
+        "invokeai.md",
+        "kdenlive.md",
+        "resolve.md"
+      ],
+      "files": [
+        ".agents/skills/storyworld-external-editor-connector/SKILL.md",
+        ".agents/skills/storyworld-external-editor-connector/agents/openai.yaml",
+        ".agents/skills/storyworld-external-editor-connector/references/checklist.md",
+        ".agents/skills/storyworld-external-editor-connector/references/failure-cases.md",
+        ".agents/skills/storyworld-external-editor-connector/references/output-contract.md",
+        ".agents/skills/storyworld-external-editor-connector/references/profiles/blender.md",
+        ".agents/skills/storyworld-external-editor-connector/references/profiles/invokeai.md",
+        ".agents/skills/storyworld-external-editor-connector/references/profiles/kdenlive.md",
+        ".agents/skills/storyworld-external-editor-connector/references/profiles/resolve.md",
+        ".agents/skills/storyworld-external-editor-connector/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-otio-editorial-interchange",
+      "version": "1.0.0",
+      "display_name": "Storyworld OTIO Editorial Interchange",
+      "description": "Define and implement Storyworld's pinned OpenTimelineIO editorial interchange profile, stable identity mapping, round trips, and semantic loss reporting.",
+      "purpose": "Exchange portable editorial meaning with Kdenlive, Resolve, and future NLEs without making an editor project format Storyworld's timeline contract.",
+      "category": "external-tools",
+      "tier": "second-wave",
+      "priority": "P1",
+      "adoption_wave": "C-specialist-and-later",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-otio-editorial-interchange/SKILL.md",
+      "dependencies": [
+        "storyworld-external-editor-connector",
+        "storyworld-schema-evolution",
+        "storyworld-fixture-authoring"
+      ],
+      "decisions": [
+        "DEC-0047"
+      ],
+      "contracts": [
+        "EditorialHandoffPackage",
+        "EditorialReturnPackage",
+        "InterchangeProfile",
+        "ConversionLossReport"
+      ],
+      "pocs": [
+        "POC-05",
+        "POC-08"
+      ],
+      "repository_paths": [
+        "packages/portability/",
+        "packages/integration/",
+        "apps/studio/"
+      ],
+      "profiles": [
+        "kdenlive.md",
+        "resolve.md"
+      ],
+      "files": [
+        ".agents/skills/storyworld-otio-editorial-interchange/SKILL.md",
+        ".agents/skills/storyworld-otio-editorial-interchange/agents/openai.yaml",
+        ".agents/skills/storyworld-otio-editorial-interchange/references/checklist.md",
+        ".agents/skills/storyworld-otio-editorial-interchange/references/failure-cases.md",
+        ".agents/skills/storyworld-otio-editorial-interchange/references/output-contract.md",
+        ".agents/skills/storyworld-otio-editorial-interchange/references/profiles/kdenlive.md",
+        ".agents/skills/storyworld-otio-editorial-interchange/references/profiles/resolve.md",
+        ".agents/skills/storyworld-otio-editorial-interchange/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-publication-connector",
+      "version": "1.0.0",
+      "display_name": "Storyworld Publication Connector",
+      "description": "Build destination-specific Storyworld export and direct-publication connectors behind exact packages, authority-host boundaries, idempotency, receipts, and withdrawal.",
+      "purpose": "Preserve export portability and human publication authority while adding one bounded destination at a time.",
+      "category": "delivery",
+      "tier": "second-wave",
+      "priority": "P1",
+      "adoption_wave": "C-specialist-and-later",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "external_effects_require_explicit_current_authorization",
+      "entrypoint": ".agents/skills/storyworld-publication-connector/SKILL.md",
+      "dependencies": [
+        "storyworld-rights-and-consent-review",
+        "storyworld-security-review",
+        "storyworld-conformance-and-release"
+      ],
+      "decisions": [
+        "DEC-0050"
+      ],
+      "contracts": [
+        "ChannelPackage",
+        "PublicationAuthorization",
+        "PublicationJob",
+        "PublicationReceipt"
+      ],
+      "pocs": [
+        "POC-10"
+      ],
+      "repository_paths": [
+        "packages/integration/",
+        "packages/portability/",
+        "packages/workflows/"
+      ],
+      "profiles": [
+        "astro.md",
+        "instagram.md",
+        "x.md",
+        "tiktok.md"
+      ],
+      "files": [
+        ".agents/skills/storyworld-publication-connector/SKILL.md",
+        ".agents/skills/storyworld-publication-connector/agents/openai.yaml",
+        ".agents/skills/storyworld-publication-connector/references/checklist.md",
+        ".agents/skills/storyworld-publication-connector/references/failure-cases.md",
+        ".agents/skills/storyworld-publication-connector/references/output-contract.md",
+        ".agents/skills/storyworld-publication-connector/references/profiles/astro.md",
+        ".agents/skills/storyworld-publication-connector/references/profiles/instagram.md",
+        ".agents/skills/storyworld-publication-connector/references/profiles/tiktok.md",
+        ".agents/skills/storyworld-publication-connector/references/profiles/x.md",
+        ".agents/skills/storyworld-publication-connector/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-publication-scheduler",
+      "version": "1.0.0",
+      "display_name": "Storyworld Publication Scheduler",
+      "description": "Implement Storyworld's governed publication scheduler for exact authorized packages, revalidation, bounded retries, pause/cancel, unknown outcomes, and receipts.",
+      "purpose": "Separate preparation, human publication authorization, and later mechanical execution without creating a generic ungoverned social scheduler.",
+      "category": "delivery",
+      "tier": "second-wave",
+      "priority": "P1",
+      "adoption_wave": "C-specialist-and-later",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "external_effects_require_explicit_current_authorization",
+      "entrypoint": ".agents/skills/storyworld-publication-scheduler/SKILL.md",
+      "dependencies": [
+        "storyworld-contract-authoring",
+        "storyworld-publication-connector",
+        "storyworld-security-review"
+      ],
+      "decisions": [
+        "DEC-0050"
+      ],
+      "contracts": [
+        "PublicationAuthorization",
+        "PublicationJob",
+        "PublicationReceipt"
+      ],
+      "pocs": [
+        "POC-10",
+        "POC-13"
+      ],
+      "repository_paths": [
+        "packages/workflows/",
+        "packages/integration/",
+        "apps/studio/"
+      ],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-publication-scheduler/SKILL.md",
+        ".agents/skills/storyworld-publication-scheduler/agents/openai.yaml",
+        ".agents/skills/storyworld-publication-scheduler/references/checklist.md",
+        ".agents/skills/storyworld-publication-scheduler/references/failure-cases.md",
+        ".agents/skills/storyworld-publication-scheduler/references/output-contract.md",
+        ".agents/skills/storyworld-publication-scheduler/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-commerce-foundry-bridge",
+      "version": "1.0.0",
+      "display_name": "Storyworld Commerce Foundry Bridge",
+      "description": "Implement immutable, separately approved Storyworld\u2013Commerce Foundry exchanges for Narrative Campaigns, product truth, creative bundles, print packages, commercial findings, and receipts.",
+      "purpose": "Preserve Storyworld creative authority and Commerce Foundry product, claims, offer, vendor, order, fulfillment, and commercial-publication authority.",
+      "category": "peer-system",
+      "tier": "second-wave",
+      "priority": "P1",
+      "adoption_wave": "C-specialist-and-later",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "external_effects_require_explicit_current_authorization",
+      "entrypoint": ".agents/skills/storyworld-commerce-foundry-bridge/SKILL.md",
+      "dependencies": [
+        "storyworld-contract-authoring",
+        "storyworld-asset-custody-and-lineage",
+        "storyworld-rights-and-consent-review",
+        "storyworld-security-review"
+      ],
+      "decisions": [
+        "DEC-0051"
+      ],
+      "contracts": [
+        "CommerceFoundryBrief",
+        "StoryworldCommerceBundle",
+        "CommerceFoundryReceipt"
+      ],
+      "pocs": [
+        "POC-11"
+      ],
+      "repository_paths": [
+        "packages/integration/",
+        "packages/contracts/",
+        "packages/portability/",
+        "apps/studio/"
+      ],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-commerce-foundry-bridge/SKILL.md",
+        ".agents/skills/storyworld-commerce-foundry-bridge/agents/openai.yaml",
+        ".agents/skills/storyworld-commerce-foundry-bridge/references/checklist.md",
+        ".agents/skills/storyworld-commerce-foundry-bridge/references/failure-cases.md",
+        ".agents/skills/storyworld-commerce-foundry-bridge/references/output-contract.md",
+        ".agents/skills/storyworld-commerce-foundry-bridge/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-runtime-adapter",
+      "version": "1.0.0",
+      "display_name": "Storyworld Runtime Adapter",
+      "description": "Compile validated immutable Storyworld content packages to browser and Godot runtimes while preserving save-state separation and runtime nonauthority.",
+      "purpose": "Support interactive narrative delivery without making Storyworld a rendering, physics, networking, multiplayer, or player-save engine.",
+      "category": "runtime",
+      "tier": "second-wave",
+      "priority": "P1",
+      "adoption_wave": "C-specialist-and-later",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-runtime-adapter/SKILL.md",
+      "dependencies": [
+        "storyworld-contract-authoring",
+        "storyworld-asset-custody-and-lineage",
+        "storyworld-evaluation-layer",
+        "storyworld-security-review"
+      ],
+      "decisions": [
+        "DEC-0052"
+      ],
+      "contracts": [
+        "RuntimeContentPackage",
+        "RuntimeReceipt",
+        "RuntimeContentOperation"
+      ],
+      "pocs": [
+        "POC-12"
+      ],
+      "repository_paths": [
+        "packages/integration/",
+        "packages/portability/",
+        "packages/contracts/",
+        "apps/studio/"
+      ],
+      "profiles": [
+        "browser.md",
+        "godot.md"
+      ],
+      "files": [
+        ".agents/skills/storyworld-runtime-adapter/SKILL.md",
+        ".agents/skills/storyworld-runtime-adapter/agents/openai.yaml",
+        ".agents/skills/storyworld-runtime-adapter/references/checklist.md",
+        ".agents/skills/storyworld-runtime-adapter/references/failure-cases.md",
+        ".agents/skills/storyworld-runtime-adapter/references/output-contract.md",
+        ".agents/skills/storyworld-runtime-adapter/references/profiles/browser.md",
+        ".agents/skills/storyworld-runtime-adapter/references/profiles/godot.md",
+        ".agents/skills/storyworld-runtime-adapter/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-cost-and-usage-accounting",
+      "version": "1.0.0",
+      "display_name": "Storyworld Cost And Usage Accounting",
+      "description": "Implement Storyworld provider-cost estimation, allowances, per-job and batch confirmation, production budgets, actual reconciliation, attribution, and pause rules.",
+      "purpose": "Make AI spending visible and governable without letting cost optimization weaken privacy, rights, quality floors, or authority.",
+      "category": "governance",
+      "tier": "second-wave",
+      "priority": "P1",
+      "adoption_wave": "C-specialist-and-later",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-cost-and-usage-accounting/SKILL.md",
+      "dependencies": [
+        "storyworld-provider-adapter",
+        "storyworld-security-review"
+      ],
+      "decisions": [
+        "DEC-0044"
+      ],
+      "contracts": [
+        "CostPolicy",
+        "CredentialBinding",
+        "ProviderExecutionResult"
+      ],
+      "pocs": [
+        "POC-02",
+        "POC-03",
+        "POC-13"
+      ],
+      "repository_paths": [
+        "packages/providers/",
+        "packages/credentials/",
+        "packages/workflows/",
+        "apps/studio/"
+      ],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-cost-and-usage-accounting/SKILL.md",
+        ".agents/skills/storyworld-cost-and-usage-accounting/agents/openai.yaml",
+        ".agents/skills/storyworld-cost-and-usage-accounting/references/checklist.md",
+        ".agents/skills/storyworld-cost-and-usage-accounting/references/failure-cases.md",
+        ".agents/skills/storyworld-cost-and-usage-accounting/references/output-contract.md",
+        ".agents/skills/storyworld-cost-and-usage-accounting/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-customer-managed-deployment",
+      "version": "1.0.0",
+      "display_name": "Storyworld Customer Managed Deployment",
+      "description": "Package and validate customer-managed Storyworld deployments for eligible solo creators and small teams without expanding into enterprise scope or local model hosting.",
+      "purpose": "Deliver portable Engine, database, object storage, Temporal, deterministic workers, self-hosted ComfyUI orchestration, and external-tool integration under customer control.",
+      "category": "deployment",
+      "tier": "second-wave",
+      "priority": "P2",
+      "adoption_wave": "C-specialist-and-later",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "repository_local_as_authorized_by_current_task",
+      "entrypoint": ".agents/skills/storyworld-customer-managed-deployment/SKILL.md",
+      "dependencies": [
+        "storyworld-security-review",
+        "storyworld-conformance-and-release",
+        "storyworld-cost-and-usage-accounting"
+      ],
+      "decisions": [
+        "DEC-0040",
+        "DEC-0053 or hosting successor"
+      ],
+      "contracts": [
+        "CredentialBinding",
+        "ProviderPolicy",
+        "AssetVersion"
+      ],
+      "pocs": [
+        "POC-13"
+      ],
+      "repository_paths": [
+        "infra/",
+        "apps/",
+        "packages/",
+        "docs/"
+      ],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-customer-managed-deployment/SKILL.md",
+        ".agents/skills/storyworld-customer-managed-deployment/agents/openai.yaml",
+        ".agents/skills/storyworld-customer-managed-deployment/references/checklist.md",
+        ".agents/skills/storyworld-customer-managed-deployment/references/failure-cases.md",
+        ".agents/skills/storyworld-customer-managed-deployment/references/output-contract.md",
+        ".agents/skills/storyworld-customer-managed-deployment/references/provenance.json"
+      ]
+    },
+    {
+      "id": "storyworld-security-review",
+      "version": "1.0.0",
+      "display_name": "Storyworld Security Review",
+      "description": "Perform focused Storyworld threat modeling and security review for integrations, media, providers, external tools, plugins, credentials, callbacks, and deployments.",
+      "purpose": "Identify unsafe control actions, adversarial paths, privacy leaks, supply-chain risk, and required mitigations before adoption or implementation closure.",
+      "category": "security",
+      "tier": "foundation",
+      "priority": "P0",
+      "adoption_wave": "B-product-foundation",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "side_effects": "read_only",
+      "entrypoint": ".agents/skills/storyworld-security-review/SKILL.md",
+      "dependencies": [
+        "storyworld-repository-orientation"
+      ],
+      "decisions": [
+        "DEC-0044",
+        "DEC-0045",
+        "DEC-0047",
+        "DEC-0048",
+        "DEC-0050",
+        "DEC-0052"
+      ],
+      "contracts": [],
+      "pocs": [],
+      "repository_paths": [
+        "packages/credentials/",
+        "packages/providers/",
+        "packages/storage/",
+        "packages/workflows/",
+        "integrations/",
+        "infra/",
+        "apps/studio/"
+      ],
+      "profiles": [],
+      "files": [
+        ".agents/skills/storyworld-security-review/SKILL.md",
+        ".agents/skills/storyworld-security-review/agents/openai.yaml",
+        ".agents/skills/storyworld-security-review/references/checklist.md",
+        ".agents/skills/storyworld-security-review/references/failure-cases.md",
+        ".agents/skills/storyworld-security-review/references/output-contract.md",
+        ".agents/skills/storyworld-security-review/references/provenance.json"
+      ]
+    }
+  ]
+}

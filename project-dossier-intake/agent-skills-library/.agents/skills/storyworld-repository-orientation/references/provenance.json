@@ -1,0 +1,93 @@
+{
+  "schema_version": "harness.skill-provenance.v1",
+  "id": "storyworld-repository-orientation",
+  "version": "1.0.0",
+  "adoption_status": "generated_unadopted_baseline",
+  "adoption_decision_ref": null,
+  "permission_grant": false,
+  "entrypoint": ".agents/skills/storyworld-repository-orientation/SKILL.md",
+  "purpose": "Produce a compact, evidence-backed context package so later skills do not rely on stale prose or inferred repository state.",
+  "scope": "current_task_within_storyworld_repository_only",
+  "authority": {
+    "source": "current_task_and_applicable_instructions",
+    "inherits_from": "current_task",
+    "may_expand": false
+  },
+  "side_effects": "read_only",
+  "inputs": {
+    "required": [
+      "current_request",
+      "repository_revision",
+      "applicable_instructions"
+    ],
+    "optional": [
+      "task_record",
+      "prior_handoff",
+      "pull_request_or_branch"
+    ]
+  },
+  "outputs": {
+    "format": "structured_skill_result",
+    "required_fields": [
+      "repository_revision",
+      "governance_context",
+      "relevant_decisions",
+      "active_tasks",
+      "package_map",
+      "validation_commands",
+      "known_discrepancies",
+      "uncertainties"
+    ],
+    "evidence_required": true
+  },
+  "prohibited": [
+    "Modifying repository files",
+    "Creating or accepting decisions",
+    "Assuming a task is authorized because it appears in a plan"
+  ],
+  "validation": "python scripts/validate_library.py; repository-specific validators from .agent/validators.json when installed",
+  "owner": "unassigned",
+  "included_material": [
+    "Storyworld-specific engineering workflow",
+    "Authority and evidence boundaries",
+    "Skill-specific checklist and output contract",
+    "Adversarial failure cases",
+    "Traceability to proposed decisions, contracts, POCs, and repository paths"
+  ],
+  "provenance": {
+    "source": "storyworld_integration_architecture_package_and_current_repository_conventions",
+    "source_version": "2026-08-01",
+    "source_fingerprint": "309af528a79d9a54bbc71df85168ff841ecdbc52fd307c1b2bffdd8f8c860318",
+    "generated_on": "2026-08-01",
+    "license_review": "not_assessed",
+    "security_review": "not_assessed",
+    "included_files": [
+      ".agents/skills/storyworld-repository-orientation/SKILL.md",
+      ".agents/skills/storyworld-repository-orientation/agents/openai.yaml",
+      ".agents/skills/storyworld-repository-orientation/references/provenance.json",
+      ".agents/skills/storyworld-repository-orientation/references/checklist.md",
+      ".agents/skills/storyworld-repository-orientation/references/output-contract.md",
+      ".agents/skills/storyworld-repository-orientation/references/failure-cases.md"
+    ],
+    "local_changes": [],
+    "exclusions": [
+      "project permissions",
+      "accepted decision status",
+      "production readiness claims",
+      "live provider credentials",
+      "publication or deployment authority",
+      "third-party copyrighted books and media"
+    ],
+    "trust_class": "generated_unadopted_capability",
+    "update_strategy": "explicit Storyworld project review, semantic version bump, and adoption decision"
+  },
+  "deprecated_at": null,
+  "removal_version": null,
+  "successor": null,
+  "limitations": [
+    "This generated package has not been reviewed or adopted by the Storyworld project owner.",
+    "Repository paths, decisions, contracts, provider APIs, and validation commands must be rechecked against the installation revision.",
+    "Structural validation of this package does not establish security, legal, accessibility, production, or dependency suitability.",
+    "The skill grants no permission beyond the active task."
+  ]
+}

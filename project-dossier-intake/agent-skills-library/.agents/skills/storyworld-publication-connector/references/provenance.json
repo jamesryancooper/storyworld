@@ -1,0 +1,98 @@
+{
+  "schema_version": "harness.skill-provenance.v1",
+  "id": "storyworld-publication-connector",
+  "version": "1.0.0",
+  "adoption_status": "generated_unadopted_baseline",
+  "adoption_decision_ref": null,
+  "permission_grant": false,
+  "entrypoint": ".agents/skills/storyworld-publication-connector/SKILL.md",
+  "purpose": "Preserve export portability and human publication authority while adding one bounded destination at a time.",
+  "scope": "current_task_within_storyworld_repository_only",
+  "authority": {
+    "source": "current_task_and_applicable_instructions",
+    "inherits_from": "current_task",
+    "may_expand": false
+  },
+  "side_effects": "external_effects_require_explicit_current_authorization",
+  "inputs": {
+    "required": [
+      "ChannelPackage",
+      "destination_profile",
+      "authority_host",
+      "rights_and_disclosure_checks"
+    ],
+    "optional": [
+      "PublicationAuthorization",
+      "connector_credentials",
+      "rate_and_quota_policy",
+      "withdrawal_api"
+    ]
+  },
+  "outputs": {
+    "format": "structured_skill_result",
+    "required_fields": [
+      "destination_exporter",
+      "publication_connector",
+      "validation_profile",
+      "PublicationReceipt",
+      "withdrawal_or_correction_receipt"
+    ],
+    "evidence_required": true
+  },
+  "prohibited": [
+    "Unapproved publication",
+    "Credential exposure",
+    "Blind retry after unknown outcome",
+    "Cross-authority publication of Commerce Foundry-originated work"
+  ],
+  "validation": "python scripts/validate_library.py; repository-specific validators from .agent/validators.json when installed",
+  "owner": "unassigned",
+  "included_material": [
+    "Storyworld-specific engineering workflow",
+    "Authority and evidence boundaries",
+    "Skill-specific checklist and output contract",
+    "Adversarial failure cases",
+    "Traceability to proposed decisions, contracts, POCs, and repository paths",
+    "Vendor/medium-specific implementation profiles"
+  ],
+  "provenance": {
+    "source": "storyworld_integration_architecture_package_and_current_repository_conventions",
+    "source_version": "2026-08-01",
+    "source_fingerprint": "309af528a79d9a54bbc71df85168ff841ecdbc52fd307c1b2bffdd8f8c860318",
+    "generated_on": "2026-08-01",
+    "license_review": "not_assessed",
+    "security_review": "not_assessed",
+    "included_files": [
+      ".agents/skills/storyworld-publication-connector/SKILL.md",
+      ".agents/skills/storyworld-publication-connector/agents/openai.yaml",
+      ".agents/skills/storyworld-publication-connector/references/provenance.json",
+      ".agents/skills/storyworld-publication-connector/references/checklist.md",
+      ".agents/skills/storyworld-publication-connector/references/output-contract.md",
+      ".agents/skills/storyworld-publication-connector/references/failure-cases.md",
+      ".agents/skills/storyworld-publication-connector/references/profiles/astro.md",
+      ".agents/skills/storyworld-publication-connector/references/profiles/instagram.md",
+      ".agents/skills/storyworld-publication-connector/references/profiles/x.md",
+      ".agents/skills/storyworld-publication-connector/references/profiles/tiktok.md"
+    ],
+    "local_changes": [],
+    "exclusions": [
+      "project permissions",
+      "accepted decision status",
+      "production readiness claims",
+      "live provider credentials",
+      "publication or deployment authority",
+      "third-party copyrighted books and media"
+    ],
+    "trust_class": "generated_unadopted_capability",
+    "update_strategy": "explicit Storyworld project review, semantic version bump, and adoption decision"
+  },
+  "deprecated_at": null,
+  "removal_version": null,
+  "successor": null,
+  "limitations": [
+    "This generated package has not been reviewed or adopted by the Storyworld project owner.",
+    "Repository paths, decisions, contracts, provider APIs, and validation commands must be rechecked against the installation revision.",
+    "Structural validation of this package does not establish security, legal, accessibility, production, or dependency suitability.",
+    "The skill grants no permission beyond the active task."
+  ]
+}

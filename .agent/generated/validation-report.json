@@ -37,13 +37,13 @@
   "external_effects": "repository_local_derived_metadata_refresh_only",
   "failures": [],
   "freshness_rule": "Invalid when any non-excluded repository source byte or path changes.",
-  "generated_at": "2026-08-01T18:57:59.600781+00:00",
-  "generation_id": "cd27e3b78c1856ba467e556c7a41b718",
+  "generated_at": "2026-08-04T21:43:34.790986+00:00",
+  "generation_id": "e841b14c687987b9fd43717b715cda99",
   "git_scope": {
     "available": true,
     "ignored": 21,
-    "tracked_modified": 6,
-    "untracked": 4
+    "tracked_modified": 1,
+    "untracked": 0
   },
   "limitations": [
     "Structural pass does not prove implementation or project readiness.",
@@ -60,7 +60,7 @@
     "binary, non-UTF-8, encoded, and files larger than 4 MiB require a dedicated secret scanner",
     "project-specific build, test, security, legal, and operational checks"
   ],
-  "source_fingerprint": "439bd78f1a072e8d01df6c0226d60b55fd688ff8f82da06f2df8064521eb7ece",
+  "source_fingerprint": "6b65f3a8519a97f19eca00b28919499586a6801f55a4f9e08934a695cb27ade5",
   "source_scope": {
     "exclusions": [
       {
@@ -146,6 +146,14 @@
       {
         "path": ".env",
         "reason": "Local-only credentials placeholder; gitignored and never committed, so it must not enter fingerprints or manifests the CI-checked tree cannot contain."
+      },
+      {
+        "path": ".claude/settings.local.json",
+        "reason": "Developer-local Claude settings; globally gitignored and never committed, so they must not enter generated fingerprints or manifests checked in clean CI clones."
+      },
+      {
+        "path": "project-dossier-intake/books",
+        "reason": "Local reference library; intentionally gitignored and excluded from repository distribution by the intake manifest, so only its committed assessment and index material may enter generated fingerprints."
       }
     ],
     "git_metadata": "excluded_from_source_fingerprint",

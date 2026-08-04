@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyworld Security Review"
+  short_description: "Identify unsafe control actions, adversarial paths, privacy leaks, su..."
+  default_prompt: "Use $storyworld-security-review for this Storyworld task. Follow current repository governance, preserve Engine and human authority, use exact versions, and produce the required evidence without activating external crossings."

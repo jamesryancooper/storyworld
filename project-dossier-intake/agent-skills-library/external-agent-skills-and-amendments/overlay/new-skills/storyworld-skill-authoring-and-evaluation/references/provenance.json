@@ -1,0 +1,94 @@
+{
+  "schema_version": "harness.skill-provenance.v1",
+  "id": "storyworld-skill-authoring-and-evaluation",
+  "version": "0.1.0",
+  "adoption_status": "generated_unadopted_baseline",
+  "adoption_decision_ref": null,
+  "permission_grant": false,
+  "entrypoint": ".agents/skills/storyworld-skill-authoring-and-evaluation/SKILL.md",
+  "purpose": "Provide one governed lifecycle for Storyworld capabilities instead of ad hoc skill creation or bulk imports.",
+  "scope": "current_task_within_storyworld_repository_only",
+  "authority": {
+    "source": "current_task_and_applicable_instructions",
+    "inherits_from": "current_task",
+    "may_expand": false
+  },
+  "side_effects": "repository_local_as_authorized_by_current_task",
+  "inputs": {
+    "required": [
+      "active task and applicable instructions",
+      "target capability or capability gap",
+      "pinned source revisions and licenses"
+    ],
+    "optional": [
+      "existing Storyworld skill registry and routing graph",
+      "working and holdout fixtures",
+      "security and validation constraints"
+    ]
+  },
+  "outputs": {
+    "format": "structured_skill_specific_artifacts_and_evidence_receipt",
+    "required_fields": [
+      "summary",
+      "artifacts",
+      "validation",
+      "evidence",
+      "limitations",
+      "disposition_owner"
+    ],
+    "evidence_required": true
+  },
+  "prohibited": [
+    "bulk installing external skill repositories",
+    "granting permission or adopting its own output",
+    "copying unclear or incompatible licensed content",
+    "executing unreviewed scripts or hooks",
+    "writing global agent configuration",
+    "creating duplicate skills when a reference/profile suffices",
+    "removing authority or evidence rules merely to reduce tokens"
+  ],
+  "validation": "Storyworld capability schema validation; registry and dependency graph checks; trigger precision and holdout tests; manual skill-supply-chain review; cross-client dry run where claimed; manifest/checksum verification",
+  "owner": "unassigned_pending_storyworld_adoption",
+  "included_material": [
+    "project-authored synthesis of pinned external procedural sources",
+    "Storyworld authority and validation constraints",
+    "task checklist",
+    "output contract",
+    "adversarial cases"
+  ],
+  "provenance": {
+    "source": "project_local_research_synthesis",
+    "source_version": "0.1.0",
+    "source_fingerprint": null,
+    "generated_on": "2026-08-01",
+    "license_review": "review_required",
+    "security_review": "review_required",
+    "included_files": [
+      "overlay/new-skills/storyworld-skill-authoring-and-evaluation/SKILL.md",
+      "overlay/new-skills/storyworld-skill-authoring-and-evaluation/agents/openai.yaml",
+      "overlay/new-skills/storyworld-skill-authoring-and-evaluation/references/provenance.json",
+      "overlay/new-skills/storyworld-skill-authoring-and-evaluation/references/source-ledger.md",
+      "overlay/new-skills/storyworld-skill-authoring-and-evaluation/references/task-checklist.md",
+      "overlay/new-skills/storyworld-skill-authoring-and-evaluation/references/output-contract.md",
+      "overlay/new-skills/storyworld-skill-authoring-and-evaluation/references/adversarial-cases.md"
+    ],
+    "local_changes": [],
+    "exclusions": [
+      "permission grants",
+      "accepted decisions",
+      "production credentials",
+      "external action authorization",
+      "copied external executable code"
+    ],
+    "trust_class": "generated_unadopted_capability",
+    "update_strategy": "explicit_pinned_source_comparison_and_storyworld_decision"
+  },
+  "deprecated_at": null,
+  "removal_version": null,
+  "successor": null,
+  "limitations": [
+    "No external source has authority over Storyworld.",
+    "Executable upstream material is excluded pending separate security review.",
+    "Adoption and maintainer assignment remain unresolved."
+  ]
+}

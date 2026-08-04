@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyworld Creative Command Implementation"
+  short_description: "Make natural-language direction safe, inspectable, reversible, cross-..."
+  default_prompt: "Use $storyworld-creative-command-implementation for this Storyworld task. Follow current repository governance, preserve Engine and human authority, use exact versions, and produce the required evidence without activating external crossings."

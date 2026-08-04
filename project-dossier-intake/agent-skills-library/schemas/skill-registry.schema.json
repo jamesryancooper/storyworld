@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tag:storyworld-platform,2026:agent-skill-library/registry/v1",
+  "title": "Storyworld Skill Library Registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "library_version",
+    "generated_on",
+    "assessed_storyworld_commit",
+    "status",
+    "permission_grant",
+    "count",
+    "skills"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "storyworld.skill-library.registry.v1"
+    },
+    "library_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "generated_on": {
+      "type": "string",
+      "format": "date"
+    },
+    "assessed_storyworld_commit": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "status": {
+      "const": "generated_unadopted_library"
+    },
+    "permission_grant": {
+      "const": false
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "skills": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "id",
+          "version",
+          "description",
+          "purpose",
+          "category",
+          "priority",
+          "adoption_status",
+          "permission_grant",
+          "side_effects",
+          "entrypoint",
+          "dependencies",
+          "files"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "version": {
+            "type": "string",
+            "pattern": "^\\d+\\.\\d+\\.\\d+$"
+          },
+          "adoption_status": {
+            "const": "generated_unadopted_baseline"
+          },
+          "permission_grant": {
+            "const": false
+          },
+          "entrypoint": {
+            "type": "string"
+          },
+          "dependencies": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "files": {
+            "type": "array",
+            "minItems": 5,
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

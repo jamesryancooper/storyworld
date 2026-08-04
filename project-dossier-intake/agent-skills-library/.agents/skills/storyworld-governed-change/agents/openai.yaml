@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyworld Governed Change"
+  short_description: "Standardize the lifecycle of significant repository-local changes whi..."
+  default_prompt: "Use $storyworld-governed-change for this Storyworld task. Follow current repository governance, preserve Engine and human authority, use exact versions, and produce the required evidence without activating external crossings."

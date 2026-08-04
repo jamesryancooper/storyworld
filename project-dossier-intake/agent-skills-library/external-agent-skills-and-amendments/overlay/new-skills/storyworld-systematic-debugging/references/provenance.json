@@ -1,0 +1,93 @@
+{
+  "schema_version": "harness.skill-provenance.v1",
+  "id": "storyworld-systematic-debugging",
+  "version": "0.1.0",
+  "adoption_status": "generated_unadopted_baseline",
+  "adoption_decision_ref": null,
+  "permission_grant": false,
+  "entrypoint": ".agents/skills/storyworld-systematic-debugging/SKILL.md",
+  "purpose": "Prevent guess-and-patch debugging across Storyworld\u2019s authority, workflow, provider, media, and storage boundaries.",
+  "scope": "current_task_within_storyworld_repository_only",
+  "authority": {
+    "source": "current_task_and_applicable_instructions",
+    "inherits_from": "current_task",
+    "may_expand": false
+  },
+  "side_effects": "repository_local_as_authorized_by_current_task",
+  "inputs": {
+    "required": [
+      "exact symptom and expected behavior",
+      "current revision and environment",
+      "reproduction steps or evidence gap"
+    ],
+    "optional": [
+      "recent changes",
+      "affected component boundaries",
+      "applicable security and privacy constraints"
+    ]
+  },
+  "outputs": {
+    "format": "structured_skill_specific_artifacts_and_evidence_receipt",
+    "required_fields": [
+      "summary",
+      "artifacts",
+      "validation",
+      "evidence",
+      "limitations",
+      "disposition_owner"
+    ],
+    "evidence_required": true
+  },
+  "prohibited": [
+    "guessing a fix without evidence",
+    "logging secrets or private payloads",
+    "making multiple unrelated changes in one hypothesis test",
+    "changing accepted architecture to make a test pass",
+    "claiming a provider job failed or succeeded without reconciliation",
+    "using production data without authorization"
+  ],
+  "validation": "original symptom reproduced or evidence limitation recorded; regression fixture fails before and passes after; full relevant validators pass; no new cross-tenant or authority regression; diagnostic instrumentation removed or governed",
+  "owner": "unassigned_pending_storyworld_adoption",
+  "included_material": [
+    "project-authored synthesis of pinned external procedural sources",
+    "Storyworld authority and validation constraints",
+    "task checklist",
+    "output contract",
+    "adversarial cases"
+  ],
+  "provenance": {
+    "source": "project_local_research_synthesis",
+    "source_version": "0.1.0",
+    "source_fingerprint": null,
+    "generated_on": "2026-08-01",
+    "license_review": "review_required",
+    "security_review": "review_required",
+    "included_files": [
+      "overlay/new-skills/storyworld-systematic-debugging/SKILL.md",
+      "overlay/new-skills/storyworld-systematic-debugging/agents/openai.yaml",
+      "overlay/new-skills/storyworld-systematic-debugging/references/provenance.json",
+      "overlay/new-skills/storyworld-systematic-debugging/references/source-ledger.md",
+      "overlay/new-skills/storyworld-systematic-debugging/references/task-checklist.md",
+      "overlay/new-skills/storyworld-systematic-debugging/references/output-contract.md",
+      "overlay/new-skills/storyworld-systematic-debugging/references/adversarial-cases.md"
+    ],
+    "local_changes": [],
+    "exclusions": [
+      "permission grants",
+      "accepted decisions",
+      "production credentials",
+      "external action authorization",
+      "copied external executable code"
+    ],
+    "trust_class": "generated_unadopted_capability",
+    "update_strategy": "explicit_pinned_source_comparison_and_storyworld_decision"
+  },
+  "deprecated_at": null,
+  "removal_version": null,
+  "successor": null,
+  "limitations": [
+    "No external source has authority over Storyworld.",
+    "Executable upstream material is excluded pending separate security review.",
+    "Adoption and maintainer assignment remain unresolved."
+  ]
+}

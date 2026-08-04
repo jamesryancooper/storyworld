@@ -1,0 +1,342 @@
+{
+  "schema_version": "storyworld.external-skill-pilot-register.v1",
+  "status": "proposal_only",
+  "pilots": [
+    {
+      "id": "PILOT-01",
+      "name": "Skill authoring and trigger evaluation",
+      "research_question": "Can the proposed Storyworld skill-authoring workflow improve trigger precision and reduce context cost without weakening authority or evidence?",
+      "external_versions": [
+        "EXT-037",
+        "EXT-041",
+        "EXT-047"
+      ],
+      "fixture": "Revise a copy of `storyworld-provider-model-evaluation` using 12 should-trigger, 12 should-not-trigger, 8 working, and 8 holdout requests.",
+      "baseline": "Current proposed skill package and validator.",
+      "success": [
+        "No false-positive activation on unrelated media work",
+        "At least equal task-quality on holdouts",
+        "Smaller or equal activated context",
+        "All provenance and authority fields preserved",
+        "No executable dependencies"
+      ],
+      "failure": [
+        "Trigger accuracy worsens",
+        "Holdout quality drops",
+        "Authority/provenance rules disappear",
+        "Requires unreviewed external scripts"
+      ],
+      "security": [
+        "Use copies only",
+        "No global config",
+        "No network or installation",
+        "Manual review of all generated files"
+      ],
+      "environments": [
+        "Codex",
+        "Claude Code-compatible dry run",
+        "Generic Agent Skills parser"
+      ],
+      "human_review": "Owner/engineering review of before/after traces and outputs.",
+      "reversion": "Delete pilot copy; original library remains unchanged.",
+      "decision": "Adopt, revise, or reject the new skill-authoring capability."
+    },
+    {
+      "id": "PILOT-02",
+      "name": "Systematic debugging",
+      "research_question": "Does the root-cause-first workflow reduce speculative fixes and improve defect localization?",
+      "external_versions": [
+        "EXT-026",
+        "EXT-014",
+        "EXT-027"
+      ],
+      "fixture": "Three seeded defects: stale client state, duplicate webhook, and cross-package config propagation failure.",
+      "baseline": "Current repository orientation plus governed change without a dedicated debugging skill.",
+      "success": [
+        "Correct first failing boundary identified",
+        "One falsifiable hypothesis at a time",
+        "Regression fixture added",
+        "No secret/private logging",
+        "Fresh verification before closure"
+      ],
+      "failure": [
+        "Patch proposed before evidence",
+        "Multiple speculative fixes",
+        "Unknown outcome collapsed to success/failure",
+        "Diagnostic data leaks"
+      ],
+      "security": [
+        "Synthetic fixtures",
+        "Redacted logs",
+        "No live providers"
+      ],
+      "environments": [
+        "Codex",
+        "Claude Code"
+      ],
+      "human_review": "Blind comparison of traces and fix quality.",
+      "reversion": "Discard pilot branch/copy.",
+      "decision": "Adopt or revise `storyworld-systematic-debugging`."
+    },
+    {
+      "id": "PILOT-03",
+      "name": "PostgreSQL and RLS engineering",
+      "research_question": "Can the new database skill improve tenant isolation, migration safety, and query evidence?",
+      "external_versions": [
+        "EXT-023",
+        "EXT-029"
+      ],
+      "fixture": "Add an additive tenant-scoped table, RLS policy, index, migration, and cross-tenant tests in a disposable schema.",
+      "baseline": "Current Storyworld package/migration conventions without a dedicated database skill.",
+      "success": [
+        "RLS negative tests pass",
+        "Migration recovery path proven",
+        "Representative EXPLAIN evidence",
+        "Module ownership preserved",
+        "No Supabase coupling"
+      ],
+      "failure": [
+        "RLS disabled",
+        "Cross-module SQL bypass",
+        "Unmeasured performance claim",
+        "Object path treated as asset identity"
+      ],
+      "security": [
+        "Disposable local database only",
+        "No production credentials or data"
+      ],
+      "environments": [
+        "Codex",
+        "Claude Code"
+      ],
+      "human_review": "Database/security review of migration and evidence.",
+      "reversion": "Drop disposable schema and discard patch.",
+      "decision": "Adopt or revise database/storage skill."
+    },
+    {
+      "id": "PILOT-04",
+      "name": "React composition patterns",
+      "research_question": "Do composition rules reduce boolean-prop growth while keeping Storyworld state and authority clear?",
+      "external_versions": [
+        "EXT-001",
+        "EXT-008"
+      ],
+      "fixture": "Refactor a copy of a multi-state Review Room component with explicit variants and compound subcomponents.",
+      "baseline": "Current component API and tests.",
+      "success": [
+        "Fewer incompatible prop combinations",
+        "No client-side authority",
+        "Accessible names and states preserved",
+        "Behavior tests unchanged or improved"
+      ],
+      "failure": [
+        "More context/provider nesting",
+        "Hidden state ownership",
+        "Acceptance mutation becomes optimistic",
+        "API less discoverable"
+      ],
+      "security": [
+        "Repository-local copy; no installs"
+      ],
+      "environments": [
+        "Codex"
+      ],
+      "human_review": "UX and code review.",
+      "reversion": "Discard refactor.",
+      "decision": "Merge selected composition reference or retain current guidance."
+    },
+    {
+      "id": "PILOT-05",
+      "name": "React and Next.js performance",
+      "research_question": "Which Vercel rules improve a real Storyworld surface without weakening correctness?",
+      "external_versions": [
+        "EXT-002",
+        "EXT-020"
+      ],
+      "fixture": "Command Center or cross-domain search with representative data and browser traces.",
+      "baseline": "Current network, hydration, bundle, and interaction measurements.",
+      "success": [
+        "Measured improvement",
+        "No authority/state regression",
+        "No accessibility regression",
+        "No new provider/client coupling"
+      ],
+      "failure": [
+        "Only synthetic microbenchmark improves",
+        "Correctness or clarity regresses",
+        "Recommendation depends on obsolete framework behavior"
+      ],
+      "security": [
+        "Local fixtures and localhost only"
+      ],
+      "environments": [
+        "Codex",
+        "Playwright test runner"
+      ],
+      "human_review": "Compare traces and creator journey.",
+      "reversion": "Revert experiment.",
+      "decision": "Select rules for Storyworld performance reference."
+    },
+    {
+      "id": "PILOT-06",
+      "name": "Design-quality critique without style lock-in",
+      "research_question": "Can selected anti-generic-interface rules improve visual quality without imposing a universal aesthetic?",
+      "external_versions": [
+        "EXT-007",
+        "EXT-008"
+      ],
+      "fixture": "Audit Command Center, Image Canvas mock, and one property-specific marketing/export surface.",
+      "baseline": "Current `storyworld-ux` findings.",
+      "success": [
+        "Finds generic layout/copy problems missed by baseline",
+        "Does not prescribe fonts/colors/icons unrelated to the brief",
+        "Accessibility and product truth remain higher priority"
+      ],
+      "failure": [
+        "Applies landing-page rules to dense Studio workspace",
+        "Creates a house aesthetic across properties",
+        "Adds unapproved dependencies"
+      ],
+      "security": [
+        "Read-only audit"
+      ],
+      "environments": [
+        "Codex",
+        "Claude Code"
+      ],
+      "human_review": "Owner design review.",
+      "reversion": "No code changes.",
+      "decision": "Extract neutral design-quality rules or reject the source."
+    },
+    {
+      "id": "PILOT-07",
+      "name": "Playwright CLI browser evidence",
+      "research_question": "Does the CLI produce more efficient and useful browser evidence than current ad hoc agent browser use?",
+      "external_versions": [
+        "EXT-022"
+      ],
+      "fixture": "Keyboard, 320px, 200% zoom, forced-colors, reduced-motion, unknown-outcome, and Back/Forward flows on localhost.",
+      "baseline": "Current Playwright tests and manual visual QA.",
+      "success": [
+        "Repeatable evidence",
+        "Lower context overhead",
+        "No persistent profile or secret leakage",
+        "Screenshots/traces correctly retained and redacted"
+      ],
+      "failure": [
+        "Global install required",
+        "Snapshot refs unstable",
+        "Trace includes sensitive fixtures",
+        "CLI becomes the only test path"
+      ],
+      "security": [
+        "Use pinned local package in disposable environment",
+        "No persistent profile",
+        "Localhost only"
+      ],
+      "environments": [
+        "Codex",
+        "Claude Code"
+      ],
+      "human_review": "Review generated evidence and command trace.",
+      "reversion": "Remove disposable environment.",
+      "decision": "Adopt a bounded CLI profile, keep tests only, or reject."
+    },
+    {
+      "id": "PILOT-08",
+      "name": "Property-based contract testing",
+      "research_question": "Do property tests expose contract and adapter bugs that example fixtures miss?",
+      "external_versions": [
+        "EXT-029"
+      ],
+      "fixture": "GenerationRecipe/ProviderExecutionPlan conversion, package roundtrip, and lifecycle transitions.",
+      "baseline": "Existing example and golden fixtures.",
+      "success": [
+        "Finds at least one meaningful edge case or materially increases domain coverage",
+        "Seeds replay",
+        "Shrunk failure is understandable",
+        "Runtime remains bounded"
+      ],
+      "failure": [
+        "Only trivial no-crash properties",
+        "Flaky/nonreproducible results",
+        "Excessive runtime",
+        "License text copied improperly"
+      ],
+      "security": [
+        "No external calls",
+        "Repository-approved dependency only after POC authorization"
+      ],
+      "environments": [
+        "Codex"
+      ],
+      "human_review": "Contract owner reviews properties and failures.",
+      "reversion": "Remove POC dependency/tests if rejected.",
+      "decision": "Add property-testing profile and approved library or retain example-only approach."
+    },
+    {
+      "id": "PILOT-09",
+      "name": "Skill supply-chain scanner",
+      "research_question": "Can the Sentry methodology find material risks in a copied skill library without unacceptable false positives or hidden effects?",
+      "external_versions": [
+        "EXT-036"
+      ],
+      "fixture": "A synthetic library with safe security references, malicious symlink, hook, postinstall, secret read, remote instruction fetch, and hidden image metadata.",
+      "baseline": "Manual Storyworld security review checklist.",
+      "success": [
+        "Detects planted risks",
+        "Distinguishes discussing threats from executing them",
+        "Produces no external effects",
+        "Script behavior matches documentation"
+      ],
+      "failure": [
+        "Executes packages/hooks",
+        "Reads outside fixture",
+        "High false-positive rate on legitimate security docs",
+        "Requires global install"
+      ],
+      "security": [
+        "Manual code review first",
+        "Container/no-network execution only if separately approved",
+        "Fixture copy only"
+      ],
+      "environments": [
+        "Codex"
+      ],
+      "human_review": "Security engineer reviews scanner code and findings.",
+      "reversion": "Destroy container and discard results if unsafe.",
+      "decision": "Adopt manual profile, bounded scanner, or reject."
+    },
+    {
+      "id": "PILOT-10",
+      "name": "Spec consistency checklist",
+      "research_question": "Can Spec Kit consistency/checklist patterns strengthen Storyworld POC and decision artifacts without introducing a second governance plane?",
+      "external_versions": [
+        "EXT-024"
+      ],
+      "fixture": "One future POC package: research question, plan, contracts, tasks, fixtures, and decision output.",
+      "baseline": "Current Storyworld POC template and decision-impact skill.",
+      "success": [
+        "Finds real cross-artifact gaps",
+        "Produces Storyworld-native findings only",
+        "No generated command/config installation",
+        "No duplicate task state"
+      ],
+      "failure": [
+        "Creates `.specify` authority",
+        "Rewrites accepted decisions",
+        "Adds boilerplate without better coverage"
+      ],
+      "security": [
+        "Document-only comparison; no CLI installation"
+      ],
+      "environments": [
+        "Codex",
+        "Claude Code"
+      ],
+      "human_review": "Steward reviews findings against current governance.",
+      "reversion": "Discard comparison artifacts.",
+      "decision": "Merge selected consistency patterns or retain existing workflow."
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "harness.skill-provenance.v1",
+  "id": "storyworld-conformance-and-release",
+  "version": "1.0.0",
+  "adoption_status": "generated_unadopted_baseline",
+  "adoption_decision_ref": null,
+  "permission_grant": false,
+  "entrypoint": ".agents/skills/storyworld-conformance-and-release/SKILL.md",
+  "purpose": "Provide an independent completion gate that distinguishes implementation, conformance, and production readiness.",
+  "scope": "current_task_within_storyworld_repository_only",
+  "authority": {
+    "source": "current_task_and_applicable_instructions",
+    "inherits_from": "current_task",
+    "may_expand": false
+  },
+  "side_effects": "repository_local_as_authorized_by_current_task",
+  "inputs": {
+    "required": [
+      "task_record",
+      "acceptance_criteria",
+      "changed_artifacts",
+      "governing_decisions",
+      "validation_contract"
+    ],
+    "optional": [
+      "review_findings",
+      "external_effect_receipts",
+      "browser_or_assistive_technology_evidence"
+    ]
+  },
+  "outputs": {
+    "format": "structured_skill_result",
+    "required_fields": [
+      "conformance_receipt",
+      "criterion_trace",
+      "validation_results",
+      "findings",
+      "skipped_checks",
+      "limitations",
+      "closure_recommendation"
+    ],
+    "evidence_required": true
+  },
+  "prohibited": [
+    "Accepting decisions or gates",
+    "Claiming CI or tests ran when only repository prose says so",
+    "Hiding dirty state or skipped validation"
+  ],
+  "validation": "python scripts/validate_library.py; repository-specific validators from .agent/validators.json when installed",
+  "owner": "unassigned",
+  "included_material": [
+    "Storyworld-specific engineering workflow",
+    "Authority and evidence boundaries",
+    "Skill-specific checklist and output contract",
+    "Adversarial failure cases",
+    "Traceability to proposed decisions, contracts, POCs, and repository paths"
+  ],
+  "provenance": {
+    "source": "storyworld_integration_architecture_package_and_current_repository_conventions",
+    "source_version": "2026-08-01",
+    "source_fingerprint": "309af528a79d9a54bbc71df85168ff841ecdbc52fd307c1b2bffdd8f8c860318",
+    "generated_on": "2026-08-01",
+    "license_review": "not_assessed",
+    "security_review": "not_assessed",
+    "included_files": [
+      ".agents/skills/storyworld-conformance-and-release/SKILL.md",
+      ".agents/skills/storyworld-conformance-and-release/agents/openai.yaml",
+      ".agents/skills/storyworld-conformance-and-release/references/provenance.json",
+      ".agents/skills/storyworld-conformance-and-release/references/checklist.md",
+      ".agents/skills/storyworld-conformance-and-release/references/output-contract.md",
+      ".agents/skills/storyworld-conformance-and-release/references/failure-cases.md"
+    ],
+    "local_changes": [],
+    "exclusions": [
+      "project permissions",
+      "accepted decision status",
+      "production readiness claims",
+      "live provider credentials",
+      "publication or deployment authority",
+      "third-party copyrighted books and media"
+    ],
+    "trust_class": "generated_unadopted_capability",
+    "update_strategy": "explicit Storyworld project review, semantic version bump, and adoption decision"
+  },
+  "deprecated_at": null,
+  "removal_version": null,
+  "successor": null,
+  "limitations": [
+    "This generated package has not been reviewed or adopted by the Storyworld project owner.",
+    "Repository paths, decisions, contracts, provider APIs, and validation commands must be rechecked against the installation revision.",
+    "Structural validation of this package does not establish security, legal, accessibility, production, or dependency suitability.",
+    "The skill grants no permission beyond the active task."
+  ]
+}

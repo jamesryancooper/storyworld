@@ -6,6 +6,7 @@ Chapter-by-chapter integration plan for this intake package — executed at DEC-
 
 ### 01 — Executive context and product direction
 
+* After formal owner sign-off and DEC-0039 intake ratification, integrate the ratified Storyworld purpose statement as a prominent "Purpose" or "Product purpose" section near the beginning of `project-dossier/canonical/storyworld/01_executive_context_and_product_direction.md`. Source: `product-definition/storyworld-purpose.md`. Until both gates are satisfied, this item provides routing only and does not make the staged statement accepted repository authority.
 * Extend the Recovered concept map (§1.3) or add a successor "Property portfolio" section: the four promoted properties (Ryan and Nicol fairytale, Saint Michael artwork series, SciSpark curriculum storylines, Ambience channel), the prospective metaphysical project, the unnamed advice-property candidate, and the ten generated showcase concepts (marked as concepts, working titles pending clearance). Source: `product-definition/narrative-story-projects.md` (DEC-0029).
 * Note the pattern-showcase coverage policy (every platform pattern has a designated showcase property). Source: same (DEC-0029).
 * Record the entity/umbrella outcome when decided (Creative Media Ventures / Stavium structure). Source: `governance/ip-authorship-and-transparency.md` §4 (DEC-0036; counsel).

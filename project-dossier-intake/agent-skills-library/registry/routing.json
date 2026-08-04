@@ -1,0 +1,584 @@
+{
+  "schema_version": "storyworld.skill-library.routing.v1",
+  "library_version": "1.0.0",
+  "default_router": "storyworld-engineering",
+  "external_existing_skills": [
+    "storyworld-ux",
+    "change-review"
+  ],
+  "routes": [
+    {
+      "id": "broad-engineering",
+      "match": [
+        "build Storyworld",
+        "mixed architecture task",
+        "not sure which skill",
+        "multi-package change"
+      ],
+      "primary": "storyworld-engineering",
+      "companions": [
+        "storyworld-repository-orientation"
+      ],
+      "gates": [
+        "current task authority"
+      ]
+    },
+    {
+      "id": "repository-context",
+      "match": [
+        "orient",
+        "current state",
+        "what exists",
+        "resume work",
+        "inspect repository"
+      ],
+      "primary": "storyworld-repository-orientation",
+      "companions": [],
+      "gates": []
+    },
+    {
+      "id": "repository-change",
+      "match": [
+        "implement",
+        "fix",
+        "build",
+        "modify repository"
+      ],
+      "primary": "storyworld-governed-change",
+      "companions": [
+        "storyworld-repository-orientation",
+        "storyworld-conformance-and-release"
+      ],
+      "gates": [
+        "task record",
+        "governing decisions"
+      ]
+    },
+    {
+      "id": "decision-change",
+      "match": [
+        "architecture change",
+        "authority change",
+        "supersede decision",
+        "owner direction conflict"
+      ],
+      "primary": "storyworld-decision-impact-analysis",
+      "companions": [
+        "storyworld-dossier-intake-maintenance"
+      ],
+      "gates": [
+        "accepted decision inventory"
+      ]
+    },
+    {
+      "id": "dossier-intake",
+      "match": [
+        "dossier intake",
+        "assessment",
+        "impact map",
+        "draft decision",
+        "owner questionnaire"
+      ],
+      "primary": "storyworld-dossier-intake-maintenance",
+      "companions": [
+        "storyworld-decision-impact-analysis",
+        "storyworld-conformance-and-release"
+      ],
+      "gates": [
+        "staged-only boundary"
+      ]
+    },
+    {
+      "id": "new-contract",
+      "match": [
+        "new schema",
+        "new contract",
+        "package envelope",
+        "receipt",
+        "public API semantics"
+      ],
+      "primary": "storyworld-contract-authoring",
+      "companions": [
+        "storyworld-fixture-authoring",
+        "storyworld-decision-impact-analysis"
+      ],
+      "gates": [
+        "governing decision",
+        "two fixture needs or standard mandate"
+      ]
+    },
+    {
+      "id": "schema-change",
+      "match": [
+        "evolve schema",
+        "breaking field",
+        "enum change",
+        "migration",
+        "backward compatibility"
+      ],
+      "primary": "storyworld-schema-evolution",
+      "companions": [
+        "storyworld-fixture-authoring"
+      ],
+      "gates": [
+        "consumer inventory"
+      ]
+    },
+    {
+      "id": "fixtures",
+      "match": [
+        "fixture",
+        "golden corpus",
+        "mutation",
+        "defect injection",
+        "recorded provider"
+      ],
+      "primary": "storyworld-fixture-authoring",
+      "companions": [],
+      "gates": [
+        "rights-safe source"
+      ]
+    },
+    {
+      "id": "poc",
+      "match": [
+        "proof of concept",
+        "prototype",
+        "dependency evaluation",
+        "spike"
+      ],
+      "primary": "storyworld-poc-execution",
+      "companions": [
+        "storyworld-fixture-authoring",
+        "storyworld-security-review"
+      ],
+      "gates": [
+        "cost ceiling",
+        "teardown plan"
+      ]
+    },
+    {
+      "id": "closure",
+      "match": [
+        "validate",
+        "close task",
+        "release conformance",
+        "acceptance criteria"
+      ],
+      "primary": "storyworld-conformance-and-release",
+      "companions": [
+        "change-review"
+      ],
+      "gates": [
+        "exact revision",
+        "validation contract"
+      ]
+    },
+    {
+      "id": "creative-command",
+      "match": [
+        "CreativeCommand",
+        "text command",
+        "intent interpretation",
+        "proposal",
+        "partial acceptance"
+      ],
+      "primary": "storyworld-creative-command-implementation",
+      "companions": [
+        "storyworld-studio-surface",
+        "storyworld-evaluation-layer"
+      ],
+      "gates": [
+        "DEC-0041 or accepted successor"
+      ]
+    },
+    {
+      "id": "voice-command",
+      "match": [
+        "voice command",
+        "microphone",
+        "transcription",
+        "playhead-aware speech"
+      ],
+      "primary": "storyworld-voice-command",
+      "companions": [
+        "storyworld-creative-command-implementation",
+        "storyworld-security-review"
+      ],
+      "gates": [
+        "ephemeral audio and egress policy"
+      ]
+    },
+    {
+      "id": "cross-media",
+      "match": [
+        "cross-media command",
+        "whole scene colder",
+        "coordinated image video sound"
+      ],
+      "primary": "storyworld-cross-media-command",
+      "companions": [
+        "storyworld-creative-direction",
+        "storyworld-native-media-workspace"
+      ],
+      "gates": [
+        "media operation contracts"
+      ]
+    },
+    {
+      "id": "creative-direction",
+      "match": [
+        "Creative Direction",
+        "Look",
+        "representation style",
+        "production design",
+        "directorial intent",
+        "resolved realization"
+      ],
+      "primary": "storyworld-creative-direction",
+      "companions": [
+        "storyworld-contract-authoring",
+        "storyworld-fixture-authoring"
+      ],
+      "gates": [
+        "DEC-0042 or accepted successor"
+      ]
+    },
+    {
+      "id": "native-media",
+      "match": [
+        "image canvas",
+        "video workspace",
+        "native editing",
+        "semantic timeline",
+        "professional precision"
+      ],
+      "primary": "storyworld-native-media-workspace",
+      "companions": [
+        "storyworld-creative-command-implementation",
+        "storyworld-studio-surface",
+        "storyworld-evaluation-layer"
+      ],
+      "gates": [
+        "typed operation contract"
+      ]
+    },
+    {
+      "id": "annotation",
+      "match": [
+        "AnnotationTarget",
+        "mask",
+        "region",
+        "time range",
+        "shot annotation",
+        "graph annotation"
+      ],
+      "primary": "storyworld-annotation-target",
+      "companions": [
+        "storyworld-studio-surface"
+      ],
+      "gates": [
+        "exact target version"
+      ]
+    },
+    {
+      "id": "evaluation",
+      "match": [
+        "evaluation layer",
+        "continuity check",
+        "finding",
+        "quality check",
+        "waiver"
+      ],
+      "primary": "storyworld-evaluation-layer",
+      "companions": [
+        "storyworld-fixture-authoring"
+      ],
+      "gates": [
+        "authority and blocking classification"
+      ]
+    },
+    {
+      "id": "studio",
+      "match": [
+        "Studio UI",
+        "workspace",
+        "canvas",
+        "timeline",
+        "Review Room",
+        "accessibility"
+      ],
+      "primary": "storyworld-studio-surface",
+      "companions": [
+        "storyworld-ux"
+      ],
+      "gates": [
+        "Engine contract and user task"
+      ]
+    },
+    {
+      "id": "assets",
+      "match": [
+        "asset custody",
+        "candidate",
+        "master",
+        "lineage",
+        "transformation",
+        "retention"
+      ],
+      "primary": "storyworld-asset-custody-and-lineage",
+      "companions": [
+        "storyworld-deterministic-media-worker",
+        "storyworld-rights-and-consent-review"
+      ],
+      "gates": [
+        "lifecycle and retention policy"
+      ]
+    },
+    {
+      "id": "rights",
+      "match": [
+        "rights",
+        "consent",
+        "likeness",
+        "voice cloning",
+        "expiry",
+        "revocation"
+      ],
+      "primary": "storyworld-rights-and-consent-review",
+      "companions": [
+        "storyworld-security-review",
+        "storyworld-evaluation-layer"
+      ],
+      "gates": [
+        "recorded permission basis"
+      ]
+    },
+    {
+      "id": "provider",
+      "match": [
+        "OpenRouter",
+        "fal.ai",
+        "provider adapter",
+        "model API",
+        "hosted inference"
+      ],
+      "primary": "storyworld-provider-adapter",
+      "companions": [
+        "storyworld-security-review",
+        "storyworld-cost-and-usage-accounting"
+      ],
+      "gates": [
+        "egress, credential, cost, capability policy"
+      ]
+    },
+    {
+      "id": "provider-evaluation",
+      "match": [
+        "approve model",
+        "model benchmark",
+        "provider promotion",
+        "endpoint evaluation"
+      ],
+      "primary": "storyworld-provider-model-evaluation",
+      "companions": [
+        "storyworld-fixture-authoring",
+        "storyworld-security-review"
+      ],
+      "gates": [
+        "named capability and fixture suite"
+      ]
+    },
+    {
+      "id": "comfyui",
+      "match": [
+        "ComfyUI workflow",
+        "custom node",
+        "workflow registry",
+        "node allowlist"
+      ],
+      "primary": "storyworld-comfyui-workflow",
+      "companions": [
+        "storyworld-provider-adapter",
+        "storyworld-security-review"
+      ],
+      "gates": [
+        "no-local-weight posture",
+        "node and endpoint allowlists"
+      ]
+    },
+    {
+      "id": "media-worker",
+      "match": [
+        "FFmpeg",
+        "OpenImageIO",
+        "OpenColorIO",
+        "MediaInfo",
+        "ClamAV",
+        "proxy",
+        "thumbnail",
+        "transcode"
+      ],
+      "primary": "storyworld-deterministic-media-worker",
+      "companions": [
+        "storyworld-security-review"
+      ],
+      "gates": [
+        "sandbox and resource limits"
+      ]
+    },
+    {
+      "id": "external-editor",
+      "match": [
+        "Blender",
+        "InvokeAI",
+        "Kdenlive",
+        "Resolve",
+        "external checkout",
+        "precision tool"
+      ],
+      "primary": "storyworld-external-editor-connector",
+      "companions": [
+        "storyworld-asset-custody-and-lineage",
+        "storyworld-security-review"
+      ],
+      "gates": [
+        "exact checkout and untrusted return"
+      ]
+    },
+    {
+      "id": "otio",
+      "match": [
+        "OpenTimelineIO",
+        "OTIO",
+        "editorial handoff",
+        "timeline round trip"
+      ],
+      "primary": "storyworld-otio-editorial-interchange",
+      "companions": [
+        "storyworld-external-editor-connector",
+        "storyworld-fixture-authoring"
+      ],
+      "gates": [
+        "pinned profile and loss report"
+      ]
+    },
+    {
+      "id": "publication",
+      "match": [
+        "Astro export",
+        "Instagram connector",
+        "X connector",
+        "TikTok connector",
+        "direct publish"
+      ],
+      "primary": "storyworld-publication-connector",
+      "companions": [
+        "storyworld-publication-scheduler",
+        "storyworld-rights-and-consent-review"
+      ],
+      "gates": [
+        "exact human authorization",
+        "connector activation"
+      ]
+    },
+    {
+      "id": "scheduler",
+      "match": [
+        "publication scheduler",
+        "schedule post",
+        "publication job"
+      ],
+      "primary": "storyworld-publication-scheduler",
+      "companions": [
+        "storyworld-security-review"
+      ],
+      "gates": [
+        "PublicationAuthorization"
+      ]
+    },
+    {
+      "id": "commerce-foundry",
+      "match": [
+        "Commerce Foundry",
+        "Narrative Campaign",
+        "print package",
+        "commercial approval"
+      ],
+      "primary": "storyworld-commerce-foundry-bridge",
+      "companions": [
+        "storyworld-rights-and-consent-review"
+      ],
+      "gates": [
+        "peer authority contract"
+      ]
+    },
+    {
+      "id": "runtime",
+      "match": [
+        "browser runtime",
+        "Godot",
+        "runtime package",
+        "interactive story"
+      ],
+      "primary": "storyworld-runtime-adapter",
+      "companions": [
+        "storyworld-evaluation-layer",
+        "storyworld-security-review"
+      ],
+      "gates": [
+        "shared runtime contract",
+        "runtime nonauthority"
+      ]
+    },
+    {
+      "id": "cost",
+      "match": [
+        "provider cost",
+        "budget",
+        "usage accounting",
+        "billing",
+        "allowance"
+      ],
+      "primary": "storyworld-cost-and-usage-accounting",
+      "companions": [
+        "storyworld-provider-adapter"
+      ],
+      "gates": [
+        "CostPolicy and credential scope"
+      ]
+    },
+    {
+      "id": "deployment",
+      "match": [
+        "customer-managed",
+        "self-host Storyworld",
+        "install Storyworld",
+        "backup restore"
+      ],
+      "primary": "storyworld-customer-managed-deployment",
+      "companions": [
+        "storyworld-security-review",
+        "storyworld-conformance-and-release"
+      ],
+      "gates": [
+        "hosting model and supported platform decision"
+      ]
+    },
+    {
+      "id": "security",
+      "match": [
+        "threat model",
+        "credential security",
+        "malicious media",
+        "webhook security",
+        "custom node security"
+      ],
+      "primary": "storyworld-security-review",
+      "companions": [],
+      "gates": [
+        "data flow and trust boundaries"
+      ]
+    }
+  ]
+}

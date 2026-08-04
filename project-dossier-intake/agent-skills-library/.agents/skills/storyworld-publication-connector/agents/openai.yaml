@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyworld Publication Connector"
+  short_description: "Preserve export portability and human publication authority while add..."
+  default_prompt: "Use $storyworld-publication-connector for this Storyworld task. Follow current repository governance, preserve Engine and human authority, use exact versions, and produce the required evidence without activating external crossings."

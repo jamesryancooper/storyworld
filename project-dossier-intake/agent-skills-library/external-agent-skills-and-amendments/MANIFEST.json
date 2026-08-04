@@ -1,0 +1,433 @@
+{
+  "schema_version": "storyworld.external-agent-skill-research-manifest.v1",
+  "status": "research_only_unadopted",
+  "permission_grant": false,
+  "generated_on": "2026-08-01",
+  "storyworld_commit": "fc9b75b8ae3f28b4b9e13f5c0e31e9f2d24ad565",
+  "candidate_count": 54,
+  "new_skill_count": 3,
+  "amendment_count": 15,
+  "pilot_count": 10,
+  "files": [
+    {
+      "path": "01-executive-conclusion.md",
+      "size": 7476,
+      "sha256": "4065cec466c3115f6260c73910067a8e193416bd59356168489876313988fa2a"
+    },
+    {
+      "path": "02-prioritized-external-skill-register.json",
+      "size": 101259,
+      "sha256": "01011d45bfcbf8cadc6767840403b91296854ccc1a49adc95ea8fe47b7f612b1"
+    },
+    {
+      "path": "02-prioritized-external-skill-register.md",
+      "size": 97439,
+      "sha256": "0080a53a71cbab61bb9b4037b46c1c0152dd63a3ae179639489e278edabdf5e5"
+    },
+    {
+      "path": "03-cluster-analysis.md",
+      "size": 14304,
+      "sha256": "ba082b290057506bf687385ea311f6c0fc5740327240969a816b77fc2164346b"
+    },
+    {
+      "path": "04-amendment-register.json",
+      "size": 23521,
+      "sha256": "8250230f76c85ddf38d924ecab2432b1742e4f78a2c195ecee514b7dfc7218f1"
+    },
+    {
+      "path": "04-storyworld-skill-library-amendment-plan.md",
+      "size": 21031,
+      "sha256": "22c36c4b18b872d304b35ff5cc901b2562fe36a071da8e33801f90058a672763"
+    },
+    {
+      "path": "05-proposed-new-skills.json",
+      "size": 11782,
+      "sha256": "04e68a066b29a88aa97bb259768114de7ce47102cdd5cdf52c2a9645c189d693"
+    },
+    {
+      "path": "05-proposed-new-skills.md",
+      "size": 10122,
+      "sha256": "92a7a97e676b989e831f2e853cc6fe7d00201fea4fa1b6623240722a0095d394"
+    },
+    {
+      "path": "06-pilot-program.json",
+      "size": 13014,
+      "sha256": "df5247a2dd32bde0480eb696ef872b530343bd97cd053190414916e73d8b2606"
+    },
+    {
+      "path": "06-pilot-program.md",
+      "size": 11263,
+      "sha256": "1cd0365e9de7458cf2c60f0e47c25ffd84e3535d9bbfe7b56aba1765767dc066"
+    },
+    {
+      "path": "07-rejected-skill-appendix.md",
+      "size": 4330,
+      "sha256": "1513dc7c981c89d68a35e1369f1ad6bc69f75cd7acc00dedb7798ad4d38c8100"
+    },
+    {
+      "path": "08-source-license-and-maintenance-register.md",
+      "size": 6147,
+      "sha256": "4cd2a400caf10aeeda449a00034bfd7b7de4117ff58872b2d96af0d44d7dc0bb"
+    },
+    {
+      "path": "09-adversarial-review.md",
+      "size": 5256,
+      "sha256": "52ec562b31ae7ba1950d911c3dd78f1650204ce1a7a353810fb3d799f32bc8f6"
+    },
+    {
+      "path": "10-adoption-runbook.md",
+      "size": 4306,
+      "sha256": "f7e6e7ac36e331afc419bb2be175175e1b26ab66547c20a735208478619df60a"
+    },
+    {
+      "path": "11-conceptual-crosswalk.json",
+      "size": 5177,
+      "sha256": "d08685179ca40083ae8995d0d434c9b9ccaf4a93a4e396b54e6295216ea284d4"
+    },
+    {
+      "path": "11-conceptual-crosswalk.md",
+      "size": 3071,
+      "sha256": "1eb3e10fb2ab5d1d945d94181b67fe6b8deac5f2903cf8df705de73879dd00cc"
+    },
+    {
+      "path": "12-research-methodology.md",
+      "size": 3033,
+      "sha256": "6db35ba4195d9bbc1abea65c32d97e680903c581d6410eb568d8f41fb432ccc4"
+    },
+    {
+      "path": "13-gap-analysis.md",
+      "size": 1944,
+      "sha256": "8d6cb709b2deea7bb36c9694e5db8719587615e3efef6d42dbf7baea291522f3"
+    },
+    {
+      "path": "README.md",
+      "size": 3353,
+      "sha256": "f286c41055f9f05966d8cbb308b3f39e59d75a2b6e33d2605d6deddc07079f66"
+    },
+    {
+      "path": "SHORTLIST.md",
+      "size": 2866,
+      "sha256": "d80bd1d84d99cdd5d92be757f79d36bcccd4ad079b332c95b44d16d3608079d4"
+    },
+    {
+      "path": "overlay/README.md",
+      "size": 535,
+      "sha256": "13dff215ab408ab3637ea5fb29fc85ea178f0316af1ffe21563714fe370b1b5d"
+    },
+    {
+      "path": "overlay/amendments/storyworld-conformance-and-release/README.md",
+      "size": 647,
+      "sha256": "9795c04bfc954ac745b84b7f344a2cb222fc1ef2ee91b1039d34ecb744ea47b6"
+    },
+    {
+      "path": "overlay/amendments/storyworld-conformance-and-release/references/evidence-before-claims.md",
+      "size": 1734,
+      "sha256": "5bc6496e8fd7335be0df906aee683e0dcc83a10b1bec9f4ad404664da0eed224"
+    },
+    {
+      "path": "overlay/amendments/storyworld-conformance-and-release/references/operational-evidence.md",
+      "size": 1732,
+      "sha256": "ca53d36f84974fb03cf63be33dac1cc691af2176c1394db474c889a97d1a72b0"
+    },
+    {
+      "path": "overlay/amendments/storyworld-contract-authoring/README.md",
+      "size": 562,
+      "sha256": "e1771dab0d64bd0e374af919901f1165d619ef3b2c8852784ecb92056116fd74"
+    },
+    {
+      "path": "overlay/amendments/storyworld-contract-authoring/references/interface-stability-and-misuse-resistance.md",
+      "size": 1580,
+      "sha256": "d874553053fec7535e0436dbb9d6aa9bf75b33ce471c30f1683d06aeb5de35c4"
+    },
+    {
+      "path": "overlay/amendments/storyworld-customer-managed-deployment/README.md",
+      "size": 597,
+      "sha256": "42a9e99ad83d1899d246aae62cbb739f6294d1ed95ae3e4d3b0813c124ee6dff"
+    },
+    {
+      "path": "overlay/amendments/storyworld-customer-managed-deployment/references/operability-and-supply-chain-profile.md",
+      "size": 1464,
+      "sha256": "be9c0859e255dc1bada4a26087246de2fba47394fe0faf58eb614ff91388751a"
+    },
+    {
+      "path": "overlay/amendments/storyworld-deterministic-media-worker/README.md",
+      "size": 563,
+      "sha256": "851ac2e68950a50c21ebb9a5377eb25d4d33750cf646d3f9b16a4ad89fad37a3"
+    },
+    {
+      "path": "overlay/amendments/storyworld-deterministic-media-worker/references/worker-supply-chain-and-script-hardening.md",
+      "size": 1423,
+      "sha256": "5d3bd05b02e20669fdb3bf7f3ba3e020eb2fff2ab188e09cbf1e3f1661b88a2c"
+    },
+    {
+      "path": "overlay/amendments/storyworld-engineering/README.md",
+      "size": 649,
+      "sha256": "31a7eff9568b3cf2b3cb5d7ece75ddc19eecdb613bc99418fb4b450b4e7cd151"
+    },
+    {
+      "path": "overlay/amendments/storyworld-engineering/references/cross-agent-handoffs.md",
+      "size": 2144,
+      "sha256": "3f9dc052b56e8a4f7aa6e1a0ed7b53ba148a6062cb56ab3a8b888c8c05895be9"
+    },
+    {
+      "path": "overlay/amendments/storyworld-engineering/references/skill-routing-and-context-budget.md",
+      "size": 2156,
+      "sha256": "b8732cc0af0caf5d9f158cb608c14889d6e3272eaf7c3bab781b247533736b3c"
+    },
+    {
+      "path": "overlay/amendments/storyworld-fixture-authoring/README.md",
+      "size": 723,
+      "sha256": "06db64d6d3291679c62216f7038d2048501274df0dd8a1e108cfa88683d38549"
+    },
+    {
+      "path": "overlay/amendments/storyworld-fixture-authoring/references/property-and-mutation-testing.md",
+      "size": 1748,
+      "sha256": "0c17dbfb53a3e1ed18afa640e38ab92d2d127bfa972bdff83b09e9b00f9a0773"
+    },
+    {
+      "path": "overlay/amendments/storyworld-governed-change/README.md",
+      "size": 625,
+      "sha256": "f233245c92658cee29ae3c1591c4f19c47ff2477575bb8f9b9ba9fbe211e0943"
+    },
+    {
+      "path": "overlay/amendments/storyworld-governed-change/references/source-driven-incremental-change.md",
+      "size": 1770,
+      "sha256": "cded1fe6ad9b13f09281aa8c17b148219e9b1792f6e5e9d419c7a6859a055ab1"
+    },
+    {
+      "path": "overlay/amendments/storyworld-poc-execution/README.md",
+      "size": 550,
+      "sha256": "31ee0af9413eb0487574aa19a7410dff79ef36eefa1999094b1c6542aea50af9"
+    },
+    {
+      "path": "overlay/amendments/storyworld-poc-execution/references/source-backed-poc-and-consistency-check.md",
+      "size": 1695,
+      "sha256": "7ebab9dd4a8e6f29542037a62d116fc24317414cc3726bc4163ba2391eb0c49b"
+    },
+    {
+      "path": "overlay/amendments/storyworld-provider-adapter/README.md",
+      "size": 473,
+      "sha256": "0c4445968458604530fa31e4b9bddf2d58ae58402e24cad29fd9989a44f3bffb"
+    },
+    {
+      "path": "overlay/amendments/storyworld-provider-adapter/references/provider-observability-and-helper-hardening.md",
+      "size": 1396,
+      "sha256": "0c1a70a76048fdf0e022236c128462a27f3f726073b7a19ae0ea10c544cbdf6b"
+    },
+    {
+      "path": "overlay/amendments/storyworld-provider-model-evaluation/README.md",
+      "size": 672,
+      "sha256": "691f45fe65524f6200a6437162d3312d1b1966e7df519d2a3bea72c6fa793bc6"
+    },
+    {
+      "path": "overlay/amendments/storyworld-provider-model-evaluation/references/working-and-holdout-evaluation.md",
+      "size": 1706,
+      "sha256": "65beb059be07862547e7c3b6ba298c86ed60ab52a0c420b0ecfe9c9ea8b0d7dd"
+    },
+    {
+      "path": "overlay/amendments/storyworld-repository-orientation/README.md",
+      "size": 633,
+      "sha256": "8257bf3e9fed1ea633fda580e55253d3c30274e470a54c2c7a3b40870cd7f89b"
+    },
+    {
+      "path": "overlay/amendments/storyworld-repository-orientation/references/agents-md-maintenance.md",
+      "size": 1830,
+      "sha256": "403f9b131ae0bec8d46eaf82106ad67343f9249f46063b91e3395b04b3367a27"
+    },
+    {
+      "path": "overlay/amendments/storyworld-repository-orientation/references/minimum-sufficient-context.md",
+      "size": 1835,
+      "sha256": "42b05a8e257552f9f7783151fa473a9e8e2416f7634d3c9455b7d6d98643a652"
+    },
+    {
+      "path": "overlay/amendments/storyworld-runtime-adapter/README.md",
+      "size": 564,
+      "sha256": "1fa45c556d23a97019404e0a15e9871783e5561e27a6e93c3b8c67c8046a82fe"
+    },
+    {
+      "path": "overlay/amendments/storyworld-runtime-adapter/references/programmatic-video-renderer-reference.md",
+      "size": 1279,
+      "sha256": "22b3f6b9cbb3ef71ba2bead7443271ad0c0fc034fc24e05e9b40f64bbaa358f2"
+    },
+    {
+      "path": "overlay/amendments/storyworld-schema-evolution/README.md",
+      "size": 595,
+      "sha256": "b21291992e921d0926efba84df66d94629aad79cb6b2ce734715cdd88dc01134"
+    },
+    {
+      "path": "overlay/amendments/storyworld-schema-evolution/references/deprecation-migration-and-properties.md",
+      "size": 1600,
+      "sha256": "4463fa93bf8e9501ad7717c3e8d129727234f045fd70e4a71fc873a5cdbbf3f9"
+    },
+    {
+      "path": "overlay/amendments/storyworld-security-review/README.md",
+      "size": 770,
+      "sha256": "846340337b4a676b5c5825c000a5cac9595789db3232cdc16c774e6d47189c5c"
+    },
+    {
+      "path": "overlay/amendments/storyworld-security-review/references/executable-skill-hardening.md",
+      "size": 2709,
+      "sha256": "ccdfd145b89904c66243b7f96cd924230303615b4f7fbe6dfe6d8ec11af7d427"
+    },
+    {
+      "path": "overlay/amendments/storyworld-security-review/references/fail-closed-and-sharp-edges.md",
+      "size": 2710,
+      "sha256": "b05b48c4a28033c24b7e88b425e2711a3f5a9618867c1f7d9f101d82c72f5403"
+    },
+    {
+      "path": "overlay/amendments/storyworld-security-review/references/github-actions-security.md",
+      "size": 2706,
+      "sha256": "8efa4191b375526197a9005d123914d1ccfc2524b251411aa5dfed7e2ea1e9b5"
+    },
+    {
+      "path": "overlay/amendments/storyworld-security-review/references/skill-supply-chain.md",
+      "size": 2701,
+      "sha256": "f39ea66371c0f28aeb89b682d2531801ff65024fd2babd831779caccf5903653"
+    },
+    {
+      "path": "overlay/amendments/storyworld-studio-surface/README.md",
+      "size": 819,
+      "sha256": "139690fe7aff7cc2e0b502620f61d1e6b15575a9608e0dcfab6e7f2950fb6daa"
+    },
+    {
+      "path": "overlay/amendments/storyworld-studio-surface/references/browser-qa-playwright-cli.md",
+      "size": 2107,
+      "sha256": "a0af5af65ce5c62273a4f97728cb70b11c614fc395f97378e59e4fd6ec25998a"
+    },
+    {
+      "path": "overlay/amendments/storyworld-studio-surface/references/component-composition.md",
+      "size": 2103,
+      "sha256": "26ebb7ea1cc791c302e7e2d27a049fe520c3914304efb46d754f87c39393a23f"
+    },
+    {
+      "path": "overlay/amendments/storyworld-studio-surface/references/design-quality-without-style-lock.md",
+      "size": 2115,
+      "sha256": "d929db7c94961969eb0c9c94f668394b738c75bbe3b151d41461920cd3026a3d"
+    },
+    {
+      "path": "overlay/amendments/storyworld-studio-surface/references/react-next-performance.md",
+      "size": 2104,
+      "sha256": "61ebb0a3e969b9eea0797ac746707f8be4d7083f4be5957906a532c5a644bef9"
+    },
+    {
+      "path": "overlay/new-skills/storyworld-postgres-and-storage-engineering/SKILL.md",
+      "size": 3880,
+      "sha256": "c582bdf1c7723b8b2d2de97481ecf910e566edd6a9961f61f455a755314aba66"
+    },
+    {
+      "path": "overlay/new-skills/storyworld-postgres-and-storage-engineering/agents/openai.yaml",
+      "size": 342,
+      "sha256": "652ec84a6ff34a8d4e310ebaad1f8eebbf5c841c3e54ceb2c40449351afbe66a"
+    },
+    {
+      "path": "overlay/new-skills/storyworld-postgres-and-storage-engineering/references/adversarial-cases.md",
+      "size": 516,
+      "sha256": "a9ddf36928bc9770fbee9c5e9ee9e3fdba91180d63f80ea8a1b1ca51edbd2993"
+    },
+    {
+      "path": "overlay/new-skills/storyworld-postgres-and-storage-engineering/references/output-contract.md",
+      "size": 448,
+      "sha256": "a5c1aff939f7f239cec04b0d12113175bb34c43aa929abff130454164f74dd70"
+    },
+    {
+      "path": "overlay/new-skills/storyworld-postgres-and-storage-engineering/references/provenance.json",
+      "size": 3822,
+      "sha256": "cc14f5acb057fcdd02116f16e943ca0f9a492da7eeb5c717ede39d2e8c464fa5"
+    },
+    {
+      "path": "overlay/new-skills/storyworld-postgres-and-storage-engineering/references/source-ledger.md",
+      "size": 1419,
+      "sha256": "616a79be4f8e63077b526c7228813ab8ed7a38fb45eb730904c52b9fb2f62c5c"
+    },
+    {
+      "path": "overlay/new-skills/storyworld-postgres-and-storage-engineering/references/task-checklist.md",
+      "size": 1066,
+      "sha256": "0d3c977a887408ece4c3cf099db402ed97f877a8c45b1e2a2c776f6b74cc89ba"
+    },
+    {
+      "path": "overlay/new-skills/storyworld-skill-authoring-and-evaluation/SKILL.md",
+      "size": 4103,
+      "sha256": "162f1ed4aa5061b598dd94f8dec227f2ec87379c66cfb258c95be423c06cf8b1"
+    },
+    {
+      "path": "overlay/new-skills/storyworld-skill-authoring-and-evaluation/agents/openai.yaml",
+      "size": 336,
+      "sha256": "ce8cb992489327d0cb778337d19f6ea46281ddac35523db42922c772dc2c3439"
+    },
+    {
+      "path": "overlay/new-skills/storyworld-skill-authoring-and-evaluation/references/adversarial-cases.md",
+      "size": 570,
+      "sha256": "6ddc2de054462d5d5a16fea52ace70ec633115c88824f0d2fe8da916fb5506d0"
+    },
+    {
+      "path": "overlay/new-skills/storyworld-skill-authoring-and-evaluation/references/output-contract.md",
+      "size": 452,
+      "sha256": "e57d7f2e1eb07f986d0a0dda84453280909f57059903ad5d64b14f77b26fb828"
+    },
+    {
+      "path": "overlay/new-skills/storyworld-skill-authoring-and-evaluation/references/provenance.json",
+      "size": 3869,
+      "sha256": "bf91733579ae234ef77e4472aededd5c9e3987fa976f2334f3dd05a71f9b2134"
+    },
+    {
+      "path": "overlay/new-skills/storyworld-skill-authoring-and-evaluation/references/source-ledger.md",
+      "size": 4134,
+      "sha256": "2b2eb98dc94a4f254e7c4ca5baa7f03aaffcd2755b6dacdc5a6a7b16010f1c40"
+    },
+    {
+      "path": "overlay/new-skills/storyworld-skill-authoring-and-evaluation/references/task-checklist.md",
+      "size": 1165,
+      "sha256": "9d185bf1acea08cefef44cf0de6d3e4156d445e4dc9c95b9b8596fc448a6f86d"
+    },
+    {
+      "path": "overlay/new-skills/storyworld-systematic-debugging/SKILL.md",
+      "size": 3749,
+      "sha256": "feacf308469d2be193f5423bae0a8552e44c8a32a6cb18b0e720bf43d99dc0c5"
+    },
+    {
+      "path": "overlay/new-skills/storyworld-systematic-debugging/agents/openai.yaml",
+      "size": 318,
+      "sha256": "f34e176a31c0bbf1b4f9368ed288698480ff7f6e4ff5bd3b09e1281aa8e903ea"
+    },
+    {
+      "path": "overlay/new-skills/storyworld-systematic-debugging/references/adversarial-cases.md",
+      "size": 521,
+      "sha256": "e09fecba641059cea5d2a0399acab298b0c46e4b52686c1e945c955b7c159f8f"
+    },
+    {
+      "path": "overlay/new-skills/storyworld-systematic-debugging/references/output-contract.md",
+      "size": 369,
+      "sha256": "b3f8b4d69e25af6f8090b948ed501bb21934ab3e79e6a43a6433cf7eef904725"
+    },
+    {
+      "path": "overlay/new-skills/storyworld-systematic-debugging/references/provenance.json",
+      "size": 3716,
+      "sha256": "3efc06dd791a26e002c5ba2ff278cf55309f2eb30ce9b16f8f4c996bc5d84a8a"
+    },
+    {
+      "path": "overlay/new-skills/storyworld-systematic-debugging/references/source-ledger.md",
+      "size": 1784,
+      "sha256": "bcfbcab1986542733e43b0e853bc0e88c1c81f3e06a55fbfca8b9097ed85693f"
+    },
+    {
+      "path": "overlay/new-skills/storyworld-systematic-debugging/references/task-checklist.md",
+      "size": 1122,
+      "sha256": "84f0909f01d6ca1e312f9a73a14c8b2fbe1dc94e38aeb6559dc698978bd764b6"
+    },
+    {
+      "path": "overlay/registry-proposal.json",
+      "size": 4865,
+      "sha256": "787ff3a082fe1d92ba9bb28e708055c4d4fbe7958f56c8fadb81b56255503a5b"
+    },
+    {
+      "path": "scripts/validate_package.py",
+      "size": 3058,
+      "sha256": "351c358a379ffc9684f49b947229bedc77ee4f1108f15a6bce3131f7eae72427"
+    },
+    {
+      "path": "tests/test_package.py",
+      "size": 1007,
+      "sha256": "ed54ddf6143530f45152e2b17e77a4c86af98212ace82cb40a369df49a6b8d97"
+    }
+  ]
+}

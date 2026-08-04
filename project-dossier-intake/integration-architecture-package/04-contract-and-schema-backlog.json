@@ -1,0 +1,1182 @@
+{
+  "schema_version": "storyworld.contract-backlog.v1",
+  "status": "proposal_only",
+  "assessed_commit": "fc9b75b8ae3f28b4b9e13f5c0e31e9f2d24ad565",
+  "contracts": [
+    {
+      "id": "CON-001",
+      "name": "ConsequenceClassification",
+      "wave": 1,
+      "purpose": "Classify low, medium, and high consequence operations and required confirmation/authority.",
+      "authority": "canonical policy vocabulary",
+      "status": "canonical",
+      "depends_on": [],
+      "decision": "DEC-0041",
+      "fixtures": [
+        "low-cost preview",
+        "active-edit change",
+        "canon acceptance"
+      ],
+      "tests": [
+        "minimum class cannot be weakened",
+        "policy escalation",
+        "human gate"
+      ]
+    },
+    {
+      "id": "CON-002",
+      "name": "CreativeContext",
+      "wave": 1,
+      "purpose": "Bind a command to exact workspace, production, versions, playhead, time range, selection, annotation, rights, egress, and budget context.",
+      "authority": "canonical command input snapshot",
+      "status": "canonical",
+      "depends_on": [],
+      "decision": "DEC-0041",
+      "fixtures": [
+        "image region",
+        "video playhead",
+        "cross-media scene"
+      ],
+      "tests": [
+        "stable refs",
+        "selection drift",
+        "visibility enforcement"
+      ]
+    },
+    {
+      "id": "CON-003",
+      "name": "CreativeCommand",
+      "wave": 1,
+      "purpose": "Record original text or voice-derived transcript, context, constraints, and correlation without making conversation authority.",
+      "authority": "canonical governed command record",
+      "status": "canonical",
+      "depends_on": [
+        "CON-001",
+        "CON-002"
+      ],
+      "decision": "DEC-0041",
+      "fixtures": [
+        "text command",
+        "voice command",
+        "steered command"
+      ],
+      "tests": [
+        "idempotency",
+        "ephemeral audio TTL",
+        "actor/resource scope"
+      ]
+    },
+    {
+      "id": "CON-004",
+      "name": "ProviderEgressDecision",
+      "wave": 1,
+      "purpose": "Record effective provider-egress class, applicable rights/consent, approved route, retention, fallback, and exception evidence.",
+      "authority": "canonical policy decision",
+      "status": "canonical",
+      "depends_on": [],
+      "decision": "DEC-0044",
+      "fixtures": [
+        "public draft",
+        "private ZDR analysis",
+        "restricted blocked transfer",
+        "highly restricted exception refusal"
+      ],
+      "tests": [
+        "most restrictive wins",
+        "no stale consent",
+        "route match"
+      ]
+    },
+    {
+      "id": "CON-005",
+      "name": "CostPolicy",
+      "wave": 1,
+      "purpose": "Define allowances, per-job/batch/period limits, confirmation thresholds, price snapshots, and cost-uncertainty rules.",
+      "authority": "canonical policy",
+      "status": "canonical",
+      "depends_on": [],
+      "decision": "DEC-0044",
+      "fixtures": [
+        "small preview",
+        "batch generation",
+        "unknown estimate"
+      ],
+      "tests": [
+        "pre-submit ceiling",
+        "unexpected increase pause",
+        "actual reconciliation"
+      ]
+    },
+    {
+      "id": "CON-006",
+      "name": "CredentialBinding",
+      "wave": 1,
+      "purpose": "Bind an encrypted secret slot to provider, supplier, workspace/member scope, capabilities, egress ceiling, budget, rotation, and revocation metadata.",
+      "authority": "canonical nonsecret binding; secret externalized to credential store",
+      "status": "canonical+external secret",
+      "depends_on": [],
+      "decision": "DEC-0044",
+      "fixtures": [
+        "workspace fal key",
+        "member OpenRouter key",
+        "revoked credential"
+      ],
+      "tests": [
+        "no secret serialization",
+        "scope enforcement",
+        "revoked no fallback"
+      ]
+    },
+    {
+      "id": "CON-007",
+      "name": "CreativeSpecification",
+      "wave": 1,
+      "purpose": "Common envelope for separately versioned creative-system definitions.",
+      "authority": "canonical creative authority after acceptance",
+      "status": "canonical",
+      "depends_on": [],
+      "decision": "DEC-0042",
+      "fixtures": [
+        "representation style",
+        "music identity",
+        "production design"
+      ],
+      "tests": [
+        "immutable revision",
+        "scope validation",
+        "accepted-only resolution"
+      ]
+    },
+    {
+      "id": "CON-008",
+      "name": "CreativeBinding",
+      "wave": 1,
+      "purpose": "Bind an accepted creative specification revision to property, production, sequence, scene, shot, asset, character, location, cue, page, or rendition scope with override rules.",
+      "authority": "canonical",
+      "status": "canonical",
+      "depends_on": [
+        "CON-007"
+      ],
+      "decision": "DEC-0042",
+      "fixtures": [
+        "shot lighting override",
+        "character costume era",
+        "page typography"
+      ],
+      "tests": [
+        "allowed scope",
+        "override precedence",
+        "conflict detection"
+      ]
+    },
+    {
+      "id": "CON-009",
+      "name": "CreativeInterpretation",
+      "wave": 2,
+      "purpose": "Record intended outcome, targets, assumptions, ambiguities, creative strategy, preservation, allowed variation, prohibited changes, domains, and proposed consequence.",
+      "authority": "canonical proposal evidence, not accepted creative state",
+      "status": "canonical proposal",
+      "depends_on": [
+        "CON-001",
+        "CON-003"
+      ],
+      "decision": "DEC-0041",
+      "fixtures": [
+        "more cinematic",
+        "remove selected object",
+        "colder cross-media scene"
+      ],
+      "tests": [
+        "schema strictness",
+        "target consistency",
+        "assumption visibility"
+      ]
+    },
+    {
+      "id": "CON-010",
+      "name": "CreativePlan",
+      "wave": 2,
+      "purpose": "Represent operation DAG, rationale, alternatives, cost, route requirements, preview, evaluations, risks, and approval invalidation.",
+      "authority": "canonical proposal evidence",
+      "status": "canonical proposal",
+      "depends_on": [
+        "CON-009",
+        "CON-004",
+        "CON-005"
+      ],
+      "decision": "DEC-0041",
+      "fixtures": [
+        "single image edit",
+        "video rough cut",
+        "cross-media plan"
+      ],
+      "tests": [
+        "acyclic dependencies",
+        "cost completeness",
+        "policy completeness"
+      ]
+    },
+    {
+      "id": "CON-011",
+      "name": "CreativeOperation",
+      "wave": 2,
+      "purpose": "Common typed, reversible operation envelope targeting exact base versions.",
+      "authority": "canonical proposed/applied operation",
+      "status": "canonical",
+      "depends_on": [
+        "CON-001",
+        "CON-002"
+      ],
+      "decision": "DEC-0041",
+      "fixtures": [
+        "trim clip",
+        "replace coat",
+        "lower score"
+      ],
+      "tests": [
+        "exact base required",
+        "typed payload",
+        "approval consequences"
+      ]
+    },
+    {
+      "id": "CON-012",
+      "name": "ImageOperation",
+      "wave": 2,
+      "purpose": "Typed image generation, editing, selection, mask, composition, adaptation, restoration, and reference-match operations.",
+      "authority": "canonical operation payload",
+      "status": "canonical",
+      "depends_on": [
+        "CON-011"
+      ],
+      "decision": "DEC-0046",
+      "fixtures": [
+        "object removal",
+        "identity-preserving wardrobe change",
+        "multi-source composite"
+      ],
+      "tests": [
+        "lock semantics",
+        "region version binding",
+        "source lineage"
+      ]
+    },
+    {
+      "id": "CON-013",
+      "name": "EditorialSequence",
+      "wave": 2,
+      "purpose": "Storyworld-owned semantic timeline with exact media versions, ranges, scenes, beats, shots, cues, captions, rationale, and approval state.",
+      "authority": "canonical production edit state",
+      "status": "canonical",
+      "depends_on": [],
+      "decision": "DEC-0046",
+      "fixtures": [
+        "short film",
+        "vertical social variant",
+        "animatic"
+      ],
+      "tests": [
+        "rational time",
+        "source resolution",
+        "variant lineage"
+      ]
+    },
+    {
+      "id": "CON-014",
+      "name": "VideoEditOperation",
+      "wave": 2,
+      "purpose": "Typed trim, split, insert, replace, reorder, J/L cut, transition, pacing, montage, captions, audio, grade-intent, and generative shot operations.",
+      "authority": "canonical operation payload",
+      "status": "canonical",
+      "depends_on": [
+        "CON-011",
+        "CON-013"
+      ],
+      "decision": "DEC-0046",
+      "fixtures": [
+        "12-frame trim",
+        "J-cut",
+        "generated establishing shot"
+      ],
+      "tests": [
+        "frame exactness",
+        "timeline validity",
+        "media/shot identity"
+      ]
+    },
+    {
+      "id": "CON-015",
+      "name": "AudioEditOperation",
+      "wave": 2,
+      "purpose": "Typed dialogue, ambience, effects, level, fade, timing, sync, perspective, and mix-priority operations.",
+      "authority": "canonical operation payload",
+      "status": "canonical",
+      "depends_on": [
+        "CON-011"
+      ],
+      "decision": "DEC-0046",
+      "fixtures": [
+        "dialogue ducking",
+        "room-tone repair",
+        "3 dB cue change"
+      ],
+      "tests": [
+        "units/time range",
+        "clip/track binding",
+        "loudness policy"
+      ]
+    },
+    {
+      "id": "CON-016",
+      "name": "MusicOperation",
+      "wave": 2,
+      "purpose": "Typed cue, motif, instrumentation, timing, diegetic status, transformation, and mix relationship operations.",
+      "authority": "canonical operation payload",
+      "status": "canonical",
+      "depends_on": [
+        "CON-011"
+      ],
+      "decision": "DEC-0046",
+      "fixtures": [
+        "withhold motif",
+        "move cue",
+        "counterpoint score"
+      ],
+      "tests": [
+        "theme binding",
+        "rights references",
+        "cue timing"
+      ]
+    },
+    {
+      "id": "CON-017",
+      "name": "GraphicLayoutOperation",
+      "wave": 2,
+      "purpose": "Typed grid, hierarchy, type, image-text, page/panel/card/overlay, safe-area, and destination-layout operations.",
+      "authority": "canonical operation payload",
+      "status": "canonical",
+      "depends_on": [
+        "CON-011"
+      ],
+      "decision": "DEC-0046",
+      "fixtures": [
+        "carousel reflow",
+        "title safe-area",
+        "picture-book spread"
+      ],
+      "tests": [
+        "layout units",
+        "text role refs",
+        "accessibility constraints"
+      ]
+    },
+    {
+      "id": "CON-018",
+      "name": "SpatialEditOperation",
+      "wave": 2,
+      "purpose": "Typed position, route, threshold, zone, sightline, blocking, set-layout, and environmental-storytelling operations.",
+      "authority": "canonical operation payload",
+      "status": "canonical",
+      "depends_on": [
+        "CON-011"
+      ],
+      "decision": "DEC-0046",
+      "fixtures": [
+        "scene blocking",
+        "set layout",
+        "interactive route"
+      ],
+      "tests": [
+        "coordinate profile",
+        "canonical-vs-realization boundary",
+        "graph consistency"
+      ]
+    },
+    {
+      "id": "CON-019",
+      "name": "RuntimeContentOperation",
+      "wave": 2,
+      "purpose": "Typed authored-runtime package changes that remain separate from live save/session state.",
+      "authority": "canonical authored content operation",
+      "status": "canonical",
+      "depends_on": [
+        "CON-011"
+      ],
+      "decision": "DEC-0052",
+      "fixtures": [
+        "dialogue branch",
+        "mission dependency",
+        "sound zone"
+      ],
+      "tests": [
+        "no save-state fields",
+        "target-neutral semantics",
+        "canon pin"
+      ]
+    },
+    {
+      "id": "CON-020",
+      "name": "EditProposal",
+      "wave": 2,
+      "purpose": "Reviewable immutable grouping of operations with alternatives, previews, dependencies, partial-acceptance rules, and base revision.",
+      "authority": "canonical proposal evidence",
+      "status": "canonical proposal",
+      "depends_on": [
+        "CON-010",
+        "CON-011"
+      ],
+      "decision": "DEC-0041",
+      "fixtures": [
+        "three-operation image plan",
+        "cross-media plan",
+        "variant branch"
+      ],
+      "tests": [
+        "partial dependency safety",
+        "base drift",
+        "proposal immutability"
+      ]
+    },
+    {
+      "id": "CON-021",
+      "name": "PreviewArtifact",
+      "wave": 2,
+      "purpose": "Bind a simulated, low-resolution, partial, or full preview to proposal and exact inputs, with fidelity limitations.",
+      "authority": "derived evidence",
+      "status": "derived evidence",
+      "depends_on": [
+        "CON-020"
+      ],
+      "decision": "DEC-0041",
+      "fixtures": [
+        "image before/after",
+        "video proxy",
+        "audio excerpt"
+      ],
+      "tests": [
+        "input hash",
+        "fidelity declaration",
+        "expiry"
+      ]
+    },
+    {
+      "id": "CON-022",
+      "name": "CreativeDecision",
+      "wave": 2,
+      "purpose": "Record exact accepted, rejected, and modified operations, actor authority, rationale, and consequence receipt.",
+      "authority": "canonical human/policy decision",
+      "status": "canonical",
+      "depends_on": [
+        "CON-020"
+      ],
+      "decision": "DEC-0041",
+      "fixtures": [
+        "accept one operation",
+        "reject all",
+        "modify parameter"
+      ],
+      "tests": [
+        "actor authority",
+        "exact proposal hash",
+        "dependency consistency"
+      ]
+    },
+    {
+      "id": "CON-023",
+      "name": "CreativeRevision",
+      "wave": 2,
+      "purpose": "Represent immutable result versions created after applied/accepted operations with prior-version and decision lineage.",
+      "authority": "canonical version record",
+      "status": "canonical",
+      "depends_on": [
+        "CON-022"
+      ],
+      "decision": "DEC-0041",
+      "fixtures": [
+        "image revision",
+        "sequence revision",
+        "cross-media revision set"
+      ],
+      "tests": [
+        "append-only",
+        "reversion path",
+        "decision binding"
+      ]
+    },
+    {
+      "id": "CON-024",
+      "name": "ApprovalInvalidation",
+      "wave": 2,
+      "purpose": "Explain which approvals/findings/waivers become stale after a change and why.",
+      "authority": "canonical derived policy result",
+      "status": "derived canonical evidence",
+      "depends_on": [
+        "CON-011",
+        "CON-023"
+      ],
+      "decision": "DEC-0041",
+      "fixtures": [
+        "grade-only change",
+        "rights-changing source replacement",
+        "caption edit"
+      ],
+      "tests": [
+        "layer specificity",
+        "material-change rules",
+        "no over-invalidation"
+      ]
+    },
+    {
+      "id": "CON-025",
+      "name": "ResolvedRealizationSpec",
+      "wave": 3,
+      "purpose": "Resolve pinned canon/state, accepted creative-system bindings, target context, locks, conflicts, and evaluation into one reproducible media-realization specification.",
+      "authority": "derived canonical compilation artifact",
+      "status": "derived canonical",
+      "depends_on": [
+        "CON-007",
+        "CON-008",
+        "CON-010"
+      ],
+      "decision": "DEC-0042",
+      "fixtures": [
+        "still image shot",
+        "film scene",
+        "audio-only scene"
+      ],
+      "tests": [
+        "deterministic resolution",
+        "source revision trace",
+        "conflict refusal"
+      ]
+    },
+    {
+      "id": "CON-026",
+      "name": "GenerationRecipe",
+      "wave": 3,
+      "purpose": "Provider-neutral generative specification compiled from resolved realization and operation intent.",
+      "authority": "canonical execution specification",
+      "status": "canonical",
+      "depends_on": [
+        "CON-025",
+        "CON-011"
+      ],
+      "decision": "DEC-0043",
+      "fixtures": [
+        "image edit",
+        "video generation",
+        "audio generation"
+      ],
+      "tests": [
+        "no provider fields",
+        "required locks",
+        "evaluation bindings"
+      ]
+    },
+    {
+      "id": "CON-027",
+      "name": "DeterministicProcessingPlan",
+      "wave": 3,
+      "purpose": "Provider-independent exact technical operations for the controlled media worker.",
+      "authority": "canonical execution specification",
+      "status": "canonical",
+      "depends_on": [
+        "CON-011"
+      ],
+      "decision": "DEC-0048",
+      "fixtures": [
+        "proxy",
+        "trim/join",
+        "OCIO transform"
+      ],
+      "tests": [
+        "allowlisted operation",
+        "resource limit",
+        "reproducibility"
+      ]
+    },
+    {
+      "id": "CON-028",
+      "name": "ProviderExecutionPlan",
+      "wave": 3,
+      "purpose": "Noncanonical rendered provider request with model/endpoint, prompts/messages, workflow, seed, uploads, retention, retry, timeout, and idempotency details.",
+      "authority": "derived execution artifact",
+      "status": "derived temporary/evidence",
+      "depends_on": [
+        "CON-026",
+        "CON-004",
+        "CON-005",
+        "CON-006"
+      ],
+      "decision": "DEC-0043",
+      "fixtures": [
+        "OpenRouter plan",
+        "fal queue plan",
+        "Comfy workflow binding"
+      ],
+      "tests": [
+        "policy route match",
+        "redaction",
+        "canonical recipe unchanged"
+      ]
+    },
+    {
+      "id": "CON-029",
+      "name": "ProviderExecutionResult",
+      "wave": 3,
+      "purpose": "Record actual provider/model/endpoint, request ID, retries/fallback, cost, logs, timestamps, output refs/hashes, cancellation, unknown and expiry status.",
+      "authority": "external execution evidence",
+      "status": "evidence",
+      "depends_on": [
+        "CON-028"
+      ],
+      "decision": "DEC-0043",
+      "fixtures": [
+        "success",
+        "duplicate webhook",
+        "late completion",
+        "unknown outcome"
+      ],
+      "tests": [
+        "dedupe",
+        "actual route verification",
+        "late-result quarantine"
+      ]
+    },
+    {
+      "id": "CON-030",
+      "name": "ProviderCapabilityProfile",
+      "wave": 3,
+      "purpose": "Describe approved provider capability, modality, parameters, retention, route, cost and operational support.",
+      "authority": "canonical mutable policy profile",
+      "status": "canonical research-backed",
+      "depends_on": [],
+      "decision": "DEC-0043",
+      "fixtures": [
+        "structured text",
+        "image edit",
+        "video generation"
+      ],
+      "tests": [
+        "effective dates",
+        "source refs",
+        "capability mismatch"
+      ]
+    },
+    {
+      "id": "CON-031",
+      "name": "ProviderPolicy",
+      "wave": 3,
+      "purpose": "Select and constrain providers/models/endpoints by capability, egress, retention, fallback, region, quality, cost, and human review.",
+      "authority": "canonical policy",
+      "status": "canonical",
+      "depends_on": [
+        "CON-004",
+        "CON-030"
+      ],
+      "decision": "DEC-0044",
+      "fixtures": [
+        "public auto route",
+        "private fixed ZDR",
+        "restricted blocked"
+      ],
+      "tests": [
+        "allow/deny precedence",
+        "fallback equivalence",
+        "expiry"
+      ]
+    },
+    {
+      "id": "CON-032",
+      "name": "ModelCapabilityApproval",
+      "wave": 3,
+      "purpose": "Lifecycle record approving a model/provider route for a named capability and policy based on evaluation evidence.",
+      "authority": "canonical policy decision",
+      "status": "canonical",
+      "depends_on": [
+        "CON-030",
+        "CON-031"
+      ],
+      "decision": "DEC-0043",
+      "fixtures": [
+        "experimental model",
+        "approved visual analyzer",
+        "prohibited model"
+      ],
+      "tests": [
+        "per-capability scope",
+        "deprecation",
+        "evidence required"
+      ]
+    },
+    {
+      "id": "CON-033",
+      "name": "WorkflowDefinition",
+      "wave": 3,
+      "purpose": "Register a versioned ComfyUI workflow with node/endpoint versions, bindings, egress ceiling, resource limits, and evaluation references.",
+      "authority": "canonical workflow registry metadata; graph derived execution detail",
+      "status": "canonical+external graph",
+      "depends_on": [
+        "CON-030",
+        "CON-031"
+      ],
+      "decision": "DEC-0045",
+      "fixtures": [
+        "identity-preserving image edit",
+        "multi-model video",
+        "deterministic-only workflow"
+      ],
+      "tests": [
+        "hash pinning",
+        "node allowlist",
+        "endpoint allowlist"
+      ]
+    },
+    {
+      "id": "CON-034",
+      "name": "WorkflowPromotion",
+      "wave": 3,
+      "purpose": "Record experimental/evaluated/production-approved/deprecated/prohibited workflow state and rollback.",
+      "authority": "canonical human/policy decision",
+      "status": "canonical",
+      "depends_on": [
+        "CON-033"
+      ],
+      "decision": "DEC-0045",
+      "fixtures": [
+        "promotion",
+        "rollback",
+        "security deprecation"
+      ],
+      "tests": [
+        "evidence gate",
+        "actor authority",
+        "production refusal"
+      ]
+    },
+    {
+      "id": "CON-035",
+      "name": "TransformationRecord",
+      "wave": 4,
+      "purpose": "Bind source and result versions to deterministic, generative, composite, external, or adaptation transformation with exact evidence.",
+      "authority": "canonical lineage",
+      "status": "canonical",
+      "depends_on": [
+        "CON-023",
+        "CON-027",
+        "CON-029"
+      ],
+      "decision": "DEC-0048",
+      "fixtures": [
+        "focused regen",
+        "external edit",
+        "rendition"
+      ],
+      "tests": [
+        "source/result refs",
+        "tool/provider evidence",
+        "cycle prevention"
+      ]
+    },
+    {
+      "id": "CON-036",
+      "name": "AnnotationTarget",
+      "wave": 4,
+      "purpose": "Address exact-version asset/document/timeline/graph/spatial regions through universal and medium-specific selectors.",
+      "authority": "canonical annotation selector",
+      "status": "canonical",
+      "depends_on": [],
+      "decision": "DEC-0047",
+      "fixtures": [
+        "image polygon",
+        "video interval",
+        "audio track region",
+        "document block",
+        "graph edge"
+      ],
+      "tests": [
+        "exact version",
+        "selector validity",
+        "structured fallback"
+      ]
+    },
+    {
+      "id": "CON-037",
+      "name": "EvaluationPlan",
+      "wave": 4,
+      "purpose": "Declare required deterministic, measurable, model-assisted, and human evaluation layers, blockers, evidence, and invalidation.",
+      "authority": "canonical policy/specification",
+      "status": "canonical",
+      "depends_on": [
+        "CON-025",
+        "CON-031"
+      ],
+      "decision": "DEC-0049",
+      "fixtures": [
+        "image continuity",
+        "video edit",
+        "provider substitution"
+      ],
+      "tests": [
+        "layer ownership",
+        "blocker authority",
+        "human-required flag"
+      ]
+    },
+    {
+      "id": "CON-038",
+      "name": "EvaluationFinding",
+      "wave": 4,
+      "purpose": "Extend current findings with subject exact versions, evidence, confidence, measurement, limitations, remediation, and waiver policy.",
+      "authority": "canonical evidence/finding",
+      "status": "canonical",
+      "depends_on": [
+        "CON-037"
+      ],
+      "decision": "DEC-0049",
+      "fixtures": [
+        "deterministic blocker",
+        "visual uncertainty",
+        "round-trip loss"
+      ],
+      "tests": [
+        "append-only",
+        "waiver scope",
+        "no universal score"
+      ]
+    },
+    {
+      "id": "CON-039",
+      "name": "ExternalEditorCheckout",
+      "wave": 5,
+      "purpose": "Create exact-version package/session identity, permitted refs, restrictions, portable formats, expected returns, expiry, and integrity manifest.",
+      "authority": "canonical checkout record",
+      "status": "canonical+external package",
+      "depends_on": [
+        "CON-004",
+        "CON-035"
+      ],
+      "decision": "DEC-0047",
+      "fixtures": [
+        "InvokeAI image",
+        "Kdenlive timeline",
+        "Blender scene",
+        "Resolve project"
+      ],
+      "tests": [
+        "base pin",
+        "rights filtering",
+        "concurrent session"
+      ]
+    },
+    {
+      "id": "CON-040",
+      "name": "ExternalEditorReturn",
+      "wave": 5,
+      "purpose": "Associate untrusted returns, tool/workfile metadata, dependency inventory, transformation declaration, portable representation, validation, and candidate admission.",
+      "authority": "canonical import evidence",
+      "status": "canonical+external inputs",
+      "depends_on": [
+        "CON-039",
+        "CON-035"
+      ],
+      "decision": "DEC-0047",
+      "fixtures": [
+        "two conflicting returns",
+        "missing dependency",
+        "unsupported effect"
+      ],
+      "tests": [
+        "checkout association",
+        "malware/format gate",
+        "no overwrite"
+      ]
+    },
+    {
+      "id": "CON-041",
+      "name": "InterchangeProfile",
+      "wave": 5,
+      "purpose": "Version mapping rules and capabilities for OTIO, USD, MaterialX, glTF, SVG, Astro, captions, print, and destinations.",
+      "authority": "canonical mutable standards profile",
+      "status": "canonical research-backed",
+      "depends_on": [],
+      "decision": "DEC-0047",
+      "fixtures": [
+        "OTIO",
+        "USD",
+        "Astro"
+      ],
+      "tests": [
+        "effective version",
+        "loss declarations",
+        "replacement"
+      ]
+    },
+    {
+      "id": "CON-042",
+      "name": "ConversionLossReport",
+      "wave": 5,
+      "purpose": "Declare preserved, transformed, omitted, approximated, and unsupported semantics in import/export/target conversion.",
+      "authority": "derived evidence",
+      "status": "evidence",
+      "depends_on": [
+        "CON-041"
+      ],
+      "decision": "DEC-0047",
+      "fixtures": [
+        "Kdenlive OTIO",
+        "Resolve Fusion loss",
+        "Godot target difference"
+      ],
+      "tests": [
+        "complete category set",
+        "source/target hash",
+        "human review trigger"
+      ]
+    },
+    {
+      "id": "CON-043",
+      "name": "EditorialHandoffPackage",
+      "wave": 5,
+      "purpose": "Package Storyworld editorial sequence, OTIO, media/proxies, captions, stems, settings, rights, and manifest for external editing.",
+      "authority": "derived signed package",
+      "status": "derived package",
+      "depends_on": [
+        "CON-013",
+        "CON-039",
+        "CON-041"
+      ],
+      "decision": "DEC-0047",
+      "fixtures": [
+        "Kdenlive",
+        "Resolve"
+      ],
+      "tests": [
+        "self-contained manifest",
+        "portable timeline",
+        "hash validation"
+      ]
+    },
+    {
+      "id": "CON-044",
+      "name": "EditorialReturnPackage",
+      "wave": 5,
+      "purpose": "Package returned OTIO, workfile, renders, stems, captions, change report, and loss report for reconciliation.",
+      "authority": "external evidence package",
+      "status": "external/evidence",
+      "depends_on": [
+        "CON-040",
+        "CON-042",
+        "CON-043"
+      ],
+      "decision": "DEC-0047",
+      "fixtures": [
+        "simple trim return",
+        "unsupported plugin return"
+      ],
+      "tests": [
+        "semantic diff",
+        "candidate admission",
+        "approval invalidation"
+      ]
+    },
+    {
+      "id": "CON-045",
+      "name": "ChannelPackage",
+      "wave": 6,
+      "purpose": "Extend existing channel package with exact content, metadata, disclosures, authority host, destination profile, validation, and approval state.",
+      "authority": "canonical approved package state",
+      "status": "canonical package",
+      "depends_on": [
+        "CON-041",
+        "CON-037"
+      ],
+      "decision": "DEC-0050",
+      "fixtures": [
+        "Astro site",
+        "Instagram carousel",
+        "X video",
+        "TikTok draft"
+      ],
+      "tests": [
+        "accepted inputs",
+        "destination conformance",
+        "material-change hash"
+      ]
+    },
+    {
+      "id": "CON-046",
+      "name": "PublicationAuthorization",
+      "wave": 6,
+      "purpose": "Human authorization of exact channel package, destination, authority host, metadata, disclosures, time, quota/cost, retry and failure policy.",
+      "authority": "canonical high-consequence human decision",
+      "status": "canonical",
+      "depends_on": [
+        "CON-045"
+      ],
+      "decision": "DEC-0050",
+      "fixtures": [
+        "scheduled Astro deploy",
+        "Instagram post",
+        "expired authorization"
+      ],
+      "tests": [
+        "actor authority",
+        "material-change invalidation",
+        "expiry"
+      ]
+    },
+    {
+      "id": "CON-047",
+      "name": "PublicationJob",
+      "wave": 6,
+      "purpose": "Mechanical scheduled execution of a still-valid authorization with revalidation, idempotency, pause/cancel, and unknown-outcome recovery.",
+      "authority": "canonical workflow record; no creative authority",
+      "status": "canonical workflow",
+      "depends_on": [
+        "CON-046"
+      ],
+      "decision": "DEC-0050",
+      "fixtures": [
+        "future schedule",
+        "duplicate callback",
+        "host outage"
+      ],
+      "tests": [
+        "strict revalidation",
+        "bounded retry",
+        "no package mutation"
+      ]
+    },
+    {
+      "id": "CON-048",
+      "name": "PublicationReceipt",
+      "wave": 6,
+      "purpose": "Record authority-host result, external IDs, exact submitted package, processing state, uncertainty, correction, withdrawal, and supersession.",
+      "authority": "external authority-host evidence",
+      "status": "evidence",
+      "depends_on": [
+        "CON-047"
+      ],
+      "decision": "DEC-0050",
+      "fixtures": [
+        "published",
+        "rejected",
+        "unknown",
+        "withdrawn"
+      ],
+      "tests": [
+        "external ID binding",
+        "status reconciliation",
+        "no invented success"
+      ]
+    },
+    {
+      "id": "CON-049",
+      "name": "CommerceFoundryBrief",
+      "wave": 6,
+      "purpose": "Versioned signed commercial brief with product snapshots, claims, offers, placement, rights, and commercial constraints.",
+      "authority": "external CF authority evidence",
+      "status": "external canonical to CF, evidence to Storyworld",
+      "depends_on": [],
+      "decision": "DEC-0051",
+      "fixtures": [
+        "campaign brief",
+        "print product brief"
+      ],
+      "tests": [
+        "signature",
+        "snapshot pins",
+        "inbox dedupe"
+      ]
+    },
+    {
+      "id": "CON-050",
+      "name": "StoryworldCommerceBundle",
+      "wave": 6,
+      "purpose": "Creatively/rights-approved assets, print-ready package, proofs, placement declarations, provenance and exact product snapshot refs submitted as commercial candidate.",
+      "authority": "derived Storyworld package, not commercial approval",
+      "status": "derived package",
+      "depends_on": [
+        "CON-045",
+        "CON-049"
+      ],
+      "decision": "DEC-0051",
+      "fixtures": [
+        "campaign bundle",
+        "print-ready bundle"
+      ],
+      "tests": [
+        "separate approval layers",
+        "claim snapshot",
+        "package hash"
+      ]
+    },
+    {
+      "id": "CON-051",
+      "name": "CommerceFoundryReceipt",
+      "wave": 6,
+      "purpose": "Normalize CF commercial findings, approval/rejection, vendor, order, fulfillment, publication, correction and withdrawal references.",
+      "authority": "external CF authority evidence",
+      "status": "evidence",
+      "depends_on": [
+        "CON-050"
+      ],
+      "decision": "DEC-0051",
+      "fixtures": [
+        "commercial rejection",
+        "vendor order",
+        "publication receipt"
+      ],
+      "tests": [
+        "authority host",
+        "idempotent inbox",
+        "no Storyworld invention"
+      ]
+    },
+    {
+      "id": "CON-052",
+      "name": "RuntimeContentPackage",
+      "wave": 6,
+      "purpose": "Target-neutral immutable authored content package pinned to canon/assets with no player-save state.",
+      "authority": "canonical release package",
+      "status": "canonical package",
+      "depends_on": [
+        "CON-019",
+        "CON-041"
+      ],
+      "decision": "DEC-0052",
+      "fixtures": [
+        "browser story",
+        "Godot mission"
+      ],
+      "tests": [
+        "no live state",
+        "source pins",
+        "target-neutral validation"
+      ]
+    },
+    {
+      "id": "CON-053",
+      "name": "RuntimeReceipt",
+      "wave": 6,
+      "purpose": "Record browser/Godot package acceptance, build/runtime version, validation, observations, analytics, and proposed changes.",
+      "authority": "external runtime authority evidence",
+      "status": "evidence",
+      "depends_on": [
+        "CON-052"
+      ],
+      "decision": "DEC-0052",
+      "fixtures": [
+        "accepted browser build",
+        "Godot rejection",
+        "hotfix observation"
+      ],
+      "tests": [
+        "package hash",
+        "save-state separation",
+        "no canon mutation"
+      ]
+    }
+  ]
+}

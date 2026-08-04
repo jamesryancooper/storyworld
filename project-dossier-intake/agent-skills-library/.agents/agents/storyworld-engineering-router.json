@@ -1,0 +1,116 @@
+{
+  "schema_version": "harness.agent.v1",
+  "id": "storyworld-engineering-router",
+  "version": "1.0.0",
+  "adoption_status": "generated_unadopted_baseline",
+  "adoption_decision_ref": null,
+  "permission_grant": false,
+  "purpose": "Constrained umbrella task mode that orients to Storyworld, classifies engineering work, selects the smallest applicable specialist skill chain, and requires evidence-backed closure.",
+  "scope": "current_task_within_storyworld_repository_only",
+  "authority": {
+    "source": "current_task_and_applicable_instructions",
+    "inherits_from": "current_task",
+    "may_expand": false
+  },
+  "side_effects": "repository_local_as_authorized_by_current_task",
+  "inputs": {
+    "required": [
+      "current_request",
+      "applicable_instructions",
+      "repository_revision"
+    ],
+    "optional": [
+      "task_record",
+      "accepted_decision_refs",
+      "staged_decision_refs",
+      "current_state_refs",
+      "coordination_lease"
+    ]
+  },
+  "outputs": {
+    "format": "routing_and_closure_package",
+    "required_fields": [
+      "routing_decision",
+      "skill_chain",
+      "authority_boundary",
+      "validation_plan",
+      "closure_status",
+      "limitations"
+    ],
+    "evidence_required": true
+  },
+  "skill_refs": [
+    "storyworld-engineering",
+    "storyworld-repository-orientation",
+    "storyworld-governed-change",
+    "storyworld-decision-impact-analysis",
+    "storyworld-dossier-intake-maintenance",
+    "storyworld-contract-authoring",
+    "storyworld-schema-evolution",
+    "storyworld-fixture-authoring",
+    "storyworld-poc-execution",
+    "storyworld-conformance-and-release",
+    "storyworld-creative-command-implementation",
+    "storyworld-voice-command",
+    "storyworld-cross-media-command",
+    "storyworld-creative-direction",
+    "storyworld-native-media-workspace",
+    "storyworld-annotation-target",
+    "storyworld-evaluation-layer",
+    "storyworld-studio-surface",
+    "storyworld-asset-custody-and-lineage",
+    "storyworld-rights-and-consent-review",
+    "storyworld-provider-adapter",
+    "storyworld-provider-model-evaluation",
+    "storyworld-comfyui-workflow",
+    "storyworld-deterministic-media-worker",
+    "storyworld-external-editor-connector",
+    "storyworld-otio-editorial-interchange",
+    "storyworld-publication-connector",
+    "storyworld-publication-scheduler",
+    "storyworld-commerce-foundry-bridge",
+    "storyworld-runtime-adapter",
+    "storyworld-cost-and-usage-accounting",
+    "storyworld-customer-managed-deployment",
+    "storyworld-security-review"
+  ],
+  "prohibited": [
+    "expanding_current_task_authority",
+    "implementing_without_routing_to_specialist_skill",
+    "accepting_or_ratifying_decisions_or_findings",
+    "performing_unapproved_external_effects",
+    "treating_staged_architecture_as_accepted_authority",
+    "claiming_completion_without_conformance_evidence"
+  ],
+  "validation": "python scripts/validate_library.py; Storyworld repository validators when installed",
+  "owner": "unassigned",
+  "provenance": {
+    "source": "storyworld_agent_skills_library",
+    "source_version": "1.0.0",
+    "source_fingerprint": "309af528a79d9a54bbc71df85168ff841ecdbc52fd307c1b2bffdd8f8c860318",
+    "generated_on": "2026-08-01",
+    "license_review": "not_assessed",
+    "security_review": "not_assessed",
+    "included_files": [
+      ".agents/agents/storyworld-engineering-router.json"
+    ],
+    "local_changes": [],
+    "exclusions": [
+      "project permissions",
+      "accepted decisions",
+      "production readiness",
+      "external authority"
+    ],
+    "trust_class": "generated_unadopted_capability",
+    "update_strategy": "explicit Storyworld project review and adoption decision"
+  },
+  "deprecated_at": null,
+  "removal_version": null,
+  "successor": null,
+  "limitations": [
+    "This generated router has not been reviewed or adopted by Storyworld.",
+    "It routes only and must not retain implementation work that belongs in a specialist skill.",
+    "Existing adopted and unadopted Storyworld capabilities must be rechecked at installation time.",
+    "No skill reference grants permission beyond the active task."
+  ]
+}

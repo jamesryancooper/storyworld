@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyworld Rights And Consent Review"
+  short_description: "Keep legal and ethical evidence separate from creative approval while..."
+  default_prompt: "Use $storyworld-rights-and-consent-review for this Storyworld task. Follow current repository governance, preserve Engine and human authority, use exact versions, and produce the required evidence without activating external crossings."

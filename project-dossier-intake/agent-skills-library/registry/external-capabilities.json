@@ -1,0 +1,38 @@
+{
+  "schema_version": "storyworld.skill-library.external-capabilities.v1",
+  "assessed_commit": "fc9b75b8ae3f28b4b9e13f5c0e31e9f2d24ad565",
+  "capabilities": [
+    {
+      "id": "storyworld-ux",
+      "kind": "skill",
+      "bundled": false,
+      "observed_status": "adopted",
+      "role": "Storyworld Studio UX auditing and implementation guidance; route user-facing Studio work here alongside domain skills.",
+      "coexistence": "Do not duplicate. The new storyworld-studio-surface skill focuses implementation authority/contracts and should consult storyworld-ux for UX evidence."
+    },
+    {
+      "id": "change-review",
+      "kind": "skill",
+      "bundled": false,
+      "observed_status": "generated_unadopted_baseline",
+      "role": "Read-only scoped patch/change review.",
+      "coexistence": "Use at conformance review if the project has dispositioned it; this library does not adopt it."
+    },
+    {
+      "id": "storyworld-steward",
+      "kind": "agent",
+      "bundled": false,
+      "observed_status": "adopted via DEC-0004",
+      "role": "Dossier integrity and contract-pack proposal stewardship.",
+      "coexistence": "The dossier-intake and contract skills may be referenced by a future successor, but do not replace the adopted agent automatically."
+    },
+    {
+      "id": "safe-change",
+      "kind": "workflow",
+      "bundled": false,
+      "observed_status": "generated_unadopted_baseline",
+      "role": "Generic repository-local safe change workflow.",
+      "coexistence": "storyworld-governed-build is a Storyworld-specific proposed successor/companion; compare and disposition deliberately."
+    }
+  ]
+}

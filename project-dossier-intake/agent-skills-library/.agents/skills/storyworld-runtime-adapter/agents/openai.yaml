@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyworld Runtime Adapter"
+  short_description: "Support interactive narrative delivery without making Storyworld a re..."
+  default_prompt: "Use $storyworld-runtime-adapter for this Storyworld task. Follow current repository governance, preserve Engine and human authority, use exact versions, and produce the required evidence without activating external crossings."
