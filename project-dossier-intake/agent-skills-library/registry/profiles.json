@@ -1,0 +1,252 @@
+{
+  "schema_version": "storyworld.skill-library.profiles.v1",
+  "count": 41,
+  "profiles": [
+    {
+      "skill_id": "storyworld-creative-direction",
+      "profile": "representation-style.md",
+      "path": ".agents/skills/storyworld-creative-direction/references/profiles/representation-style.md",
+      "summary": "Narrow representation style to medium, mark-making, form, texture, abstraction, modeling, shading, spatial depiction, and motion treatment; keep scene mood, lighting, composition, and grade in their own systems."
+    },
+    {
+      "skill_id": "storyworld-creative-direction",
+      "profile": "production-design.md",
+      "path": ".agents/skills/storyworld-creative-direction/references/profiles/production-design.md",
+      "summary": "Separate canonical place/object from production realization, set/location design, dressing, props, spatial layout, constraints, and continuity state."
+    },
+    {
+      "skill_id": "storyworld-creative-direction",
+      "profile": "directorial-intent.md",
+      "path": ".agents/skills/storyworld-creative-direction/references/profiles/directorial-intent.md",
+      "summary": "Model point of view, audience alignment, performance objective, revelation, staging, subject hierarchy, coverage rationale, image-sound relation, and scene rhythm."
+    },
+    {
+      "skill_id": "storyworld-creative-direction",
+      "profile": "cinematography-lighting-color.md",
+      "path": ".agents/skills/storyworld-creative-direction/references/profiles/cinematography-lighting-color.md",
+      "summary": "Separate camera/lens/framing/focus/movement, motivated lighting, narrative color design, grade intent, and technical color pipeline."
+    },
+    {
+      "skill_id": "storyworld-creative-direction",
+      "profile": "editorial-sound-music-graphics.md",
+      "path": ".agents/skills/storyworld-creative-direction/references/profiles/editorial-sound-music-graphics.md",
+      "summary": "Separate shot relation and montage, soundscape/dialogue/ambience, score and motif identity, and typography/layout/graphic systems."
+    },
+    {
+      "skill_id": "storyworld-native-media-workspace",
+      "profile": "image.md",
+      "path": ".agents/skills/storyworld-native-media-workspace/references/profiles/image.md",
+      "summary": "Native image generation/editing: variants, subject/object/background changes, appearance, relighting, reframing, canvas extension, identity/composition preservation, text repair, isolation, upscale, restoration, and multi-source composition."
+    },
+    {
+      "skill_id": "storyworld-native-media-workspace",
+      "profile": "video.md",
+      "path": ".agents/skills/storyworld-native-media-workspace/references/profiles/video.md",
+      "summary": "Native video: trim/split/insert/replace/reorder, J/L cuts, pacing, montage, transitions, alternate cuts, captions, sound/music placement, grade direction, generated inserts, rough cuts, and destination variants."
+    },
+    {
+      "skill_id": "storyworld-native-media-workspace",
+      "profile": "audio.md",
+      "path": ".agents/skills/storyworld-native-media-workspace/references/profiles/audio.md",
+      "summary": "Native audio: dialogue priority, region edits, ambience, room tone, fades, levels, noise/repair requests, cue placement, stems, and simple mix automation."
+    },
+    {
+      "skill_id": "storyworld-native-media-workspace",
+      "profile": "graphic.md",
+      "path": ".agents/skills/storyworld-native-media-workspace/references/profiles/graphic.md",
+      "summary": "Native graphics/layout: hierarchy, grids, type roles, text-image relationship, page/panel/card/carousel/title/caption layouts, safe areas, and destination adaptation."
+    },
+    {
+      "skill_id": "storyworld-native-media-workspace",
+      "profile": "spatial.md",
+      "path": ".agents/skills/storyworld-native-media-workspace/references/profiles/spatial.md",
+      "summary": "Native spatial planning: zones, routes, thresholds, sightlines, blocking, camera access, environmental clues, and medium/runtime realization."
+    },
+    {
+      "skill_id": "storyworld-annotation-target",
+      "profile": "image.md",
+      "path": ".agents/skills/storyworld-annotation-target/references/profiles/image.md",
+      "summary": "Point, rectangle, polygon, mask, layer, object, subject, and color/grade region selectors."
+    },
+    {
+      "skill_id": "storyworld-annotation-target",
+      "profile": "video.md",
+      "path": ".agents/skills/storyworld-annotation-target/references/profiles/video.md",
+      "summary": "Frame, time interval, shot, cut, transition, track, caption, and storyboard selectors with rational time."
+    },
+    {
+      "skill_id": "storyworld-annotation-target",
+      "profile": "audio.md",
+      "path": ".agents/skills/storyworld-annotation-target/references/profiles/audio.md",
+      "summary": "Time interval, track, stem, cue, speaker turn, and justified frequency-region selectors."
+    },
+    {
+      "skill_id": "storyworld-annotation-target",
+      "profile": "document-graph-spatial.md",
+      "path": ".agents/skills/storyworld-annotation-target/references/profiles/document-graph-spatial.md",
+      "summary": "Document range/semantic block, graph node/edge, timeline event, world coordinate, route, zone, and region selectors."
+    },
+    {
+      "skill_id": "storyworld-studio-surface",
+      "profile": "conversational-workspace.md",
+      "path": ".agents/skills/storyworld-studio-surface/references/profiles/conversational-workspace.md",
+      "summary": "Primary text/voice command, transcript, interpretation, context, plan, progress, steering, alternatives, and decision surface."
+    },
+    {
+      "skill_id": "storyworld-studio-surface",
+      "profile": "canvas-and-timeline.md",
+      "path": ".agents/skills/storyworld-studio-surface/references/profiles/canvas-and-timeline.md",
+      "summary": "Image canvas, semantic timeline, sequence preview, region/object/track selection, structured fallbacks, and precise adjustment."
+    },
+    {
+      "skill_id": "storyworld-studio-surface",
+      "profile": "operator-and-external-tools.md",
+      "path": ".agents/skills/storyworld-studio-surface/references/profiles/operator-and-external-tools.md",
+      "summary": "Advanced Operator Mode, provider execution inspector, external checkout/return, and version/loss inspection."
+    },
+    {
+      "skill_id": "storyworld-studio-surface",
+      "profile": "publishing-runtime-commerce.md",
+      "path": ".agents/skills/storyworld-studio-surface/references/profiles/publishing-runtime-commerce.md",
+      "summary": "Export, publication authorization, Commerce Foundry handoff, and runtime package/receipt surfaces without authority conflation."
+    },
+    {
+      "skill_id": "storyworld-provider-adapter",
+      "profile": "openrouter.md",
+      "path": ".agents/skills/storyworld-provider-adapter/references/profiles/openrouter.md",
+      "summary": "OpenRouter profile: named capability profiles; strict structured output; proposed tool calls only; provider allow/deny lists; ZDR/data-collection rules; fixed/no-fallback profiles; actual route/cost capture; user-supplied credentials first."
+    },
+    {
+      "skill_id": "storyworld-provider-adapter",
+      "profile": "fal.md",
+      "path": ".agents/skills/storyworld-provider-adapter/references/profiles/fal.md",
+      "summary": "fal profile: queue-first durable execution; persist request ID; webhook authentication/deduplication; poll recovery; cancellation; late-result quarantine; X-Fal-Store-IO policy; short-lived URLs; immediate custody; cost reconciliation."
+    },
+    {
+      "skill_id": "storyworld-provider-adapter",
+      "profile": "provider-boundary.md",
+      "path": ".agents/skills/storyworld-provider-adapter/references/profiles/provider-boundary.md",
+      "summary": "Canonical GenerationRecipe -> noncanonical ProviderExecutionPlan -> ProviderExecutionResult -> quarantine/candidate. Prompt, seed, model, workflow, LoRA, endpoint, upload URL, and provider safety parameters stay noncanonical."
+    },
+    {
+      "skill_id": "storyworld-comfyui-workflow",
+      "profile": "workflow-registration.md",
+      "path": ".agents/skills/storyworld-comfyui-workflow/references/profiles/workflow-registration.md",
+      "summary": "Stable Storyworld workflow ID, version, graph hash, capability, node packages, endpoint bindings, resource profile, evaluation, security class, status, rollback, and replacement."
+    },
+    {
+      "skill_id": "storyworld-comfyui-workflow",
+      "profile": "node-and-egress-security.md",
+      "path": ".agents/skills/storyworld-comfyui-workflow/references/profiles/node-and-egress-security.md",
+      "summary": "Dedicated service identity, no database credentials, immutable inputs, isolated outputs, deny-by-default egress, allowlisted endpoints/nodes, dependency pinning, time/resource limits, and redacted logs."
+    },
+    {
+      "skill_id": "storyworld-comfyui-workflow",
+      "profile": "hosted-endpoint-posture.md",
+      "path": ".agents/skills/storyworld-comfyui-workflow/references/profiles/hosted-endpoint-posture.md",
+      "summary": "Under current DEC-0012 posture, generative nodes call approved hosted endpoints; deterministic nodes may run in the controlled boundary. Local model weights require a successor decision."
+    },
+    {
+      "skill_id": "storyworld-deterministic-media-worker",
+      "profile": "ffmpeg.md",
+      "path": ".agents/skills/storyworld-deterministic-media-worker/references/profiles/ffmpeg.md",
+      "summary": "Decode/encode, trim/join, proxy, frame extraction, waveform source, subtitles, audio normalization, streaming, and technical transforms through approved argument templates\u2014not arbitrary shell strings."
+    },
+    {
+      "skill_id": "storyworld-deterministic-media-worker",
+      "profile": "openimageio.md",
+      "path": ".agents/skills/storyworld-deterministic-media-worker/references/profiles/openimageio.md",
+      "summary": "Robust image inspection, thumbnails, metadata, professional formats, malformed-input limits, and controlled image transforms."
+    },
+    {
+      "skill_id": "storyworld-deterministic-media-worker",
+      "profile": "opencolorio.md",
+      "path": ".agents/skills/storyworld-deterministic-media-worker/references/profiles/opencolorio.md",
+      "summary": "Pinned color configurations and transforms; separate authored ColorDesign/GradeIntent from technical input/display/output conversion."
+    },
+    {
+      "skill_id": "storyworld-deterministic-media-worker",
+      "profile": "mediainfo-clamav.md",
+      "path": ".agents/skills/storyworld-deterministic-media-worker/references/profiles/mediainfo-clamav.md",
+      "summary": "Normalized technical metadata and malware scanning before candidate admission."
+    },
+    {
+      "skill_id": "storyworld-deterministic-media-worker",
+      "profile": "libvips-sharp.md",
+      "path": ".agents/skills/storyworld-deterministic-media-worker/references/profiles/libvips-sharp.md",
+      "summary": "Fast routine web-image derivatives with explicit size, orientation, color, alpha, metadata, and output profiles."
+    },
+    {
+      "skill_id": "storyworld-external-editor-connector",
+      "profile": "blender.md",
+      "path": ".agents/skills/storyworld-external-editor-connector/references/profiles/blender.md",
+      "summary": "OpenUSD/MaterialX/glTF packages for 3D assets, scene realization, cameras, lighting, blocking, animation, compositing, runtime prep, dependency resolution, renders, and .blend workfile custody."
+    },
+    {
+      "skill_id": "storyworld-external-editor-connector",
+      "profile": "invokeai.md",
+      "path": ".agents/skills/storyworld-external-editor-connector/references/profiles/invokeai.md",
+      "summary": "Optional precision image finishing: exact image/reference checkout, masks/regional editing, fal-backed operations where applicable, return candidates, transformation declaration, re-evaluation, workfile/session preservation; no local weights under current posture."
+    },
+    {
+      "skill_id": "storyworld-external-editor-connector",
+      "profile": "kdenlive.md",
+      "path": ".agents/skills/storyworld-external-editor-connector/references/profiles/kdenlive.md",
+      "summary": "OTIO timeline plus media/proxies/captions/stems/settings and stable Storyworld IDs; return OTIO, .kdenlive workfile, renders, semantic diff, loss report, and malicious-project handling."
+    },
+    {
+      "skill_id": "storyworld-external-editor-connector",
+      "profile": "resolve.md",
+      "path": ".agents/skills/storyworld-external-editor-connector/references/profiles/resolve.md",
+      "summary": "Resolve Studio local connector, scripting API, project/bins/media/metadata, OTIO, color/Fusion/Fairlight/subtitle/render boundaries, project archive, return package, supported versions, and unknown-outcome recovery."
+    },
+    {
+      "skill_id": "storyworld-otio-editorial-interchange",
+      "profile": "kdenlive.md",
+      "path": ".agents/skills/storyworld-otio-editorial-interchange/references/profiles/kdenlive.md",
+      "summary": "Kdenlive import/export profile, project settings sidecar, marker-instance caveats, MLT/Kdenlive version support, security validation, returned render/workfile."
+    },
+    {
+      "skill_id": "storyworld-otio-editorial-interchange",
+      "profile": "resolve.md",
+      "path": ".agents/skills/storyworld-otio-editorial-interchange/references/profiles/resolve.md",
+      "summary": "Resolve Studio scripting and OTIO profile, project/bin metadata, application-specific workfile archive, color/Fusion/Fairlight losses, and connector recovery."
+    },
+    {
+      "skill_id": "storyworld-publication-connector",
+      "profile": "astro.md",
+      "path": ".agents/skills/storyworld-publication-connector/references/profiles/astro.md",
+      "summary": "Astro export-first profile: static content/assets/data, routes, metadata, accessibility, canonical links, disclosures, build validation, package hashes, and no implied deployment authorization."
+    },
+    {
+      "skill_id": "storyworld-publication-connector",
+      "profile": "instagram.md",
+      "path": ".agents/skills/storyworld-publication-connector/references/profiles/instagram.md",
+      "summary": "Instagram export then connector: aspect/codec/caption/accessibility/disclosure profiles, exact account/destination, media container/publish unknown outcomes, receipts, and withdrawal limits."
+    },
+    {
+      "skill_id": "storyworld-publication-connector",
+      "profile": "x.md",
+      "path": ".agents/skills/storyworld-publication-connector/references/profiles/x.md",
+      "summary": "X export/connector profile: media limits, text/thread metadata, accessibility, account authority, idempotency, rate limits, and receipts."
+    },
+    {
+      "skill_id": "storyworld-publication-connector",
+      "profile": "tiktok.md",
+      "path": ".agents/skills/storyworld-publication-connector/references/profiles/tiktok.md",
+      "summary": "TikTok export/connector profile: video/audio/caption/disclosure rules, destination account, upload/publish states, quota, unknown outcomes, and receipts."
+    },
+    {
+      "skill_id": "storyworld-runtime-adapter",
+      "profile": "browser.md",
+      "path": ".agents/skills/storyworld-runtime-adapter/references/profiles/browser.md",
+      "summary": "Browser-first interactive stories: portable web content, accessibility, offline/cache policy, sandboxing, URL/assets, save state, receipts, and analytics/proposals."
+    },
+    {
+      "skill_id": "storyworld-runtime-adapter",
+      "profile": "godot.md",
+      "path": ".agents/skills/storyworld-runtime-adapter/references/profiles/godot.md",
+      "summary": "Godot content bundle/import profile: resources, dialogue/quest/state package, assets, localization, import validation, runtime receipt, save state, and nonauthority."
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "schema_version": "harness.skill-provenance.v1",
+  "id": "storyworld-rights-and-consent-review",
+  "version": "1.0.0",
+  "adoption_status": "generated_unadopted_baseline",
+  "adoption_decision_ref": null,
+  "permission_grant": false,
+  "entrypoint": ".agents/skills/storyworld-rights-and-consent-review/SKILL.md",
+  "purpose": "Keep legal and ethical evidence separate from creative approval while preventing unauthorized provider transfers, generation, publication, and reuse.",
+  "scope": "current_task_within_storyworld_repository_only",
+  "authority": {
+    "source": "current_task_and_applicable_instructions",
+    "inherits_from": "current_task",
+    "may_expand": false
+  },
+  "side_effects": "repository_local_as_authorized_by_current_task",
+  "inputs": {
+    "required": [
+      "subject_or_asset_identity",
+      "rights_evidence",
+      "consent_state",
+      "intended_use",
+      "provider_or_destination"
+    ],
+    "optional": [
+      "counsel_review",
+      "territory_channel_duration_constraints",
+      "revocation_notice",
+      "disclosure_policy"
+    ]
+  },
+  "outputs": {
+    "format": "structured_skill_result",
+    "required_fields": [
+      "rights_record",
+      "consent_record",
+      "provider_egress_gate",
+      "findings",
+      "approval_invalidation",
+      "disclosure_requirements",
+      "review_request"
+    ],
+    "evidence_required": true
+  },
+  "prohibited": [
+    "Inventing consent",
+    "Sending real-person media to a provider without an effective gate",
+    "Auto-waiving rights blockers",
+    "Publishing after revocation or expiry"
+  ],
+  "validation": "python scripts/validate_library.py; repository-specific validators from .agent/validators.json when installed",
+  "owner": "unassigned",
+  "included_material": [
+    "Storyworld-specific engineering workflow",
+    "Authority and evidence boundaries",
+    "Skill-specific checklist and output contract",
+    "Adversarial failure cases",
+    "Traceability to proposed decisions, contracts, POCs, and repository paths"
+  ],
+  "provenance": {
+    "source": "storyworld_integration_architecture_package_and_current_repository_conventions",
+    "source_version": "2026-08-01",
+    "source_fingerprint": "309af528a79d9a54bbc71df85168ff841ecdbc52fd307c1b2bffdd8f8c860318",
+    "generated_on": "2026-08-01",
+    "license_review": "not_assessed",
+    "security_review": "not_assessed",
+    "included_files": [
+      ".agents/skills/storyworld-rights-and-consent-review/SKILL.md",
+      ".agents/skills/storyworld-rights-and-consent-review/agents/openai.yaml",
+      ".agents/skills/storyworld-rights-and-consent-review/references/provenance.json",
+      ".agents/skills/storyworld-rights-and-consent-review/references/checklist.md",
+      ".agents/skills/storyworld-rights-and-consent-review/references/output-contract.md",
+      ".agents/skills/storyworld-rights-and-consent-review/references/failure-cases.md"
+    ],
+    "local_changes": [],
+    "exclusions": [
+      "project permissions",
+      "accepted decision status",
+      "production readiness claims",
+      "live provider credentials",
+      "publication or deployment authority",
+      "third-party copyrighted books and media"
+    ],
+    "trust_class": "generated_unadopted_capability",
+    "update_strategy": "explicit Storyworld project review, semantic version bump, and adoption decision"
+  },
+  "deprecated_at": null,
+  "removal_version": null,
+  "successor": null,
+  "limitations": [
+    "This generated package has not been reviewed or adopted by the Storyworld project owner.",
+    "Repository paths, decisions, contracts, provider APIs, and validation commands must be rechecked against the installation revision.",
+    "Structural validation of this package does not establish security, legal, accessibility, production, or dependency suitability.",
+    "The skill grants no permission beyond the active task."
+  ]
+}

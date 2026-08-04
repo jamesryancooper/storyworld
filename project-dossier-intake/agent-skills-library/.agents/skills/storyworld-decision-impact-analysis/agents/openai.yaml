@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyworld Decision Impact Analysis"
+  short_description: "Prevent architecture and authority changes from entering through impl..."
+  default_prompt: "Use $storyworld-decision-impact-analysis for this Storyworld task. Follow current repository governance, preserve Engine and human authority, use exact versions, and produce the required evidence without activating external crossings."

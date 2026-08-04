@@ -19,6 +19,7 @@ The **Owner Decision Questionnaire** (`owner-input/storyworld-owner-decision-que
 | Artifact | Class | Status | Disposition target | Gating decision(s) |
 |---|---|---|---|---|
 | `owner-input/storyworld-owner-decision-questionnaire.md` | Owner input | **awaiting answers** | `project-dossier/` owner-input area (new registered dir) + decisions derived from answers | — (it gates the others) |
+| `product-definition/storyworld-purpose.md` | Product definition | **owner-review** | Canonical ch01 executive context and product direction; prominent Purpose or Product purpose section | Formal questionnaire sign-off; DEC-0039 intake ratification |
 | `product-definition/narrative-story-projects.md` | Product definition | draft | Canonical ch01 concept-map amendments + registered artifact | DEC-0029 |
 | `product-definition/narrative-taxonomy.md` | Product definition | draft | Canonical product-direction section + registered artifact | DEC-0030 |
 | `product-definition/narrative-building-blocks.md` | Product definition | draft | Registered artifact (taxonomy companion) | DEC-0030 |
@@ -37,6 +38,7 @@ The **Owner Decision Questionnaire** (`owner-input/storyworld-owner-decision-que
 | `draft-decisions/` (11 drafts, DEC-0029…DEC-0039) | Draft decisions | draft | `.agent/decisions/` upon owner disposition | each individually |
 | `canonical-impact-map.md` | Integration plan | draft | Executed during disposition; then archived with the package | DEC-0039 |
 | `process/updating-project-dossier.md` | Process guidance | stable | Archived with the package (its principles are already reflected in this structure) | — |
+| `process/engineering-instruction-expand-creative-media-foundation.md` | Engineering instruction | draft | Future staged reassessment package; preserve as intake evidence until separately dispositioned | Explicit owner authorization; accepted decisions remain controlling |
 | `readme.md` (this file) | Manifest | living | Archived with the package | — |
 
 ## Draft decisions index

@@ -1,0 +1,214 @@
+{
+  "schema_version": "harness.workflow.v1",
+  "id": "storyworld-integration-adoption",
+  "version": "1.0.0",
+  "adoption_status": "generated_unadopted_baseline",
+  "adoption_decision_ref": null,
+  "permission_grant": false,
+  "purpose": "Assess and adopt a bounded external repository, standard, provider, tool, or dependency behind a Storyworld-owned interface and exit strategy.",
+  "scope": "authorized_integration_research_and_adoption_task",
+  "authority": {
+    "source": "current_task_and_applicable_instructions",
+    "inherits_from": "current_task",
+    "may_expand": false
+  },
+  "side_effects": "repository_local_as_authorized_by_current_task",
+  "inputs": {
+    "required": [
+      "integration_candidate",
+      "storyworld_capability_need",
+      "license_and_security_scope",
+      "governing_decision"
+    ],
+    "optional": [
+      "poc_results",
+      "alternative_candidates",
+      "operational_profile"
+    ]
+  },
+  "outputs": {
+    "format": "task_and_evidence_records",
+    "required_fields": [
+      "candidate_assessment",
+      "storyworld_abstraction",
+      "poc_evidence",
+      "adoption_or_rejection_decision_draft",
+      "exit_strategy"
+    ],
+    "evidence_required": true
+  },
+  "prohibited": [
+    "expanding_current_task_authority",
+    "performing_unapproved_external_effects",
+    "closing_without_required_evidence",
+    "overwriting_unrelated_work",
+    "accepting_or_ratifying_own_decisions_or_findings",
+    "adopting_entire_product_when_bounded_component_is_sufficient"
+  ],
+  "initial_state": "research",
+  "cancellation_state": "cancelled",
+  "states": [
+    {
+      "id": "research",
+      "kind": "action",
+      "requires": [
+        "integration_candidate"
+      ],
+      "actions": [
+        "inspect_primary_sources_and_source_code",
+        "record_revision_release_license_maintenance"
+      ],
+      "agent_ref": "storyworld-engineering-router",
+      "gate": null,
+      "on_success": "boundary",
+      "on_failure": "blocked",
+      "on_actionable_findings": null
+    },
+    {
+      "id": "boundary",
+      "kind": "action",
+      "requires": [
+        "research_evidence"
+      ],
+      "actions": [
+        "define_storyworld_owned_interface",
+        "identify_authority_and_data_model_conflicts"
+      ],
+      "agent_ref": "storyworld-engineering-router",
+      "gate": "storyworld_semantics_preserved",
+      "on_success": "risk",
+      "on_failure": "blocked",
+      "on_actionable_findings": null
+    },
+    {
+      "id": "risk",
+      "kind": "review",
+      "requires": [
+        "boundary_design"
+      ],
+      "actions": [
+        "run_license_security_privacy_accessibility_and_operational_review"
+      ],
+      "agent_ref": "storyworld-engineering-router",
+      "gate": null,
+      "on_success": "poc",
+      "on_failure": "rejected",
+      "on_actionable_findings": "boundary"
+    },
+    {
+      "id": "poc",
+      "kind": "action",
+      "requires": [
+        "risk_review"
+      ],
+      "actions": [
+        "run_disposable_poc_with_replacement_test"
+      ],
+      "agent_ref": "storyworld-engineering-router",
+      "gate": null,
+      "on_success": "decision",
+      "on_failure": "rejected",
+      "on_actionable_findings": null
+    },
+    {
+      "id": "decision",
+      "kind": "review",
+      "requires": [
+        "poc_evidence"
+      ],
+      "actions": [
+        "prepare_adopt_adapt_defer_or_reject_decision"
+      ],
+      "agent_ref": "storyworld-engineering-router",
+      "gate": null,
+      "on_success": "ready-for-owner",
+      "on_failure": "rejected",
+      "on_actionable_findings": "poc"
+    },
+    {
+      "id": "ready-for-owner",
+      "kind": "terminal",
+      "requires": [],
+      "actions": [],
+      "agent_ref": null,
+      "gate": null,
+      "on_success": null,
+      "on_failure": null,
+      "on_actionable_findings": null
+    },
+    {
+      "id": "rejected",
+      "kind": "terminal",
+      "requires": [],
+      "actions": [],
+      "agent_ref": null,
+      "gate": null,
+      "on_success": null,
+      "on_failure": null,
+      "on_actionable_findings": null
+    },
+    {
+      "id": "blocked",
+      "kind": "terminal",
+      "requires": [],
+      "actions": [],
+      "agent_ref": null,
+      "gate": null,
+      "on_success": null,
+      "on_failure": null,
+      "on_actionable_findings": null
+    },
+    {
+      "id": "cancelled",
+      "kind": "terminal",
+      "requires": [],
+      "actions": [],
+      "agent_ref": null,
+      "gate": null,
+      "on_success": null,
+      "on_failure": null,
+      "on_actionable_findings": null
+    }
+  ],
+  "terminal_states": [
+    "ready-for-owner",
+    "rejected",
+    "blocked",
+    "cancelled"
+  ],
+  "invariants": [
+    "external_private_format_never_becomes_storyworld_contract",
+    "adoption_requires_exit_strategy",
+    "license_and_security_review_precede_dependency",
+    "poc_does_not_adopt"
+  ],
+  "validation": "python scripts/validate_library.py; Storyworld repository validators when installed",
+  "owner": "unassigned",
+  "provenance": {
+    "source": "storyworld_agent_skills_library",
+    "source_version": "1.0.0",
+    "source_fingerprint": "309af528a79d9a54bbc71df85168ff841ecdbc52fd307c1b2bffdd8f8c860318",
+    "generated_on": "2026-08-01",
+    "license_review": "not_assessed",
+    "security_review": "not_assessed",
+    "included_files": [
+      ".agents/workflows/storyworld-integration-adoption.json"
+    ],
+    "local_changes": [],
+    "exclusions": [
+      "project permissions",
+      "accepted decisions",
+      "readiness claims",
+      "external authority"
+    ],
+    "trust_class": "generated_unadopted_capability",
+    "update_strategy": "explicit Storyworld project review and adoption decision"
+  },
+  "deprecated_at": null,
+  "removal_version": null,
+  "successor": null,
+  "limitations": [
+    "Owner disposition and repository adoption records remain outside this workflow.",
+    "Maintenance and license facts must be rechecked at decision time."
+  ]
+}

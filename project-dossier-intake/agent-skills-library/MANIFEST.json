@@ -1,0 +1,1786 @@
+{
+  "schema_version": "storyworld.skill-library.manifest.v1",
+  "library_version": "1.0.0",
+  "generated_on": "2026-08-01",
+  "assessed_storyworld_commit": "fc9b75b8ae3f28b4b9e13f5c0e31e9f2d24ad565",
+  "source_fingerprint": "309af528a79d9a54bbc71df85168ff841ecdbc52fd307c1b2bffdd8f8c860318",
+  "status": "generated_unadopted_library",
+  "permission_grant": false,
+  "skill_count": 33,
+  "workflow_count": 5,
+  "agent_count": 1,
+  "profile_count": 41,
+  "payload_file_count": 295,
+  "files": [
+    {
+      "path": ".agents/README.md",
+      "size_bytes": 815,
+      "sha256": "bfce47f7de6fa53252f48d0adb3ab9416393cde1b6dda587eb14415b04dd085a",
+      "category": "root-document"
+    },
+    {
+      "path": ".agents/agents/storyworld-engineering-router.json",
+      "size_bytes": 4164,
+      "sha256": "cd6277893ded8bc73643e7aab308d43a6509a9f6ad3860bb6c6a056978dd4b74",
+      "category": "agent"
+    },
+    {
+      "path": ".agents/skills/storyworld-annotation-target/SKILL.md",
+      "size_bytes": 6490,
+      "sha256": "e8dff7b19d63d33268dcf50cf120cc12c0ba8d8376085fac6c2a4b7bb83d30b6",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-annotation-target/agents/openai.yaml",
+      "size_bytes": 402,
+      "sha256": "122a378500133ce603b61e94c9087f3b558c8e92798f9e42cf7170b39a049494",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-annotation-target/references/checklist.md",
+      "size_bytes": 2568,
+      "sha256": "d426617ca5198e16f0f1ac33535a2b424a532f784b4938811c6ac918ac7fabb9",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-annotation-target/references/failure-cases.md",
+      "size_bytes": 1755,
+      "sha256": "48344b5fc1e5dfe42a5d3a31d6e396b00610ff1465365e705e4bf89023c15f8d",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-annotation-target/references/output-contract.md",
+      "size_bytes": 1504,
+      "sha256": "7dd00ded1276e41503f80b7c304b845b235602bbc21d9c327d489bd271047b5b",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-annotation-target/references/profiles/audio.md",
+      "size_bytes": 1158,
+      "sha256": "b6e30bf50900a971c74fe1b38f1732c81a024850db78bd5747777f6850a3a93a",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-annotation-target/references/profiles/document-graph-spatial.md",
+      "size_bytes": 1203,
+      "sha256": "de676b30f26e37c5d9d9b41350978fd3e7a0616f96c28268b8fa66e17417883a",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-annotation-target/references/profiles/image.md",
+      "size_bytes": 1160,
+      "sha256": "9a6fea79f386a1f3e4528ec9738a6167f163d1ab183644a6548ea790276e1da8",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-annotation-target/references/profiles/video.md",
+      "size_bytes": 1175,
+      "sha256": "47a2d567505eb0da2b091fd8c57523ef7e1aab3c4a5a9a8e78f1ac4e8f070a5a",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-annotation-target/references/provenance.json",
+      "size_bytes": 4309,
+      "sha256": "dbc00dc81a1e2407bb9ada7c6f0c4bca6709919be2fc7f6eb062c393d1c91931",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-asset-custody-and-lineage/SKILL.md",
+      "size_bytes": 6263,
+      "sha256": "06b9d7275659ec47f70ca048ea90cfb6f46dc6cfcf0b29b64cedf5ba7a9c08fe",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-asset-custody-and-lineage/agents/openai.yaml",
+      "size_bytes": 418,
+      "sha256": "8ccae48576e237f428bcb55cdc18723093baece2394c545edad037f047e72dfc",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-asset-custody-and-lineage/references/checklist.md",
+      "size_bytes": 2821,
+      "sha256": "f08c0fcc67dc69eb5cdd29ea06593ce2b0c72671e227adc07867e30d17e0e8a6",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-asset-custody-and-lineage/references/failure-cases.md",
+      "size_bytes": 1595,
+      "sha256": "bf2a57f0e405696592785a22084ac7e43a0bcebcb622fa7637df12a04acf4bd6",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-asset-custody-and-lineage/references/output-contract.md",
+      "size_bytes": 1508,
+      "sha256": "ba8cbe347b6816bdc1efad6dc4f49d2e95ecb3f08d6f478071a11d9a974587f3",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-asset-custody-and-lineage/references/provenance.json",
+      "size_bytes": 3859,
+      "sha256": "27cf117512b6e9640bd0eb2f61b19d778e893a51102b4d9a07af068f4b662870",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-comfyui-workflow/SKILL.md",
+      "size_bytes": 6890,
+      "sha256": "c612878dc2a5bfd7bfb20f71fcce479a1a35791eb96f47479a547ea329184bc0",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-comfyui-workflow/agents/openai.yaml",
+      "size_bytes": 400,
+      "sha256": "d090d306afebe619bba734536dec1340bb2e021ebbe70138ee45998b96664e72",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-comfyui-workflow/references/checklist.md",
+      "size_bytes": 2739,
+      "sha256": "7466fc195db0efe3ab707fd22e11bc11a5279e3140ac01327b3eea48864a3133",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-comfyui-workflow/references/failure-cases.md",
+      "size_bytes": 1607,
+      "sha256": "e114c2587bf3f8a90169287fc797e618a1247b885a83d348ff59422333bb9c28",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-comfyui-workflow/references/output-contract.md",
+      "size_bytes": 1512,
+      "sha256": "f82d9376f92d23e50c77b345f84e8e16c0370d1124dd024da4b9e9da475a87ff",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-comfyui-workflow/references/profiles/hosted-endpoint-posture.md",
+      "size_bytes": 1367,
+      "sha256": "997b9454bdd3c87f01493e050974cc7c39f5918de7ecac426bbf87903c56abf3",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-comfyui-workflow/references/profiles/node-and-egress-security.md",
+      "size_bytes": 1602,
+      "sha256": "ebfcc0bf8fca025301e58d41cf62ff7da8e1dd8ed7376c91032e25f867528aea",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-comfyui-workflow/references/profiles/workflow-registration.md",
+      "size_bytes": 1706,
+      "sha256": "0fc0573d4826a882a90f4f5a6ad0d67ea9043d159b5dfc6b5259a0c46e4e407e",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-comfyui-workflow/references/provenance.json",
+      "size_bytes": 4171,
+      "sha256": "3af275fbec19f2db607140e48c6b29c2fa53a1c413a47edf7ed0fbc40525d58e",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-commerce-foundry-bridge/SKILL.md",
+      "size_bytes": 6235,
+      "sha256": "4a3331cedfa22fa78056d485c82eaad2ab104a2125858cc4d9eb6bb7b073eb3f",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-commerce-foundry-bridge/agents/openai.yaml",
+      "size_bytes": 413,
+      "sha256": "11a5e4f9330fdd3f8722922fe37bc3507060387da4ff80f33c7eb8ebf420288b",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-commerce-foundry-bridge/references/checklist.md",
+      "size_bytes": 2723,
+      "sha256": "c4f076edd52483a6c609b28bcd2ba3b3ad9beb4a7e961b5ce9a27abd97cf6c80",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-commerce-foundry-bridge/references/failure-cases.md",
+      "size_bytes": 1610,
+      "sha256": "34f20cf51dfb538e67c6af0f56ae5d646acd516b1ce9d940a06d1dd993cdb8aa",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-commerce-foundry-bridge/references/output-contract.md",
+      "size_bytes": 1525,
+      "sha256": "d5c42cc68ad55cc799c3730149a28ba515b5c5e40cb70f51dceba02cf225a9fb",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-commerce-foundry-bridge/references/provenance.json",
+      "size_bytes": 3887,
+      "sha256": "03f5406e6e90b0daabf138fccccc51005f5ca7a5c28c3247353fa6ab62ca8c71",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-conformance-and-release/SKILL.md",
+      "size_bytes": 5736,
+      "sha256": "1511f389921770f815e097a3790e7f92e66dd9d47034e362ef9e1df38d86dd82",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-conformance-and-release/agents/openai.yaml",
+      "size_bytes": 414,
+      "sha256": "3da4cd7dee81752a5c278d97475a45f2714f3f5f650103d89821912a968e1baa",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-conformance-and-release/references/checklist.md",
+      "size_bytes": 2597,
+      "sha256": "495f83d14bbd32c49b8b51d96687510d9a68a0c7010c39db177be6415fb028dd",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-conformance-and-release/references/failure-cases.md",
+      "size_bytes": 1521,
+      "sha256": "7962d1217350d6f9a73f85e2c5cf556b236d3cb82dbae4f0d1cc5ecb7324cf2a",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-conformance-and-release/references/output-contract.md",
+      "size_bytes": 1518,
+      "sha256": "62ac0de0c088e6248b4e165a675eff2e78926aef3d4a107579b979df93a9446b",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-conformance-and-release/references/provenance.json",
+      "size_bytes": 3782,
+      "sha256": "9cc604ff4504f504f056592439e3e25c8a11fd3471d2cfea4d35e568fcc52115",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-contract-authoring/SKILL.md",
+      "size_bytes": 6125,
+      "sha256": "1cd32335554df5f6ef620f2429216787b52c40ebd3dfef2353564239bd52153b",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-contract-authoring/agents/openai.yaml",
+      "size_bytes": 404,
+      "sha256": "64b06880bb722d7110e02c93ed2b7d3964c2fab8ec77a5285ef6c4493681cee2",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-contract-authoring/references/checklist.md",
+      "size_bytes": 2683,
+      "sha256": "6260f1d0749462018c49594edfa9f151fb123c7409e3508b1dd80f1093dced43",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-contract-authoring/references/failure-cases.md",
+      "size_bytes": 1756,
+      "sha256": "89581e5e3481ec6b2b649bc581b1fe7d30cfc6b1e1aae6135dee679de6aa1c14",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-contract-authoring/references/output-contract.md",
+      "size_bytes": 1485,
+      "sha256": "a1afe3cf02b40113084c875f719d6bd39499e8955c09bfa4d702c5d1e11a0197",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-contract-authoring/references/provenance.json",
+      "size_bytes": 3962,
+      "sha256": "914052aff7bbd915a33b2bfbe12c51a5a86c14cf4a0a92fa173c7440a3d03875",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-cost-and-usage-accounting/SKILL.md",
+      "size_bytes": 5803,
+      "sha256": "d2575a0a8fa82efea9041e0222013afd293596cd4fcbe6787b8595f8d639a575",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-cost-and-usage-accounting/agents/openai.yaml",
+      "size_bytes": 418,
+      "sha256": "c411509efa0f545625736de7db5db0c15d16a8905619bc4a34f099e4a18389a9",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-cost-and-usage-accounting/references/checklist.md",
+      "size_bytes": 2593,
+      "sha256": "cdc15d328fc2a3aadcb3086ef9dc1942584e7e811e69a5b4431d09c8263849a5",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-cost-and-usage-accounting/references/failure-cases.md",
+      "size_bytes": 1562,
+      "sha256": "41b199ef216ff9c2421c20c2a9082ee967d70d73c5576123c2a73392c3b69071",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-cost-and-usage-accounting/references/output-contract.md",
+      "size_bytes": 1516,
+      "sha256": "50ab76cd05fbb8f15c2706023cec471f72e390b9cb2a266203ec028790e1e4e5",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-cost-and-usage-accounting/references/provenance.json",
+      "size_bytes": 3779,
+      "sha256": "8de7cee55dc7334a1223045766d3b2625b7b934e2773b3fc967687f5b3b4a613",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-creative-command-implementation/SKILL.md",
+      "size_bytes": 6398,
+      "sha256": "e553585cabd5c4ba43885043d3e3a36309fb6e660d7085cae6975fa5d7a11f95",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-creative-command-implementation/agents/openai.yaml",
+      "size_bytes": 430,
+      "sha256": "c18d3eeab1b3043519e5e6a1dadc23eac5c83ec55b98276fd405bff0a9731ec1",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-creative-command-implementation/references/checklist.md",
+      "size_bytes": 2934,
+      "sha256": "e800ce75b2a5a3a03d2cd42e30b3fdeb91c7309496ced9cf3fe113138d0f00b6",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-creative-command-implementation/references/failure-cases.md",
+      "size_bytes": 1603,
+      "sha256": "381bf3c41e79efb360b898600fc9fe132adfbb0a5ac68be3a3a5c53c49649d29",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-creative-command-implementation/references/output-contract.md",
+      "size_bytes": 1522,
+      "sha256": "38710951161c17972716c431c0b5d770e8b8efe6d8ebff9717eeb0f36735cee9",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-creative-command-implementation/references/provenance.json",
+      "size_bytes": 3948,
+      "sha256": "3a15f9e0955eb2416aa0565255b9221ae5fab0bea3bf84fab6052be7fec86ad0",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-creative-direction/SKILL.md",
+      "size_bytes": 7680,
+      "sha256": "014c2b5d917fc99088659cc7ae7ec89a88cfe7b2aae86929fb54d3b945ddf5b2",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-creative-direction/agents/openai.yaml",
+      "size_bytes": 404,
+      "sha256": "47188dd5b37a5fe11de5acb21f79fe2aac9c5ff88075ed34129ba2d7147ed8da",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-creative-direction/references/checklist.md",
+      "size_bytes": 2974,
+      "sha256": "37f543761c435052837de057c6ee04bdd24a89e4a49c9919c61c6cc6b917d785",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-creative-direction/references/failure-cases.md",
+      "size_bytes": 1613,
+      "sha256": "747dbfa65888b509161cba793c552d6a319bc99fbeb3e436f180e06412c0e8f7",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-creative-direction/references/output-contract.md",
+      "size_bytes": 1540,
+      "sha256": "74c4b6b286eec7b0a387faa77018f02093e62a1844f4fa2ce73da853f006b2ec",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-creative-direction/references/profiles/cinematography-lighting-color.md",
+      "size_bytes": 1227,
+      "sha256": "d6c9128905b43e9cf9c0b03bbb9da4984784db4a9c9f0f406ec45074fb26bb24",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-creative-direction/references/profiles/directorial-intent.md",
+      "size_bytes": 1247,
+      "sha256": "bb9504880c52e53e082a3d3b0cf102b273124b3c9e08d9cc86ea737909a2d3d0",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-creative-direction/references/profiles/editorial-sound-music-graphics.md",
+      "size_bytes": 1226,
+      "sha256": "0ef5fa534fbad3e6db49eb20480492b503f3383f87ce61645f90fe2f6426c424",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-creative-direction/references/profiles/production-design.md",
+      "size_bytes": 1232,
+      "sha256": "b1ee05dd2fb7597f70334bdcbfe3e2e65549e5f9967c7774a9e1ae32601f88e0",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-creative-direction/references/profiles/representation-style.md",
+      "size_bytes": 1297,
+      "sha256": "edf6ebc35d717ebc064e8e53ff54ac5c7262ecef27ac2b7c74bafbc8873e2dd8",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-creative-direction/references/provenance.json",
+      "size_bytes": 4406,
+      "sha256": "7408ae310f84570bdf5964c68439c3c8ef66edd8a2410f39d2946112f31cec15",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-cross-media-command/SKILL.md",
+      "size_bytes": 6073,
+      "sha256": "aa02ac53f8b612582a9e1688a9317eb563aea36100edcfcd0a0bf9f64a9f9f48",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-cross-media-command/agents/openai.yaml",
+      "size_bytes": 406,
+      "sha256": "c2a500344c76899d5dc802b0db4beb621a7b170eb27c06d5f64178cb0766043d",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-cross-media-command/references/checklist.md",
+      "size_bytes": 2583,
+      "sha256": "76720053832a5c79571d0c63f332c67769630479b55a4f7d2325a87905e39789",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-cross-media-command/references/failure-cases.md",
+      "size_bytes": 1757,
+      "sha256": "db12d06c46ff71ebded8b88b62d3ce6c4e07d1eebb02c1ffca4c9061d75c2e67",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-cross-media-command/references/output-contract.md",
+      "size_bytes": 1524,
+      "sha256": "2632d9d87235ddb225832a816a21cc08d6e8d46cd88ed6b9237f25db5a6b2caf",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-cross-media-command/references/provenance.json",
+      "size_bytes": 3966,
+      "sha256": "4051492f5880a4e9433ffffe4d86b55c46d7a84bef67da041571f7a23522acb3",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-customer-managed-deployment/SKILL.md",
+      "size_bytes": 6101,
+      "sha256": "59926d72f9434ba435f38918291dccf25f8cceb99215d772437e9649fd5f93bb",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-customer-managed-deployment/agents/openai.yaml",
+      "size_bytes": 422,
+      "sha256": "07f740269eb465fc18b16995af98c5624c86f0962f93a782ce9df5e46e4506bf",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-customer-managed-deployment/references/checklist.md",
+      "size_bytes": 2683,
+      "sha256": "d88ca8ea598b4e7b8f1b082e5ad18ad10b4f7bf230f1d8bac003f5d81b2a97da",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-customer-managed-deployment/references/failure-cases.md",
+      "size_bytes": 1599,
+      "sha256": "664b7aebc04b55535f0537f8525393297578530a04b2b112aa9435711207ab97",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-customer-managed-deployment/references/output-contract.md",
+      "size_bytes": 1539,
+      "sha256": "76fd06f8e6ec1c4490d4e145db5fc3e3065569cc63346974aa792b06b42c3b14",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-customer-managed-deployment/references/provenance.json",
+      "size_bytes": 3968,
+      "sha256": "0604d889e22281e0b60890aff641b79c0889988b7e1a5b182342c38709fa7976",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-decision-impact-analysis/SKILL.md",
+      "size_bytes": 5843,
+      "sha256": "c187641f659ae067134ff96d71885c58cada6e590d9cec0d465ce54f1beea126",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-decision-impact-analysis/agents/openai.yaml",
+      "size_bytes": 416,
+      "sha256": "6c8cee9850f8f06fbeb4fcd2462cab4eb78c1a08788741b6d0df8a02ce6d2a61",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-decision-impact-analysis/references/checklist.md",
+      "size_bytes": 2547,
+      "sha256": "e41dfda13398af0604a4735c8f7f1d8cca9a210ff990edec0061ecfc712afdce",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-decision-impact-analysis/references/failure-cases.md",
+      "size_bytes": 1528,
+      "sha256": "fb0a9437edaa2529d6121c16d18d9b4db4b04f15568ef08482a02f609c57e8f3",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-decision-impact-analysis/references/output-contract.md",
+      "size_bytes": 1513,
+      "sha256": "17939e52b7a374c11e0107f92bdeb963ed8f459b59135705474cf906b1d1a24c",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-decision-impact-analysis/references/provenance.json",
+      "size_bytes": 3713,
+      "sha256": "4e59c5f42f215e97f58c12479c7adbdc19d062ba85cef736fb1297b9e866bcef",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-deterministic-media-worker/SKILL.md",
+      "size_bytes": 6871,
+      "sha256": "0c8abb9ba6625eaf74dbc7187d58025cbeb8306cf76775d5f7a701a258916fc7",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-deterministic-media-worker/agents/openai.yaml",
+      "size_bytes": 420,
+      "sha256": "b7bce572e0954a0931e34fd7edd68be050fa61e85250bba14c435f4294f3c32c",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-deterministic-media-worker/references/checklist.md",
+      "size_bytes": 2684,
+      "sha256": "003c56a918cb3e617880b194f5ad1902ac89b47f45c6bca153d06796e76f0114",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-deterministic-media-worker/references/failure-cases.md",
+      "size_bytes": 1618,
+      "sha256": "867c3e02dd49c5e7a0ae3db83e8c073ddcf9a0cfef3248e5cff8c782f58751b8",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-deterministic-media-worker/references/output-contract.md",
+      "size_bytes": 1510,
+      "sha256": "9cfc07d4e0929fceef77aa382018b2c2ce3c208640f39ecfd0cf05030d4f419a",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-deterministic-media-worker/references/profiles/ffmpeg.md",
+      "size_bytes": 1649,
+      "sha256": "e0045496f3b08ed647359a67be9e95b7cc25cfec3d941bf68c3d50c05bad7336",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-deterministic-media-worker/references/profiles/libvips-sharp.md",
+      "size_bytes": 1261,
+      "sha256": "824999ce19f0c8d364e3eecac14ffd7d940f8e37df3b634ed02fb380632932ef",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-deterministic-media-worker/references/profiles/mediainfo-clamav.md",
+      "size_bytes": 1325,
+      "sha256": "57ed18e7a307b09daefa6e22cdd7416d86d95bd6db5b50cb569b20fe38afe657",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-deterministic-media-worker/references/profiles/opencolorio.md",
+      "size_bytes": 1443,
+      "sha256": "3474a56a12df7c4ff52156a5a5b20572933391c2620b62bf137f9ba2194d7ae4",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-deterministic-media-worker/references/profiles/openimageio.md",
+      "size_bytes": 1285,
+      "sha256": "722bb029b409f44846a76b6e3659f52ce2ba830d28597e028833eca5842a6efe",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-deterministic-media-worker/references/provenance.json",
+      "size_bytes": 4398,
+      "sha256": "65fef1425c8c98bb8bf2f79a1855ce6f428515daa0d04bc91c803b31c7889038",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-dossier-intake-maintenance/SKILL.md",
+      "size_bytes": 5930,
+      "sha256": "e56d041ce2e1c2023bdf8a02064b8a9403a3d3e6f94007e6c1f700b44ce44abd",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-dossier-intake-maintenance/agents/openai.yaml",
+      "size_bytes": 420,
+      "sha256": "253c810c6ff107b3b724239e2517cff879ffe027e54fb8647e04d7b739d15362",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-dossier-intake-maintenance/references/checklist.md",
+      "size_bytes": 2547,
+      "sha256": "d3160edfe5aa2a44945d2ad725fd72708a40364c472c285c6efd586aa4c2242d",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-dossier-intake-maintenance/references/failure-cases.md",
+      "size_bytes": 1604,
+      "sha256": "639059bba15e3bdf01529b4e8cca1836150f2babf9cc3289b6de7f04b7cf423d",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-dossier-intake-maintenance/references/output-contract.md",
+      "size_bytes": 1501,
+      "sha256": "a8c7e57b3f5ce44bc53d09292cd783a4f6441f081318dde65c0cba1156671518",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-dossier-intake-maintenance/references/provenance.json",
+      "size_bytes": 3747,
+      "sha256": "a87dad22f9db8b56e4cda5ff0143c230b54f1c79ffc2456d95e3ff7368c59ff4",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-engineering/SKILL.md",
+      "size_bytes": 6710,
+      "sha256": "6592aa21c69983a222e8c22ac373b1899ad2d30d0ad70e98692bb322217027f6",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-engineering/agents/openai.yaml",
+      "size_bytes": 390,
+      "sha256": "648cf80ae67adf4f4bf766902143ea3d6a6642c6f763705df5ad0f5e13d7936a",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-engineering/references/checklist.md",
+      "size_bytes": 2626,
+      "sha256": "ebc9b6aa8e314d1a2efe32ecb943d2bbc45280fb918957995fc688f9930c548b",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-engineering/references/failure-cases.md",
+      "size_bytes": 1749,
+      "sha256": "bd7149235475a73057f74af16df978675744c0b3ef5c8fdded96d191e077b13d",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-engineering/references/output-contract.md",
+      "size_bytes": 1482,
+      "sha256": "d772a089edde9cfc5008f675ec8214a85798dbcbf147d2dbe310621bbf39b586",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-engineering/references/provenance.json",
+      "size_bytes": 3863,
+      "sha256": "b427152ade6434b4d7dadc50e1c3206572b690b6f600bf190610df5b495dd85d",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-evaluation-layer/SKILL.md",
+      "size_bytes": 6048,
+      "sha256": "53db17177fabdb76625da83191ef2a20a6beb4d11ef33688c06e88f0a3d16e3e",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-evaluation-layer/agents/openai.yaml",
+      "size_bytes": 400,
+      "sha256": "4f20ea736e405392daef18648fa5ede9de5566531ab1b9b6111e0ee7dcf4dfd3",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-evaluation-layer/references/checklist.md",
+      "size_bytes": 2668,
+      "sha256": "b9b84fc8799cfc7fa2482ded1c0386d68855485d8a18668c1f1f9f8622be82a0",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-evaluation-layer/references/failure-cases.md",
+      "size_bytes": 1577,
+      "sha256": "44483af28ca0e68ceeb6b51bc4ead3222b7f4398601cb53272a66a92622b3364",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-evaluation-layer/references/output-contract.md",
+      "size_bytes": 1503,
+      "sha256": "4dee0e35a4fcb7674f5d615b4711c8ca20b8dba2b04bcb18f1a342c705abd7c5",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-evaluation-layer/references/provenance.json",
+      "size_bytes": 3759,
+      "sha256": "d4efab73dceeeb5b4897dbc0cb2ed1181f029a0c9530d4ae7fc05050a6f75f4b",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-external-editor-connector/SKILL.md",
+      "size_bytes": 7479,
+      "sha256": "d384136f08862df6608d523754f96d9ecfd53cfa3ce8eecc8b9febd3d71d3dd4",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-external-editor-connector/agents/openai.yaml",
+      "size_bytes": 418,
+      "sha256": "9e0faf413c5b63c6aac0a12bb8961dc97023b64235c6b1f51933b365361d1eb1",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-external-editor-connector/references/checklist.md",
+      "size_bytes": 3014,
+      "sha256": "dd08b1ed9ad95851d2c99f650da8f617d626abab87a7412f0635194c97acbf2c",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-external-editor-connector/references/failure-cases.md",
+      "size_bytes": 1577,
+      "sha256": "26ba625f0a03195c29789ec872f8fd44e3b453cff0ceaf08412b6945b303e309",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-external-editor-connector/references/output-contract.md",
+      "size_bytes": 1548,
+      "sha256": "b4aaf147d03f1b10664f4d08dcfa9e76585a040954dc188c9baaf7cc5a333ce7",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-external-editor-connector/references/profiles/blender.md",
+      "size_bytes": 2037,
+      "sha256": "9460319d73281cbf0e4650affb4c0f7cea1bbeebb87db9b4267213065b05a07b",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-external-editor-connector/references/profiles/invokeai.md",
+      "size_bytes": 1729,
+      "sha256": "c41fdda3b148e3f15153bf4b18faf2d3ed909bd4e9719f65f2d29188fb0dfe79",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-external-editor-connector/references/profiles/kdenlive.md",
+      "size_bytes": 1591,
+      "sha256": "5bc4b096421cf4d76d855bd4bed4dc9d0770fe55a8c5a0d8a0cb924fa4b21730",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-external-editor-connector/references/profiles/resolve.md",
+      "size_bytes": 1902,
+      "sha256": "df6175ef19e8f56c28683d5f2e163225b49bd511c385775d71f8ae34ce22cf70",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-external-editor-connector/references/provenance.json",
+      "size_bytes": 4378,
+      "sha256": "f1eebb352f6a6b7a1d74ea30b568def5e2172eac43879b039177ece9bf819312",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-fixture-authoring/SKILL.md",
+      "size_bytes": 5997,
+      "sha256": "0b1b1e208b4483960edfbcb590dda0c15da6809d1341914f774965fc9aa36a87",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-fixture-authoring/agents/openai.yaml",
+      "size_bytes": 402,
+      "sha256": "699059deb3f09eedc68899a8ff8cd4131be04b7af157ecd4d3b1f1d46882d674",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-fixture-authoring/references/checklist.md",
+      "size_bytes": 2615,
+      "sha256": "cbf45900ff0676e92292a2a8a390fb94316d024b944e4dd124935fc22cb7f7e1",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-fixture-authoring/references/failure-cases.md",
+      "size_bytes": 1755,
+      "sha256": "8e0fc09478c8211e18ed7041749f1b8d4b4f5bb1824db202617212c3dcbe3200",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-fixture-authoring/references/output-contract.md",
+      "size_bytes": 1490,
+      "sha256": "0f551192d8b351a90d92e1954a7fab7c54e35c966b62526dfc0bc4b6f24ae5d9",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-fixture-authoring/references/provenance.json",
+      "size_bytes": 3902,
+      "sha256": "d5b799c018dc813ccf8d3253143c02fe4277237e142803fa7d2e49603ead7ad9",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-governed-change/SKILL.md",
+      "size_bytes": 6013,
+      "sha256": "2bc6faa7568b87401e413eaeccab2c0a5dd8d58ee4eaf65810d75f5321872f8e",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-governed-change/agents/openai.yaml",
+      "size_bytes": 398,
+      "sha256": "351e715ed7442f13ab3aa8fb368e0634339b3a5f49196cef78e4ae811e036019",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-governed-change/references/checklist.md",
+      "size_bytes": 2597,
+      "sha256": "d3d36579d8fdf419beaa6d4ed13cee18c059aa94f930b70cb425b5a31a8794c5",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-governed-change/references/failure-cases.md",
+      "size_bytes": 1753,
+      "sha256": "0082ac71365d60678042fe4df5ea6ff6eb6064ebd1f0196f6c2105d9f8d7e630",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-governed-change/references/output-contract.md",
+      "size_bytes": 1482,
+      "sha256": "69d1074577eb9f8962d2aa7f30d1ea455f79e46d1fe260ba6eaaf6ae58bc7e00",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-governed-change/references/provenance.json",
+      "size_bytes": 3917,
+      "sha256": "d928c0d5b2f602b18dd6cc7cc08ec4c987441c5f7e84252a41d951d8b5f149f7",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-native-media-workspace/SKILL.md",
+      "size_bytes": 7478,
+      "sha256": "e23a769eabd198421cb312c541f92c4e8a2061a8ec0ce82cf015cc3d2d4ce830",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-native-media-workspace/agents/openai.yaml",
+      "size_bytes": 412,
+      "sha256": "c2bc7bf64547773596fa522e6ae0d66934622e840a864d4aa7d0c711d7baabfe",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-native-media-workspace/references/checklist.md",
+      "size_bytes": 2816,
+      "sha256": "897f73abdeac7a083f7c4c46114ca97098def1d073ec63e13d70260494279dce",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-native-media-workspace/references/failure-cases.md",
+      "size_bytes": 1567,
+      "sha256": "c2f1ab932760c8bde660854db50dd26e7aa855dc2d4b5a3c4e9780c08e7dc304",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-native-media-workspace/references/output-contract.md",
+      "size_bytes": 1530,
+      "sha256": "d30a7c66c738b1f40bf60ca70c30508ef028cdf00966b35da1151a0e41822765",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-native-media-workspace/references/profiles/audio.md",
+      "size_bytes": 1229,
+      "sha256": "0b55ac4f7a640ac3a8fb9b50a2424e7aab10a14a569feb091caeba96c6187490",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-native-media-workspace/references/profiles/graphic.md",
+      "size_bytes": 1243,
+      "sha256": "0c7509cf24bd7356339335ea2474b4de3bea54ae7b047eeb6ff27dbb42da7836",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-native-media-workspace/references/profiles/image.md",
+      "size_bytes": 1316,
+      "sha256": "5c277afe1f07825b5d4dcee401e7674536ef043951726f179081fd9723b76855",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-native-media-workspace/references/profiles/spatial.md",
+      "size_bytes": 1218,
+      "sha256": "65ab39bab59c3678bd5aa07a232b1ac4fd50a2445556b73f5e4547b0c6cc0c02",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-native-media-workspace/references/profiles/video.md",
+      "size_bytes": 1286,
+      "sha256": "aa96e9911937093ec74729190bb1444f960dcda99389956990f57da30359de75",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-native-media-workspace/references/provenance.json",
+      "size_bytes": 4354,
+      "sha256": "760abea48396021c3226a113cc025202cfbfcec4c365484a6f4b967c898a49ac",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-otio-editorial-interchange/SKILL.md",
+      "size_bytes": 6441,
+      "sha256": "5be38c91b5e87db393b6159841ea06911617f1801502a34b8b6c86799483593f",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-otio-editorial-interchange/agents/openai.yaml",
+      "size_bytes": 420,
+      "sha256": "529b70ae65efadff1360b1dd890abefa8652d4ffb572086397080de459392653",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-otio-editorial-interchange/references/checklist.md",
+      "size_bytes": 2745,
+      "sha256": "d83d359c772c71de707351b6939915904475fddf1b82c43457cd3503828d696f",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-otio-editorial-interchange/references/failure-cases.md",
+      "size_bytes": 1584,
+      "sha256": "2a9387ebeb8608d052eb70fe2473cc336dd5eb3de012e6ffda6ed2f757c8050d",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-otio-editorial-interchange/references/output-contract.md",
+      "size_bytes": 1520,
+      "sha256": "74fd8c3f460906a9bfa7330527b8b99de8f7ac4fe9bca98ea766eb89a3d412b2",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-otio-editorial-interchange/references/profiles/kdenlive.md",
+      "size_bytes": 1352,
+      "sha256": "4db49dd115a933576ba0623330e3db4ab93e1d87a06b0aab0114c60bc57d0d1b",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-otio-editorial-interchange/references/profiles/resolve.md",
+      "size_bytes": 1325,
+      "sha256": "cbeae26613a22ede3a880581a1d9977b0c7a3bae02c15f6a2076dc17307f572b",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-otio-editorial-interchange/references/provenance.json",
+      "size_bytes": 4078,
+      "sha256": "8ea98d6b6b96ec98c08b0b6c90b2f8b06e5f7b27e020c6ddc1eaac68d955c2d4",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-poc-execution/SKILL.md",
+      "size_bytes": 6170,
+      "sha256": "c52f7474c24b678e6ec6af658666d7eb30bd4259abd8a96bc01878e0989d2137",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-poc-execution/agents/openai.yaml",
+      "size_bytes": 393,
+      "sha256": "287c53264f82c14d2807ccde8645a4648a869f84d6a0ae267bc72649b385ad08",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-poc-execution/references/checklist.md",
+      "size_bytes": 2677,
+      "sha256": "264b4e1cc8dea9d997f4b1584293a4de327c3adf4a9bd0e41e1cad3a3529842b",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-poc-execution/references/failure-cases.md",
+      "size_bytes": 1751,
+      "sha256": "b6abaa15a8b79c6c8c8ef5435cc9ec396a872edf7a2de324e71c37d9db0a8764",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-poc-execution/references/output-contract.md",
+      "size_bytes": 1499,
+      "sha256": "422a7e0f38d724061d0e10a0a4393fec352df264c3f78f9f27a903acd7d2e933",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-poc-execution/references/provenance.json",
+      "size_bytes": 3946,
+      "sha256": "5d96bf6becdfbd032b4510187ce16944606a7625625ac11957d90f1edc3e7754",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-provider-adapter/SKILL.md",
+      "size_bytes": 7297,
+      "sha256": "9c9cddd1e2a96ec071fa8c434409f664eff939cbbf0e07ada5ca7592a3a6ce82",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-provider-adapter/agents/openai.yaml",
+      "size_bytes": 400,
+      "sha256": "3609b5617daff1d3920468baa9e91843b3958258a83bbecab5b6562d6ee0d5e4",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-provider-adapter/references/checklist.md",
+      "size_bytes": 2858,
+      "sha256": "b3baff42c2707ca49edde55d58dd019d11a6cf4a61d4677fd9ae8795f8448127",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-provider-adapter/references/failure-cases.md",
+      "size_bytes": 1628,
+      "sha256": "9ca0a18a89c3dd17f3cab13831a80e7ded6d60cd7bc4111df7d9228eaf8bef30",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-provider-adapter/references/output-contract.md",
+      "size_bytes": 1502,
+      "sha256": "913113d4bd48645b50497bbbc77d733031c5bfb691e64c40f3905ed758883c23",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-provider-adapter/references/profiles/fal.md",
+      "size_bytes": 2504,
+      "sha256": "78768a8c4411b3b00933132d827a88b4315dd4e1c01923dbf1316e59a5ce2d1d",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-provider-adapter/references/profiles/openrouter.md",
+      "size_bytes": 2881,
+      "sha256": "1392c743e728ce713fb01a79e65c9cdef6efdf366f856ea328a1874e41349205",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-provider-adapter/references/profiles/provider-boundary.md",
+      "size_bytes": 1306,
+      "sha256": "6bd8b196634a518abf151f8b8e2dd97a53f50c4928920d912533301fdb1247a0",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-provider-adapter/references/provenance.json",
+      "size_bytes": 4162,
+      "sha256": "69a302ca9240dab92260e0ac5882230fa1b95b5bb632f31e366d74375b308834",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-provider-model-evaluation/SKILL.md",
+      "size_bytes": 5983,
+      "sha256": "f70874686781244a05adc4af4a453293e911fa54cf642d1b9dadc6d9e4ffa444",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-provider-model-evaluation/agents/openai.yaml",
+      "size_bytes": 418,
+      "sha256": "8930813ad881a7318523ab4c990ac3dd5b4739f1f3f17b1075a21fba8c4a93a7",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-provider-model-evaluation/references/checklist.md",
+      "size_bytes": 2662,
+      "sha256": "532412efbaf7c0d4d7f9aa392484390154cd2e78c4897020cb7a05dcf84e25b2",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-provider-model-evaluation/references/failure-cases.md",
+      "size_bytes": 1583,
+      "sha256": "34668ba83710c1c9e407a2ce86905fb54531e5d464cb055ab9ebb2595a488759",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-provider-model-evaluation/references/output-contract.md",
+      "size_bytes": 1529,
+      "sha256": "e0c43bb656ea011e9e125991706f6026eec20b966912ae42a86c1b4502c86652",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-provider-model-evaluation/references/provenance.json",
+      "size_bytes": 3866,
+      "sha256": "ba49c0d16b519a2f7045094838dcdcf6759f079c465755bb737fab6438212e6a",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-publication-connector/SKILL.md",
+      "size_bytes": 6807,
+      "sha256": "b09f2b7d4abcbbd853d4e1791f33fb89d3a1c7d17e4afd2e68bacce544dbe074",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-publication-connector/agents/openai.yaml",
+      "size_bytes": 410,
+      "sha256": "93787ae22ed85b7ddd9633e5bdcc799c0797213c6b4180ef42c04f2f914c98d4",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-publication-connector/references/checklist.md",
+      "size_bytes": 2616,
+      "sha256": "82983e780418e3b16b93cd1b94214201e983debb73cafe3c1511ca38f126ce6d",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-publication-connector/references/failure-cases.md",
+      "size_bytes": 1561,
+      "sha256": "2f6a010ff7a1b36d0b2ffcc3c4e74a5774c5433b810e0927c7f29e405c2312a6",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-publication-connector/references/output-contract.md",
+      "size_bytes": 1510,
+      "sha256": "abd82740458698256f4fe0b27e4803881cc55eb7494ae7dae522cedcf7678a60",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-publication-connector/references/profiles/astro.md",
+      "size_bytes": 1415,
+      "sha256": "5a037c93871a04498960d03357c6f1243b025554cce4e9892d2e88e796a674af",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-publication-connector/references/profiles/instagram.md",
+      "size_bytes": 1342,
+      "sha256": "a5550cc52c98baa69bcf7eff9ad77682746de63a99c4b06690d2109718a33913",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-publication-connector/references/profiles/tiktok.md",
+      "size_bytes": 1056,
+      "sha256": "4fe41486491979ce8401668e37275d058e31846e1ef7ea5153175c192a5de689",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-publication-connector/references/profiles/x.md",
+      "size_bytes": 1037,
+      "sha256": "612bcb53b5e9763dbd7b581fdb9524aa93debd80de93a95a611580f874288be3",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-publication-connector/references/provenance.json",
+      "size_bytes": 4160,
+      "sha256": "aaf9c8dbccfae20257a0bc366e1f431eabc51e6964263ac816ae7e764c8225b3",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-publication-scheduler/SKILL.md",
+      "size_bytes": 5979,
+      "sha256": "8d461499e68a00ab0e101cdc68b62c7dc292c8de27e3aeba6d8af53283df4935",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-publication-scheduler/agents/openai.yaml",
+      "size_bytes": 410,
+      "sha256": "a6746768eeb8f5b9f927427db90c6717e84d76a1b9868f8825fa414a198a87fa",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-publication-scheduler/references/checklist.md",
+      "size_bytes": 2745,
+      "sha256": "08556d1d0d82b181582894439e310126c694895566fe6305568fae8245663f7f",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-publication-scheduler/references/failure-cases.md",
+      "size_bytes": 1553,
+      "sha256": "1894f8dc7553f2b1327502b4fdf1f516b13fca9854af868953c91f939f00a84b",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-publication-scheduler/references/output-contract.md",
+      "size_bytes": 1520,
+      "sha256": "cd0705431ff1576397c7ce38f138d9b18fa45fda2281d948feffa555e58eac93",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-publication-scheduler/references/provenance.json",
+      "size_bytes": 3809,
+      "sha256": "b298076fcba1d51a7dea719f80faccb5208c16e29ebb38c4697f6c9a250801df",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-repository-orientation/SKILL.md",
+      "size_bytes": 5629,
+      "sha256": "bdc9040fcf32a8503c12719f97e116e26d8e843d49be1cf62a9644dd3544a1fc",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-repository-orientation/agents/openai.yaml",
+      "size_bytes": 412,
+      "sha256": "91ecd49ccb14aebca8a36bf625594ce5269d37948d907436b385a7d58ace9fac",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-repository-orientation/references/checklist.md",
+      "size_bytes": 2482,
+      "sha256": "9a253661dbab1b1fdbe107b56e00435e27f13b7c0da5c9e5bb9506df357e32ef",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-repository-orientation/references/failure-cases.md",
+      "size_bytes": 1508,
+      "sha256": "ba94578090c869700fc78bbdda4726dd2fb5c07a2f4b45360e121e07364443ed",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-repository-orientation/references/output-contract.md",
+      "size_bytes": 1541,
+      "sha256": "24f5a76c455378e144f77fc2faae4015b62ccbbe2facfdd1320906bf9e89dff2",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-repository-orientation/references/provenance.json",
+      "size_bytes": 3687,
+      "sha256": "9baa07831819a3f021d0b4806ead83fdc1bc6ac64e03773237dc34b5e71fddc1",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-rights-and-consent-review/SKILL.md",
+      "size_bytes": 6175,
+      "sha256": "70ac8e5268abbfd5c552954fe2f68f34e051493448d43c8cd70bc51c00168d9b",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-rights-and-consent-review/agents/openai.yaml",
+      "size_bytes": 418,
+      "sha256": "4b23ab305d0ea937b296ac15c6adbe7e7fae40d44ab6ee6e28697869e7069f9d",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-rights-and-consent-review/references/checklist.md",
+      "size_bytes": 2731,
+      "sha256": "bc77bba4c7292aebb2c506f91252524086e80cd76201d66d6dd5b6160489422e",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-rights-and-consent-review/references/failure-cases.md",
+      "size_bytes": 1575,
+      "sha256": "e67dd9f9793396f2fe1b23d2a66a4f50bce73fe0fc4525eac0eccbf48a2df5b4",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-rights-and-consent-review/references/output-contract.md",
+      "size_bytes": 1528,
+      "sha256": "084c2f08c58207a8f78804abb45a81fe275506b29b3ed6a0ab6e53748f975322",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-rights-and-consent-review/references/provenance.json",
+      "size_bytes": 3889,
+      "sha256": "ccd58966026e9196c76a5220bdbca9dcb905be519a0af03a53b7a79c454e7bc8",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-runtime-adapter/SKILL.md",
+      "size_bytes": 6401,
+      "sha256": "e4d795c897f0a1e65d2d640ec1226d75940e1a46411d064bc90551ab4eefa780",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-runtime-adapter/agents/openai.yaml",
+      "size_bytes": 398,
+      "sha256": "861c878610591bbcd0e04f6579c36cbc1bb1f392de562057ae1a9e25b8f90e93",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-runtime-adapter/references/checklist.md",
+      "size_bytes": 2691,
+      "sha256": "18c2716ee3c9f74e92853bc0df57eada12df905aa80fe6c5ea4b6cf8f6301a88",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-runtime-adapter/references/failure-cases.md",
+      "size_bytes": 1569,
+      "sha256": "a8bdecc56aefcdf177bd0a3ba5c3191cb760689fef82937ee6bc84f692e0f2cd",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-runtime-adapter/references/output-contract.md",
+      "size_bytes": 1499,
+      "sha256": "9c93bce28383624d701709eebfe652ef22092638c5b471e59cbb82845d9fa0a8",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-runtime-adapter/references/profiles/browser.md",
+      "size_bytes": 1327,
+      "sha256": "5025ca89dfd07ecab70d6f18ce30abf342d25e37c57eadad150ff6eb325dd678",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-runtime-adapter/references/profiles/godot.md",
+      "size_bytes": 1346,
+      "sha256": "55824401233c6cb0f5d38e958430912169146aa44b6a2f8488d4effa1fe9ce0e",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-runtime-adapter/references/provenance.json",
+      "size_bytes": 3960,
+      "sha256": "202a0dd7ebca085178b229db8c5c02d849864a3e05f2efcdd36dd002846bbac8",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-schema-evolution/SKILL.md",
+      "size_bytes": 5854,
+      "sha256": "25a102dc5a7d536e10984d56d81f9a472aeef3d2b4ba81eadc65affb45a5c5ec",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-schema-evolution/agents/openai.yaml",
+      "size_bytes": 400,
+      "sha256": "08002830983778a5190bfcd915ad60ce20fe31a127f8800d6de594fa833da3c0",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-schema-evolution/references/checklist.md",
+      "size_bytes": 2537,
+      "sha256": "d11e8851375b66ba19fea96bf531b2c1267cf89499b21c4c11a91f396886309a",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-schema-evolution/references/failure-cases.md",
+      "size_bytes": 1754,
+      "sha256": "e925448ae2178baa36d4936fd6f75c9ad6a3ee44bd276f54cd67332cddcc2045",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-schema-evolution/references/output-contract.md",
+      "size_bytes": 1503,
+      "sha256": "e261b5b05fc6187d373665022c141c8da19e85a232e7a0070e8d8dba20a59254",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-schema-evolution/references/provenance.json",
+      "size_bytes": 3891,
+      "sha256": "1f2d277f08f15a65284ae390b03fada8ab088280de452a81d4b09a730e1161cb",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-security-review/SKILL.md",
+      "size_bytes": 6122,
+      "sha256": "cb783a5f7456d7915015149ec00b1368ba246d02be40af859cf2f86451f7a00f",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-security-review/agents/openai.yaml",
+      "size_bytes": 398,
+      "sha256": "b6cac088a93ffc16e2a23d2385ddd45088c4558231096dd374acb603e20c3c13",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-security-review/references/checklist.md",
+      "size_bytes": 2822,
+      "sha256": "8ad5f227d791c65874c3f07d2805ea3324464103b57cc5dc278ab14ed4835874",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-security-review/references/failure-cases.md",
+      "size_bytes": 1601,
+      "sha256": "03307d6a48f79f3bb2217e9be52d156c3c2057c339e14cb19c489bb06e22a0a7",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-security-review/references/output-contract.md",
+      "size_bytes": 1498,
+      "sha256": "39190cc294a6273393baa8a69da85e5e6b7bd8050bea45f4cbc6397615bc58ce",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-security-review/references/provenance.json",
+      "size_bytes": 3781,
+      "sha256": "4967f40a39c0b2d1f5780e20e0ad4f34c3bac0755b6b83e4a2960ddc4c63ba77",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-studio-surface/SKILL.md",
+      "size_bytes": 6952,
+      "sha256": "ed941180a3ca763cdd15766656cbfca117e074fe5f6435ad4e8002a50110132c",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-studio-surface/agents/openai.yaml",
+      "size_bytes": 395,
+      "sha256": "b6f791926779c0f68fcd58b00045efd7cd4f13be50673f45ab04e5ce5f24188b",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-studio-surface/references/checklist.md",
+      "size_bytes": 2839,
+      "sha256": "f2be33f77d080cdacfcc9558d5a991342a84253836db37e2cd3a184897da6ab5",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-studio-surface/references/failure-cases.md",
+      "size_bytes": 1583,
+      "sha256": "43cc8a40211ca5b7107a436e05c43cdc70870d466bfda6993fa8a0ae3ba5ee22",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-studio-surface/references/output-contract.md",
+      "size_bytes": 1503,
+      "sha256": "3b7dcce8d51495b2c04d641bbbc72453402c671ac1371996411dc8edbad4efcd",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-studio-surface/references/profiles/canvas-and-timeline.md",
+      "size_bytes": 1208,
+      "sha256": "88ede3c49eb896047b855dafd2b95f4d4e2256ffcabb8f293f8e2b5b8149a543",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-studio-surface/references/profiles/conversational-workspace.md",
+      "size_bytes": 1212,
+      "sha256": "0b64bf2b507d3a9c15b03eaf18dafcfce38e91d5eb7c61d9aceda4097be2ea28",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-studio-surface/references/profiles/operator-and-external-tools.md",
+      "size_bytes": 1197,
+      "sha256": "35b6c208fd57a08c055521a9b4e3ce18946711941474b2b7e7fe33287932755e",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-studio-surface/references/profiles/publishing-runtime-commerce.md",
+      "size_bytes": 1216,
+      "sha256": "45a842b5b21365cf4349a95603f059548eea14bf3aec3bf7abf43db2b504f02c",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-studio-surface/references/provenance.json",
+      "size_bytes": 4190,
+      "sha256": "570af25ad9ca7cf09746d44e0bc3ec890c0d4c32182173e329434824630a3c44",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-voice-command/SKILL.md",
+      "size_bytes": 5937,
+      "sha256": "9ee03272591ca6ec04aaf5a227b94692197b6125544d6bdb1623e7ba92469183",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-voice-command/agents/openai.yaml",
+      "size_bytes": 394,
+      "sha256": "8d49a25b88753ae35cdf9ee6076f0381b2942eb1d69302d37ee96b39044ec410",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-voice-command/references/checklist.md",
+      "size_bytes": 2629,
+      "sha256": "f470ad7ac0212c8640563197f6136f38d029f41c9f1b12ec0de3244402d49eaf",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-voice-command/references/failure-cases.md",
+      "size_bytes": 1564,
+      "sha256": "505cf38d67384678a557739f7040d21ba3771b28e4ea6233dd4f084c14efae56",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-voice-command/references/output-contract.md",
+      "size_bytes": 1485,
+      "sha256": "edab2696c9a0ed570a81acf304fa6ff14fe509fda33a307aef9941bdaa7b1e0c",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/skills/storyworld-voice-command/references/provenance.json",
+      "size_bytes": 3735,
+      "sha256": "2d5107a16880a157f6541785ac8322f2809f003fe2d1982a7cf4c071b4aeeebd",
+      "category": "skill-package"
+    },
+    {
+      "path": ".agents/workflows/storyworld-disposable-poc.json",
+      "size_bytes": 6441,
+      "sha256": "be43ee58555edb75a61fb7efb53fe1829b8cfab07f964c9417e5a57dacff30da",
+      "category": "workflow"
+    },
+    {
+      "path": ".agents/workflows/storyworld-dossier-intake-expansion.json",
+      "size_bytes": 5596,
+      "sha256": "b25cea2db42c1800d07d2c728bf5c179cb3b78fad9882ef0d6e263a2cf41c8e1",
+      "category": "workflow"
+    },
+    {
+      "path": ".agents/workflows/storyworld-governed-build.json",
+      "size_bytes": 6365,
+      "sha256": "111d18bbe7b0ad959047be0dc0dbe20e6fe0b21c2da3dfff6c28a4cbb02540e3",
+      "category": "workflow"
+    },
+    {
+      "path": ".agents/workflows/storyworld-integration-adoption.json",
+      "size_bytes": 5955,
+      "sha256": "52a25767531cc773421d4162000ac090de7f76f45e620c3ecda7791609df2e29",
+      "category": "workflow"
+    },
+    {
+      "path": ".agents/workflows/storyworld-release-conformance.json",
+      "size_bytes": 5506,
+      "sha256": "5f8856b16342b257289501a972189ab61f813f008760d50466c1a56b5b9ce92e",
+      "category": "workflow"
+    },
+    {
+      "path": "ADOPTION.md",
+      "size_bytes": 3361,
+      "sha256": "9d2a3525f72e1c9f9091a1ffa83e087ce94e85cec00f787dff2592d106c0225f",
+      "category": "root-document"
+    },
+    {
+      "path": "CATALOG.md",
+      "size_bytes": 11959,
+      "sha256": "d8702b6a50b8bfca9ed3a6b28c22aefb42045a7b840a4c63e03879dce6875986",
+      "category": "root-document"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "size_bytes": 531,
+      "sha256": "5e9c7b0f59ae7dd5edac71e44086c7e3e656ef4371bde7a28c8ce806b55ff3ee",
+      "category": "root-document"
+    },
+    {
+      "path": "FILE-INVENTORY.json",
+      "size_bytes": 46254,
+      "sha256": "70c910dc66e9af77f7a930c97665f943ec89f97003ddce30d42af876cdfbb45f",
+      "category": "root-document"
+    },
+    {
+      "path": "LICENSE-STATUS.md",
+      "size_bytes": 819,
+      "sha256": "3eb6d254c3da53f3689762a668972e120ddfe2e26b7a4fa6743bbedad3579d6c",
+      "category": "root-document"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 4533,
+      "sha256": "8c7f0d7558d6dfddc762963627ed6a5137fa5fcbbc609ffdd6e75e53dd76f7ae",
+      "category": "root-document"
+    },
+    {
+      "path": "docs/adversarial-review.md",
+      "size_bytes": 2026,
+      "sha256": "af59c8c6a949ebbe82e7b55f01bd7815d9b28d8c5c9dc0705be0e283cd93eeab",
+      "category": "documentation"
+    },
+    {
+      "path": "docs/maintenance.md",
+      "size_bytes": 1484,
+      "sha256": "208a20efc15a1053ae58c4ddd84739fd7d40fc7c9aba7a95a7ae5de0d02aa1c4",
+      "category": "documentation"
+    },
+    {
+      "path": "docs/skill-architecture.md",
+      "size_bytes": 2155,
+      "sha256": "15fe900033838628746a2e7e3e8d39f356d198741e84a8348d2ce004fb0f099f",
+      "category": "documentation"
+    },
+    {
+      "path": "docs/source-basis.md",
+      "size_bytes": 1367,
+      "sha256": "eac1b8b458b947ecfe81958ac0903fed4244e1173ee6de3de87d52c67411dbbf",
+      "category": "documentation"
+    },
+    {
+      "path": "docs/using-with-agents.md",
+      "size_bytes": 1232,
+      "sha256": "3293d36377242b42291c15bb5036d1634942c05888c48b0c4c9981711df6e80e",
+      "category": "documentation"
+    },
+    {
+      "path": "references/integration-architecture/01-definitive-architecture-report.md",
+      "size_bytes": 97233,
+      "sha256": "13e1ad30bd4a232ef6f58c556b2737f76f6aea5ffeeb9659c1bce58070ea87d8",
+      "category": "source-reference"
+    },
+    {
+      "path": "references/integration-architecture/02-current-state-and-conflict-register.md",
+      "size_bytes": 10871,
+      "sha256": "1bae025295805c55f359902d80a7b22b0f12a8acd9adb2166467e44ee2826d28",
+      "category": "source-reference"
+    },
+    {
+      "path": "references/integration-architecture/03-decision-successor-plan.md",
+      "size_bytes": 10424,
+      "sha256": "4623f7a81cb28cce63a114c7fb81788c92d2c45a9f88963a78e2228d8782da3c",
+      "category": "source-reference"
+    },
+    {
+      "path": "references/integration-architecture/04-contract-and-schema-backlog.json",
+      "size_bytes": 33529,
+      "sha256": "55b1255244c6c7ee0e67192dce16da8dcd61f5882e05098e6e9943d6d5ac4e14",
+      "category": "source-reference"
+    },
+    {
+      "path": "references/integration-architecture/04-contract-and-schema-backlog.md",
+      "size_bytes": 32187,
+      "sha256": "c813ac51b04b585b63c4ceda89aec605450a3220854fa7e96cad2ad496a6316f",
+      "category": "source-reference"
+    },
+    {
+      "path": "references/integration-architecture/05-proof-of-concept-program.md",
+      "size_bytes": 19241,
+      "sha256": "f1cf8edd32b53b652e320d11954d1545e15c063abbefe7c6ba073ceef3591431",
+      "category": "source-reference"
+    },
+    {
+      "path": "references/integration-architecture/06-dependency-ordered-roadmap.md",
+      "size_bytes": 15314,
+      "sha256": "90de820e6081644687ac73bf01a6870d92a29304230c0a271d7931f0988585e8",
+      "category": "source-reference"
+    },
+    {
+      "path": "references/integration-architecture/07-dossier-intake-expansion-plan.md",
+      "size_bytes": 9088,
+      "sha256": "bbe44ff389bb881b0afd3d5337aa3a3b4054bbbbc2dbc017e4a517b340248c15",
+      "category": "source-reference"
+    },
+    {
+      "path": "references/integration-architecture/10-source-and-evidence-register.md",
+      "size_bytes": 7966,
+      "sha256": "505169afa29805c02dca7a0c5ffd4aa3ee50bf51538b4d4d3acfc8db19aba499",
+      "category": "source-reference"
+    },
+    {
+      "path": "references/integration-architecture/README.md",
+      "size_bytes": 2191,
+      "sha256": "72eb40b0af8cdf1f6f3687ad7e4f69b5d8e6e8bad13a70e1987631cc234bd70f",
+      "category": "source-reference"
+    },
+    {
+      "path": "references/open-source-research/storyworld-open-source-reference-report.md",
+      "size_bytes": 99223,
+      "sha256": "5710f153aae273ac07e75b4f49d624e7d6260721dc875b5de7463a3fea7ef537",
+      "category": "source-reference"
+    },
+    {
+      "path": "references/open-source-research/storyworld-open-source-repository-register.json",
+      "size_bytes": 277512,
+      "sha256": "f555fc229e4b0233f77b639d036c59770c9374c43013baef7c726f7193fa9b8f",
+      "category": "source-reference"
+    },
+    {
+      "path": "references/open-source-research/storyworld-open-source-repository-register.md",
+      "size_bytes": 170390,
+      "sha256": "353a7339a0c7bec7a25c8ad5e09fb4136a5df5dc37c6b08a7a1047436438f05b",
+      "category": "source-reference"
+    },
+    {
+      "path": "registry/agents.json",
+      "size_bytes": 2084,
+      "sha256": "3fda8badf45eb3fff50461522232e6560882b3d89c7416bbc6f171e3d68ce174",
+      "category": "registry"
+    },
+    {
+      "path": "registry/coverage.json",
+      "size_bytes": 4185,
+      "sha256": "593966e8dfc7f410437aca3d7a95b570a3b5fdbfe583da1af003f717cbc29955",
+      "category": "registry"
+    },
+    {
+      "path": "registry/external-capabilities.json",
+      "size_bytes": 1645,
+      "sha256": "be2f1b62821493daabcfe2424dc290c0f000ade5c069359c9dfb30a943794e67",
+      "category": "registry"
+    },
+    {
+      "path": "registry/profiles.json",
+      "size_bytes": 15908,
+      "sha256": "4e163ddf2a0b819ba25f78a6c57b99f8e0e135cb85b818123edbe1cf09aa8bfd",
+      "category": "registry"
+    },
+    {
+      "path": "registry/routing.json",
+      "size_bytes": 13376,
+      "sha256": "e018671d2b68a3efe002dda6ec10823c2b4f7740621e623808c83598bffbff2e",
+      "category": "registry"
+    },
+    {
+      "path": "registry/routing.md",
+      "size_bytes": 7236,
+      "sha256": "b8af1660c1d95ec1e31a77b4b760b8fde12d8c082e2ff93de0c36e341ddf3270",
+      "category": "registry"
+    },
+    {
+      "path": "registry/skill-graph.dot",
+      "size_bytes": 9097,
+      "sha256": "f2ee3ea2270de3cfab06b4f2aaf9eec89f6c13c518e58bb8b4f67c9931869e77",
+      "category": "registry"
+    },
+    {
+      "path": "registry/skills.csv",
+      "size_bytes": 13507,
+      "sha256": "46c4bb1b016fee75e602554955ccd770f0dbb9041dd05db71083895919bb5028",
+      "category": "registry"
+    },
+    {
+      "path": "registry/skills.json",
+      "size_bytes": 68823,
+      "sha256": "28279f33646501703d60bbca6a85a963721a404fc78706d7ca10197e2d8f40f1",
+      "category": "registry"
+    },
+    {
+      "path": "registry/traceability.json",
+      "size_bytes": 19515,
+      "sha256": "392f6df4e631895ee32d24177d7ea02a586509079993362e4509385b98463ad1",
+      "category": "registry"
+    },
+    {
+      "path": "registry/workflows.json",
+      "size_bytes": 2967,
+      "sha256": "ce280a0cde55eb0ee6d95b8d0eb8263be17095d4be311aa19465e5339800318d",
+      "category": "registry"
+    },
+    {
+      "path": "schemas/routing.schema.json",
+      "size_bytes": 1597,
+      "sha256": "2f0647e1d10d7c0ff01be313dcdd6a2cfc7ecd54dabcec9aa929c57c9f07f42e",
+      "category": "schema"
+    },
+    {
+      "path": "schemas/skill-registry.schema.json",
+      "size_bytes": 2342,
+      "sha256": "2ea188ea9d70ffa67e7147d55527aa9dead79cb4c669b1e41d7ead819be25bd4",
+      "category": "schema"
+    },
+    {
+      "path": "scripts/install_into_storyworld.py",
+      "size_bytes": 2981,
+      "sha256": "62d10bf7aaeb1833c6aee1d8811bd546c1ad58b9b0bc8be8c0c3bde488ececdb",
+      "category": "script"
+    },
+    {
+      "path": "scripts/validate_library.py",
+      "size_bytes": 10467,
+      "sha256": "48bfd52c7a59aab2e93ecb4be5a90862080affed18298facc50d657c4f5657a8",
+      "category": "script"
+    },
+    {
+      "path": "templates/contract-definition.md",
+      "size_bytes": 879,
+      "sha256": "a55676afbc7cf46d27591e128820a35014831ef32ba4629233e5d4e6ff6a2806",
+      "category": "template"
+    },
+    {
+      "path": "templates/decision-impact-map.md",
+      "size_bytes": 735,
+      "sha256": "127b7ecaaf91805f788e32e4a1ddc357863082afe42c9f757fe57b0cb4f35b47",
+      "category": "template"
+    },
+    {
+      "path": "templates/evidence-receipt.md",
+      "size_bytes": 768,
+      "sha256": "81f7d973ec994ada7a567bff458f57e4333c59c7ac83d153ba76512a03e346fd",
+      "category": "template"
+    },
+    {
+      "path": "templates/external-integration-assessment.md",
+      "size_bytes": 851,
+      "sha256": "63069ff283e02e1b12003783f67a301a48835f4c7fe05c1e0dc0fce0ce0d5c00",
+      "category": "template"
+    },
+    {
+      "path": "templates/finding.md",
+      "size_bytes": 506,
+      "sha256": "40e8487cb4bd1c136eb470a70be00269cbbbffaf43e8f14b5fce687bbfe18f93",
+      "category": "template"
+    },
+    {
+      "path": "templates/poc-report.md",
+      "size_bytes": 735,
+      "sha256": "b525276d8232dae692caf832649214103d20aebb7c958283486433b6151eb3ba",
+      "category": "template"
+    },
+    {
+      "path": "templates/security-review.md",
+      "size_bytes": 924,
+      "sha256": "c900a6221b60204b830be1d0d80ba76b5360e8c71c41e638c6d0a63645282e7d",
+      "category": "template"
+    },
+    {
+      "path": "templates/skill-package-template.md",
+      "size_bytes": 1136,
+      "sha256": "5e646fa0dde6ecf8f859eb0b7696367fe1c2e02b3de68c23bacdf386291fcec6",
+      "category": "template"
+    },
+    {
+      "path": "templates/task-intake.md",
+      "size_bytes": 345,
+      "sha256": "74b1c324d83280920fec82db457e42408adc04fca0482a4f2f6b03574fc5030a",
+      "category": "template"
+    },
+    {
+      "path": "tests/test_library.py",
+      "size_bytes": 2828,
+      "sha256": "428df4f03cf20ace366699751db63fd56bcc5f392a6afc661177019b3f3f3ad7",
+      "category": "test"
+    }
+  ]
+}

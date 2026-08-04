@@ -106,6 +106,14 @@
       {
         "path": ".env",
         "reason": "Local-only credentials placeholder; gitignored and never committed, so it must not enter fingerprints or manifests the CI-checked tree cannot contain."
+      },
+      {
+        "path": ".claude/settings.local.json",
+        "reason": "Developer-local Claude settings; globally gitignored and never committed, so they must not enter generated fingerprints or manifests checked in clean CI clones."
+      },
+      {
+        "path": "project-dossier-intake/books",
+        "reason": "Local reference library; intentionally gitignored and excluded from repository distribution by the intake manifest, so only its committed assessment and index material may enter generated fingerprints."
       }
     ]
   },

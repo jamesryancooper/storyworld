@@ -1,0 +1,236 @@
+{
+  "schema_version": "harness.workflow.v1",
+  "id": "storyworld-governed-build",
+  "version": "1.0.0",
+  "adoption_status": "generated_unadopted_baseline",
+  "adoption_decision_ref": null,
+  "permission_grant": false,
+  "purpose": "Deliver one authorized Storyworld capability from orientation through decision gating, contracts, implementation, validation, independent review, and evidence closure.",
+  "scope": "current_authorized_storyworld_repository_task",
+  "authority": {
+    "source": "current_task_and_applicable_instructions",
+    "inherits_from": "current_task",
+    "may_expand": false
+  },
+  "side_effects": "repository_local_as_authorized_by_current_task",
+  "inputs": {
+    "required": [
+      "current_request",
+      "applicable_instructions",
+      "task_record",
+      "project_validation_contract"
+    ],
+    "optional": [
+      "accepted_decision_refs",
+      "staged_successor_refs",
+      "coordination_lease",
+      "prior_evidence"
+    ]
+  },
+  "outputs": {
+    "format": "task_and_evidence_records",
+    "required_fields": [
+      "routing_decision",
+      "task_status",
+      "changed_artifacts",
+      "validation_evidence",
+      "review_disposition",
+      "limitations"
+    ],
+    "evidence_required": true
+  },
+  "prohibited": [
+    "expanding_current_task_authority",
+    "performing_unapproved_external_effects",
+    "closing_without_required_evidence",
+    "overwriting_unrelated_work",
+    "accepting_or_ratifying_own_decisions_or_findings"
+  ],
+  "initial_state": "orient",
+  "cancellation_state": "cancelled",
+  "states": [
+    {
+      "id": "orient",
+      "kind": "action",
+      "requires": [
+        "current_request"
+      ],
+      "actions": [
+        "run_repository_orientation"
+      ],
+      "agent_ref": "storyworld-engineering-router",
+      "gate": null,
+      "on_success": "impact",
+      "on_failure": "blocked",
+      "on_actionable_findings": null
+    },
+    {
+      "id": "impact",
+      "kind": "action",
+      "requires": [
+        "orientation_package"
+      ],
+      "actions": [
+        "run_decision_impact_analysis",
+        "confirm_authority"
+      ],
+      "agent_ref": "storyworld-engineering-router",
+      "gate": "required_decisions_dispositioned",
+      "on_success": "design",
+      "on_failure": "blocked",
+      "on_actionable_findings": null
+    },
+    {
+      "id": "design",
+      "kind": "action",
+      "requires": [
+        "governing_decisions"
+      ],
+      "actions": [
+        "select_skill_chain",
+        "author_contracts_and_fixtures_if_required"
+      ],
+      "agent_ref": "storyworld-engineering-router",
+      "gate": null,
+      "on_success": "implement",
+      "on_failure": "blocked",
+      "on_actionable_findings": null
+    },
+    {
+      "id": "implement",
+      "kind": "action",
+      "requires": [
+        "bounded_design"
+      ],
+      "actions": [
+        "make_authorized_repository_changes",
+        "update_tests_and_evidence"
+      ],
+      "agent_ref": "storyworld-engineering-router",
+      "gate": null,
+      "on_success": "validate",
+      "on_failure": "blocked",
+      "on_actionable_findings": null
+    },
+    {
+      "id": "validate",
+      "kind": "action",
+      "requires": [
+        "implementation_result"
+      ],
+      "actions": [
+        "run_scoped_and_harness_checks"
+      ],
+      "agent_ref": "storyworld-engineering-router",
+      "gate": null,
+      "on_success": "review",
+      "on_failure": "implement",
+      "on_actionable_findings": null
+    },
+    {
+      "id": "review",
+      "kind": "review",
+      "requires": [
+        "validation_evidence"
+      ],
+      "actions": [
+        "run_change_review_and_conformance"
+      ],
+      "agent_ref": "storyworld-engineering-router",
+      "gate": null,
+      "on_success": "close",
+      "on_failure": "blocked",
+      "on_actionable_findings": "implement"
+    },
+    {
+      "id": "close",
+      "kind": "action",
+      "requires": [
+        "review_disposition"
+      ],
+      "actions": [
+        "record_evidence",
+        "update_task_and_current_state"
+      ],
+      "agent_ref": "storyworld-engineering-router",
+      "gate": "acceptance_criteria_met",
+      "on_success": "completed",
+      "on_failure": "blocked",
+      "on_actionable_findings": null
+    },
+    {
+      "id": "completed",
+      "kind": "terminal",
+      "requires": [],
+      "actions": [],
+      "agent_ref": null,
+      "gate": null,
+      "on_success": null,
+      "on_failure": null,
+      "on_actionable_findings": null
+    },
+    {
+      "id": "blocked",
+      "kind": "terminal",
+      "requires": [],
+      "actions": [],
+      "agent_ref": null,
+      "gate": null,
+      "on_success": null,
+      "on_failure": null,
+      "on_actionable_findings": null
+    },
+    {
+      "id": "cancelled",
+      "kind": "terminal",
+      "requires": [],
+      "actions": [],
+      "agent_ref": null,
+      "gate": null,
+      "on_success": null,
+      "on_failure": null,
+      "on_actionable_findings": null
+    }
+  ],
+  "terminal_states": [
+    "completed",
+    "blocked",
+    "cancelled"
+  ],
+  "invariants": [
+    "authority_never_expands",
+    "accepted_decisions_gate_durable_changes",
+    "generated_files_are_not_hand_edited",
+    "external_effects_require_explicit_gate",
+    "closure_requires_evidence"
+  ],
+  "validation": "python scripts/validate_library.py; Storyworld repository validators when installed",
+  "owner": "unassigned",
+  "provenance": {
+    "source": "storyworld_agent_skills_library",
+    "source_version": "1.0.0",
+    "source_fingerprint": "309af528a79d9a54bbc71df85168ff841ecdbc52fd307c1b2bffdd8f8c860318",
+    "generated_on": "2026-08-01",
+    "license_review": "not_assessed",
+    "security_review": "not_assessed",
+    "included_files": [
+      ".agents/workflows/storyworld-governed-build.json"
+    ],
+    "local_changes": [],
+    "exclusions": [
+      "project permissions",
+      "accepted decisions",
+      "readiness claims",
+      "external authority"
+    ],
+    "trust_class": "generated_unadopted_capability",
+    "update_strategy": "explicit Storyworld project review and adoption decision"
+  },
+  "deprecated_at": null,
+  "removal_version": null,
+  "successor": null,
+  "limitations": [
+    "This workflow is unadopted and does not authorize implementation.",
+    "Independent review and actual repository validators remain project responsibilities."
+  ]
+}

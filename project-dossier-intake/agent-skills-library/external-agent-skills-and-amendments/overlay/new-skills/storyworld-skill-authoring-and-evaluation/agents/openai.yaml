@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Authoring And Evaluation"
+  short_description: "Provide one governed lifecycle for Storyworld capabilities instead of ad hoc ski"
+  default_prompt: "Use $storyworld-skill-authoring-and-evaluation for this governed Storyworld task. Preserve authority, provenance, validation, and explicit limitations."

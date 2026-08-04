@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyworld Provider Model Evaluation"
+  short_description: "Replace universal model rankings with capability-specific evidence an..."
+  default_prompt: "Use $storyworld-provider-model-evaluation for this Storyworld task. Follow current repository governance, preserve Engine and human authority, use exact versions, and produce the required evidence without activating external crossings."

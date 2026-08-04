@@ -1,0 +1,4 @@
+interface:
+  display_name: "Postgres And Storage Engineering"
+  short_description: "Provide a dedicated database/storage discipline for Storyworld’s modular monolit"
+  default_prompt: "Use $storyworld-postgres-and-storage-engineering for this governed Storyworld task. Preserve authority, provenance, validation, and explicit limitations."

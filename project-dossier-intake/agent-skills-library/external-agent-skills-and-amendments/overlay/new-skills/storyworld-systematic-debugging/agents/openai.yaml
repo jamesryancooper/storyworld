@@ -1,0 +1,4 @@
+interface:
+  display_name: "Systematic Debugging"
+  short_description: "Prevent guess-and-patch debugging across Storyworld’s authority, workflow, provi"
+  default_prompt: "Use $storyworld-systematic-debugging for this governed Storyworld task. Preserve authority, provenance, validation, and explicit limitations."

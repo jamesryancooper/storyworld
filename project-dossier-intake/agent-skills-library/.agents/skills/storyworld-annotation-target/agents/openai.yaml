@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyworld Annotation Target"
+  short_description: "Provide one durable addressing model for image regions, document rang..."
+  default_prompt: "Use $storyworld-annotation-target for this Storyworld task. Follow current repository governance, preserve Engine and human authority, use exact versions, and produce the required evidence without activating external crossings."

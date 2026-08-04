@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyworld Native Media Workspace"
+  short_description: "Make Storyworld the normal creative environment without recreating co..."
+  default_prompt: "Use $storyworld-native-media-workspace for this Storyworld task. Follow current repository governance, preserve Engine and human authority, use exact versions, and produce the required evidence without activating external crossings."

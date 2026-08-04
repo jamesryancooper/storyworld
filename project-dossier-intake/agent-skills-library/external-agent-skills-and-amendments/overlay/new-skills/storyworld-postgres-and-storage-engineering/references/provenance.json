@@ -1,0 +1,93 @@
+{
+  "schema_version": "harness.skill-provenance.v1",
+  "id": "storyworld-postgres-and-storage-engineering",
+  "version": "0.1.0",
+  "adoption_status": "generated_unadopted_baseline",
+  "adoption_decision_ref": null,
+  "permission_grant": false,
+  "entrypoint": ".agents/skills/storyworld-postgres-and-storage-engineering/SKILL.md",
+  "purpose": "Provide a dedicated database/storage discipline for Storyworld\u2019s modular monolith and content-addressed custody model.",
+  "scope": "current_task_within_storyworld_repository_only",
+  "authority": {
+    "source": "current_task_and_applicable_instructions",
+    "inherits_from": "current_task",
+    "may_expand": false
+  },
+  "side_effects": "repository_local_as_authorized_by_current_task",
+  "inputs": {
+    "required": [
+      "governing domain/module and contract",
+      "current migrations and schema",
+      "RLS and tenant model"
+    ],
+    "optional": [
+      "query plan or performance symptom",
+      "storage and lineage invariants",
+      "backup/restore and replacement constraints"
+    ]
+  },
+  "outputs": {
+    "format": "structured_skill_specific_artifacts_and_evidence_receipt",
+    "required_fields": [
+      "summary",
+      "artifacts",
+      "validation",
+      "evidence",
+      "limitations",
+      "disposition_owner"
+    ],
+    "evidence_required": true
+  },
+  "prohibited": [
+    "disabling RLS or tenant filters",
+    "arbitrary cross-module table access",
+    "destructive production changes without authorization",
+    "making Supabase-specific services canonical",
+    "treating object-store paths as semantic identity",
+    "claiming performance improvement without representative measurement"
+  ],
+  "validation": "migration up/down or recovery test as applicable; cross-tenant and permission-denial tests; query-plan comparison; transaction/locking tests; content-hash and semantic-record reconciliation; backup/restore smoke test when affected",
+  "owner": "unassigned_pending_storyworld_adoption",
+  "included_material": [
+    "project-authored synthesis of pinned external procedural sources",
+    "Storyworld authority and validation constraints",
+    "task checklist",
+    "output contract",
+    "adversarial cases"
+  ],
+  "provenance": {
+    "source": "project_local_research_synthesis",
+    "source_version": "0.1.0",
+    "source_fingerprint": null,
+    "generated_on": "2026-08-01",
+    "license_review": "review_required",
+    "security_review": "review_required",
+    "included_files": [
+      "overlay/new-skills/storyworld-postgres-and-storage-engineering/SKILL.md",
+      "overlay/new-skills/storyworld-postgres-and-storage-engineering/agents/openai.yaml",
+      "overlay/new-skills/storyworld-postgres-and-storage-engineering/references/provenance.json",
+      "overlay/new-skills/storyworld-postgres-and-storage-engineering/references/source-ledger.md",
+      "overlay/new-skills/storyworld-postgres-and-storage-engineering/references/task-checklist.md",
+      "overlay/new-skills/storyworld-postgres-and-storage-engineering/references/output-contract.md",
+      "overlay/new-skills/storyworld-postgres-and-storage-engineering/references/adversarial-cases.md"
+    ],
+    "local_changes": [],
+    "exclusions": [
+      "permission grants",
+      "accepted decisions",
+      "production credentials",
+      "external action authorization",
+      "copied external executable code"
+    ],
+    "trust_class": "generated_unadopted_capability",
+    "update_strategy": "explicit_pinned_source_comparison_and_storyworld_decision"
+  },
+  "deprecated_at": null,
+  "removal_version": null,
+  "successor": null,
+  "limitations": [
+    "No external source has authority over Storyworld.",
+    "Executable upstream material is excluded pending separate security review.",
+    "Adoption and maintainer assignment remain unresolved."
+  ]
+}

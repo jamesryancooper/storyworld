@@ -1,0 +1,79 @@
+{
+  "schema_version": "storyworld.skill-library.workflows.v1",
+  "library_version": "1.0.0",
+  "status": "generated_unadopted_library",
+  "permission_grant": false,
+  "workflows": [
+    {
+      "id": "storyworld-governed-build",
+      "version": "1.0.0",
+      "purpose": "Deliver one authorized Storyworld capability from orientation through decision gating, contracts, implementation, validation, independent review, and evidence closure.",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "initial_state": "orient",
+      "terminal_states": [
+        "completed",
+        "blocked",
+        "cancelled"
+      ],
+      "entrypoint": ".agents/workflows/storyworld-governed-build.json"
+    },
+    {
+      "id": "storyworld-disposable-poc",
+      "version": "1.0.0",
+      "purpose": "Execute one bounded Storyworld proof of concept and end in an evidence-backed adopt, adapt, defer, reject, or repeat recommendation plus teardown.",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "initial_state": "intake",
+      "terminal_states": [
+        "completed",
+        "blocked",
+        "cancelled"
+      ],
+      "entrypoint": ".agents/workflows/storyworld-disposable-poc.json"
+    },
+    {
+      "id": "storyworld-integration-adoption",
+      "version": "1.0.0",
+      "purpose": "Assess and adopt a bounded external repository, standard, provider, tool, or dependency behind a Storyworld-owned interface and exit strategy.",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "initial_state": "research",
+      "terminal_states": [
+        "ready-for-owner",
+        "rejected",
+        "blocked",
+        "cancelled"
+      ],
+      "entrypoint": ".agents/workflows/storyworld-integration-adoption.json"
+    },
+    {
+      "id": "storyworld-dossier-intake-expansion",
+      "version": "1.0.0",
+      "purpose": "Stage research, owner input, assessments, impact maps, contract backlogs, and draft decisions in project-dossier-intake for owner disposition.",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "initial_state": "classify",
+      "terminal_states": [
+        "ready-for-owner",
+        "blocked",
+        "cancelled"
+      ],
+      "entrypoint": ".agents/workflows/storyworld-dossier-intake-expansion.json"
+    },
+    {
+      "id": "storyworld-release-conformance",
+      "version": "1.0.0",
+      "purpose": "Independently assess a Storyworld task or release candidate against decisions, contracts, tests, security, accessibility, and evidence before closure.",
+      "adoption_status": "generated_unadopted_baseline",
+      "permission_grant": false,
+      "initial_state": "orient",
+      "terminal_states": [
+        "completed",
+        "blocked",
+        "cancelled"
+      ],
+      "entrypoint": ".agents/workflows/storyworld-release-conformance.json"
+    }
+  ]
+}

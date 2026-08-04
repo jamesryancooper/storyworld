@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyworld Creative Direction"
+  short_description: "Replace a monolithic Look object with separately versioned profession..."
+  default_prompt: "Use $storyworld-creative-direction for this Storyworld task. Follow current repository governance, preserve Engine and human authority, use exact versions, and produce the required evidence without activating external crossings."

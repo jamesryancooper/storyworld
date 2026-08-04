@@ -1,0 +1,205 @@
+{
+  "schema_version": "storyworld.capability-overlay-proposal.v1",
+  "status": "generated_unadopted_baseline",
+  "permission_grant": false,
+  "new_skills": [
+    {
+      "id": "storyworld-skill-authoring-and-evaluation",
+      "version": "0.1.0",
+      "path": "overlay/new-skills/storyworld-skill-authoring-and-evaluation",
+      "sources": [
+        "EXT-036",
+        "EXT-037",
+        "EXT-041",
+        "EXT-042",
+        "EXT-047",
+        "EXT-049",
+        "EXT-053"
+      ]
+    },
+    {
+      "id": "storyworld-systematic-debugging",
+      "version": "0.1.0",
+      "path": "overlay/new-skills/storyworld-systematic-debugging",
+      "sources": [
+        "EXT-014",
+        "EXT-026",
+        "EXT-027"
+      ]
+    },
+    {
+      "id": "storyworld-postgres-and-storage-engineering",
+      "version": "0.1.0",
+      "path": "overlay/new-skills/storyworld-postgres-and-storage-engineering",
+      "sources": [
+        "EXT-023",
+        "EXT-029"
+      ]
+    }
+  ],
+  "amendments": [
+    {
+      "skill": "storyworld-studio-surface",
+      "path": "overlay/amendments/storyworld-studio-surface",
+      "sources": [
+        "EXT-001",
+        "EXT-002",
+        "EXT-007",
+        "EXT-008",
+        "EXT-022"
+      ],
+      "version_bump": "minor"
+    },
+    {
+      "skill": "storyworld-security-review",
+      "path": "overlay/amendments/storyworld-security-review",
+      "sources": [
+        "EXT-016",
+        "EXT-031",
+        "EXT-032",
+        "EXT-033",
+        "EXT-034",
+        "EXT-036",
+        "EXT-040",
+        "EXT-046",
+        "EXT-050"
+      ],
+      "version_bump": "minor"
+    },
+    {
+      "skill": "storyworld-contract-authoring",
+      "path": "overlay/amendments/storyworld-contract-authoring",
+      "sources": [
+        "EXT-009",
+        "EXT-033"
+      ],
+      "version_bump": "minor"
+    },
+    {
+      "skill": "storyworld-schema-evolution",
+      "path": "overlay/amendments/storyworld-schema-evolution",
+      "sources": [
+        "EXT-009",
+        "EXT-018",
+        "EXT-029"
+      ],
+      "version_bump": "minor"
+    },
+    {
+      "skill": "storyworld-fixture-authoring",
+      "path": "overlay/amendments/storyworld-fixture-authoring",
+      "sources": [
+        "EXT-013",
+        "EXT-028",
+        "EXT-029",
+        "EXT-030"
+      ],
+      "version_bump": "minor"
+    },
+    {
+      "skill": "storyworld-governed-change",
+      "path": "overlay/amendments/storyworld-governed-change",
+      "sources": [
+        "EXT-010",
+        "EXT-012",
+        "EXT-013",
+        "EXT-017",
+        "EXT-027"
+      ],
+      "version_bump": "minor"
+    },
+    {
+      "skill": "storyworld-conformance-and-release",
+      "path": "overlay/amendments/storyworld-conformance-and-release",
+      "sources": [
+        "EXT-015",
+        "EXT-019",
+        "EXT-027",
+        "EXT-030"
+      ],
+      "version_bump": "minor"
+    },
+    {
+      "skill": "storyworld-repository-orientation",
+      "path": "overlay/amendments/storyworld-repository-orientation",
+      "sources": [
+        "EXT-010",
+        "EXT-011",
+        "EXT-025",
+        "EXT-035",
+        "EXT-038"
+      ],
+      "version_bump": "minor"
+    },
+    {
+      "skill": "storyworld-engineering",
+      "path": "overlay/amendments/storyworld-engineering",
+      "sources": [
+        "EXT-011",
+        "EXT-021",
+        "EXT-041",
+        "EXT-042",
+        "EXT-049",
+        "EXT-053"
+      ],
+      "version_bump": "minor"
+    },
+    {
+      "skill": "storyworld-poc-execution",
+      "path": "overlay/amendments/storyworld-poc-execution",
+      "sources": [
+        "EXT-010",
+        "EXT-020",
+        "EXT-024",
+        "EXT-047"
+      ],
+      "version_bump": "minor"
+    },
+    {
+      "skill": "storyworld-provider-model-evaluation",
+      "path": "overlay/amendments/storyworld-provider-model-evaluation",
+      "sources": [
+        "EXT-037",
+        "EXT-041",
+        "EXT-047",
+        "EXT-049"
+      ],
+      "version_bump": "minor"
+    },
+    {
+      "skill": "storyworld-provider-adapter",
+      "path": "overlay/amendments/storyworld-provider-adapter",
+      "sources": [
+        "EXT-019",
+        "EXT-050"
+      ],
+      "version_bump": "minor"
+    },
+    {
+      "skill": "storyworld-deterministic-media-worker",
+      "path": "overlay/amendments/storyworld-deterministic-media-worker",
+      "sources": [
+        "EXT-034",
+        "EXT-050"
+      ],
+      "version_bump": "minor"
+    },
+    {
+      "skill": "storyworld-customer-managed-deployment",
+      "path": "overlay/amendments/storyworld-customer-managed-deployment",
+      "sources": [
+        "EXT-019",
+        "EXT-034"
+      ],
+      "version_bump": "minor"
+    },
+    {
+      "skill": "storyworld-runtime-adapter",
+      "path": "overlay/amendments/storyworld-runtime-adapter",
+      "sources": [
+        "EXT-051"
+      ],
+      "version_bump": "minor"
+    }
+  ]
+}

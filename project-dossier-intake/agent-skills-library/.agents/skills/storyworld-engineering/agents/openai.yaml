@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyworld Engineering"
+  short_description: "Serve as the umbrella router for Storyworld engineering without becom..."
+  default_prompt: "Use $storyworld-engineering for this Storyworld task. Follow current repository governance, preserve Engine and human authority, use exact versions, and produce the required evidence without activating external crossings."

@@ -1,0 +1,788 @@
+{
+  "schema_version": "storyworld.skill-library.traceability.v1",
+  "assessed_commit": "fc9b75b8ae3f28b4b9e13f5c0e31e9f2d24ad565",
+  "skills": {
+    "storyworld-engineering": {
+      "decisions": [
+        "DEC-0040 through DEC-0053 (proposed integration-architecture successors)"
+      ],
+      "contracts": [],
+      "pocs": [],
+      "repository_paths": [
+        "AGENTS.md",
+        ".agent/",
+        ".agents/",
+        "project-dossier/",
+        "project-dossier-intake/",
+        "packages/",
+        "apps/studio/"
+      ],
+      "dependencies": [
+        "storyworld-repository-orientation",
+        "storyworld-governed-change",
+        "storyworld-conformance-and-release"
+      ]
+    },
+    "storyworld-repository-orientation": {
+      "decisions": [],
+      "contracts": [],
+      "pocs": [],
+      "repository_paths": [
+        "AGENTS.md",
+        ".agent/START_HERE.md",
+        ".agent/policy.json",
+        ".agent/context.json",
+        ".agent/state/current.json",
+        ".agent/decisions/",
+        ".agent/tasks/",
+        "project-dossier/",
+        "project-dossier-intake/"
+      ],
+      "dependencies": []
+    },
+    "storyworld-governed-change": {
+      "decisions": [],
+      "contracts": [],
+      "pocs": [],
+      "repository_paths": [
+        ".agent/tasks/",
+        ".agent/evidence/",
+        ".agent/validators.json",
+        ".agent/scripts/refresh.py",
+        ".agent/scripts/validate.py"
+      ],
+      "dependencies": [
+        "storyworld-repository-orientation",
+        "storyworld-decision-impact-analysis",
+        "storyworld-conformance-and-release"
+      ]
+    },
+    "storyworld-decision-impact-analysis": {
+      "decisions": [
+        "ADR-0015",
+        "DEC-0012",
+        "DEC-0015",
+        "DEC-0017",
+        "DEC-0021",
+        "DEC-0028",
+        "DEC-0031",
+        "DEC-0032",
+        "DEC-0033"
+      ],
+      "contracts": [],
+      "pocs": [],
+      "repository_paths": [
+        ".agent/decisions/",
+        "packages/contracts/adr/",
+        "packages/contracts/charter/authority-matrix.json",
+        "project-dossier-intake/draft-decisions/"
+      ],
+      "dependencies": []
+    },
+    "storyworld-dossier-intake-maintenance": {
+      "decisions": [],
+      "contracts": [],
+      "pocs": [],
+      "repository_paths": [
+        "project-dossier-intake/readme.md",
+        "project-dossier-intake/canonical-impact-map.md",
+        "project-dossier-intake/draft-decisions/",
+        "project-dossier/machine-readable/artifact-registry.json"
+      ],
+      "dependencies": [
+        "storyworld-repository-orientation",
+        "storyworld-decision-impact-analysis",
+        "storyworld-conformance-and-release"
+      ]
+    },
+    "storyworld-contract-authoring": {
+      "decisions": [
+        "DEC-0041 through DEC-0053"
+      ],
+      "contracts": [
+        "CON-001 through CON-053"
+      ],
+      "pocs": [],
+      "repository_paths": [
+        "packages/contracts/",
+        "packages/contracts/schemas/",
+        "packages/contracts/fixtures/",
+        "packages/contracts/tests/"
+      ],
+      "dependencies": [
+        "storyworld-decision-impact-analysis",
+        "storyworld-fixture-authoring"
+      ]
+    },
+    "storyworld-schema-evolution": {
+      "decisions": [],
+      "contracts": [],
+      "pocs": [],
+      "repository_paths": [
+        "packages/contracts/",
+        "apps/studio/src/lib/engine.ts",
+        "packages/integration/",
+        "packages/portability/"
+      ],
+      "dependencies": [
+        "storyworld-contract-authoring",
+        "storyworld-fixture-authoring"
+      ]
+    },
+    "storyworld-fixture-authoring": {
+      "decisions": [],
+      "contracts": [
+        "All CON-* contracts with fixture requirements"
+      ],
+      "pocs": [
+        "POC-01 through POC-13"
+      ],
+      "repository_paths": [
+        "packages/contracts/fixtures/",
+        "packages/regression/",
+        "packages/evaluation/",
+        "project-dossier-intake/assessments/"
+      ],
+      "dependencies": []
+    },
+    "storyworld-poc-execution": {
+      "decisions": [],
+      "contracts": [],
+      "pocs": [
+        "POC-01 through POC-13"
+      ],
+      "repository_paths": [
+        "project-dossier-intake/assessments/",
+        "project-dossier-intake/plans/",
+        ".agent/evidence/"
+      ],
+      "dependencies": [
+        "storyworld-fixture-authoring",
+        "storyworld-security-review",
+        "storyworld-conformance-and-release"
+      ]
+    },
+    "storyworld-conformance-and-release": {
+      "decisions": [],
+      "contracts": [],
+      "pocs": [],
+      "repository_paths": [
+        ".agent/validators.json",
+        ".agent/scripts/validate.py",
+        ".agent/tests/",
+        "packages/contracts/tests/",
+        "apps/studio/"
+      ],
+      "dependencies": [
+        "storyworld-repository-orientation"
+      ]
+    },
+    "storyworld-creative-command-implementation": {
+      "decisions": [
+        "DEC-0041"
+      ],
+      "contracts": [
+        "CON-001",
+        "CON-002",
+        "CON-003",
+        "CreativeInterpretation",
+        "CreativePlan",
+        "CreativeOperation",
+        "EditProposal",
+        "CreativeDecision",
+        "CreativeRevision"
+      ],
+      "pocs": [
+        "POC-01",
+        "POC-09"
+      ],
+      "repository_paths": [
+        "packages/contracts/",
+        "packages/domain/",
+        "packages/kernel/",
+        "apps/studio/"
+      ],
+      "dependencies": [
+        "storyworld-contract-authoring",
+        "storyworld-fixture-authoring",
+        "storyworld-studio-surface"
+      ]
+    },
+    "storyworld-voice-command": {
+      "decisions": [
+        "DEC-0040",
+        "DEC-0041",
+        "DEC-0044"
+      ],
+      "contracts": [
+        "CreativeCommand",
+        "CreativeContext",
+        "ProviderEgressDecision"
+      ],
+      "pocs": [
+        "POC-01"
+      ],
+      "repository_paths": [
+        "apps/studio/",
+        "packages/contracts/",
+        "packages/providers/"
+      ],
+      "dependencies": [
+        "storyworld-creative-command-implementation",
+        "storyworld-provider-adapter",
+        "storyworld-security-review"
+      ]
+    },
+    "storyworld-cross-media-command": {
+      "decisions": [
+        "DEC-0041",
+        "DEC-0042",
+        "DEC-0046"
+      ],
+      "contracts": [
+        "CreativePlan",
+        "ImageOperation",
+        "VideoEditOperation",
+        "AudioEditOperation",
+        "MusicOperation",
+        "GraphicLayoutOperation",
+        "SpatialEditOperation",
+        "RuntimeContentOperation"
+      ],
+      "pocs": [
+        "POC-09"
+      ],
+      "repository_paths": [],
+      "dependencies": [
+        "storyworld-creative-command-implementation",
+        "storyworld-creative-direction",
+        "storyworld-native-media-workspace"
+      ]
+    },
+    "storyworld-creative-direction": {
+      "decisions": [
+        "DEC-0042"
+      ],
+      "contracts": [
+        "CreativeSpecification",
+        "CreativeBinding",
+        "ResolvedRealizationSpec"
+      ],
+      "pocs": [
+        "POC-04",
+        "POC-05",
+        "POC-09"
+      ],
+      "repository_paths": [
+        "project-dossier-intake/platform-capabilities/production-design.md",
+        "project-dossier-intake/draft-decisions/dec-0031-art-style-definitions.md",
+        "project-dossier-intake/draft-decisions/dec-0033-production-design-look-system.md",
+        "packages/contracts/"
+      ],
+      "dependencies": [
+        "storyworld-contract-authoring",
+        "storyworld-fixture-authoring"
+      ]
+    },
+    "storyworld-native-media-workspace": {
+      "decisions": [
+        "DEC-0040",
+        "DEC-0041",
+        "DEC-0046"
+      ],
+      "contracts": [
+        "ImageOperation",
+        "VideoEditOperation",
+        "AudioEditOperation",
+        "MusicOperation",
+        "GraphicLayoutOperation",
+        "SpatialEditOperation",
+        "PreviewArtifact"
+      ],
+      "pocs": [
+        "POC-04",
+        "POC-05",
+        "POC-06"
+      ],
+      "repository_paths": [
+        "apps/studio/",
+        "packages/domain/",
+        "packages/kernel/",
+        "packages/providers/",
+        "packages/evaluation/"
+      ],
+      "dependencies": [
+        "storyworld-creative-command-implementation",
+        "storyworld-creative-direction",
+        "storyworld-annotation-target",
+        "storyworld-provider-adapter",
+        "storyworld-deterministic-media-worker",
+        "storyworld-studio-surface"
+      ]
+    },
+    "storyworld-annotation-target": {
+      "decisions": [
+        "DEC-0047"
+      ],
+      "contracts": [
+        "AnnotationTarget"
+      ],
+      "pocs": [
+        "POC-01",
+        "POC-04",
+        "POC-05",
+        "POC-08"
+      ],
+      "repository_paths": [],
+      "dependencies": [
+        "storyworld-contract-authoring",
+        "storyworld-fixture-authoring",
+        "storyworld-studio-surface"
+      ]
+    },
+    "storyworld-evaluation-layer": {
+      "decisions": [
+        "DEC-0049"
+      ],
+      "contracts": [
+        "EvaluationPlan",
+        "EvaluationFinding",
+        "ApprovalInvalidation"
+      ],
+      "pocs": [
+        "POC-04",
+        "POC-05",
+        "POC-06",
+        "POC-08",
+        "POC-09",
+        "POC-12"
+      ],
+      "repository_paths": [
+        "packages/evaluation/",
+        "packages/regression/",
+        "apps/studio/src/components/continuity-console*",
+        "apps/studio/src/components/review-room*"
+      ],
+      "dependencies": [
+        "storyworld-fixture-authoring",
+        "storyworld-provider-model-evaluation",
+        "storyworld-studio-surface"
+      ]
+    },
+    "storyworld-studio-surface": {
+      "decisions": [
+        "DEC-0040",
+        "DEC-0041",
+        "DEC-0046",
+        "DEC-0047"
+      ],
+      "contracts": [
+        "CreativeCommand",
+        "EditProposal",
+        "PreviewArtifact",
+        "CreativeDecision",
+        "AnnotationTarget"
+      ],
+      "pocs": [],
+      "repository_paths": [
+        "apps/studio/",
+        "apps/studio/src/components/ui/",
+        "apps/studio/src/lib/engine.ts"
+      ],
+      "dependencies": [
+        "storyworld-repository-orientation"
+      ]
+    },
+    "storyworld-asset-custody-and-lineage": {
+      "decisions": [
+        "DEC-0048"
+      ],
+      "contracts": [
+        "AssetVersion",
+        "TransformationRecord",
+        "ExternalEditorReturn",
+        "ChannelPackage",
+        "RuntimeContentPackage"
+      ],
+      "pocs": [
+        "POC-03",
+        "POC-04",
+        "POC-05",
+        "POC-08"
+      ],
+      "repository_paths": [
+        "packages/storage/",
+        "packages/domain/",
+        "packages/persistence/",
+        "packages/portability/"
+      ],
+      "dependencies": [
+        "storyworld-deterministic-media-worker",
+        "storyworld-rights-and-consent-review",
+        "storyworld-evaluation-layer"
+      ]
+    },
+    "storyworld-rights-and-consent-review": {
+      "decisions": [
+        "DEC-0036",
+        "DEC-0037",
+        "DEC-0044",
+        "DEC-0049"
+      ],
+      "contracts": [
+        "ProviderEgressDecision",
+        "EvaluationFinding",
+        "ApprovalInvalidation",
+        "PublicationAuthorization"
+      ],
+      "pocs": [],
+      "repository_paths": [
+        "packages/contracts/",
+        "packages/policy/",
+        "packages/domain/",
+        "project-dossier-intake/governance/"
+      ],
+      "dependencies": [
+        "storyworld-contract-authoring",
+        "storyworld-evaluation-layer",
+        "storyworld-security-review"
+      ]
+    },
+    "storyworld-provider-adapter": {
+      "decisions": [
+        "ADR-0015",
+        "DEC-0043",
+        "DEC-0044"
+      ],
+      "contracts": [
+        "GenerationRecipe",
+        "ProviderExecutionPlan",
+        "ProviderExecutionResult",
+        "ProviderCapabilityProfile",
+        "ProviderPolicy",
+        "ModelCapabilityApproval",
+        "CredentialBinding",
+        "CostPolicy"
+      ],
+      "pocs": [
+        "POC-02",
+        "POC-03",
+        "POC-13"
+      ],
+      "repository_paths": [
+        "packages/providers/",
+        "packages/workflows/",
+        "packages/credentials/",
+        "packages/evaluation/",
+        "apps/studio/src/components/generation-workbench.tsx"
+      ],
+      "dependencies": [
+        "storyworld-contract-authoring",
+        "storyworld-rights-and-consent-review",
+        "storyworld-asset-custody-and-lineage",
+        "storyworld-security-review"
+      ]
+    },
+    "storyworld-provider-model-evaluation": {
+      "decisions": [
+        "DEC-0044",
+        "DEC-0049"
+      ],
+      "contracts": [
+        "ModelCapabilityApproval",
+        "ProviderCapabilityProfile",
+        "ProviderPolicy"
+      ],
+      "pocs": [
+        "POC-02",
+        "POC-04",
+        "POC-05"
+      ],
+      "repository_paths": [
+        "packages/providers/",
+        "packages/evaluation/",
+        "project-dossier/research/",
+        "project-dossier-intake/assessments/"
+      ],
+      "dependencies": [
+        "storyworld-fixture-authoring",
+        "storyworld-security-review"
+      ]
+    },
+    "storyworld-comfyui-workflow": {
+      "decisions": [
+        "DEC-0012",
+        "DEC-0045"
+      ],
+      "contracts": [
+        "WorkflowDefinition",
+        "WorkflowPromotion",
+        "ProviderExecutionPlan",
+        "ProviderExecutionResult"
+      ],
+      "pocs": [
+        "POC-07"
+      ],
+      "repository_paths": [
+        "integrations/",
+        "packages/providers/",
+        "packages/workflows/",
+        "apps/studio/"
+      ],
+      "dependencies": [
+        "storyworld-provider-adapter",
+        "storyworld-security-review",
+        "storyworld-fixture-authoring"
+      ]
+    },
+    "storyworld-deterministic-media-worker": {
+      "decisions": [
+        "DEC-0048"
+      ],
+      "contracts": [
+        "TransformationRecord",
+        "AssetVersion",
+        "InterchangeProfile"
+      ],
+      "pocs": [
+        "POC-03",
+        "POC-05",
+        "POC-13"
+      ],
+      "repository_paths": [
+        "packages/storage/",
+        "packages/workflows/",
+        "infra/",
+        "packages/evaluation/"
+      ],
+      "dependencies": [
+        "storyworld-security-review",
+        "storyworld-fixture-authoring"
+      ]
+    },
+    "storyworld-external-editor-connector": {
+      "decisions": [
+        "DEC-0047"
+      ],
+      "contracts": [
+        "ExternalEditorCheckout",
+        "ExternalEditorReturn",
+        "InterchangeProfile",
+        "ConversionLossReport",
+        "TransformationRecord"
+      ],
+      "pocs": [
+        "POC-08"
+      ],
+      "repository_paths": [
+        "packages/integration/",
+        "packages/portability/",
+        "integrations/",
+        "apps/studio/"
+      ],
+      "dependencies": [
+        "storyworld-asset-custody-and-lineage",
+        "storyworld-rights-and-consent-review",
+        "storyworld-security-review",
+        "storyworld-evaluation-layer"
+      ]
+    },
+    "storyworld-otio-editorial-interchange": {
+      "decisions": [
+        "DEC-0047"
+      ],
+      "contracts": [
+        "EditorialHandoffPackage",
+        "EditorialReturnPackage",
+        "InterchangeProfile",
+        "ConversionLossReport"
+      ],
+      "pocs": [
+        "POC-05",
+        "POC-08"
+      ],
+      "repository_paths": [
+        "packages/portability/",
+        "packages/integration/",
+        "apps/studio/"
+      ],
+      "dependencies": [
+        "storyworld-external-editor-connector",
+        "storyworld-schema-evolution",
+        "storyworld-fixture-authoring"
+      ]
+    },
+    "storyworld-publication-connector": {
+      "decisions": [
+        "DEC-0050"
+      ],
+      "contracts": [
+        "ChannelPackage",
+        "PublicationAuthorization",
+        "PublicationJob",
+        "PublicationReceipt"
+      ],
+      "pocs": [
+        "POC-10"
+      ],
+      "repository_paths": [
+        "packages/integration/",
+        "packages/portability/",
+        "packages/workflows/"
+      ],
+      "dependencies": [
+        "storyworld-rights-and-consent-review",
+        "storyworld-security-review",
+        "storyworld-conformance-and-release"
+      ]
+    },
+    "storyworld-publication-scheduler": {
+      "decisions": [
+        "DEC-0050"
+      ],
+      "contracts": [
+        "PublicationAuthorization",
+        "PublicationJob",
+        "PublicationReceipt"
+      ],
+      "pocs": [
+        "POC-10",
+        "POC-13"
+      ],
+      "repository_paths": [
+        "packages/workflows/",
+        "packages/integration/",
+        "apps/studio/"
+      ],
+      "dependencies": [
+        "storyworld-contract-authoring",
+        "storyworld-publication-connector",
+        "storyworld-security-review"
+      ]
+    },
+    "storyworld-commerce-foundry-bridge": {
+      "decisions": [
+        "DEC-0051"
+      ],
+      "contracts": [
+        "CommerceFoundryBrief",
+        "StoryworldCommerceBundle",
+        "CommerceFoundryReceipt"
+      ],
+      "pocs": [
+        "POC-11"
+      ],
+      "repository_paths": [
+        "packages/integration/",
+        "packages/contracts/",
+        "packages/portability/",
+        "apps/studio/"
+      ],
+      "dependencies": [
+        "storyworld-contract-authoring",
+        "storyworld-asset-custody-and-lineage",
+        "storyworld-rights-and-consent-review",
+        "storyworld-security-review"
+      ]
+    },
+    "storyworld-runtime-adapter": {
+      "decisions": [
+        "DEC-0052"
+      ],
+      "contracts": [
+        "RuntimeContentPackage",
+        "RuntimeReceipt",
+        "RuntimeContentOperation"
+      ],
+      "pocs": [
+        "POC-12"
+      ],
+      "repository_paths": [
+        "packages/integration/",
+        "packages/portability/",
+        "packages/contracts/",
+        "apps/studio/"
+      ],
+      "dependencies": [
+        "storyworld-contract-authoring",
+        "storyworld-asset-custody-and-lineage",
+        "storyworld-evaluation-layer",
+        "storyworld-security-review"
+      ]
+    },
+    "storyworld-cost-and-usage-accounting": {
+      "decisions": [
+        "DEC-0044"
+      ],
+      "contracts": [
+        "CostPolicy",
+        "CredentialBinding",
+        "ProviderExecutionResult"
+      ],
+      "pocs": [
+        "POC-02",
+        "POC-03",
+        "POC-13"
+      ],
+      "repository_paths": [
+        "packages/providers/",
+        "packages/credentials/",
+        "packages/workflows/",
+        "apps/studio/"
+      ],
+      "dependencies": [
+        "storyworld-provider-adapter",
+        "storyworld-security-review"
+      ]
+    },
+    "storyworld-customer-managed-deployment": {
+      "decisions": [
+        "DEC-0040",
+        "DEC-0053 or hosting successor"
+      ],
+      "contracts": [
+        "CredentialBinding",
+        "ProviderPolicy",
+        "AssetVersion"
+      ],
+      "pocs": [
+        "POC-13"
+      ],
+      "repository_paths": [
+        "infra/",
+        "apps/",
+        "packages/",
+        "docs/"
+      ],
+      "dependencies": [
+        "storyworld-security-review",
+        "storyworld-conformance-and-release",
+        "storyworld-cost-and-usage-accounting"
+      ]
+    },
+    "storyworld-security-review": {
+      "decisions": [
+        "DEC-0044",
+        "DEC-0045",
+        "DEC-0047",
+        "DEC-0048",
+        "DEC-0050",
+        "DEC-0052"
+      ],
+      "contracts": [],
+      "pocs": [],
+      "repository_paths": [
+        "packages/credentials/",
+        "packages/providers/",
+        "packages/storage/",
+        "packages/workflows/",
+        "integrations/",
+        "infra/",
+        "apps/studio/"
+      ],
+      "dependencies": [
+        "storyworld-repository-orientation"
+      ]
+    }
+  }
+}

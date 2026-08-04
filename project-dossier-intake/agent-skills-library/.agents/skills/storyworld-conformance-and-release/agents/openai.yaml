@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyworld Conformance And Release"
+  short_description: "Provide an independent completion gate that distinguishes implementat..."
+  default_prompt: "Use $storyworld-conformance-and-release for this Storyworld task. Follow current repository governance, preserve Engine and human authority, use exact versions, and produce the required evidence without activating external crossings."
