@@ -1,7 +1,7 @@
 {
   "authority": "generated_non_authoritative_point_in_time",
-  "generated_at": "2026-08-04T21:43:34.790986+00:00",
-  "generation_id": "e841b14c687987b9fd43717b715cda99",
+  "generated_at": "2026-08-05T16:05:22.375728+00:00",
+  "generation_id": "56f47107fd7cc9802f5422c550a532f2",
   "generator_version": "1.0.1",
   "limitations": [
     "Fingerprint proves declared byte identity, not correctness or authority.",
@@ -84,6 +84,13 @@
     ".agent/evidence/EVD-0031-owner-integration-questionnaire-reconciliation.md",
     ".agent/evidence/EVD-0032-integration-questionnaire-clarity-review.md",
     ".agent/evidence/EVD-0033-integration-questionnaire-delayed-audit-follow-up.md",
+    ".agent/evidence/EVD-0034-owner-questionnaire-internal-audit-resolution.md",
+    ".agent/evidence/EVD-0035-owner-questionnaire-f02-authority-normalization.md",
+    ".agent/evidence/EVD-0036-owner-questionnaire-f04-access-retention-model.md",
+    ".agent/evidence/EVD-0037-owner-questionnaire-f09-capability-milestones.md",
+    ".agent/evidence/EVD-0038-owner-questionnaire-f10-workflow-taxonomy.md",
+    ".agent/evidence/EVD-0039-owner-questionnaire-f11-rollout-measurement.md",
+    ".agent/evidence/EVD-0040-owner-questionnaire-hosting-credential-decisions.md",
     ".agent/evidence/README.md",
     ".agent/extensions/README.md",
     ".agent/extensions/registry.json",
@@ -140,6 +147,13 @@
     ".agent/tasks/TASK-0021-owner-integration-questionnaire-reconciliation.md",
     ".agent/tasks/TASK-0022-integration-questionnaire-clarity-review.md",
     ".agent/tasks/TASK-0023-integration-questionnaire-delayed-audit-follow-up.md",
+    ".agent/tasks/TASK-0024-owner-questionnaire-internal-audit-resolution.md",
+    ".agent/tasks/TASK-0025-owner-questionnaire-f02-authority-normalization.md",
+    ".agent/tasks/TASK-0026-owner-questionnaire-f04-access-retention-model.md",
+    ".agent/tasks/TASK-0027-owner-questionnaire-f09-capability-milestones.md",
+    ".agent/tasks/TASK-0028-owner-questionnaire-f10-workflow-taxonomy.md",
+    ".agent/tasks/TASK-0029-owner-questionnaire-f11-rollout-measurement.md",
+    ".agent/tasks/TASK-0030-owner-questionnaire-hosting-credential-decisions.md",
     ".agent/templates/artifact.json",
     ".agent/templates/checkpoint.md",
     ".agent/templates/decision.md",
@@ -1066,7 +1080,7 @@
     "tsconfig.base.json"
   ],
   "schema_version": "harness.generated-manifest.v1",
-  "source_fingerprint": "6b65f3a8519a97f19eca00b28919499586a6801f55a4f9e08934a695cb27ade5",
+  "source_fingerprint": "8223befd3541d570cdb85942e5197bc901a7773d68b3b6c313a69c1523352c9e",
   "source_scope": {
     "exclusions": [
       {

@@ -1,7 +1,7 @@
 {
   "schema_version": "harness.current-state.v1",
   "project_slug": "storyworld-platform",
-  "updated_at": "2026-08-01",
+  "updated_at": "2026-08-05",
   "authority": "project_maintained_compact_operational_index_not_permission",
   "adoption_status": "adopted",
   "active_tasks": [],
@@ -49,10 +49,17 @@
     "EVD-0030",
     "EVD-0031",
     "EVD-0032",
-    "EVD-0033"
+    "EVD-0033",
+    "EVD-0034",
+    "EVD-0035",
+    "EVD-0036",
+    "EVD-0037",
+    "EVD-0038",
+    "EVD-0039",
+    "EVD-0040"
   ],
   "blocked_by": [],
-  "next_action": "TASK-0023 is complete on EVD-0033. The integration questionnaire now routes seven successor dispositions requiring owner acceptance before they alter repository direction: native editing scope, small-creator market boundary, Astro-before-Instagram sequence, provider-egress classification mapping, InvokeAI's role relative to DEC-0012, initial workspace-versus-member credential scope, and whether the future small-team product also includes a hosted service. The spatial graph remains separately gated by proposed DEC-0028 and a future owner-authorized implementation task. Reserved crossings remain closed.",
+  "next_action": "Questions 1–26 are substantively complete and TASK-0030 is complete with EVD-0040. Identify the included purpose-statement version, bind the questionnaire version, and obtain explicit formal owner sign-off before successor disposition; all reserved crossings remain closed.",
   "external_effects_authority_refs": [],
   "limitations": [
     "behavioral_proofs_only_no_readiness_claim",

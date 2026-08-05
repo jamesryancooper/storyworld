@@ -9,11 +9,12 @@
 - **Owner / decision authority:** James Ryan Cooper
 - **Response date:** Not provided
 - **Document version:** Owner response workbook — draft
-- **Owner-response completeness:** Substantively complete except Questions 18 and 22
+- **Owner-response completeness:** Substantively complete
 - **Formal owner-approval status:** Pending explicit owner sign-off
 - **Approval date:** Not yet recorded
 - **Approved document version:** Not yet recorded
-- **Remaining owner decisions:** Question 18 hosting model and Question 22 provider-credential scope
+- **Included purpose-statement version:** Not yet recorded
+- **Remaining owner decisions:** None within Questions 1–26; formal owner approval and the included purpose-statement version remain pending
 - **Implementation-evidence status:** Research, prototypes, and validation remain required as identified by the numbered responses
 - **Repository / program reference:** Storyworld platform / project-dossier-intake
 
@@ -25,15 +26,17 @@
 | Owner | James Ryan Cooper |
 | Approval date | Not yet recorded |
 | Approved document version | Not yet recorded |
-| Exceptions or prerequisites | Questions 18 and 22 must be resolved or explicitly deferred before formal sign-off. |
+| Included purpose-statement version | Not yet recorded |
+| Exceptions or prerequisites | The included purpose-statement version must be recorded, and both identified versions must be reviewed, before formal sign-off. |
 
-This record is pending. No approval date, approved version, or formal owner approval may be inferred from the populated responses or their section statuses.
+This record is pending. No approval date, approved questionnaire version, included purpose-statement version, or formal owner approval may be inferred from the populated responses or their section statuses.
 
 ## How to use this workbook
 
 - This Markdown file is the response workbook. Type directly beneath each **Response:** or **Selected choice(s), ranking, qualifications, or additional answer:** label, expanding the plain Markdown content as needed.
-- For checkbox options, replace ☐ with ☒ or add an X beside the selected choice.
+- For checkbox options, replace ☐ with ☒ or add an X beside the selected choice unless a local legend explicitly defines an additional state.
 - Use “Not decided” when necessary, but identify what research, prototype, or owner decision is required.
+- When a partially answered question contains a labeled **Owner resolution** field, record the final selection or explicit deferral only in that field and update its local **Owner-choice status**. `Selected` and `Explicitly deferred` both satisfy a sign-off prerequisite; `Undecided` does not.
 - Separate current accepted direction from future preference. A response in this workbook does not by itself accept a repository decision or authorize implementation.
 - Priority 1 questions should be answered before major dependency adoption or interface prototypes are approved.
 - Use the response-order guide below to review all top-level questions in dependency order. The guide provides navigation only and does not restate or supersede the answers.
@@ -52,6 +55,8 @@ Each numbered question uses two independent fields:
    - **Evidence complete:** The applicable implementation evidence has been completed and reviewed for the stated scope. This does not by itself grant formal owner approval or implementation authority.
 
 Formal owner approval applies to the artifact as a whole and is recorded only in the separate formal owner-approval record. “Answered” does not mean formally approved. Formal approval does not imply implementation. “Needs research/prototype” does not reopen settled owner direction. If later research would materially change recorded target owner direction, that change requires a later explicit owner decision.
+
+A local **Owner-choice status** applies only to its named subdecision. Selecting that subdecision may permit the top-level question to become `Answered` when no other substantive answer remains unresolved. Explicitly deferring the subdecision satisfies an expressly stated sign-off prerequisite but leaves the top-level question `Partially answered` because the substantive choice remains unresolved. Use top-level `Deferred` only when the question's substantive answer as a whole is intentionally postponed.
 
 Nothing in any response or status authorizes implementation, dependency installation, spending, credential use, provider calls, deployment, publication, external communication, participant recruitment, charging customers, production use, or movement to another rollout stage.
 
@@ -141,7 +146,7 @@ Limited Paid Beta
 Public Self-Service
 ```
 
-External access always requires the applicable explicit owner decision. Publication, release-package authorization, Receiving-Runtime Acceptance, canon acceptance, and Master Acceptance remain separate decisions.
+External access always requires the applicable explicit owner decision. Create a release, Authorize external publication, Receiving-Runtime Acceptance, canon acceptance, and Master Acceptance remain separate decisions.
 
 ## Response-order guide
 
@@ -180,19 +185,17 @@ Physical reordering is deferred to a future major questionnaire revision in whic
 
 ## Current owner-action queue
 
-This queue is a current status snapshot and navigation aid, not another source of product direction. It includes only the two unresolved owner choices and the subsequent whole-artifact sign-off. Research, implementation, and successor work that needs no additional owner answer is tracked in the authoritative cross-cutting register instead.
+This queue is a current status snapshot and navigation aid, not another source of product direction. All substantive choices in Questions 1–26 are now recorded; only the subsequent whole-artifact sign-off remains here. Research, implementation, and successor work that needs no additional owner answer is tracked in the authoritative cross-cutting register instead.
 
-| Priority | Controlling item | Current status or unresolved choice | Owner action needed |
+| Priority | Controlling item | Current status | Owner action needed |
 | ---: | --- | --- | --- |
-| 1 | Question 18 | `Partially answered`; customer-managed-only versus an optional Storyworld-hosted service remains unresolved. | Select the hosting posture recorded in Question 18 or explicitly defer it; Question 18 alone owns this choice. |
-| 2 | Question 22 | `Partially answered`; workspace-admin versus per-member provider-credential scope remains unresolved. | Select the credential scope recorded in Question 22 or explicitly defer it; Question 22 alone owns this choice. |
-| 3 | Formal owner sign-off | Pending; no approval date or approved document version is recorded. | After Questions 18 and 22 are resolved or explicitly deferred, review the identified document version and record the owner’s explicit approval or non-approval. |
+| 1 | Formal owner sign-off | Pending; no approval date, approved questionnaire version, or included purpose-statement version is recorded. | Identify the purpose-statement version, review both identified versions, and record the owner’s explicit approval or non-approval. |
 
 # Priority 1 — Product purpose and Proof
 
 ## Target purpose statement
 
-The dedicated product-definition artifact [`../product-definition/storyworld-purpose.md`](../product-definition/storyworld-purpose.md) contains the complete statement and is the intake's single staged source of truth for it. This questionnaire records the referenced statement as target owner direction pending formal owner sign-off and intake ratification; it is included in the questionnaire's eventual whole-artifact owner sign-off. Questions 1 and 2 establish how the Proof and Useful Internal Version serve that purpose; they do not redefine it.
+The dedicated product-definition artifact [`../product-definition/storyworld-purpose.md`](../product-definition/storyworld-purpose.md) contains the complete statement and is the intake's single staged source of truth for it. This questionnaire records the referenced statement as target owner direction pending formal owner sign-off and intake ratification. It is included in the questionnaire's eventual whole-artifact owner sign-off only at the exact document version or content hash recorded as **Included purpose-statement version** in the formal owner-approval record. If that identifier is absent, formal sign-off remains incomplete and no purpose-statement version may be inferred. Questions 1 and 2 establish how the Proof and Useful Internal Version serve that purpose; they do not redefine it.
 
 ## 1. What must Storyworld prove first?
 
@@ -259,7 +262,7 @@ Cross-cutting enabling capability—not an additional prioritized outcome: Achie
 
 **Response:**
 
-Only work requiring human authority, legal/accountability judgment, or exceptional creative precision should remain manual. Humans must perform Add to Canon or Update Canon; perform Master Acceptance for exact candidate asset versions; accept final edits and channel packages; make authoritative creative selections; approve rights, consent, likeness, or voice use; resolve interpretive findings or permitted waivers; and authorize publication.
+Only work requiring human authority, legal/accountability judgment, or exceptional creative precision should remain manual. Humans must use Add to Canon or Update Canon for canon content, perform Master Acceptance for exact candidate asset versions, use the authorized **Apply changes** action to create accepted successors for ordinary versioned documents, Create a release from each exact reviewed package, make authoritative creative selections, approve rights, consent, likeness, or voice use, resolve interpretive findings or permitted waivers, and separately Authorize external publication.
 
 Storyworld should automate everything else policy allows: interpreting text and voice, creating plans and typed operations, generating candidates, executing low-consequence work within approved policies and budgets, preparing medium-consequence changes for clear confirmation, performing professional native edits, running evaluations, tracking custody, versions, provenance and costs, assembling derivatives, and preparing governed export packages.
 
@@ -282,7 +285,7 @@ Anything that defines Storyworld’s identity, trustworthiness, and intended cre
 - Inspectable, reversible, interruptible operations with previews, diffs, partial acceptance, undo, and clear consequence levels.
 - Engine-owned Current Canon, immutable Canon Revisions and Canon Versions, candidate/accepted-master lifecycle, provenance, rights, consent, privacy, egress, and cost controls.
 - Automated continuity, identity, technical, rights, and policy evaluation, with findings and uncertainty surfaced for human review.
-- Human-only authority for canon acceptance through Add to Canon or Update Canon, Master Acceptance, final-edit acceptance, waivers, rights decisions, and publication authorization.
+- Human-only authority for Add to Canon or Update Canon, Master Acceptance, the authorized **Apply changes** action for accepted ordinary-document successors, waivers, rights decisions, Create a release, and Authorize external publication.
 - The end-to-end Dumpster Fire Friends workflow established by the Proof, now usable repeatedly with Current Canon defining the property and characters, an exact Canon Version pinned for production, and native generation, fine-grained editing, review, approval, and governed export.
 
 InvokeAI should remain an exceptional precision-finishing path, not the normal workflow. Direct publishing, broad channel coverage, Mature Product collaboration roles, and other specialist integrations can follow, provided the export, custody, and authority boundaries are established from the beginning. The Useful Internal Version must support the intended internal product—not an interim prompt box, provider console, or manually coordinated asset pipeline.
@@ -349,7 +352,7 @@ Highly technical users should have an optional Advanced Operator Mode for inspec
 
 Yes. Storyworld should assume that solo creators and small teams will often have one person acting as creator, editor, reviewer, approver, and operator. The system should support this without imposing large-team bureaucracy, while still distinguishing each action and recording the applicable authority, scope, version, and receipt.
 
-A single person may perform multiple roles where policy allows, but “apply,” “accept,” “approve,” “waive,” and “authorize publication” must remain clearly distinct actions. The system must not silently treat creative editing as approval or allow a user to bypass a required independent review. Larger teams can add more granular roles and delegation later.
+A single person may perform multiple roles where policy allows, but “apply,” “accept,” “approve,” “waive,” and “Authorize external publication” must remain clearly distinct actions. The system must not silently treat creative editing as approval or allow a user to bypass a required independent review. Larger teams can add more granular roles and delegation later.
 
 ---
 
@@ -368,19 +371,26 @@ A single person may perform multiple roles where policy allows, but “apply,”
 | Pin a Canon Version | Property owner or explicitly delegated property/production authority | Exact Canon Version and named downstream production or workflow | Records the exact pin and receipt. It does not accept content or change Current Canon. A deterministic system may execute only as part of an exact authorized action. |
 | Approve a narrative plan | Property owner or delegated creative lead | Named production, pinned Canon Version, and plan version | Approval does not change Current Canon or the production’s pin; material canon changes require a separate Add to Canon or Update Canon action. |
 | Approve a candidate’s creative quality (conditional) | Authorized creative approver | Exact candidate asset version and defined creative criteria | Produces exact-version Creative Approval evidence only when required or recorded by the governance profile. It does not establish master status or substitute for Master Acceptance. |
-| Accept an asset as master | Property owner or explicitly delegated master-acceptance authority | Exact candidate asset version within a named property or production | Requires applicable evaluation and policy checks, plus exact-version Creative Approval only when the governance profile requires it. Produces an immutable accepted master and exact-version Master Acceptance receipt. It does not add to or update Current Canon, approve rights, create a release, authorize publication, or affect unrelated assets. |
+| Accept an asset as master | Property owner or explicitly delegated master-acceptance authority | Exact candidate asset version within a named property or production | Requires applicable evaluation and policy checks, plus exact-version Creative Approval only when the governance profile requires it. Produces an immutable accepted master and exact-version Master Acceptance receipt. It does not add to or update Current Canon, approve rights, Create a release, Authorize external publication, or affect unrelated assets. |
 | Approve rights | Rights holder or authorized rights reviewer; counsel when needed | Exact asset, use, purpose, territory, channel, duration, consent, and derivative scope | Rights approval is evidence-based and separate from Creative Approval and Master Acceptance. AI cannot make legal determinations. |
 | Waive a continuity problem | Property owner or delegated continuity authority | Exact finding, asset/version, scope, and duration | Only permitted waivers may be granted; rationale, evidence, expiry, and approver are recorded. Rights and policy blockers cannot be silently waived. |
-| Create a release | Property owner or delegated release authority | Exact accepted masters, metadata, renditions, and package | All required Master Acceptance receipts and other applicable approvals must be present. The release is versioned and immutable. |
-| Authorize external publication | Authorized publication authority, initially the property owner | Exact package, destination, metadata, disclosures, timing, cost/quota, and retry scope | Requires human authorization. A connector or scheduler may execute only the still-valid authorization; the external destination remains the authority host. |
+| Create a release | Property owner or delegated release authority | Exact accepted masters, metadata, renditions, and reviewed package | All required Master Acceptance receipts and other applicable approvals must be present. This is the package-level governing action and produces the versioned, immutable release. It does not authorize external publication. |
+| Authorize external publication | Authorized publication authority, initially the property owner | Exact created release and its reviewed package, destination, metadata, disclosures, timing, cost/quota, and retry scope | Requires separate human authorization after release creation. A connector or scheduler may execute only the still-valid authorization; the external destination remains the authority host. |
 | Approve a runtime-package handoff | Property owner or delegated Storyworld release/runtime-handoff authority | Exact package version and named target runtime | Produces Storyworld Runtime Handoff Approval and its exact-version receipt. Authorizes transfer, import, preview, testing, and acceptance evaluation only; it does not mean the receiving runtime has accepted the package. |
 | Accept a package in the receiving runtime | Authorized receiving-runtime authority | Exact imported package version and exact target runtime/environment | Requires successful import, package validation, parity checks, required previews or test execution, and resolution of blocking findings. Produces Receiving-Runtime Acceptance and the final runtime acceptance receipt. |
 | Approve a commercial campaign | Commerce Foundry’s authorized commercial approver; property owner for Storyworld creative-scope approval | Exact campaign, products, claims, budget, territory, and publication scope | Storyworld creative-scope approval does not grant commercial, vendor, fulfillment, or commerce-publication authority. |
 
+**Final-edit and package terminology:**
+
+- **Final edit** is descriptive wording, not an authority action or lifecycle state. The governing acceptance action depends on the edited object: **Master Acceptance** for an asset candidate, **Add to Canon** or **Update Canon** for canon content, and the existing authorized **Apply changes** action that creates an accepted successor for an ordinary versioned document.
+- **Accept a channel package** and **release-package authorization** are descriptive shorthand for **Create a release** from the exact reviewed package. They do not define another approval gate, lifecycle state, authority action, or receipt type.
+- **Create a release** remains separate from **Authorize external publication**. Release creation produces the versioned, immutable release; publication authorization covers that exact created release and its reviewed package, destination, metadata, disclosures, timing, cost or quota, retry scope, and execution authority.
+- Commerce Foundry approval, Storyworld Runtime Handoff Approval, and Receiving-Runtime Acceptance retain their separately defined authority domains, actions, and receipts. None is replaced or implied by object acceptance, release creation, or publication authorization.
+
 **Master lifecycle terminology:**
 
 - **Candidate asset:** A non-authoritative asset version under evaluation, revision, or review.
-- **Creative Approval:** An exact-version human review decision stating that a candidate meets the applicable creative criteria. It is supporting evidence only. Creative Approval does not establish master status, clear rights, create a release, or authorize publication.
+- **Creative Approval:** An exact-version human review decision stating that a candidate meets the applicable creative criteria. It is supporting evidence only. Creative Approval does not establish master status, clear rights, Create a release, or Authorize external publication.
 - **Master Acceptance:** An authorized human lifecycle decision that accepts an exact candidate asset version as the immutable accepted master for a named property or production. It creates the accepted-master state and an exact-version Master Acceptance receipt.
 - **Accepted master:** The immutable exact asset version produced by Master Acceptance. Later changes create a new candidate; they do not modify the accepted master in place.
 
@@ -405,7 +415,7 @@ A material change after Creative Approval creates a changed candidate to which t
 - Approval may be a prerequisite for acceptance, but approval does not automatically perform acceptance.
 - Acceptance does not silently grant unrelated approvals.
 
-Master Acceptance is exact-version-bound, attributed, human-authorized, and receipted. It does not add to or update Current Canon; approve or clear rights, consent, likeness, or voice use; create a release; authorize publication, deployment, commercial use, or runtime acceptance; or affect unrelated assets. Rights approval, release creation, publication authorization, commercial approval, and runtime decisions remain separate. One person may hold several roles where policy permits, but holding those roles does not collapse their decisions or receipts.
+Master Acceptance is exact-version-bound, attributed, human-authorized, and receipted. It does not add to or update Current Canon; approve or clear rights, consent, likeness, or voice use; Create a release; Authorize external publication, deployment, commercial use, or runtime acceptance; or affect unrelated assets. Rights approval, release creation, publication authorization, commercial approval, and runtime decisions remain separate. One person may hold several roles where policy permits, but holding those roles does not collapse their decisions or receipts.
 
 This response records target owner direction. It does not claim that the complete candidate, Creative Approval, Master Acceptance, permission, receipt, mobile, accessibility, or authentication workflow is already implemented. It does not authorize implementation, dependency installation, spending, deployment, publication, external communication, or any acceptance-class action. The questionnaire itself performs neither Creative Approval nor Master Acceptance.
 
@@ -430,13 +440,13 @@ For the Useful Internal Version’s solo/small-family-team scope, I should remai
 - **Accept an asset as master:** Property owner or explicitly delegated master-acceptance authority; exact candidate asset version within a named property or production. Requires all applicable checks and any profile-required exact-version Creative Approval. Produces the immutable accepted master and exact-version Master Acceptance receipt.
 - **Approve rights:** Rights holder or authorized rights reviewer, with qualified counsel where needed; scope must include purpose, territory, channel, duration, consent, and derivative use.
 - **Waive a continuity problem:** Property owner or delegated continuity authority, only where policy permits; requires recorded evidence, rationale, scope, and expiry.
-- **Create a release:** Property owner or delegated release authority; only from an exact package containing accepted masters with their Master Acceptance receipts and all other required approvals.
-- **Authorize external publication:** Authorized publication authority; exact package, destination, metadata, disclosures, timing, cost limits, and retry rules. The destination remains the authority host.
+- **Create a release:** Property owner or delegated release authority; only from an exact reviewed package containing accepted masters with their Master Acceptance receipts and all other required approvals. This creates the versioned, immutable release and no additional package-approval gate.
+- **Authorize external publication:** Authorized publication authority; a separate action covering the exact created release and its reviewed package, destination, metadata, disclosures, timing, cost limits, and retry rules. The destination remains the authority host.
 - **Approve a runtime-package handoff:** Property owner or delegated Storyworld release/runtime-handoff authority for the exact package version and named target runtime. Storyworld Runtime Handoff Approval authorizes transfer, import, preview, testing, and acceptance evaluation only; it is not Receiving-Runtime Acceptance.
 - **Accept a package in the receiving runtime:** Authorized receiving-runtime authority for the exact imported package version and exact target runtime/environment, after successful import, package validation, parity checks, required previews or test execution, and resolution of blocking findings. This decision creates Receiving-Runtime Acceptance and the final runtime acceptance receipt.
 - **Approve a commercial campaign:** Commerce Foundry’s authorized commercial approver owns product, claims, budget, vendor, fulfillment, and commerce publication approval. Storyworld creative-scope approval covers only its creative and narrative scope.
 
-AI systems and external tools may analyze, propose, generate, evaluate, compare versions, recommend Creative Approval or Master Acceptance, and execute bounded low-consequence work. They may not record Creative Approval and may never perform Add to Canon, Update Canon, or Master Acceptance, waive blockers, or authorize publication. AI-generated or AI-edited output remains a draft, proposal, or candidate until an authorized human performs the applicable governing action. Purposeful role separation should remain available as the team grows without imposing large-team bureaucracy on Useful Internal Version users.
+AI systems and external tools may analyze, propose, generate, evaluate, compare versions, recommend Creative Approval or Master Acceptance, and execute bounded low-consequence work. They may not record Creative Approval and may never perform Add to Canon, Update Canon, or Master Acceptance, waive blockers, or Authorize external publication. AI-generated or AI-edited output remains a draft, proposal, or candidate until an authorized human performs the applicable governing action. Purposeful role separation should remain available as the team grows without imposing large-team bureaucracy on Useful Internal Version users.
 
 ---
 
@@ -478,7 +488,7 @@ A distinct review step does not universally require a second person. An authoriz
 
 Direct accepted editing is workflow convenience, not expanded authority. AI may prepare, autosave, or submit eligible work, but it may never perform the human acceptance action. Every acceptance must remain exact-version-bound, attributed, and receipted. Stale-version, conflict, permission, and required-policy checks must complete before acceptance.
 
-Creating an accepted successor through ordinary direct accepted editing does not perform Add to Canon or Update Canon, accept an asset as master, clear rights, create a release, authorize publication, or modify an existing release. Direct accepted editing must not silently create canon acceptance or Master Acceptance. Previously accepted versions, Canon Revisions, accepted masters, and published packages remain immutable.
+Creating an accepted successor through ordinary direct accepted editing does not perform Add to Canon or Update Canon, accept an asset as master, clear rights, Create a release, Authorize external publication, or modify an existing release. Direct accepted editing must not silently create canon acceptance or Master Acceptance. Previously accepted versions, Canon Revisions, accepted masters, and published packages remain immutable.
 
 This response records target owner direction. It does not claim that the complete workflow, interface, permissions, receipts, or governance engine is already implemented. It does not authorize implementation, deployment, publication, external communication, spending, or any acceptance-class action.
 
@@ -506,7 +516,7 @@ No—not universally. Protected or high-consequence changes must use separate dr
 
 **Response:**
 
-Yes. Storyworld should support object-specific rules with a non-negotiable safety and authority floor. Mutable drafts, previews, and disposable candidates remain non-authoritative. Routine low-consequence notes may use direct accepted editing only when the actor has acceptance authority; otherwise they remain drafts or proposals. Proposed additions or updates to Current Canon, stable character identity, creative systems, accepted masters, release packages, and other protected or high-consequence changes require a distinct draft, review, and acceptance transition. Canon proposals require the separate Add to Canon or Update Canon action. Rights, consent, likeness, voice, sensitive-source access and provider-egress decisions, commercial claims, and publication require their applicable specialized review and authority.
+Yes. Storyworld should support object-specific rules with a non-negotiable safety and authority floor. Mutable drafts, previews, and disposable candidates remain non-authoritative. Routine low-consequence notes may use direct accepted editing only when the actor has acceptance authority; otherwise they remain drafts or proposals. Proposed additions or updates to Current Canon, stable character identity, creative systems, accepted masters, release packages, and other protected or high-consequence changes require distinct draft and review steps followed by the applicable governing action. Canon proposals require Add to Canon or Update Canon; candidate assets require Master Acceptance; ordinary versioned documents use the authorized **Apply changes** accepted-successor action; and an exact reviewed release package becomes an immutable release only through Create a release. Rights, consent, likeness, voice, sensitive-source access and provider-egress decisions, commercial claims, and external publication require their applicable specialized review and authority.
 
 Object-specific rules may require an independent reviewer, but a separate person is not universal. Every accepted result still requires an intentional authorized human action, exact-version evidence, applicable checks, an immutable successor version, and an acceptance receipt.
 
@@ -636,9 +646,9 @@ Fixture canon is non-authoritative test material and must never become Current C
 
 Add to Canon and Update Canon belong to the property owner or an explicitly delegated canon authority for the named property and branch. Canon acceptance is exact-version-bound, attributed, human-authorized, and receipted. AI, agents, runtime systems, external editors, validators, imports, and templates may prepare drafts, proposals, evidence, comparisons, impact analysis, or Canon Version manifests, but they may not perform canon acceptance.
 
-Pinning a Canon Version belongs to the authorized property or production authority. A deterministic system may materialize and pin one only as part of an exact authorized action such as **Start production with Current Canon**. Each pin or repin must identify the exact Canon Version, destination production or workflow, actor or authorized deterministic workflow, time, impact evidence, and receipt. Canon acceptance and Canon Version pinning do not perform Master Acceptance, approve rights, create a release package, authorize publication or commercial use, or create Receiving-Runtime Acceptance. One person may hold several roles where policy permits, but those decisions and receipts remain distinct.
+Pinning a Canon Version belongs to the authorized property or production authority. A deterministic system may materialize and pin one only as part of an exact authorized action such as **Start production with Current Canon**. Each pin or repin must identify the exact Canon Version, destination production or workflow, actor or authorized deterministic workflow, time, impact evidence, and receipt. Canon acceptance and Canon Version pinning do not perform Master Acceptance, approve rights, Create a release, Authorize external publication or commercial use, or create Receiving-Runtime Acceptance. One person may hold several roles where policy permits, but those decisions and receipts remain distinct.
 
-This response records target owner direction. It does not claim that the complete Current Canon, Canon Revision, Canon Version, migration, pinning, receipt, AI, runtime, template, or interface workflow is implemented. It does not itself add to or update canon, create or pin a production Canon Version, perform Master Acceptance, approve rights, create a release package, authorize publication, or authorize implementation, dependency installation, spending, deployment, or external communication. Any repository contract that still uses “canon release” for a frozen canon snapshot uses legacy terminology requiring later reconciliation; it does not define a fourth canon state.
+This response records target owner direction. It does not claim that the complete Current Canon, Canon Revision, Canon Version, migration, pinning, receipt, AI, runtime, template, or interface workflow is implemented. It does not itself add to or update canon, create or pin a production Canon Version, perform Master Acceptance, approve rights, Create a release, Authorize external publication, or authorize implementation, dependency installation, spending, deployment, or external communication. Any repository contract that still uses “canon release” for a frozen canon snapshot uses legacy terminology requiring later reconciliation; it does not define a fourth canon state.
 
 ---
 
@@ -648,7 +658,7 @@ This response records target owner direction. It does not claim that the complet
 
 **Owner-response status:** ☒ Answered  ☐ Partially answered  ☐ Deferred
 
-**Implementation follow-up:** ☐ Needs research/prototype  ☒ No additional research currently identified  ☐ Evidence complete
+**Implementation follow-up:** ☒ Needs research/prototype  ☐ No additional research currently identified  ☐ Evidence complete
 
 **Required by:** Useful Internal Version
 
@@ -715,6 +725,10 @@ Examples are members of their format family, not additional ranked entries. A do
   - The Useful Internal Version must safely represent, edit, review, version, and export these formats through generic typed templates with documented limitations and without a separate storage model. Specialized views, validators, importers, exporters, and other authoring tools may be deferred until separately scoped work advances the Mature Product capability.
 
 Ranking establishes product priority and architectural accommodation. It does not claim that every specialized editor already exists or automatically authorize implementation.
+
+**Implementation-evidence qualification:**
+
+The owner direction and format ranking are complete, but the shared editor and intent-input path still require fixture-driven prototype validation. That evidence must cover text and voice commands, consequence classification, the shared `StoryDocument`, semantic diff and merge in coordination with Question 7's content-unit boundary, correction, partial acceptance, and the tiered format behavior above. This implementation follow-up does not reopen the settled owner ranking or assign implementation authority.
 
 **Original questionnaire format mapping:**
 
@@ -794,7 +808,7 @@ Yes. Comments, suggestions, comparison, and review are universal editor capabili
 
 Yes. Autosave, draft recovery, conflict detection, and safe resumption are universal editor capabilities across format families. Storyworld should preserve local non-authoritative draft state and unsent text or voice-derived operations, resume safely after reconnection, and surface conflicts instead of overwriting work.
 
-Offline recovery saves draft state only. Autosave or recovery must never create an accepted version, perform Add to Canon, Update Canon, or Master Acceptance, approve rights, create a release, pin a Canon Version, or authorize publication. Full disconnected authoring is not required by the Useful Internal Version.
+Offline recovery saves draft state only. Autosave or recovery must never create an accepted version, perform Add to Canon, Update Canon, or Master Acceptance, approve rights, Create a release, pin a Canon Version, or Authorize external publication. Full disconnected authoring is not required by the Useful Internal Version.
 
 ---
 
@@ -1013,7 +1027,7 @@ Amend its scope to state that:
 3. Other workspace contexts and spatial, relationship, truth/reveal, continuity, mission, canon, lineage, rights, release, shared-universe, or other graph types require their own profiles.
 4. Every graph is a projection over Engine-owned structured state, never an independent authority source.
 5. Every graph has a complete synchronized list, outline, table, or inspector alternative.
-6. Graph gestures may create previews or typed proposals where permitted. Applying governed changes follows the low-, medium-, and high-consequence model. Graphs and AI may never perform Add to Canon, Update Canon, Creative Approval, or Master Acceptance, accept packages, waive blockers, authorize publication, or alter an existing authorization.
+6. Graph gestures may create previews or typed proposals where permitted. Applying governed changes follows the low-, medium-, and high-consequence model. Graphs and AI may never perform Add to Canon, Update Canon, Creative Approval, or Master Acceptance, Create a release, waive blockers, Authorize external publication, or alter an existing authorization.
 7. Manual layout is normally non-authoritative view state; only profiles such as Spatial may treat coordinates as authored meaning.
 8. Hidden or filtered information must remain counted, discoverable, and included in impact analysis.
 9. Every retained graph edit must preserve exact versions, provenance, reversibility, permissions, and affected-approval consequences.
@@ -1068,6 +1082,12 @@ Question 10’s complete cross-media breadth is a Mature Product target. Earlier
 Rights, consent, access, provider-egress, provenance, versioning, human authority, data integrity, and applicable accessibility safeguards are required whenever any earlier milestone supports a workflow; their advanced Mature Product forms do not defer the safe minimum.
 
 Hybrid and transmedia productions are not a separate editable medium. Storyworld coordinates versioned works from multiple rows while preserving their distinct semantics, canon relationships, rights, approvals, provenance, and release state.
+
+**Delivery-priority and adaptive-media qualification:**
+
+Governed export remains a permanent product requirement. For successor reconciliation, **Astro-before-Instagram** is the proposed target delivery direction; it is not accepted repository authority merely because it is recorded here. Deterministic, accessible Astro export and its publication-package boundary require fixture-driven prototype evidence before that successor direction can be accepted.
+
+Adaptive or personalized media remains intentionally deferred pending separate demand, consent, privacy, ethics, product, policy, and research decisions. No milestone in this questionnaire requires it, and this deferral does not authorize implementation.
 
 ---
 
@@ -1252,7 +1272,7 @@ If one candidate is accepted first, the other becomes based on a stale version a
 
 External tools should receive only the minimum policy-permitted derivatives and references needed for the task by default. They must not receive broad access to the source library or sensitive material merely because it might improve convenience or quality.
 
-Sources classified `Provider Egress—Private` or `Provider Egress—Restricted` may be checked out only when the exact tool, deployment boundary, purpose, rights, consent, retention, provider-egress policy, and destination permit it. The user, tool, and checkout session must also be authorized under the source’s access classification; provider-egress eligibility does not grant access. Redacted, cropped, downsampled, watermarked, proxy, or otherwise minimized derivatives should be preferred.
+Sources classified `Provider Egress—Private` or `Provider Egress—Restricted` may be checked out only when the exact tool, deployment boundary, purpose, rights, consent, retention, provider-egress policy, and destination permit it. The user, tool, and checkout session must also be authorized by the source’s effective access rules, including its base access class and every active overlay; provider-egress eligibility does not grant access. Redacted, cropped, downsampled, watermarked, proxy, or otherwise minimized derivatives should be preferred.
 
 Material classified `Provider Egress—Highly Restricted`, or subject to a non-exceptionable no-egress rule, must remain inside the permitted Storyworld-controlled boundary. Any permitted exceptional transfer requires a recorded, exact-scope human authorization and cannot weaken rights, consent, privacy, contractual, regional, or destination restrictions.
 
@@ -1376,7 +1396,7 @@ Canon authority for Add to Canon or Update Canon, Master Acceptance, rights, rel
 
 No. Client access must never reveal creator notes, sources, or deliberations classified `Access—Restricted`, hidden canon, spoilers, credentials, internal evaluations, or unrelated rights information merely because the client can review a production.
 
-Clients should receive only deliberately shared versions, review packages, findings, and context needed for their authorized role. If sensitive material needs to be communicated, an authorized person should create a reviewed, sanitized derivative or explicitly reclassify the exact information’s access classification. Any delivery across the Storyworld-controlled boundary must also satisfy its independent provider-egress classification. All access and disclosure changes must be scoped, auditable, and reversible where possible.
+Clients should receive only deliberately shared versions, review packages, findings, and context needed for their authorized role. If sensitive material needs to be communicated, an authorized person should create a reviewed, sanitized derivative or explicitly reclassify that derivative’s base access class while preserving every applicable overlay and overriding restriction. Any delivery across the Storyworld-controlled boundary must also satisfy its independent provider-egress classification. All access and disclosure changes must be scoped, auditable, and reversible where possible.
 
 ---
 
@@ -1394,7 +1414,9 @@ Clients should receive only deliberately shared versions, review packages, findi
 
 The first integration should complete the full governed loop:
 
-> Commerce Foundry brief → pinned Storyworld production → narrative plan and assets → Storyworld creative and rights acceptance → Commerce Foundry commercial rejection or revision request → focused Storyworld revision → Commerce Foundry approval → publication or export → normalized performance observation.
+> Commerce Foundry brief → pinned Storyworld production → narrative plan and assets → Storyworld creative and rights acceptance → Commerce Foundry commercial rejection or revision request → focused Storyworld revision → renewed applicable Storyworld review, rights validation, and Master Acceptance for every materially changed exact version → revised bundle → Commerce Foundry approval → publication or export → normalized performance observation.
+
+A Commerce Foundry revision request does not preserve Storyworld acceptance evidence across a material change. Each materially changed accepted master returns as a new candidate and must complete the applicable Storyworld checks and human acceptance actions before the revised bundle becomes eligible for Commerce Foundry approval. Commerce Foundry approval remains separate and cannot substitute for Storyworld review, rights validation, or Master Acceptance.
 
 Dumpster Fire Friends may exercise this through a Commerce Foundry-defined collectible, card, print, or merchandise campaign, but the contracts must remain reusable for any property and product.
 
@@ -1717,21 +1739,73 @@ Additional likely categories include:
 - Confidential customer creative work and review communications.
 - Credentials and secrets, which must remain in a dedicated credential vault rather than the creative asset library.
 
-Ordinary voice commands should remain ephemeral: retain the transcript, context, interpretation, and operations, but preserve the audio only through a governed source-asset or evidence workflow. Storyworld should not ingest raw Commerce Foundry buyer data or BeKindRewind player identities merely because those systems are integrated.
+Ordinary voice-command audio should use `Retention—Ephemeral`: delete it after the operation or within the applicable policy-defined maximum unless it is deliberately promoted into a governed source-asset or evidence workflow. The transcript, context, interpretation, and operations use their own applicable retention classifications. Storyworld should not ingest raw Commerce Foundry buyer data or BeKindRewind player identities merely because those systems are integrated.
 
 Dumpster Fire Friends should prove practical rights, trademark, parody, age-rating, territory, source, and provenance controls. The broader portfolio requires stronger controls for real family experiences, photographs, voices, children, private correspondence, and documentary sources.
 
 **Classification qualification:**
 
-Every governed source, asset, derivative, search projection, embedding, index, export, and retained evidence item must have three separate classifications:
+Every governed source, asset, derivative, search projection, embedding, index, export, and retained evidence item must have three independent classification dimensions:
 
-1. **Access classification:** Who may see or use this inside Storyworld? The qualified values are `Access—Public`, `Access—Internal`, `Access—Confidential`, `Access—Restricted`, and `Access—Embargoed`.
-2. **Retention classification:** How long may or must Storyworld retain it?
-3. **Provider-egress classification:** Whether and under what conditions may it cross the Storyworld-controlled deployment boundary? The qualified values are `Provider Egress—Public`, `Provider Egress—Private`, `Provider Egress—Restricted`, and `Provider Egress—Highly Restricted`.
+1. **Base access classification:** Who may see or use this inside Storyworld? Every item requires exactly one of the four ranked base classes defined below. An embargo is an additional overlay, not a fifth base class.
+2. **Retention classification:** Which structured retention profile or controlling policy applies, and what are its governing clock, bounds, disposition, and overlays?
+3. **Provider-egress classification:** Whether and under what conditions may the item cross the Storyworld-controlled deployment boundary? The qualified values remain `Provider Egress—Public`, `Provider Egress—Private`, `Provider Egress—Restricted`, and `Provider Egress—Highly Restricted`.
 
-These dimensions are independent. Access permission does not grant provider-egress permission, and provider-egress permission does not grant access permission. Every operation must satisfy its access, retention, and provider-egress classifications plus all applicable rights, consent, privacy, contractual, regional, purpose, provider, model, training, and destination requirements. “Most restrictive rule wins” applies within each dimension and across any additional overriding legal, rights, consent, privacy, or contractual restriction; it must not collapse the dimensions into one classification.
+These dimensions remain independent. Access permission does not grant provider-egress permission, provider-egress permission does not grant access permission, and retention permission or obligation grants neither. Every operation must satisfy all three dimensions plus all applicable rights, consent, privacy, contractual, regional, purpose, provider, model, training, and destination requirements. No dimension may be inferred from or collapsed into another.
 
-Derivatives inherit the source’s access, retention, and provider-egress classifications by default unless the derivative is separately reviewed and explicitly reclassified. Reclassifying a derivative does not reclassify or expose its source. Assigning `Access—Public` does not itself authorize publication; even after authorized public visibility, the material does not automatically become eligible for provider transmission, retention, or training. Changing or expiring an embargo does not automatically relax provider-egress restrictions.
+**Base access classes, from least to most restrictive:**
+
+1. **`Access—Public`:** The material has no confidentiality restriction and is eligible for public visibility, but publication still requires **Create a release** and **Authorize external publication**. This class does not bypass tenant, workspace, property, rights, or provider-egress controls.
+2. **`Access—Internal`:** The material is available to ordinary authorized members of the owning workspace or property. Public users, guests, and clients receive no access by default.
+3. **`Access—Confidential`:** The material is available only to explicitly permitted roles or groups with a legitimate need. Access must be appropriately scoped and logged.
+4. **`Access—Restricted`:** Default-deny. Access requires an explicit grant covering the exact resource, actor or service, purpose, scope, and time. Administrative, support, or break-glass access must be exceptional, time-limited, and audited.
+
+**Effective access and conflict handling:**
+
+- Effective access is the intersection of every applicable permission. Access is allowed only when every applicable rule permits it.
+- Explicit prohibitions and legal, rights, consent, privacy, contractual, regional, and purpose restrictions override grants.
+- Among base classes, `Access—Restricted` is most restrictive and `Access—Public` is least restrictive. An active embargo is an additional constraint, not a competing base rank.
+- If the required base access classification is missing, invalid, or uncertain, Storyworld must fail closed and treat the item as `Access—Restricted` until an authorized classification decision resolves it.
+
+**Embargo overlay:**
+
+`Access—Embargoed` is the owner-facing effective label for a temporary access overlay while it is active; it is not a fifth base access class. Every embargo must identify:
+
+- The underlying base access class.
+- Who may access the material while the embargo is active.
+- The release date or release condition.
+- The intended post-embargo base access class.
+
+An active embargo may only add restrictions and must never weaken `Access—Confidential` or `Access—Restricted`. Expiration or satisfaction of the release condition removes only the embargo constraint. It does not **Create a release**, **Authorize external publication**, publish the material, change its provider-egress classification, or relax another applicable restriction. While the embargo is active, the material defaults to `Provider Egress—Highly Restricted` until it is separately reviewed and explicitly classified. Embargo expiration does not automatically relax that provider-egress classification.
+
+**Retention classification profiles:**
+
+Retention is a structured, policy-based classification rather than a single informal duration. Every item must use one of these qualified profiles or a controlling policy that supplies equivalent fields:
+
+- **`Retention—Ephemeral`:** Delete after the operation or within a short policy-defined maximum unless the material is deliberately promoted into a governed source or evidence workflow.
+- **`Retention—Operational`:** Retain for a policy-defined duration after creation, last activity, or another stated event. This profile is suitable for drafts, logs, diagnostics, caches, temporary derivatives, and similar operational material; this questionnaire does not set their detailed durations.
+- **`Retention—Property Lifetime`:** Retain while the property exists, followed by its authorized deletion and recovery process, including the existing default 30-day recoverable-deletion period where applicable.
+- **`Retention—Durable Record`:** Retain for the life of the property plus any applicable legal or contractual period. This profile is suitable for authoritative decisions, acceptance receipts, rights records, releases, publication records, runtime approvals and acceptances, and commerce decisions.
+- **`Retention—Custom`:** Use an explicitly documented date-, duration-, or event-based rule when none of the standard profiles fits.
+
+Every retention classification must identify:
+
+- The profile or controlling policy.
+- The event that starts the retention clock.
+- The earliest date or condition on which deletion is permitted.
+- Any deadline by which deletion is required.
+- The final disposition, such as deletion, anonymization, minimization, or archival preservation.
+- Any Legal Hold or overriding obligation.
+
+**Legal Hold overlay and retention conflicts:**
+
+**Legal Hold** is an overlay that suspends normal deletion until an authorized hold-release decision. It does not relax access or provider-egress restrictions.
+
+Retention profiles do not form one “most restrictive” ranking because mandatory preservation and mandatory deletion constrain opposite ends of the permitted retention window. The latest applicable mandatory keep-until date controls the minimum retention period, and the earliest applicable delete-by date controls the maximum retention period. If the mandatory keep-until date falls after the mandatory delete-by date, Storyworld must treat the result as an unresolved policy conflict: block automatic deletion; prevent ordinary processing or expanded use; minimize and restrict access; and require resolution by the applicable authorized legal, privacy, rights, or policy authority. Where law and policy permit it, final disposition may preserve only a protected minimum receipt, hash, tombstone, or deletion record.
+
+Any shorthand elsewhere in the questionnaire that says the “most protective applicable rule wins” must be interpreted through these operational rules: permission intersection and overriding prohibitions for access, the bounded retention window and explicit conflict state for retention, and the separately defined provider-egress controls. It does not establish a linear retention rank or collapse the three dimensions.
+
+Derivatives inherit the source’s base access classification, active access overlays, retention classification and overlays, and provider-egress classification by default. Assigning different treatment to a derivative requires separate review and an explicit decision for the affected classification or overlay; it does not reclassify or expose the source. Assigning `Access—Public` does not **Create a release** or **Authorize external publication**; even after authorized public visibility, the material does not automatically become eligible for provider transmission, different retention, or training. Removing an embargo changes only that overlay and does not automatically change another classification or restriction.
 
 **Provider-egress classes:**
 
@@ -1742,19 +1816,20 @@ Derivatives inherit the source’s access, retention, and provider-egress classi
 
 Self-hosted workflow software does not count as local processing when any node calls a hosted endpoint.
 
-**Conservative default crosswalk:**
+**Conservative provider-egress default crosswalk:**
 
-When a valid access classification exists but no separate provider-egress decision has yet been made, Storyworld must apply this default assignment. The crosswalk is a conservative default, not a declaration that the dimensions are equivalent.
+When a valid base access classification exists but no separate provider-egress decision has yet been made, Storyworld must apply this default assignment. The crosswalk is a conservative default, not a declaration that the dimensions are equivalent.
 
-| Access classification | Default provider-egress classification |
+| Base access classification | Default provider-egress classification |
 | --- | --- |
 | `Access—Public` | `Provider Egress—Public` |
 | `Access—Internal` | `Provider Egress—Private` |
 | `Access—Confidential` | `Provider Egress—Restricted` |
 | `Access—Restricted` | `Provider Egress—Highly Restricted` |
-| `Access—Embargoed` | `Provider Egress—Highly Restricted` until separately reviewed and explicitly classified |
 
-The crosswalk assignment becomes the item’s provisional provider-egress classification. Either access or provider-egress classification may then be tightened independently, and changing one after assignment does not automatically change the other. Relaxing a default requires an explicit authorized decision covering rights, consent, privacy, purpose, provider, route, retention, region, and destination. An explicit provider-egress classification does not bypass operation-specific checks. If, after default assignment, a provider-egress classification is missing or uncertain for any reason, the operation must fail closed as `Provider Egress—Highly Restricted`.
+An active embargo overlay overrides the base-class crosswalk default with `Provider Egress—Highly Restricted` until the material is separately reviewed and explicitly assigned a provider-egress classification. Ending the embargo removes only the access overlay; it does not change that provider-egress classification.
+
+The crosswalk assignment becomes the item’s provisional provider-egress classification. Base access and provider-egress classifications may then be tightened independently, and changing one after assignment does not automatically change the other. Relaxing a default requires an explicit authorized decision covering rights, consent, privacy, purpose, provider, route, retention, region, and destination. An explicit provider-egress classification does not bypass operation-specific checks. A missing, invalid, or uncertain base access classification fails closed as `Access—Restricted` and therefore receives the `Provider Egress—Highly Restricted` default until both dimensions are explicitly resolved. If, after default assignment, a provider-egress classification is missing or uncertain for any reason, the operation must fail closed as `Provider Egress—Highly Restricted`.
 
 Credentials, material subject to contractual no-hosted-processing terms, revoked consent, and identifying or sensitive material involving minors remain prohibited from hosted transfer wherever the applicable rule is non-exceptionable.
 
@@ -1766,7 +1841,7 @@ This classification model records target owner direction for later successor dec
 
 **Response:**
 
-Only explicitly authorized people and narrowly scoped Storyworld services with a legitimate need for the exact material should see or use material classified `Access—Restricted`. Access should be controlled by tenant, workspace, property, resource, version, role, purpose, and time. This response governs internal visibility and access only; it does not permit transmission to a provider.
+Only explicitly authorized people and narrowly scoped Storyworld services with a legitimate need for the exact material should see or use material classified `Access—Restricted`. Each explicit grant must identify the exact resource, actor or service, purpose, scope, and time, and effective access remains the intersection of that grant with every other applicable permission and prohibition. Access should be controlled by tenant, workspace, property, resource, version, role, purpose, and time. This response governs internal visibility and access only; it does not permit transmission to a provider.
 
 - Property owners may control access within applicable rights and policy.
 - Named collaborators may receive only the minimum source access needed for their assigned role.
@@ -1805,7 +1880,7 @@ Some assets may use only one explicitly approved route; others must be prohibite
 
 **Response:**
 
-Yes. All Storyworld data requires encryption in transit and at rest. Stronger separation through envelope encryption and narrowly scoped keys may be triggered independently by elevated access sensitivity—such as `Access—Confidential`, `Access—Restricted`, or `Access—Embargoed`—or elevated provider-egress sensitivity—such as `Provider Egress—Restricted` or `Provider Egress—Highly Restricted`. Apply separation at least by tenant and security domain, and by asset or collection where the threat model justifies it.
+Yes. All Storyworld data requires encryption in transit and at rest. Stronger separation through envelope encryption and narrowly scoped keys may be triggered independently by an elevated base access class such as `Access—Confidential` or `Access—Restricted`, by an active embargo overlay shown as `Access—Embargoed`, or by an elevated provider-egress class such as `Provider Egress—Restricted` or `Provider Egress—Highly Restricted`. Apply separation at least by tenant and security domain, and by asset or collection where the threat model justifies it.
 
 Keys must support rotation, revocation, audited use, backup protection, and deletion or cryptographic erasure where policy permits. Temporary voice buffers, exports, caches, previews, search indexes, logs, and backups must receive equivalent protection.
 
@@ -1817,7 +1892,7 @@ The exact KMS, key hierarchy, recovery, and customer-managed-key design remains 
 
 **Response:**
 
-Yes. Logging must cover both internal access to sensitive material—including material classified `Access—Confidential`, `Access—Restricted`, or `Access—Embargoed`—and provider transmission, attempted transmission, refusal, and unknown outcomes. Reads, previews, searches that reveal content, downloads, exports, permission changes, external-editor checkouts, administrative access, and deletion attempts must also be logged where policy requires.
+Yes. Logging must cover both internal access to sensitive material—including material with a base class of `Access—Confidential` or `Access—Restricted`, or an active embargo overlay shown as `Access—Embargoed`—and provider transmission, attempted transmission, refusal, and unknown outcomes. Reads, previews, searches that reveal content, downloads, exports, permission changes, external-editor checkouts, administrative access, and deletion attempts must also be logged where policy requires.
 
 The audit record should identify:
 
@@ -1838,9 +1913,9 @@ Logs must be tamper-evident, access-controlled, and privacy-preserving. They sho
 
 **Response:**
 
-Access classification controls who may discover search results, snippets, counts, facets, and even the existence of material. Search must apply access authorization before revealing any of them, and exceptionally sensitive sources may be marked no-index.
+The base access classification, every active access overlay, and all overriding restrictions jointly control who may discover search results, snippets, counts, facets, and even the existence of material. Search must apply the effective-access intersection before revealing any of them, and exceptionally sensitive sources may be marked no-index.
 
-Provider-egress classification separately controls whether text, embeddings, derivatives, or queries may be sent to an external search or embedding service. Search projections, indexes, and embeddings are derivatives and inherit all relevant access, retention, deletion, and provider-egress classifications unless separately reviewed and explicitly reclassified.
+Provider-egress classification separately controls whether text, embeddings, derivatives, or queries may be sent to an external search or embedding service. Search projections, indexes, and embeddings are derivatives and inherit the source’s base access class, active access overlays, retention classification and overlays, deletion obligations, and provider-egress classification unless separately reviewed and explicitly reclassified.
 
 Begin with Storyworld-controlled lexical and faceted search. Material classified `Provider Egress—Highly Restricted` remains within the controlled boundary by default; material classified `Provider Egress—Restricted` may reach an external search or embedding service only through the required execution-time decision and operation-specific checks. Semantic search should remain deferred until reviewed use cases justify it and its model, storage, rebuild, deletion, and egress controls are proven.
 
@@ -1850,9 +1925,9 @@ Begin with Storyworld-controlled lexical and faceted search. Material classified
 
 **Response:**
 
-Yes, through a protected internal provenance relationship. A reviewed derivative may receive a different access or provider-egress classification, but its source remains protected under its original classifications. Reclassifying the derivative does not reclassify or expose the source. Authorized users may trace the derivative to the exact source version, transformation, reviewer, and evidence only when the source’s access classification permits it.
+Yes, through a protected internal provenance relationship. A reviewed derivative may receive a different base access or provider-egress classification, but its source remains protected under its original base class, overlays, and other classifications. Reclassifying the derivative does not reclassify or expose the source. Authorized users may trace the derivative to the exact source version, transformation, reviewer, and evidence only when the source’s effective access rules permit it.
 
-Exports intended for public visibility must omit access-controlled URLs, identifying metadata, excerpts, and resolvable source references. The derivative requires its own privacy, dignity, reidentification, rights, and factual-fidelity review; calling it a summary does not make it safe automatically. Assigning `Access—Public` does not by itself assign `Provider Egress—Public` or authorize provider training, retention, transmission, or publication.
+Exports intended for public visibility must omit access-controlled URLs, identifying metadata, excerpts, and resolvable source references. The derivative requires its own privacy, dignity, reidentification, rights, and factual-fidelity review; calling it a summary does not make it safe automatically. Assigning `Access—Public` does not by itself assign `Provider Egress—Public`, permit provider training, retention, or transmission, **Create a release**, or **Authorize external publication**.
 
 If the source is later deleted or assigned a more protective classification, the system may retain only a protected hash, tombstone, or minimal lineage record where policy and law permit.
 
@@ -1895,7 +1970,7 @@ Storyworld must also track:
 - Required credit wording, placement, disclosures, and synthetic-media labels.
 - Guardian authority and age-related restrictions where minors are involved.
 - Revocation, withdrawal, expiry, replacement, and historical-use policy.
-- Legal hold, deletion obligations, and affected releases or derivatives.
+- Any Legal Hold, deletion obligations, and affected releases or derivatives.
 - Music composition, master, performance, synchronization, and mechanical rights where applicable.
 - Font embedding, trademark, location, property, photograph, and product rights.
 
@@ -1918,7 +1993,7 @@ Storyworld should immediately record a non-destructive withdrawal with its subje
 5. Propose replacement, redaction, re-recording, regeneration, withdrawal, or other permitted remediation.
 6. Record provider deletion requests and responses where applicable.
 
-Withdrawal cannot be overridden merely because production has begun or an asset previously received Creative Approval or Master Acceptance. It may require access-controlled preservation of evidence rather than immediate erasure when legal holds, audit duties, published history, or other valid obligations apply.
+Withdrawal cannot be overridden merely because production has begun or an asset previously received Creative Approval or Master Acceptance. It may require access-controlled preservation of evidence rather than immediate erasure when a Legal Hold, audit duties, published history, or other valid obligations apply.
 
 ---
 
@@ -1996,7 +2071,7 @@ The table gives Mature Product capacity-planning envelopes for one small-team wo
 | Canon Revisions | 10,000–100,000 retained revisions | Append-only history should not be discarded merely for interface performance; use Current Canon projections and archival tiers. |
 | Active collaborators | 1–10 normally | Optimized for solo creators and small teams, not departments. Occasional external reviewers use narrowly scoped guest access. |
 | Concurrent users | 1–5 normally; approximately 10 at peak | Reliable Internal Version collaboration is primarily asynchronous. Real-time co-editing is not required to meet the Mature Product capacity target. |
-| Releases per month | 10–100 normally | Campaign, seasonal, localization, and cross-channel bursts may create hundreds of packages or renditions, but each consequential release remains human-authorized. |
+| Releases per month | 10–100 normally | Campaign, seasonal, localization, and cross-channel bursts may create hundreds of packages or renditions, but each consequential release must be created through the human-authorized Create a release action. |
 | Total stored media | Approximately 10–100 TB over a long-lived portfolio | Video, audio, 3D, accepted masters, workfiles, and retained candidates dominate growth. Storage quotas, lifecycle policies, deduplication, proxies, and archival tiers must be configurable. |
 
 The Dumpster Fire Friends Proof supplies bounded fixture and workflow evidence using characters, numbered cards, image candidates, regional or age-rated variants, revisions, print/social renditions, and lineage; it does not validate the Mature Product envelopes in this table. Reliable Internal Version testing must cover the family team’s observed production volumes. Mature Product capacity validation should use larger video, audio, interactive, archival, and shared-universe fixtures appropriate to the stated envelopes.
@@ -2043,9 +2118,9 @@ Historical results must be visibly labeled with their status, time, successor, a
 
 **Response:**
 
-Yes, when the user is explicitly authorized and the selected search scope permits them. Even authorized users should have controls for spoilers and `Access—Restricted` results so sensitive material does not appear unexpectedly during ordinary work, presentations, or shared-screen sessions.
+Yes, but only when the user is explicitly authorized, the selected search scope permits the result, every applicable access permission allows disclosure, and no active overlay or overriding prohibition blocks it. Even authorized users should have controls for spoilers and `Access—Restricted` results so sensitive material does not appear unexpectedly during ordinary work, presentations, or shared-screen sessions.
 
-Unauthorized users must not see titles, snippets, thumbnails, result counts, facets, or other clues that reveal the material exists. Search indexes, caches, embeddings, logs, and generated summaries must preserve the source’s access, retention, deletion, and provider-egress classifications.
+Unauthorized users must not see titles, snippets, thumbnails, result counts, facets, or other clues that reveal the material exists. Search indexes, caches, embeddings, logs, and generated summaries must preserve the source’s base access class, active access overlays, retention classification and overlays, deletion obligations, and provider-egress classification.
 
 ---
 
@@ -2099,7 +2174,7 @@ If adopted, embeddings must be:
 - Derived, nonauthoritative, and rebuildable.
 - Bound to exact source and model versions.
 - Permission-filtered before retrieval.
-- Inherit their sources’ access, retention, deletion, and provider-egress classifications.
+- Inherit their sources’ base access classes, active access overlays, retention classifications and overlays, deletion obligations, and provider-egress classifications.
 - Generated only through a model and route permitted by the provider-egress classification, or within the controlled deployment.
 - Excluded from provider training.
 - Stored initially through a replaceable retrieval interface, preferably inside PostgreSQL.
@@ -2124,7 +2199,7 @@ Examples include:
 - Matched exact phrase, typo-tolerant term, filter, relationship, or linked entity.
 - Similar image hash or model-assisted visual features.
 - Semantic concepts that contributed to the match.
-- Lifecycle status—current, proposal, superseded, or published—and the applicable access classification, including `Access—Restricted` where relevant.
+- Lifecycle status—current, proposal, superseded, or published—and the applicable base access class plus any effective overlay label, including `Access—Restricted` or `Access—Embargoed` where relevant.
 
 AI-generated search answers must cite exact source versions and distinguish accepted facts from proposals, findings, historical versions, and uncertain inferences. Scores alone are not explanations, and explanations must not reveal `Access—Restricted` information to unauthorized users.
 
@@ -2134,7 +2209,7 @@ AI-generated search answers must cite exact source versions and distinguish acce
 
 ## 18. Where should Storyworld run at each milestone?
 
-**Owner-response status:** ☐ Answered  ☒ Partially answered  ☐ Deferred
+**Owner-response status:** ☒ Answered  ☐ Partially answered  ☐ Deferred
 
 **Implementation follow-up:** ☒ Needs research/prototype  ☐ No additional research currently identified  ☐ Evidence complete
 
@@ -2144,11 +2219,13 @@ AI-generated search answers must cite exact source versions and distinguish acce
 
 **Choose the intended deployment posture:**
 
+**Local legend:** ☒ Selected  ☐ Not selected  ◐ Unresolved owner choice
+
 - ☐ Local machine only
 - ☒ Home or private server
-- ☐ Stavium-managed cloud
+- ☒ Optional Storyworld-hosted service operated by Stavium
 - ☒ Customer-managed self-hosting
-- ☐ Multi-tenant SaaS
+- ☐ Broad or unrestricted multi-tenant SaaS
 - ☒ Hybrid local and cloud
 
 **Selected choice(s), ranking, qualifications, or additional answer:**
@@ -2156,14 +2233,14 @@ AI-generated search answers must cite exact source versions and distinguish acce
 1. A complete customer-managed or private Storyworld deployment.
 2. Hybrid operation using locally controlled storage and deterministic workers with approved hosted AI services where policy permits.
 3. A home or private-server profile suitable for the owner’s family team.
-4. An optional Stavium-managed service for eligible solo creators and small teams may be considered for Controlled External Pilot or a later external milestone, but no milestone currently requires it and the choice is not yet decided.
+4. Mature Product must also offer an optional Storyworld-hosted service operated by Stavium for eligible solo creators and small teams, subject to the separately authorized external milestone and operating requirements.
 5. Broad multi-tenant SaaS is conditional and should not shape the Reliable Internal Version architecture.
 
 **Response:**
 
 By the Useful Internal Version, the owner needs a bounded private deployment for real internal work with governed storage, workflow state, portable output, and documented limitations. By the Reliable Internal Version, that private family-team deployment must add tested installation and upgrade procedures, secure identity and authorization, dependable backup and restore, provider-outage behavior, complete governed export and clean-install re-import, and predictable operating support.
 
-The Mature Product deployment target is a complete Storyworld installation under the owner’s or customer’s control, including:
+The Mature Product deployment target must offer both a complete Storyworld installation under the owner’s or customer’s control and an optional Storyworld-hosted service operated by Stavium for eligible solo creators and small teams. Both modes must provide the applicable governed Storyworld capabilities, including:
 
 - Storyworld Engine and Studio.
 - PostgreSQL database.
@@ -2176,9 +2253,21 @@ The Mature Product deployment target is a complete Storyworld installation under
 
 OpenRouter, fal.ai, and other hosted inference may still be used when provider-egress, retention, rights, consent, budget, and provider policies permit it.
 
-The current stack provides local Docker Compose, PostgreSQL, MinIO, Temporal, tenant-isolation, package, and restore foundations. It does not yet prove the Useful Internal Version or Reliable Internal Version deployment requirements, customer-managed packaging, regional recovery, or full offline operation.
+The customer-managed/private mode remains the foundational deployment sequence and must be established first. Offering the selected hosted mode to external users still requires operational and commercial evidence, the applicable successor product and operating decisions, and a separately authorized external rollout stage. Selecting both Mature Product modes does not claim implementation or authorize deployment, enrollment, charging, or external access.
 
-**Unresolved owner choice — Mature Product hosting model:** Question 18 is the sole decision owner for whether the long-term posture remains customer-managed/private installations only or also offers an optional Storyworld-hosted service for eligible solo creators and small teams. The current recommended sequence is to establish the Reliable Internal Version customer-managed/private deployment first, then consider that optional hosted service only after operational and commercial evidence supports it and the applicable external milestone is separately authorized. This recommendation is not a final choice until the owner selects one of those two postures or explicitly defers the choice.
+The current stack provides local Docker Compose, PostgreSQL, MinIO, Temporal, tenant-isolation, package, and restore foundations. It does not yet prove the Useful Internal Version or Reliable Internal Version deployment requirements, customer-managed packaging, operation of the selected hosted mode, regional recovery, or full offline operation.
+
+**Architecture deferral:** Premature microservice extraction is intentionally deferred. Retain the current package and service boundaries unless measured scale, security, failure-isolation, or team need supplies evidence for a scoped extraction. This deferral does not prohibit bounded technical prototypes and does not authorize implementation.
+
+**Owner decision — Mature Product hosting model:** Mature Product must offer both customer-managed/private installations and an optional Storyworld-hosted service operated by Stavium for eligible solo creators and small teams. The Reliable Internal Version customer-managed/private deployment remains first in sequence; the hosted mode remains subject to operational and commercial evidence and a separately authorized external milestone.
+
+**Owner resolution — Mature Product hosting model:**
+
+**Owner-choice status:** ☒ Selected  ☐ Undecided  ☐ Explicitly deferred
+
+**Selected posture, qualifications, or explicit deferral:**
+
+Both hosting modes are selected for Mature Product: complete customer-managed/private deployment and an optional Storyworld-hosted service operated by Stavium. This selection establishes target product direction only and does not authorize implementation or operation of either mode.
 
 ---
 
@@ -2204,7 +2293,7 @@ Full support by Mature Product for an eligible locally reachable customer-manage
 
 Hosted inference, external publication, cloud synchronization, and remote authority hosts will remain unavailable until connectivity returns. Queued operations must preserve their original context and revalidate current policy, rights, consent, budget, provider route, and inputs before execution.
 
-Browser-only offline state may preserve recoverable drafts but must not perform Add to Canon, Update Canon, Master Acceptance, approve rights, create releases, pin Canon Versions, or authorize publication without reaching an authoritative Storyworld Engine.
+Browser-only offline state may preserve recoverable drafts but must not perform Add to Canon, Update Canon, Master Acceptance, approve rights, Create a release, pin Canon Versions, or Authorize external publication without reaching an authoritative Storyworld Engine.
 
 ---
 
@@ -2262,7 +2351,7 @@ The Reliable Internal Version portability validation should export Dumpster Fire
 
 Not in the Reliable Internal Version deployment. It should begin with one family organization containing one or more workspaces and properties.
 
-The architecture should preserve tenant isolation so a future Stavium-managed service could host several eligible small-team organizations safely. That future option requires a separate product and operating decision covering identity, billing, quotas, support, incident response, noisy-neighbor controls, encryption, deletion, and data residency.
+The selected Mature Product Storyworld-hosted service must preserve tenant isolation so it can host several eligible small-team organizations safely. Supporting that mode requires separate successor product and operating decisions covering identity, billing, quotas, support, incident response, noisy-neighbor controls, encryption, deletion, and data residency.
 
 Customer-managed installations should default to one organization unless multi-organization operation is deliberately enabled. Organizations must never share mutable business state, assets, search results, credentials, or authority merely because they use the same infrastructure.
 
@@ -2371,7 +2460,7 @@ Customer-managed deployments must declare their achieved targets during setup. S
 
 **Response:**
 
-Yes. Canon Revisions, Current Canon pointers, Canon Versions, canon-acceptance receipts, accepted masters, Master Acceptance receipts, rights and consent evidence, release packages, publication records, and other decision receipts require the strongest durability and recovery controls.
+Yes. Canon Revisions, Current Canon pointers, Canon Versions, canon-acceptance receipts, accepted masters, Master Acceptance receipts, rights and consent evidence, releases, publication records, and other authoritative decision receipts require the strongest durability and recovery controls. Their retention classification should normally be `Retention—Durable Record`, subject to any applicable longer legal or contractual obligation and any mandatory deletion constraint.
 
 They should use:
 
@@ -2385,7 +2474,7 @@ They should use:
 - Regular automated backup verification.
 - Scheduled full restore drills.
 
-Drafts still require autosave and recovery, but may use shorter retention, fewer replicas, and ordinary cleanup policies.
+Drafts still require autosave and recovery, but may use `Retention—Operational`, fewer replicas, and ordinary cleanup policies. The applicable retention policy—not this questionnaire—must define their clock-start event, duration or deletion bounds, and final disposition.
 
 ---
 
@@ -2393,11 +2482,11 @@ Drafts still require autosave and recovery, but may use shorter retention, fewer
 
 **Response:**
 
-Not every audit event must be retained forever. Retention should depend on record type, legal obligation, privacy, sensitivity, and operational need.
+No. Not every audit event uses the same retention profile or duration. Retention depends on record type, legal obligation, privacy, sensitivity, operational need, and the structured retention fields defined in the classification model.
 
-Receipts for canon acceptance, Canon Version pinning, Master Acceptance, rights, waivers, releases, publication, Storyworld Runtime Handoff Approval, Receiving-Runtime Acceptance, and commerce decisions should normally remain durable for the life of the property and any required legal or contractual period. Security access logs, diagnostics, and transient operational traces may use shorter policies.
+Receipts for canon acceptance, Canon Version pinning, Master Acceptance, rights, waivers, releases, publication, Storyworld Runtime Handoff Approval, Receiving-Runtime Acceptance, and commerce decisions should normally use `Retention—Durable Record`: retain them for the life of the property plus any applicable legal or contractual period. Security access logs, diagnostics, and transient operational traces may use `Retention—Operational`; the applicable policy must supply their duration and other required retention fields. A record that does not fit a standard profile must use an explicitly documented `Retention—Custom` rule.
 
-When personal data or underlying content must be deleted, Storyworld may retain a protected minimum receipt, hash, tombstone, and deletion record where policy and law permit. Required evidence must never be deleted automatically by AI or routine cleanup.
+A Legal Hold suspends normal deletion until an authorized hold-release decision but does not relax access or provider-egress restrictions. If a mandatory keep-until bound conflicts with a mandatory delete-by bound, Storyworld must apply the classification model’s unresolved-conflict handling rather than silently retaining or deleting the record. When personal data or underlying content must be deleted, Storyworld may retain a protected minimum receipt, hash, tombstone, and deletion record where policy and law permit. Required evidence must never be deleted automatically by AI or routine cleanup.
 
 ---
 
@@ -2405,17 +2494,17 @@ When personal data or underlying content must be deleted, Storyworld may retain 
 
 **Response:**
 
-Yes. Use a default 30-day recoverable deletion period, configurable within policy. During that period the property should be inaccessible in normal work but restorable by an authorized administrator.
+Yes. The governed property aggregate normally uses `Retention—Property Lifetime`; individual drafts, operational records, and durable records retain their own applicable profiles. After an authorized property-deletion decision, preserve the existing default 30-day recoverable deletion period, configurable within policy. During that period the property should be inaccessible in normal work but restorable by an authorized administrator. The deletion decision starts that recovery clock unless an applicable policy explicitly defines another controlling event.
 
 Permanent deletion must require:
 
 - Explicit authorized human confirmation.
 - Impact analysis across shared canon, assets, packages, publications, and integrations.
-- Rights, retention, legal-hold, and evidence checks.
+- Rights, retention classification, Legal Hold, and evidence checks, including reconciliation of mandatory keep-until and delete-by bounds.
 - Revocation of active links, credentials, checkouts, and scheduled actions.
 - A durable deletion receipt.
 
-Some policies may require immediate access removal while encrypted backup copies expire on their documented lifecycle. Published history or required receipts may survive only as access-controlled minimal records.
+Some policies may require immediate access removal while encrypted backup copies expire on their documented lifecycle. A Legal Hold or another mandatory preservation obligation may suspend final deletion, but it does not restore ordinary access or permit expanded use. Published history or required receipts may survive only as access-controlled minimal records where law and policy permit.
 
 ---
 
@@ -2442,7 +2531,7 @@ Cross-region recovery must obey data-residency, rights, consent, encryption-key,
 Responsibilities should follow the deployment model:
 
 - **Private owner deployment:** the owner or designated workspace administrator manages users, policies, budgets, providers, retention, and content authority; Stavium supplies application tooling, updates, documentation, and support.
-- **Stavium-managed deployment, if later approved:** Stavium operates application infrastructure, migrations, monitoring, backups, restoration, and incident response; customers retain authority over their content, canon, rights, approvals, and publication.
+- **Storyworld-hosted deployment operated by Stavium:** When that selected Mature Product mode is separately authorized to operate, Stavium operates application infrastructure, migrations, monitoring, backups, restoration, and incident response; customers retain authority over their content, canon, rights, approvals, and publication.
 - **Customer-managed deployment:** the customer operates infrastructure, storage, identity integration, backups, and local security; Stavium supplies supported packages, upgrade paths, diagnostics, verification tools, and bounded support.
 - **External providers and authority hosts:** OpenRouter, fal.ai, Commerce Foundry, runtimes, editors, and publication destinations remain responsible for their own systems and narrow authority domains.
 
@@ -2548,7 +2637,7 @@ Use workload identity, OAuth client credentials, mutual authentication, or short
 
 The Reliable Internal Version does not need a complex customer-facing service-account administration system. It still needs secure internal workload identities and clear attribution.
 
-Agents should receive short-lived capability leases and may write only to permitted proposal, staging, or execution paths. Models, services, tools, and connectors may not perform Add to Canon, Update Canon, Creative Approval, or Master Acceptance, approve rights, waive blockers, pin a Canon Version, authorize publication, or grant themselves additional access.
+Agents should receive short-lived capability leases and may write only to permitted proposal, staging, or execution paths. Models, services, tools, and connectors may not perform Add to Canon, Update Canon, Creative Approval, or Master Acceptance, approve rights, waive blockers, pin a Canon Version, Authorize external publication, or grant themselves additional access.
 
 ---
 
@@ -2627,7 +2716,7 @@ No. Infrastructure, workspace, or identity administration must not automatically
 
 The owner may hold both administrator and content-authority roles in the Reliable Internal Version deployment, but content access must come from the applicable property or resource permission—not merely from being an administrator.
 
-Access to `Access—Restricted` content requires a separate explicit permission and legitimate purpose. Exceptional support or emergency access must be:
+Access to `Access—Restricted` content requires a separate explicit grant covering the exact resource, actor, purpose, scope, and time, plus a legitimate need. Exceptional support or emergency access must be:
 
 - Time-limited and least-privilege.
 - Limited to exact resources and actions.
@@ -2658,7 +2747,7 @@ Prefer privacy-preserving diagnostics, redacted evidence packages, customer-run 
 | Revise one asset region | ☐ | ☒ | ☐ | May prepare a mask, interpretation, and preview automatically. Applying a medium-consequence regional change requires confirmation and creates a new candidate. |
 | Flag continuity issues | ☒ | ☐ | ☐ | May create evidence-backed findings automatically. Interpretive findings remain uncertain and cannot reject or waive work by themselves. |
 | Suggest waivers | ☐ | ☒ | ☐ | May identify that a blocker appears waivable and draft options with evidence, but must also show non-waiver remedies. It may never grant a waiver or make a legal conclusion. |
-| Build a release package | ☒ | ☐ | ☐ | May assemble and validate an exact draft package for review. It may not approve the package, create authority, or publish it. |
+| Build a release package | ☒ | ☐ | ☐ | May assemble and validate an exact draft package for review. It may not Create a release or Authorize external publication. |
 | Translate content | ☒ | ☐ | ☐ | May create draft translations and localization renditions. Protected terms, claims, disclosures, canon facts, and accessibility content require applicable review. |
 | Suggest experiment variants | ☒ | ☐ | ☐ | May create bounded, nonauthoritative variants within approved budgets and experiment rules. It may not select a winner or promote it automatically. |
 | Recommend Add to Canon or Update Canon | ☐ | ☒ | ☐ | Must remain an evidence-backed proposal showing impact, uncertainty, affected Canon Revisions, Canon Versions, productions, and alternatives. |
@@ -2670,28 +2759,29 @@ Prefer privacy-preserving diagnostics, redacted evidence packages, customer-run 
 | Add to Canon or Update Canon | ☐ | ☐ | ☒ | AI may draft proposals, compare Canon Revisions, identify conflicts, and recommend acceptance, but only an authorized human may perform canon acceptance. |
 | Prepare a Canon Version or pin proposal | ☐ | ☒ | ☐ | AI may prepare the exact manifest, impact summary, and proposed downstream pin. It may not include drafts, change Current Canon, or silently repin a production. An authorized human action or an already authorized deterministic workflow must select the exact Canon Version and destination. |
 | Accept an asset as master | ☐ | ☐ | ☒ | AI may evaluate candidates, identify problems, compare versions, and recommend Creative Approval or Master Acceptance. It may not record Creative Approval or perform Master Acceptance. AI-generated or AI-edited output remains a candidate. |
-| Accept a final edit or channel package | ☐ | ☐ | ☒ | AI may evaluate and recommend but cannot create authoritative acceptance. |
+| Apply changes to create an accepted ordinary-document successor | ☐ | ☐ | ☒ | AI may prepare, evaluate, and recommend document edits, but only an authorized human may perform the existing **Apply changes** acceptance action. |
+| Create a release | ☐ | ☐ | ☒ | AI may assemble and validate the exact draft package, but only an authorized human release authority may Create a release. Release creation does not Authorize external publication. |
 | Approve rights, consent, likeness, or voice use | ☐ | ☐ | ☒ | Requires the applicable authorized human authority; AI provides evidence and workflow support only. |
 | Grant a waiver | ☐ | ☐ | ☒ | AI may never waive a rights, policy, continuity, or technical blocker. |
-| Authorize external publication | ☐ | ☐ | ☒ | Requires human authorization of the exact package, destination, metadata, disclosures, timing, and execution scope. |
-| Permanently delete governed evidence | ☐ | ☐ | ☒ | Requires an authorized human and all retention, legal-hold, rights, and dependency checks. |
+| Authorize external publication | ☐ | ☐ | ☒ | Requires human authorization of the exact created release and its reviewed package, destination, metadata, disclosures, timing, and execution scope. |
+| Permanently delete governed evidence | ☐ | ☐ | ☒ | Requires an authorized human and all applicable retention classification rules, Legal Hold constraints, rights checks, and dependency checks. |
 | Change provider-egress policy for sensitive material | ☐ | ☐ | ☒ | Requires an authorized human security or policy decision. |
 
 **Qualification:**
 
 “Automatic” means Storyworld may perform a low-consequence action, create a visible nonauthoritative draft, candidate, finding, preview, or package, or move eligible work into Storyworld’s internal Review Queue without another confirmation after the creator has enabled a clearly scoped workflow rule and any required budget. For automatic internal review submission, the rule must identify the applicable work, conditions, and internal review destination; it is not blanket permission for unrelated submissions. Without an applicable rule, submission remains proposal-only and requires confirmation. “Automatic” never means silent acceptance.
 
-Automatic internal review submission only progresses candidates or proposals into review. It does not record Creative Approval, perform Add to Canon, Update Canon, or Master Acceptance, create a Canon Revision, pin a Canon Version, approve the work, clear rights, authorize a release, publish anything, or otherwise create an authoritative outcome. Submission or communication to external people, organizations, or systems requires separate prior authorization covering the recipient and destination, or confirmation at the time of submission. Human review and acceptance remain required for consequential outcomes.
+Automatic internal review submission only progresses candidates or proposals into review. It does not record Creative Approval, perform Add to Canon, Update Canon, Master Acceptance, or the authorized **Apply changes** acceptance action, create a Canon Revision, pin a Canon Version, approve the work, clear rights, Create a release, Authorize external publication, publish anything, or otherwise create an authoritative outcome. Submission or communication to external people, organizations, or systems requires separate prior authorization covering the recipient and destination, or confirmation at the time of submission. Human review and acceptance remain required for consequential outcomes.
 
 Medium-consequence changes require a previewable plan and confirmation. High-consequence actions remain human-only. Every retained AI operation must remain inspectable, attributable, versioned, reversible, and interruptible where technically supported.
 
-If an operation becomes more expensive, sensitive, ambiguous, or consequential than expected, Storyworld must pause. For Dumpster Fire Friends, AI may extract proposed character facts, draft card copy, generate artwork candidates, create text-layout variants, and run continuity checks automatically. The owner must use Add to Canon or Update Canon for final card facts, perform Master Acceptance for exact artwork candidates, accept any final edits or channel packages, create releases, and authorize publication through the applicable separate actions.
+If an operation becomes more expensive, sensitive, ambiguous, or consequential than expected, Storyworld must pause. For Dumpster Fire Friends, AI may extract proposed character facts, draft card copy, generate artwork candidates, create text-layout variants, and run continuity checks automatically. The owner must use Add to Canon or Update Canon for final card facts, use the authorized **Apply changes** action for accepted ordinary-document successors, perform Master Acceptance for exact artwork candidates, Create a release from the exact reviewed package, and separately Authorize external publication.
 
 ---
 
 ## 22. Which AI constraints are essential?
 
-**Owner-response status:** ☐ Answered  ☒ Partially answered  ☐ Deferred
+**Owner-response status:** ☒ Answered  ☐ Partially answered  ☐ Deferred
 
 **Implementation follow-up:** ☒ Needs research/prototype  ☐ No additional research currently identified  ☐ Evidence complete
 
@@ -2807,9 +2897,27 @@ Storyworld should:
 - Prevent retries, fallback, queued work, and Agent Missions from bypassing the same budget.
 - Support lower-cost preview profiles without weakening privacy, rights, or quality requirements.
 
-The Reliable Internal Version deployment may use workspace-admin credentials with per-member authorization, attribution, and budgets. Members do not need access to the underlying provider secret.
+The selected provider-credential scope is a **hybrid model with workspace-managed credentials as the default**. For the Proof and Useful Internal Version:
 
-**Unresolved owner choice — provider-credential scope:** Question 22 is the sole decision owner for choosing one workspace-admin OpenRouter/fal.ai credential set, separate credentials for each member, or a hybrid model for the Proof and Useful Internal Version. The current recommended default is one workspace-admin credential set with Storyworld-level member permissions, usage attribution, and budgets while preserving the later member-specific option. This recommendation is not a final choice until the owner selects or explicitly defers one of the three scopes.
+- Use one workspace-admin-managed credential per provider, workspace, and environment.
+- Store provider credentials only in a server-side secrets manager; members must never receive or read the underlying secret.
+- Authenticate members individually and enforce Storyworld-level per-member permissions, budgets, usage attribution, and provider-egress policy before provider access.
+- Prefer short-lived, narrowly scoped provider or workload tokens where supported. Otherwise require controlled rotation, auditing, expiration where available, and prompt revocation of static credentials.
+- Never share one global credential across workspaces or environments.
+
+Workspace-managed credentials remain the default at later milestones. Isolated member-owned credentials may be added later only as an explicit option when separate billing, custody, or contractual requirements justify them and the supporting controls are separately scoped. Storyworld must never silently fall back between workspace-managed and member-owned credentials, merge their budgets or attribution, or expose either credential to another member, workspace, or environment. No automatic milestone switch is required.
+
+This model combines centralized secret management with individual accountability and limited blast radius. Its target safeguards are consistent with the [OWASP Secrets Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html) and [NIST SP 800-207 zero-trust principles](https://csrc.nist.gov/pubs/sp/800/207/final); those references do not establish implementation or compliance.
+
+**Owner decision — provider-credential scope:** Question 22 selects the hybrid model described above for the Proof and Useful Internal Version and preserves the isolated member-owned option for a later specifically justified need.
+
+**Owner resolution — provider-credential scope for the Proof and Useful Internal Version:**
+
+**Owner-choice status:** ☒ Selected  ☐ Undecided  ☐ Explicitly deferred
+
+**Selected scope, milestone qualifications, or explicit deferral:**
+
+Hybrid; workspace-admin managed by default, with isolated member-owned credentials available later only when specifically required for separate billing, custody, or contractual needs. The workspace-managed default uses one credential per provider, workspace, and environment and preserves individual authentication, authorization, budgets, attribution, provider-egress enforcement, secret isolation, rotation, audit, and revocation.
 
 ---
 
@@ -2893,7 +3001,7 @@ This response uses **Agent Mission** for the governed AI assignment and does not
 **Authority and completion boundaries:**
 
 - Agents may perform low-consequence analysis, drafting, candidate generation, evaluation, and package preparation.
-- Agents may not independently perform Add to Canon, Update Canon, Creative Approval, or Master Acceptance, pin or repin a Canon Version, clear rights, expand budgets, or authorize publication.
+- Agents may not independently perform Add to Canon, Update Canon, Creative Approval, or Master Acceptance, pin or repin a Canon Version, clear rights, expand budgets, or Authorize external publication.
 - Completion of an Agent Mission means that results and evidence are available for review; it does not mean those results have been accepted.
 
 This response records target owner direction. It does not claim that Octon or the full Agent Mission system currently exists, and it does not defer all Agent Mission support until Octon is complete.
@@ -2933,7 +3041,7 @@ Reliable Internal Version evidence must cover complete tasks and relevant states
 - Proposal and review.
 - Add to Canon, Update Canon, and Master Acceptance.
 - Rights and accessibility review.
-- Release and publication authorization.
+- Create a release and Authorize external publication.
 - Error, permission, stale, conflict, unavailable, and unknown states.
 - Desktop, narrow-screen, keyboard, touch, and assistive-technology use.
 
@@ -2955,7 +3063,7 @@ Yes. Every Storyworld-owned authoring, review, and decision outcome supported at
 
 Visual operations such as graph connections, spatial placement, masks, regions, timelines, keyframe-like intent, and media ranges must provide structured, numeric, command-based, or text-driven alternatives. Direct manipulation may remain available for efficiency, but it cannot be the only path.
 
-Focus order and state must remain visible and predictable. No single shortcut or accidental Enter keypress may perform Add to Canon or Update Canon, pin a Canon Version, waive a finding, release a package, publish, delete evidence, or perform another consequential action.
+Focus order and state must remain visible and predictable. No single shortcut or accidental Enter keypress may perform Add to Canon or Update Canon, pin a Canon Version, waive a finding, Create a release, Authorize external publication, delete evidence, or perform another consequential action.
 
 ---
 
@@ -3071,7 +3179,20 @@ A solo creator may self-waive where policy permits, but Storyworld must clearly 
 
 **Implementation follow-up:** ☒ Needs research/prototype  ☐ No additional research currently identified  ☐ Evidence complete
 
-**Choose what must be fully supported on phones:**
+**Basic support by:** Reliable Internal Version
+
+**Full support by:** Limited Paid Beta
+
+**Milestone qualification:**
+
+- **Basic support** provides a safe, purpose-built phone Decision Inbox for the checked actions whose underlying non-mobile capabilities are supported by the Reliable Internal Version. It must preserve exact-version evidence, visible consequences, authority, applicable passkey-based reauthentication, accessibility, receipts, error handling, stale and conflict handling, unavailable states, and recovery behavior.
+- Internal Qualification must test the Basic-support mobile workflows used by critical pilot journeys. A separately authorized Controlled External Pilot may use that Basic-support surface with documented limitations and high-touch assistance.
+- **Full support** adds the device and browser coverage, external-role handling, documentation, supportability, accessibility evidence, and failure and recovery coverage needed for the larger selected Limited Paid Beta cohort.
+- A mobile action never becomes required before its underlying capability exists. In particular, Review assignments remains a Mature Product capability, so its checked mobile action is not required before Mature Product.
+- Full mobile support does not mean desktop feature parity. Desktop-scale authoring, bulk decisions, package creation, security configuration, and context-reduced consequential actions remain prohibited on phones as specified below.
+- Earlier prototypes do not satisfy either assigned milestone. Safety, authority, accessibility, and data-preservation requirements apply whenever any mobile capability is offered.
+
+**Choose what the Mobile Decision Inbox must support, subject to underlying-capability timing:**
 
 - ☒ Read Current Canon and pinned Canon Versions
 - ☒ Search
@@ -3082,17 +3203,17 @@ A solo creator may self-waive where policy permits, but Storyworld must clearly 
 - ☒ Add to Canon or Update Canon
 - ☒ Waive findings
 - ☒ Approve rights
-- ☐ Create releases
-- ☒ Authorize publication
+- ☐ Create a release
+- ☒ Authorize external publication
 - ☒ Make light text edits
 - ☒ Review assignments
 - ☒ Monitor jobs
 
 **Selected choice(s), ranking, qualifications, or additional answer:**
 
-Phone support should center on a purpose-built Decision Inbox rather than a compressed desktop workspace. Creating and composing release packages remains desktop or tablet work, but an exact, already prepared package may be reviewed and authorized on a phone.
+Phone support should center on a purpose-built Decision Inbox rather than a compressed desktop workspace. Creating and composing release packages remains desktop or tablet work. After Create a release occurs elsewhere, the exact created release and its reviewed package may be used to Authorize external publication on a phone.
 
-Assignments are a Mature Product capability; they are not present in the accepted alpha collaboration model.
+Assignments are a Mature Product capability; they are not present in the accepted alpha collaboration model. The checked Review assignments action records eventual mobile coverage only after the underlying assignment capability exists.
 
 **Response:**
 
@@ -3113,7 +3234,7 @@ For a canon proposal, the authoritative mobile action must be labeled **Add to C
 
 High-impact mobile decisions require the same authorization, evidence, checks, and passkey-based step-up rules as desktop. A small screen must never reduce the evidence or hide material consequences merely to keep the action available.
 
-No swipe gesture, notification action, or single accidental tap may perform Add to Canon, Update Canon, or Master Acceptance, pin a Canon Version, approve rights, waive a blocker, create a release, authorize publication, or make a runtime or commerce decision.
+No swipe gesture, notification action, or single accidental tap may perform Add to Canon, Update Canon, or Master Acceptance, pin a Canon Version, approve rights, waive a blocker, Create a release, Authorize external publication, or make a runtime or commerce decision.
 
 ---
 
@@ -3133,7 +3254,7 @@ The supported phone surface should exclude:
 - Creating or assembling release packages.
 - Bulk Add to Canon or Update Canon actions, bulk Canon Version repinning, bulk waivers, bulk rights decisions, or bulk publication authorization.
 - Provider credentials, encryption, deployment, retention, or security-policy configuration, except narrowly designed emergency revocation.
-- High-cost batch generation or unattended mission configuration.
+- High-cost batch generation or unattended Agent Mission configuration.
 - Any consequential action through a swipe-only or context-reduced interaction.
 
 Phones may still show status, evidence, blockers, and escalation options for these workflows. When the full context cannot be presented reliably, Storyworld should preserve the decision and direct the user to a larger-screen interface rather than permitting an unsafe reduced-context action.
@@ -3148,9 +3269,29 @@ Phones may still show status, evidence, blockers, and escalation options for the
 
 **Implementation follow-up:** ☒ Needs research/prototype  ☐ No additional research currently identified  ☐ Evidence complete
 
+**Capability milestone assignments:**
+
+| Capability group | Basic support by | Full support by |
+| --- | --- | --- |
+| Templates and typed custom fields | Useful Internal Version | Limited Paid Beta |
+| Declarative validators and lifecycle mappings | Reliable Internal Version | Limited Paid Beta |
+| Governed extensions and adapters | Limited Paid Beta | Mature Product |
+
+**Milestone qualifications:**
+
+- **Templates and typed custom fields — Basic support:** The Useful Internal Version may use shipped or owner-configured property and production templates instead of a complete self-service template-authoring environment. It must support the template-defined content units and typed custom fields needed for genuine internal work while preserving stable identity, schema versions, authority, search, export, and documented limitations.
+- **Templates and typed custom fields — Full support:** Limited Paid Beta requires dependable user-facing configuration, versioning, migration, portability, permissions, accessibility, documentation, failure handling, and recovery without routine developer intervention.
+- **Declarative validators and lifecycle mappings — Basic support:** The Reliable Internal Version is limited to safe declarative validators and mappings from custom workflow states to the standard Storyworld workflow categories defined in Question 25.4. The milestone label “lifecycle mappings” refers only to this non-authoritative workflow overlay; it does not define a global authoritative lifecycle. Validators and mappings must not create new authority, redefine authoritative states, grant waivers or approvals, or introduce arbitrary executable code.
+- **Declarative validators and lifecycle mappings — Full support:** Limited Paid Beta requires dependable self-service configuration, versioning, fixtures and tests, migrations, auditability, search and export behavior, documentation, accessibility, and recovery.
+- **Governed extensions and adapters — Basic support:** Limited Paid Beta may use a curated and tightly governed extension runtime. It must preserve versioned manifests, explicit capabilities and installation, security and license review, compatibility checks, sandboxing, resource limits, disable and remove behavior, and a portable fallback. A general extension runtime is not required for the Proof, Useful Internal Version, Reliable Internal Version, or Controlled External Pilot; earlier core integrations or separately scoped adapters do not establish general extension-runtime support.
+- **Governed extensions and adapters — Full support:** Mature Product covers the complete governed extension and adapter model described below.
+- Templates may declare unavailable dependencies before extension Basic support, but they may not install them silently, expand authority, or make core property data unusable without them.
+- These assignments establish the earliest required support horizon in the questionnaire’s ordered, cumulative milestone model. Earlier prototypes do not satisfy the assigned milestone. Whenever any capability is offered, its safety, authority, accessibility, and data-preservation requirements apply immediately and cannot be deferred to Full support.
+- Nothing in these assignments claims implementation or authorizes progression, deployment, external access, charging, publication, or another rollout action.
+
 **Current-state qualification:**
 
-The canonical direction supports configurable narrative units, custom fields, and reusable property and production templates. The current alpha does not yet provide a verified general-purpose template or extension runtime. Template schemas, safe custom validators, lifecycle mapping, extension permissions, migrations, and portability require additional contracts and prototypes.
+The canonical direction supports configurable narrative units, custom fields, and reusable property and production templates. The current alpha does not yet provide a verified general-purpose template or extension runtime. Template schemas, safe custom validators, workflow-category mapping, extension permissions, migrations, and portability require additional contracts and prototypes.
 
 Templates should configure Storyworld’s shared primitives. They must not fork storage, create separate engines, hide authority, or introduce executable code implicitly.
 
@@ -3218,30 +3359,105 @@ Dumpster Fire Friends may define a numbered card as its template-level content u
 
 ---
 
-**4. May users define custom lifecycle states?**
+**4. May users define custom workflow states?**
 
 **Response:**
 
-Only within controlled boundaries.
+Yes, but only as a non-authoritative workflow overlay. Custom workflow states organize ordinary work; they do not become or modify an object’s authoritative state.
 
-Users may add workflow states such as “Needs illustration,” “Awaiting family review,” “Ready for layout,” or “Needs localization,” provided each maps to a standard Storyworld lifecycle category and cannot change authority.
+Storyworld must not create one global lifecycle that combines canon, asset, document, review, release, publication, rights, runtime, or commerce states. Those object-specific lifecycles and governing actions remain separate and controlling.
 
-Templates must not redefine or bypass the meaning of:
+Every custom workflow state must map to exactly one **standard Storyworld workflow category**. Multiple custom states may map to the same category. The custom label and standard category must remain separately visible in inspection, search, export, APIs, and audit history.
 
-- Draft or proposal.
-- Current Canon.
-- Canon Revision history.
-- Canon Version.
-- Add to Canon or Update Canon.
-- Production-local override.
-- Candidate asset.
-- Under review.
-- Accepted master.
-- Release package and publication state.
-- Submitted or published.
-- Superseded, withdrawn, or archived.
+**Standard Storyworld workflow categories:**
 
-A custom state cannot add a proposal to Current Canon, create a Canon Revision, pin a Canon Version, treat a comment as approval, waive a blocker, or publish content. New authoritative state semantics or transition behavior require an accepted extension or core lifecycle decision.
+1. **Workflow—Pending**
+   - Known work is ready or waiting to begin.
+   - It remains active and should normally appear in applicable work queues.
+2. **Workflow—In Progress**
+   - Work is actively being created or revised.
+   - It remains active and editable where ordinary permissions allow.
+3. **Workflow—Blocked**
+   - Work cannot proceed until an identified dependency, prerequisite, or blocker is resolved.
+   - The state must identify the blocker or dependency.
+   - It blocks ordinary downstream completion but grants no waiver or authority.
+4. **Workflow—Review Pending**
+   - An exact version awaits or is undergoing review.
+   - It may appear in applicable review queues and notifications.
+   - It does not record Creative Approval, rights approval, acceptance, waiver, or another authoritative decision.
+5. **Workflow—Revision Required**
+   - Review has identified further work that must be completed.
+   - The applicable findings, requested changes, and reviewed version must remain traceable.
+6. **Workflow—Decision Pending**
+   - An exact object and version are ready to be presented for an existing authorized decision.
+   - The state must identify the intended governing action, such as Add to Canon, Update Canon, Master Acceptance, **Apply changes**, Create a release, or another already defined action.
+   - Entering or leaving this category must not perform or imply that action.
+7. **Workflow—Complete**
+   - The defined workflow work is complete for its stated scope.
+   - It does not mean the object is canon, an accepted master, an accepted ordinary-document successor, rights-approved, released, published, or otherwise authoritative.
+8. **Workflow—Inactive**
+   - The workflow item is no longer active.
+   - It is removed from ordinary active queues but remains searchable, exportable, and auditable where policy permits.
+   - Exact dispositions such as superseded, withdrawn, and archived remain distinct and separately recorded; this category must not collapse their meanings.
+
+**Custom workflow-state definition:**
+
+Each definition must identify:
+
+- A stable state ID and user-facing label.
+- Exactly one standard workflow category.
+- The object or workflow types to which it applies.
+- Its meaning and completion or exit criteria.
+- Allowed transitions to other custom workflow states.
+- Any required blocker, reviewer, exact version, or intended governing action.
+- Its schema or mapping version and migration history.
+
+**Mapping-controlled behavior:**
+
+The mapping may control only ordinary workflow behavior:
+
+- Active, blocked, review, decision, complete, or inactive grouping.
+- Work and review queues.
+- Filters, search facets, notifications, reporting, and export.
+- Required workflow metadata.
+- Allowed custom-state transitions.
+- Audit history and stale-version handling.
+
+Storyworld must not impose one universal transition graph across every template. Each template may declare transitions among its custom workflow states, subject to the standard-category meanings, required metadata, stale-version rules, and all authority invariants. Changing a custom workflow state changes only the workflow overlay and its audit history; it must not change an authoritative object state.
+
+**Example mappings:**
+
+- **Needs illustration** normally maps to **Workflow—Pending** when illustration is ready to be undertaken.
+- **Illustration in progress** maps to **Workflow—In Progress**.
+- **Awaiting family review** maps to **Workflow—Review Pending** and must identify the exact version under review.
+- **Ready for layout** maps to **Workflow—Pending** because layout is the next work step; it does not mean authority-decision ready.
+- **Needs localization** maps to **Workflow—Pending** when localization can begin, or **Workflow—Blocked** when a required source, right, locale decision, or other prerequisite is unavailable.
+
+If a label could reasonably map to more than one category, the template must select one meaning explicitly rather than leaving interpretation to an implementer.
+
+**Authority boundaries:**
+
+The workflow overlay remains separate from all existing object-specific authoritative lifecycles, actions, evidence, and dispositions, including:
+
+- Draft or proposal, Add to Canon, Update Canon, Canon Revision, Current Canon, and Canon Version.
+- Candidate asset, separately recorded Under review or other formal review evidence, Master Acceptance, and accepted master.
+- The authorized **Apply changes** and accepted-successor path for ordinary versioned documents.
+- Create a release and Authorize external publication.
+- Rights approval, waivers, runtime approvals and acceptances, and Commerce Foundry decisions.
+- Submitted, published, superseded, withdrawn, and archived records where separately defined.
+
+A custom workflow state or workflow-category mapping must never:
+
+- Add material to or update Current Canon.
+- Create a Canon Revision or pin a Canon Version.
+- Perform Master Acceptance.
+- Accept an ordinary-document successor.
+- Record Creative Approval, rights approval, a waiver, or legal clearance.
+- Create a release or Authorize external publication.
+- Grant permissions, expand authority, or satisfy required evidence.
+- Rename, hide, merge, or override an authoritative state or action.
+
+If a custom workflow label conflicts with an authoritative status, the authoritative status controls. Both must remain visible; the custom label must not mask or reinterpret the authoritative status. No custom workflow state or category creates an authority action, lifecycle receipt, approval gate, or implementation claim.
 
 ---
 
@@ -3444,7 +3660,7 @@ Priorities are:
 - **Data export and deletion:** permanent core requirements, independent of commercialization.
 - **Customer-managed keys:** preserve an encryption and key-custody abstraction; exact KMS and customer-managed-key support requires a security decision and prototype.
 
-Question 18 exclusively controls customer-managed-only versus optional Storyworld-hosted deployment. Question 22 exclusively controls provider-credential scope. Question 26 depends on those choices for rollout planning but neither duplicates nor redefines them.
+Question 18 exclusively controls the selected customer-managed/private plus optional Storyworld-hosted posture. Question 22 exclusively controls the selected hybrid provider-credential scope. Question 26 depends on those recorded directions for rollout planning but neither duplicates nor redefines them.
 
 ---
 
@@ -3466,23 +3682,256 @@ Controlled External Pilot, Limited Paid Beta, and Public Self-Service use the ca
 - **Successful publication or delivery:** Human-authorized execution to the intended destination with a receipt or equivalent verifiable result. This may be private or public depending on the production.
 - **Second-production commitment:** A paid renewal, prepaid second project, signed order, or specifically scheduled continuation. Survey interest alone does not qualify.
 
+#### Rollout measurement rules
+
+The Internal Qualification, Controlled External Pilot, Limited Paid Beta, and Public Self-Service decision gates below inherit this subsection. These rules define target measurement behavior only; they do not claim that evidence exists, that a gate has passed, or that any rollout action is authorized.
+
+**Rollout Measurement Plan:**
+
+Before results are evaluated, the owner must approve a versioned Rollout Measurement Plan that identifies:
+
+- Measurement start and cutoff.
+- Counted cohorts and locked participant rosters.
+- Production ledger and ordering rule.
+- Diversity classifications.
+- Critical-workflow catalog.
+- Issue-severity rubric.
+- Estimate, price, cost-allocation, support-rate, and margin definitions.
+- Evidence sources and responsible evaluator.
+- Applicable rule and price versions.
+
+The plan must be fixed before results are evaluated. Missing, unknown, immature, or unevaluable evidence does not satisfy a gate. No production, team, participant, issue, cost, or result may be removed or reclassified retrospectively because of its outcome.
+
+Percentages use exact fractions. When a percentage determines a required integer count, round upward to the next whole unit. A zero or incomplete denominator does not pass.
+
+**Internal Qualification production cohort:**
+
+- The Dumpster Fire Friends Cards 007–008 Proof counts as one qualifying production and must be included in the evaluated twelve-production cohort.
+- The cohort is the first **12 consecutive qualifying production completions** after the recorded measurement start.
+- Order productions by immutable completion-receipt timestamp, then stable production ID when timestamps tie.
+- Record every eligible production attempt, including failed, abandoned, or disqualified attempts.
+- Failed or incomplete attempts do not fill a completed-production position, but their costs, incidents, support, and failures remain part of the evidence.
+- Freeze the cohort when the twelfth qualifying production completes. An unfavorable cohort member may not be replaced by a later production.
+- Productions completed after the fixed twelve are supplemental evidence and cannot repair a failed cohort retroactively.
+- Any later Critical or High issue, governed-data loss, or authority failure discovered before the go/no-go decision still blocks progression.
+- Demonstrating remediation through another qualification run requires a new prospectively registered twelve-production cohort.
+
+Within the fixed cohort:
+
+- **The 12** means all twelve cohort members.
+- **Final five** means cohort positions 8–12.
+- **Final six** means cohort positions 7–12.
+- The 8-of-12 and 11-of-12 requirements use twelve as their denominator.
+
+**Teams, participants, and evaluated operators:**
+
+- **Enrolled team:** The paying workspace or contractual unit admitted to the pilot.
+- **Participant:** An external human listed on the locked pilot roster.
+- **Evaluated operator:** A participant designated before onboarding to perform the measured critical workflow. Each enrolled team must designate at least one evaluated operator.
+
+Apply these units consistently:
+
+- Enrollment, production completion, second-production commitment, onboarding, support, commercial-value, and economic measures use teams.
+- Independent workflow-completion and individual-satisfaction measures use evaluated operators or participants only where explicitly stated.
+- Observers and review-only users may be excluded from operator denominators only if classified before onboarding.
+- A team or participant that withdraws, becomes unresponsive, or fails remains in every applicable denominator after enrollment unless an objective eligibility error was recorded before the outcome was known.
+- The 80% independent-completion criterion requires at least `ceiling(0.80 × eligible evaluated operators)` successful evaluated operators.
+- Every completing team must have at least one authorized operator successfully perform a complete export.
+- The participant-exit criterion is a team/workspace exercise.
+- Satisfaction uses one fixed survey instrument, requires at least an 80% response rate among eligible evaluated operators, and requires at least one response from every completing team. Otherwise the satisfaction gate is unevaluable.
+
+For Limited Paid Beta:
+
+- An **active paying team** has a paid entitlement in good standing and performs at least one predeclared meaningful authenticated product action during each applicable 30-day interval.
+- A percentage metric includes only teams that have had the complete stated 60-day, 90-day, or six-month observation opportunity.
+- Teams with the complete observation opportunity that withdraw or fail remain in the denominator.
+- Recently enrolled teams without the full observation period are reported separately and do not count as successes or failures for that metric.
+
+**Issue severity:**
+
+Use the highest applicable impact across authority, rights, privacy, security, accessibility, reliability, and data integrity:
+
+- **Critical:** Actual or imminent irreversible harm; governed-data loss or corruption; unauthorized authoritative action, publication, or access; cross-tenant disclosure; serious credential compromise; or inability to recover safely.
+- **High:** A critical workflow is blocked or materially unsafe; a required authority, rights, privacy, security, accessibility, or recovery safeguard fails; or significant harm is credible and no safe bounded workaround exists.
+- **Medium:** Bounded and non-blocking impact with a safe documented workaround, no authority or governed-data-integrity violation, and recorded mitigation and owner acceptance.
+- **Low:** Minor impairment with no material effect on workflow completion, authority, protected data, or required evidence.
+
+Each issue must record:
+
+- Severity and affected impact dimensions.
+- Evidence and affected scope.
+- Responsible evaluator.
+- Mitigation and residual severity.
+- Closure evidence and verification date.
+
+If evaluators disagree, the higher severity controls until adjudicated. **Unresolved** means open, incompletely mitigated, or lacking verified closure at the evaluation cutoff. Resolved Critical and High issues remain disclosed historically. Actual governed-data loss continues to fail a zero-loss gate even if the underlying defect is later fixed.
+
+Owner acceptance may disposition a qualifying Medium issue. It must not downgrade an objectively Critical or High issue merely to pass a rollout gate.
+
+**Material difference:**
+
+Use a prospectively approved diversity matrix. Two properties, media or delivery types, or use cases are materially different only when they differ in at least two applicable dimensions:
+
+- Primary creator outcome.
+- Narrative or content structure.
+- Authoring and review workflow.
+- Media, rendition, or delivery pipeline.
+- Audience, access, rights, consent, or accessibility profile.
+- Template or critical-workflow requirements.
+
+Apply these rules:
+
+- Different names, genres, locales, aspect ratios, renditions, file extensions, or channels alone do not establish material difference.
+- Properties require separate stable property identities plus meaningful creative or workflow differences.
+- Media or delivery types require materially different authoring, validation, accessibility, packaging, or destination behavior.
+- Non-commerce use cases require different primary user outcomes or end-to-end workflows; using another property with substantially the same workflow is insufficient.
+- Record and approve each classification before its outcome is evaluated.
+- Reuse the same property rubric for the three clean-install export and re-import proofs.
+
+**Critical workflows:**
+
+The Rollout Measurement Plan must include a versioned critical-workflow catalog before qualification testing begins. Each catalog entry must define:
+
+- Start and successful end conditions.
+- Required roles and permissions.
+- Exact versions and evidence.
+- Required existing authority actions and receipts.
+- Applicable error, stale, conflict, unavailable, and recovery states.
+- Required accessibility and device coverage.
+
+**Critical pilot workflows** are every workflow necessary for the planned bounded pilot—not every possible product capability.
+
+The **critical intent-to-release workflow** is the supported journey from authenticated creative intent through:
+
+1. Selecting or pinning authoritative source versions.
+2. Creating and revising the work.
+3. Review and resolution of findings.
+4. Required existing acceptance, rights, or waiver decisions.
+5. Creating the exact release or governed export package.
+6. Producing the required receipt or verifiable delivery result.
+
+**Independently complete** means no unplanned human guidance, staff operation, developer intervention, or direct database repair during the measured attempt. Ordinary documentation and in-product assistance remain allowed.
+
+A recovered workflow counts as successful only when recovery uses a supported path and preserves exact versions, authority, receipts, and governed data.
+
+For durable-workflow percentages:
+
+- Count one root workflow execution, including its internal retries, as one denominator item.
+- Unknown outcomes do not count as successful until reconciled.
+- Recovery involving developer intervention or direct database repair is a failure for the applicable no-intervention measure.
+
+**Approved estimates and internal cost variance:**
+
+An approved estimate must be:
+
+- Recorded and owner-approved before the production begins.
+- Based on the same cost categories and allocation method used for actual cost.
+- Versioned when scope changes.
+- Revised only before the additional cost is incurred.
+- Never changed retrospectively to make an overage pass.
+
+For each of the final six productions, “within 20%” means:
+
+`actual variable cost ≤ 120% of approved estimate`
+
+An underrun does not fail the gate. Forecast accuracy may separately report absolute variance.
+
+Actual variable cost includes:
+
+- Provider and inference charges.
+- Attributable compute and media processing.
+- Attributable storage and transfer.
+- Transaction or delivery fees.
+- Attributable unplanned support labor using the approved loaded hourly rate.
+
+Shared costs must use one documented allocation method for both estimates and actuals.
+
+**Standard price:**
+
+The provisional standard price is:
+
+- The owner-approved intended post-pilot list price for the applicable production or plan.
+- Separate from the discounted $250–$500 pilot fee unless the bounded pilot plan explicitly makes them identical.
+- Approved and versioned before the pilot cohort begins.
+- Net of taxes and separately passed-through charges.
+- Applied consistently across the evaluated cohort.
+
+For a subscription or plan covering multiple productions, allocate standard price per production using the plan’s predeclared included-production allowance, not the number actually completed.
+
+Apply the 35% provider, storage, and media-processing criterion to every completed production individually. Do not use an average that can hide an uneconomic production type.
+
+**Support measurement and cost:**
+
+Track support contemporaneously by team, production, date, and category:
+
+- Planned onboarding.
+- Routine and unplanned support.
+- Incident response.
+- Customer-specific customization.
+- Planned research interviews.
+- Product research and development.
+
+Use an approved loaded or shadow hourly rate even for unpaid owner or family-team labor.
+
+Planned research interviews and genuine product research and development may be excluded only where the existing gate expressly permits. Routine onboarding, support, incident response, and customer-required customization remain cost of service.
+
+The pilot final-month support rate is:
+
+`unplanned support hours during the final 30 days ÷ completed team-productions during those 30 days`
+
+If no team-production completes during that period, the criterion is unevaluable and does not pass.
+
+The Limited Paid Beta support rate is:
+
+`unplanned support hours during the measurement period ÷ active-team-months during that period`
+
+Use daily proration or another documented consistent method for partial months.
+
+**Revenue and gross margin:**
+
+`gross margin = (recognized revenue − cost of service) ÷ recognized revenue`
+
+Recognized revenue must be net of refunds, credits, discounts, and taxes.
+
+Cost of service includes:
+
+- Provider, compute, storage, processing, transfer, transaction, and delivery costs.
+- Customer-specific infrastructure.
+- Planned onboarding.
+- Routine and unplanned support.
+- Incident response.
+- Customer-required customization.
+- Allocated service-operating overhead.
+
+Calculate gross margin as a cohort aggregate, not an average of team or production percentages. For projected margin, apply the approved intended beta price to measured pilot usage and support behavior and record every pricing, utilization, allocation, and retention assumption.
+
+The pilot’s 60% and Limited Paid Beta’s 65% thresholds remain unchanged.
+
+For the Limited Paid Beta 30% variable-cost criterion, use:
+
+`total variable provider, storage, processing, transfer, and transaction costs ÷ recognized revenue`
+
+Product development and permitted research exclusions must be classified prospectively. Routine support or customer delivery work must not be relabeled as research and development to improve margin.
+
+Every existing numeric threshold and separate owner go/no-go decision below remains unchanged unless wording identifies its unit, denominator, or formula. Meeting a measurement threshold only makes the next owner decision eligible; it never authorizes rollout. The ordered, cumulative milestone model remains controlling.
+
 #### Internal Qualification
 
-Internal evidence—not external payment or usage—determines whether the Reliable Internal Version has met the additional qualification required for the owner to consider a Controlled External Pilot. The provisional minimum Internal Qualification gates are:
+Internal evidence—not external payment or usage—determines whether the Reliable Internal Version has met the additional qualification required for the owner to consider a Controlled External Pilot. The provisional minimum Internal Qualification gates are evaluated under the fixed cohort, denominator, classification, and evidence rules above:
 
-- Complete at least **12 qualifying internal productions**.
+- Complete the fixed cohort of **12 qualifying internal productions**.
 - Cover at least **3 materially different internal properties**.
 - Complete at least **2 qualifying productions per property**.
 - Cover at least **3 materially different media or delivery types**.
 - Include at least **2 non-commerce use cases**.
 - Successfully publish or deliver at least **8 of the 12 productions** through intended owner-controlled destinations; all 12 must produce validated governed release or export packages.
-- Include the Dumpster Fire Friends Cards 007–008 Proof while recognizing that it is insufficient by itself to satisfy Internal Qualification.
+- Include the Dumpster Fire Friends Cards 007–008 Proof as one member of the fixed cohort while recognizing that it is insufficient by itself to satisfy Internal Qualification.
 - Involve at least **2 distinct family-team operators**, including at least **1 person who is not the system’s primary builder**.
-- Require the non-builder participant to complete at least **3 productions** with no more than **2 hours of unplanned expert assistance per production** after initial onboarding.
+- Require the non-builder family-team operator to complete at least **3 productions** with no more than **2 hours of unplanned expert assistance per production** after initial onboarding.
 - Require at least **2 team members** to complete more than one production.
-- At least **11 of the 12 productions**, including the final **5 consecutively**, must complete without developer intervention, direct database repair, or loss of governed work.
+- At least **11 of the 12 productions**, including all of cohort positions **8–12** (the final five), must complete without developer intervention, direct database repair, or loss of governed work.
 - Every acceptance-class action must have its required exact-version receipt.
-- There must be **zero acknowledged data loss** involving Canon Revisions, Current Canon pointers, Canon Versions, canon-acceptance receipts, accepted masters, Master Acceptance receipts, rights decisions, releases, publication authorization, or other acceptance-class receipts.
+- There must be **zero actual governed-data loss** involving Canon Revisions, Current Canon pointers, Canon Versions, canon-acceptance receipts, accepted masters, Master Acceptance receipts, rights decisions, releases, publication authorization, or other acceptance-class receipts.
 - Complete **3 consecutive successful backup-and-restore drills**.
 - Complete clean-install export and re-import proofs for at least **3 materially different properties**.
 - Exercise and recover from at least one scenario in each category:
@@ -3493,16 +3942,16 @@ Internal evidence—not external payment or usage—determines whether the Relia
   - Export and account/property exit.
   - Recoverable deletion and restoration.
 - Track provider, storage, processing, and support costs for every qualifying production.
-- For the final **6 productions**, actual variable cost must remain within **20% of the approved estimate**, unless the owner explicitly approves a documented exception before the overage.
+- For each of cohort positions **7–12** (the final six), `actual variable cost ≤ 120% of approved estimate`, unless the owner explicitly approves a documented exception before the overage. An exception does not retrospectively revise the estimate or make the criterion pass for an unexcepted production.
 - Critical pilot workflows must receive manual keyboard, zoom/reflow, screen-reader, forced-colors, and mobile-decision testing appropriate to their scope.
-- No unresolved **Critical or High** authority, rights, privacy, security, accessibility, or data-loss issue may remain.
+- No unresolved **Critical or High** issue under the rollout issue-severity rubric may remain.
 - Medium issues may remain only when they are non-blocking, documented with limitations and mitigations, and explicitly accepted for the bounded pilot.
 
-These are provisional owner gates. They may be changed only through an explicit later owner decision based on observed internal production cadence and evidence—not by implementation assumption.
+These are provisional owner gates. They may be changed only through an explicit later owner decision based on observed internal production cadence and evidence—not by implementation assumption—and any change applies prospectively under a new plan or qualification run rather than retroactively changing an evaluated cohort.
 
 #### Required Internal Evidence Packet
 
-Before the pilot-authorization gate, a dated Internal Evidence Packet must answer:
+Before the pilot-authorization gate, a dated Internal Evidence Packet must attach the applicable owner-approved Rollout Measurement Plan; the frozen production cohort and complete attempt ledger; the operator roster and prospective diversity classifications; the critical-workflow catalog; the issue ledger; and the estimate, actual-cost, support, price, revenue, and margin evidence. It must answer:
 
 1. Can the family team repeatedly move real work from creative intent through governed publication or delivery?
 2. Can someone other than the system’s primary builder complete the workflow without continuous expert intervention?
@@ -3531,10 +3980,10 @@ The Controlled External Pilot is an **owner-authorized, invitation-only, paid co
 - **3–5 external teams**.
 - Each team contains **1–5 people**.
 - Planned duration of **8–12 weeks**, extendable to a maximum of **16 weeks** solely to finish already-started pilot work.
-- Participants must have a real project achievable within the pilot period.
-- Participants must control or possess the necessary rights to their submitted material.
-- The initial cohort should cover at least **2 materially different non-commerce creative use cases**.
-- At least one participant should have relatively low technical confidence.
+- Each enrolled team must have a real project achievable within the pilot period.
+- Each enrolled team must control or possess the necessary rights to its submitted material.
+- The initial cohort should cover at least **2 materially different non-commerce creative use cases** under the prospectively approved diversity matrix.
+- The locked roster should include at least one participant prospectively classified under the approved plan as having relatively low technical confidence.
 - Pilot access is individually approved by the owner.
 - No public registration, public marketplace listing, enterprise rollout, production SLA, or unattended onboarding is implied.
 - Material classified `Provider Egress—Highly Restricted`, regulated workflows, content involving minors, or unusually consequential likeness/voice use remains excluded unless separately reviewed and explicitly authorized.
@@ -3549,22 +3998,22 @@ The Controlled External Pilot is an **owner-authorized, invitation-only, paid co
 Expansion to Limited Paid Beta requires an explicit owner go/no-go decision after all of the following are evaluated:
 
 - At least **3 external teams** enroll and pay.
-- At least **3 teams and 80% of enrolled teams**, whichever is greater, complete one qualifying real production.
-- At least **2 teams and 50% of completing teams**, whichever is greater, make a qualifying paid second-production commitment within **60 days** of completing the first production.
-- At least **80% of participants** independently complete the critical intent-to-release workflow after onboarding.
-- Planned onboarding remains at or below **4 hours per team**.
-- By the pilot’s final month, unplanned support averages no more than **2 hours per team per completed production**.
-- Average participant satisfaction is at least **4 out of 5**.
+- At least **3 teams and 80% of all enrolled teams**, whichever is greater, complete one qualifying real production.
+- At least **2 teams and 50% of all completing teams**, whichever is greater, make a qualifying paid second-production commitment within **60 days** of completing the first production. Every completing team must receive the full 60-day observation opportunity before this criterion is evaluable.
+- At least **80% of eligible evaluated operators** independently complete the critical intent-to-release workflow after onboarding.
+- Planned onboarding remains at or below **4 hours for every enrolled team**.
+- The pilot final-month support rate is no more than **2 unplanned support hours per completed team-production**.
+- The arithmetic mean satisfaction score among eligible evaluated-operator survey responses is at least **4 out of 5**, subject to the fixed-instrument, response-rate, and completing-team coverage rules above.
 - At least **80% of completing teams** identify persistent canon, continuity, reusable creative identity, focused revision, governed production, or professional cross-media work as material value—not merely generic generation.
 - At least **95% of durable workflow executions** complete or recover without developer intervention or direct database repair.
 - All acceptance-class actions produce valid exact-version receipts.
-- There is no acknowledged loss of governed data.
-- Every participant can successfully export their work.
-- At least one complete participant-exit exercise verifies export, credential revocation, retention handling, and deletion behavior.
-- There is no unresolved Critical or High authority, rights, privacy, security, accessibility, or data-loss issue.
+- There is **zero actual governed-data loss**.
+- Every completing team has at least one authorized operator successfully perform a complete export.
+- At least one complete team/workspace exit exercise verifies export, credential revocation, retention handling, and deletion behavior.
+- There is no unresolved Critical or High issue under the rollout issue-severity rubric.
 - No unremediated rights, privacy, security, publication, or data-loss incident occurs.
-- Provider, storage, and media-processing cost per completed production is no more than **35% of the provisional standard price** for that production or plan.
-- The projected gross margin at intended beta pricing is at least **60%**, excluding research-and-development work and planned pilot interviews.
+- For every completed production individually, provider, storage, and media-processing cost is no more than **35% of the allocated provisional standard price** for that production or plan.
+- The projected aggregate cohort gross margin at intended beta pricing is at least **60%**, excluding prospectively classified research-and-development work and planned pilot interviews.
 - Support and customization findings show a credible path to serving customers without turning every onboarding into bespoke services work.
 
 Missing any threshold does not automatically terminate Storyworld as an internal platform. It prevents expansion and requires the owner to choose among remediation, a second bounded pilot, narrower positioning, or remaining internal/first-party only.
@@ -3582,18 +4031,18 @@ If the Controlled External Pilot gate passes and the owner separately authorizes
 Public Self-Service may be considered only after:
 
 - At least **20 active paying teams** have remained active for **90 consecutive days**.
-- At least **70%** complete their first qualifying production within **60 days** of onboarding.
-- At least **50%** begin a second production within **90 days**.
-- At least **60%** renew or complete another paid production within **6 months**.
-- At least **90%** complete onboarding with no more than **1 hour of human assistance**.
-- Unplanned support averages no more than **1 hour per active team per month** after onboarding.
+- At least **70% of enrolled teams with the complete 60-day observation opportunity** complete their first qualifying production within **60 days** of onboarding.
+- At least **50% of enrolled teams with the complete 90-day observation opportunity** begin a second production within **90 days**.
+- At least **60% of enrolled teams with the complete six-month observation opportunity** renew or complete another paid production within **6 months**.
+- At least **90% of all enrolled teams** complete onboarding with no more than **1 hour of human assistance**.
+- The Limited Paid Beta support rate averages no more than **1 unplanned support hour per active-team-month** after onboarding.
 - At least **95%** of durable workflows complete or recover without developer intervention.
-- Acceptance-class receipt coverage remains **100%**.
-- Governed data loss remains **zero**.
-- Variable provider, storage, and processing costs remain at or below **30% of recognized revenue**.
-- Projected gross margin is at least **65%**, excluding ongoing product development.
+- **100% of acceptance-class actions** produce their required valid exact-version receipts.
+- Actual governed-data loss remains **zero**.
+- The defined Limited Paid Beta variable-cost ratio remains at or below **30% of recognized revenue**.
+- Projected aggregate cohort gross margin is at least **65%**, excluding prospectively classified ongoing product development.
 - Self-service documentation, support intake, billing, export, deletion, incident response, privacy, rights, accessibility, backup, and recovery processes are tested and operational.
-- No unresolved Critical or High issue remains.
+- No unresolved Critical or High issue under the rollout issue-severity rubric remains.
 
 Meeting these thresholds permits an owner decision; it does not automatically authorize Public Self-Service.
 
@@ -3655,26 +4104,24 @@ This is the sole authoritative register for cross-cutting classification, unreso
 | AR-08 | Accepted repository authority | Alpha collaboration model | `DEC-0025` | Alpha collaboration remains asynchronous and owner-decided; presence, live co-editing, assignments, and broader roles are outside that accepted scope. | Retain until the collaboration successor is reviewed and accepted. |
 | OD-01 | Recorded target owner direction requiring successor reconciliation | Proof, product value, and creator controls | Question 1 | Dumpster Fire Friends Cards 007–008 is the bounded Proof; persistent canon, continuity, focused revision, reusable identity, text/voice control, and governed production define the intended value. | Reconcile product and intent contracts without claiming implementation. |
 | OD-02 | Recorded target owner direction requiring successor reconciliation | Internal user boundary | Question 2 | The Useful Internal Version serves the owner’s small family team rather than enterprise departments or large studios. | Reconcile conflicting agency or enterprise assumptions. |
-| OD-03 | Recorded target owner direction requiring successor reconciliation | Standalone-product and external-rollout boundary | Question 26 | External availability is conditional and begins only with a separately authorized Controlled External Pilot after Internal Qualification. | Preserve the staged gates; no threshold automatically advances rollout. |
+| OD-03 | Recorded target owner direction requiring successor reconciliation | Standalone-product and external-rollout boundary | Question 26 | External availability is conditional and begins only with a separately authorized Controlled External Pilot after Internal Qualification measured under a prospectively fixed, versioned Rollout Measurement Plan. | Preserve the staged gates, fixed cohorts, units, denominators, classifications, evidence, and separate go/no-go decisions; no threshold automatically advances rollout. |
 | OD-04 | Recorded target owner direction requiring successor reconciliation | Storyworld and specialist-tool roles | Question 11 | Storyworld is the normal supported workspace; InvokeAI, Blender, Kdenlive, Resolve, ComfyUI, and similar tools are governed precision or operator environments without domain authority. | Clarify the professional-tool non-goal and supersede the conflicting InvokeAI posture where approved. |
 | OD-05 | Recorded target owner direction requiring successor reconciliation | AI autonomy | Question 21 | Low-consequence work may be automatic within scoped rules; medium-consequence work requires confirmation; consequential authority remains human. | Reconcile AI-action contracts and workflow policy. |
 | OD-06 | Recorded target owner direction requiring successor reconciliation | Canon lifecycle terminology | Question 5 | Current Canon, Canon Revisions, and Canon Versions are distinct; legacy “canon release” terminology is not a fourth state. | Reconcile repository contracts that retain the legacy term. |
-| OD-07 | Recorded target owner direction requiring successor reconciliation | Provider strategy and Agent Missions | Question 22 | OpenRouter and fal.ai are preferred replaceable hosted adapters; Storyworld owns Agent Mission governance while Octon is the eventual replaceable executor. | Create provider, egress, capability-gateway, and Agent Mission successors after evidence. |
+| OD-07 | Recorded target owner direction requiring successor reconciliation | Provider strategy, credentials, and Agent Missions | Question 22 | OpenRouter and fal.ai are preferred replaceable hosted adapters; provider credentials use the selected hybrid model with one workspace-admin-managed credential per provider, workspace, and environment as the default; Storyworld owns Agent Mission governance while Octon is the eventual replaceable executor. | Create provider, credential, egress, capability-gateway, and Agent Mission successors after evidence while preserving secret isolation, member attribution, budgets, and the prohibition on silent credential fallback. |
 | OD-08 | Recorded target owner direction requiring successor reconciliation | Delivery priority | Question 10 | Governed export remains permanent; Astro-before-Instagram is proposed target direction. | Retain accepted Instagram-first history until a delivery-priority successor is accepted. |
-| OD-09 | Recorded target owner direction requiring successor reconciliation | Deployment, portability, and custody | Question 18 | Internal deployment baselines precede a Mature Product customer-managed option; complete export and property portability remain permanent. | Resolve UD-02 and create hosting, portability, backup, and migration successors. |
+| OD-09 | Recorded target owner direction requiring successor reconciliation | Deployment, portability, and custody | Question 18 | Internal private-deployment baselines precede a Mature Product that offers both complete customer-managed/private deployment and an optional Storyworld-hosted service operated by Stavium; complete export and property portability remain permanent. | Create hosting, portability, backup, migration, tenant-isolation, and hosted-service operating successors without treating the selected hosted target as rollout authorization. |
 | OD-10 | Recorded target owner direction requiring successor reconciliation | Browser-first runtime sequence | Question 14 | Browser/Web is the first supported production target; Godot is second, with only a bounded parallel portability proof. | Reconcile through the shared-runtime successor without changing authority boundaries. |
 | OD-11 | Recorded target owner direction requiring successor reconciliation | Accessibility baseline | Question 23 | WCAG 2.2 AA, keyboard operation, structured alternatives, accessible outputs, and real-device evidence apply at the defined milestones. | Create the accessibility successor and validation program. |
-| OD-12 | Recorded target owner direction requiring successor reconciliation | Mobile decision surface | Question 24 | Mobile centers on a purpose-built Decision Inbox and preserves full evidence and authority requirements. | Scope mobile workflows separately from desktop authoring. |
+| OD-12 | Recorded target owner direction requiring successor reconciliation | Mobile decision surface | Question 24 | The purpose-built Mobile Decision Inbox requires Basic support by Reliable Internal Version and Full support by Limited Paid Beta, without accelerating underlying capabilities; Review assignments remains Mature Product. | Validate critical Basic-support mobile journeys during Internal Qualification, permit only documented high-touch limitations in a separately authorized Controlled External Pilot, and complete expanded cohort coverage by Limited Paid Beta. |
 | OD-13 | Recorded target owner direction requiring successor reconciliation | Collaboration progression | Question 12 | Collaboration begins with drafts, proposals, exact-version conflicts, partial acceptance, and asynchronous work. | Preserve alpha authority while preparing the evidence-gated collaboration successor. |
-| OD-14 | Recorded target owner direction requiring successor reconciliation | Template and extension boundary | Question 25 | Templates configure vocabulary and views without forking the Engine; executable or connected behavior belongs in governed extensions or adapters. | Create template and extension contracts after research. |
+| OD-14 | Recorded target owner direction requiring successor reconciliation | Template and extension boundary | Question 25 | Templates and typed custom fields require Basic support by Useful Internal Version and Full support by Limited Paid Beta; declarative validators and lifecycle mappings, limited to non-authoritative workflow-category mappings, require Basic support by Reliable Internal Version and Full support by Limited Paid Beta; governed extensions and adapters require Basic support by Limited Paid Beta and Full support by Mature Product. Every custom workflow state maps to exactly one of eight standard workflow categories without changing an authoritative object state. | Create and validate the template, validator, workflow-category-mapping, and extension contracts for their assigned horizons without treating earlier prototypes, workflow labels, or scoped adapters as supported general or authoritative capability. |
 | OD-15 | Recorded target owner direction requiring successor reconciliation | Access and provider-egress dimensions | Question 15 | Access and provider-egress classifications are independent; Section 15 supplies the target default crosswalk and override rules. | Reconcile repository contracts; never implement one unqualified “restricted” value for both dimensions. |
 | OD-16 | Recorded target owner direction requiring successor reconciliation | Rights and consent workflow | Question 16 | Rights and consent are exact-version evidence and workflow controls, not legal guarantees or implied clearance. | Add the required rights, withdrawal, and blocking successors after evidence. |
 | OD-17 | Recorded target owner direction requiring successor reconciliation | Arc workspace graph semantics | Question 9 | The proposed DEC-0028 amendment applies Narrative Flow semantics only to the Arc workspace profile. | Amend DEC-0028 before graph implementation authority is considered. |
 | IL-01 | Implementation or evidence limitation | Target-product breadth | `DEC-0017` | The alpha does not establish the complete intent-driven experience, provider-policy surface, professional media editing, broad search, Reliable Internal Version identity, Mature Product collaboration, or customer-managed packaging. | Validate each capability through its controlling numbered response and successor work; make no readiness inference from alpha acceptance. |
 | IL-02 | Implementation or evidence limitation | Provider-shaped authoring paths | Question 22 | Current generated recipe and Studio paths still expose prompt, model, seed, provider, and endpoint concepts that conflict with the target provider-neutral boundary. | Reconcile the authoring and execution contracts before claiming the target experience. |
 | IL-03 | Implementation or evidence limitation | Questionnaire implementation status | Question 1 | Populated target direction does not establish that any milestone or advanced capability exists. | Require direct repository and validation evidence for every implementation claim. |
-| UD-01 | Unresolved owner decision | Provider-credential scope | Question 22 | Workspace-admin, per-member, or hybrid credentials remain unresolved; the nonbinding recommendation is recorded only in Question 22. | Owner selects one scope or explicitly defers it. |
-| UD-02 | Unresolved owner decision | Mature Product hosting model | Question 18 | Customer-managed/private only versus also offering an optional Storyworld-hosted service remains unresolved; the nonbinding sequence is recorded only in Question 18. | Owner selects one posture or explicitly defers it. |
 | DF-01 | Intentional deferral or out-of-scope item | Public multi-tenant SaaS and unrestricted signup | Question 26 | Deferred behind external evidence gates and a separate Public Self-Service decision. | Do not design or launch as an assumed stage. |
 | DF-02 | Intentional deferral or out-of-scope item | Enterprise workforce administration | Question 26 | Enterprise departments, SCIM, department hierarchies, and large-studio administration are outside the declared audience. | Reopen only through a separate owner product-direction decision. |
 | DF-03 | Intentional deferral or out-of-scope item | Presence and simultaneous co-editing | Question 12 | Not required by the Reliable Internal Version; no milestone currently requires it. | Revisit only after demonstrated demand and a scoped successor. |
@@ -3693,19 +4140,19 @@ This is the sole authoritative register for cross-cutting classification, unreso
 | RP-07 | Research or prototype need | Graph profiles and scale | Question 8 | Reusable profiles, structured alternatives, renderer behavior, and scale require evidence. | Validate profiles before authorizing graph implementation. |
 | RP-08 | Research or prototype need | Search, similarity, and embeddings | Question 17 | Ranking, typo tolerance, image similarity, permission-safe retrieval, explanations, and embedding thresholds remain research work. | Benchmark with access-filtered fixtures before selecting advanced retrieval. |
 | RP-09 | Research or prototype need | Classification, encryption, and key custody | Question 15 | Classification enforcement, encryption hierarchy, search projections, key custody, and customer-managed keys require design and tests. | Produce security evidence without collapsing classification dimensions. |
-| RP-10 | Research or prototype need | Identity and mobile reauthentication | Question 20 | OIDC selection, passkeys, delegation, recovery, service identities, and mobile step-up behavior remain unverified. | Research and prototype; return only decision evidence to the owner queue when a preference is required. |
+| RP-10 | Research or prototype need | Identity and mobile reauthentication | Question 20 | OIDC selection, passkeys, delegation, recovery, service identities, and mobile step-up behavior needed by the Reliable Internal Version Basic Mobile Decision Inbox remain unverified. | Research and prototype the milestone-scoped identity and reauthentication behavior; return only decision evidence to the owner queue when a preference is required. |
 | RP-11 | Research or prototype need | Customer-managed installation and recovery | Question 18 | Installation, upgrades, backup, restore, portable migration, recovery objectives, and regional profiles require clean-environment drills. | Validate before claiming Reliable Internal Version or customer-managed readiness. |
-| RP-12 | Research or prototype need | Real-device accessibility | Question 23 | Browsers, screen readers, zoom/reflow, forced colors, touch, RTL, IME, complex editors, and mobile decisions need manual evidence. | Complete milestone-scoped accessibility testing. |
-| RP-13 | Research or prototype need | Template and extension safety | Question 25 | Template schemas, validators, lifecycle mapping, packaging, sandboxing, migrations, and supply-chain controls remain unproven. | Prototype safe extension boundaries before successor acceptance. |
+| RP-12 | Research or prototype need | Real-device accessibility | Question 23 | Browsers, screen readers, zoom/reflow, forced colors, touch, RTL, IME, complex editors, and mobile decisions need manual evidence; critical Basic-support mobile journeys require Internal Qualification evidence before a pilot. | Complete Reliable Internal Version Basic-support testing and the broader device, role, failure, recovery, and accessibility evidence required for Limited Paid Beta Full support. |
+| RP-13 | Research or prototype need | Template and extension safety | Question 25 | Template schemas and typed fields need Useful Internal Version Basic evidence; validators and lifecycle mappings to the non-authoritative workflow categories need Reliable Internal Version Basic evidence; extension packaging, sandboxing, migrations, and supply-chain controls need Limited Paid Beta Basic evidence. | Prototype category meaning, exact-one mapping, transition, search/export, migration, stale-version, and authority-conflict behavior; validate supported capability only at its assigned Basic and Full horizons. |
 | RP-14 | Research or prototype need | Commerce Foundry handoff | Question 13 | Commercial/print exchange and authority-host behavior require contract and fixture evidence. | Validate the signed brief, bundle, finding, and receipt loop. |
 | RP-15 | Research or prototype need | Browser/Web and Godot portability | Question 14 | The browser package and bounded Godot portability proof remain unvalidated against the shared target-neutral contract. | Run contract-validation work without treating Godot as supported. |
-| RP-16 | Research or prototype need | Small-team viability and economics | Question 26 | Usability, repeat internal use, support burden, willingness to pay, retention, and unit economics require staged evidence. | Gather internal evidence first; external research requires the applicable owner authorization. |
+| RP-16 | Research or prototype need | Small-team viability and economics | Question 26 | Usability, repeat internal use, support burden, willingness to pay, retention, and unit economics require staged evidence under the fixed cohort, severity, diversity, workflow, cost, price, support, and margin rules. | Register and gather internal evidence prospectively under an owner-approved Rollout Measurement Plan; external research requires the applicable owner authorization. |
 | RP-17 | Research or prototype need | Rights, consent, and localization controls | Question 16 | Rights/consent matrices, withdrawal behavior, usage blocking, localization, and evidence requirements remain design and test needs. | Produce bounded evidence for the rights successors without implying legal clearance. |
 | GH-01 | Governance or handoff action | Proposed `DEC-0040` | Question 26 | “Intent-driven product and small-team boundary” is a proposed identifier and title only. | Draft, review, and accept, reject, or revise through repository governance. |
 | GH-02 | Governance or handoff action | Proposed `DEC-0041` | Question 4 | “Creative commands, proposals, consequence classes, and revisions” is proposed only. | Draft and disposition after authority and authoring dependencies are reconciled. |
 | GH-03 | Governance or handoff action | Proposed `DEC-0042` | Question 1 | “Compositional Creative Direction and resolved realization” is proposed only. | Draft and disposition after intent evidence. |
 | GH-04 | Governance or handoff action | Proposed `DEC-0043` | Question 22 | “Provider-neutral execution separation and capability gateway” is proposed only. | Draft and disposition after provider-boundary evidence. |
-| GH-05 | Governance or handoff action | Proposed `DEC-0044` | Question 22 | “Provider egress, credentials, retention, routing, and cost” is proposed only. | Resolve UD-01 and complete relevant evidence before disposition. |
+| GH-05 | Governance or handoff action | Proposed `DEC-0044` | Question 22 | “Provider egress, credentials, retention, routing, and cost” is proposed only. | Incorporate the selected hybrid credential model and complete relevant evidence before disposition. |
 | GH-06 | Governance or handoff action | Proposed `DEC-0045` | Question 22 | “Self-hosted ComfyUI workflow registry and security” is proposed only. | Draft and disposition after RP-04. |
 | GH-07 | Governance or handoff action | Proposed `DEC-0046` | Question 10 | “Native media editing and AI-mediated professional precision” is proposed only. | Draft and disposition after relevant RP-03 evidence. |
 | GH-08 | Governance or handoff action | Proposed `DEC-0047` | Question 11 | “Cross-media annotation, external precision tools, checkout/return, and OTIO” is proposed only. | Draft and disposition after RP-05 and related media evidence. |
@@ -3720,7 +4167,7 @@ This is the sole authoritative register for cross-cutting classification, unreso
 | GH-17 | Governance or handoff action | DEC-0028 Arc amendment | Question 9 | DEC-0028 requires amendment to the Arc-workspace Narrative Flow profile before implementation authority. | Amend and review; do not treat the questionnaire as acceptance. |
 | GH-18 | Governance or handoff action | Draft creative-direction decisions | Question 1 | Draft `DEC-0031` and `DEC-0033` conflict with the recorded target direction. | Replace rather than accept them unchanged. |
 | GH-19 | Governance or handoff action | Draft delivery/commerce decision | Question 13 | Draft `DEC-0032` requires substantial amendment to preserve export-first delivery and Commerce Foundry authority. | Amend and review through the appropriate successor. |
-| GH-20 | Governance or handoff action | Questionnaire formal approval and repository crosswalk | `DEC-0002` | Formal owner approval, a preserved questionnaire artifact, answer-to-decision and answer-to-contract crosswalks, and repository impact review remain pending. | Resolve or explicitly defer Questions 18 and 22, then obtain and record explicit owner sign-off for the identified document version before successor disposition. |
+| GH-20 | Governance or handoff action | Questionnaire formal approval and repository crosswalk | `DEC-0002` | Questions 18 and 22 are substantively resolved, while formal owner approval, exact version binding for the questionnaire and included purpose statement, a preserved questionnaire artifact, answer-to-decision and answer-to-contract crosswalks, and repository impact review remain pending. | Record the included purpose-statement version, then obtain explicit owner sign-off for both identified versions before successor disposition. |
 | GH-21 | Governance or handoff action | Dependency-ordered successor handling | `DEC-0002` | Proposed successors remain staged and must not be accepted as one blanket change. | Review and disposition them in dependency order while accepted decisions remain controlling. |
 | GH-22 | Governance or handoff action | Dumpster Fire Friends Proof authorization | Question 1 | The questionnaire records Proof direction but does not authorize execution. | Require an accepted task scope, governing decisions, budget, provider policy, rights basis, and validation plan before any Proof work. |
 
@@ -3750,16 +4197,16 @@ The table above is the register index, not a substitute for material qualificati
 - AI may autonomously perform visible, reversible, low-consequence work within policy and budget. Medium-consequence changes require a plan and confirmation. Add to Canon, Update Canon, Master Acceptance, rights decisions, waivers, release creation, and publication authorization remain human-authorized.
 - Every retained material change must preserve exact versions, provenance, affected approvals, reversibility, and custody.
 - Current Canon is the branch-specific authoritative pointer to immutable Canon Revision history. Canon Versions are frozen downstream snapshots and remain distinct from canon acceptance.
-- OpenRouter and fal.ai are the first strategic hosted providers behind replaceable task and capability adapters.
+- OpenRouter and fal.ai are the first strategic hosted providers behind replaceable task and capability adapters. The selected hybrid credential model uses workspace-admin-managed credentials per provider, workspace, and environment by default, keeps secrets server-side, preserves individual authorization, budgets, attribution, and provider-egress enforcement, and permits isolated member-owned credentials later only for a specifically justified need without silent fallback.
 - Routine deterministic processing belongs inside the Storyworld-controlled boundary. Local generative-model weights are not currently authorized.
 - InvokeAI, Blender, Kdenlive, DaVinci Resolve, ComfyUI, and similar tools remain separately deployed precision or operator environments. They receive no Add to Canon, Update Canon, Master Acceptance, rights, release, publication, or other Storyworld domain authority.
 - Governed export and complete property portability are permanent requirements. Astro-before-Instagram remains proposed target delivery direction rather than accepted repository authority.
-- The Useful Internal Version and Reliable Internal Version deployment baselines remain defined in Question 18. Complete customer-managed/private deployment is a Mature Product target; the optional Storyworld-hosted-service decision remains controlled only by Question 18.
+- The Useful Internal Version and Reliable Internal Version private-deployment baselines remain defined in Question 18. Mature Product must offer both complete customer-managed/private deployment and an optional Storyworld-hosted service operated by Stavium; the hosted target remains subject to evidence, successor operating decisions, and separate rollout authorization.
 - Browser/Web is the first supported production target and Godot is the second. Both paths share one target-neutral contract, and any parallel Godot work is limited to a bounded portability proof until complete Godot support is separately scoped and authorized.
 - Collaboration begins asynchronously with drafts, proposals, exact-version conflicts, and partial acceptance. Presence and live co-editing remain deferred.
-- WCAG 2.2 AA, keyboard operation, structured alternatives to visual canvases, accessible generated outputs, and purpose-built mobile review are product requirements at their assigned milestones.
-- Templates configure vocabulary, fields, hierarchy, views, rules, and exports without forking the underlying Engine. Executable or externally connected behavior belongs in governed extensions or adapters.
-- A Controlled External Pilot remains conditional on Internal Qualification and separate owner authorization. Broader External Availability remains conditional on staged external evidence and repeat paid demand. Storyworld remains valuable as an internal platform and first-party capability if that demand does not appear.
+- WCAG 2.2 AA, keyboard operation, structured alternatives to visual canvases, and accessible generated outputs apply at their assigned milestones. The purpose-built Mobile Decision Inbox requires Basic support by Reliable Internal Version and Full support by Limited Paid Beta; Review assignments remains unavailable on mobile until its underlying Mature Product capability exists.
+- Templates and typed custom fields require Basic support by Useful Internal Version and Full support by Limited Paid Beta. Declarative validators and lifecycle mappings, limited to the non-authoritative workflow-category mappings in Question 25.4, require Basic support by Reliable Internal Version and Full support by Limited Paid Beta. Governed extensions and adapters require Basic support by Limited Paid Beta and Full support by Mature Product; earlier templates, workflow overlays, or scoped adapters do not establish a general extension runtime or authoritative lifecycle.
+- A Controlled External Pilot remains conditional on Internal Qualification measured under a prospectively fixed, versioned Rollout Measurement Plan and on separate owner authorization. The plan controls cohorts, denominators, issue severity, diversity, critical workflows, estimates, prices, costs, support rates, and aggregate margin; no result automatically authorizes progression. Broader External Availability remains conditional on staged external evidence and repeat paid demand. Storyworld remains valuable as an internal platform and first-party capability if that demand does not appear.
 
 **Implementation, evidence, and nonauthorization detail — IL-01 through IL-03:**
 
@@ -3807,14 +4254,14 @@ Additional questionnaire-driven research remains necessary for:
 - Frame-accurate, accessible image, audio, and video annotation.
 - Search ranking, typo tolerance, image similarity, permission-safe semantic retrieval, and embedding thresholds.
 - Rights, consent, localization, and accessibility matrices.
-- Reliable Internal Version OIDC identity-provider selection, passkeys, delegation, support access, recovery, and mobile reauthentication.
+- Reliable Internal Version OIDC identity-provider selection, passkeys, delegation, support access, recovery, and reauthentication for Basic Mobile Decision Inbox workflows.
 - Encryption hierarchy, search indexing, key custody, KMS selection, and customer-managed keys for elevated access or provider-egress classifications.
 - Customer-managed installation, upgrades, backup, restore, portable migration, formal recovery objectives, and region-specific disaster-recovery profiles.
-- Real-device and assistive-technology testing across browsers, complex editors, and mobile decisions.
-- Template schemas, safe validators, lifecycle mapping, extension packaging, sandboxing, migrations, and supply-chain security.
+- Real-device and assistive-technology testing for Reliable Internal Version Basic mobile support and expanded Limited Paid Beta Full-support coverage across browsers, roles, failures, and recovery.
+- Useful Internal Version Basic template and typed-field schemas; Reliable Internal Version Basic declarative validators and lifecycle mappings to the non-authoritative workflow categories, including exact-one mapping, transitions, search/export, migration, stale-version, and authority-conflict behavior; and Limited Paid Beta Basic extension packaging, sandboxing, migrations, and supply-chain security.
 - Quantitative media size, duration, processing, storage, and recovery limits.
 - The exact browser-runtime framework beneath the browser-first adapter.
-- Small-team usability, repeat use, willingness to pay, support burden, and unit economics.
+- Small-team usability, repeat use, willingness to pay, support burden, and unit economics measured through prospectively registered cohorts and the versioned severity, diversity, workflow, cost, price, support, and aggregate-margin definitions in Question 26.
 
 Every technical prototype must remain disposable, fixture-driven, capped in cost, and decision-producing. It must not quietly become production infrastructure.
 
@@ -3850,11 +4297,11 @@ Existing dispositions that must remain visible are:
 Additional decisions or explicit inclusions remain necessary for:
 
 - Canonical `StoryDocument` and semantic merge.
-- Reliable Internal Version identity, mobile reauthentication, and support access.
+- Reliable Internal Version identity, Basic Mobile Decision Inbox reauthentication, and support access.
 - Hosting, portability, reliability, backup, restore, and customer-managed keys.
-- Accessibility milestones and mobile decision-surface requirements.
+- Accessibility milestones, Reliable Internal Version Basic Mobile Decision Inbox requirements, and Limited Paid Beta Full-support evidence.
 - Search, embeddings, and similarity projections.
-- Templates, safe custom validators, and extension or plugin security.
+- Useful Internal Version templates and typed custom fields, Reliable Internal Version declarative validators and lifecycle mappings to the non-authoritative workflow categories, and Limited Paid Beta governed extension or adapter security.
 
 Accepted decisions remain controlling until these successors are formally reviewed and accepted.
 
@@ -3872,13 +4319,13 @@ Accepted decisions remain controlling until these successors are formally review
 
 **Formal owner sign-off template and next-action detail — GH-20 through GH-22:**
 
-After Questions 18 and 22 are resolved or explicitly deferred, the following template may be used for the identified document version. It is a template only and is not the current approval record:
+The Question 18 and Question 22 owner-choice statuses are now `Selected`. After both the approved questionnaire version and included purpose-statement version are recorded, the following template may be used. It is a template only and is not the current approval record:
 
-> I formally approve the identified version of the Storyworld owner-decision questionnaire as the approved record of owner direction and evidence for the staged successor-decision and bounded technical-prototype process. This approval does not by itself accept the proposed decision IDs, supersede existing accepted decisions, authorize implementation, permit provider calls or spending, authorize external communication or participant recruitment, permit charging, activate credentials or integrations, approve deployment, authorize publication, or advance any external rollout stage.
+> I formally approve the identified version of the Storyworld owner-decision questionnaire, together with the exact version or content hash recorded for the included Storyworld purpose statement, as the approved record of owner direction and evidence for the staged successor-decision and bounded technical-prototype process. This approval does not by itself accept the proposed decision IDs, supersede existing accepted decisions, authorize implementation, permit provider calls or spending, authorize external communication or participant recruitment, permit charging, activate credentials or integrations, approve deployment, Authorize external publication, or advance any external rollout stage.
 
 After formal sign-off is recorded:
 
-1. Preserve the formally approved questionnaire version as owner-direction evidence and create a standalone preserved questionnaire artifact.
+1. Preserve the formally approved questionnaire version and the exact included purpose-statement version as owner-direction evidence, and create the standalone preserved questionnaire artifact.
 2. Produce answer-to-decision and answer-to-contract crosswalks.
 3. Run repository impact review against accepted decisions, canonical dossier material, contracts, tasks, and generated registries.
 4. Create and disposition the first grouped successor for the intent-driven small-team product boundary.
@@ -3888,7 +4335,7 @@ After formal sign-off is recorded:
 
 All research and technical prototypes must remain disposable, fixture-driven, capped in cost, and decision-producing. They do not authorize implementation, provider calls, participant contact, rollout, or production use.
 
-All research and successor work referenced above remains proposal or evidence work until accepted through repository governance. Obsolete duplicate summaries and repeated recommendation text have been removed; the two still-open recommendations now live only in their controlling numbered responses, Questions 18 and 22.
+All research and successor work referenced above remains proposal or evidence work until accepted through repository governance. The resolved hosting and provider-credential decisions live in their controlling numbered responses, Questions 18 and 22; dependent summaries do not replace them.
 
 ### Interpretation and precedence
 

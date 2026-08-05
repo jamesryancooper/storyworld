@@ -379,6 +379,41 @@
     },
     {
       "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0034-owner-questionnaire-internal-audit-resolution.md",
+      "sha256": "bfb971e1b1895db8cee1bf71701c38c74206eaa5b761dc1b15c69ff346ea474f"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0035-owner-questionnaire-f02-authority-normalization.md",
+      "sha256": "edbf1e909c01f386796d7f49cd470358c5a78c0c8256c462071e68db9c1b3520"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0036-owner-questionnaire-f04-access-retention-model.md",
+      "sha256": "60ff835edd64840879b842814ad7f249c29bc0c8e5a2da79758aee5fd823f94c"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0037-owner-questionnaire-f09-capability-milestones.md",
+      "sha256": "8510d28981a7b56ef8683aafcf998ce691e2ddf0f2a1af2ee1b1676801e5e77e"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0038-owner-questionnaire-f10-workflow-taxonomy.md",
+      "sha256": "efb9266215b9bcbdf3fe27cc60e7b0f617c87a051d5b3a5c9cc96989c008f1dc"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0039-owner-questionnaire-f11-rollout-measurement.md",
+      "sha256": "08bfa48712f3f607f1c3db24134532fe32cf3da54f472360ec9370d90a455757"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/evidence/EVD-0040-owner-questionnaire-hosting-credential-decisions.md",
+      "sha256": "da55512b237270bb9b6ba83c48ba72911a2e67a2e0f9c8500448bd33f0950053"
+    },
+    {
+      "layer": "agent_harness",
       "path": ".agent/evidence/README.md",
       "sha256": "68138e16a1146373c40e760402e3da10f90969c38f2bd6371cf72bbeaa25439a"
     },
@@ -535,7 +570,7 @@
     {
       "layer": "agent_harness",
       "path": ".agent/state/current.json",
-      "sha256": "481c8d8eeb569b2efd941f1296ea79287b6f491771effbd7262e002fdb478d72"
+      "sha256": "a1593dd3f77785aaa20b716baae31946da946cab9d2d597b3a232da97872426f"
     },
     {
       "layer": "agent_harness",
@@ -656,6 +691,41 @@
       "layer": "agent_harness",
       "path": ".agent/tasks/TASK-0023-integration-questionnaire-delayed-audit-follow-up.md",
       "sha256": "dcaad101ac26daf2221ac3a9e59f8d649fd5969247bc7d8af63afe6b0449c210"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0024-owner-questionnaire-internal-audit-resolution.md",
+      "sha256": "63961f60b08b6207b8419d9879e7523b3abc4f7f55167516205b83409f92b9b6"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0025-owner-questionnaire-f02-authority-normalization.md",
+      "sha256": "266b49f72051a0edd1d6263b24d3f4a83a8630b9c4b98a448ccd48bfce69502c"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0026-owner-questionnaire-f04-access-retention-model.md",
+      "sha256": "4b59428ea5bd8d5810783a8006d5c7265aced6fc35d767f7ecc82ab4d5617457"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0027-owner-questionnaire-f09-capability-milestones.md",
+      "sha256": "9dcd84ab8fcc02e15ad1dc679946448a5a68af0c88efea5478d9cfcb437696e7"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0028-owner-questionnaire-f10-workflow-taxonomy.md",
+      "sha256": "8fa1b6ea4849bbac457e79b841caba3efc4b0b17e76944e34889128b17fa4b68"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0029-owner-questionnaire-f11-rollout-measurement.md",
+      "sha256": "21b43341078086b4451b37d31f110d1145fc6bb7f4c45f2bffb0af6645f830db"
+    },
+    {
+      "layer": "agent_harness",
+      "path": ".agent/tasks/TASK-0030-owner-questionnaire-hosting-credential-decisions.md",
+      "sha256": "c14e7b19e3a51014103846f6d4c988805d62eb1b32be112daea895322e60acc2"
     },
     {
       "layer": "agent_harness",
@@ -4970,7 +5040,7 @@
     {
       "layer": "project_source",
       "path": "project-dossier-intake/owner-input/storyworld-owner-decision-questionnaire.md",
-      "sha256": "956f12ebcf80b0332c769249b26eb71363c5f5eb3421e4db85cd5e27b07526e8"
+      "sha256": "b4281f0aa49683a357e6bd0a430ceb54681a9b49a973b213032ada17aa29e81e"
     },
     {
       "layer": "project_source",
@@ -5278,12 +5348,12 @@
       "sha256": "bd687a9d459b4fbf186bb8b8654ec40d79d98287d83d437e27994d008a999c67"
     }
   ],
-  "generated_on": "2026-08-04T21:43:34.790986+00:00",
-  "generation_id": "e841b14c687987b9fd43717b715cda99",
+  "generated_on": "2026-08-05T16:05:22.375728+00:00",
+  "generation_id": "56f47107fd7cc9802f5422c550a532f2",
   "harness_kernel_version": "1.0.1",
   "profile": "high-assurance",
   "schema_version": "project-dossier.manifest.v1",
-  "source_fingerprint": "6b65f3a8519a97f19eca00b28919499586a6801f55a4f9e08934a695cb27ade5",
+  "source_fingerprint": "8223befd3541d570cdb85942e5197bc901a7773d68b3b6c313a69c1523352c9e",
   "source_scope": {
     "exclusions": [
       {
